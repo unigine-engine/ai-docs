@@ -1,0 +1,16 @@
+# Quick Start
+
+
+This chapter describes how to quickly add the SpiderVision plugin to your project and make it work.
+
+
+1. Add the plugin to your project in SDK Browser by clicking the [Other Actions ![](../../../../../sdk/projects/ellipsis.png)](../../../../../sdk/projects/index_cpp.md#other_actions) button on your project tab and then *Configure -> Plugins -> SpiderVision*: ![](add_plugin.png)
+2. Add the [startup argument](../../../../../sdk/projects/index_cpp.md#custom_run): ```bash -extern_plugin UnigineSpiderVision ```
+3. Run the project and open the configuration window by pressing the *F10* key. [![](config_window_empty.jpg)](config_window_empty.jpg)
+4. If you previously had a project that used multi-monitor display, i.e. you have a `*.cfg` file that you want to use, import it (*File -> Import*). See more details [here](../../../../../principles/render/output/multi_monitor/spidervision_plugin/displays_setup.md#migration). Otherwise, start creating [a new configuration file](../../../../../principles/render/output/multi_monitor/spidervision_plugin/displays_setup.md#create_config): add a viewport (click *Create* on the left panel and select the viewport that has been added to the viewport area) and configure it by setting its type depending on how the image will be rendered — on the display or by a projector. [Configure all other settings](../../../../../principles/render/output/multi_monitor/spidervision_plugin/displays_setup.md#configure). [![](config_window_vieports_added.jpg)](config_window_vieports_added.jpg) You can also quickly generate a [wall of viewports](../../../../../principles/render/output/multi_monitor/spidervision_plugin/presets.md#wall) (*Generate -> Wall*) and configure the viewport settings for them in a group or individually: [![](config_window_wall_added.jpg)](config_window_wall_added.jpg) > **Notice:** To initiate rendering of the configured viewports or apply any changes, save and load the configuration file.
+5. Fine-tune the rendered image using the [projection setup](../../../../../principles/render/output/multi_monitor/spidervision_plugin/projection_setup.md) window (Tools -> Projection Setup): [![Projection Setup window](projection_setup_interface.png)](projection_setup_interface.png) Settings in this window allow you to: Check this [article on configuring projection](../../../../../principles/render/output/multi_monitor/spidervision_plugin/projection_setup.md) for more details.
+
+  - [Mirror, flip, or otherwise rotate](../../../../../principles/render/output/multi_monitor/spidervision_plugin/projection_setup.md#canvas) projections. You can also move and rotate the projected image in the viewport setup window to achieve the requried result: for example, if the image is behind the view point it is mirrored horizontally and vertically.
+  - Control [warping](../../../../../principles/render/output/multi_monitor/spidervision_plugin/projection_setup.md#warp) for each projection.
+  - Apply [edge blending](../../../../../principles/render/output/multi_monitor/spidervision_plugin/projection_setup.md#blend) for each projection to fix overlit areas created by overlapping projections.
+  - Adjust [color intensity](../../../../../principles/render/output/multi_monitor/spidervision_plugin/projection_setup.md#color) for each projection.

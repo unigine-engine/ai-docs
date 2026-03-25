@@ -1,0 +1,131 @@
+# Unigine::AnimationCurveQuat Class (CS)
+
+**Inherits from:** AnimationCurve
+
+
+This class represents an interface enabling you to create and manage animation curves containing quaternion values.
+
+
+## AnimationCurveQuat Class
+
+### Properties
+
+## 🔒︎ quat DefaultKeyValue
+
+The default value of all keys in the curve.
+## 🔒︎ int NumKeys
+
+The total number of key points in the curve.
+## 🔒︎ float MinTime
+
+The point of the whole animation timeline where this curve starts being applied, in units.
+## 🔒︎ float MaxTime
+
+The point of the whole animation timeline up to which this curve is applied, in units.
+### Members
+
+---
+
+## AnimationCurveQuat ( )
+
+Constructor. Creates a new animation curve instance containing quaternion values.
+## void Copy ( AnimationCurveQuat curve )
+
+Copies all data (key points and tangents) from the specified source curve.
+### Arguments
+
+- *[AnimationCurveQuat](../../../../api/library/animations/timeline/class.animationcurvequat_cs.md)* **curve** - Source curve.
+
+## int AddKey ( float time , quat value )
+
+Adds a new key point with the specified value at the specified point of the timeline to the curve.
+### Arguments
+
+- *float* **time** - Time of the key on the timeline, in seconds.
+- *quat* **value** - The quaternion value of the key.
+
+### Return value
+
+Index of the added key point.
+## void RemoveKey ( int index )
+
+Removes the key point with the specified index from the curve.
+### Arguments
+
+- *int* **index** - Key point number, in the range from 0 to the [total number of key points](#getNumKeys_int) in the curve.
+
+## int MoveKey ( int index , float new_time )
+
+Moves the key point with the specified number to a new time position (preserving the tangents). The index of key point will be updated automatically. This method can be used to implement dragging of keys on the curve.
+### Arguments
+
+- *int* **index** - Key point number, in the range from 0 to the [total number of key points](#getNumKeys_int) in the curve.
+- *float* **new_time** - Time of the key on the timeline, in seconds.
+
+### Return value
+
+New index of the key.
+## float GetKeyTime ( int index )
+
+Returns the current time of the key point with the specified index.
+### Arguments
+
+- *int* **index** - Key point number, in the range from 0 to the [total number of key points](#getNumKeys_int) in the curve.
+
+### Return value
+
+The time of the specified key point on the timeline, in seconds.
+## void SetKeyValue ( int index , quat value )
+
+Sets the value for the specified key on the curve.
+### Arguments
+
+- *int* **index** - Key point number, in the range from 0 to the [total number of key points](#getNumKeys_int) in the curve.
+- *quat* **value** - The quaternion value of the key.
+
+## quat GetKeyValue ( int index )
+
+Returns the current value for the specified key on the curve.
+### Arguments
+
+- *int* **index** - Key point number, in the range from 0 to the [total number of key points](#getNumKeys_int) in the curve.
+
+### Return value
+
+The quaternion value of the key.
+## void Clear ( )
+
+Clears the curve removing all key points and tangents.
+## quat GetValueByTime ( float time )
+
+Returns the key value at the specified key point of the curve.
+### Arguments
+
+- *float* **time** - Time of the key on the timeline, in seconds.
+
+### Return value
+
+The quaternion value of the key.
+## quat GetValueByNormalizedTime ( float time )
+
+Returns the key value using the normalized time value of the key.
+### Arguments
+
+- *float* **time** - The normalized time value of the key.
+
+### Return value
+
+The quaternion value of the key.
+## void Save ( Blob blob )
+
+Saves the curve data to a blob.
+### Arguments
+
+- *[Blob](../../../../api/library/common/class.blob_cs.md)* **blob** - Blob to which the curve data will be saved.
+
+## void Load ( Blob blob )
+
+Loads the curve data from the blob.
+### Arguments
+
+- *[Blob](../../../../api/library/common/class.blob_cs.md)* **blob** - Blob storing the curve data.

@@ -1,0 +1,334 @@
+# Matrix Transformations (CS)
+
+
+A lot of calculations in UNIGINE are performed by using matrices. Actually, matrix transformations are one of the main concepts of 3D engines. This article contains an explanation of matrix transformations with usage examples.
+
+
+### See Also
+
+
+- An article about [mat4](../../../code/uniginescript/language/data_types.md#mat4) and [dmat4](../../../code/uniginescript/language/data_types.md#dmat4) UNIGINE data types.
+- The description of [Math Matrix Functions](../../../api/library/math/math.matrix_cs.md).
+
+
+## Transformations
+
+
+In simple terms, a matrix in 3D graphics is an array of numbers arranged in rows and columns:
+
+
+![](matrix_2.png)
+
+
+Usually, 4x4 matrices are used. Such size (4x4) of matrices is caused by the translation state in 3D space. When you put a new node into the world, it has a 4x4 world transform matrix that defines the position of the node in the world.
+
+
+In UNIGINE, matrices are column major (column-oriented). Hence, the first column of the transform matrix represents the **X** vector of the local coordinate system (v1), the second represents the **Y** vector (v2), the third represents the **Z** vector (v3), and the fourth represent the translation vector t. First three columns show directions of local coordinate axes ([rotation](#rotation_matrix)) and the [scale](#scaling_matrix) of the origin. The last column contains the translation of the local origin relatively to the world origin.
+
+
+![](opengl_matrix_2.png)
+
+
+### Identity Matrix
+
+
+The world origin has the following matrix:
+
+
+![](identity_matrix.png)
+
+
+This matrix is called *identity matrix*, a matrix with ones on the main diagonal, and zeros elsewhere. If a matrix is multiplied by the identity matrix, that won't change anything: the resulting matrix will be the same as it was before multiplying.
+
+
+If the local origin has the identity matrix, it means the local origin and the world origin are *coincident*.
+
+
+![](same_origin.png)
+
+
+### Rotation
+
+
+To change the orientation of the local origin, the first three columns of the matrix should be changed.
+
+
+To rotate the origin along different axes, you should use proper matrices:
+
+
+![](rot_matrices.png)
+
+
+In the matrices given above, α is a rotation angle along the axis.
+
+
+The next matrix shows the rotation of the local origin along the **Y** axis at 45 degrees:
+
+
+| ![](rotation_origin.png) | ![](rotation_45.png) |
+|---|---|
+
+
+### Translation
+
+
+The last column of the transform matrix shows the position of the local origin in the world relatively to the world origin. The next matrix shows the translation of the origin. The translation vector t is (3, 0, 2).
+
+
+| ![](translation_origin.png) | ![](translate_302.png) |
+|---|---|
+
+
+### Scaling
+
+
+The length of the vector shows the scale coefficient along the axis.
+
+
+To calculate the vector length (also known as magnitude), you should find a square root of the sum of the squares of vector components. The formula is the following:
+
+
+```text
+|vector length| = √(x² + y² + z²)
+```
+
+
+The following matrix scales the local origin up to 2 units along all axes.
+
+
+| ![](scale_origin.png) | ![](scale_2.png) |
+|---|---|
+
+
+## Cumulating Transformations
+
+
+The order of matrix transformations in code is very important.
+
+
+If you want to implement a sequence of cumulating transformations, the transformations order in code should be as follows:
+
+
+```text
+TransformedVector = TransformationMatrixN * ... * TransformationMatrix2 * TransformationMatrix1 * Vector
+```
+
+
+Transformations are applied one by one starting from TransformationMatrix1 and ending with TransformationMatrixN.
+
+
+### Example
+
+
+This example shows the difference between two orders of matrix transformations.
+
+
+The code example below gets the *material ball* object. In the first case, rotation is followed by translation and in the second case, translation is followed by rotation.
+
+
+In the `AppWorldLogic.cs` file, do the following:
+
+
+- Define the *Node* instance for the *material ball*.
+- Enable the visualizer by passing *[`show_visualizer 1`](../../../code/console/index.md#visualizer)* command to the *[run()](../../../api/library/engine/class.console_cs.md#run_cstr_void)* function of the *Console* class.
+- Get the *material ball* from the Editor.
+- Create new rotation and translation matrices.
+- Calculate the new transformation matrix and apply it to the *material ball*.
+- Render the world origin by using *[renderVector()](../../../api/library/engine/class.visualizer_cs.md#renderVector_Vec3_Vec3_vec4_float_int_float_int_void)* method of the *Visualizer* class.
+
+
+```csharp
+// AppWorldLogic.cs file
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using Unigine;
+
+namespace UnigineApp
+{
+	class AppWorldLogic : WorldLogic
+	{
+		Node material_ball;
+
+		/* ... */
+
+		public override bool Init()
+		{
+			// enable the visualizer for world origin rendering
+			Console.Run("show_visualizer 1");
+
+			// get the material ball
+			material_ball = World.GetNodeByName("material_ball");
+
+			// create rotation and translation matrices
+			dmat4 rotation_matrix = new dmat4(MathLib.RotateZ(-90.0f));
+			dmat4 translation_matrix = new dmat4(MathLib.Translate(new vec3(0.0f, 3.0f, 0.0f)));
+
+			// create a new transformation matrix for the material ball
+			// by multiplying the current matrix by rotation and translation matrices
+			dmat4 transform = translation_matrix * rotation_matrix * material_ball.Transform;
+
+			// set the transformation matrix to the material ball
+			material_ball.Transform = transform;
+
+			return true;
+		}
+
+		public override bool Update()
+		{
+			// render world origin
+			Visualizer.RenderVector(new dvec3(0.0f,0.0f,0.1f), new dvec3(1.0f,0.0f,0.1f), new vec4.RED);
+			Visualizer.RenderVector(new dvec3(0.0f,0.0f,0.1f), new dvec3(0.0f,1.0f,0.1f), new vec4.GREEN);
+			Visualizer.RenderVector(new dvec3(0.0f,0.0f,0.1f), new dvec3(0.0f,0.0f,1.1f), new vec4.BLUE);
+
+			return true;
+		}
+
+		/* ... */
+	}
+}
+
+```
+
+
+To change the order, just change the line of cumulating transformations:
+
+
+```csharp
+dmat4 transform = rotation_matrix * translation_matrix * material_ball.Transform;
+```
+
+
+The result would be different. The pictures below show the difference (camera is located at the same place).
+
+
+| ![](mb_order_tr.png) | ![](mb_order_rt.png) |
+|---|---|
+| *Order: rotation and translation* | *Order: translation and rotation* |
+
+
+The pictures above show the position of the meshes related to the world origin.
+
+
+## Matrix Hierarchy
+
+
+One more important concept is the matrix hierarchy. When a node is added into the world as a child of another node, it has a transformation matrix that is related to the parent node. That is why the *[*Node*](../../../api/library/nodes/class.node_cs.md)* class distinguishes between the functions *[*getTransform()*](../../../api/library/nodes/class.node_cs.md#getTransform_Mat4), [*setTransform()*](../../../api/library/nodes/class.node_cs.md#setTransform_Mat4_void)* and *[*getWorldTransform()*](../../../api/library/nodes/class.node_cs.md#getWorldTransform_Mat4), [*setWorldTransform()*](../../../api/library/nodes/class.node_cs.md#setWorldTransform_Mat4_void)*, which return the local and the world transformation matrices respectively.
+
+
+> **Notice:** If the added node has no parent, this node uses the *World transformation matrix*.
+
+
+What is the reason of using a matrix hierarchy? To move a node relative to another node. And when you move a parent node, child nodes will also be moved.
+
+
+| ![](hierarchy1.png) | ![](hierarchy2.png) |
+|---|---|
+| *Parent origin is the same with the world origin* | *Parent origin has been moved and the child origin has also been moved* |
+
+
+Pictures above show the main point of the matrix hierarchy. When the parent origin (node) is moved, the child origin will also be moved and the local transformation matrix of the child would not be changed. But the world transformation matrix of the child will be changed. If you need the world transformation matrix of the child related to the world origin, you should use the *[*getWorldTransform()*](../../../api/library/nodes/class.node_cs.md#getWorldTransform_Mat4), [*setWorldTransform()*](../../../api/library/nodes/class.node_cs.md#setWorldTransform_Mat4_void)* functions; in case, when you need the local transformation matrix of the child related to the parent, you should use the *[*getTransform()*](../../../api/library/nodes/class.node_cs.md#getTransform_Mat4), [*setTransform()*](../../../api/library/nodes/class.node_cs.md#setTransform_Mat4_void)* functions.
+
+
+### Example
+
+
+The following example shows how important the matrix hierarchy is.
+
+
+In this example, we get the node from and clone it. Then we change transformation matrices of these nodes. We review two cases:
+
+
+1. The two nodes are independent.
+2. One node is the child of the other.
+
+
+In the `AppWorldLogic.cs`, implement the following code:
+
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using Unigine;
+
+namespace UnigineApp
+{
+	class AppWorldLogic : WorldLogic
+	{
+		Node material_ball_child;
+		Node material_ball_parent;
+
+		/* ... */
+
+		public override bool Init()
+		{
+			// enable the visualizer for world origin rendering
+			Console.Run("show_visualizer 1");
+
+			// get the material ball and clone it
+			material_ball_child = World.GetNodeByName("material_ball");
+			material_ball_parent = material_ball_child.Clone();
+
+			// make the one node the child of another
+			material_ball_parent.AddChild(material_ball_child);
+
+			// create rotation and translation matrices for the first material_ball
+			dmat4 rotation_matrix = new dmat4(MathLib.RotateZ(-90.0f));
+			dmat4 translation_matrix = new dmat4(MathLib.Translate(new vec3(0.0f, 3.0f, 0.0f)));
+
+			// create translation matrix for the second (parent) material ball
+			dmat4 translation_matrix_parent = new dmat4(MathLib.Translate(new vec3(0.5f, 0.0f, 1.0f)));
+
+			// create a new transformation matrix for the material ball
+			// by multiplying the current matrix by rotation and translation matrices
+			dmat4 transform = rotation_matrix * translation_matrix * material_ball_child.Transform;
+			dmat4 transform_parent = translation_matrix_parent * material_ball_parent.Transform;
+
+			// set the transformation matrix to the material ball
+			material_ball_child.Transform = transform;
+			material_ball_parent.Transform = transform_parent;
+
+			return true;
+		}
+
+		public override bool Update()
+		{
+			// render world origin
+			Visualizer.RenderVector(new dvec3(0.0f,0.0f,0.1f), new dvec3(1.0f,0.0f,0.1f), new vec4.RED);
+			Visualizer.RenderVector(new dvec3(0.0f,0.0f,0.1f), new dvec3(0.0f,1.0f,0.1f), new vec4.GREEN);
+			Visualizer.RenderVector(new dvec3(0.0f,0.0f,0.1f), new dvec3(0.0f,0.0f,1.1f), new vec4.BLUE);
+
+			return true;
+		}
+
+		/* ... */
+	}
+}
+
+```
+
+
+If you comment the following line:
+
+
+```csharp
+// make the one node the child of another
+material_ball_parent.AddChild(material_ball_child);
+
+```
+
+
+you get a different result:
+
+
+| ![](hierarchy_parent.png) | ![](hierarchy_indie.png) |
+|---|---|
+| *Parent-child nodes* | *Nodes are independent* |
+
+
+When nodes are independent, they have different local and world transformation matrices. In case of parent-child nodes, the child's local transformation matrix remains the same after moving, but the world transformation matrix will be changed (you can check it by using the debug profiler).

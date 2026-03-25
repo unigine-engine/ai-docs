@@ -1,0 +1,15133 @@
+# Unigine.Render Class (USC)
+
+> **Warning:** The scope of applications for UnigineScript is limited to implementing materials-related logic (material expressions, scriptable materials, brush materials). Do not use UnigineScript as a language for application logic, please consider C#/C++ instead, as these APIs are the preferred ones. Availability of new Engine features in UnigineScript (beyond its scope of applications) is not guaranteed, as the current level of support assumes only fixing critical issues.
+
+> **Notice:** This class is a singleton.
+
+
+Provides access to Unigine rendering functions. For example, it is used by Wall application to render onto multiple monitors.
+
+
+### See Also
+
+
+- A set of UnigineScript API samples located in the `<UnigineSDK>/data/samples/rendering/` folder
+
+
+## Render Class
+
+### Members
+
+## void setEnabled ( bool enabled )
+
+Sets a new a value indicating if the render is enabled.
+### Arguments
+
+- *bool* **enabled** - Set **true** to enable the render is; **false** - to disable it.
+
+## bool isEnabled () const
+
+Returns the current a value indicating if the render is enabled.
+### Return value
+
+**true** if the render is is enabled; otherwise **false**.
+## int getNumTriangles () const
+
+Returns the current number of rendered per frame triangles that can be seen in the viewport. See [Rendering Profiler](../../../tools/profiling/profiler/index.md#rtriangles) article for details.
+### Return value
+
+Current number of triangles.
+## int getNumSurfaces () const
+
+Returns the current number of rendered per frame surfaces that can be seen in the viewport (in all rendering passes). See [Rendering Profiler](../../../tools/profiling/profiler/index.md#rshaders) article for details.
+### Return value
+
+Current number of surfaces.
+## int getNumShadows () const
+
+Returns the current number of shadow passes rendered per frame. See [Rendering Profiler](../../../tools/profiling/profiler/index.md#rshadows) article for details.
+### Return value
+
+Current number of shadow passes.
+## getNumShaders () const
+
+Returns the current number of shaders set per frame. See [Rendering Profiler](../../../tools/profiling/profiler/index.md#rshaders) article for details.
+### Return value
+
+Current number of shaders.
+## int getNumReflections () const
+
+Returns the current number of reflections drawn per frame that can be seen in the viewport. In case of cubemap reflections, if all six faces are updated, six reflections are rendered per each frame.
+### Return value
+
+Current number of reflections.
+## int getNumPrimitives () const
+
+Returns the current number of geometric rendered per frame primitives that can be seen in the viewport. See [Rendering Profiler](../../../tools/profiling/profiler/index.md#rprimitives) article for details.
+### Return value
+
+Current number of primitives.
+## int getNumMaterials () const
+
+Returns the current number of materials set per frame (during all of the rendering passes) in the current scene.
+### Return value
+
+Current number of materials.
+## int getNumLights () const
+
+Returns the current number of light passes rendered per frame. It means that the value contains the number of all light sources that are currently seen illuminating something in the viewport and also includes additional passes for rendering lights in the reflecting surfaces (if dynamical reflections are used). See [Rendering Profiler](../../../tools/profiling/profiler/index.md#rlights) article for details.
+### Return value
+
+Current number of light passes.
+## int getNumDips () const
+
+Returns the current number of draw calls used in the current scene. See [Rendering Profiler](../../../tools/profiling/profiler/index.md#rdips) article for details.
+### Return value
+
+Current number of draw calls.
+## int getNumDecals () const
+
+Returns the current number of rendered per frame decals that can be seen in the viewport (during all of the rendering passes).
+### Return value
+
+Current number of decals.
+## int getHDRTextureFormat () const
+
+Returns the current HDR texture format to be used.
+### Return value
+
+Current
+## void setShowFieldMask ( bool mask = 0 )
+
+***Console*:**`render_show_field_mask`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_field_mask_bits) of the [field mask](../../../principles/bit_masking/index.md#field_mask).
+### Arguments
+
+- *bool* **mask** - Set **true** to enable visualizer for the surfaces using the field mask; **false** - to disable it. The default value is **false**.
+
+## bool isShowFieldMask () const
+
+***Console*:**`render_show_field_mask`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_field_mask_bits) of the [field mask](../../../principles/bit_masking/index.md#field_mask).
+### Return value
+
+**true** if visualizer for the surfaces using the field mask is enabled; otherwise **false**. The default value is **false**.
+## void setShowFieldMaskBits ( int bits )
+
+***Console*:**`render_show_field_mask_bits`Sets a new value indicating which bit or bits of the [field mask](../../../principles/bit_masking/index.md#field_mask) are used for visualization. The surfaces that use the specified bits of the field mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowFieldMask()()](../../...md#render_show_field_mask)* should be enabled.
+> **Notice:** Please note that the argument is an integer value, so the bit mask has to be represented accordingly.
+
+
+### Arguments
+
+- *int* **bits** - The bits of the field mask to be visualized, represented as an integer value
+
+## int getShowFieldMaskBits () const
+
+***Console*:**`render_show_field_mask_bits`Returns the current value indicating which bit or bits of the [field mask](../../../principles/bit_masking/index.md#field_mask) are used for visualization. The surfaces that use the specified bits of the field mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowFieldMask()()](../../...md#render_show_field_mask)* should be enabled.
+> **Notice:** Please note that the argument is an integer value, so the bit mask has to be represented accordingly.
+
+
+### Return value
+
+Current bits of the field mask to be visualized, represented as an integer value
+
+## void setShowShadowMask ( bool mask = 0 )
+
+***Console*:**`render_show_shadow_mask`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_shadow_mask_bits) of the [shadow mask](../../../principles/bit_masking/index.md#shadow_mask).
+### Arguments
+
+- *bool* **mask** - Set **true** to enable visualizer for the surfaces using the shadow mask; **false** - to disable it. The default value is **false**.
+
+## bool isShowShadowMask () const
+
+***Console*:**`render_show_shadow_mask`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_shadow_mask_bits) of the [shadow mask](../../../principles/bit_masking/index.md#shadow_mask).
+### Return value
+
+**true** if visualizer for the surfaces using the shadow mask is enabled; otherwise **false**. The default value is **false**.
+## void setShowShadowMaskBits ( int bits )
+
+***Console*:**`render_show_shadow_mask_bits`Sets a new value indicating which bit or bits of the [shadow mask](../../../principles/bit_masking/index.md#shadow_mask) are used for visualization. The surfaces that use the specified bits of the shadow mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowShadowMask()()](../../...md#render_show_shadow_mask)* should be enabled.
+> **Notice:** Please note that the argument is an integer value, so the bit mask has to be represented accordingly.
+
+
+### Arguments
+
+- *int* **bits** - The bits of the shadow mask to be visualized, represented as an integer value
+
+## int getShowShadowMaskBits () const
+
+***Console*:**`render_show_shadow_mask_bits`Returns the current value indicating which bit or bits of the [shadow mask](../../../principles/bit_masking/index.md#shadow_mask) are used for visualization. The surfaces that use the specified bits of the shadow mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowShadowMask()()](../../...md#render_show_shadow_mask)* should be enabled.
+> **Notice:** Please note that the argument is an integer value, so the bit mask has to be represented accordingly.
+
+
+### Return value
+
+Current bits of the shadow mask to be visualized, represented as an integer value
+
+## void setShowObstacleMask ( bool mask = 0 )
+
+***Console*:**`render_show_obstacle_mask`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_obstacle_mask_bits) of the [obstacle mask](../../../principles/bit_masking/index.md#obstacle_mask).
+### Arguments
+
+- *bool* **mask** - Set **true** to enable visualizer for the surfaces using the obstacle mask; **false** - to disable it. The default value is **false**.
+
+## bool isShowObstacleMask () const
+
+***Console*:**`render_show_obstacle_mask`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_obstacle_mask_bits) of the [obstacle mask](../../../principles/bit_masking/index.md#obstacle_mask).
+### Return value
+
+**true** if visualizer for the surfaces using the obstacle mask is enabled; otherwise **false**. The default value is **false**.
+## void setShowObstacleMaskBits ( int bits )
+
+***Console*:**`render_show_obstacle_mask_bits`Sets a new value indicating which bit or bits of the [obstacle mask](../../../principles/bit_masking/index.md#obstacle_mask) are used for visualization. The surfaces that use the specified bits of the obstacle mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowObstacleMask()()](../../...md#render_show_obstacle_mask)* should be enabled.
+> **Notice:** Please note that the argument is an integer value, so the bit mask has to be represented accordingly.
+
+
+### Arguments
+
+- *int* **bits** - The bits of the obstacle mask to be visualized, represented as an integer value
+
+## int getShowObstacleMaskBits () const
+
+***Console*:**`render_show_obstacle_mask_bits`Returns the current value indicating which bit or bits of the [obstacle mask](../../../principles/bit_masking/index.md#obstacle_mask) are used for visualization. The surfaces that use the specified bits of the obstacle mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowObstacleMask()()](../../...md#render_show_obstacle_mask)* should be enabled.
+> **Notice:** Please note that the argument is an integer value, so the bit mask has to be represented accordingly.
+
+
+### Return value
+
+Current bits of the obstacle mask to be visualized, represented as an integer value
+
+## void setShowMaterialMask ( bool mask = 0 )
+
+***Console*:**`render_show_material_mask`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_material_mask_bits) of the [material mask](../../../principles/bit_masking/index.md#material_mask).
+### Arguments
+
+- *bool* **mask** - Set **true** to enable visualizer for the surfaces using the material mask; **false** - to disable it. The default value is **false**.
+
+## bool isShowMaterialMask () const
+
+***Console*:**`render_show_material_mask`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_material_mask_bits) of the [material mask](../../../principles/bit_masking/index.md#material_mask).
+### Return value
+
+**true** if visualizer for the surfaces using the material mask is enabled; otherwise **false**. The default value is **false**.
+## void setShowMaterialMaskBits ( int bits )
+
+***Console*:**`render_show_material_mask_bits`Sets a new value indicating which bit or bits of the [material mask](../../../principles/bit_masking/index.md#material_mask) are used for visualization. The surfaces that use the specified bits of the material mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowMaterialMask()()](../../...md#render_show_material_mask)* should be enabled.
+> **Notice:** Please note that the argument is an integer value, so the bit mask has to be represented accordingly.
+
+
+### Arguments
+
+- *int* **bits** - The bits of the material mask to be visualized, represented as an integer value
+
+## int getShowMaterialMaskBits () const
+
+***Console*:**`render_show_material_mask_bits`Returns the current value indicating which bit or bits of the [material mask](../../../principles/bit_masking/index.md#material_mask) are used for visualization. The surfaces that use the specified bits of the material mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowMaterialMask()()](../../...md#render_show_material_mask)* should be enabled.
+> **Notice:** Please note that the argument is an integer value, so the bit mask has to be represented accordingly.
+
+
+### Return value
+
+Current bits of the material mask to be visualized, represented as an integer value
+
+## void setShowViewportMask ( bool mask = 0 )
+
+***Console*:**`render_show_viewport_mask`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_viewport_mask_bits) of the [viewport mask](../../../principles/bit_masking/index.md#viewport).
+### Arguments
+
+- *bool* **mask** - Set **true** to enable visualizer for the surfaces using the viewport mask; **false** - to disable it. The default value is **false**.
+
+## bool isShowViewportMask () const
+
+***Console*:**`render_show_viewport_mask`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_viewport_mask_bits) of the [viewport mask](../../../principles/bit_masking/index.md#viewport).
+### Return value
+
+**true** if visualizer for the surfaces using the viewport mask is enabled; otherwise **false**. The default value is **false**.
+## void setShowViewportMaskBits ( int bits )
+
+***Console*:**`render_show_viewport_mask_bits`Sets a new value indicating which bit or bits of the [viewport mask](../../../principles/bit_masking/index.md#viewport) are used for visualization. The surfaces that use the specified bits of the viewport mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowViewportMask()()](../../...md#render_show_viewport_mask)* should be enabled.
+> **Notice:** Please note that the argument is an integer value, so the bit mask has to be represented accordingly.
+
+
+### Arguments
+
+- *int* **bits** - The bits of the viewport mask to be visualized, represented as an integer value
+
+## int getShowViewportMaskBits () const
+
+***Console*:**`render_show_viewport_mask_bits`Returns the current value indicating which bit or bits of the [viewport mask](../../../principles/bit_masking/index.md#viewport) are used for visualization. The surfaces that use the specified bits of the viewport mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowViewportMask()()](../../...md#render_show_viewport_mask)* should be enabled.
+> **Notice:** Please note that the argument is an integer value, so the bit mask has to be represented accordingly.
+
+
+### Return value
+
+Current bits of the viewport mask to be visualized, represented as an integer value
+
+## void setShowPhysicalMask ( bool mask = 0 )
+
+***Console*:**`render_show_physical_mask`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_physical_mask_bits) of the [physical mask](../../../principles/bit_masking/index.md#physical_mask).
+### Arguments
+
+- *bool* **mask** - Set **true** to enable visualizer for the surfaces using the physical mask; **false** - to disable it. The default value is **false**.
+
+## bool isShowPhysicalMask () const
+
+***Console*:**`render_show_physical_mask`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_physical_mask_bits) of the [physical mask](../../../principles/bit_masking/index.md#physical_mask).
+### Return value
+
+**true** if visualizer for the surfaces using the physical mask is enabled; otherwise **false**. The default value is **false**.
+## void setShowPhysicalMaskBits ( int bits )
+
+***Console*:**`render_show_physical_mask_bits`Sets a new value indicating which bit or bits of the [physical mask](../../../principles/bit_masking/index.md#physical_mask) are used for visualization. The surfaces that use the specified bits of the physical mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowPhysicalMask()()](../../...md#render_show_physical_mask)* should be enabled.
+> **Notice:** Please note that the argument is an integer value, so the bit mask has to be represented accordingly.
+
+
+### Arguments
+
+- *int* **bits** - The bits of the physical mask to be visualized, represented as an integer value
+
+## int getShowPhysicalMaskBits () const
+
+***Console*:**`render_show_physical_mask_bits`Returns the current value indicating which bit or bits of the [physical mask](../../../principles/bit_masking/index.md#physical_mask) are used for visualization. The surfaces that use the specified bits of the physical mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowPhysicalMask()()](../../...md#render_show_physical_mask)* should be enabled.
+> **Notice:** Please note that the argument is an integer value, so the bit mask has to be represented accordingly.
+
+
+### Return value
+
+Current bits of the physical mask to be visualized, represented as an integer value
+
+## void setShowCollisionMask ( bool mask = 0 )
+
+***Console*:**`render_show_collision_mask`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_collision_mask_bits) of the [collision mask](../../../principles/bit_masking/index.md#collision_mask).
+### Arguments
+
+- *bool* **mask** - Set **true** to enable visualizer for the surfaces using the collision mask; **false** - to disable it. The default value is **false**.
+
+## bool isShowCollisionMask () const
+
+***Console*:**`render_show_collision_mask`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_collision_mask_bits) of the [collision mask](../../../principles/bit_masking/index.md#collision_mask).
+### Return value
+
+**true** if visualizer for the surfaces using the collision mask is enabled; otherwise **false**. The default value is **false**.
+## void setShowCollisionMaskBits ( int bits )
+
+***Console*:**`render_show_collision_mask_bits`Sets a new value indicating which bit or bits of the [collision mask](../../../principles/bit_masking/index.md#collision_mask) are used for visualization. The surfaces that use the specified bits of the collision mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowCollisionMask()()](../../...md#render_show_collision_mask)* should be enabled.
+> **Notice:** Please note that the argument is an integer value, so the bit mask has to be represented accordingly.
+
+
+### Arguments
+
+- *int* **bits** - The bits of the collision mask to be visualized, represented as an integer value
+
+## int getShowCollisionMaskBits () const
+
+***Console*:**`render_show_collision_mask_bits`Returns the current value indicating which bit or bits of the [collision mask](../../../principles/bit_masking/index.md#collision_mask) are used for visualization. The surfaces that use the specified bits of the collision mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowCollisionMask()()](../../...md#render_show_collision_mask)* should be enabled.
+> **Notice:** Please note that the argument is an integer value, so the bit mask has to be represented accordingly.
+
+
+### Return value
+
+Current bits of the collision mask to be visualized, represented as an integer value
+
+## void setShowNavigationMask ( bool mask = 0 )
+
+***Console*:**`render_show_navigation_mask`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_navigation_mask_bits) of the [navigation mask](../../../principles/bit_masking/index.md#navigation_mask).
+### Arguments
+
+- *bool* **mask** - Set **true** to enable visualizer for the surfaces using the navigation mask; **false** - to disable it. The default value is **false**.
+
+## bool isShowNavigationMask () const
+
+***Console*:**`render_show_navigation_mask`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_navigation_mask_bits) of the [navigation mask](../../../principles/bit_masking/index.md#navigation_mask).
+### Return value
+
+**true** if visualizer for the surfaces using the navigation mask is enabled; otherwise **false**. The default value is **false**.
+## void setShowNavigationMaskBits ( int bits )
+
+***Console*:**`render_show_navigation_mask_bits`Sets a new value indicating which bit or bits of the [navigation mask](../../../principles/bit_masking/index.md#navigation_mask) are used for visualization. The surfaces that use the specified bits of the navigation mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowNavigationMask()()](../../...md#render_show_navigation_mask)* should be enabled.
+> **Notice:** Please note that the argument is an integer value, so the bit mask has to be represented accordingly.
+
+
+### Arguments
+
+- *int* **bits** - The bits of the navigation mask to be visualized, represented as an integer value
+
+## int getShowNavigationMaskBits () const
+
+***Console*:**`render_show_navigation_mask_bits`Returns the current value indicating which bit or bits of the [navigation mask](../../../principles/bit_masking/index.md#navigation_mask) are used for visualization. The surfaces that use the specified bits of the navigation mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowNavigationMask()()](../../...md#render_show_navigation_mask)* should be enabled.
+> **Notice:** Please note that the argument is an integer value, so the bit mask has to be represented accordingly.
+
+
+### Return value
+
+Current bits of the navigation mask to be visualized, represented as an integer value
+
+## void setShowIntersectionMask ( bool mask = 0 )
+
+***Console*:**`render_show_intersection_mask`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_intersection_mask_bits) of the [intersection mask](../../../principles/bit_masking/index.md#intersection_mask).
+### Arguments
+
+- *bool* **mask** - Set **true** to enable visualizer for the surfaces using the intersection mask; **false** - to disable it. The default value is **false**.
+
+## bool isShowIntersectionMask () const
+
+***Console*:**`render_show_intersection_mask`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_intersection_mask_bits) of the [intersection mask](../../../principles/bit_masking/index.md#intersection_mask).
+### Return value
+
+**true** if visualizer for the surfaces using the intersection mask is enabled; otherwise **false**. The default value is **false**.
+## void setShowIntersectionMaskBits ( int bits )
+
+***Console*:**`render_show_intersection_mask_bits`Sets a new value indicating which bit or bits of the [intersection mask](../../../principles/bit_masking/index.md#intersection_mask) are used for visualization. The surfaces that use the specified bits of the intersection mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowIntersectionMask()()](../../...md#render_show_intersection_mask)* should be enabled.
+> **Notice:** Please note that the argument is an integer value, so the bit mask has to be represented accordingly.
+
+
+### Arguments
+
+- *int* **bits** - The bits of the intersection mask to be visualized, represented as an integer value
+
+## int getShowIntersectionMaskBits () const
+
+***Console*:**`render_show_intersection_mask_bits`Returns the current value indicating which bit or bits of the [intersection mask](../../../principles/bit_masking/index.md#intersection_mask) are used for visualization. The surfaces that use the specified bits of the intersection mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowIntersectionMask()()](../../...md#render_show_intersection_mask)* should be enabled.
+> **Notice:** Please note that the argument is an integer value, so the bit mask has to be represented accordingly.
+
+
+### Return value
+
+Current bits of the intersection mask to be visualized, represented as an integer value
+
+## void setShowSoundSourceMask ( bool mask = 0 )
+
+***Console*:**`render_show_sound_source_mask`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_sound_source_mask_bits) of the [sound source mask](../../../principles/bit_masking/index.md#source_mask).
+### Arguments
+
+- *bool* **mask** - Set **true** to enable visualizer for the surfaces using the sound source mask; **false** - to disable it. The default value is **false**.
+
+## bool isShowSoundSourceMask () const
+
+***Console*:**`render_show_sound_source_mask`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_sound_source_mask_bits) of the [sound source mask](../../../principles/bit_masking/index.md#source_mask).
+### Return value
+
+**true** if visualizer for the surfaces using the sound source mask is enabled; otherwise **false**. The default value is **false**.
+## void setShowSoundSourceMaskBits ( int bits )
+
+***Console*:**`render_show_sound_source_mask_bits`Sets a new value indicating which bit or bits of the [sound source mask](../../../principles/bit_masking/index.md#source_mask) are used for visualization. The surfaces that use the specified bits of the sound source mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowSoundSourceMask()()](../../...md#render_show_sound_source_mask)* should be enabled.
+> **Notice:** Please note that the argument is an integer value, so the bit mask has to be represented accordingly.
+
+
+### Arguments
+
+- *int* **bits** - The bits of the sound source mask to be visualized, represented as an integer value
+
+## int getShowSoundSourceMaskBits () const
+
+***Console*:**`render_show_sound_source_mask_bits`Returns the current value indicating which bit or bits of the [sound source mask](../../../principles/bit_masking/index.md#source_mask) are used for visualization. The surfaces that use the specified bits of the sound source mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowSoundSourceMask()()](../../...md#render_show_sound_source_mask)* should be enabled.
+> **Notice:** Please note that the argument is an integer value, so the bit mask has to be represented accordingly.
+
+
+### Return value
+
+Current bits of the sound source mask to be visualized, represented as an integer value
+
+## void setShowSoundReverbMask ( bool mask = 0 )
+
+***Console*:**`render_show_sound_reverb_mask`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_sound_reverb_mask_bits) of the [reverberation mask](../../../principles/bit_masking/index.md#reverb_mask).
+### Arguments
+
+- *bool* **mask** - Set **true** to enable visualizer for the surfaces using the reverberation mask; **false** - to disable it. The default value is **false**.
+
+## bool isShowSoundReverbMask () const
+
+***Console*:**`render_show_sound_reverb_mask`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_sound_reverb_mask_bits) of the [reverberation mask](../../../principles/bit_masking/index.md#reverb_mask).
+### Return value
+
+**true** if visualizer for the surfaces using the reverberation mask is enabled; otherwise **false**. The default value is **false**.
+## void setShowSoundReverbMaskBits ( int bits )
+
+***Console*:**`render_show_sound_reverb_mask_bits`Sets a new value indicating which bit or bits of the [reverberation mask](../../../principles/bit_masking/index.md#reverb_mask) are used for visualization. The surfaces that use the specified bits of the reverberation mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowSoundReverbMask()()](../../...md#render_show_sound_reverb_mask)* should be enabled.
+> **Notice:** Please note that the argument is an integer value, so the bit mask has to be represented accordingly.
+
+
+### Arguments
+
+- *int* **bits** - The bits of the reverberation mask to be visualized, represented as an integer value
+
+## int getShowSoundReverbMaskBits () const
+
+***Console*:**`render_show_sound_reverb_mask_bits`Returns the current value indicating which bit or bits of the [reverberation mask](../../../principles/bit_masking/index.md#reverb_mask) are used for visualization. The surfaces that use the specified bits of the reverberation mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowSoundReverbMask()()](../../...md#render_show_sound_reverb_mask)* should be enabled.
+> **Notice:** Please note that the argument is an integer value, so the bit mask has to be represented accordingly.
+
+
+### Return value
+
+Current bits of the reverberation mask to be visualized, represented as an integer value
+
+## void setShowSoundOcclusionMask ( bool mask = 0 )
+
+***Console*:**`render_show_sound_occlusion_mask`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_sound_occlusion_mask_bits) of the [sound occlusion mask](../../../principles/bit_masking/index.md#sound_occlusion_mask).
+### Arguments
+
+- *bool* **mask** - Set **true** to enable visualizer for the surfaces using the sound occlusion mask; **false** - to disable it. The default value is **false**.
+
+## bool isShowSoundOcclusionMask () const
+
+***Console*:**`render_show_sound_occlusion_mask`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_sound_occlusion_mask_bits) of the [sound occlusion mask](../../../principles/bit_masking/index.md#sound_occlusion_mask).
+### Return value
+
+**true** if visualizer for the surfaces using the sound occlusion mask is enabled; otherwise **false**. The default value is **false**.
+## void setShowSoundOcclusionMaskBits ( int bits )
+
+***Console*:**`render_show_sound_occlusion_mask_bits`Sets a new value indicating which bit or bits of the [sound occlusion mask](../../../principles/bit_masking/index.md#sound_occlusion_mask) are used for visualization. The surfaces that use the specified bits of the sound occlusion mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowSoundOcclusionMask()()](../../...md#render_show_sound_occlusion_mask)* should be enabled.
+> **Notice:** Please note that the argument is an integer value, so the bit mask has to be represented accordingly.
+
+
+### Arguments
+
+- *int* **bits** - The bits of the sound occlusion mask to be visualized, represented as an integer value
+
+## int getShowSoundOcclusionMaskBits () const
+
+***Console*:**`render_show_sound_occlusion_mask_bits`Returns the current value indicating which bit or bits of the [sound occlusion mask](../../../principles/bit_masking/index.md#sound_occlusion_mask) are used for visualization. The surfaces that use the specified bits of the sound occlusion mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowSoundOcclusionMask()()](../../...md#render_show_sound_occlusion_mask)* should be enabled.
+> **Notice:** Please note that the argument is an integer value, so the bit mask has to be represented accordingly.
+
+
+### Return value
+
+Current bits of the sound occlusion mask to be visualized, represented as an integer value
+
+## void setShowPhysicalExclusionMask ( bool mask = 0 )
+
+***Console*:**`render_show_physical_exclusion_mask`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_physical_exclusion_mask_bits) of the [physical exclusion mask](../../../principles/bit_masking/index.md#exclusion_mask).
+### Arguments
+
+- *bool* **mask** - Set **true** to enable visualizer for the surfaces using the physical exclusion mask; **false** - to disable it. The default value is **false**.
+
+## bool isShowPhysicalExclusionMask () const
+
+***Console*:**`render_show_physical_exclusion_mask`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_physical_exclusion_mask_bits) of the [physical exclusion mask](../../../principles/bit_masking/index.md#exclusion_mask).
+### Return value
+
+**true** if visualizer for the surfaces using the physical exclusion mask is enabled; otherwise **false**. The default value is **false**.
+## void setShowPhysicalExclusionMaskBits ( int bits )
+
+***Console*:**`render_show_physical_exclusion_mask_bits`Sets a new value indicating which bit or bits of the [physical exclusion mask](../../../principles/bit_masking/index.md#exclusion_mask) are used for visualization. The surfaces that use the specified bits of the physical exclusion mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowPhysicalExclusionMask()()](../../...md#render_show_physical_exclusion_mask)* should be enabled.
+> **Notice:** Please note that the argument is an integer value, so the bit mask has to be represented accordingly.
+
+
+### Arguments
+
+- *int* **bits** - The bits of the physical exclusion mask to be visualized, represented as an integer value
+
+## int getShowPhysicalExclusionMaskBits () const
+
+***Console*:**`render_show_physical_exclusion_mask_bits`Returns the current value indicating which bit or bits of the [physical exclusion mask](../../../principles/bit_masking/index.md#exclusion_mask) are used for visualization. The surfaces that use the specified bits of the physical exclusion mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowPhysicalExclusionMask()()](../../...md#render_show_physical_exclusion_mask)* should be enabled.
+> **Notice:** Please note that the argument is an integer value, so the bit mask has to be represented accordingly.
+
+
+### Return value
+
+Current bits of the physical exclusion mask to be visualized, represented as an integer value
+
+## void setShowPhysicsIntersectionMask ( bool mask = 0 )
+
+***Console*:**`render_show_physics_intersection_mask`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_physics_intersection_mask_bits) of the [physics intersection mask](../../../principles/bit_masking/index.md#physics_intersection_mask).
+### Arguments
+
+- *bool* **mask** - Set **true** to enable visualizer for the surfaces using the physics intersection mask; **false** - to disable it. The default value is **false**.
+
+## bool isShowPhysicsIntersectionMask () const
+
+***Console*:**`render_show_physics_intersection_mask`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_physics_intersection_mask_bits) of the [physics intersection mask](../../../principles/bit_masking/index.md#physics_intersection_mask).
+### Return value
+
+**true** if visualizer for the surfaces using the physics intersection mask is enabled; otherwise **false**. The default value is **false**.
+## void setShowPhysicsIntersectionMaskBits ( int bits )
+
+***Console*:**`render_show_physics_intersection_mask_bits`Sets a new value indicating which bit or bits of the [physics intersection mask](../../../principles/bit_masking/index.md#physics_intersection_mask) are used for visualization. The surfaces that use the specified bits of the physics intersection mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowPhysicsIntersectionMask()()](../../...md#render_show_physics_intersection_mask)* should be enabled.
+> **Notice:** Please note that the argument is an integer value, so the bit mask has to be represented accordingly.
+
+
+### Arguments
+
+- *int* **bits** - The bits of the physics intersection mask to be visualized, represented as an integer value
+
+## int getShowPhysicsIntersectionMaskBits () const
+
+***Console*:**`render_show_physics_intersection_mask_bits`Returns the current value indicating which bit or bits of the [physics intersection mask](../../../principles/bit_masking/index.md#physics_intersection_mask) are used for visualization. The surfaces that use the specified bits of the physics intersection mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowPhysicsIntersectionMask()()](../../...md#render_show_physics_intersection_mask)* should be enabled.
+> **Notice:** Please note that the argument is an integer value, so the bit mask has to be represented accordingly.
+
+
+### Return value
+
+Current bits of the physics intersection mask to be visualized, represented as an integer value
+
+## void setShowQueries ( bool queries )
+
+***Console*:**`render_show_queries`Sets a new value indicating whether occlusion query boxes are displayed in the viewport. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Arguments
+
+- *bool* **queries** - Set **true** to enable rendering of occlusion query boxes; **false** - to disable it. The default value is **false**.
+
+## bool isShowQueries () const
+
+***Console*:**`render_show_queries`Returns the current value indicating whether occlusion query boxes are displayed in the viewport. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Return value
+
+**true** if rendering of occlusion query boxes is enabled; otherwise **false**. The default value is **false**.
+## void setShowDecals ( bool decals )
+
+***Console*:**`render_show_decals`Sets a new value indicating whether the visualizer is displayed for decals. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Arguments
+
+- *bool* **decals** - Set **true** to enable visualizer for decals; **false** - to disable it. The default value is **false**.
+
+## bool isShowDecals () const
+
+***Console*:**`render_show_decals`Returns the current value indicating whether the visualizer is displayed for decals. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Return value
+
+**true** if visualizer for decals is enabled; otherwise **false**. The default value is **false**.
+## void setShowScissors ( bool scissors = 0 )
+
+***Console*:**`render_show_scissors`Sets a new value indicating if scissor rectangles are displayed. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Arguments
+
+- *bool* **scissors** - Set **true** to enable visualization of scissor rectangles; **false** - to disable it. The default value is **false**.
+
+## bool isShowScissors () const
+
+***Console*:**`render_show_scissors`Returns the current value indicating if scissor rectangles are displayed. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Return value
+
+**true** if visualization of scissor rectangles is enabled; otherwise **false**. The default value is **false**.
+## void setShowLightmapChecker ( bool checker )
+
+***Console*:**`render_show_lightmap_checker`Sets a new value indicating whether the Baked Lightmap Checker debug mode is enabled. This mode maps the checker texture onto the baked lightmap polygons, which can be used to facilitate the process of comparing UV map texels on neighboring planes.
+### Arguments
+
+- *bool* **checker** - Set **true** to enable Baked Lightmap Checker debug mode; **false** - to disable it. The default value is **false**.
+
+## bool isShowLightmapChecker () const
+
+***Console*:**`render_show_lightmap_checker`Returns the current value indicating whether the Baked Lightmap Checker debug mode is enabled. This mode maps the checker texture onto the baked lightmap polygons, which can be used to facilitate the process of comparing UV map texels on neighboring planes.
+### Return value
+
+**true** if Baked Lightmap Checker debug mode is enabled; otherwise **false**. The default value is **false**.
+## void setShowOccluder ( bool occluder )
+
+***Console*:**`render_show_occluder`Sets a new value indicating whether the buffer used for occluders is displayed in the viewport. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Arguments
+
+- *bool* **occluder** - Set **true** to enable visualization of the buffer used for occluders; **false** - to disable it. The default value is **false**.
+
+## bool isShowOccluder () const
+
+***Console*:**`render_show_occluder`Returns the current value indicating whether the buffer used for occluders is displayed in the viewport. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Return value
+
+**true** if visualization of the buffer used for occluders is enabled; otherwise **false**. The default value is **false**.
+## void setShowCascades ( bool cascades )
+
+***Console*:**`render_show_cascades`Sets a new value indicating whether Parallel Split Shadow Map - world shadow cascades are displayed. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Arguments
+
+- *bool* **cascades** - Set **true** to enable visualization of world shadow cascades; **false** - to disable it. The default value is **false**.
+
+## bool isShowCascades () const
+
+***Console*:**`render_show_cascades`Returns the current value indicating whether Parallel Split Shadow Map - world shadow cascades are displayed. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Return value
+
+**true** if visualization of world shadow cascades is enabled; otherwise **false**. The default value is **false**.
+## void setShowVisualizerDistance ( float distance = 500 )
+
+***Console*:**`render_show_visualizer_distance`Sets a new distance from the camera within which the helpers are visualized. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Arguments
+
+- *float* **distance** - The visualization distance. Range of values: **[0, 100000]**. The default value is : **500**.
+
+## float getShowVisualizerDistance () const
+
+***Console*:**`render_show_visualizer_distance`Returns the current distance from the camera within which the helpers are visualized. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Return value
+
+Current visualization distance.
+Range of values: **[0, 100000]**. The default value is : **500**.
+## void setShowWorldShadowCasters ( bool casters = 0 )
+
+***Console*:**`render_show_world_shadow_casters`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for surfaces that are configured to cast shadows from the current *World Light*.
+### Arguments
+
+- *bool* **casters** - Set **true** to enable visualizer for surfaces casting shadows from *World Light*; **false** - to disable it. The default value is **false**.
+
+## bool isShowWorldShadowCasters () const
+
+***Console*:**`render_show_world_shadow_casters`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for surfaces that are configured to cast shadows from the current *World Light*.
+### Return value
+
+**true** if visualizer for surfaces casting shadows from *World Light* is enabled; otherwise **false**. The default value is **false**.
+## void setShowProjAndOmniShadowCasters ( bool casters = 0 )
+
+***Console*:**`render_show_proj_and_omni_shadow_casters`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for surfaces that are configured to cast shadows from *Proj* and *Omni* light sources.
+### Arguments
+
+- *bool* **casters** - Set **true** to enable visualizer for surfaces casting shadows from *Proj* and *Omni* light sources.; **false** - to disable it. The default value is **false**.
+
+## bool isShowProjAndOmniShadowCasters () const
+
+***Console*:**`render_show_proj_and_omni_shadow_casters`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for surfaces that are configured to cast shadows from *Proj* and *Omni* light sources.
+### Return value
+
+**true** if visualizer for surfaces casting shadows from *Proj* and *Omni* light sources. is enabled; otherwise **false**. The default value is **false**.
+## void setShowAlphaTest ( bool test = 0 )
+
+***Console*:**`render_show_alpha_test`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for transparent objects using alpha test. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Arguments
+
+- *bool* **test** - Set **true** to enable visualizer for transparent objects using alpha test; **false** - to disable it. The default value is **false**.
+
+## bool isShowAlphaTest () const
+
+***Console*:**`render_show_alpha_test`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for transparent objects using alpha test. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Return value
+
+**true** if visualizer for transparent objects using alpha test is enabled; otherwise **false**. The default value is **false**.
+## void setShowDepthPrePass ( bool pass = 0 )
+
+***Console*:**`render_show_depth_pre_pass`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for surfaces that use depth pre-pass rendering. This includes surfaces with Alpha Test transparency and opaque surfaces with Force Depth Pre-Pass option enabled in the material. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Arguments
+
+- *bool* **pass** - Set **true** to enable visualizer for surfaces using depth pre-pass; **false** - to disable it. The default value is **false**.
+
+## bool isShowDepthPrePass () const
+
+***Console*:**`render_show_depth_pre_pass`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for surfaces that use depth pre-pass rendering. This includes surfaces with Alpha Test transparency and opaque surfaces with Force Depth Pre-Pass option enabled in the material. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Return value
+
+**true** if visualizer for surfaces using depth pre-pass is enabled; otherwise **false**. The default value is **false**.
+## void setShowEmission ( bool emission = 0 )
+
+***Console*:**`render_show_emission`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for materials with the *Emission* state enabled or connecting any data to the *Emission* input in the material graph.
+### Arguments
+
+- *bool* **emission** - Set **true** to enable visualizer for emissive materials.; **false** - to disable it. The default value is **false**.
+
+## bool isShowEmission () const
+
+***Console*:**`render_show_emission`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for materials with the *Emission* state enabled or connecting any data to the *Emission* input in the material graph.
+### Return value
+
+**true** if visualizer for emissive materials. is enabled; otherwise **false**. The default value is **false**.
+## void setShowMeshStatics ( bool statics = 0 )
+
+***Console*:**`render_show_mesh_statics`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for static meshes.
+### Arguments
+
+- *bool* **statics** - Set **true** to enable visualizer for static meshes; **false** - to disable it. The default value is **false**.
+
+## bool isShowMeshStatics () const
+
+***Console*:**`render_show_mesh_statics`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for static meshes.
+### Return value
+
+**true** if visualizer for static meshes is enabled; otherwise **false**. The default value is **false**.
+## void setShowMeshDynamics ( bool dynamics = 0 )
+
+***Console*:**`render_show_mesh_dynamics`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for dynamic meshes.
+### Arguments
+
+- *bool* **dynamics** - Set **true** to enable visualizer for dynamic meshes; **false** - to disable it. The default value is **false**.
+
+## bool isShowMeshDynamics () const
+
+***Console*:**`render_show_mesh_dynamics`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for dynamic meshes.
+### Return value
+
+**true** if visualizer for dynamic meshes is enabled; otherwise **false**. The default value is **false**.
+## void setShowComplexShadowShader ( bool shader = 0 )
+
+***Console*:**`render_show_complex_shadow_shader`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for objects that cast shadows in the following way: the pixels are cut out during the shadow pass, as it's done in Alpha Test or Alpha Blend materials, materials assigned to animated Mesh Skinned, opaque materials with the enabled Depth Offset or any other effects that affect shadows.
+### Arguments
+
+- *bool* **shader** - Set **true** to enable visualizer for objects that cast complex shadows with the pixels are cut out during the shadow pass; **false** - to disable it. The default value is **false**.
+
+## bool isShowComplexShadowShader () const
+
+***Console*:**`render_show_complex_shadow_shader`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for objects that cast shadows in the following way: the pixels are cut out during the shadow pass, as it's done in Alpha Test or Alpha Blend materials, materials assigned to animated Mesh Skinned, opaque materials with the enabled Depth Offset or any other effects that affect shadows.
+### Return value
+
+**true** if visualizer for objects that cast complex shadows with the pixels are cut out during the shadow pass is enabled; otherwise **false**. The default value is **false**.
+## void setShowSurfaceCustomTextureNotAvailable ( bool available = 0 )
+
+***Console*:**`render_show_surface_custom_texture_not_available`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for surfaces the materials of which use the [surface custom texture](../../../content/materials/graph/node_library/textures/surface_custom_texture.md) in the material graph, however the option is not enabled for the surface.
+### Arguments
+
+- *bool* **available** - Set **true** to enable visualizer for surfaces the materials of which use the surface custom texture in the material graph, however the option is not enabled for the surface; **false** - to disable it. The default value is **false**.
+
+## bool isShowSurfaceCustomTextureNotAvailable () const
+
+***Console*:**`render_show_surface_custom_texture_not_available`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for surfaces the materials of which use the [surface custom texture](../../../content/materials/graph/node_library/textures/surface_custom_texture.md) in the material graph, however the option is not enabled for the surface.
+### Return value
+
+**true** if visualizer for surfaces the materials of which use the surface custom texture in the material graph, however the option is not enabled for the surface is enabled; otherwise **false**. The default value is **false**.
+## void setShowSurfaceCustomTextureNotUsed ( bool used = 0 )
+
+***Console*:**`render_show_surface_custom_texture_not_used`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for surfaces with the [surface custom texture](../../../content/materials/graph/node_library/textures/surface_custom_texture.md) enabled and/or set, but not used in the material graph.
+### Arguments
+
+- *bool* **used** - Set **true** to enable visualizer for surfaces with the surface custom texture enabled and/or set, but not used in the material graph; **false** - to disable it. The default value is **false**.
+
+## bool isShowSurfaceCustomTextureNotUsed () const
+
+***Console*:**`render_show_surface_custom_texture_not_used`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for surfaces with the [surface custom texture](../../../content/materials/graph/node_library/textures/surface_custom_texture.md) enabled and/or set, but not used in the material graph.
+### Return value
+
+**true** if visualizer for surfaces with the surface custom texture enabled and/or set, but not used in the material graph is enabled; otherwise **false**. The default value is **false**.
+## void setShowSurfaceCustomTexture ( bool texture = 0 )
+
+***Console*:**`render_show_surface_custom_texture`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for surfaces with the [surface custom texture](../../../content/materials/graph/node_library/textures/surface_custom_texture.md) enabled.
+### Arguments
+
+- *bool* **texture** - Set **true** to enable visualizer for surfaces with the surface custom texture enabled; **false** - to disable it. The default value is **false**.
+
+## bool isShowSurfaceCustomTexture () const
+
+***Console*:**`render_show_surface_custom_texture`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for surfaces with the [surface custom texture](../../../content/materials/graph/node_library/textures/surface_custom_texture.md) enabled.
+### Return value
+
+**true** if visualizer for surfaces with the surface custom texture enabled is enabled; otherwise **false**. The default value is **false**.
+## void setShowPhysicsIntersection ( bool intersection = 0 )
+
+***Console*:**`render_show_physics_intersection`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for surfaces with the *[physics intersection](../../../editor2/node_parameters/physics/index.md#surface_physics_intersection)* enabled.
+### Arguments
+
+- *bool* **intersection** - Set **true** to enable visualizer for surfaces with the physics intersection enabled; **false** - to disable it. The default value is **false**.
+
+## bool isShowPhysicsIntersection () const
+
+***Console*:**`render_show_physics_intersection`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for surfaces with the *[physics intersection](../../../editor2/node_parameters/physics/index.md#surface_physics_intersection)* enabled.
+### Return value
+
+**true** if visualizer for surfaces with the physics intersection enabled is enabled; otherwise **false**. The default value is **false**.
+## void setShowIntersection ( bool intersection = 0 )
+
+***Console*:**`render_show_intersection`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for surfaces with the *[Intersection](../../../editor2/node_parameters/physics/index.md#surface_intersection)* enabled.
+### Arguments
+
+- *bool* **intersection** - Set **true** to enable visualizer for surfaces with the intersection enabled; **false** - to disable it. The default value is **false**.
+
+## bool isShowIntersection () const
+
+***Console*:**`render_show_intersection`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for surfaces with the *[Intersection](../../../editor2/node_parameters/physics/index.md#surface_intersection)* enabled.
+### Return value
+
+**true** if visualizer for surfaces with the intersection enabled is enabled; otherwise **false**. The default value is **false**.
+## void setShowManualMaterials ( bool materials = 0 )
+
+***Console*:**`render_show_manual_materials`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for objects with manual materials.
+### Arguments
+
+- *bool* **materials** - Set **true** to enable visualizer for objects with manual materials; **false** - to disable it. The default value is **false**.
+
+## bool isShowManualMaterials () const
+
+***Console*:**`render_show_manual_materials`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for objects with manual materials.
+### Return value
+
+**true** if visualizer for objects with manual materials is enabled; otherwise **false**. The default value is **false**.
+## void setShowNonManualMaterials ( bool materials = 0 )
+
+***Console*:**`render_show_non_manual_materials`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for objects with non-manual materials.
+### Arguments
+
+- *bool* **materials** - Set **true** to enable visualizer for objects with non-manual materials; **false** - to disable it. The default value is **false**.
+
+## bool isShowNonManualMaterials () const
+
+***Console*:**`render_show_non_manual_materials`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for objects with non-manual materials.
+### Return value
+
+**true** if visualizer for objects with non-manual materials is enabled; otherwise **false**. The default value is **false**.
+## void setShowClusters ( bool clusters = 0 )
+
+***Console*:**`render_show_clusters`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for *Mesh Cluster* objects.
+### Arguments
+
+- *bool* **clusters** - Set **true** to enable visualizer for *Mesh Cluster* objects; **false** - to disable it. The default value is **false**.
+
+## bool isShowClusters () const
+
+***Console*:**`render_show_clusters`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for *Mesh Cluster* objects.
+### Return value
+
+**true** if visualizer for *Mesh Cluster* objects is enabled; otherwise **false**. The default value is **false**.
+## void setShowImmovable ( int immovable = 0 )
+
+***Console*:**`render_show_immovable`Sets a new value visualizing the state of the [Immovable](../../../editor2/node_parameters/transformation_common/index.md#clutter) option for objects. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Arguments
+
+- *int* **immovable** - The state of the Immovable option. One of the following values:
+
+  - **0** - disabled (by default)
+  - **1** - show objects with *Immovable* option enabled
+  - **2** - show objects with *Immovable* option disabled
+
+## int getShowImmovable () const
+
+***Console*:**`render_show_immovable`Returns the current value visualizing the state of the [Immovable](../../../editor2/node_parameters/transformation_common/index.md#clutter) option for objects. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Return value
+
+Current state of the Immovable option. One of the following values:
+- **0** - disabled (by default)
+- **1** - show objects with *Immovable* option enabled
+- **2** - show objects with *Immovable* option disabled
+
+## void setShowDynamic ( bool dynamic = 0 )
+
+***Console*:**`render_show_dynamic`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for dynamic objects. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Arguments
+
+- *bool* **dynamic** - Set **true** to enable visualizer for dynamic objects; **false** - to disable it. The default value is **false**.
+
+## bool isShowDynamic () const
+
+***Console*:**`render_show_dynamic`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for dynamic objects. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Return value
+
+**true** if visualizer for dynamic objects is enabled; otherwise **false**. The default value is **false**.
+## void setShowTransparent ( bool transparent = 0 )
+
+***Console*:**`render_show_transparent`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for transparent objects. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Arguments
+
+- *bool* **transparent** - Set **true** to enable visualizer for transparent objects; **false** - to disable it. The default value is **false**.
+
+## bool isShowTransparent () const
+
+***Console*:**`render_show_transparent`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for transparent objects. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Return value
+
+**true** if visualizer for transparent objects is enabled; otherwise **false**. The default value is **false**.
+## void setShowTransparentGBuffer ( bool gbuffer = 0 )
+
+***Console*:**`render_show_transparent_gbuffer`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for transparent (blend) surfaces whose material is configured to render in the deferred pass (write to GBuffer). This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Arguments
+
+- *bool* **gbuffer** - Set **true** to enable visualizer for transparent surfaces that write to GBuffer; **false** - to disable it. The default value is **false**.
+
+## bool isShowTransparentGBuffer () const
+
+***Console*:**`render_show_transparent_gbuffer`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for transparent (blend) surfaces whose material is configured to render in the deferred pass (write to GBuffer). This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Return value
+
+**true** if visualizer for transparent surfaces that write to GBuffer is enabled; otherwise **false**. The default value is **false**.
+## void setShowTransparentLightingAmbient ( bool ambient = 0 )
+
+***Console*:**`render_show_transparent_lighting_ambient`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for transparent (blend) surfaces whose material is configured to receive lighting from ambient sources. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Arguments
+
+- *bool* **ambient** - Set **true** to enable visualizer for transparent surfaces that receive ambient lighting; **false** - to disable it. The default value is **false**.
+
+## bool isShowTransparentLightingAmbient () const
+
+***Console*:**`render_show_transparent_lighting_ambient`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for transparent (blend) surfaces whose material is configured to receive lighting from ambient sources. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Return value
+
+**true** if visualizer for transparent surfaces that receive ambient lighting is enabled; otherwise **false**. The default value is **false**.
+## void setShowTransparentLightingEnvironmentProbe ( bool probe = 0 )
+
+***Console*:**`render_show_transparent_lighting_environment_probe`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for transparent (blend) surfaces whose material is configured to receive lighting from Environment Probes. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Arguments
+
+- *bool* **probe** - Set **true** to enable visualizer for transparent surfaces that receive Environment Probe lighting; **false** - to disable it. The default value is **false**.
+
+## bool isShowTransparentLightingEnvironmentProbe () const
+
+***Console*:**`render_show_transparent_lighting_environment_probe`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for transparent (blend) surfaces whose material is configured to receive lighting from Environment Probes. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Return value
+
+**true** if visualizer for transparent surfaces that receive Environment Probe lighting is enabled; otherwise **false**. The default value is **false**.
+## void setShowTransparentLightingVoxelProbe ( bool probe = 0 )
+
+***Console*:**`render_show_transparent_lighting_voxel_probe`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for transparent (blend) surfaces whose material is configured to receive lighting from Voxel Probes. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Arguments
+
+- *bool* **probe** - Set **true** to enable visualizer for transparent surfaces that receive Voxel Probe lighting; **false** - to disable it. The default value is **false**.
+
+## bool isShowTransparentLightingVoxelProbe () const
+
+***Console*:**`render_show_transparent_lighting_voxel_probe`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for transparent (blend) surfaces whose material is configured to receive lighting from Voxel Probes. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Return value
+
+**true** if visualizer for transparent surfaces that receive Voxel Probe lighting is enabled; otherwise **false**. The default value is **false**.
+## void setShowTransparentLightingPlanarProbe ( bool probe = 0 )
+
+***Console*:**`render_show_transparent_lighting_planar_probe`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for transparent (blend) surfaces whose material is configured to receive lighting from Planar Probes. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Arguments
+
+- *bool* **probe** - Set **true** to enable visualizer for transparent surfaces that receive Planar Probe lighting; **false** - to disable it. The default value is **false**.
+
+## bool isShowTransparentLightingPlanarProbe () const
+
+***Console*:**`render_show_transparent_lighting_planar_probe`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for transparent (blend) surfaces whose material is configured to receive lighting from Planar Probes. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Return value
+
+**true** if visualizer for transparent surfaces that receive Planar Probe lighting is enabled; otherwise **false**. The default value is **false**.
+## void setShowTransparentLightingLightOmni ( bool omni = 0 )
+
+***Console*:**`render_show_transparent_lighting_light_omni`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for transparent (blend) surfaces whose material is configured to receive lighting from Omni lights. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Arguments
+
+- *bool* **omni** - Set **true** to enable visualizer for transparent surfaces that receive Omni lighting; **false** - to disable it. The default value is **false**.
+
+## bool isShowTransparentLightingLightOmni () const
+
+***Console*:**`render_show_transparent_lighting_light_omni`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for transparent (blend) surfaces whose material is configured to receive lighting from Omni lights. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Return value
+
+**true** if visualizer for transparent surfaces that receive Omni lighting is enabled; otherwise **false**. The default value is **false**.
+## void setShowTransparentLightingLightProj ( bool proj = 0 )
+
+***Console*:**`render_show_transparent_lighting_light_proj`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for transparent (blend) surfaces whose material is configured to receive lighting from Projected lights. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Arguments
+
+- *bool* **proj** - Set **true** to enable visualizer for transparent surfaces that receive Projected lighting; **false** - to disable it. The default value is **false**.
+
+## bool isShowTransparentLightingLightProj () const
+
+***Console*:**`render_show_transparent_lighting_light_proj`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for transparent (blend) surfaces whose material is configured to receive lighting from Projected lights. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Return value
+
+**true** if visualizer for transparent surfaces that receive Projected lighting is enabled; otherwise **false**. The default value is **false**.
+## void setShowTransparentLightingLightWorld ( bool world = 0 )
+
+***Console*:**`render_show_transparent_lighting_light_world`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for transparent (blend) surfaces whose material is configured to receive lighting from World light (sun). This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Arguments
+
+- *bool* **world** - Set **true** to enable visualizer for transparent surfaces that receive World lighting; **false** - to disable it. The default value is **false**.
+
+## bool isShowTransparentLightingLightWorld () const
+
+***Console*:**`render_show_transparent_lighting_light_world`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_usc.md) is displayed for transparent (blend) surfaces whose material is configured to receive lighting from World light (sun). This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Return value
+
+**true** if visualizer for transparent surfaces that receive World lighting is enabled; otherwise **false**. The default value is **false**.
+## void setShowAmbient ( bool ambient = 0 )
+
+***Console*:**`render_show_ambient`Sets a new value indicating whether the ambient pass buffer is displayed. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Arguments
+
+- *bool* **ambient** - Set **true** to enable displaying of the ambient pass buffer; **false** - to disable it. The default value is **false**.
+
+## bool isShowAmbient () const
+
+***Console*:**`render_show_ambient`Returns the current value indicating whether the ambient pass buffer is displayed. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Return value
+
+**true** if displaying of the ambient pass buffer is enabled; otherwise **false**. The default value is **false**.
+## void setShowGeodeticPivot ( bool pivot = 0 )
+
+***Console*:**`render_show_geodetic_pivot`Sets a new value indicating whether [geodetic pivots](../../../objects/geodetics/geodeticpivot/index.md) are displayed. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Arguments
+
+- *bool* **pivot** - Set **true** to enable displaying of geodetic pivots; **false** - to disable it. The default value is **false**.
+
+## bool isShowGeodeticPivot () const
+
+***Console*:**`render_show_geodetic_pivot`Returns the current value indicating whether [geodetic pivots](../../../objects/geodetics/geodeticpivot/index.md) are displayed. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Return value
+
+**true** if displaying of geodetic pivots is enabled; otherwise **false**. The default value is **false**.
+## void setShowLandscapeMask ( int mask )
+
+***Console*:**`render_show_landscape_mask`Sets a new number of the [Landscape Terrain detail mask](../../../objects/objects/terrain/landscape_terrain/index.md#details) to be visualized. This method can be used for visual debugging to display the selected detail mask of the Landscape Terrain. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Arguments
+
+- *int* **mask** - The Landscape Terrain detail mask number. One of the following values:
+
+  - **0** - mask vizualization is disabled (by default)
+  - **1** - DetailMask 0
+  - **2** - DetailMask 1
+  - **3** - ...
+  - **4** - DetailMask 19
+
+## int getShowLandscapeMask () const
+
+***Console*:**`render_show_landscape_mask`Returns the current number of the [Landscape Terrain detail mask](../../../objects/objects/terrain/landscape_terrain/index.md#details) to be visualized. This method can be used for visual debugging to display the selected detail mask of the Landscape Terrain. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Return value
+
+Current Landscape Terrain detail mask number. One of the following values:
+- **0** - mask vizualization is disabled (by default)
+- **1** - DetailMask 0
+- **2** - DetailMask 1
+- **3** - ...
+- **4** - DetailMask 19
+
+## void setShowLandscapeAlbedo ( bool albedo )
+
+***Console*:**`render_show_landscape_albedo`Sets a new value indicating if visualization of albedo data of the Landscape Terrain is enabled. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Arguments
+
+- *bool* **albedo** - Set **true** to enable visualization of albedo data of the Landscape Terrain; **false** - to disable it. The default value is **false**.
+
+## bool isShowLandscapeAlbedo () const
+
+***Console*:**`render_show_landscape_albedo`Returns the current value indicating if visualization of albedo data of the Landscape Terrain is enabled. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Return value
+
+**true** if visualization of albedo data of the Landscape Terrain is enabled; otherwise **false**. The default value is **false**.
+## void setShowLandscapeTerrainVTStreaming ( bool vtstreaming )
+
+***Console*:**`render_show_landscape_terrain_vt_streaming`Sets a new value indicating if visualization is enabled for [streaming of tiles](../../../objects/objects/terrain/landscape_terrain/index.md#tiling) of the Landscape Terrain megatexture. In this mode colored areas show the tiles that are currently being rendered in a lower resolution until the highest MIP-level is loaded. This method can be used for visual adjustment of the streaming process.
+### Arguments
+
+- *bool* **vtstreaming** - Set **true** to enable visualization of Landscape Terrain tiles being streamed; **false** - to disable it. The default value is **false**.
+
+## bool isShowLandscapeTerrainVTStreaming () const
+
+***Console*:**`render_show_landscape_terrain_vt_streaming`Returns the current value indicating if visualization is enabled for [streaming of tiles](../../../objects/objects/terrain/landscape_terrain/index.md#tiling) of the Landscape Terrain megatexture. In this mode colored areas show the tiles that are currently being rendered in a lower resolution until the highest MIP-level is loaded. This method can be used for visual adjustment of the streaming process.
+### Return value
+
+**true** if visualization of Landscape Terrain tiles being streamed is enabled; otherwise **false**. The default value is **false**.
+## void setShowVoxelProbeVisualizer ( bool visualizer )
+
+***Console*:**`render_show_voxel_probe_visualizer`Sets a new value indicating if the Voxel Probe visualizer is enabled. The visualizer shows only the selected probe with the grid size*[setShowVoxelProbeVisualizerGridSize()()](../../...md#render_show_voxel_probe_visualizer_grid_size)* from 7 to 40.
+### Arguments
+
+- *bool* **visualizer** - Set **true** to enable Voxel Probe visualizer; **false** - to disable it. The default value is **false**.
+
+## bool isShowVoxelProbeVisualizer () const
+
+***Console*:**`render_show_voxel_probe_visualizer`Returns the current value indicating if the Voxel Probe visualizer is enabled. The visualizer shows only the selected probe with the grid size*[setShowVoxelProbeVisualizerGridSize()()](../../...md#render_show_voxel_probe_visualizer_grid_size)* from 7 to 40.
+### Return value
+
+**true** if Voxel Probe visualizer is enabled; otherwise **false**. The default value is **false**.
+## void setShowVoxelProbeVisualizerGridSize ( int size )
+
+***Console*:**`render_show_voxel_probe_visualizer_grid_size`Sets a new size of the grid that is used to visualize Voxel Probes.
+> **Notice:** For the probe to be visualized properly, the grid size should be from 7 to 40.
+
+
+### Arguments
+
+- *int* **size** - The number of spheres along the axis. Range of values: **[7, 40]**. The default value is : **15**.
+
+## int getShowVoxelProbeVisualizerGridSize () const
+
+***Console*:**`render_show_voxel_probe_visualizer_grid_size`Returns the current size of the grid that is used to visualize Voxel Probes.
+> **Notice:** For the probe to be visualized properly, the grid size should be from 7 to 40.
+
+
+### Return value
+
+Current number of spheres along the axis.
+Range of values: **[7, 40]**. The default value is : **15**.
+## void setShowVoxelProbeVisualizerSphereScale ( float scale )
+
+***Console*:**`render_show_voxel_probe_visualizer_sphere_scale`Sets a new scale factor of the sphere that is used to visualize Voxel Probes. The sphere size depends on the scale factor and the voxel size.
+### Arguments
+
+- *float* **scale** - The scale factor of the visualization sphere. Range of values: **[0.0f, 1.0f]**. The default value is : **0.25f**.
+
+## float getShowVoxelProbeVisualizerSphereScale () const
+
+***Console*:**`render_show_voxel_probe_visualizer_sphere_scale`Returns the current scale factor of the sphere that is used to visualize Voxel Probes. The sphere size depends on the scale factor and the voxel size.
+### Return value
+
+Current scale factor of the visualization sphere.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.25f**.
+## void setShowTextures ( int textures = 0 )
+
+***Console*:**`render_show_textures`Sets a new display mode for texture buffers used by the renderer. The number of displayed buffers depends on the number of buffers in a row specified by the corresponding command*[setShowTexturesNumber()()](../../...md#render_show_textures_number)*. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Arguments
+
+- *int* **textures** - The display mode. One of the following values:
+
+  - **0** - all buffers are hidden (by default)
+  - **1** - show render textures (compact)
+  - **2** - show render textures (full)
+
+## int getShowTextures () const
+
+***Console*:**`render_show_textures`Returns the current display mode for texture buffers used by the renderer. The number of displayed buffers depends on the number of buffers in a row specified by the corresponding command*[setShowTexturesNumber()()](../../...md#render_show_textures_number)*. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Return value
+
+Current display mode. One of the following values:
+- **0** - all buffers are hidden (by default)
+- **1** - show render textures (compact)
+- **2** - show render textures (full)
+
+## void setShowTexturesOffset ( int offset = 0 )
+
+***Console*:**`render_show_textures_offset`Sets a new number of the buffer to start displaying from in the full view mode*[setShowTextures()()](../../...md#render_show_textures)*. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Arguments
+
+- *int* **offset** - The number of the buffer to start displaying from. Range of values: **[0, 256]**. The default value is : **0**.
+
+## int getShowTexturesOffset () const
+
+***Console*:**`render_show_textures_offset`Returns the current number of the buffer to start displaying from in the full view mode*[setShowTextures()()](../../...md#render_show_textures)*. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Return value
+
+Current number of the buffer to start displaying from.
+Range of values: **[0, 256]**. The default value is : **0**.
+## void setShowTexturesNumber ( int number = 7 )
+
+***Console*:**`render_show_textures_number`Sets a new number of buffers in a row and column displayed in the full view mode*[setShowTextures()()](../../...md#render_show_textures)*. Textures are displayed in the following manner, depending on the set value:
+- **1** - a single texture per screen
+- **2** - 2x2 textures per screen
+- **3** - 3x3 textures per screen
+- ... etc.
+
+ This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Arguments
+
+- *int* **number** - The number of buffers in a row and column. Range of values: **[0, 16]**. The default value is : **7**.
+
+## int getShowTexturesNumber () const
+
+***Console*:**`render_show_textures_number`Returns the current number of buffers in a row and column displayed in the full view mode*[setShowTextures()()](../../...md#render_show_textures)*. Textures are displayed in the following manner, depending on the set value:
+- **1** - a single texture per screen
+- **2** - 2x2 textures per screen
+- **3** - 3x3 textures per screen
+- ... etc.
+
+ This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Return value
+
+Current number of buffers in a row and column.
+Range of values: **[0, 16]**. The default value is : **7**.
+## void setShowTextureResolutionBlend ( float blend = 0.5 )
+
+***Console*:**`render_show_texture_resolution_blend`Sets a new value used for blending the rendered image with the color displaying the texture resolution.
+### Arguments
+
+- *float* **blend** - The value used for blending the rendered image with the color displaying the texture resolution. Range of values: **[0, 1]**. The default value is : **0.5**.
+
+## float getShowTextureResolutionBlend () const
+
+***Console*:**`render_show_texture_resolution_blend`Returns the current value used for blending the rendered image with the color displaying the texture resolution.
+### Return value
+
+Current value used for blending the rendered image with the color displaying the texture resolution.
+Range of values: **[0, 1]**. The default value is : **0.5**.
+## void setShowTextureResolutionUVMode ( )
+
+***Console*:**`render_show_texture_resolution_uv_mode`Sets a new UV channel to be used for [visualization of the texture resolution](#ShowTextureResolution).
+### Arguments
+
+- **uvmode** - The UV channel to be used for visualization of the texture resolution. One of the following values:
+
+  - **0** - UV0 (by default)
+  - **1** - UV1
+
+## getShowTextureResolutionUVMode () const
+
+***Console*:**`render_show_texture_resolution_uv_mode`Returns the current UV channel to be used for [visualization of the texture resolution](#ShowTextureResolution).
+### Return value
+
+Current UV channel to be used for visualization of the texture resolution. One of the following values:
+- **0** - UV0 (by default)
+- **1** - UV1
+
+## void setShowTextureResolution ( )
+
+***Console*:**`render_show_texture_resolution`Sets a new display mode for texture resolution used by the renderer.
+### Arguments
+
+- **resolution** - The display mode for texture resolution used by the renderer. One of the following values:
+
+  - **0** - disabled (by default)
+  - **1** - show surfaces depending on maximum resolution of textures used in materials assigned to them applying colors in accordance with the scale
+  - **2** - show the relationship between maximum texture resolution of the material to the size of triangles on the screen to which it is applied: blue indicates insufficient texture resolution, while yellow tells that it is excessive, if the color is green - everything is ok.
+
+## getShowTextureResolution () const
+
+***Console*:**`render_show_texture_resolution`Returns the current display mode for texture resolution used by the renderer.
+### Return value
+
+Current display mode for texture resolution used by the renderer. One of the following values:
+- **0** - disabled (by default)
+- **1** - show surfaces depending on maximum resolution of textures used in materials assigned to them applying colors in accordance with the scale
+- **2** - show the relationship between maximum texture resolution of the material to the size of triangles on the screen to which it is applied: blue indicates insufficient texture resolution, while yellow tells that it is excessive, if the color is green - everything is ok.
+
+## void setShowTriangles ( int triangles = 0 )
+
+***Console*:**`render_show_triangles`Sets a new wireframe mode for scene triangles. One of the [TRIANGLES_*](#TRIANGLES_DISABLED) values. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Arguments
+
+- *int* **triangles** - The wireframe mode for scene triangles. One of the [TRIANGLES_*](#TRIANGLES_DISABLED) values. The default value is **false**.
+
+## int getShowTriangles () const
+
+***Console*:**`render_show_triangles`Returns the current wireframe mode for scene triangles. One of the [TRIANGLES_*](#TRIANGLES_DISABLED) values. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Return value
+
+Current wireframe mode for scene triangles. One of the [TRIANGLES_*](#TRIANGLES_DISABLED) values. The default value is **false**.
+## void setShowVertexColor ( )
+
+***Console*:**`render_show_vertex_color`Sets a new value indicating whether displaying of geometry that uses the selected vertex color is enabled. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Arguments
+
+- **color** - The value indicating whether displaying of geometry that uses the selected vertex color is enabled. One of the following values:
+
+  - **0** - disabled. (by default)
+  - **1** - Red color.
+  - **2** - Green color.
+  - **3** - Blue color.
+  - **4** - Alpha color.
+  - **5** - RGB color.
+
+## getShowVertexColor () const
+
+***Console*:**`render_show_vertex_color`Returns the current value indicating whether displaying of geometry that uses the selected vertex color is enabled. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Return value
+
+Current value indicating whether displaying of geometry that uses the selected vertex color is enabled. One of the following values:
+- **0** - disabled. (by default)
+- **1** - Red color.
+- **2** - Green color.
+- **3** - Blue color.
+- **4** - Alpha color.
+- **5** - RGB color.
+
+## void setShowNodesInteractionGrass ( bool grass = 0 )
+
+***Console*:**`render_show_nodes_interaction_grass`Sets a new value indicating whether the visualizer is enabled for nodes with the *Grass Interaction* flag enabled. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Arguments
+
+- *bool* **grass** - Set **true** to enable visualizer for for nodes with the *Grass Interaction* flag enabled; **false** - to disable it. The default value is **false**.
+
+## bool isShowNodesInteractionGrass () const
+
+***Console*:**`render_show_nodes_interaction_grass`Returns the current value indicating whether the visualizer is enabled for nodes with the *Grass Interaction* flag enabled. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Return value
+
+**true** if visualizer for for nodes with the *Grass Interaction* flag enabled is enabled; otherwise **false**. The default value is **false**.
+## void setShowNodesInteractionClutter ( bool clutter = 0 )
+
+***Console*:**`render_show_nodes_interaction_clutter`Sets a new value indicating whether the visualizer is enabled for nodes with the *Clutter Interaction* flag enabled. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Arguments
+
+- *bool* **clutter** - Set **true** to enable visualizer for for nodes with the *Clutter Interaction* flag enabled; **false** - to disable it. The default value is **false**.
+
+## bool isShowNodesInteractionClutter () const
+
+***Console*:**`render_show_nodes_interaction_clutter`Returns the current value indicating whether the visualizer is enabled for nodes with the *Clutter Interaction* flag enabled. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Return value
+
+**true** if visualizer for for nodes with the *Clutter Interaction* flag enabled is enabled; otherwise **false**. The default value is **false**.
+## void setShowNodesInteractionTrigger ( bool trigger = 0 )
+
+***Console*:**`render_show_nodes_interaction_trigger`Sets a new value indicating whether the visualizer is enabled for nodes with the *Trigger Interaction* flag enabled. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Arguments
+
+- *bool* **trigger** - Set **true** to enable visualizer for for nodes with the *Trigger Interaction* flag enabled; **false** - to disable it. The default value is **false**.
+
+## bool isShowNodesInteractionTrigger () const
+
+***Console*:**`render_show_nodes_interaction_trigger`Returns the current value indicating whether the visualizer is enabled for nodes with the *Trigger Interaction* flag enabled. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
+### Return value
+
+**true** if visualizer for for nodes with the *Trigger Interaction* flag enabled is enabled; otherwise **false**. The default value is **false**.
+## void setTransparentMultipleEnvProbes ( bool probes = 1 )
+
+***Console*:**`render_transparent_multiple_env_probes`Sets a new value indicating if the transparent [multiple environment probes](../../../principles/render/sequence/index.md#transparent_multiple_env_probes) pass is rendered.
+> **Notice:** This method takes effect only when the forward rendering pass is used for transparent objects rendering.
+
+### Arguments
+
+- *bool* **probes** - Set **true** to enable rendering of the transparent multiple environment probes pass; **false** - to disable it. The default value is **true**.
+
+## bool isTransparentMultipleEnvProbes () const
+
+***Console*:**`render_transparent_multiple_env_probes`Returns the current value indicating if the transparent [multiple environment probes](../../../principles/render/sequence/index.md#transparent_multiple_env_probes) pass is rendered.
+> **Notice:** This method takes effect only when the forward rendering pass is used for transparent objects rendering.
+
+### Return value
+
+**true** if rendering of the transparent multiple environment probes pass is enabled; otherwise **false**. The default value is **true**.
+## void setTransparentDeferred ( bool deferred = 1 )
+
+***Console*:**`render_transparent_deferred`Sets a new value indicating if the deferred pass for transparent objects is enabled.
+> **Notice:** This option takes effect only when the forward rendering pass is used for transparent objects rendering.
+
+
+### Arguments
+
+- *bool* **deferred** - Set **true** to enable rendering of the deferred pass for transparent objects; **false** - to disable it. The default value is **true**.
+
+## bool isTransparentDeferred () const
+
+***Console*:**`render_transparent_deferred`Returns the current value indicating if the deferred pass for transparent objects is enabled.
+> **Notice:** This option takes effect only when the forward rendering pass is used for transparent objects rendering.
+
+
+### Return value
+
+**true** if rendering of the deferred pass for transparent objects is enabled; otherwise **false**. The default value is **true**.
+## void setTransparentEnabled ( bool enabled = 1 )
+
+***Console*:**`render_transparent_enabled`Sets a new value indicating if the transparent pass is rendered.
+> **Notice:** This option takes effect only when the forward rendering pass is used for transparent objects rendering.
+
+
+### Arguments
+
+- *bool* **enabled** - Set **true** to enable rendering of the transparent pass; **false** - to disable it. The default value is **true**.
+
+## bool isTransparentEnabled () const
+
+***Console*:**`render_transparent_enabled`Returns the current value indicating if the transparent pass is rendered.
+> **Notice:** This option takes effect only when the forward rendering pass is used for transparent objects rendering.
+
+
+### Return value
+
+**true** if rendering of the transparent pass is enabled; otherwise **false**. The default value is **true**.
+## void setScreenSpaceEffects ( bool effects = 1 )
+
+***Console*:**`render_screen_space_effects`Sets a new value indicating if rendering of screen-space effects is enabled.
+### Arguments
+
+- *bool* **effects** - Set **true** to enable rendering of screen-space effects; **false** - to disable it. The default value is **true**.
+
+## bool isScreenSpaceEffects () const
+
+***Console*:**`render_screen_space_effects`Returns the current value indicating if rendering of screen-space effects is enabled.
+### Return value
+
+**true** if rendering of screen-space effects is enabled; otherwise **false**. The default value is **true**.
+## void setFieldShorelineResolution ( int resolution = 0 )
+
+***Console*:**`render_field_shoreline_resolution`Sets a new resolution of the texture into which all textures set for all *[FieldShoreline](../../../api/library/fields/class.fieldshoreline_usc.md)* objects are rendered.
+> **Notice:** Increased resolution significantly affects performance.
+
+### Arguments
+
+- *int* **resolution** - The resolution in pixels. One of the following values:
+
+  - **0** - 128x128 (by default)
+  - **1** - 256x256
+  - **2** - 512x512
+  - **3** - 1024x1024
+  - **4** - 2048x2048
+  - **5** - 4096x4096
+  - **6** - 8192x8192
+
+## int getFieldShorelineResolution () const
+
+***Console*:**`render_field_shoreline_resolution`Returns the current resolution of the texture into which all textures set for all *[FieldShoreline](../../../api/library/fields/class.fieldshoreline_usc.md)* objects are rendered.
+> **Notice:** Increased resolution significantly affects performance.
+
+### Return value
+
+Current resolution in pixels. One of the following values:
+- **0** - 128x128 (by default)
+- **1** - 256x256
+- **2** - 512x512
+- **3** - 1024x1024
+- **4** - 2048x2048
+- **5** - 4096x4096
+- **6** - 8192x8192
+
+## void setFieldPrecision ( bool precision = 0 )
+
+***Console*:**`render_field_precision`Sets a new value indicating the precision of textures used for field objects. Either of the following:
+- 16-bit precision R16 texture
+- 32-bit precision R32F texture
+
+
+### Arguments
+
+- *bool* **precision** - Set **true** to enable high (32-bit) precision for textures; **false** - to disable it. One of the following values:
+
+  - **0** - 16 bit (by default)
+  - **1** - 32 bit
+
+## bool isFieldPrecision () const
+
+***Console*:**`render_field_precision`Returns the current value indicating the precision of textures used for field objects. Either of the following:
+- 16-bit precision R16 texture
+- 32-bit precision R32F texture
+
+
+### Return value
+
+**true** if high (32-bit) precision for textures is enabled; otherwise **false**. One of the following values:
+- **0** - 16 bit (by default)
+- **1** - 32 bit
+
+## void setFieldHeightResolution ( int resolution = 2 )
+
+***Console*:**`render_field_height_resolution`Sets a new resolution of the texture into which all textures set for all *[FieldHeight](../../../api/library/fields/class.fieldheight_usc.md)* objects are rendered.
+> **Notice:** Increased resolution significantly affects performance.
+
+### Arguments
+
+- *int* **resolution** - The resolution in pixels. One of the following values:
+
+  - **0** - 128 x 128
+  - **1** - 256 x 256
+  - **2** - 512 x 512 (by default)
+  - **3** - 1024 x 1024
+  - **4** - 2048 x 2048
+  - **5** - 4096 x 4096
+  - **6** - 8192 x 8192
+
+## int getFieldHeightResolution () const
+
+***Console*:**`render_field_height_resolution`Returns the current resolution of the texture into which all textures set for all *[FieldHeight](../../../api/library/fields/class.fieldheight_usc.md)* objects are rendered.
+> **Notice:** Increased resolution significantly affects performance.
+
+### Return value
+
+Current resolution in pixels. One of the following values:
+- **0** - 128 x 128
+- **1** - 256 x 256
+- **2** - 512 x 512 (by default)
+- **3** - 1024 x 1024
+- **4** - 2048 x 2048
+- **5** - 4096 x 4096
+- **6** - 8192 x 8192
+
+## void setCloudsNoiseStepSkip ( float skip = 0.3f )
+
+***Console*:**`render_clouds_noise_step_skip`Sets a new value of the *noise step skip* parameter for clouds. This parameter determines the amount of jitter in the areas between clouds, that is used to reduce banding effect due to insufficient number of steps.
+### Arguments
+
+- *float* **skip** - The value of the *noise step skip* parameter for clouds. Range of values: **[0.0f, 1.0f]**. The default value is : **0.3f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[CloudsQualityPreset](/api/library/rendering/class.render_cs#render_clouds_quality_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getCloudsNoiseStepSkip () const
+
+***Console*:**`render_clouds_noise_step_skip`Returns the current value of the *noise step skip* parameter for clouds. This parameter determines the amount of jitter in the areas between clouds, that is used to reduce banding effect due to insufficient number of steps.
+### Return value
+
+Current value of the *noise step skip* parameter for clouds.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.3f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[CloudsQualityPreset](/api/library/rendering/class.render_cs#render_clouds_quality_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setCloudsNoiseLighting ( float lighting = 0.3f )
+
+***Console*:**`render_clouds_noise_lighting`Sets a new value of the *noise lighting* parameter for the clouds. This parameter determines the amount of jitter for tracing steps of lighting calculation, that is used to reduce banding effect due to insufficient number of steps.
+### Arguments
+
+- *float* **lighting** - The value of the *noise lighting* parameter for clouds. Range of values: **[0.0f, 1.0f]**. The default value is : **0.3f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[CloudsQualityPreset](/api/library/rendering/class.render_cs#render_clouds_quality_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getCloudsNoiseLighting () const
+
+***Console*:**`render_clouds_noise_lighting`Returns the current value of the *noise lighting* parameter for the clouds. This parameter determines the amount of jitter for tracing steps of lighting calculation, that is used to reduce banding effect due to insufficient number of steps.
+### Return value
+
+Current value of the *noise lighting* parameter for clouds.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.3f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[CloudsQualityPreset](/api/library/rendering/class.render_cs#render_clouds_quality_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setCloudsNoiseIterations ( float iterations = 0.1f )
+
+***Console*:**`render_clouds_noise_iterations`Sets a new value of the *noise iterations* parameter for clouds. This parameter determines the amount of jitter in the areas within clouds, that is used to reduce banding effect due to insufficient number of steps.
+### Arguments
+
+- *float* **iterations** - The value of the *noise iterations* parameter for clouds. Range of values: **[0.0f, 1.0f]**. The default value is : **0.1f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[CloudsQualityPreset](/api/library/rendering/class.render_cs#render_clouds_quality_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getCloudsNoiseIterations () const
+
+***Console*:**`render_clouds_noise_iterations`Returns the current value of the *noise iterations* parameter for clouds. This parameter determines the amount of jitter in the areas within clouds, that is used to reduce banding effect due to insufficient number of steps.
+### Return value
+
+Current value of the *noise iterations* parameter for clouds.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.1f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[CloudsQualityPreset](/api/library/rendering/class.render_cs#render_clouds_quality_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setCloudsNoiseStep ( float step = 0.3f )
+
+***Console*:**`render_clouds_noise_step`Sets a new value of the *noise step* parameter for clouds. This parameter determines the amount of jitter in the areas within clouds, that is used to reduce banding effect due to insufficient number of steps.
+### Arguments
+
+- *float* **step** - The value of the *noise step* parameter for clouds. Range of values: **[0.0f, 1.0f]**. The default value is : **0.3f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[CloudsQualityPreset](/api/library/rendering/class.render_cs#render_clouds_quality_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getCloudsNoiseStep () const
+
+***Console*:**`render_clouds_noise_step`Returns the current value of the *noise step* parameter for clouds. This parameter determines the amount of jitter in the areas within clouds, that is used to reduce banding effect due to insufficient number of steps.
+### Return value
+
+Current value of the *noise step* parameter for clouds.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.3f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[CloudsQualityPreset](/api/library/rendering/class.render_cs#render_clouds_quality_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setCloudsSoftIntersection ( float intersection = 100.0f )
+
+***Console*:**`render_clouds_soft_intersection`Sets a new [soft intersection distance](../../../editor2/settings/render_settings/clouds/index.md#soft_intersection) for clouds, in meters.
+### Arguments
+
+- *float* **intersection** - The soft intersection distance (in meters). Range of values: **[0.0f, 100000.0f]**. The default value is : **100.0f**.
+
+## float getCloudsSoftIntersection () const
+
+***Console*:**`render_clouds_soft_intersection`Returns the current [soft intersection distance](../../../editor2/settings/render_settings/clouds/index.md#soft_intersection) for clouds, in meters.
+### Return value
+
+Current soft intersection distance (in meters).
+Range of values: **[0.0f, 100000.0f]**. The default value is : **100.0f**.
+## void setCloudsSamplesCount ( int count = 2 )
+
+***Console*:**`render_clouds_samples_count`Sets a new [number of samples](../../../editor2/settings/render_settings/clouds/index.md#samples_count) used for clouds rendering. The higher the value, the less noise in clouds rendering. The following values are available:
+- **Low** - 1 sample, low quality
+- **Medium** - 3 samples, medium quality
+- **High** - 5 samples, high quality
+- **Ultra** - 6 samples, ultra quality
+
+
+### Arguments
+
+- *int* **count** - The number of samples. One of the following values: > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[CloudsQualityPreset](/api/library/rendering/class.render_cs#render_clouds_quality_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+  - *Low* - low quality
+  - *Medium* - medium quality
+  - *High* - high quality (by default)
+  - *Ultra* - ultra quality
+
+## int getCloudsSamplesCount () const
+
+***Console*:**`render_clouds_samples_count`Returns the current [number of samples](../../../editor2/settings/render_settings/clouds/index.md#samples_count) used for clouds rendering. The higher the value, the less noise in clouds rendering. The following values are available:
+- **Low** - 1 sample, low quality
+- **Medium** - 3 samples, medium quality
+- **High** - 5 samples, high quality
+- **Ultra** - 6 samples, ultra quality
+
+
+### Return value
+
+Current number of samples. One of the following values:
+
+- *Low* - low quality
+- *Medium* - medium quality
+- *High* - high quality (by default)
+- *Ultra* - ultra quality
+
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[CloudsQualityPreset](/api/library/rendering/class.render_cs#render_clouds_quality_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setCloudsDownsamplingRendering ( int rendering = 1 )
+
+***Console*:**`render_clouds_downsampling_rendering`Sets a new downsampling rendering mode for clouds. This parameter determines clouds resolution based on current screen resolution.
+> **Notice:** This parameter has a significant impact on performance.
+
+### Arguments
+
+- *int* **rendering** - The downsampling rendering for clouds. One of the following values: > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[CloudsQualityPreset](/api/library/rendering/class.render_cs#render_clouds_quality_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+  - *Quarter* - quarter resolution
+  - *Half* - half resolution (by default)
+  - *Full* - full resolution
+
+## int getCloudsDownsamplingRendering () const
+
+***Console*:**`render_clouds_downsampling_rendering`Returns the current downsampling rendering mode for clouds. This parameter determines clouds resolution based on current screen resolution.
+> **Notice:** This parameter has a significant impact on performance.
+
+### Return value
+
+Current downsampling rendering for clouds. One of the following values:
+
+- *Quarter* - quarter resolution
+- *Half* - half resolution (by default)
+- *Full* - full resolution
+
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[CloudsQualityPreset](/api/library/rendering/class.render_cs#render_clouds_quality_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setCloudsInterleavedRendering ( int rendering = 0 )
+
+***Console*:**`render_clouds_interleaved_rendering`Sets a new [interleaved rendering mode](../../../editor2/settings/render_settings/clouds/index.md#interleaved_rendering) for clouds. In cases when clouds are viewed from the ground, or from above (at significant distance) and viewer's velocities are less than 200 units per second, this parameter can be used to provide a significant gain in performance.
+### Arguments
+
+- *int* **rendering** - The interleaved rendering mode for clouds. One of the following values: > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[CloudsQualityPreset](/api/library/rendering/class.render_cs#render_clouds_quality_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+  - **0** - Disabled (by default)
+  - **1** - 2×2
+  - **2** - 4×4
+  - **3** - 8×8
+
+## int getCloudsInterleavedRendering () const
+
+***Console*:**`render_clouds_interleaved_rendering`Returns the current [interleaved rendering mode](../../../editor2/settings/render_settings/clouds/index.md#interleaved_rendering) for clouds. In cases when clouds are viewed from the ground, or from above (at significant distance) and viewer's velocities are less than 200 units per second, this parameter can be used to provide a significant gain in performance.
+### Return value
+
+Current interleaved rendering mode for clouds. One of the following values:
+- **0** - Disabled (by default)
+- **1** - 2×2
+- **2** - 4×4
+- **3** - 8×8
+
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[CloudsQualityPreset](/api/library/rendering/class.render_cs#render_clouds_quality_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setCloudsDynamicCoverageResolution ( int resolution = 256 )
+
+***Console*:**`render_clouds_dynamic_coverage_resolution`Sets a new the value defining the size of the square dynamic coverage resolution texture for clouds, in pixels. This parameter determines the quality of dynamic coverage texture for [FieldWeather](../../../objects/effects/fields/field_weather/index.md) objects. Higher values make it possible to preserve texture details at high distances.
+> **Notice:** Increased resolution significantly affects performance.
+
+### Arguments
+
+- *int* **resolution** - The the value defining the size of the square dynamic coverage resolution texture for clouds, in pixels. Range of values: **[16, 8192]**. The default value is : **256**.
+
+## int getCloudsDynamicCoverageResolution () const
+
+***Console*:**`render_clouds_dynamic_coverage_resolution`Returns the current the value defining the size of the square dynamic coverage resolution texture for clouds, in pixels. This parameter determines the quality of dynamic coverage texture for [FieldWeather](../../../objects/effects/fields/field_weather/index.md) objects. Higher values make it possible to preserve texture details at high distances.
+> **Notice:** Increased resolution significantly affects performance.
+
+### Return value
+
+Current the value defining the size of the square dynamic coverage resolution texture for clouds, in pixels.
+Range of values: **[16, 8192]**. The default value is : **256**.
+## void setCloudsDynamicCoverageArea ( float area = 10000.0f )
+
+***Console*:**`render_clouds_dynamic_coverage_area`Sets a new dynamic coverage area for clouds, in units. This parameter determines visibility distance for coverage of [FieldWeather](../../../objects/effects/fields/field_weather/index.md) objects.
+> **Notice:** Increasing dynamic coverage area leads to reduction of quality of FieldWeather coverage texture and loss of details. This effect can be mitigated by increasing dynamic coverage resolution using the corresponding command*[setCloudsDynamicCoverageResolution()()](../../...md#render_clouds_dynamic_coverage_resolution)*.
+
+
+### Arguments
+
+- *float* **area** - The dynamic coverage area, in units. Range of values: **[10.0f, 400000.0f]**. The default value is : **10000.0f**.
+
+## float getCloudsDynamicCoverageArea () const
+
+***Console*:**`render_clouds_dynamic_coverage_area`Returns the current dynamic coverage area for clouds, in units. This parameter determines visibility distance for coverage of [FieldWeather](../../../objects/effects/fields/field_weather/index.md) objects.
+> **Notice:** Increasing dynamic coverage area leads to reduction of quality of FieldWeather coverage texture and loss of details. This effect can be mitigated by increasing dynamic coverage resolution using the corresponding command*[setCloudsDynamicCoverageResolution()()](../../...md#render_clouds_dynamic_coverage_resolution)*.
+
+
+### Return value
+
+Current dynamic coverage area, in units.
+Range of values: **[10.0f, 400000.0f]**. The default value is : **10000.0f**.
+## void setCloudsLightingConeRadius ( float radius = 0.3f )
+
+***Console*:**`render_clouds_lighting_cone_radius`Sets a new [lighting cone sampling radius](../../../editor2/settings/render_settings/clouds/index.md#lighting_cone_radius) for clouds lighting.
+> **Notice:** Low values may result in unnatural behavior as the position of the sun changes.
+
+
+### Arguments
+
+- *float* **radius** - The lighting cone radius. Range of values: **[0.0f, 1.0f]**. The default value is : **0.3f**.
+
+## float getCloudsLightingConeRadius () const
+
+***Console*:**`render_clouds_lighting_cone_radius`Returns the current [lighting cone sampling radius](../../../editor2/settings/render_settings/clouds/index.md#lighting_cone_radius) for clouds lighting.
+> **Notice:** Low values may result in unnatural behavior as the position of the sun changes.
+
+
+### Return value
+
+Current lighting cone radius.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.3f**.
+## void setCloudsLightingTraceLength ( float length = 230.0f )
+
+***Console*:**`render_clouds_lighting_tracelength`Sets a new [lighting trace length](../../../editor2/settings/render_settings/clouds/index.md#lighting_trace_length) for clouds. This parameter determines the maximum length of a sun ray inside a cloud.
+### Arguments
+
+- *float* **length** - The lighting trace length, in units. Range of values: **[1.0f, 2048.0f]**. The default value is : **230.0f**.
+
+## float getCloudsLightingTraceLength () const
+
+***Console*:**`render_clouds_lighting_tracelength`Returns the current [lighting trace length](../../../editor2/settings/render_settings/clouds/index.md#lighting_trace_length) for clouds. This parameter determines the maximum length of a sun ray inside a cloud.
+### Return value
+
+Current lighting trace length, in units.
+Range of values: **[1.0f, 2048.0f]**. The default value is : **230.0f**.
+## void setCloudsSamplingQuality ( int quality = 1 )
+
+***Console*:**`render_clouds_sampling_quality`Sets a new [sampling quality](../../../editor2/settings/render_settings/clouds/index.md#sampling_quality) for clouds. This parameter sets the number of noise samples that affects the cloud shape processing quality. The higher the value, the less are visual artifacts. The following modes are available:
+- **Low** - 1 sample, low quality (higher cloud density)
+- **Medium** - 3 samples, medium quality
+- **High** - 5 samples, high quality
+- **Ultra** - 6 samples, ultra quality (lower density, the clouds are softer)
+
+
+> **Notice:** Visual difference between low and ultra quality is not significant. Therefore, it is recommended to use low settings, when possible, to gain performance.
+
+
+### Arguments
+
+- *int* **quality** - The sampling quality. One of the following values: > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[CloudsQualityPreset](/api/library/rendering/class.render_cs#render_clouds_quality_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+  - *Low* - low quality
+  - *Medium* - medium quality (by default)
+  - *High* - high quality
+  - *Ultra* - ultra quality
+
+## int getCloudsSamplingQuality () const
+
+***Console*:**`render_clouds_sampling_quality`Returns the current [sampling quality](../../../editor2/settings/render_settings/clouds/index.md#sampling_quality) for clouds. This parameter sets the number of noise samples that affects the cloud shape processing quality. The higher the value, the less are visual artifacts. The following modes are available:
+- **Low** - 1 sample, low quality (higher cloud density)
+- **Medium** - 3 samples, medium quality
+- **High** - 5 samples, high quality
+- **Ultra** - 6 samples, ultra quality (lower density, the clouds are softer)
+
+
+> **Notice:** Visual difference between low and ultra quality is not significant. Therefore, it is recommended to use low settings, when possible, to gain performance.
+
+
+### Return value
+
+Current sampling quality. One of the following values:
+
+- *Low* - low quality
+- *Medium* - medium quality (by default)
+- *High* - high quality
+- *Ultra* - ultra quality
+
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[CloudsQualityPreset](/api/library/rendering/class.render_cs#render_clouds_quality_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setCloudsLightingQuality ( int quality = 1 )
+
+***Console*:**`render_clouds_lighting_quality`Sets a new [lighting quality](../../../editor2/settings/render_settings/clouds/index.md#lighting_quality) for clouds. This parameter determines the number of samples used to calculate lighting for clouds. The following values are available:
+- **Low** - 1 sample, low quality
+- **Medium** - 3 samples, medium quality
+- **High** - 5 samples, high quality
+- **Ultra** - 6 samples, ultra quality
+
+
+> **Notice:** This parameter has a significant impact on performance. Therefore, it is recommended to use low settings, when possible.
+
+
+### Arguments
+
+- *int* **quality** - The lighting quality. One of the following values: > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[CloudsQualityPreset](/api/library/rendering/class.render_cs#render_clouds_quality_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+  - *Low* - low quality
+  - *Medium* - medium quality (by default)
+  - *High* - high quality
+  - *Ultra* - ultra quality
+
+## int getCloudsLightingQuality () const
+
+***Console*:**`render_clouds_lighting_quality`Returns the current [lighting quality](../../../editor2/settings/render_settings/clouds/index.md#lighting_quality) for clouds. This parameter determines the number of samples used to calculate lighting for clouds. The following values are available:
+- **Low** - 1 sample, low quality
+- **Medium** - 3 samples, medium quality
+- **High** - 5 samples, high quality
+- **Ultra** - 6 samples, ultra quality
+
+
+> **Notice:** This parameter has a significant impact on performance. Therefore, it is recommended to use low settings, when possible.
+
+
+### Return value
+
+Current lighting quality. One of the following values:
+
+- *Low* - low quality
+- *Medium* - medium quality (by default)
+- *High* - high quality
+- *Ultra* - ultra quality
+
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[CloudsQualityPreset](/api/library/rendering/class.render_cs#render_clouds_quality_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setCloudsGroundShadows ( bool shadows = 1 )
+
+***Console*:**`render_clouds_ground_shadows`Sets a new value indicating if rendering of shadows from the clouds on the ground is enabled.
+### Arguments
+
+- *bool* **shadows** - Set **true** to enable rendering of shadows from the clouds on the ground; **false** - to disable it. The default value is **true**.
+
+## bool isCloudsGroundShadows () const
+
+***Console*:**`render_clouds_ground_shadows`Returns the current value indicating if rendering of shadows from the clouds on the ground is enabled.
+### Return value
+
+**true** if rendering of shadows from the clouds on the ground is enabled; otherwise **false**. The default value is **true**.
+## void setCloudsEnabled ( bool enabled = 1 )
+
+***Console*:**`render_clouds_enabled`Sets a new value indicating if rendering of clouds is enabled.
+### Arguments
+
+- *bool* **enabled** - Set **true** to enable rendering of clouds; **false** - to disable it. The default value is **true**.
+
+## bool isCloudsEnabled () const
+
+***Console*:**`render_clouds_enabled`Returns the current value indicating if rendering of clouds is enabled.
+### Return value
+
+**true** if rendering of clouds is enabled; otherwise **false**. The default value is **true**.
+## void setCloudsStepAccuracy ( float accuracy = 0.5f )
+
+***Console*:**`render_clouds_step_accuracy`Sets a new accuracy of ray marching steps. This parameter enables you to improve the visual look of clouds when viewed from inside a cloud layer. It reduces the noise of lighting and clouds shape for long ray marching distances, adds some noise-based blur to a sharp border at the bottom sphere of the cloud layer (rounded) and removes popping effect when leaving a rounded cloud layer. *Higher* values provide more accurate form and less noise, while *lower* ones gain more performance.
+### Arguments
+
+- *float* **accuracy** - The accuracy of ray marching (*lower* numbers gain more performance). Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[CloudsQualityPreset](/api/library/rendering/class.render_cs#render_clouds_quality_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getCloudsStepAccuracy () const
+
+***Console*:**`render_clouds_step_accuracy`Returns the current accuracy of ray marching steps. This parameter enables you to improve the visual look of clouds when viewed from inside a cloud layer. It reduces the noise of lighting and clouds shape for long ray marching distances, adds some noise-based blur to a sharp border at the bottom sphere of the cloud layer (rounded) and removes popping effect when leaving a rounded cloud layer. *Higher* values provide more accurate form and less noise, while *lower* ones gain more performance.
+### Return value
+
+Current accuracy of ray marching (*lower* numbers gain more performance).
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[CloudsQualityPreset](/api/library/rendering/class.render_cs#render_clouds_quality_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setCloudsAccurateLayersSorting ( bool sorting = 0 )
+
+***Console*:**`render_clouds_accurate_layers_sorting`Sets a new value indicating if correct sorting of intersecting cloud layers is enabled.
+> **Notice:** Enabling this feature may reduce raymarching quality as samples shall be distributed among all layers.
+
+### Arguments
+
+- *bool* **sorting** - Set **true** to enable correct sorting of intersecting cloud layers; **false** - to disable it. The default value is **false**.
+
+## bool isCloudsAccurateLayersSorting () const
+
+***Console*:**`render_clouds_accurate_layers_sorting`Returns the current value indicating if correct sorting of intersecting cloud layers is enabled.
+> **Notice:** Enabling this feature may reduce raymarching quality as samples shall be distributed among all layers.
+
+### Return value
+
+**true** if correct sorting of intersecting cloud layers is enabled; otherwise **false**. The default value is **false**.
+## void setCloudDistortionTexture ( int texture = 0 )
+
+***Console*:**`render_clouds_distortion_texture`Sets a new value indicating which texture type is used for clouds distortion at the moment. This parameter has a significant impact on performance:
+- **2D Texture** - more performance-friendly, but may cause an excessive vertical extrusion of clouds.
+- **3D Texture** - ensures homogeneous detail distortion and better image quality, but at a higher performance cost.
+
+
+### Arguments
+
+- *int* **texture** - The texture type to be used. One of the following values:
+
+  - **0** - 2D texture (by default)
+  - **1** - 3D texture
+
+## int getCloudDistortionTexture () const
+
+***Console*:**`render_clouds_distortion_texture`Returns the current value indicating which texture type is used for clouds distortion at the moment. This parameter has a significant impact on performance:
+- **2D Texture** - more performance-friendly, but may cause an excessive vertical extrusion of clouds.
+- **3D Texture** - ensures homogeneous detail distortion and better image quality, but at a higher performance cost.
+
+
+### Return value
+
+Current texture type to be used. One of the following values:
+- **0** - 2D texture (by default)
+- **1** - 3D texture
+
+## void setCloudsInterleavedRenderingTemporal ( bool temporal = 1 )
+
+***Console*:**`render_clouds_interleaved_rendering_temporal`Sets a new value indicating if temporal accumulation of noises for interleaved sampling for clouds is enabled.
+> **Notice:** Works only when the clouds interleaved rendering mode*[setCloudsInterleavedRendering()()](../../...md#render_clouds_interleaved_rendering)* is set to 2x2.
+
+
+### Arguments
+
+- *bool* **temporal** - Set **true** to enable temporal accumulation of noises for interleaved sampling for clouds; **false** - to disable it. The default value is **true**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[CloudsQualityPreset](/api/library/rendering/class.render_cs#render_clouds_quality_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isCloudsInterleavedRenderingTemporal () const
+
+***Console*:**`render_clouds_interleaved_rendering_temporal`Returns the current value indicating if temporal accumulation of noises for interleaved sampling for clouds is enabled.
+> **Notice:** Works only when the clouds interleaved rendering mode*[setCloudsInterleavedRendering()()](../../...md#render_clouds_interleaved_rendering)* is set to 2x2.
+
+
+### Return value
+
+**true** if temporal accumulation of noises for interleaved sampling for clouds is enabled; otherwise **false**. The default value is **true**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[CloudsQualityPreset](/api/library/rendering/class.render_cs#render_clouds_quality_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setCloudsDepthBasedReconstructionThreshold ( float threshold = 100.0f )
+
+***Console*:**`render_clouds_depth_based_reconstruction_threshold`Sets a new depth threshold value for clouds depth-based reconstruction mode*[setCloudsDepthBasedReconstruction()()](../../...md#render_clouds_depth_based_reconstruction)*. This value defines the depth difference starting from which pixels are considered to be related to different surfaces.
+### Arguments
+
+- *float* **threshold** - The depth threshold value. Range of values: **[0.0f, inf]**. The default value is : **100.0f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[CloudsQualityPreset](/api/library/rendering/class.render_cs#render_clouds_quality_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getCloudsDepthBasedReconstructionThreshold () const
+
+***Console*:**`render_clouds_depth_based_reconstruction_threshold`Returns the current depth threshold value for clouds depth-based reconstruction mode*[setCloudsDepthBasedReconstruction()()](../../...md#render_clouds_depth_based_reconstruction)*. This value defines the depth difference starting from which pixels are considered to be related to different surfaces.
+### Return value
+
+Current depth threshold value.
+Range of values: **[0.0f, inf]**. The default value is : **100.0f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[CloudsQualityPreset](/api/library/rendering/class.render_cs#render_clouds_quality_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setCloudsDepthBasedReconstruction ( bool reconstruction = 0 )
+
+***Console*:**`render_clouds_depth_based_reconstruction`Sets a new value indicating if clouds ray-marched depth is used for upsampling the downsampled clouds without obscuring the geometry and reprojection depending on the cloud depth. Recommended for flying through clouds.
+> **Notice:** Works only with the clouds downsampling rendering mode*[setCloudsDownsamplingRendering()()](../../...md#render_clouds_downsampling_rendering)* set to half and/or the clouds interleaved rendering mode*[setCloudsInterleavedRendering()()](../../...md#render_clouds_interleaved_rendering)* set to 2x2.
+
+
+### Arguments
+
+- *bool* **reconstruction** - Set **true** to enable using ray-marched depth for upsampling the downsampled clouds; **false** - to disable it. The default value is **false**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[CloudsQualityPreset](/api/library/rendering/class.render_cs#render_clouds_quality_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isCloudsDepthBasedReconstruction () const
+
+***Console*:**`render_clouds_depth_based_reconstruction`Returns the current value indicating if clouds ray-marched depth is used for upsampling the downsampled clouds without obscuring the geometry and reprojection depending on the cloud depth. Recommended for flying through clouds.
+> **Notice:** Works only with the clouds downsampling rendering mode*[setCloudsDownsamplingRendering()()](../../...md#render_clouds_downsampling_rendering)* set to half and/or the clouds interleaved rendering mode*[setCloudsInterleavedRendering()()](../../...md#render_clouds_interleaved_rendering)* set to 2x2.
+
+
+### Return value
+
+**true** if using ray-marched depth for upsampling the downsampled clouds is enabled; otherwise **false**. The default value is **false**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[CloudsQualityPreset](/api/library/rendering/class.render_cs#render_clouds_quality_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setCloudsFarClipping ( bool clipping = 1 )
+
+***Console*:**`render_clouds_far_clipping`Sets a new value indicating if [far-plane clipping](../../../editor2/camera_settings/index.md#camera_settings) is used for clouds visibility.
+Controlling clouds visibility by increasing the far-plane distance significantly affects performance in many aspects (dynamic Environment Probes, etc.). You can disable this option when necessary as an optimization.
+
+### Arguments
+
+- *bool* **clipping** - Set **true** to enable using far-plane clipping for clouds visibility.; **false** - to disable it. The default value is **true**.
+
+## bool isCloudsFarClipping () const
+
+***Console*:**`render_clouds_far_clipping`Returns the current value indicating if [far-plane clipping](../../../editor2/camera_settings/index.md#camera_settings) is used for clouds visibility.
+Controlling clouds visibility by increasing the far-plane distance significantly affects performance in many aspects (dynamic Environment Probes, etc.). You can disable this option when necessary as an optimization.
+
+### Return value
+
+**true** if using far-plane clipping for clouds visibility. is enabled; otherwise **false**. The default value is **true**.
+## void setCloudsRoundedPlanetRadius ( float radius = 200000.0f )
+
+***Console*:**`render_clouds_rounded_planet_radius`Sets a new radius of the planet to be used for clouds curving. Visual curving can be used to make clouds look more natural imitating planet's curvature.
+### Arguments
+
+- *float* **radius** - The planet radius to be used for clouds curving, in units. Range of values: **[100.0f, inf]**. The default value is : **200000.0f**.
+
+## float getCloudsRoundedPlanetRadius () const
+
+***Console*:**`render_clouds_rounded_planet_radius`Returns the current radius of the planet to be used for clouds curving. Visual curving can be used to make clouds look more natural imitating planet's curvature.
+### Return value
+
+Current planet radius to be used for clouds curving, in units.
+Range of values: **[100.0f, inf]**. The default value is : **200000.0f**.
+## void setCloudsRounded ( bool rounded = 1 )
+
+***Console*:**`render_clouds_rounded`Sets a new value indicating if cloud layers are to be curved to make them look more natural imitating planet's curvature.
+### Arguments
+
+- *bool* **rounded** - Set **true** to enable visual curving for clouds; **false** - to disable it. The default value is **true**.
+
+## bool isCloudsRounded () const
+
+***Console*:**`render_clouds_rounded`Returns the current value indicating if cloud layers are to be curved to make them look more natural imitating planet's curvature.
+### Return value
+
+**true** if visual curving for clouds is enabled; otherwise **false**. The default value is **true**.
+## void setWaterAnisotropy ( int anisotropy = 1 )
+
+***Console*:**`render_water_anisotropy`Sets a new water texture anisotropy level. The following values are available:
+- 1x - anisotropy level 1
+- 2x - anisotropy level 2
+- 4x - anisotropy level 4
+- 8x - anisotropy level 8
+- 16x - anisotropy level 16
+
+
+### Arguments
+
+- *int* **anisotropy** - The anisotropy level. One of the following values:
+
+  - **0** - 1x
+  - **1** - 2x (by default)
+  - **2** - 4x
+  - **3** - 8x
+  - **4** - 16x
+
+## int getWaterAnisotropy () const
+
+***Console*:**`render_water_anisotropy`Returns the current water texture anisotropy level. The following values are available:
+- 1x - anisotropy level 1
+- 2x - anisotropy level 2
+- 4x - anisotropy level 4
+- 8x - anisotropy level 8
+- 16x - anisotropy level 16
+
+
+### Return value
+
+Current anisotropy level. One of the following values:
+- **0** - 1x
+- **1** - 2x (by default)
+- **2** - 4x
+- **3** - 8x
+- **4** - 16x
+
+## void setWaterRefractionQuality ( int quality = 2 )
+
+***Console*:**`render_water_refraction_quality`Sets a new quality of water refraction.
+### Arguments
+
+- *int* **quality** - The refraction quality. One of the following values:
+
+  - *Low* - low quality
+  - *Medium* - medium quality
+  - *High* - high quality (by default)
+  - *Ultra* - ultra quality
+
+## int getWaterRefractionQuality () const
+
+***Console*:**`render_water_refraction_quality`Returns the current quality of water refraction.
+### Return value
+
+Current refraction quality. One of the following values:
+
+- *Low* - low quality
+- *Medium* - medium quality
+- *High* - high quality (by default)
+- *Ultra* - ultra quality
+
+## void setWaterSSRQuality ( int ssrquality = 1 )
+
+***Console*:**`render_water_ssr_quality`Sets a new resolution of water SSR (Screen Space Reflections).
+### Arguments
+
+- *int* **ssrquality** - The water SSR quality. One of the following values:
+
+  - *Low* - low quality
+  - *Medium* - medium quality (by default)
+  - *High* - high quality
+  - *Ultra* - ultra quality
+
+## int getWaterSSRQuality () const
+
+***Console*:**`render_water_ssr_quality`Returns the current resolution of water SSR (Screen Space Reflections).
+### Return value
+
+Current water SSR quality. One of the following values:
+
+- *Low* - low quality
+- *Medium* - medium quality (by default)
+- *High* - high quality
+- *Ultra* - ultra quality
+
+## void setWaterLights ( bool lights = 1 )
+
+***Console*:**`render_water_lights`Sets a new value indicating if rendering of lights on the water surface is enabled.
+> **Notice:** The option doesn't affect the [World Light source](../../../objects/lights/world/index.md).
+
+### Arguments
+
+- *bool* **lights** - Set **true** to enable rendering of lights on the water surface; **false** - to disable it. The default value is **true**.
+
+## bool isWaterLights () const
+
+***Console*:**`render_water_lights`Returns the current value indicating if rendering of lights on the water surface is enabled.
+> **Notice:** The option doesn't affect the [World Light source](../../../objects/lights/world/index.md).
+
+### Return value
+
+**true** if rendering of lights on the water surface is enabled; otherwise **false**. The default value is **true**.
+## void setWaterVoxelProbes ( bool probes = 1 )
+
+***Console*:**`render_water_voxel_probes`Sets a new value indicating if voxel probes are enabled for water rendering.
+### Arguments
+
+- *bool* **probes** - Set **true** to enable rendering of voxel probes on the water surface; **false** - to disable it. The default value is **true**.
+
+## bool isWaterVoxelProbes () const
+
+***Console*:**`render_water_voxel_probes`Returns the current value indicating if voxel probes are enabled for water rendering.
+### Return value
+
+**true** if rendering of voxel probes on the water surface is enabled; otherwise **false**. The default value is **true**.
+## void setWaterEnvironmentProbes ( bool probes = 1 )
+
+***Console*:**`render_water_environment_probes`Sets a new value indicating if rendering of environment probes on the water surface is enabled.
+### Arguments
+
+- *bool* **probes** - Set **true** to enable rendering of environment probes on the water surface; **false** - to disable it. The default value is **true**.
+
+## bool isWaterEnvironmentProbes () const
+
+***Console*:**`render_water_environment_probes`Returns the current value indicating if rendering of environment probes on the water surface is enabled.
+### Return value
+
+**true** if rendering of environment probes on the water surface is enabled; otherwise **false**. The default value is **true**.
+## void setWaterOpacityDepth ( bool depth = 1 )
+
+***Console*:**`render_water_opacity_depth`Sets a new value indicating if depth data for water is written to the opacity buffer.
+### Arguments
+
+- *bool* **depth** - Set **true** to enable writing depth data for water to the opacity buffer; **false** - to disable it. The default value is **true**.
+
+## bool isWaterOpacityDepth () const
+
+***Console*:**`render_water_opacity_depth`Returns the current value indicating if depth data for water is written to the opacity buffer.
+### Return value
+
+**true** if writing depth data for water to the opacity buffer is enabled; otherwise **false**. The default value is **true**.
+## void setWaterShafts ( bool shafts = 1 )
+
+***Console*:**`render_water_shafts`Sets a new value indicating if rendering of underwater shafts is enabled.
+### Arguments
+
+- *bool* **shafts** - Set **true** to enable rendering of underwater shafts; **false** - to disable it. The default value is **true**.
+
+## bool isWaterShafts () const
+
+***Console*:**`render_water_shafts`Returns the current value indicating if rendering of underwater shafts is enabled.
+### Return value
+
+**true** if rendering of underwater shafts is enabled; otherwise **false**. The default value is **true**.
+## void setWaterShorelineWetness ( bool wetness = 1 )
+
+***Console*:**`render_water_shoreline_wetness`Sets a new value indicating if the wetness effect for objects near the shoreline is enabled.
+### Arguments
+
+- *bool* **wetness** - Set **true** to enable shoreline wetness; **false** - to disable it. The default value is **true**.
+
+## bool isWaterShorelineWetness () const
+
+***Console*:**`render_water_shoreline_wetness`Returns the current value indicating if the wetness effect for objects near the shoreline is enabled.
+### Return value
+
+**true** if shoreline wetness is enabled; otherwise **false**. The default value is **true**.
+## void setWaterSSRIncreasedAccuracy ( bool accuracy = 0 )
+
+***Console*:**`render_water_ssr_increased_accuracy`Sets a new value indicating if increased accuracy for the water SSR (Screen Space Reflections). This option reduces visual artifacts by increasing accuracy of the last step.
+### Arguments
+
+- *bool* **accuracy** - Set **true** to enable increased accuracy for the water SSR; **false** - to disable it. The default value is **false**.
+
+## bool isWaterSSRIncreasedAccuracy () const
+
+***Console*:**`render_water_ssr_increased_accuracy`Returns the current value indicating if increased accuracy for the water SSR (Screen Space Reflections). This option reduces visual artifacts by increasing accuracy of the last step.
+### Return value
+
+**true** if increased accuracy for the water SSR is enabled; otherwise **false**. The default value is **false**.
+## void setWaterSSR ( bool ssr = 1 )
+
+***Console*:**`render_water_ssr`Sets a new value indicating if the SSR (Screen Space Reflections) effect is enabled for water.
+### Arguments
+
+- *bool* **ssr** - Set **true** to enable SSR effect for water; **false** - to disable it. The default value is **true**.
+
+## bool isWaterSSR () const
+
+***Console*:**`render_water_ssr`Returns the current value indicating if the SSR (Screen Space Reflections) effect is enabled for water.
+### Return value
+
+**true** if SSR effect for water is enabled; otherwise **false**. The default value is **true**.
+## void setWaterEnabled ( bool enabled = 1 )
+
+***Console*:**`render_water_enabled`Sets a new value indicating if rendering of water is enabled.
+### Arguments
+
+- *bool* **enabled** - Set **true** to enable water rendering; **false** - to disable it. The default value is **true**.
+
+## bool isWaterEnabled () const
+
+***Console*:**`render_water_enabled`Returns the current value indicating if rendering of water is enabled.
+### Return value
+
+**true** if water rendering is enabled; otherwise **false**. The default value is **true**.
+## void setTerrainGlobalAnisotropy ( int anisotropy = 2 )
+
+***Console*:**`render_terrain_global_anisotropy`Sets a new [global terrain](../../../objects/objects/terrain/terrain_global/index.md) texture anisotropy level (degree of anisotropic filtering). Anisotropy for the global terrain has a huge impact for the performance if terrain has a lot of tiled detail materials as anisotropy filtering for the terrain is much slower than for the other objects.
+### Arguments
+
+- *int* **anisotropy** - The anisotropy level One of the following values:
+
+  - **0** - anisotropy level 1
+  - **1** - anisotropy level 2
+  - **2** - anisotropy level 4 (by default)
+  - **3** - anisotropy level 8
+  - **4** - anisotropy level 16
+
+## int getTerrainGlobalAnisotropy () const
+
+***Console*:**`render_terrain_global_anisotropy`Returns the current [global terrain](../../../objects/objects/terrain/terrain_global/index.md) texture anisotropy level (degree of anisotropic filtering). Anisotropy for the global terrain has a huge impact for the performance if terrain has a lot of tiled detail materials as anisotropy filtering for the terrain is much slower than for the other objects.
+### Return value
+
+Current anisotropy level One of the following values:
+- **0** - anisotropy level 1
+- **1** - anisotropy level 2
+- **2** - anisotropy level 4 (by default)
+- **3** - anisotropy level 8
+- **4** - anisotropy level 16
+
+## void setTerrainGlobalHoles ( bool holes = 0 )
+
+***Console*:**`render_terrain_global_holes`Sets a new value indicating if [decal-based holes](../../../objects/objects/terrain/terrain_global/index.md#decal_holes) are enabled for the [global terrain](../../../objects/objects/terrain/terrain_global/index.md).
+### Arguments
+
+- *bool* **holes** - Set **true** to enable decal-based holes for the Global Terrain; **false** - to disable it. The default value is **false**.
+
+## bool isTerrainGlobalHoles () const
+
+***Console*:**`render_terrain_global_holes`Returns the current value indicating if [decal-based holes](../../../objects/objects/terrain/terrain_global/index.md#decal_holes) are enabled for the [global terrain](../../../objects/objects/terrain/terrain_global/index.md).
+### Return value
+
+**true** if decal-based holes for the Global Terrain is enabled; otherwise **false**. The default value is **false**.
+## void setTerrainGlobalDisplacementNormal ( bool normal = 0 )
+
+***Console*:**`render_terrain_global_displacement_normal`Sets a new value indicating if displacement mapping for the [Global Terrain](../../../objects/objects/terrain/terrain_global/index.md) rendering uses normals.
+### Arguments
+
+- *bool* **normal** - Set **true** to enable using normals for displacement mapping for the Global Terrain; **false** - to disable it. The default value is **false**.
+
+## bool isTerrainGlobalDisplacementNormal () const
+
+***Console*:**`render_terrain_global_displacement_normal`Returns the current value indicating if displacement mapping for the [Global Terrain](../../../objects/objects/terrain/terrain_global/index.md) rendering uses normals.
+### Return value
+
+**true** if using normals for displacement mapping for the Global Terrain is enabled; otherwise **false**. The default value is **false**.
+## void setTerrainGlobalDisplacement ( bool displacement = 0 )
+
+***Console*:**`render_terrain_global_displacement`Sets a new value indicating if displacement mapping is enabled for the [Global Terrain](../../../objects/objects/terrain/terrain_global/index.md).
+### Arguments
+
+- *bool* **displacement** - Set **true** to enable displacement mapping for the Global Terrain; **false** - to disable it. The default value is **false**.
+
+## bool isTerrainGlobalDisplacement () const
+
+***Console*:**`render_terrain_global_displacement`Returns the current value indicating if displacement mapping is enabled for the [Global Terrain](../../../objects/objects/terrain/terrain_global/index.md).
+### Return value
+
+**true** if displacement mapping for the Global Terrain is enabled; otherwise **false**. The default value is **false**.
+## void setTerrainGlobalTriplanar ( bool triplanar = 0 )
+
+***Console*:**`render_terrain_global_triplanar`Sets a new value indicating if [triplanar texture mapping](../../../objects/objects/terrain/terrain_global/details/index.md#triplanar) is enabled for the [Global Terrain](../../../objects/objects/terrain/terrain_global/index.md). If disabled, planar UV-mapping is used.
+### Arguments
+
+- *bool* **triplanar** - Set **true** to enable triplanar texture mapping for the Global Terrain.; **false** - to disable it. The default value is **false**.
+
+## bool isTerrainGlobalTriplanar () const
+
+***Console*:**`render_terrain_global_triplanar`Returns the current value indicating if [triplanar texture mapping](../../../objects/objects/terrain/terrain_global/details/index.md#triplanar) is enabled for the [Global Terrain](../../../objects/objects/terrain/terrain_global/index.md). If disabled, planar UV-mapping is used.
+### Return value
+
+**true** if triplanar texture mapping for the Global Terrain. is enabled; otherwise **false**. The default value is **false**.
+## void setSSDirtConvexityMetalnessVisibility ( float visibility = 0.0f )
+
+***Console*:**`render_ssdirt_convexity_metalness_visibility`Sets a new [metalness visibility](../../../editor2/settings/render_settings/ssdirt/index.md#convexity_metalness_visibility) value for convexities. A multiplier that determines the degree of impact of the effect on metalness buffer (the *higher* the value the more metalness buffer is affected. SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Arguments
+
+- *float* **visibility** - The metalness visibility for convexities. Range of values: **[0.0f, 1.0f]**. The default value is : **0.0f**.
+
+## float getSSDirtConvexityMetalnessVisibility () const
+
+***Console*:**`render_ssdirt_convexity_metalness_visibility`Returns the current [metalness visibility](../../../editor2/settings/render_settings/ssdirt/index.md#convexity_metalness_visibility) value for convexities. A multiplier that determines the degree of impact of the effect on metalness buffer (the *higher* the value the more metalness buffer is affected. SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Return value
+
+Current metalness visibility for convexities.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.0f**.
+## void setSSDirtConvexityMetalness ( float metalness = 0.0f )
+
+***Console*:**`render_ssdirt_convexity_metalness`Sets a new [metalness](../../../editor2/settings/render_settings/ssdirt/index.md#convexity_metalness) value for convexities. When set to 0 (by default), the SSDirt effect does not modify metalness buffer in convex areas. SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Arguments
+
+- *float* **metalness** - The metalness value for convexities. Range of values: **[0.0f, 1.0f]**. The default value is : **0.0f**.
+
+## float getSSDirtConvexityMetalness () const
+
+***Console*:**`render_ssdirt_convexity_metalness`Returns the current [metalness](../../../editor2/settings/render_settings/ssdirt/index.md#convexity_metalness) value for convexities. When set to 0 (by default), the SSDirt effect does not modify metalness buffer in convex areas. SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Return value
+
+Current metalness value for convexities.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.0f**.
+## void setSSDirtConvexityExponent ( float exponent = 1.0f )
+
+***Console*:**`render_ssdirt_convexity_exponent`Sets a new [exponent](../../../editor2/settings/render_settings/ssdirt/index.md#convexity_exponent) value that determines the rate of gradual change of intensity along the radius for convexities. *Lower* values make gradual change of intensity smoother. SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Arguments
+
+- *float* **exponent** - The exponent value for convexities. Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+
+## float getSSDirtConvexityExponent () const
+
+***Console*:**`render_ssdirt_convexity_exponent`Returns the current [exponent](../../../editor2/settings/render_settings/ssdirt/index.md#convexity_exponent) value that determines the rate of gradual change of intensity along the radius for convexities. *Lower* values make gradual change of intensity smoother. SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Return value
+
+Current exponent value for convexities.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+## void setSSDirtConvexityColor ( )
+
+***Console*:**`render_ssdirt_convexity_color`Sets a new [color multiplier](../../../editor2/settings/render_settings/ssdirt/index.md#convexity_color) for the Albedo texture used for convexities (global wear and scratch color pattern). SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Arguments
+
+- **color** - The color multiplier for the Albedo texture used for convexities. **vec4(0.48f, 0.44f, 0.39f, 1.0f)** - default value
+
+## getSSDirtConvexityColor () const
+
+***Console*:**`render_ssdirt_convexity_color`Returns the current [color multiplier](../../../editor2/settings/render_settings/ssdirt/index.md#convexity_color) for the Albedo texture used for convexities (global wear and scratch color pattern). SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Return value
+
+Current color multiplier for the Albedo texture used for convexities.
+**vec4(0.48f, 0.44f, 0.39f, 1.0f)** - default value
+## void setSSDirtConvexityTextureSize ( float size = 1.0f )
+
+***Console*:**`render_ssdirt_convexity_texture_size`Sets a new scaling factor for the textures used for convexities. SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Arguments
+
+- *float* **size** - The scaling factor. Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+
+## float getSSDirtConvexityTextureSize () const
+
+***Console*:**`render_ssdirt_convexity_texture_size`Returns the current scaling factor for the textures used for convexities. SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Return value
+
+Current scaling factor.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+## void setSSDirtCavityMetalnessVisibility ( float visibility = 0.0f )
+
+***Console*:**`render_ssdirt_cavity_metalness_visibility`Sets a new [metalness visibility](../../../editor2/settings/render_settings/ssdirt/index.md#cavity_metalness_visibility) value for cavities. A multiplier that determines the degree of impact of the effect on metalness buffer (the *higher* the value the more metalness buffer is affected. SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Arguments
+
+- *float* **visibility** - The metalness visibility for cavities. Range of values: **[0.0f, 1.0f]**. The default value is : **0.0f**.
+
+## float getSSDirtCavityMetalnessVisibility () const
+
+***Console*:**`render_ssdirt_cavity_metalness_visibility`Returns the current [metalness visibility](../../../editor2/settings/render_settings/ssdirt/index.md#cavity_metalness_visibility) value for cavities. A multiplier that determines the degree of impact of the effect on metalness buffer (the *higher* the value the more metalness buffer is affected. SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Return value
+
+Current metalness visibility for cavities.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.0f**.
+## void setSSDirtCavityMetalness ( float metalness = 0.0f )
+
+***Console*:**`render_ssdirt_cavity_metalness`Sets a new [metalness](../../../editor2/settings/render_settings/ssdirt/index.md#cavity_metalness) value for cavities. When set to 0 (by default), the SSDirt effect does not modify metalness buffer in cavities. SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Arguments
+
+- *float* **metalness** - The metalness value for cavities. Range of values: **[0.0f, 1.0f]**. The default value is : **0.0f**.
+
+## float getSSDirtCavityMetalness () const
+
+***Console*:**`render_ssdirt_cavity_metalness`Returns the current [metalness](../../../editor2/settings/render_settings/ssdirt/index.md#cavity_metalness) value for cavities. When set to 0 (by default), the SSDirt effect does not modify metalness buffer in cavities. SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Return value
+
+Current metalness value for cavities.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.0f**.
+## void setSSDirtCavityExponent ( float exponent = 1.0f )
+
+***Console*:**`render_ssdirt_cavity_exponent`Sets a new [exponent](../../../editor2/settings/render_settings/ssdirt/index.md#cavity_exponent) value that determines the rate of gradual change of intensity along the radius for cavities. *Lower* values make gradual change of intensity smoother. SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Arguments
+
+- *float* **exponent** - The exponent value for cavities. Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+
+## float getSSDirtCavityExponent () const
+
+***Console*:**`render_ssdirt_cavity_exponent`Returns the current [exponent](../../../editor2/settings/render_settings/ssdirt/index.md#cavity_exponent) value that determines the rate of gradual change of intensity along the radius for cavities. *Lower* values make gradual change of intensity smoother. SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Return value
+
+Current exponent value for cavities.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+## void setSSDirtCavityColor ( )
+
+***Console*:**`render_ssdirt_cavity_color`Sets a new [color multiplier](../../../editor2/settings/render_settings/ssdirt/index.md#cavity_color) for the Albedo texture used for cavities (global dirt and dust color pattern). SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Arguments
+
+- **color** - The color multiplier for the Albedo texture used for cavities. **vec4(0.26f, 0.24f, 0.21f, 1.0f)** - default value
+
+## getSSDirtCavityColor () const
+
+***Console*:**`render_ssdirt_cavity_color`Returns the current [color multiplier](../../../editor2/settings/render_settings/ssdirt/index.md#cavity_color) for the Albedo texture used for cavities (global dirt and dust color pattern). SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Return value
+
+Current color multiplier for the Albedo texture used for cavities.
+**vec4(0.26f, 0.24f, 0.21f, 1.0f)** - default value
+## void setSSDirtCavityTextureSize ( float size = 1.0f )
+
+***Console*:**`render_ssdirt_cavity_texture_size`Sets a new scaling factor for the textures used for cavities. SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Arguments
+
+- *float* **size** - The scaling factor. Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+
+## float getSSDirtCavityTextureSize () const
+
+***Console*:**`render_ssdirt_cavity_texture_size`Returns the current scaling factor for the textures used for cavities. SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Return value
+
+Current scaling factor.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+## void setSSDirtConvexityShadingTextureName ( )
+
+Sets a new name of the shading texture to be used for convexities. *Red* channel of this texture defines metalness pattern for all convexities globally (other channels are ignored). SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Arguments
+
+- **name** - The name of the shading texture.
+
+## getSSDirtConvexityShadingTextureName () const
+
+Returns the current name of the shading texture to be used for convexities. *Red* channel of this texture defines metalness pattern for all convexities globally (other channels are ignored). SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Return value
+
+Current name of the shading texture.
+## void setSSDirtConvexityAlbedoTextureName ( )
+
+Sets a new name of the albedo texture to be used for convexities. This texture defines wear and scratch color pattern for all convexities globally. SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Arguments
+
+- **name** - The name of the albedo texture.
+
+## getSSDirtConvexityAlbedoTextureName () const
+
+Returns the current name of the albedo texture to be used for convexities. This texture defines wear and scratch color pattern for all convexities globally. SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Return value
+
+Current name of the albedo texture.
+## void setSSDirtCavityShadingTextureName ( )
+
+Sets a new name of the shading texture to be used for cavities. *Red* channel of this texture defines metalness pattern for all cavities globally (other channels are ignored). SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Arguments
+
+- **name** - The name of the shading texture.
+
+## getSSDirtCavityShadingTextureName () const
+
+Returns the current name of the shading texture to be used for cavities. *Red* channel of this texture defines metalness pattern for all cavities globally (other channels are ignored). SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Return value
+
+Current name of the shading texture.
+## void setSSDirtCavityAlbedoTextureName ( )
+
+Sets a new name of the albedo texture to be used for cavities. This texture defines wear and scratch color pattern for all cavities globally. SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Arguments
+
+- **name** - The name of the albedo texture.
+
+## getSSDirtCavityAlbedoTextureName () const
+
+Returns the current name of the albedo texture to be used for cavities. This texture defines wear and scratch color pattern for all cavities globally. SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Return value
+
+Current name of the albedo texture.
+## void setSSDirtIncreaseAccuracy ( bool accuracy = 0 )
+
+***Console*:**`render_ssdirt_increase_accuracy`Sets a new value indicating if increased accuracy for the [SSDirt](../../../editor2/settings/render_settings/ssdirt/index.md) effect. This option should be used to remove visual artefacts along the screen edges, in case if they appear. Otherwise, it should be disabled. SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Arguments
+
+- *bool* **accuracy** - Set **true** to enable increased accuracy for SSDirt; **false** - to disable it. The default value is **false**.
+
+## bool isSSDirtIncreaseAccuracy () const
+
+***Console*:**`render_ssdirt_increase_accuracy`Returns the current value indicating if increased accuracy for the [SSDirt](../../../editor2/settings/render_settings/ssdirt/index.md) effect. This option should be used to remove visual artefacts along the screen edges, in case if they appear. Otherwise, it should be disabled. SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Return value
+
+**true** if increased accuracy for SSDirt is enabled; otherwise **false**. The default value is **false**.
+## void setSSDirtPerspective ( float perspective = 0.02f )
+
+***Console*:**`render_ssdirt_perspective`Sets a new [perspective](../../../editor2/settings/render_settings/ssdirt/index.md#perspective) value, that determines the degree of impact of distance from the camera on the radius of the Screen-Space Dirt effect.
+- 0.0f - radius of the effect is bound to screen space (it remains constant relative to screen size, regardless of the distance to the camera).
+- 1.0f - radius of the effect is bound to world space (it remains the same relative to objects, i.e. gets smaller as the camera moves away from them).
+
+SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Arguments
+
+- *float* **perspective** - The perspective value. Range of values: **[0.0f, 1.0f]**. The default value is : **0.02f**.
+
+## float getSSDirtPerspective () const
+
+***Console*:**`render_ssdirt_perspective`Returns the current [perspective](../../../editor2/settings/render_settings/ssdirt/index.md#perspective) value, that determines the degree of impact of distance from the camera on the radius of the Screen-Space Dirt effect.
+- 0.0f - radius of the effect is bound to screen space (it remains constant relative to screen size, regardless of the distance to the camera).
+- 1.0f - radius of the effect is bound to world space (it remains the same relative to objects, i.e. gets smaller as the camera moves away from them).
+
+SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Return value
+
+Current perspective value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.02f**.
+## void setSSDirtAngleBias ( float bias = 0.35f )
+
+***Console*:**`render_ssdirt_angle_bias`Sets a new angle bias value to limit the [SSDirt](../../../editor2/settings/render_settings/ssdirt/index.md) effect where information cannot be obtained. This parameter can be used to remove visual artefacts at the edges of polygons. SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+> **Notice:** This parameter affects both, concave and convex areas.
+
+
+### Arguments
+
+- *float* **bias** - The angle bias value. Range of values: **[0.0f, 1.0f]**. The default value is : **0.35f**.
+
+## float getSSDirtAngleBias () const
+
+***Console*:**`render_ssdirt_angle_bias`Returns the current angle bias value to limit the [SSDirt](../../../editor2/settings/render_settings/ssdirt/index.md) effect where information cannot be obtained. This parameter can be used to remove visual artefacts at the edges of polygons. SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+> **Notice:** This parameter affects both, concave and convex areas.
+
+
+### Return value
+
+Current angle bias value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.35f**.
+## void setSSDirtThreshold ( float threshold = 1.0f )
+
+***Console*:**`render_ssdirt_threshold`Sets a new [threshold](../../../editor2/settings/render_settings/ssdirt/index.md#threshold) of the SSDirt effect. It determines depth limit for the SSDirt effect in areas where information cannot be obtained. *Higher* values make the effect less pronounced. SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Arguments
+
+- *float* **threshold** - The threshold value. Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+
+## float getSSDirtThreshold () const
+
+***Console*:**`render_ssdirt_threshold`Returns the current [threshold](../../../editor2/settings/render_settings/ssdirt/index.md#threshold) of the SSDirt effect. It determines depth limit for the SSDirt effect in areas where information cannot be obtained. *Higher* values make the effect less pronounced. SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Return value
+
+Current threshold value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+## void setSSDirtRadius ( float radius = 1.0f )
+
+***Console*:**`render_ssdirt_radius`Sets a new [size](../../../editor2/settings/render_settings/ssdirt/index.md#radius) of the SSDirt effect. SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Arguments
+
+- *float* **radius** - The size of the SSDirt effect. Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+
+## float getSSDirtRadius () const
+
+***Console*:**`render_ssdirt_radius`Returns the current [size](../../../editor2/settings/render_settings/ssdirt/index.md#radius) of the SSDirt effect. SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Return value
+
+Current size of the SSDirt effect.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+## void setSSDirtIntensity ( float intensity = 1.0f )
+
+***Console*:**`render_ssdirt_intensity`Sets a new [intensity](../../../editor2/settings/render_settings/ssdirt/index.md#intensity) of the SSDirt effect.
+- By the minimum value of 0.0f, the effect is not visible.
+- *Higher* values make the effect more pronounced.
+
+ SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Arguments
+
+- *float* **intensity** - The SSDirt effect intensity. Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+
+## float getSSDirtIntensity () const
+
+***Console*:**`render_ssdirt_intensity`Returns the current [intensity](../../../editor2/settings/render_settings/ssdirt/index.md#intensity) of the SSDirt effect.
+- By the minimum value of 0.0f, the effect is not visible.
+- *Higher* values make the effect more pronounced.
+
+ SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+### Return value
+
+Current SSDirt effect intensity.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+## void setSSDirtResolution ( int resolution = 1 )
+
+***Console*:**`render_ssdirt_resolution`Sets a new [resolution](../../../editor2/settings/render_settings/ssdirt/index.md#resolution) of the SSDirt effect. SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+> **Notice:** This parameter significantly affects performance, so choose it reasonably.
+
+### Arguments
+
+- *int* **resolution** - The SSDirt effect resolution. One of the following values:
+
+  - *Quarter* - quarter resolution
+  - *Half* - half resolution (by default)
+  - *Full* - full resolution
+
+## int getSSDirtResolution () const
+
+***Console*:**`render_ssdirt_resolution`Returns the current [resolution](../../../editor2/settings/render_settings/ssdirt/index.md#resolution) of the SSDirt effect. SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled.
+> **Notice:** This parameter significantly affects performance, so choose it reasonably.
+
+### Return value
+
+Current SSDirt effect resolution. One of the following values:
+
+- *Quarter* - quarter resolution
+- *Half* - half resolution (by default)
+- *Full* - full resolution
+
+## void setSSDirtQuality ( int quality = 2 )
+
+***Console*:**`render_ssdirt_quality`Sets a new [quality](../../../editor2/settings/render_settings/ssdirt/index.md#quality) for the SSDirt effect. SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled. Quality implies the number of samples used for the Screen-Space Dirt effect:
+- Low - 4 samples
+- Medium - 8 samples
+- High - 16 samples
+- Ultra - 32 samples
+
+
+> **Notice:** This parameter significantly affects performance, so choose it reasonably.
+
+
+### Arguments
+
+- *int* **quality** - The quality level. One of the following values:
+
+  - *Low* - low quality
+  - *Medium* - medium quality
+  - *High* - high quality (by default)
+  - *Ultra* - ultra quality
+
+## int getSSDirtQuality () const
+
+***Console*:**`render_ssdirt_quality`Returns the current [quality](../../../editor2/settings/render_settings/ssdirt/index.md#quality) for the SSDirt effect. SSDirt*[setSSDirt()()](../../...md#render_ssdirt)* must be enabled. Quality implies the number of samples used for the Screen-Space Dirt effect:
+- Low - 4 samples
+- Medium - 8 samples
+- High - 16 samples
+- Ultra - 32 samples
+
+
+> **Notice:** This parameter significantly affects performance, so choose it reasonably.
+
+
+### Return value
+
+Current quality level. One of the following values:
+
+- *Low* - low quality
+- *Medium* - medium quality
+- *High* - high quality (by default)
+- *Ultra* - ultra quality
+
+## void setSSDirt ( bool ssdirt = 0 )
+
+***Console*:**`render_ssdirt`Sets a new value indicating if the [Screen-Space Dirt](../../../editor2/settings/render_settings/ssdirt/index.md) (SSDirt) effect is enabled.
+### Arguments
+
+- *bool* **ssdirt** - Set **true** to enable SSDirt effect; **false** - to disable it. The default value is **false**.
+
+## bool isSSDirt () const
+
+***Console*:**`render_ssdirt`Returns the current value indicating if the [Screen-Space Dirt](../../../editor2/settings/render_settings/ssdirt/index.md) (SSDirt) effect is enabled.
+### Return value
+
+**true** if SSDirt effect is enabled; otherwise **false**. The default value is **false**.
+## void setSSBevelRadius ( float radius = 0.01f )
+
+***Console*:**`render_ssbevel_radius`Sets a new [size](../../../editor2/settings/render_settings/ssbevel/index.md#radius) of the Screen-Space Bevel effect. To use this option, rendering of SSBevel *[setSSBevel()()](../../...md#render_ssbevel)* should be enabled.
+### Arguments
+
+- *float* **radius** - The size of the SSBevel effect. Range of values: **[0.0f, inf]**. The default value is : **0.01f**.
+
+## float getSSBevelRadius () const
+
+***Console*:**`render_ssbevel_radius`Returns the current [size](../../../editor2/settings/render_settings/ssbevel/index.md#radius) of the Screen-Space Bevel effect. To use this option, rendering of SSBevel *[setSSBevel()()](../../...md#render_ssbevel)* should be enabled.
+### Return value
+
+Current size of the SSBevel effect.
+Range of values: **[0.0f, inf]**. The default value is : **0.01f**.
+## void setSSBevelNoise ( bool noise = 1 )
+
+***Console*:**`render_ssbevel_noise`Sets a new value indicating if the [noise](../../../editor2/settings/render_settings/ssbevel/index.md#noise) is enabled for smoothing bevels. It is recommended to use the noise with TAA*[setTAA()()](../../...md#render_taa)* enabled to avoid visual artifacts. The bevel noise is applied at a certain distance from the camera (i.e. if the camera is too far from the object with bevels, the noise won't be applied). To use this option, rendering of SSBevel*[setSSBevel()()](../../...md#render_ssbevel)* should be enabled.
+### Arguments
+
+- *bool* **noise** - Set **true** to enable noise-based smoothing for bevels; **false** - to disable it. The default value is **true**.
+
+## bool isSSBevelNoise () const
+
+***Console*:**`render_ssbevel_noise`Returns the current value indicating if the [noise](../../../editor2/settings/render_settings/ssbevel/index.md#noise) is enabled for smoothing bevels. It is recommended to use the noise with TAA*[setTAA()()](../../...md#render_taa)* enabled to avoid visual artifacts. The bevel noise is applied at a certain distance from the camera (i.e. if the camera is too far from the object with bevels, the noise won't be applied). To use this option, rendering of SSBevel*[setSSBevel()()](../../...md#render_ssbevel)* should be enabled.
+### Return value
+
+**true** if noise-based smoothing for bevels is enabled; otherwise **false**. The default value is **true**.
+## void setSSBevelQuality ( int quality = 1 )
+
+***Console*:**`render_ssbevel_quality`Sets a new [quality mode](../../../editor2/settings/render_settings/ssbevel/index.md#quality) for the screen-space bevels.
+### Arguments
+
+- *int* **quality** - The quality level. One of the following values:
+
+  - *Low* - low quality
+  - *Medium* - medium quality (by default)
+  - *High* - high quality
+  - *Ultra* - ultra quality
+
+## int getSSBevelQuality () const
+
+***Console*:**`render_ssbevel_quality`Returns the current [quality mode](../../../editor2/settings/render_settings/ssbevel/index.md#quality) for the screen-space bevels.
+### Return value
+
+Current quality level. One of the following values:
+
+- *Low* - low quality
+- *Medium* - medium quality (by default)
+- *High* - high quality
+- *Ultra* - ultra quality
+
+## void setSSBevelVertexNormal ( int normal = 0 )
+
+***Console*:**`render_ssbevel_vertex_normal`Sets a new rendering mode of the screen-space bevels. The following modes are available:
+- **Better Edges** smoothes vertex and surface normals of the object. In this mode, the relief created by using Normal Mapping will be smoothed along with the mesh edges.
+- **Better Normals** smoothes only vertex normals. In this mode, only edges of the mesh geometry will be bevelled. The mode may produce visual artifacts on the edges. However, they can be reduced by increasing quality settings of [anti-aliasing](../../../principles/render/antialiasing/taa.md).
+
+ To use this option, rendering of SSBevel*[setSSBevel()()](../../...md#render_ssbevel)* should be enabled.
+### Arguments
+
+- *int* **normal** - The bevels rendering mode. One of the following values:
+
+  - **0** - Better Edges (by default)
+  - **1** - Better Normals
+
+## int getSSBevelVertexNormal () const
+
+***Console*:**`render_ssbevel_vertex_normal`Returns the current rendering mode of the screen-space bevels. The following modes are available:
+- **Better Edges** smoothes vertex and surface normals of the object. In this mode, the relief created by using Normal Mapping will be smoothed along with the mesh edges.
+- **Better Normals** smoothes only vertex normals. In this mode, only edges of the mesh geometry will be bevelled. The mode may produce visual artifacts on the edges. However, they can be reduced by increasing quality settings of [anti-aliasing](../../../principles/render/antialiasing/taa.md).
+
+ To use this option, rendering of SSBevel*[setSSBevel()()](../../...md#render_ssbevel)* should be enabled.
+### Return value
+
+Current bevels rendering mode. One of the following values:
+- **0** - Better Edges (by default)
+- **1** - Better Normals
+
+## void setSSBevel ( bool ssbevel = 1 )
+
+***Console*:**`render_ssbevel`Sets a new value indicating if the Screen-Space Bevels (SSBevel effect) are enabled.
+### Arguments
+
+- *bool* **ssbevel** - Set **true** to enable Screen-Space Bevels; **false** - to disable it. The default value is **true**.
+
+## bool isSSBevel () const
+
+***Console*:**`render_ssbevel`Returns the current value indicating if the Screen-Space Bevels (SSBevel effect) are enabled.
+### Return value
+
+**true** if Screen-Space Bevels is enabled; otherwise **false**. The default value is **true**.
+## void setScreenPrecision ( bool precision = 1 )
+
+***Console*:**`render_screen_precision`Sets a new value indicating the current screen precision. This parameter determines the texture format used for screen HDR buffers.
+### Arguments
+
+- *bool* **precision** - Set **true** to enable screen precision; **false** - to disable it. One of the following values:
+
+  - **0** - RG11B10F
+  - **1** - RGBA16F (by default)
+
+## bool isScreenPrecision () const
+
+***Console*:**`render_screen_precision`Returns the current value indicating the current screen precision. This parameter determines the texture format used for screen HDR buffers.
+### Return value
+
+**true** if screen precision is enabled; otherwise **false**. One of the following values:
+- **0** - RG11B10F
+- **1** - RGBA16F (by default)
+
+## void setShadowsFilterNoise ( bool noise = 1 )
+
+***Console*:**`render_shadows_filter_noise`Sets a new value indicating if noise for shadow filtering is enabled. This noise is used for smoothing.
+### Arguments
+
+- *bool* **noise** - Set **true** to enable noise for shadow filtering; **false** - to disable it. The default value is **true**.
+
+## bool isShadowsFilterNoise () const
+
+***Console*:**`render_shadows_filter_noise`Returns the current value indicating if noise for shadow filtering is enabled. This noise is used for smoothing.
+### Return value
+
+**true** if noise for shadow filtering is enabled; otherwise **false**. The default value is **true**.
+## void setShadowsFilterMode ( int mode = 2 )
+
+***Console*:**`render_shadows_filter_mode`Sets a new global filtering mode to be used for shadows from all light sources by default. This mode determines quality of soft shadows. *Higher* quality produces *smoother* shadow edges. When disabled, no filtering is performed and the stair-step effect is clearly seen at the edges of shadows.
+> **Notice:** You can set filtering mode or disable filtering for each light source [individually](../../../api/library/lights/class.light_usc.md#setShadowFilterMode_int_void).
+
+
+### Arguments
+
+- *int* **mode** - The filtering mode. One of the following values:
+
+  - **0** - Disabled
+  - **1** - Low
+  - **2** - Medium (by default)
+  - **3** - High
+  - **4** - Ultra
+
+## int getShadowsFilterMode () const
+
+***Console*:**`render_shadows_filter_mode`Returns the current global filtering mode to be used for shadows from all light sources by default. This mode determines quality of soft shadows. *Higher* quality produces *smoother* shadow edges. When disabled, no filtering is performed and the stair-step effect is clearly seen at the edges of shadows.
+> **Notice:** You can set filtering mode or disable filtering for each light source [individually](../../../api/library/lights/class.light_usc.md#setShadowFilterMode_int_void).
+
+
+### Return value
+
+Current filtering mode. One of the following values:
+- **0** - Disabled
+- **1** - Low
+- **2** - Medium (by default)
+- **3** - High
+- **4** - Ultra
+
+## void setShadowsPenumbraNoise ( bool noise = 1 )
+
+***Console*:**`render_shadows_penumbra_noise`Sets a new value indicating if noise for penumbra rendering is enabled. This noise is used for smoothing.
+### Arguments
+
+- *bool* **noise** - Set **true** to enable noise for penumbra rendering; **false** - to disable it. The default value is **true**.
+
+## bool isShadowsPenumbraNoise () const
+
+***Console*:**`render_shadows_penumbra_noise`Returns the current value indicating if noise for penumbra rendering is enabled. This noise is used for smoothing.
+### Return value
+
+**true** if noise for penumbra rendering is enabled; otherwise **false**. The default value is **true**.
+## void setShadowsPenumbraMode ( int mode = 1 )
+
+***Console*:**`render_shadows_penumbra_mode`Sets a new global quality mode to be used for rendering penumbra from all light sources by default. This mode enables simulation of real-world shadows by keeping sharp contact shadows closer to the base and softening the farther the shadow stretches away. *Higher* values produce *softer* shadows. When disabled, shadow edges are crisp and sharp (no shadow softness at all).
+> **Notice:** You can set penumbra quality mode or disable penumbra rendering for each light source [individually](../../../api/library/lights/class.light_usc.md#setShadowPenumbraMode_int_void). But these per-light quality settings are ignored when global quality is set to *Disabled*.
+
+
+### Arguments
+
+- *int* **mode** - The quality mode. One of the following values:
+
+  - **0** - Disabled
+  - **1** - Low (by default)
+  - **2** - Medium
+  - **3** - High
+  - **4** - Ultra
+
+## int getShadowsPenumbraMode () const
+
+***Console*:**`render_shadows_penumbra_mode`Returns the current global quality mode to be used for rendering penumbra from all light sources by default. This mode enables simulation of real-world shadows by keeping sharp contact shadows closer to the base and softening the farther the shadow stretches away. *Higher* values produce *softer* shadows. When disabled, shadow edges are crisp and sharp (no shadow softness at all).
+> **Notice:** You can set penumbra quality mode or disable penumbra rendering for each light source [individually](../../../api/library/lights/class.light_usc.md#setShadowPenumbraMode_int_void). But these per-light quality settings are ignored when global quality is set to *Disabled*.
+
+
+### Return value
+
+Current quality mode. One of the following values:
+- **0** - Disabled
+- **1** - Low (by default)
+- **2** - Medium
+- **3** - High
+- **4** - Ultra
+
+## void setShadowsScreenSpace ( bool space = 1 )
+
+***Console*:**`render_shadows_screen_space`Sets a new value indicating if screen space shadows are enabled. They provide high-quality penumbra, per-light work, per-pixel detail at any zoom level and infinite visibility distance (when enabled, distant objects can cast shadows next to the horizon). Supports depth cutout parallax. Screen space shadows can be mixed with regular ones.
+### Arguments
+
+- *bool* **space** - Set **true** to enable screen-space shadows; **false** - to disable it. The default value is **true**.
+
+## bool isShadowsScreenSpace () const
+
+***Console*:**`render_shadows_screen_space`Returns the current value indicating if screen space shadows are enabled. They provide high-quality penumbra, per-light work, per-pixel detail at any zoom level and infinite visibility distance (when enabled, distant objects can cast shadows next to the horizon). Supports depth cutout parallax. Screen space shadows can be mixed with regular ones.
+### Return value
+
+**true** if screen-space shadows is enabled; otherwise **false**. The default value is **true**.
+## void setShadowsAlphaTest ( bool test = 1 )
+
+***Console*:**`render_shadows_alpha_test`Sets a new value indicating if alpha test is enabled for shadows.
+### Arguments
+
+- *bool* **test** - Set **true** to enable alpha test for shadows; **false** - to disable it. The default value is **true**.
+
+## bool isShadowsAlphaTest () const
+
+***Console*:**`render_shadows_alpha_test`Returns the current value indicating if alpha test is enabled for shadows.
+### Return value
+
+**true** if alpha test for shadows is enabled; otherwise **false**. The default value is **true**.
+## void setShadowsWorldLerpCascades ( bool cascades = 1 )
+
+***Console*:**`render_shadows_world_lerp_cascades`Sets a new value indicating if [linear interpolation of shadow cascades](../../../editor2/settings/render_settings/shadows/index.md#lerp_shadow_cascades) is enabled, making transitions between cascades smoother. This option significantly affects performance, as two shadow maps are rendered in transition areas.
+### Arguments
+
+- *bool* **cascades** - Set **true** to enable linear interpolation of shadow cascades; **false** - to disable it. The default value is **true**.
+
+## bool isShadowsWorldLerpCascades () const
+
+***Console*:**`render_shadows_world_lerp_cascades`Returns the current value indicating if [linear interpolation of shadow cascades](../../../editor2/settings/render_settings/shadows/index.md#lerp_shadow_cascades) is enabled, making transitions between cascades smoother. This option significantly affects performance, as two shadow maps are rendered in transition areas.
+### Return value
+
+**true** if linear interpolation of shadow cascades is enabled; otherwise **false**. The default value is **true**.
+## void setShadowsTranslucentDepth ( float depth = 0.1f )
+
+***Console*:**`render_shadows_translucent_depth`Sets a new global translucence depth value defining how deep the light goes through translucent objects shifting the shadow. The *higher* the value, the *deeper* the light penetrates translucent objects shifting the shadow.
+### Arguments
+
+- *float* **depth** - The translucence depth. Range of values: **[0.0f, inf]**. The default value is : **0.1f**.
+
+## float getShadowsTranslucentDepth () const
+
+***Console*:**`render_shadows_translucent_depth`Returns the current global translucence depth value defining how deep the light goes through translucent objects shifting the shadow. The *higher* the value, the *deeper* the light penetrates translucent objects shifting the shadow.
+### Return value
+
+Current translucence depth.
+Range of values: **[0.0f, inf]**. The default value is : **0.1f**.
+## void setShadows ( bool shadows = 1 )
+
+***Console*:**`render_shadows`Sets a new value indicating whether shadows are rendered.
+### Arguments
+
+- *bool* **shadows** - Set **true** to enable shadows rendering; **false** - to disable it. The default value is **true**.
+
+## bool isShadows () const
+
+***Console*:**`render_shadows`Returns the current value indicating whether shadows are rendered.
+### Return value
+
+**true** if shadows rendering is enabled; otherwise **false**. The default value is **true**.
+## void setLightsLensFlares ( bool flares = 1 )
+
+***Console*:**`render_lights_lens_flares`Sets a new value indicating if rendering of [per-light lens flares](../../../api/library/lights/class.light_usc.md#setLensFlaresEnabled_int_void) is enabled.
+### Arguments
+
+- *bool* **flares** - Set **true** to enable rendering of per-light lens flares; **false** - to disable it. The default value is **true**.
+
+## bool isLightsLensFlares () const
+
+***Console*:**`render_lights_lens_flares`Returns the current value indicating if rendering of [per-light lens flares](../../../api/library/lights/class.light_usc.md#setLensFlaresEnabled_int_void) is enabled.
+### Return value
+
+**true** if rendering of per-light lens flares is enabled; otherwise **false**. The default value is **true**.
+## void setLightsForwardPerObjectVoxel ( int voxel = 4 )
+
+***Console*:**`render_lights_forward_per_object_voxel`Sets a new maximum number of Voxel Probes per object (available only for materials rendered in the [forward rendering pass](../../../principles/render/sequence/index.md#transparent)). You should set the nonzero value to increase performance: it is not recommended to use more than 4 Voxel Probes per object.
+### Arguments
+
+- *int* **voxel** - The number of Voxel Probes per object. Range of values: **[0, 128]**. The default value is : **4**.
+
+## int getLightsForwardPerObjectVoxel () const
+
+***Console*:**`render_lights_forward_per_object_voxel`Returns the current maximum number of Voxel Probes per object (available only for materials rendered in the [forward rendering pass](../../../principles/render/sequence/index.md#transparent)). You should set the nonzero value to increase performance: it is not recommended to use more than 4 Voxel Probes per object.
+### Return value
+
+Current number of Voxel Probes per object.
+Range of values: **[0, 128]**. The default value is : **4**.
+## void setLightsForwardPerObjectEnv ( int env = 4 )
+
+***Console*:**`render_lights_forward_per_object_env`Sets a new maximum number of Environment Probes per object (available only for materials rendered in the [forward rendering pass](../../../principles/render/sequence/index.md#transparent)). You should set the nonzero value to increase performance: it is not recommended to use more than 4 Voxel Probes per object.
+### Arguments
+
+- *int* **env** - The number of Environment Probes per object. Range of values: **[0, 128]**. The default value is : **4**.
+
+## int getLightsForwardPerObjectEnv () const
+
+***Console*:**`render_lights_forward_per_object_env`Returns the current maximum number of Environment Probes per object (available only for materials rendered in the [forward rendering pass](../../../principles/render/sequence/index.md#transparent)). You should set the nonzero value to increase performance: it is not recommended to use more than 4 Voxel Probes per object.
+### Return value
+
+Current number of Environment Probes per object.
+Range of values: **[0, 128]**. The default value is : **4**.
+## void setLightsForwardPerObjectPlanar ( int planar = 4 )
+
+***Console*:**`render_lights_forward_per_object_planar`Sets a new maximum number of Planar Reflection Probes per object (available only for materials rendered in the [forward rendering pass](../../../principles/render/sequence/index.md#transparent)). You should set the nonzero value to increase performance: it is not recommended to use more than 4 Planar Reflection Probes per object.
+### Arguments
+
+- *int* **planar** - The number of Planar Reflection Probes per object. Range of values: **[0, 128]**. The default value is : **4**.
+
+## int getLightsForwardPerObjectPlanar () const
+
+***Console*:**`render_lights_forward_per_object_planar`Returns the current maximum number of Planar Reflection Probes per object (available only for materials rendered in the [forward rendering pass](../../../principles/render/sequence/index.md#transparent)). You should set the nonzero value to increase performance: it is not recommended to use more than 4 Planar Reflection Probes per object.
+### Return value
+
+Current number of Planar Reflection Probes per object.
+Range of values: **[0, 128]**. The default value is : **4**.
+## void setLightsForwardPerObjectProj ( int proj = 4 )
+
+***Console*:**`render_lights_forward_per_object_proj`Sets a new maximum number of Projected lights per object (available only for materials rendered in the [forward rendering pass](../../../principles/render/sequence/index.md#transparent)). You should set the nonzero value to increase performance: it is not recommended to use more than 4 Projected lights per object.
+### Arguments
+
+- *int* **proj** - The number of Projected lights per object. Range of values: **[0, 128]**. The default value is : **4**.
+
+## int getLightsForwardPerObjectProj () const
+
+***Console*:**`render_lights_forward_per_object_proj`Returns the current maximum number of Projected lights per object (available only for materials rendered in the [forward rendering pass](../../../principles/render/sequence/index.md#transparent)). You should set the nonzero value to increase performance: it is not recommended to use more than 4 Projected lights per object.
+### Return value
+
+Current number of Projected lights per object.
+Range of values: **[0, 128]**. The default value is : **4**.
+## void setLightsForwardPerObjectOmni ( int omni = 4 )
+
+***Console*:**`render_lights_forward_per_object_omni`Sets a new maximum number of Omni lights per object (available only for materials rendered in the [forward rendering pass](../../../principles/render/sequence/index.md#transparent)). You should set the nonzero value to increase performance: it is not recommended to use more than 4 Omni lights per object.
+### Arguments
+
+- *int* **omni** - The number of Omni lights per object. Range of values: **[0, 128]**. The default value is : **4**.
+
+## int getLightsForwardPerObjectOmni () const
+
+***Console*:**`render_lights_forward_per_object_omni`Returns the current maximum number of Omni lights per object (available only for materials rendered in the [forward rendering pass](../../../principles/render/sequence/index.md#transparent)). You should set the nonzero value to increase performance: it is not recommended to use more than 4 Omni lights per object.
+### Return value
+
+Current number of Omni lights per object.
+Range of values: **[0, 128]**. The default value is : **4**.
+## void setLightsForwardPerObjectWorld ( int world = 4 )
+
+***Console*:**`render_lights_forward_per_object_world`Sets a new maximum number of World lights per object (available only for materials rendered in the [forward rendering pass](../../../principles/render/sequence/index.md#transparent)). You should set the nonzero value to increase performance: it is not recommended to use more than 4 World lights per object.
+### Arguments
+
+- *int* **world** - The maximum number of World lights per object. Range of values: **[0, 128]**. The default value is : **4**.
+
+## int getLightsForwardPerObjectWorld () const
+
+***Console*:**`render_lights_forward_per_object_world`Returns the current maximum number of World lights per object (available only for materials rendered in the [forward rendering pass](../../../principles/render/sequence/index.md#transparent)). You should set the nonzero value to increase performance: it is not recommended to use more than 4 World lights per object.
+### Return value
+
+Current maximum number of World lights per object.
+Range of values: **[0, 128]**. The default value is : **4**.
+## void setDirectLightingInterleavedSamples ( int samples = 0 )
+
+***Console*:**`render_direct_lighting_interleaved_samples`Sets a new number of samples for interleaved rendering of direct lighting defining the number of pixels to be skipped during interleaved rendering of direct lighting with subsequent reconstruction of neighboring pixels using the data from previous frames (defines the size of reduced lights buffer relative to original size).
+- **1 x 2** - half of all pixels are rendered skipping each second line (1.0 * width x 0.5 * height)
+- **2 x 2** - quarter of all pixels are rendered skipping each second line and row (0.5 * width x 0.5 * height)
+
+
+### Arguments
+
+- *int* **samples** - The number of samples for interleaved rendering of direct lighting One of the following values:
+
+  - **0** - 1 x 2 (by default)
+  - **1** - 2 x 2
+
+## int getDirectLightingInterleavedSamples () const
+
+***Console*:**`render_direct_lighting_interleaved_samples`Returns the current number of samples for interleaved rendering of direct lighting defining the number of pixels to be skipped during interleaved rendering of direct lighting with subsequent reconstruction of neighboring pixels using the data from previous frames (defines the size of reduced lights buffer relative to original size).
+- **1 x 2** - half of all pixels are rendered skipping each second line (1.0 * width x 0.5 * height)
+- **2 x 2** - quarter of all pixels are rendered skipping each second line and row (0.5 * width x 0.5 * height)
+
+
+### Return value
+
+Current number of samples for interleaved rendering of direct lighting One of the following values:
+- **0** - 1 x 2 (by default)
+- **1** - 2 x 2
+
+## void setDirectLightingInterleavedColorClamping ( int clamping = 1 )
+
+***Console*:**`render_direct_lighting_interleaved_color_clamping`Sets a new color clamping mode to be used for interleaved rendering of direct lighting. This mode is used to reduce ghosting effect: higher values increase clamping intensity but may cause flickering on rippled reflective surfaces (as this mode is not so good at the object's edges). When disabled, shadows and reflections have a lag as they are several frames behind.
+### Arguments
+
+- *int* **clamping** - The color clamping mode One of the following values:
+
+  - **0** - Disabled
+  - **1** - Low (by default)
+  - **2** - Medium
+  - **3** - High
+  - **4** - High + Velocity
+
+## int getDirectLightingInterleavedColorClamping () const
+
+***Console*:**`render_direct_lighting_interleaved_color_clamping`Returns the current color clamping mode to be used for interleaved rendering of direct lighting. This mode is used to reduce ghosting effect: higher values increase clamping intensity but may cause flickering on rippled reflective surfaces (as this mode is not so good at the object's edges). When disabled, shadows and reflections have a lag as they are several frames behind.
+### Return value
+
+Current color clamping mode One of the following values:
+- **0** - Disabled
+- **1** - Low (by default)
+- **2** - Medium
+- **3** - High
+- **4** - High + Velocity
+
+## void setDirectLightingInterleavedCatmullResampling ( bool resampling = 0 )
+
+***Console*:**`render_direct_lighting_interleaved_catmull_resampling`Sets a new value indicating if the Catmull-Rom resampling for interleaved rendering of direct lighting is enabled. This mode allows you to reduce image blurring when the camera moves forward/backward.
+### Arguments
+
+- *bool* **resampling** - Set **true** to enable Catmull-Rom resampling; **false** - to disable it. The default value is **false**.
+
+## bool isDirectLightingInterleavedCatmullResampling () const
+
+***Console*:**`render_direct_lighting_interleaved_catmull_resampling`Returns the current value indicating if the Catmull-Rom resampling for interleaved rendering of direct lighting is enabled. This mode allows you to reduce image blurring when the camera moves forward/backward.
+### Return value
+
+**true** if Catmull-Rom resampling is enabled; otherwise **false**. The default value is **false**.
+## void setDirectLightingInterleaved ( bool interleaved = 0 )
+
+***Console*:**`render_direct_lighting_interleaved`Sets a new value indicating if interleaved mode for rendering direct lighting is enabled. When enabled, lights are rendered in half resolution with subsequent reconstruction of neighboring pixels using the data from previous frames. This mode requires a high framerate (60+ FPS), otherwise anti-aliasing quality reduces and ghosting effect becomes more pronounced. Recommended for relatively static scenes which contain a lot of light sources and do not have a lot of reflective surfaces (in case of small number of light sources may reduce performance).
+### Arguments
+
+- *bool* **interleaved** - Set **true** to enable interleaved rendering mode for direct lighting; **false** - to disable it. The default value is **false**.
+
+## bool isDirectLightingInterleaved () const
+
+***Console*:**`render_direct_lighting_interleaved`Returns the current value indicating if interleaved mode for rendering direct lighting is enabled. When enabled, lights are rendered in half resolution with subsequent reconstruction of neighboring pixels using the data from previous frames. This mode requires a high framerate (60+ FPS), otherwise anti-aliasing quality reduces and ghosting effect becomes more pronounced. Recommended for relatively static scenes which contain a lot of light sources and do not have a lot of reflective surfaces (in case of small number of light sources may reduce performance).
+### Return value
+
+**true** if interleaved rendering mode for direct lighting is enabled; otherwise **false**. The default value is **false**.
+## void setIndirectLightingInterleaved ( bool interleaved = 0 )
+
+***Console*:**`render_indirect_lighting_interleaved`Sets a new value indicating if interleaved mode for rendering indirect lighting is enabled. When enabled, lights are rendered in half resolution with subsequent reconstruction of neighboring pixels using the data from previous frames. This mode requires a high framerate (60+ FPS), otherwise anti-aliasing quality reduces and ghosting effect becomes more pronounced. Recommended for relatively static scenes which contain a lot of light sources and do not have a lot of reflective surfaces (in case of small number of light sources may reduce performance).
+### Arguments
+
+- *bool* **interleaved** - Set **true** to enable interleaved rendering mode for indirect lighting; **false** - to disable it. The default value is **false**.
+
+## bool isIndirectLightingInterleaved () const
+
+***Console*:**`render_indirect_lighting_interleaved`Returns the current value indicating if interleaved mode for rendering indirect lighting is enabled. When enabled, lights are rendered in half resolution with subsequent reconstruction of neighboring pixels using the data from previous frames. This mode requires a high framerate (60+ FPS), otherwise anti-aliasing quality reduces and ghosting effect becomes more pronounced. Recommended for relatively static scenes which contain a lot of light sources and do not have a lot of reflective surfaces (in case of small number of light sources may reduce performance).
+### Return value
+
+**true** if interleaved rendering mode for indirect lighting is enabled; otherwise **false**. The default value is **false**.
+## void setLightsEnabled ( bool enabled = 1 )
+
+***Console*:**`render_lights_enabled`Sets a new value indicating if rendering of lights is enabled.
+### Arguments
+
+- *bool* **enabled** - Set **true** to enable lights rendering; **false** - to disable it. The default value is **true**.
+
+## bool isLightsEnabled () const
+
+***Console*:**`render_lights_enabled`Returns the current value indicating if rendering of lights is enabled.
+### Return value
+
+**true** if lights rendering is enabled; otherwise **false**. The default value is **true**.
+## void setOccludersShadowsResolution ( )
+
+***Console*:**`render_occluders_shadows_resolution`Sets a new resolution of the texture, to which occluders for shadows*[setOccludersShadows()()](../../...md#render_occluders_shadows)* are rendered.
+### Arguments
+
+- **resolution** - The texture resolution (X, Y), in pixels. From **1x1** to **1024x1024** Default: **512x512**
+
+## getOccludersShadowsResolution () const
+
+***Console*:**`render_occluders_shadows_resolution`Returns the current resolution of the texture, to which occluders for shadows*[setOccludersShadows()()](../../...md#render_occluders_shadows)* are rendered.
+### Return value
+
+Current texture resolution (X, Y), in pixels.
+From **1x1** to **1024x1024** Default: **512x512**
+## void setOccludersShadows ( bool shadows = 0 )
+
+***Console*:**`render_occluders_shadows`Sets a new value indicating whether rendering of occluders for shadows is enabled.
+### Arguments
+
+- *bool* **shadows** - Set **true** to enable rendering of occluders for shadows; **false** - to disable it. The default value is **false**.
+
+## bool isOccludersShadows () const
+
+***Console*:**`render_occluders_shadows`Returns the current value indicating whether rendering of occluders for shadows is enabled.
+### Return value
+
+**true** if rendering of occluders for shadows is enabled; otherwise **false**. The default value is **false**.
+## void setOccludersResolution ( )
+
+***Console*:**`render_occluders_resolution`Sets a new resolution of the texture, to which occluders*[setOccluders()()](../../...md#render_occluders)* are rendered.
+### Arguments
+
+- **resolution** - The texture resolution (X, Y), in pixels. From **1x1** to **1024x1024** Default: **128x64**
+
+## getOccludersResolution () const
+
+***Console*:**`render_occluders_resolution`Returns the current resolution of the texture, to which occluders*[setOccluders()()](../../...md#render_occluders)* are rendered.
+### Return value
+
+Current texture resolution (X, Y), in pixels.
+From **1x1** to **1024x1024** Default: **128x64**
+## void setOccluders ( bool occluders = 1 )
+
+***Console*:**`render_occluders`Sets a new value indicating if rendering of occluders is enabled.
+### Arguments
+
+- *bool* **occluders** - Set **true** to enable rendering of occluders; **false** - to disable it. The default value is **true**.
+
+## bool isOccluders () const
+
+***Console*:**`render_occluders`Returns the current value indicating if rendering of occluders is enabled.
+### Return value
+
+**true** if rendering of occluders is enabled; otherwise **false**. The default value is **true**.
+## void setOcclusionQueriesNumFrames ( int frames = 5 )
+
+***Console*:**`render_occlusion_queries_num_frames`Sets a new number of frames for additional hardware occlusion query test performed before sending data to GPU. Make sure that the additional hardware occlusion query test*[setOcclusionQueries()()](../../...md#render_occlusion_queries)* is enabled.
+### Arguments
+
+- *int* **frames** - The number of frames. Range of values: **[0, 1024]**. The default value is : **5**.
+
+## int getOcclusionQueriesNumFrames () const
+
+***Console*:**`render_occlusion_queries_num_frames`Returns the current number of frames for additional hardware occlusion query test performed before sending data to GPU. Make sure that the additional hardware occlusion query test*[setOcclusionQueries()()](../../...md#render_occlusion_queries)* is enabled.
+### Return value
+
+Current number of frames.
+Range of values: **[0, 1024]**. The default value is : **5**.
+## void setOcclusionQueries ( bool queries = 1 )
+
+***Console*:**`render_occlusion_queries`Sets a new value indicating if additional hardware occlusion query test before sending data to GPU is enabled. This test is performed for all objects with the *[Culled by occlusion query](../../../editor2/node_parameters/transformation_common/index.md#query)* flag set.
+### Arguments
+
+- *bool* **queries** - Set **true** to enable additional hardware occlusion query test; **false** - to disable it. The default value is **true**.
+
+## bool isOcclusionQueries () const
+
+***Console*:**`render_occlusion_queries`Returns the current value indicating if additional hardware occlusion query test before sending data to GPU is enabled. This test is performed for all objects with the *[Culled by occlusion query](../../../editor2/node_parameters/transformation_common/index.md#query)* flag set.
+### Return value
+
+**true** if additional hardware occlusion query test is enabled; otherwise **false**. The default value is **true**.
+## void setSkyRotation ( )
+
+Sets a new sky rotation.
+### Arguments
+
+- **rotation** - The sky rotation quaternion.
+
+## getSkyRotation () const
+
+Returns the current sky rotation.
+### Return value
+
+Current sky rotation quaternion.
+## float getEnvironmentSkyIntensity () const
+
+Returns the current intensity of the environment sky set for the preset that overlays the other ones. To get the sky intensity for the specific preset, use *[RenderEnvironmentPreset::getSkyIntensity()](../../../api/library/rendering/class.renderenvironmentpreset_usc.md#getSkyIntensity_float)*.
+```cpp
+// get a sky intensity for the preset that overlays the others
+engine.render.getEnvironmentSkyIntensity();
+// get a sky intensity for the second environment preset
+RenderEnvironmentPreset preset = engine.render.getEnvironmentPreset(1);
+preset.getSkyIntensity();
+
+```
+
+
+### Return value
+
+Current intensity value.
+## float getEnvironmentReflectionIntensity () const
+
+Returns the current intensity of the environment reflections for the preset that overlays the other ones. 0 value means no environment reflections for the preset. To get the reflection intensity for the specific preset, use *[RenderEnvironmentPreset::getReflectionIntensity()](../../../api/library/rendering/class.renderenvironmentpreset_usc.md#getReflectionIntensity_float)*.
+```cpp
+// get a reflection intensity for the preset that overlays the others
+engine.render.getEnvironmentReflectionIntensity();
+// get a reflection intensity for the second environment preset
+RenderEnvironmentPreset preset = engine.render.getEnvironmentPreset(1);
+preset.getReflectionIntensity();
+
+```
+
+
+### Return value
+
+Current intensity value.
+## float getEnvironmentAmbientIntensity () const
+
+Returns the current intensity of the environment ambient lighting for the preset that overlays the other ones. 0 value means no environment ambient lighting for the preset. The higher the value, the more ambient lighting affects environment. To get the ambient intensity for the specific preset, use *[RenderEnvironmentPreset::getAmbientIntensity()](../../../api/library/rendering/class.renderenvironmentpreset_usc.md#getAmbientIntensity_float)*.
+```cpp
+// get an ambient intensity for the preset that overlays the others
+engine.render.getEnvironmentAmbientIntensity();
+// get an ambient intensity for the second environment preset
+RenderEnvironmentPreset preset = engine.render.getEnvironmentPreset(1);
+preset.getAmbientIntensity();
+
+```
+
+
+### Return value
+
+Current intensity value.
+## float getEnvironmentHazeDensity () const
+
+Returns the current [haze density](../../../editor2/settings/render_settings/environment/index.md#haze_density) set for the preset that overlays the other ones. To get the haze density for the specific preset, use *[RenderEnvironmentPreset::getHazeDensity()](../../../api/library/rendering/class.renderenvironmentpreset_usc.md#getHazeDensity_float)*.
+```cpp
+// get a haze density for the preset that overlays the others
+engine.render.getEnvironmentHazeDensity();
+// get a haze density for the second environment preset
+RenderEnvironmentPreset preset = engine.render.getEnvironmentPreset(1);
+preset.getHazeDensity();
+
+```
+
+
+### Return value
+
+Current haze density.
+## float getEnvironmentHazeMaxDistance () const
+
+Returns the current distance starting at which the haze becomes completely solid, so nothing will be seen behind. To get the haze maximum visibility distance for the specific preset, use *[RenderEnvironmentPreset.getHazeMaxDistance()](../../../api/library/rendering/class.renderenvironmentpreset_usc.md#getHazeMaxDistance_float)*.
+```cpp
+// get a haze maximum visibility distance for the preset that overlays the others
+engine.render.getEnvironmentHazeMaxDistance();
+// get a haze maximum visibility distance for the second environment preset
+RenderEnvironmentPreset preset = engine.render.getEnvironmentPreset(1);
+preset.getHazeMaxDistance();
+
+```
+
+
+### Return value
+
+Current maximum visibility distance.
+## getEnvironmentHazeColor () const
+
+Returns the current [haze color](../../../editor2/settings/render_settings/environment/index.md#haze_color) for the preset that overlays the other ones.
+> **Notice:** This function will return color only if the [RENDER_HAZE_SOLID](#HAZE_SOLID) mode is set via *[setEnvironmentHazeMode()](#setEnvironmentHazeMode_int_void)*.
+
+To get the haze color for the specific preset, use *[RenderEnvironmentPreset::getHazeColor()](../../../api/library/rendering/class.renderenvironmentpreset_usc.md#getHazeColor_vec4)*.
+```cpp
+// get a haze color for the preset that overlays the others
+engine.render.getEnvironmentHazeColor();
+// get a haze color for the second environment preset
+RenderEnvironmentPreset preset = engine.render.getEnvironmentPreset(1);
+preset.getHazeColor();
+
+```
+
+
+### Return value
+
+Current haze color.
+## void setEnvironmentHazeResolution ( int resolution = 2 )
+
+***Console*:**`render_environment_haze_resolution`Sets a new resolution scale for rendering the environment haze effect (quarter, half, or full). Lower values improve performance at the cost of quality.
+### Arguments
+
+- *int* **resolution** - The environment haze resolution One of the following values:
+
+  - *Quarter* - quarter resolution
+  - *Half* - half resolution
+  - *Full* - full resolution (by default)
+
+## int getEnvironmentHazeResolution () const
+
+***Console*:**`render_environment_haze_resolution`Returns the current resolution scale for rendering the environment haze effect (quarter, half, or full). Lower values improve performance at the cost of quality.
+### Return value
+
+Current environment haze resolution One of the following values:
+
+- *Quarter* - quarter resolution
+- *Half* - half resolution
+- *Full* - full resolution (by default)
+
+## void setEnvironmentHazeScreenSpaceGlobalIlluminationDistanceMax ( float max = 100000.0f )
+
+***Console*:**`render_environment_haze_screen_space_global_illumination_distance_max`Sets a new maximum distance within which Screen Space Haze GI calculations are performed.
+### Arguments
+
+- *float* **max** - The maximum distance within which Screen Space Haze GI calculations are performed. Range of values: **[0.0f, inf]**. The default value is : **100000.0f**.
+
+## float getEnvironmentHazeScreenSpaceGlobalIlluminationDistanceMax () const
+
+***Console*:**`render_environment_haze_screen_space_global_illumination_distance_max`Returns the current maximum distance within which Screen Space Haze GI calculations are performed.
+### Return value
+
+Current maximum distance within which Screen Space Haze GI calculations are performed.
+Range of values: **[0.0f, inf]**. The default value is : **100000.0f**.
+## void setEnvironmentHazeScreenSpaceGlobalIlluminationDistanceMin ( float min = 98000.0f )
+
+***Console*:**`render_environment_haze_screen_space_global_illumination_distance_min`Sets a new minimum distance at which Screen Space Haze GI calculations start to take effect.
+### Arguments
+
+- *float* **min** - The minimum distance at which Screen Space Haze GI calculations start to take effect. Range of values: **[0.0f, inf]**. The default value is : **98000.0f**.
+
+## float getEnvironmentHazeScreenSpaceGlobalIlluminationDistanceMin () const
+
+***Console*:**`render_environment_haze_screen_space_global_illumination_distance_min`Returns the current minimum distance at which Screen Space Haze GI calculations start to take effect.
+### Return value
+
+Current minimum distance at which Screen Space Haze GI calculations start to take effect.
+Range of values: **[0.0f, inf]**. The default value is : **98000.0f**.
+## void setEnvironmentCubemapBlendMode ( int mode = 0 )
+
+***Console*:**`render_environment_cubemap_blend`Sets a new blending mode for the environment cubemap.
+### Arguments
+
+- *int* **mode** - The blending mode. One of the following values:
+
+  - **0** - alpha blend (by default)
+  - **1** - additive blend
+  - **2** - multiply
+  - **3** - overlay
+
+## int getEnvironmentCubemapBlendMode () const
+
+***Console*:**`render_environment_cubemap_blend`Returns the current blending mode for the environment cubemap.
+### Return value
+
+Current blending mode. One of the following values:
+- **0** - alpha blend (by default)
+- **1** - additive blend
+- **2** - multiply
+- **3** - overlay
+
+## void setEnvironmentGGXMipmapsQuality ( )
+
+***Console*:**`render_environment_ggx_mipmaps_quality`Sets a new GGX Mipmap quality mode for environment reflections on rough surfaces. Quality modes differ in the number of rays used to create a reflection on a rough surface.
+### Arguments
+
+- **quality** - The GGX Mipmap quality mode. One of the following values:
+
+  - *Low* - low quality (by default)
+  - *Medium* - medium quality
+  - *High* - high quality
+  - *Ultra* - ultra quality
+
+## getEnvironmentGGXMipmapsQuality () const
+
+***Console*:**`render_environment_ggx_mipmaps_quality`Returns the current GGX Mipmap quality mode for environment reflections on rough surfaces. Quality modes differ in the number of rays used to create a reflection on a rough surface.
+### Return value
+
+Current GGX Mipmap quality mode. One of the following values:
+
+- *Low* - low quality (by default)
+- *Medium* - medium quality
+- *High* - high quality
+- *Ultra* - ultra quality
+
+## void setEnvironmentHazeGradient ( int gradient = 0 )
+
+***Console*:**`render_environment_haze_gradient`Sets a new environment haze gradient mode. By using this option, you can make the haze look more realistic for a specific distance range.
+- Short Distance Range - better suitable for near-surface haze
+- Long Distance Range - better suitable for hazy mountains
+- Physically Based - for physically based haze simulation
+
+
+### Arguments
+
+- *int* **gradient** - The gradient mode. One of the following values:
+
+  - **0** - Short Distance Range (by default)
+  - **1** - Long Distance Range
+  - **2** - Physically Based
+
+## int getEnvironmentHazeGradient () const
+
+***Console*:**`render_environment_haze_gradient`Returns the current environment haze gradient mode. By using this option, you can make the haze look more realistic for a specific distance range.
+- Short Distance Range - better suitable for near-surface haze
+- Long Distance Range - better suitable for hazy mountains
+- Physically Based - for physically based haze simulation
+
+
+### Return value
+
+Current gradient mode. One of the following values:
+- **0** - Short Distance Range (by default)
+- **1** - Long Distance Range
+- **2** - Physically Based
+
+## void setEnvironmentHazeMode ( int mode = 2 )
+
+***Console*:**`render_environment_haze`Sets a new [mode](../../../editor2/settings/render_settings/environment/index.md#haze) for the haze effect.
+- If **Disabled**, no haze is applied.
+- The **Solid** mode uses the solid color from the *[Color](../../../editor2/settings/render_settings/environment/index.md#haze_color)* parameter.
+- The **Scattering** mode uses the color from the sky LUTs is blended with the *[Color](../../../editor2/settings/render_settings/environment/index.md#haze_color)* parameter. This value is recommended for better realism: objects will smoothly fade into the distance.
+
+
+### Arguments
+
+- *int* **mode** - The haze mode: one of the *[HAZE_*](#HAZE_DISABLED)* variables. One of the following values:
+
+  - **0** - haze disabled
+  - **1** - haze colored the specific color
+  - **2** - haze colored in accordance with the sky LUT (by default)
+
+## int getEnvironmentHazeMode () const
+
+***Console*:**`render_environment_haze`Returns the current [mode](../../../editor2/settings/render_settings/environment/index.md#haze) for the haze effect.
+- If **Disabled**, no haze is applied.
+- The **Solid** mode uses the solid color from the *[Color](../../../editor2/settings/render_settings/environment/index.md#haze_color)* parameter.
+- The **Scattering** mode uses the color from the sky LUTs is blended with the *[Color](../../../editor2/settings/render_settings/environment/index.md#haze_color)* parameter. This value is recommended for better realism: objects will smoothly fade into the distance.
+
+
+### Return value
+
+Current haze mode: one of the *[HAZE_*](#HAZE_DISABLED)* variables. One of the following values:
+- **0** - haze disabled
+- **1** - haze colored the specific color
+- **2** - haze colored in accordance with the sky LUT (by default)
+
+## void setEnvironment ( bool environment = 1 )
+
+***Console*:**`render_environment`Sets a new value indicating if rendering of environment of the scene is enabled.
+### Arguments
+
+- *bool* **environment** - Set **true** to enable rendering of environment; **false** - to disable it. The default value is **true**.
+
+## bool isEnvironment () const
+
+***Console*:**`render_environment`Returns the current value indicating if rendering of environment of the scene is enabled.
+### Return value
+
+**true** if rendering of environment is enabled; otherwise **false**. The default value is **true**.
+## void setColorCorrectionLUTPath ( )
+
+Sets a new name of a new color transformation texture (LUT).
+### Arguments
+
+- **lutpath** - The name of the file with the texture. If **NULL** (0) is passed, the texture is cleared.
+
+## getColorCorrectionLUTPath () const
+
+Returns the current name of a new color transformation texture (LUT).
+### Return value
+
+Current name of the file with the texture. If **NULL** (0) is passed, the texture is cleared.
+## void setColorCorrectionWhite ( )
+
+***Console*:**`color_correction_white`Sets a new white balance of the scene.
+### Arguments
+
+- **white** - The white balance. The provided value is saturated in the range [vec4_epsilon;vec4_one]. **vec4_zero** - default value (black)
+
+## getColorCorrectionWhite () const
+
+***Console*:**`color_correction_white`Returns the current white balance of the scene.
+### Return value
+
+Current white balance. The provided value is saturated in the range [vec4_epsilon;vec4_one].
+**vec4_zero** - default value (black)
+## void setColorCorrectionGamma ( float gamma = 1.0f )
+
+***Console*:**`color_correction_gamma`Sets a new Gamma correction value for the scene.
+### Arguments
+
+- *float* **gamma** - The Gamma value. The provided value is saturated in the range **[0.5f; 1.5f]**. Range of values: **[0.5f, 1.5f]**. The default value is : **1.0f**.
+
+## float getColorCorrectionGamma () const
+
+***Console*:**`color_correction_gamma`Returns the current Gamma correction value for the scene.
+### Return value
+
+Current Gamma value. The provided value is saturated in the range **[0.5f; 1.5f]**.
+Range of values: **[0.5f, 1.5f]**. The default value is : **1.0f**.
+## getColorCorrectionRamp () const
+
+Returns the current Color Correction ramp texture of the scene. An instance of the [TextureRamp](../../../api/library/rendering/class.textureramp_usc.md) class with 4 channels:
+- Channels 0, 1, 2 - the Red, Green and Blue channels of the [Color Correction](../../../editor2/settings/render_settings/color/index.md#color_curve) ramp.
+- Channel 3 - the [Saturation Correction](../../../editor2/settings/render_settings/color/index.md#saturation) ramp.
+
+
+### Return value
+
+Current TextureRamp instance
+## void setColorCorrectionSaturation ( const Palette & saturation )
+
+***Console*:**`color_correction_saturation`Sets a new [saturation adjustment](../../../editor2/settings/render_settings/color/index.md#saturation_palette) values for the scene.List of palette colors: 0 - Red, 1 - Orange, 2 - Yellow, 3 - Chartreuse, 4 - Green, 5 - Spring green, 6 - Cyan, 7 - Azure, 8 - Blue, 9 - Violet, 10 - Magenta, 11 - Rose.
+### Arguments
+
+- *[Palette](../../../api/library/common/class.palette_usc.md)* **saturation** - The color values in a [Palette](../../../api/library/common/class.palette_usc.md) structure. **(1,1,1,1,1,1,1,1,1,1,1,1)** - default value
+
+## Palette getColorCorrectionSaturation () const
+
+***Console*:**`color_correction_saturation`Returns the current [saturation adjustment](../../../editor2/settings/render_settings/color/index.md#saturation_palette) values for the scene.List of palette colors: 0 - Red, 1 - Orange, 2 - Yellow, 3 - Chartreuse, 4 - Green, 5 - Spring green, 6 - Cyan, 7 - Azure, 8 - Blue, 9 - Violet, 10 - Magenta, 11 - Rose.
+### Return value
+
+Current color values in a [Palette](../../../api/library/common/class.palette_usc.md) structure.
+**(1,1,1,1,1,1,1,1,1,1,1,1)** - default value
+## void setColorCorrectionHueShift ( const Palette & shift )
+
+***Console*:**`color_correction_hue_shift`Sets a new [hue adjustment](../../../editor2/settings/render_settings/color/index.md#hue_palette) values for the scene. List of palette colors: 0 - Red, 1 - Orange, 2 - Yellow, 3 - Chartreuse, 4 - Green, 5 - Spring green, 6 - Cyan, 7 - Azure, 8 - Blue, 9 - Violet, 10 - Magenta, 11 - Rose.
+### Arguments
+
+- *[Palette](../../../api/library/common/class.palette_usc.md)* **shift** - The color values in a [Palette](../../../api/library/common/class.palette_usc.md) structure. **(0,0,0,0,0,0,0,0,0,0,0,0)** - default value
+
+## Palette getColorCorrectionHueShift () const
+
+***Console*:**`color_correction_hue_shift`Returns the current [hue adjustment](../../../editor2/settings/render_settings/color/index.md#hue_palette) values for the scene. List of palette colors: 0 - Red, 1 - Orange, 2 - Yellow, 3 - Chartreuse, 4 - Green, 5 - Spring green, 6 - Cyan, 7 - Azure, 8 - Blue, 9 - Violet, 10 - Magenta, 11 - Rose.
+### Return value
+
+Current color values in a [Palette](../../../api/library/common/class.palette_usc.md) structure.
+**(0,0,0,0,0,0,0,0,0,0,0,0)** - default value
+## void setColorCorrectionContrast ( float contrast = 0.0f )
+
+***Console*:**`color_correction_contrast`Sets a new overall contrast value for the scene.
+### Arguments
+
+- *float* **contrast** - The contrast value. The provided value is saturated in the range **[-1.0f; 1.0f]**. Range of values: **[-1.0f, 1.0f]**. The default value is : **0.0f**.
+
+## float getColorCorrectionContrast () const
+
+***Console*:**`color_correction_contrast`Returns the current overall contrast value for the scene.
+### Return value
+
+Current contrast value. The provided value is saturated in the range **[-1.0f; 1.0f]**.
+Range of values: **[-1.0f, 1.0f]**. The default value is : **0.0f**.
+## void setColorCorrectionBrightness ( float brightness = 0.0f )
+
+***Console*:**`color_correction_brightness`Sets a new overall brightness value for the scene.
+### Arguments
+
+- *float* **brightness** - The brightness value. The provided value is saturated in the range **[-1.0f; 1.0f]**. Range of values: **[-1.0f, 1.0f]**. The default value is : **0.0f**.
+
+## float getColorCorrectionBrightness () const
+
+***Console*:**`color_correction_brightness`Returns the current overall brightness value for the scene.
+### Return value
+
+Current brightness value. The provided value is saturated in the range **[-1.0f; 1.0f]**.
+Range of values: **[-1.0f, 1.0f]**. The default value is : **0.0f**.
+## void setColorCorrectionPreserveSaturation ( bool saturation = 0 )
+
+***Console*:**`color_correction_preserve_saturation`Sets a new value indicating if initial scene color saturation is to be preserved after applying color correction.
+### Arguments
+
+- *bool* **saturation** - Set **true** to enable preserving initial scene color saturation; **false** - to disable it. The default value is **false**.
+
+## bool isColorCorrectionPreserveSaturation () const
+
+***Console*:**`color_correction_preserve_saturation`Returns the current value indicating if initial scene color saturation is to be preserved after applying color correction.
+### Return value
+
+**true** if preserving initial scene color saturation is enabled; otherwise **false**. The default value is **false**.
+## void setFadeColor ( )
+
+***Console*:**`render_fade_color`Sets a new fade color for the scene on the screen. By gradually changing this value it is possible to create "fade in" and "fade out" effects depending on the w component of the given vector. For example, when the following vectors are passed the result will be:
+- vec4(1,1,1,1) - a fully white screen. Positive w results in additive blending.
+- vec4(0.5,0.5,0.5,1) - light colors on the screen.
+- vec4(1,0,0,1) - R channel for all screen colors is to its maximum; G and B without changes.
+- vec4(0,0,0,0) - there is no fading (no color alterations are done to the screen).
+- vec4(1,1,1,-1) - a fully black screen. Negative w results in scene colors * (1 - RGB), where RGB is the first three components of the passed vector.
+- vec4(0.5,0.5,0.5,-1) - dark colors on the screen.
+
+
+### Arguments
+
+- **color** - The fade color for the scene on the screen. The provided vector represents RGB channel values (first three components) and a fading coefficient (w component). All components are saturated in the range [-1; 1]. **vec4_zero** - default value (white)
+
+## getFadeColor () const
+
+***Console*:**`render_fade_color`Returns the current fade color for the scene on the screen. By gradually changing this value it is possible to create "fade in" and "fade out" effects depending on the w component of the given vector. For example, when the following vectors are passed the result will be:
+- vec4(1,1,1,1) - a fully white screen. Positive w results in additive blending.
+- vec4(0.5,0.5,0.5,1) - light colors on the screen.
+- vec4(1,0,0,1) - R channel for all screen colors is to its maximum; G and B without changes.
+- vec4(0,0,0,0) - there is no fading (no color alterations are done to the screen).
+- vec4(1,1,1,-1) - a fully black screen. Negative w results in scene colors * (1 - RGB), where RGB is the first three components of the passed vector.
+- vec4(0.5,0.5,0.5,-1) - dark colors on the screen.
+
+
+### Return value
+
+Current fade color for the scene on the screen. The provided vector represents RGB channel values (first three components) and a fading coefficient (w component). All components are saturated in the range [-1; 1].
+**vec4_zero** - default value (white)
+## void setBackgroundColor ( )
+
+***Console*:**`render_background_color`Sets a new [background color](../../../editor2/settings/render_settings/environment/index.md#background_color) vector. The Alpha channel of this color sets background transparency: lower alpha channel values produce darker background color. This parameter allows creating colored transparent background instead of rendering an environment cubemap. However, if the environment cubemap is rendered, the background color will always be rendered over the environment.
+### Arguments
+
+- **color** - The color vector. **vec4_one** - default value (white)
+
+## getBackgroundColor () const
+
+***Console*:**`render_background_color`Returns the current [background color](../../../editor2/settings/render_settings/environment/index.md#background_color) vector. The Alpha channel of this color sets background transparency: lower alpha channel values produce darker background color. This parameter allows creating colored transparent background instead of rendering an environment cubemap. However, if the environment cubemap is rendered, the background color will always be rendered over the environment.
+### Return value
+
+Current color vector.
+**vec4_one** - default value (white)
+## void setWireframeColor ( )
+
+***Console*:**`render_wireframe_color`Sets a new color of the wireframe.
+### Arguments
+
+- **color** - The color vector. **vec4_one** - default value (white)
+
+## getWireframeColor () const
+
+***Console*:**`render_wireframe_color`Returns the current color of the wireframe.
+### Return value
+
+Current color vector.
+**vec4_one** - default value (white)
+## void setLensDispersion ( )
+
+***Console*:**`render_lens_dispersion`Sets a new color displacement for red, green, and blue channels of the lens flares. Can be used to create light dispersion (chromatic aberrations). If a negative value is set for a channel, 0 will be used instead. To use this option, rendering of lens flares*[setLens()()](../../...md#render_lens)* should be enabled.
+### Arguments
+
+- **dispersion** - The lens dispersion displacement per channel. **vec3_one** - default value
+
+## getLensDispersion () const
+
+***Console*:**`render_lens_dispersion`Returns the current color displacement for red, green, and blue channels of the lens flares. Can be used to create light dispersion (chromatic aberrations). If a negative value is set for a channel, 0 will be used instead. To use this option, rendering of lens flares*[setLens()()](../../...md#render_lens)* should be enabled.
+### Return value
+
+Current lens dispersion displacement per channel.
+**vec3_one** - default value
+## void setLensColor ( )
+
+***Console*:**`render_lens_color`Sets a new color of HDR lens flares. To use this option, rendering of lens flares*[setLens()()](../../...md#render_lens)* should be enabled.
+### Arguments
+
+- **color** - The color vector. **vec4_one** - default value (white)
+
+## getLensColor () const
+
+***Console*:**`render_lens_color`Returns the current color of HDR lens flares. To use this option, rendering of lens flares*[setLens()()](../../...md#render_lens)* should be enabled.
+### Return value
+
+Current color vector.
+**vec4_one** - default value (white)
+## void setLensThreshold ( float threshold = 0.5f )
+
+***Console*:**`render_lens_threshold`Sets a new value of the brightness threshold for areas to produce lens flares. The *higher* the threshold value, *the brighter* the area should be to produce flares. To use this option, rendering of lens flares*[setLens()()](../../...md#render_lens)* should be enabled.
+### Arguments
+
+- *float* **threshold** - The threshold value. Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
+
+## float getLensThreshold () const
+
+***Console*:**`render_lens_threshold`Returns the current value of the brightness threshold for areas to produce lens flares. The *higher* the threshold value, *the brighter* the area should be to produce flares. To use this option, rendering of lens flares*[setLens()()](../../...md#render_lens)* should be enabled.
+### Return value
+
+Current threshold value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
+## void setLensRadius ( float radius = 0.5f )
+
+***Console*:**`render_lens_radius`Sets a new radius of the spherical lens flares on the screen. **1.0f** corresponds to a screen-wide radius (a lens flare is not visible). To use this option, rendering of lens flares*[setLens()()](../../...md#render_lens)* should be enabled.
+### Arguments
+
+- *float* **radius** - The radius. Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
+
+## float getLensRadius () const
+
+***Console*:**`render_lens_radius`Returns the current radius of the spherical lens flares on the screen. **1.0f** corresponds to a screen-wide radius (a lens flare is not visible). To use this option, rendering of lens flares*[setLens()()](../../...md#render_lens)* should be enabled.
+### Return value
+
+Current radius.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
+## void setLensLength ( float length = 0.5f )
+
+***Console*:**`render_lens_length`Sets a new length of the radial lens flare indicating if the whole radial lens flare is rendered on the screen or only a part of it. This option controls how lens flares pattern is distributed. To use this option, rendering of lens flares *[setLens()()](../../...md#render_lens)* should be enabled.
+### Arguments
+
+- *float* **length** - The length value. Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
+
+## float getLensLength () const
+
+***Console*:**`render_lens_length`Returns the current length of the radial lens flare indicating if the whole radial lens flare is rendered on the screen or only a part of it. This option controls how lens flares pattern is distributed. To use this option, rendering of lens flares *[setLens()()](../../...md#render_lens)* should be enabled.
+### Return value
+
+Current length value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
+## void setLensScale ( float scale = 1.0f )
+
+***Console*:**`render_lens_scale`Sets a new multiplier for color*[setLensColor()()](../../...md#render_lens_color)* of HDR lens flares. To use this option, rendering of lens flares*[setLens()()](../../...md#render_lens)* should be enabled.
+### Arguments
+
+- *float* **scale** - The color scale. Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+
+## float getLensScale () const
+
+***Console*:**`render_lens_scale`Returns the current multiplier for color*[setLensColor()()](../../...md#render_lens_color)* of HDR lens flares. To use this option, rendering of lens flares*[setLens()()](../../...md#render_lens)* should be enabled.
+### Return value
+
+Current color scale.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+## void setLens ( bool lens = 0 )
+
+***Console*:**`render_lens`Sets a new value indicating if lens flares are enabled.
+### Arguments
+
+- *bool* **lens** - Set **true** to enable lens flares effect.; **false** - to disable it. The default value is **false**.
+
+## bool isLens () const
+
+***Console*:**`render_lens`Returns the current value indicating if lens flares are enabled.
+### Return value
+
+**true** if lens flares effect. is enabled; otherwise **false**. The default value is **false**.
+## void setScreenSpaceShadowShaftsMode ( int mode = 1 )
+
+***Console*:**`render_screen_space_shadow_shafts_mode`Sets a new rendering mode for volumetric [screen-space shadow shafts](../../../editor2/settings/render_settings/environment/index.md#ssss). Shadow shafts (aka light shafts) can be generated in screen space for the Sun and the Moon to simulate the real world effect of crepuscular rays, or atmospheric shadowing of atmospheric in-scattering. These rays add depth and realism to any scene.
+> **Notice:** - This effect works for opaque geometry only.
+> - It is recommended to use Screen-Space Shadow Shafts with relatively thick haze for visual consistency.
+> - Disable this effect for indoor scenes as only world light sources are supported.
+
+### Arguments
+
+- *int* **mode** - The rendering mode for volumetric screen-space shadow shafts One of the following values:
+
+  - **0** - Disabled
+  - **1** - Sun shadow shafts (by default)
+  - **2** - Moon shadow shafts
+  - **3** - Sun and Moon shadow shafts
+
+## int getScreenSpaceShadowShaftsMode () const
+
+***Console*:**`render_screen_space_shadow_shafts_mode`Returns the current rendering mode for volumetric [screen-space shadow shafts](../../../editor2/settings/render_settings/environment/index.md#ssss). Shadow shafts (aka light shafts) can be generated in screen space for the Sun and the Moon to simulate the real world effect of crepuscular rays, or atmospheric shadowing of atmospheric in-scattering. These rays add depth and realism to any scene.
+> **Notice:** - This effect works for opaque geometry only.
+> - It is recommended to use Screen-Space Shadow Shafts with relatively thick haze for visual consistency.
+> - Disable this effect for indoor scenes as only world light sources are supported.
+
+### Return value
+
+Current rendering mode for volumetric screen-space shadow shafts One of the following values:
+- **0** - Disabled
+- **1** - Sun shadow shafts (by default)
+- **2** - Moon shadow shafts
+- **3** - Sun and Moon shadow shafts
+
+## void setScreenSpaceShadowShaftsLength ( float length = 3.0f )
+
+***Console*:**`render_screen_space_shadow_shafts_length`Sets a new length of volumetric [screen-space shadow shafts](../../../editor2/settings/render_settings/environment/index.md#ssss).
+### Arguments
+
+- *float* **length** - The length value. Range of values: **[0.0f, 100.0f]**. The default value is : **3.0f**.
+
+## float getScreenSpaceShadowShaftsLength () const
+
+***Console*:**`render_screen_space_shadow_shafts_length`Returns the current length of volumetric [screen-space shadow shafts](../../../editor2/settings/render_settings/environment/index.md#ssss).
+### Return value
+
+Current length value.
+Range of values: **[0.0f, 100.0f]**. The default value is : **3.0f**.
+## void setScreenSpaceShadowShaftsQuality ( int quality = 1 )
+
+***Console*:**`render_screen_space_shadow_shafts_quality`Sets a new [quality](../../../editor2/settings/render_settings/environment/index.md#ssss_quality) of screen-space shadow shafts. Defines the number of steps to be used when generating the texture for this effect. *Lower* quality values may result in noticeable banding effect especially in case of long shadow shafts. *Medium* quality is usually enough, but you can increase it if shafts are long enough and banding effect becomes noticeable.
+### Arguments
+
+- *int* **quality** - The quality of screen-space shadows. One of the following values:
+
+  - *Low* - low quality
+  - *Medium* - medium quality (by default)
+  - *High* - high quality
+  - *Ultra* - ultra quality
+
+## int getScreenSpaceShadowShaftsQuality () const
+
+***Console*:**`render_screen_space_shadow_shafts_quality`Returns the current [quality](../../../editor2/settings/render_settings/environment/index.md#ssss_quality) of screen-space shadow shafts. Defines the number of steps to be used when generating the texture for this effect. *Lower* quality values may result in noticeable banding effect especially in case of long shadow shafts. *Medium* quality is usually enough, but you can increase it if shafts are long enough and banding effect becomes noticeable.
+### Return value
+
+Current quality of screen-space shadows. One of the following values:
+
+- *Low* - low quality
+- *Medium* - medium quality (by default)
+- *High* - high quality
+- *Ultra* - ultra quality
+
+## void setScreenSpaceShadowShaftsResolution ( int resolution = 1 )
+
+***Console*:**`render_screen_space_shadow_shafts_resolution`Sets a new [resolution of the texture](../../../editor2/settings/render_settings/environment/index.md#ssss_resolution) to which screen-space shadows are rendered.
+### Arguments
+
+- *int* **resolution** - The resolution of the texture used for screen-space shadows rendering. One of the following values:
+
+  - *Quarter* - quarter resolution
+  - *Half* - half resolution (by default)
+  - *Full* - full resolution
+
+## int getScreenSpaceShadowShaftsResolution () const
+
+***Console*:**`render_screen_space_shadow_shafts_resolution`Returns the current [resolution of the texture](../../../editor2/settings/render_settings/environment/index.md#ssss_resolution) to which screen-space shadows are rendered.
+### Return value
+
+Current resolution of the texture used for screen-space shadows rendering. One of the following values:
+
+- *Quarter* - quarter resolution
+- *Half* - half resolution (by default)
+- *Full* - full resolution
+
+## void setCrossColor ( )
+
+***Console*:**`render_cross_color`Sets a new [color](../../../editor2/settings/render_settings/camera_effects/index.md#cross_color) of the cross flares. To use this option, rendering of cross flares*[setCross()()](../../...md#render_cross)* should be enabled.
+### Arguments
+
+- **color** - The color of cross flares. **vec4_one** - default value (white)
+
+## getCrossColor () const
+
+***Console*:**`render_cross_color`Returns the current [color](../../../editor2/settings/render_settings/camera_effects/index.md#cross_color) of the cross flares. To use this option, rendering of cross flares*[setCross()()](../../...md#render_cross)* should be enabled.
+### Return value
+
+Current color of cross flares.
+**vec4_one** - default value (white)
+## void setCrossThreshold ( float threshold = 0.0f )
+
+***Console*:**`render_cross_threshold`Sets a new brightness [threshold](../../../editor2/settings/render_settings/camera_effects/index.md#cross_threshold) for areas to produce flare. The *higher* the threshold value, the brighter the area should be to produce a flare. To use this option, rendering of cross flares*[setCross()()](../../...md#render_cross)* should be enabled.
+### Arguments
+
+- *float* **threshold** - The threshold value. Range of values: **[0.0f, inf]**. The default value is : **0.0f**.
+
+## float getCrossThreshold () const
+
+***Console*:**`render_cross_threshold`Returns the current brightness [threshold](../../../editor2/settings/render_settings/camera_effects/index.md#cross_threshold) for areas to produce flare. The *higher* the threshold value, the brighter the area should be to produce a flare. To use this option, rendering of cross flares*[setCross()()](../../...md#render_cross)* should be enabled.
+### Return value
+
+Current threshold value.
+Range of values: **[0.0f, inf]**. The default value is : **0.0f**.
+## void setCrossAngle ( float angle = 45.0f )
+
+***Console*:**`render_cross_angle`Sets a new cross flares orientation [angle](../../../editor2/settings/render_settings/camera_effects/index.md#cross_angle). To use this option, rendering of cross flares*[setCross()()](../../...md#render_cross)* should be enabled.
+### Arguments
+
+- *float* **angle** - The angle, in degrees. Range of values: **[-inf, inf]**. The default value is : **45.0f**.
+
+## float getCrossAngle () const
+
+***Console*:**`render_cross_angle`Returns the current cross flares orientation [angle](../../../editor2/settings/render_settings/camera_effects/index.md#cross_angle). To use this option, rendering of cross flares*[setCross()()](../../...md#render_cross)* should be enabled.
+### Return value
+
+Current angle, in degrees.
+Range of values: **[-inf, inf]**. The default value is : **45.0f**.
+## void setCrossScale ( float scale = 1.0f )
+
+***Console*:**`render_cross_scale`Sets a new color multiplier.[cross color scale](../../../editor2/settings/render_settings/camera_effects/index.md#cross_scale) - a multiplier for the [color](#setCrossColor_vec4_void) of cross flares. *Higher* values produce *more pronounced* flares. To use this option, rendering of cross flares*[setCross()()](../../...md#render_cross)* should be enabled.
+### Arguments
+
+- *float* **scale** - The Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+
+## float getCrossScale () const
+
+***Console*:**`render_cross_scale`Returns the current color multiplier.[cross color scale](../../../editor2/settings/render_settings/camera_effects/index.md#cross_scale) - a multiplier for the [color](#setCrossColor_vec4_void) of cross flares. *Higher* values produce *more pronounced* flares. To use this option, rendering of cross flares*[setCross()()](../../...md#render_cross)* should be enabled.
+### Return value
+
+Current
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+## void setCrossLength ( float length = 0.2f )
+
+***Console*:**`render_cross_length`Sets a new [length](../../../editor2/settings/render_settings/camera_effects/index.md#cross_length) of a cross flare relative to the screen width. *Increasing* this value also leads to fading of the shafts across their length. To use this option, rendering of cross flares*[setCross()()](../../...md#render_cross)* should be enabled.
+### Arguments
+
+- *float* **length** - The length value. Range of values: **[0.0f, 2.0f]**. The default value is : **0.2f**.
+
+## float getCrossLength () const
+
+***Console*:**`render_cross_length`Returns the current [length](../../../editor2/settings/render_settings/camera_effects/index.md#cross_length) of a cross flare relative to the screen width. *Increasing* this value also leads to fading of the shafts across their length. To use this option, rendering of cross flares*[setCross()()](../../...md#render_cross)* should be enabled.
+### Return value
+
+Current length value.
+Range of values: **[0.0f, 2.0f]**. The default value is : **0.2f**.
+## void setCrossShafts ( int shafts = 4 )
+
+***Console*:**`render_cross_shafts`Sets a new number of [shafts](../../../editor2/settings/render_settings/camera_effects/index.md#cross_shafts) in a cross flare. High number of flares can cause a FPS drop on low-performance hardware. To use this option, rendering of cross flares*[setCross()()](../../...md#render_cross)* should be enabled.
+### Arguments
+
+- *int* **shafts** - The number of cross flares. Range of values: **[2, 32]**. The default value is : **4**.
+
+## int getCrossShafts () const
+
+***Console*:**`render_cross_shafts`Returns the current number of [shafts](../../../editor2/settings/render_settings/camera_effects/index.md#cross_shafts) in a cross flare. High number of flares can cause a FPS drop on low-performance hardware. To use this option, rendering of cross flares*[setCross()()](../../...md#render_cross)* should be enabled.
+### Return value
+
+Current number of cross flares.
+Range of values: **[2, 32]**. The default value is : **4**.
+## void setCross ( bool cross = 0 )
+
+***Console*:**`render_cross`Sets a new value indicating if [cross flares](../../../editor2/settings/render_settings/camera_effects/index.md#cross) are enabled.
+### Arguments
+
+- *bool* **cross** - Set **true** to enable cross flares effect; **false** - to disable it. The default value is **false**.
+
+## bool isCross () const
+
+***Console*:**`render_cross`Returns the current value indicating if [cross flares](../../../editor2/settings/render_settings/camera_effects/index.md#cross) are enabled.
+### Return value
+
+**true** if cross flares effect is enabled; otherwise **false**. The default value is **false**.
+## void setFilmicSaturationRecovery ( float recovery = 0.75f )
+
+***Console*:**`render_filmic_saturation_recovery`Sets a new [color saturation recovery](../../../editor2/settings/render_settings/color/index.md#saturation_recovery) value for the filmic tonemapper. Filmic tonemapper desaturates image colors in bright areas making them look grayish. This parameter enables you to recover initial color saturation in such areas. Higher values make colors more saturated:
+- 0.0f - standard filmic tonemapping, no saturation recovery is performed.
+- 1.0f - color saturation is recovered to the full extent.
+
+
+> **Notice:** When the 1.0f value is set specular highlights appear too saturated, so the recommended value is 0.75f (default)
+
+
+### Arguments
+
+- *float* **recovery** - The color saturation recovery value. Range of values: **[0.0f, 1.0f]**. The default value is : **0.75f**.
+
+## float getFilmicSaturationRecovery () const
+
+***Console*:**`render_filmic_saturation_recovery`Returns the current [color saturation recovery](../../../editor2/settings/render_settings/color/index.md#saturation_recovery) value for the filmic tonemapper. Filmic tonemapper desaturates image colors in bright areas making them look grayish. This parameter enables you to recover initial color saturation in such areas. Higher values make colors more saturated:
+- 0.0f - standard filmic tonemapping, no saturation recovery is performed.
+- 1.0f - color saturation is recovered to the full extent.
+
+
+> **Notice:** When the 1.0f value is set specular highlights appear too saturated, so the recommended value is 0.75f (default)
+
+
+### Return value
+
+Current color saturation recovery value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.75f**.
+## void setFilmicWhiteLevel ( float level = 1.0f )
+
+***Console*:**`render_filmic_white_level`Sets a new [Linear White Point](../../../editor2/settings/render_settings/color/index.md#white_level) tonemapping parameter value, which is mapped as pure white in the resulting image.
+### Arguments
+
+- *float* **level** - The Linear White Point value. Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+
+## float getFilmicWhiteLevel () const
+
+***Console*:**`render_filmic_white_level`Returns the current [Linear White Point](../../../editor2/settings/render_settings/color/index.md#white_level) tonemapping parameter value, which is mapped as pure white in the resulting image.
+### Return value
+
+Current Linear White Point value.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+## void setFilmicToeDenominator ( float denominator = 0.3f )
+
+***Console*:**`render_filmic_toe_denominator`Sets a new [Toe Denominator](../../../editor2/settings/render_settings/color/index.md#toe_denominator) tonemapping parameter value.
+### Arguments
+
+- *float* **denominator** - The Toe Denominator value. Range of values: **[0.0f, 1.0f]**. The default value is : **0.3f**.
+
+## float getFilmicToeDenominator () const
+
+***Console*:**`render_filmic_toe_denominator`Returns the current [Toe Denominator](../../../editor2/settings/render_settings/color/index.md#toe_denominator) tonemapping parameter value.
+### Return value
+
+Current Toe Denominator value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.3f**.
+## void setFilmicToeNumerator ( float numerator = 0.01f )
+
+***Console*:**`render_filmic_toe_numerator`Sets a new [Toe Numerator](../../../editor2/settings/render_settings/color/index.md#toe_numerator) tonemapping parameter value.
+### Arguments
+
+- *float* **numerator** - The Toe Numerator value. Range of values: **[0.0f, 1.0f]**. The default value is : **0.01f**.
+
+## float getFilmicToeNumerator () const
+
+***Console*:**`render_filmic_toe_numerator`Returns the current [Toe Numerator](../../../editor2/settings/render_settings/color/index.md#toe_numerator) tonemapping parameter value.
+### Return value
+
+Current Toe Numerator value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.01f**.
+## void setFilmicToeScale ( float scale = 0.2f )
+
+***Console*:**`render_filmic_toe_scale`Sets a new [Toe Scale](../../../editor2/settings/render_settings/color/index.md#toe_scale) tonemapping parameter value that is used to change dark values. The Toe Scale controls the slope of the tone mapping curve toe (the area of underexposure).
+### Arguments
+
+- *float* **scale** - The Toe scale value. Range of values: **[0.0f, 1.0f]**. The default value is : **0.2f**.
+
+## float getFilmicToeScale () const
+
+***Console*:**`render_filmic_toe_scale`Returns the current [Toe Scale](../../../editor2/settings/render_settings/color/index.md#toe_scale) tonemapping parameter value that is used to change dark values. The Toe Scale controls the slope of the tone mapping curve toe (the area of underexposure).
+### Return value
+
+Current Toe scale value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.2f**.
+## void setFilmicLinearAngle ( float angle = 1.0f )
+
+***Console*:**`render_filmic_linear_angle`Sets a new [Linear Angle](../../../editor2/settings/render_settings/color/index.md#linear_angle) tone mapping parameter value. This parameter controls the slope of the linear part of the [tone mapping curve](../../../editor2/settings/render_settings/color/index.md#tonemapping_curve).
+### Arguments
+
+- *float* **angle** - The Linear Angle value. Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+
+## float getFilmicLinearAngle () const
+
+***Console*:**`render_filmic_linear_angle`Returns the current [Linear Angle](../../../editor2/settings/render_settings/color/index.md#linear_angle) tone mapping parameter value. This parameter controls the slope of the linear part of the [tone mapping curve](../../../editor2/settings/render_settings/color/index.md#tonemapping_curve).
+### Return value
+
+Current Linear Angle value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+## void setFilmicLinearScale ( float scale = 0.3f )
+
+***Console*:**`render_filmic_linear_scale`Sets a new [Linear Strength](../../../editor2/settings/render_settings/color/index.md#linear_scale) tone mapping parameter value that is used to change gray values. The Linear Scale controls the length of the [tone mapping curve](../../../editor2/settings/render_settings/color/index.md#tonemapping_curve) linear part.
+### Arguments
+
+- *float* **scale** - The Linear Scale value. Range of values: **[0.0f, 1.0f]**. The default value is : **0.3f**.
+
+## float getFilmicLinearScale () const
+
+***Console*:**`render_filmic_linear_scale`Returns the current [Linear Strength](../../../editor2/settings/render_settings/color/index.md#linear_scale) tone mapping parameter value that is used to change gray values. The Linear Scale controls the length of the [tone mapping curve](../../../editor2/settings/render_settings/color/index.md#tonemapping_curve) linear part.
+### Return value
+
+Current Linear Scale value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.3f**.
+## void setFilmicShoulderScale ( float scale = 0.2f )
+
+***Console*:**`render_filmic_shoulder_scale`Sets a new [Shoulder Strength](../../../editor2/settings/render_settings/color/index.md#shoulder_scale) tonemapping parameter value that is used to change bright values.
+### Arguments
+
+- *float* **scale** - The Shoulder Scale value. Range of values: **[0.0f, 1.0f]**. The default value is : **0.2f**.
+
+## float getFilmicShoulderScale () const
+
+***Console*:**`render_filmic_shoulder_scale`Returns the current [Shoulder Strength](../../../editor2/settings/render_settings/color/index.md#shoulder_scale) tonemapping parameter value that is used to change bright values.
+### Return value
+
+Current Shoulder Scale value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.2f**.
+## void setBloomPower ( float power = 0.7f )
+
+***Console*:**`render_bloom_power`Sets a new power of the Bloom effect.
+- 0.0f (min) - the Bloom effect is blurred.
+- 1.0f (max) - the Bloom effect is more contrast.
+
+
+### Arguments
+
+- *float* **power** - The Bloom power value. Range of values: **[0.0f, 1.0f]**. The default value is : **0.7f**.
+
+## float getBloomPower () const
+
+***Console*:**`render_bloom_power`Returns the current power of the Bloom effect.
+- 0.0f (min) - the Bloom effect is blurred.
+- 1.0f (max) - the Bloom effect is more contrast.
+
+
+### Return value
+
+Current Bloom power value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.7f**.
+## void setBloomScale ( float scale = 0.3f )
+
+***Console*:**`render_bloom_scale`Sets a new scale of the Bloom effect.
+### Arguments
+
+- *float* **scale** - The Bloom scale value. Range of values: **[0.0f, 1.0f]**. The default value is : **0.3f**.
+
+## float getBloomScale () const
+
+***Console*:**`render_bloom_scale`Returns the current scale of the Bloom effect.
+### Return value
+
+Current Bloom scale value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.3f**.
+## void setBloomPasses ( int passes = 6 )
+
+***Console*:**`render_bloom_passes`Sets a new number of passes for the bloom effect. During the pass a Bloom texture is generating. Up to 8 Bloom textures can be generated: each texture has lower resolution (original size, original size /2, original size /4, so forth) with Bloom effect. After that, all these Bloom textures with the different resolution form the final Bloom texture.
+> **Notice:** The higher the value, the smoother the effect is. However, this option significantly affects performance.
+
+### Arguments
+
+- *int* **passes** - The number of bloom passes. Range of values: **[2, 8]**. The default value is : **6**.
+
+## int getBloomPasses () const
+
+***Console*:**`render_bloom_passes`Returns the current number of passes for the bloom effect. During the pass a Bloom texture is generating. Up to 8 Bloom textures can be generated: each texture has lower resolution (original size, original size /2, original size /4, so forth) with Bloom effect. After that, all these Bloom textures with the different resolution form the final Bloom texture.
+> **Notice:** The higher the value, the smoother the effect is. However, this option significantly affects performance.
+
+### Return value
+
+Current number of bloom passes.
+Range of values: **[2, 8]**. The default value is : **6**.
+## void setBloomResolution ( int resolution = 2 )
+
+***Console*:**`render_bloom_resolution`Sets a new resolution of the Bloom effect.
+### Arguments
+
+- *int* **resolution** - The resolution. One of the following values:
+
+  - **0** - quarter
+  - **1** - half
+  - **2** - full (by default)
+
+## int getBloomResolution () const
+
+***Console*:**`render_bloom_resolution`Returns the current resolution of the Bloom effect.
+### Return value
+
+Current resolution. One of the following values:
+- **0** - quarter
+- **1** - half
+- **2** - full (by default)
+
+## void setBloom ( bool bloom = 0 )
+
+***Console*:**`render_bloom`Sets a new value indicating if the Bloom effect is enabled.
+### Arguments
+
+- *bool* **bloom** - Set **true** to enable Bloom effect; **false** - to disable it. The default value is **false**.
+
+## bool isBloom () const
+
+***Console*:**`render_bloom`Returns the current value indicating if the Bloom effect is enabled.
+### Return value
+
+**true** if Bloom effect is enabled; otherwise **false**. The default value is **false**.
+## void setDOFNearFocalOffset ( float offset = 0.0f )
+
+***Console*:**`render_dof_near_focal_offset`Sets a new [offset](../../../editor2/settings/render_settings/camera_effects/index.md#near_focal_offset) from the focal to the nearest blurred zone. In other words, the distance when foreground (near) is in focus.
+### Arguments
+
+- *float* **offset** - The near focal offset for DoF (Depth Of Field), in units. Range of values: **[0.0f, inf]**. The default value is : **0.0f**.
+
+## float getDOFNearFocalOffset () const
+
+***Console*:**`render_dof_near_focal_offset`Returns the current [offset](../../../editor2/settings/render_settings/camera_effects/index.md#near_focal_offset) from the focal to the nearest blurred zone. In other words, the distance when foreground (near) is in focus.
+### Return value
+
+Current near focal offset for DoF (Depth Of Field), in units.
+Range of values: **[0.0f, inf]**. The default value is : **0.0f**.
+## void setDOFNearDistance ( float distance = 10.0f )
+
+***Console*:**`render_dof_near_distance`Sets a new [near DOF limit](../../../editor2/settings/render_settings/camera_effects/index.md#near_distance) of the camera: the distance between the camera and the first element that is considered to be acceptably sharp. Black zone on the DOF mask means in-focus zone.
+### Arguments
+
+- *float* **distance** - The near DOF limit value, in units. Range of values: **[0.0f, inf]**. The default value is : **10.0f**.
+
+## float getDOFNearDistance () const
+
+***Console*:**`render_dof_near_distance`Returns the current [near DOF limit](../../../editor2/settings/render_settings/camera_effects/index.md#near_distance) of the camera: the distance between the camera and the first element that is considered to be acceptably sharp. Black zone on the DOF mask means in-focus zone.
+### Return value
+
+Current near DOF limit value, in units.
+Range of values: **[0.0f, inf]**. The default value is : **10.0f**.
+## void setDOFFarFocalOffset ( float offset = 0.0f )
+
+***Console*:**`render_dof_far_focal_offset`Sets a new Sets the [offset](../../../editor2/settings/render_settings/camera_effects/index.md#far_focal_offset) from the focal to the farthest blurred zone for the DOF effect. In other words, the distance when background (far) is in focus.
+### Arguments
+
+- *float* **offset** - The far focal offset for DoF (Depth Of Field), in units. Range of values: **[0.0f, inf]**. The default value is : **0.0f**.
+
+## float getDOFFarFocalOffset () const
+
+***Console*:**`render_dof_far_focal_offset`Returns the current Sets the [offset](../../../editor2/settings/render_settings/camera_effects/index.md#far_focal_offset) from the focal to the farthest blurred zone for the DOF effect. In other words, the distance when background (far) is in focus.
+### Return value
+
+Current far focal offset for DoF (Depth Of Field), in units.
+Range of values: **[0.0f, inf]**. The default value is : **0.0f**.
+## void setDOFFarDistance ( float distance = 10.0f )
+
+***Console*:**`render_dof_far_distance`Sets a new [far DOF limit](../../../editor2/settings/render_settings/camera_effects/index.md#far_distance) of the camera: the distance between the camera and the furthest element that is considered to be acceptably sharp. Black zone on the DOF mask means in-focus zone.
+### Arguments
+
+- *float* **distance** - The far DoF limit value, in units. Range of values: **[0.0f, inf]**. The default value is : **10.0f**.
+
+## float getDOFFarDistance () const
+
+***Console*:**`render_dof_far_distance`Returns the current [far DOF limit](../../../editor2/settings/render_settings/camera_effects/index.md#far_distance) of the camera: the distance between the camera and the furthest element that is considered to be acceptably sharp. Black zone on the DOF mask means in-focus zone.
+### Return value
+
+Current far DoF limit value, in units.
+Range of values: **[0.0f, inf]**. The default value is : **10.0f**.
+## void setDOFBlur ( float dofblur = 1.0f )
+
+***Console*:**`render_dof_blur`Sets a new intensity of [blur](../../../editor2/settings/render_settings/camera_effects/index.md#blur) for the DOF (Depth Of Field) effect.
+### Arguments
+
+- *float* **dofblur** - The DOF blur intensity value. Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+
+## float getDOFBlur () const
+
+***Console*:**`render_dof_blur`Returns the current intensity of [blur](../../../editor2/settings/render_settings/camera_effects/index.md#blur) for the DOF (Depth Of Field) effect.
+### Return value
+
+Current DOF blur intensity value.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+## void setDOFChromaticAberration ( float aberration = 0.0f )
+
+***Console*:**`render_dof_chromatic_aberration`Sets a new intensity of [chromatic aberration](../../../editor2/settings/render_settings/camera_effects/index.md#chromatic_aberration) for the DOF (Depth Of Field) effect.
+### Arguments
+
+- *float* **aberration** - The DOF chromatic aberration intensity value. Range of values: **[0.0f, inf]**. The default value is : **0.0f**.
+
+## float getDOFChromaticAberration () const
+
+***Console*:**`render_dof_chromatic_aberration`Returns the current intensity of [chromatic aberration](../../../editor2/settings/render_settings/camera_effects/index.md#chromatic_aberration) for the DOF (Depth Of Field) effect.
+### Return value
+
+Current DOF chromatic aberration intensity value.
+Range of values: **[0.0f, inf]**. The default value is : **0.0f**.
+## void setDOFFocalDistance ( float distance = 1.0f )
+
+***Console*:**`render_dof_focal_distance`Sets a new [focal distance](../../../editor2/settings/render_settings/camera_effects/index.md#focal_distance) of the camera, i.e. a point where objects are in-focus and visible clearly.
+### Arguments
+
+- *float* **distance** - The focal distance, in units. Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+
+## float getDOFFocalDistance () const
+
+***Console*:**`render_dof_focal_distance`Returns the current [focal distance](../../../editor2/settings/render_settings/camera_effects/index.md#focal_distance) of the camera, i.e. a point where objects are in-focus and visible clearly.
+### Return value
+
+Current focal distance, in units.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+## void setDOFBokehMode ( int mode = 0 )
+
+***Console*:**`render_dof_bokeh_mode`Sets a new shape of the [Bokeh](../../../editor2/settings/render_settings/camera_effects/index.md#bokeh_shape) for the DOF effect. This parameter determines the way the lens renders out-of-focus points of light.
+> **Notice:** For the DOF effect, the Bokeh effect is enabled by default.
+
+### Arguments
+
+- *int* **mode** - The DOF Bokeh shape. One of the following values:
+
+  - **0** - ring (by default)
+  - **1** - circle
+
+## int getDOFBokehMode () const
+
+***Console*:**`render_dof_bokeh_mode`Returns the current shape of the [Bokeh](../../../editor2/settings/render_settings/camera_effects/index.md#bokeh_shape) for the DOF effect. This parameter determines the way the lens renders out-of-focus points of light.
+> **Notice:** For the DOF effect, the Bokeh effect is enabled by default.
+
+### Return value
+
+Current DOF Bokeh shape. One of the following values:
+- **0** - ring (by default)
+- **1** - circle
+
+## void setDOFResolution ( int dofresolution = 2 )
+
+***Console*:**`render_dof_resolution`Sets a new [resolution](../../../editor2/settings/render_settings/camera_effects/index.md#resolution) of the DOF (Depth Of Field) effect.
+### Arguments
+
+- *int* **dofresolution** - The DOF resolution. One of the following values: > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DOFPreset](/api/library/rendering/class.render_cs#render_dof_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+  - **0** - quarter
+  - **1** - half
+  - **2** - full (by default)
+
+## int getDOFResolution () const
+
+***Console*:**`render_dof_resolution`Returns the current [resolution](../../../editor2/settings/render_settings/camera_effects/index.md#resolution) of the DOF (Depth Of Field) effect.
+### Return value
+
+Current DOF resolution. One of the following values:
+- **0** - quarter
+- **1** - half
+- **2** - full (by default)
+
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DOFPreset](/api/library/rendering/class.render_cs#render_dof_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setDOFQuality ( int dofquality = 1 )
+
+***Console*:**`render_dof_quality`Sets a new [quality](../../../editor2/settings/render_settings/camera_effects/index.md#quality) of the DOF (Depth Of Field) effect.
+### Arguments
+
+- *int* **dofquality** - The DOF quality. One of the following values: > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DOFPreset](/api/library/rendering/class.render_cs#render_dof_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+  - *Low* - low quality
+  - *Medium* - medium quality (by default)
+  - *High* - high quality
+  - *Ultra* - ultra quality
+
+## int getDOFQuality () const
+
+***Console*:**`render_dof_quality`Returns the current [quality](../../../editor2/settings/render_settings/camera_effects/index.md#quality) of the DOF (Depth Of Field) effect.
+### Return value
+
+Current DOF quality. One of the following values:
+
+- *Low* - low quality
+- *Medium* - medium quality (by default)
+- *High* - high quality
+- *Ultra* - ultra quality
+
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DOFPreset](/api/library/rendering/class.render_cs#render_dof_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setDOFFocusImprovement ( bool improvement = false )
+
+***Console*:**`render_dof_focus_improvement`Sets a new value indicating if the [focus improvement](../../../editor2/settings/render_settings/camera_effects/index.md#focus_improvement) option is enabled for the DOF (Depth Of Field) effect. When enabled, transitions between the focused and unfocused parts of the scene become more accurate.
+### Arguments
+
+- *bool* **improvement** - Set **true** to enable focus improvement for the DOF effect; **false** - to disable it. The default value is **false**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DOFPreset](/api/library/rendering/class.render_cs#render_dof_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isDOFFocusImprovement () const
+
+***Console*:**`render_dof_focus_improvement`Returns the current value indicating if the [focus improvement](../../../editor2/settings/render_settings/camera_effects/index.md#focus_improvement) option is enabled for the DOF (Depth Of Field) effect. When enabled, transitions between the focused and unfocused parts of the scene become more accurate.
+### Return value
+
+**true** if focus improvement for the DOF effect is enabled; otherwise **false**. The default value is **false**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DOFPreset](/api/library/rendering/class.render_cs#render_dof_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setDOFIncreasedAccuracy ( bool accuracy = 0 )
+
+***Console*:**`render_dof_increased_accuracy`Sets a new value indicating if the [increased accuracy](../../../editor2/settings/render_settings/camera_effects/index.md#increased_accuracy) option is enabled for the DOF (Depth Of Field) effect. When enabled, focusing calculation is performed with increased accuracy.
+### Arguments
+
+- *bool* **accuracy** - Set **true** to enable increased accuracy for the DOF effect; **false** - to disable it. The default value is **false**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DOFPreset](/api/library/rendering/class.render_cs#render_dof_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isDOFIncreasedAccuracy () const
+
+***Console*:**`render_dof_increased_accuracy`Returns the current value indicating if the [increased accuracy](../../../editor2/settings/render_settings/camera_effects/index.md#increased_accuracy) option is enabled for the DOF (Depth Of Field) effect. When enabled, focusing calculation is performed with increased accuracy.
+### Return value
+
+**true** if increased accuracy for the DOF effect is enabled; otherwise **false**. The default value is **false**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DOFPreset](/api/library/rendering/class.render_cs#render_dof_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setDOF ( bool dof = 0 )
+
+***Console*:**`render_dof`Sets a new value indicating if the [DOF](../../../editor2/settings/render_settings/camera_effects/index.md) (Depth Of Field) effect is enabled.
+### Arguments
+
+- *bool* **dof** - Set **true** to enable Gaussian blur DOF (Depth Of Field) effect; **false** - to disable it. The default value is **false**.
+
+## bool isDOF () const
+
+***Console*:**`render_dof`Returns the current value indicating if the [DOF](../../../editor2/settings/render_settings/camera_effects/index.md) (Depth Of Field) effect is enabled.
+### Return value
+
+**true** if Gaussian blur DOF (Depth Of Field) effect is enabled; otherwise **false**. The default value is **false**.
+## void setMotionBlurNumSteps ( int steps = 8 )
+
+***Console*:**`render_motion_blur_num_steps`Sets a new number of steps used in the [motion blur](../../../principles/render/sequence/index.md#motion_blur). The higher the value, the more correct the motion blur effect is. At low values, moving objects may look doubled, however, performance will increase. To use this option, rendering of the motion blur effect*[setMotionBlur()()](../../...md#render_motion_blur)* should be enabled.
+### Arguments
+
+- *int* **steps** - The number of steps Range of values: **[2, 64]**. The default value is : **8**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[MotionBlurPreset](/api/library/rendering/class.render_cs#render_motion_blur_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## int getMotionBlurNumSteps () const
+
+***Console*:**`render_motion_blur_num_steps`Returns the current number of steps used in the [motion blur](../../../principles/render/sequence/index.md#motion_blur). The higher the value, the more correct the motion blur effect is. At low values, moving objects may look doubled, however, performance will increase. To use this option, rendering of the motion blur effect*[setMotionBlur()()](../../...md#render_motion_blur)* should be enabled.
+### Return value
+
+Current number of steps
+Range of values: **[2, 64]**. The default value is : **8**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[MotionBlurPreset](/api/library/rendering/class.render_cs#render_motion_blur_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setMotionBlurNoiseIntensity ( float intensity = 0.5f )
+
+***Console*:**`render_motion_blur_noise_intensity`Sets a new intensity of the noise used in the [motion blur](../../../principles/render/sequence/index.md#motion_blur). To use this option, rendering of the motion blur effect*[setMotionBlur()()](../../...md#render_motion_blur)* should be enabled.
+### Arguments
+
+- *float* **intensity** - The noise intensity Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[MotionBlurPreset](/api/library/rendering/class.render_cs#render_motion_blur_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getMotionBlurNoiseIntensity () const
+
+***Console*:**`render_motion_blur_noise_intensity`Returns the current intensity of the noise used in the [motion blur](../../../principles/render/sequence/index.md#motion_blur). To use this option, rendering of the motion blur effect*[setMotionBlur()()](../../...md#render_motion_blur)* should be enabled.
+### Return value
+
+Current noise intensity
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[MotionBlurPreset](/api/library/rendering/class.render_cs#render_motion_blur_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setMotionBlurMaxVelocity ( float velocity = 1.0f )
+
+***Console*:**`render_motion_blur_max_velocity`Sets a new [maximum possible amount](../../../editor2/settings/render_settings/camera_effects/index.md#max_velocity) of [motion blur](../../../principles/render/sequence/index.md#motion_blur) for moving physical objects. When their body velocity exceeds the set value, they will be blurred as if they have the maximum velocity set by the parameter.
+This parameter should be used:
+
+
+- To avoid excessive blurring of fast moving objects.
+- To save performance, as increasing the object's velocity leads increasing the radius of the motion blur effect that drops performance at too high values.
+
+ To use this option, rendering of the motion blur effect*[setMotionBlur()()](../../...md#render_motion_blur)* should be enabled.
+### Arguments
+
+- *float* **velocity** - The maximum scaled velocity of moving physical bodies used for the motion blur effect. Range of values: **[0.0f, inf]**. The default value is : **1.0f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[MotionBlurPreset](/api/library/rendering/class.render_cs#render_motion_blur_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getMotionBlurMaxVelocity () const
+
+***Console*:**`render_motion_blur_max_velocity`Returns the current [maximum possible amount](../../../editor2/settings/render_settings/camera_effects/index.md#max_velocity) of [motion blur](../../../principles/render/sequence/index.md#motion_blur) for moving physical objects. When their body velocity exceeds the set value, they will be blurred as if they have the maximum velocity set by the parameter.
+This parameter should be used:
+
+
+- To avoid excessive blurring of fast moving objects.
+- To save performance, as increasing the object's velocity leads increasing the radius of the motion blur effect that drops performance at too high values.
+
+ To use this option, rendering of the motion blur effect*[setMotionBlur()()](../../...md#render_motion_blur)* should be enabled.
+### Return value
+
+Current maximum scaled velocity of moving physical bodies used for the motion blur effect.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[MotionBlurPreset](/api/library/rendering/class.render_cs#render_motion_blur_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setMotionBlurVelocityScale ( float scale = 1.0f )
+
+***Console*:**`render_motion_blur_velocity_scale`Sets a new [scale value](../../../editor2/settings/render_settings/camera_effects/index.md#velocity) of bodies' linear and angular velocities used for the motion blur. The *higher* the value, the more blurred the objects will appear when moving. To use this option, rendering of the motion blur effect*[setMotionBlur()()](../../...md#render_motion_blur)* should be enabled.
+### Arguments
+
+- *float* **scale** - The scale of bodies' linear and angular velocities used for the motion blur (if a negative value is provided, 0 will be used instead). Range of values: **[0.0f, inf]**. The default value is : **1.0f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[MotionBlurPreset](/api/library/rendering/class.render_cs#render_motion_blur_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getMotionBlurVelocityScale () const
+
+***Console*:**`render_motion_blur_velocity_scale`Returns the current [scale value](../../../editor2/settings/render_settings/camera_effects/index.md#velocity) of bodies' linear and angular velocities used for the motion blur. The *higher* the value, the more blurred the objects will appear when moving. To use this option, rendering of the motion blur effect*[setMotionBlur()()](../../...md#render_motion_blur)* should be enabled.
+### Return value
+
+Current scale of bodies' linear and angular velocities used for the motion blur (if a negative value is provided, 0 will be used instead).
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[MotionBlurPreset](/api/library/rendering/class.render_cs#render_motion_blur_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setMotionBlurCameraVelocity ( bool velocity = 1 )
+
+***Console*:**`render_motion_blur_camera_velocity`Sets a new value indicating if camera velocity contributes to the [motion blur](../../../principles/render/sequence/index.md#motion_blur) effect (false to take into account velocities of objects only). To use this option, rendering of the motion blur effect*[setMotionBlur()()](../../...md#render_motion_blur)* should be enabled.
+> **Notice:** Disabled in VR mode by default.
+
+### Arguments
+
+- *bool* **velocity** - Set **true** to enable taking camera velocity into account in the motion blur effect; **false** - to disable it. The default value is **true**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[MotionBlurPreset](/api/library/rendering/class.render_cs#render_motion_blur_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isMotionBlurCameraVelocity () const
+
+***Console*:**`render_motion_blur_camera_velocity`Returns the current value indicating if camera velocity contributes to the [motion blur](../../../principles/render/sequence/index.md#motion_blur) effect (false to take into account velocities of objects only). To use this option, rendering of the motion blur effect*[setMotionBlur()()](../../...md#render_motion_blur)* should be enabled.
+> **Notice:** Disabled in VR mode by default.
+
+### Return value
+
+**true** if taking camera velocity into account in the motion blur effect is enabled; otherwise **false**. The default value is **true**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[MotionBlurPreset](/api/library/rendering/class.render_cs#render_motion_blur_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setMotionBlurDepthThresholdFar ( float far = 0.5f )
+
+***Console*:**`render_motion_blur_depth_threshold_far`Sets a new value defining if the blur effect is applied to the background object. If the distance between the foreground object and the background object is less than this threshold value, the motion blur effect won't be applied to the background object. To use this option, rendering of the motion blur effect*[setMotionBlur()()](../../...md#render_motion_blur)* should be enabled.
+> **Notice:** Disabled in VR mode by default.
+
+### Arguments
+
+- *float* **far** - The value defining if the blur effect is applied to the background object Range of values: **[0.0f, inf]**. The default value is : **0.5f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[MotionBlurPreset](/api/library/rendering/class.render_cs#render_motion_blur_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getMotionBlurDepthThresholdFar () const
+
+***Console*:**`render_motion_blur_depth_threshold_far`Returns the current value defining if the blur effect is applied to the background object. If the distance between the foreground object and the background object is less than this threshold value, the motion blur effect won't be applied to the background object. To use this option, rendering of the motion blur effect*[setMotionBlur()()](../../...md#render_motion_blur)* should be enabled.
+> **Notice:** Disabled in VR mode by default.
+
+### Return value
+
+Current value defining if the blur effect is applied to the background object
+Range of values: **[0.0f, inf]**. The default value is : **0.5f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[MotionBlurPreset](/api/library/rendering/class.render_cs#render_motion_blur_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setMotionBlurDepthThresholdNear ( float near = 0.2f )
+
+***Console*:**`render_motion_blur_depth_threshold_near`Sets a new value defining if the blur effect is applied to the foreground object. If the distance between the foreground object and the background object is less than this threshold value, the motion blur effect won't be applied to the foreground object. To use this option, rendering of the motion blur effect*[setMotionBlur()()](../../...md#render_motion_blur)* should be enabled.
+> **Notice:** Disabled in VR mode by default.
+
+### Arguments
+
+- *float* **near** - The value defining if the blur effect is applied to the foreground object Range of values: **[0.0f, inf]**. The default value is : **0.2f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[MotionBlurPreset](/api/library/rendering/class.render_cs#render_motion_blur_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getMotionBlurDepthThresholdNear () const
+
+***Console*:**`render_motion_blur_depth_threshold_near`Returns the current value defining if the blur effect is applied to the foreground object. If the distance between the foreground object and the background object is less than this threshold value, the motion blur effect won't be applied to the foreground object. To use this option, rendering of the motion blur effect*[setMotionBlur()()](../../...md#render_motion_blur)* should be enabled.
+> **Notice:** Disabled in VR mode by default.
+
+### Return value
+
+Current value defining if the blur effect is applied to the foreground object
+Range of values: **[0.0f, inf]**. The default value is : **0.2f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[MotionBlurPreset](/api/library/rendering/class.render_cs#render_motion_blur_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setMotionBlurVelocityBlurRadius ( float radius = 0.5f )
+
+***Console*:**`render_motion_blur_velocity_blur_radius`Sets a new radius of the [motion blur](../../../principles/render/sequence/index.md#motion_blur) effect for the boundary between moving and static objects.
+### Arguments
+
+- *float* **radius** - The radius of the motion blur effect Range of values: **[0.0f, inf]**. The default value is : **0.5f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[MotionBlurPreset](/api/library/rendering/class.render_cs#render_motion_blur_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getMotionBlurVelocityBlurRadius () const
+
+***Console*:**`render_motion_blur_velocity_blur_radius`Returns the current radius of the [motion blur](../../../principles/render/sequence/index.md#motion_blur) effect for the boundary between moving and static objects.
+### Return value
+
+Current radius of the motion blur effect
+Range of values: **[0.0f, inf]**. The default value is : **0.5f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[MotionBlurPreset](/api/library/rendering/class.render_cs#render_motion_blur_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setMotionBlurVelocityBlurSamples ( int samples = 32 )
+
+***Console*:**`render_motion_blur_velocity_blur_samples`Sets a new number of iterations performed to blur the border between moving and static objects. Higher values ensure a higher quality of blurring, but affect the performance. To use this option, rendering of the motion blur effect*[setMotionBlur()()](../../...md#render_motion_blur)* should be enabled.
+> **Notice:** Disabled in VR mode by default.
+
+### Arguments
+
+- *int* **samples** - The number of iterations for blurring Range of values: **[0, 512]**. The default value is : **32**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[MotionBlurPreset](/api/library/rendering/class.render_cs#render_motion_blur_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## int getMotionBlurVelocityBlurSamples () const
+
+***Console*:**`render_motion_blur_velocity_blur_samples`Returns the current number of iterations performed to blur the border between moving and static objects. Higher values ensure a higher quality of blurring, but affect the performance. To use this option, rendering of the motion blur effect*[setMotionBlur()()](../../...md#render_motion_blur)* should be enabled.
+> **Notice:** Disabled in VR mode by default.
+
+### Return value
+
+Current number of iterations for blurring
+Range of values: **[0, 512]**. The default value is : **32**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[MotionBlurPreset](/api/library/rendering/class.render_cs#render_motion_blur_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setMotionBlur ( bool blur = 1 )
+
+***Console*:**`render_motion_blur`Sets a new value indicating if the motion blur effect is enabled.
+### Arguments
+
+- *bool* **blur** - Set **true** to enable motion blur effect; **false** - to disable it. The default value is **true**.
+
+## bool isMotionBlur () const
+
+***Console*:**`render_motion_blur`Returns the current value indicating if the motion blur effect is enabled.
+### Return value
+
+**true** if motion blur effect is enabled; otherwise **false**. The default value is **true**.
+## void setWhiteBalanceAdaptationTime ( float time = 1.0f )
+
+***Console*:**`render_white_balance_adaptation_time`Sets a new time period set for the camera to adjust white balance. During this time white balance correction is performed (0.0f - instant correction is to be used).
+> **Notice:** It is recommended to use lower values, when possible, to make correction process unnoticeable, otherwise it'll be slow and will catch user's eye. However, setting too low values may result in abrupt switching of colors as the camera moves. So, adjust this parameter carefully to make transition smoooth. You can set it equal to the Exposure Adaptation value*[setExposureAdaptation()()](../../...md#render_exposure_adaptation)*.
+
+
+### Arguments
+
+- *float* **time** - The time period, in seconds. Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+
+## float getWhiteBalanceAdaptationTime () const
+
+***Console*:**`render_white_balance_adaptation_time`Returns the current time period set for the camera to adjust white balance. During this time white balance correction is performed (0.0f - instant correction is to be used).
+> **Notice:** It is recommended to use lower values, when possible, to make correction process unnoticeable, otherwise it'll be slow and will catch user's eye. However, setting too low values may result in abrupt switching of colors as the camera moves. So, adjust this parameter carefully to make transition smoooth. You can set it equal to the Exposure Adaptation value*[setExposureAdaptation()()](../../...md#render_exposure_adaptation)*.
+
+
+### Return value
+
+Current time period, in seconds.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+## void setWhiteBalanceIntensity ( float intensity = 0.3f )
+
+***Console*:**`render_white_balance_intensity`Sets a new value of [white balance correction intensity](../../../editor2/settings/render_settings/camera_effects/index.md#white_balance_intensity).
+- 0.0f - no white balance correction is performed.
+- *higher* values result in stronger correction.
+
+
+> **Notice:** Do not set too high values for night-time and dimly lit scenes, as it may lead to heavy color distortion making the scene look totally unnatural.
+
+
+### Arguments
+
+- *float* **intensity** - The white balance correction intensity. Range of values: **[0.0f, 1.0f]**. The default value is : **0.3f**.
+
+  - 0.0f - no white balance correction is performed.
+  - *higher* values result in stronger correction.
+
+## float getWhiteBalanceIntensity () const
+
+***Console*:**`render_white_balance_intensity`Returns the current value of [white balance correction intensity](../../../editor2/settings/render_settings/camera_effects/index.md#white_balance_intensity).
+- 0.0f - no white balance correction is performed.
+- *higher* values result in stronger correction.
+
+
+> **Notice:** Do not set too high values for night-time and dimly lit scenes, as it may lead to heavy color distortion making the scene look totally unnatural.
+
+
+### Return value
+
+Current white balance correction intensity.
+- 0.0f - no white balance correction is performed.
+- *higher* values result in stronger correction.
+
+
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.3f**.
+## void setWhiteBalance ( bool balance = 1 )
+
+***Console*:**`render_white_balance`Sets a new value indicating if [automatic white balance correction](../../../editor2/settings/render_settings/camera_effects/index.md#white_balance) is enabled.
+### Arguments
+
+- *bool* **balance** - Set **true** to enable automatic white balance correction; **false** - to disable it. The default value is **true**.
+
+## bool isWhiteBalance () const
+
+***Console*:**`render_white_balance`Returns the current value indicating if [automatic white balance correction](../../../editor2/settings/render_settings/camera_effects/index.md#white_balance) is enabled.
+### Return value
+
+**true** if automatic white balance correction is enabled; otherwise **false**. The default value is **true**.
+## void setExposureMaxLuminance ( float luminance = 10.0f )
+
+***Console*:**`render_exposure_max_luminance`Sets a new [maximum luminance](../../../editor2/settings/render_settings/camera_effects/index.md#max_luminance) offset relative to the default luminance of the scene used for rendering of adaptive exposure effect: the *lower* the value, the brighter the adapted image will be. The parameter can take on negative values.
+> **Notice:** If the specified value is less than the current minimum luminance, the minimum luminance value will be changed to the specified maximum luminance so that they are equal.
+
+
+### Arguments
+
+- *float* **luminance** - The maximum luminance. The provided value is saturated in the range **[-10.0f; 10.0f]**. Range of values: **[-10.0f, 10.0f]**. The default value is : **10.0f**.
+
+## float getExposureMaxLuminance () const
+
+***Console*:**`render_exposure_max_luminance`Returns the current [maximum luminance](../../../editor2/settings/render_settings/camera_effects/index.md#max_luminance) offset relative to the default luminance of the scene used for rendering of adaptive exposure effect: the *lower* the value, the brighter the adapted image will be. The parameter can take on negative values.
+> **Notice:** If the specified value is less than the current minimum luminance, the minimum luminance value will be changed to the specified maximum luminance so that they are equal.
+
+
+### Return value
+
+Current maximum luminance. The provided value is saturated in the range **[-10.0f; 10.0f]**.
+Range of values: **[-10.0f, 10.0f]**. The default value is : **10.0f**.
+## void setExposureMinLuminance ( float luminance = -5.0f )
+
+***Console*:**`render_exposure_min_luminance`Sets a new [minimum luminance](../../../editor2/settings/render_settings/camera_effects/index.md#min_luminance) offset relative to the default luminance of the scene used for rendering of adaptive exposure effect: the *higher* the value, the darker the adapted image will be. The parameter can take on negative values.
+> **Notice:** If the specified value is greater than the current maximum luminance, the maximum luminance value will be changed to the specified minimum luminance so that they are equal.
+
+
+### Arguments
+
+- *float* **luminance** - The minimum luminance. The provided value is saturated in the range **[-10.0f; 10.0f]**. Range of values: **[-10.0f, 10.0f]**. The default value is : **-5.0f**.
+
+## float getExposureMinLuminance () const
+
+***Console*:**`render_exposure_min_luminance`Returns the current [minimum luminance](../../../editor2/settings/render_settings/camera_effects/index.md#min_luminance) offset relative to the default luminance of the scene used for rendering of adaptive exposure effect: the *higher* the value, the darker the adapted image will be. The parameter can take on negative values.
+> **Notice:** If the specified value is greater than the current maximum luminance, the maximum luminance value will be changed to the specified minimum luminance so that they are equal.
+
+
+### Return value
+
+Current minimum luminance. The provided value is saturated in the range **[-10.0f; 10.0f]**.
+Range of values: **[-10.0f, 10.0f]**. The default value is : **-5.0f**.
+## void setExposureAdaptation ( float adaptation = 1.0f )
+
+***Console*:**`render_exposure_adaptation`Sets a new time for the camera to adjust exposure, in seconds. 0.0f - means instant adaptation. If a too small or even negative value is provided, **1E-6** will be used instead.
+### Arguments
+
+- *float* **adaptation** - The period of [exposure adaptation](../../../editor2/settings/render_settings/camera_effects/index.md#adaptation), in seconds. If a too small or even negative value is provided, **1E-6** will be used instead. Range of values: **[eps, inf]**. The default value is : **1.0f**.
+
+## float getExposureAdaptation () const
+
+***Console*:**`render_exposure_adaptation`Returns the current time for the camera to adjust exposure, in seconds. 0.0f - means instant adaptation. If a too small or even negative value is provided, **1E-6** will be used instead.
+### Return value
+
+Current period of [exposure adaptation](../../../editor2/settings/render_settings/camera_effects/index.md#adaptation), in seconds. If a too small or even negative value is provided, **1E-6** will be used instead.
+Range of values: **[eps, inf]**. The default value is : **1.0f**.
+## void setExposure ( float exposure = 1.0f )
+
+***Console*:**`render_exposure`Sets a new camera [exposure](../../../editor2/settings/render_settings/camera_effects/index.md#exposure) (a multiplier of the scene luminance and brightness).
+It determines the resulting amount of luminance:
+
+
+- By the minimum value of 0.0f, the image is rendered black.
+- The *higher* the value, the more luminance and the brighter the scene lit.
+
+ Available only when the Camera Mode*[setCameraMode()()](../../...md#render_camera_mode)* is set to Classic.
+### Arguments
+
+- *float* **exposure** - The multiplier of the scene luminance and brightness. Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+
+## float getExposure () const
+
+***Console*:**`render_exposure`Returns the current camera [exposure](../../../editor2/settings/render_settings/camera_effects/index.md#exposure) (a multiplier of the scene luminance and brightness).
+It determines the resulting amount of luminance:
+
+
+- By the minimum value of 0.0f, the image is rendered black.
+- The *higher* the value, the more luminance and the brighter the scene lit.
+
+ Available only when the Camera Mode*[setCameraMode()()](../../...md#render_camera_mode)* is set to Classic.
+### Return value
+
+Current multiplier of the scene luminance and brightness.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+## void setExposureMode ( int mode = 0 )
+
+***Console*:**`render_exposure_mode`Sets a new [mode of the adaptive exposure effect](../../../editor2/settings/render_settings/camera_effects/index.md#mode).
+- **Static** - a static exposure. The amount of luminance is determined by the Exposure*[setExposure()()](../../...md#render_exposure)* depending on the Camera Mode*[setCameraMode()()](../../...md#render_camera_mode)* parameter.
+- **Logarithmic** - adaptive logarithmic mapping technique.
+- **Quadratic** - adaptive quadratic mapping technique.
+- **Curve based** - adaptive curve based mapping technique.
+
+
+### Arguments
+
+- *int* **mode** - The value indicating the exposure mode. One of the following values:
+
+  - **0** - static (by default)
+  - **1** - logarithmic adaptive exposure
+  - **2** - quadratic adaptive exposure
+
+## int getExposureMode () const
+
+***Console*:**`render_exposure_mode`Returns the current [mode of the adaptive exposure effect](../../../editor2/settings/render_settings/camera_effects/index.md#mode).
+- **Static** - a static exposure. The amount of luminance is determined by the Exposure*[setExposure()()](../../...md#render_exposure)* depending on the Camera Mode*[setCameraMode()()](../../...md#render_camera_mode)* parameter.
+- **Logarithmic** - adaptive logarithmic mapping technique.
+- **Quadratic** - adaptive quadratic mapping technique.
+- **Curve based** - adaptive curve based mapping technique.
+
+
+### Return value
+
+Current value indicating the exposure mode. One of the following values:
+- **0** - static (by default)
+- **1** - logarithmic adaptive exposure
+- **2** - quadratic adaptive exposure
+
+## void setMeteringMaskEnabled ( bool enabled = 0 )
+
+***Console*:**`render_metering_mask_enabled`Sets a new value indicating if metering mask for exposure and white balance correction is enabled. This option gives you an additional texture slot*[setMeteringMaskTexture()()](../../...md#MeteringMaskTexture)* to control the effect of auto exposure and white balance correction on the whole screen, where each pixel is weighted in importance in accordance with the specified texture mask.
+### Arguments
+
+- *bool* **enabled** - Set **true** to enable metering mask for exposure and white balance correction; **false** - to disable it. The default value is **false**.
+
+## bool isMeteringMaskEnabled () const
+
+***Console*:**`render_metering_mask_enabled`Returns the current value indicating if metering mask for exposure and white balance correction is enabled. This option gives you an additional texture slot*[setMeteringMaskTexture()()](../../...md#MeteringMaskTexture)* to control the effect of auto exposure and white balance correction on the whole screen, where each pixel is weighted in importance in accordance with the specified texture mask.
+### Return value
+
+**true** if metering mask for exposure and white balance correction is enabled; otherwise **false**. The default value is **false**.
+## getMeteringMaskTexture () const
+
+Returns the current Metering Mask texture used to control the influence of auto exposure and white balance correction for the whole screen, where each pixel is weighted in importance in accordance with the specified texture mask. Giving importance to pixels toward the center of the screen rather than along the edges helps stabilize auto exposure.
+### Return value
+
+Current Metering Mask texture.
+## void setMeteringMaskTexturePath ( )
+
+Sets a new path to the Metering Mask texture to be used to control the influence of auto exposure and white balance correction for the whole screen, where each pixel is weighted in importance in accordance with the specified texture mask. After setting the path the texture is loaded automatically.
+### Arguments
+
+- **path** - The path to the Metering Mask texture.
+
+## getMeteringMaskTexturePath () const
+
+Returns the current path to the Metering Mask texture to be used to control the influence of auto exposure and white balance correction for the whole screen, where each pixel is weighted in importance in accordance with the specified texture mask. After setting the path the texture is loaded automatically.
+### Return value
+
+Current path to the Metering Mask texture.
+## void setShowLightingMode ( )
+
+***Console*:**`render_show_lighting_mode`Sets a new visualization of surfaces with the selected lighting mode.
+### Arguments
+
+- **mode** - The visualization mode. One of the following values:
+
+  - **0** - disabled (by default)
+  - **1** - render objects using static lighting mode
+  - **2** - render objects using dynamic lighting mode
+  - **3** - render objects using advanced lighting mode
+
+## getShowLightingMode () const
+
+***Console*:**`render_show_lighting_mode`Returns the current visualization of surfaces with the selected lighting mode.
+### Return value
+
+Current visualization mode. One of the following values:
+- **0** - disabled (by default)
+- **1** - render objects using static lighting mode
+- **2** - render objects using dynamic lighting mode
+- **3** - render objects using advanced lighting mode
+
+## void setCloudsPanoramaReuse ( bool reuse = 0 )
+
+***Console*:**`render_clouds_panorama_reuse`Sets a new value indicating if the panorama cubemap texture is reused between several viewports. Available for *Render To Panorama* [clouds mode](#render_clouds_mode).
+### Arguments
+
+- *bool* **reuse** - Set **true** to enable reuse of the panorama cubemap texture between several viewports; **false** - to disable it. The default value is **false**.
+
+## bool isCloudsPanoramaReuse () const
+
+***Console*:**`render_clouds_panorama_reuse`Returns the current value indicating if the panorama cubemap texture is reused between several viewports. Available for *Render To Panorama* [clouds mode](#render_clouds_mode).
+### Return value
+
+**true** if reuse of the panorama cubemap texture between several viewports is enabled; otherwise **false**. The default value is **false**.
+## void setCloudsPanoramaResolution ( int resolution = 4 )
+
+***Console*:**`render_clouds_panorama_resolution`Sets a new resolution of the panorama cubemap texture. Available for *Render To Panorama* [clouds mode](#render_clouds_mode).
+### Arguments
+
+- *int* **resolution** - The resolution of the panorama cubemap texture. One of the following values:
+
+  - **0** - 128x128
+  - **1** - 256x256
+  - **2** - 384x384
+  - **3** - 512x512
+  - **4** - 768x768 (by default)
+  - **5** - 1024x1024
+  - **6** - 1536x1536
+  - **7** - 2048x2048
+  - **8** - 4096x4096
+
+## int getCloudsPanoramaResolution () const
+
+***Console*:**`render_clouds_panorama_resolution`Returns the current resolution of the panorama cubemap texture. Available for *Render To Panorama* [clouds mode](#render_clouds_mode).
+### Return value
+
+Current resolution of the panorama cubemap texture. One of the following values:
+- **0** - 128x128
+- **1** - 256x256
+- **2** - 384x384
+- **3** - 512x512
+- **4** - 768x768 (by default)
+- **5** - 1024x1024
+- **6** - 1536x1536
+- **7** - 2048x2048
+- **8** - 4096x4096
+
+## void setCloudsMode ( int mode = 0 )
+
+***Console*:**`render_clouds_mode`Sets a new clouds rendering mode. Rendering clouds into the panorama cubemap texture once per frame automatically makes the clouds seen in simple default environment-based reflections making them look more natural for a reduced cost. However, rendering views from inside the clouds is possible in *Volumetric* mode only.
+### Arguments
+
+- *int* **mode** - The clouds rendering mode. One of the following values:
+
+  - **0** - *Volumetric* - render volumetric clouds (by default)
+  - **1** - *Render To Panorama* - render clouds to panorama (environment cubemap)
+
+## int getCloudsMode () const
+
+***Console*:**`render_clouds_mode`Returns the current clouds rendering mode. Rendering clouds into the panorama cubemap texture once per frame automatically makes the clouds seen in simple default environment-based reflections making them look more natural for a reduced cost. However, rendering views from inside the clouds is possible in *Volumetric* mode only.
+### Return value
+
+Current clouds rendering mode. One of the following values:
+- **0** - *Volumetric* - render volumetric clouds (by default)
+- **1** - *Render To Panorama* - render clouds to panorama (environment cubemap)
+
+## void setCloudsEnvironmentSky ( bool sky = 1 )
+
+***Console*:**`render_clouds_environment_sky`Sets a new value indicating whether the custom environment cubemap texture is automatically adjusted to match the current sky lighting. When enabled, the original sky color baked into the texture (specified via [CloudsEnvironmentSkyColor](#CloudsEnvironmentSkyColor)) is replaced with the actual sky color based on the current sun position. Only applies in Panorama clouds rendering mode.
+### Arguments
+
+- *bool* **sky** - Set **true** to enable automatic sky lighting adjustment for the clouds environment texture; **false** - to disable it. The default value is **true**.
+
+## bool isCloudsEnvironmentSky () const
+
+***Console*:**`render_clouds_environment_sky`Returns the current value indicating whether the custom environment cubemap texture is automatically adjusted to match the current sky lighting. When enabled, the original sky color baked into the texture (specified via [CloudsEnvironmentSkyColor](#CloudsEnvironmentSkyColor)) is replaced with the actual sky color based on the current sun position. Only applies in Panorama clouds rendering mode.
+### Return value
+
+**true** if automatic sky lighting adjustment for the clouds environment texture is enabled; otherwise **false**. The default value is **true**.
+## void setCloudsEnvironmentSkyColor ( )
+
+***Console*:**`render_clouds_environment_sky_color`Sets a new reference sky color that was baked into the custom environment cubemap texture. Used to remove the original sky lighting before applying the current sky color when [CloudsEnvironmentSky](#CloudsEnvironmentSky) is enabled. Only applies in Panorama clouds rendering mode.
+### Arguments
+
+- **color** - The reference sky color baked into the clouds environment texture **vec4(1.0f, 1.0f, 1.0f, 1.0f)** - default value (white)
+
+## getCloudsEnvironmentSkyColor () const
+
+***Console*:**`render_clouds_environment_sky_color`Returns the current reference sky color that was baked into the custom environment cubemap texture. Used to remove the original sky lighting before applying the current sky color when [CloudsEnvironmentSky](#CloudsEnvironmentSky) is enabled. Only applies in Panorama clouds rendering mode.
+### Return value
+
+Current reference sky color baked into the clouds environment texture
+**vec4(1.0f, 1.0f, 1.0f, 1.0f)** - default value (white)
+## void setCloudsEnvironmentColor ( )
+
+***Console*:**`render_clouds_environment_color`Sets a new color multiplier for the custom environment cubemap texture specified via [CloudsEnvironmentTexturePath](#CloudsEnvironmentTexturePath). Only applies in Panorama clouds rendering mode.
+### Arguments
+
+- **color** - The color multiplier for the clouds environment texture **vec4(1.0f, 1.0f, 1.0f, 1.0f)** - default value (white)
+
+## getCloudsEnvironmentColor () const
+
+***Console*:**`render_clouds_environment_color`Returns the current color multiplier for the custom environment cubemap texture specified via [CloudsEnvironmentTexturePath](#CloudsEnvironmentTexturePath). Only applies in Panorama clouds rendering mode.
+### Return value
+
+Current color multiplier for the clouds environment texture
+**vec4(1.0f, 1.0f, 1.0f, 1.0f)** - default value (white)
+## void setCloudsEnvironmentTexturePath ( )
+
+Sets a new path to a custom cubemap texture that is blended into the environment cubemap when rendering clouds in Panorama mode. The resulting cubemap is used for sky reflections across the scene. If empty, no custom environment texture is applied.
+### Arguments
+
+- **path** - The custom environment cubemap texture path for clouds
+
+## getCloudsEnvironmentTexturePath () const
+
+Returns the current path to a custom cubemap texture that is blended into the environment cubemap when rendering clouds in Panorama mode. The resulting cubemap is used for sky reflections across the scene. If empty, no custom environment texture is applied.
+### Return value
+
+Current custom environment cubemap texture path for clouds
+## void setShadowsSimplified ( bool simplified = 0 )
+
+***Console*:**`render_shadows_simplified`Sets a new value indicating if the [static shadows](../../../code/materials_shaders/abstract_materials/mesh.md#static_shadow) are enabled for all materials in the scene.
+### Arguments
+
+- *bool* **simplified** - Set **true** to enable static shadows for all materials in the scene; **false** - to disable it. The default value is **false**.
+
+## bool isShadowsSimplified () const
+
+***Console*:**`render_shadows_simplified`Returns the current value indicating if the [static shadows](../../../code/materials_shaders/abstract_materials/mesh.md#static_shadow) are enabled for all materials in the scene.
+### Return value
+
+**true** if static shadows for all materials in the scene is enabled; otherwise **false**. The default value is **false**.
+## void setShadowsReuse ( bool reuse = 0 )
+
+***Console*:**`render_shadows_reuse`Sets a new value indicating if the shadow maps of the main viewport are reused for other viewports. Shadow maps are normally rendered separately for each viewport when multiple viewports render the scene. It is important as each camera that renders into the viewport has its unique transformation. However, in cases when cameras are close to each other, shadows appear very similar, so for certain viewport and camera configurations you can save resources by enabling this mode - the shadow maps will be rendered only for the main viewport and then used for the others.
+### Arguments
+
+- *bool* **reuse** - Set **true** to enable reuse of shadow maps from the main viewport; **false** - to disable it. The default value is **false**.
+
+## bool isShadowsReuse () const
+
+***Console*:**`render_shadows_reuse`Returns the current value indicating if the shadow maps of the main viewport are reused for other viewports. Shadow maps are normally rendered separately for each viewport when multiple viewports render the scene. It is important as each camera that renders into the viewport has its unique transformation. However, in cases when cameras are close to each other, shadows appear very similar, so for certain viewport and camera configurations you can save resources by enabling this mode - the shadow maps will be rendered only for the main viewport and then used for the others.
+### Return value
+
+**true** if reuse of shadow maps from the main viewport is enabled; otherwise **false**. The default value is **false**.
+## void setDenoiseDenoiseMaskBias ( float bias = 0.001f )
+
+***Console*:**`render_denoise_denoise_mask_bias`Sets a new threshold value for the brightness delta between frames below which the denoise mask becomes black. Denoise mask is based on the difference in brightness between the previous frame and the current one. Sometimes this difference is very small and can be neglected. This bias value is the threshold difference below which the denoise mask will be plain black. Since a zero value may cause a slight blur effect on the global illumination, this bias was added to avoid such effect.
+### Arguments
+
+- *float* **bias** - The threshold value for the brightness delta between frames below which the denoise mask becomes black. Range of values: **[0.0f, inf]**. The default value is : **0.001f**.
+
+## float getDenoiseDenoiseMaskBias () const
+
+***Console*:**`render_denoise_denoise_mask_bias`Returns the current threshold value for the brightness delta between frames below which the denoise mask becomes black. Denoise mask is based on the difference in brightness between the previous frame and the current one. Sometimes this difference is very small and can be neglected. This bias value is the threshold difference below which the denoise mask will be plain black. Since a zero value may cause a slight blur effect on the global illumination, this bias was added to avoid such effect.
+### Return value
+
+Current threshold value for the brightness delta between frames below which the denoise mask becomes black.
+Range of values: **[0.0f, inf]**. The default value is : **0.001f**.
+## void setDenoiseDenoiseMaskDenoiseThreshold ( float threshold = 0.05f )
+
+***Console*:**`render_denoise_denoise_mask_denoise_threshold`Sets a new threshold for the pixel brightness delta value of neighboring pixels, which defines if the pixels may be blurred together.
+### Arguments
+
+- *float* **threshold** - The threshold for the pixel brightness delta value of neighboring pixels, which defines if the pixels may be blurred together. Range of values: **[0.0f, inf]**. The default value is : **0.05f**.
+
+## float getDenoiseDenoiseMaskDenoiseThreshold () const
+
+***Console*:**`render_denoise_denoise_mask_denoise_threshold`Returns the current threshold for the pixel brightness delta value of neighboring pixels, which defines if the pixels may be blurred together.
+### Return value
+
+Current threshold for the pixel brightness delta value of neighboring pixels, which defines if the pixels may be blurred together.
+Range of values: **[0.0f, inf]**. The default value is : **0.05f**.
+## void setDenoiseDenoiseMaskFrameCount ( float count = 15.0f )
+
+***Console*:**`render_denoise_denoise_mask_frame_count`Sets a new number of frames stored to generate the denoise mask.
+### Arguments
+
+- *float* **count** - The number of frames stored to generate the denoise mask. Range of values: **[0.0f, inf]**. The default value is : **15.0f**.
+
+## float getDenoiseDenoiseMaskFrameCount () const
+
+***Console*:**`render_denoise_denoise_mask_frame_count`Returns the current number of frames stored to generate the denoise mask.
+### Return value
+
+Current number of frames stored to generate the denoise mask.
+Range of values: **[0.0f, inf]**. The default value is : **15.0f**.
+## void setDenoiseDenoiseMaskInformationLostBoost ( float boost = 0.0f )
+
+***Console*:**`render_denoise_denoise_mask_information_lost_boost`Sets a new value controlling the intensity of filling in the information lost areas with the white color and temporally accumulating the result between frames. This parameter reduces the effect of flickering pixels, but may add a ghosting effect.
+### Arguments
+
+- *float* **boost** - The value controlling the intensity of filling in the information lost areas with the white color and temporally accumulating the result between frames. Range of values: **[0.0f, 1.0f]**. The default value is : **0.0f**.
+
+## float getDenoiseDenoiseMaskInformationLostBoost () const
+
+***Console*:**`render_denoise_denoise_mask_information_lost_boost`Returns the current value controlling the intensity of filling in the information lost areas with the white color and temporally accumulating the result between frames. This parameter reduces the effect of flickering pixels, but may add a ghosting effect.
+### Return value
+
+Current value controlling the intensity of filling in the information lost areas with the white color and temporally accumulating the result between frames.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.0f**.
+## void setDenoiseDenoiseMaskVelocityThreshold ( float threshold = 0.0f )
+
+***Console*:**`render_denoise_denoise_mask_velocity_threshold`Sets a new threshold for the velocity intensity value at which the denoise mask becomes white. This parameter is used to remove ghosting and flickering pixels when the camera moves quickly.
+### Arguments
+
+- *float* **threshold** - The threshold for the velocity intensity value at which the denoise mask becomes white. Range of values: **[0.0f, inf]**. The default value is : **0.0f**.
+
+## float getDenoiseDenoiseMaskVelocityThreshold () const
+
+***Console*:**`render_denoise_denoise_mask_velocity_threshold`Returns the current threshold for the velocity intensity value at which the denoise mask becomes white. This parameter is used to remove ghosting and flickering pixels when the camera moves quickly.
+### Return value
+
+Current threshold for the velocity intensity value at which the denoise mask becomes white.
+Range of values: **[0.0f, inf]**. The default value is : **0.0f**.
+## void setDenoiseColorClampingBlurIntensityAO ( float ao = 0.1f )
+
+***Console*:**`render_denoise_color_clamping_blur_intensity_ao`Sets a new intensity of using the blurred version of the current frame for color clamping in the areas where the Ambient Occlusion mask is black.
+### Arguments
+
+- *float* **ao** - The intensity of using the blurred version of the current frame for color clamping in the areas where the Ambient Occlusion mask is black. Range of values: **[0.0f, 1.0f]**. The default value is : **0.1f**.
+
+## float getDenoiseColorClampingBlurIntensityAO () const
+
+***Console*:**`render_denoise_color_clamping_blur_intensity_ao`Returns the current intensity of using the blurred version of the current frame for color clamping in the areas where the Ambient Occlusion mask is black.
+### Return value
+
+Current intensity of using the blurred version of the current frame for color clamping in the areas where the Ambient Occlusion mask is black.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.1f**.
+## void setDenoiseColorClampingBlurIntensity ( float intensity = 0.9f )
+
+***Console*:**`render_denoise_color_clamping_blur_intensity`Sets a new intensity of using the blurred version of the current frame for color clamping.
+### Arguments
+
+- *float* **intensity** - The intensity of using the blurred version of the current frame for color clamping. Range of values: **[0.0f, 1.0f]**. The default value is : **0.9f**.
+
+## float getDenoiseColorClampingBlurIntensity () const
+
+***Console*:**`render_denoise_color_clamping_blur_intensity`Returns the current intensity of using the blurred version of the current frame for color clamping.
+### Return value
+
+Current intensity of using the blurred version of the current frame for color clamping.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.9f**.
+## void setDenoiseColorClampingBlurRadius ( float radius = 8.0f )
+
+***Console*:**`render_denoise_color_clamping_blur_radius`Sets a new blur radius for the current frame. The blurred image is further used in color clamping. This setting helps reducing noise in dark indoor areas.
+### Arguments
+
+- *float* **radius** - The blur radius for the current frame. Range of values: **[0.0f, 64.0f]**. The default value is : **8.0f**.
+
+## float getDenoiseColorClampingBlurRadius () const
+
+***Console*:**`render_denoise_color_clamping_blur_radius`Returns the current blur radius for the current frame. The blurred image is further used in color clamping. This setting helps reducing noise in dark indoor areas.
+### Return value
+
+Current blur radius for the current frame.
+Range of values: **[0.0f, 64.0f]**. The default value is : **8.0f**.
+## void setDenoiseHotPixelsFixIntensity ( float intensity = 0.0f )
+
+***Console*:**`render_denoise_hot_pixels_fix_intensity`Sets a new value reducing the intensity of flickering pixels in the screen space. Adjusting this value may cause darkening of the global illumination.
+### Arguments
+
+- *float* **intensity** - The value reducing the intensity of flickering pixels in the screen space. Range of values: **[0.0f, 1.0f]**. The default value is : **0.0f**.
+
+## float getDenoiseHotPixelsFixIntensity () const
+
+***Console*:**`render_denoise_hot_pixels_fix_intensity`Returns the current value reducing the intensity of flickering pixels in the screen space. Adjusting this value may cause darkening of the global illumination.
+### Return value
+
+Current value reducing the intensity of flickering pixels in the screen space.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.0f**.
+## void setDenoiseInformationLostFixFlicker ( float flicker = 0.75f )
+
+***Console*:**`render_denoise_information_lost_fix_flicker`Sets a new value reducing the intensity of flickering pixels in the information lost areas. An excessive value may cause darkening of the areas behind objects when the camera is moving or when objects are moving in space.
+### Arguments
+
+- *float* **flicker** - The value reducing the intensity of flickering pixels in the information lost areas. Range of values: **[0.0f, 1.0f]**. The default value is : **0.75f**.
+
+## float getDenoiseInformationLostFixFlicker () const
+
+***Console*:**`render_denoise_information_lost_fix_flicker`Returns the current value reducing the intensity of flickering pixels in the information lost areas. An excessive value may cause darkening of the areas behind objects when the camera is moving or when objects are moving in space.
+### Return value
+
+Current value reducing the intensity of flickering pixels in the information lost areas.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.75f**.
+## void setDenoiseAOMaskRadius ( float radius = 1.0f )
+
+***Console*:**`render_denoise_ao_mask_radius`Sets a new radius of the Ambient Occlusion Mask (the Distance buffer) that is used to additionally configure the Denoiser parameters. This parameter affects only the *Environment Probes* with the [Raymarching mode](../../../objects/lights/envprobe/index.md#box_projection) enabled.
+### Arguments
+
+- *float* **radius** - The radius of the Ambient Occlusion Mask (the Distance buffer) that is used to additionally configure the Denoiser parameters. Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+
+## float getDenoiseAOMaskRadius () const
+
+***Console*:**`render_denoise_ao_mask_radius`Returns the current radius of the Ambient Occlusion Mask (the Distance buffer) that is used to additionally configure the Denoiser parameters. This parameter affects only the *Environment Probes* with the [Raymarching mode](../../../objects/lights/envprobe/index.md#box_projection) enabled.
+### Return value
+
+Current radius of the Ambient Occlusion Mask (the Distance buffer) that is used to additionally configure the Denoiser parameters.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+## void setDenoiseInformationLostDepthThreshold ( float threshold = 0.1f )
+
+***Console*:**`render_denoise_information_lost_depth_threshold`Sets a new value defining starting from which depth the noise reduction effect is applied to the data in the "information lost" areas. This setting is aimed at reducing noise in areas where the ghosting effect commonly occurs.
+### Arguments
+
+- *float* **threshold** - The value defining starting from which depth the noise reduction effect is applied to the data in the "information lost" areas. Range of values: **[0.0f, inf]**. The default value is : **0.1f**.
+
+## float getDenoiseInformationLostDepthThreshold () const
+
+***Console*:**`render_denoise_information_lost_depth_threshold`Returns the current value defining starting from which depth the noise reduction effect is applied to the data in the "information lost" areas. This setting is aimed at reducing noise in areas where the ghosting effect commonly occurs.
+### Return value
+
+Current value defining starting from which depth the noise reduction effect is applied to the data in the "information lost" areas.
+Range of values: **[0.0f, inf]**. The default value is : **0.1f**.
+## void setDenoiseInterleaved ( bool interleaved = 0 )
+
+***Console*:**`render_denoise_interleaved`Sets a new interleaved rendering for the Denoiser.
+### Arguments
+
+- *bool* **interleaved** - Set **true** to enable interleaved rendering for the Denoiser; **false** - to disable it. The default value is **false**.
+
+## bool isDenoiseInterleaved () const
+
+***Console*:**`render_denoise_interleaved`Returns the current interleaved rendering for the Denoiser.
+### Return value
+
+**true** if interleaved rendering for the Denoiser is enabled; otherwise **false**. The default value is **false**.
+## void setIndirectSpecularNormalization ( bool normalization = 0 )
+
+***Console*:**`render_indirect_specular_normalization`Sets a new  adjustment of indirect reflection color and brightness to match the indirect diffuse lighting. When this option is enabled, all indirect specular reflections will attempt to match the brightness and color of the indirect diffuse lighting. This affects both matte and glossy reflections.
+**Example:** if there is dark indirect diffuse lighting under a table (set by a lightmap, voxel probe, or in another way), then the indirect specular reflection in that area will also appear dark.
+
+
+This effect is physically inaccurate and implemented using a fake approach, so it should be used with caution. In some scenes, it may improve the visual quality, while in others, it may worsen it. Enable the option to observe whether it improves the result or not.
+
+
+This feature is commonly used in many games, especially on consoles, because it's a performance-friendly way to eliminate overly bright reflections in dark areas of the scene.
+
+
+### Arguments
+
+- *bool* **normalization** - Set **true** to enable adjustment of indirect reflection color and brightness to match the indirect diffuse lighting; **false** - to disable it. The default value is **false**.
+
+## bool isIndirectSpecularNormalization () const
+
+***Console*:**`render_indirect_specular_normalization`Returns the current  adjustment of indirect reflection color and brightness to match the indirect diffuse lighting. When this option is enabled, all indirect specular reflections will attempt to match the brightness and color of the indirect diffuse lighting. This affects both matte and glossy reflections.
+**Example:** if there is dark indirect diffuse lighting under a table (set by a lightmap, voxel probe, or in another way), then the indirect specular reflection in that area will also appear dark.
+
+
+This effect is physically inaccurate and implemented using a fake approach, so it should be used with caution. In some scenes, it may improve the visual quality, while in others, it may worsen it. Enable the option to observe whether it improves the result or not.
+
+
+This feature is commonly used in many games, especially on consoles, because it's a performance-friendly way to eliminate overly bright reflections in dark areas of the scene.
+
+
+### Return value
+
+**true** if adjustment of indirect reflection color and brightness to match the indirect diffuse lighting is enabled; otherwise **false**. The default value is **false**.
+## void setIndirectSpecularDenoiseThresholdAO ( float ao = 0.1f )
+
+***Console*:**`render_indirect_specular_denoise_threshold_ao`Sets a new threshold noise reduction value for the indirect specular lighting in the areas where the Ambient Occlusion mask is black.
+### Arguments
+
+- *float* **ao** - The threshold noise reduction value for the indirect specular lighting in the areas where the Ambient Occlusion mask is black. Range of values: **[0.0f, 1.0f]**. The default value is : **0.1f**.
+
+## float getIndirectSpecularDenoiseThresholdAO () const
+
+***Console*:**`render_indirect_specular_denoise_threshold_ao`Returns the current threshold noise reduction value for the indirect specular lighting in the areas where the Ambient Occlusion mask is black.
+### Return value
+
+Current threshold noise reduction value for the indirect specular lighting in the areas where the Ambient Occlusion mask is black.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.1f**.
+## void setIndirectSpecularTemporalFilteringFramesClampingVelocityThreshold ( float threshold = 10.0f )
+
+***Console*:**`render_indirect_specular_temporal_filtering_frames_clamping_velocity_threshold`Sets a new threshold velocity value exceeding which the number of accumulated frames will be equal to Frame Count Min *[getIndirectSpecularTemporalFilteringFrameCountMin()()](../../...md#render_indirect_specular_temporal_filtering_frame_count_min)*.
+### Arguments
+
+- *float* **threshold** - The threshold velocity value exceeding which the number of accumulated frames will be equal to Frame Count Min. Range of values: **[0.0f, inf]**. The default value is : **10.0f**.
+
+## float getIndirectSpecularTemporalFilteringFramesClampingVelocityThreshold () const
+
+***Console*:**`render_indirect_specular_temporal_filtering_frames_clamping_velocity_threshold`Returns the current threshold velocity value exceeding which the number of accumulated frames will be equal to Frame Count Min *[getIndirectSpecularTemporalFilteringFrameCountMin()()](../../...md#render_indirect_specular_temporal_filtering_frame_count_min)*.
+### Return value
+
+Current threshold velocity value exceeding which the number of accumulated frames will be equal to Frame Count Min.
+Range of values: **[0.0f, inf]**. The default value is : **10.0f**.
+## void setIndirectSpecularTemporalFilteringColorClampingIntensityAO ( float ao = 1.0f )
+
+***Console*:**`render_indirect_specular_temporal_filtering_color_clamping_intensity_ao`Sets a new intensity of temporal filtering color clamping at zero pixel velocity for Indirect Specular in the areas where the Ambient Occlusion mask is black (the Distance buffer).
+### Arguments
+
+- *float* **ao** - The intensity of temporal filtering color clamping at zero pixel velocity for Indirect Specular in the areas where the Ambient Occlusion mask is black (the Distance buffer). Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+
+## float getIndirectSpecularTemporalFilteringColorClampingIntensityAO () const
+
+***Console*:**`render_indirect_specular_temporal_filtering_color_clamping_intensity_ao`Returns the current intensity of temporal filtering color clamping at zero pixel velocity for Indirect Specular in the areas where the Ambient Occlusion mask is black (the Distance buffer).
+### Return value
+
+Current intensity of temporal filtering color clamping at zero pixel velocity for Indirect Specular in the areas where the Ambient Occlusion mask is black (the Distance buffer).
+Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+## void setIndirectSpecularTemporalFilteringFrameCountMin ( float min = 50.0f )
+
+***Console*:**`render_indirect_specular_temporal_filtering_frame_count_min`Sets a new number of accumulated frames in the information lost areas and if the Frames Clamping Velocity value *[getIndirectSpecularTemporalFilteringFramesClampingVelocityThreshold()()](../../...md#render_indirect_specular_temporal_filtering_frames_clamping_velocity_threshold)* is exceeded.
+### Arguments
+
+- *float* **min** - The number of accumulated frames in the information lost areas and if the Frames Clamping Velocity value is exceeded. Range of values: **[0.0f, inf]**. The default value is : **50.0f**.
+
+## float getIndirectSpecularTemporalFilteringFrameCountMin () const
+
+***Console*:**`render_indirect_specular_temporal_filtering_frame_count_min`Returns the current number of accumulated frames in the information lost areas and if the Frames Clamping Velocity value *[getIndirectSpecularTemporalFilteringFramesClampingVelocityThreshold()()](../../...md#render_indirect_specular_temporal_filtering_frames_clamping_velocity_threshold)* is exceeded.
+### Return value
+
+Current number of accumulated frames in the information lost areas and if the Frames Clamping Velocity value is exceeded.
+Range of values: **[0.0f, inf]**. The default value is : **50.0f**.
+## void setIndirectDiffuseDenoiseThresholdAO ( float ao = 0.1f )
+
+***Console*:**`render_indirect_diffuse_denoise_threshold_ao`Sets a new threshold of the noise reduction value for the indirect diffuse lighting in the areas where the Ambient Occlusion mask is black.
+### Arguments
+
+- *float* **ao** - The threshold of the noise reduction value for the indirect diffuse lighting in the areas where the Ambient Occlusion mask is black. Range of values: **[0.0f, 1.0f]**. The default value is : **0.1f**.
+
+## float getIndirectDiffuseDenoiseThresholdAO () const
+
+***Console*:**`render_indirect_diffuse_denoise_threshold_ao`Returns the current threshold of the noise reduction value for the indirect diffuse lighting in the areas where the Ambient Occlusion mask is black.
+### Return value
+
+Current threshold of the noise reduction value for the indirect diffuse lighting in the areas where the Ambient Occlusion mask is black.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.1f**.
+## void setIndirectDiffuseTemporalFilteringFramesClampingVelocityThreshold ( float threshold = 10.0f )
+
+***Console*:**`render_indirect_diffuse_temporal_filtering_frames_clamping_velocity_threshold`Sets a new threshold velocity value exceeding which the number of accumulated frames will be equal to Frame Count Min *[getIndirectDiffuseTemporalFilteringFrameCountMin()()](../../...md#render_indirect_diffuse_temporal_filtering_frame_count_min)*.
+### Arguments
+
+- *float* **threshold** - The threshold velocity value exceeding which the number of accumulated frames will be equal to Frame Count Min. Range of values: **[0.0f, inf]**. The default value is : **10.0f**.
+
+## float getIndirectDiffuseTemporalFilteringFramesClampingVelocityThreshold () const
+
+***Console*:**`render_indirect_diffuse_temporal_filtering_frames_clamping_velocity_threshold`Returns the current threshold velocity value exceeding which the number of accumulated frames will be equal to Frame Count Min *[getIndirectDiffuseTemporalFilteringFrameCountMin()()](../../...md#render_indirect_diffuse_temporal_filtering_frame_count_min)*.
+### Return value
+
+Current threshold velocity value exceeding which the number of accumulated frames will be equal to Frame Count Min.
+Range of values: **[0.0f, inf]**. The default value is : **10.0f**.
+## void setIndirectDiffuseTemporalFilteringColorClampingIntensityAO ( float ao = 1.0f )
+
+***Console*:**`render_indirect_diffuse_temporal_filtering_color_clamping_intensity_ao`Sets a new intensity of temporal filtering color clamping at zero pixel velocity for Indirect Diffuse in the areas where the Ambient Occlusion mask is black (the Distance buffer).
+### Arguments
+
+- *float* **ao** - The intensity of temporal filtering color clamping at zero pixel velocity for Indirect Diffuse in the areas where the Ambient Occlusion mask is black (the Distance buffer). Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+
+## float getIndirectDiffuseTemporalFilteringColorClampingIntensityAO () const
+
+***Console*:**`render_indirect_diffuse_temporal_filtering_color_clamping_intensity_ao`Returns the current intensity of temporal filtering color clamping at zero pixel velocity for Indirect Diffuse in the areas where the Ambient Occlusion mask is black (the Distance buffer).
+### Return value
+
+Current intensity of temporal filtering color clamping at zero pixel velocity for Indirect Diffuse in the areas where the Ambient Occlusion mask is black (the Distance buffer).
+Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+## void setIndirectDiffuseTemporalFilteringFrameCountMin ( float min = 50.0f )
+
+***Console*:**`render_indirect_diffuse_temporal_filtering_frame_count_min`Sets a new number of accumulated frames in the information lost areas and if the Frames Clamping Velocity value *[getIndirectDiffuseTemporalFilteringFramesClampingVelocityThreshold()()](../../...md#render_indirect_diffuse_temporal_filtering_frames_clamping_velocity_threshold)* is exceeded.
+### Arguments
+
+- *float* **min** - The number of accumulated frames in the information lost areas and if the Frames Clamping Velocity value is exceeded. Range of values: **[0.0f, inf]**. The default value is : **50.0f**.
+
+## float getIndirectDiffuseTemporalFilteringFrameCountMin () const
+
+***Console*:**`render_indirect_diffuse_temporal_filtering_frame_count_min`Returns the current number of accumulated frames in the information lost areas and if the Frames Clamping Velocity value *[getIndirectDiffuseTemporalFilteringFramesClampingVelocityThreshold()()](../../...md#render_indirect_diffuse_temporal_filtering_frames_clamping_velocity_threshold)* is exceeded.
+### Return value
+
+Current number of accumulated frames in the information lost areas and if the Frames Clamping Velocity value is exceeded.
+Range of values: **[0.0f, inf]**. The default value is : **50.0f**.
+## void setShadersCompileMode ( )
+
+***Console*:**`render_shaders_compile_mode`Sets a new compilation mode for shaders that are used in the loaded world. The following modes are available:
+- *Async* - shaders are compiled in a background thread. Objects whose shaders are not yet ready are not rendered (pop-in effect).
+- *Force* - shaders are compiled synchronously on the main thread. The application freezes until the shader is ready, but objects are rendered immediately.
+
+
+> **Notice:** This setting does not affect post-processing shaders, lightmap data shaders, and materials with forced compilation - these are always compiled synchronously regardless of this setting.
+
+
+### Arguments
+
+- **mode** - The shaders compilation mode. One of the following values:
+
+  - **0** - Asynchronous compilation. Objects whose shaders are not yet ready are not rendered (pop-in). (by default)
+  - **1** - Forced synchronous compilation. The application freezes until the shader is ready.
+
+## getShadersCompileMode () const
+
+***Console*:**`render_shaders_compile_mode`Returns the current compilation mode for shaders that are used in the loaded world. The following modes are available:
+- *Async* - shaders are compiled in a background thread. Objects whose shaders are not yet ready are not rendered (pop-in effect).
+- *Force* - shaders are compiled synchronously on the main thread. The application freezes until the shader is ready, but objects are rendered immediately.
+
+
+> **Notice:** This setting does not affect post-processing shaders, lightmap data shaders, and materials with forced compilation - these are always compiled synchronously regardless of this setting.
+
+
+### Return value
+
+Current shaders compilation mode. One of the following values:
+- **0** - Asynchronous compilation. Objects whose shaders are not yet ready are not rendered (pop-in). (by default)
+- **1** - Forced synchronous compilation. The application freezes until the shader is ready.
+
+## int getNumLoadedShaders () const
+
+Returns the current number of shaders loaded to RAM.
+### Return value
+
+Current number of loaded shaders.
+## int getNumCompiledShaders () const
+
+Returns the current number of shaders that are currently compiled.
+### Return value
+
+Current number of shaders.
+## int getNumLoadedPSO () const
+
+Returns the current number of loaded PSOs.
+### Return value
+
+Current number of loaded PSOs.
+## int getNumCompiledPSO () const
+
+Returns the current number of PSOs that are currently compiled.
+### Return value
+
+Current number of PSOs.
+## void setFStop ( float fstop = 11 )
+
+***Console*:**`render_f_stop`Sets a new f-stop value used for static exposure calculation. This setting is available for the physically-based camera*[setCameraMode()()](../../...md#render_camera_mode)* and represents the ratio of the focal length (f) and the diameter of the lens opening (D): **f / D**. It is the reciprocal of the relative aperture. The *higher* the value, the darker the image is.
+### Arguments
+
+- *float* **fstop** - The f-stop value. Range of values: **[0, inf]**. The default value is : **11**.
+
+## float getFStop () const
+
+***Console*:**`render_f_stop`Returns the current f-stop value used for static exposure calculation. This setting is available for the physically-based camera*[setCameraMode()()](../../...md#render_camera_mode)* and represents the ratio of the focal length (f) and the diameter of the lens opening (D): **f / D**. It is the reciprocal of the relative aperture. The *higher* the value, the darker the image is.
+### Return value
+
+Current f-stop value.
+Range of values: **[0, inf]**. The default value is : **11**.
+## void setShutterSpeed ( float speed = 250 )
+
+***Console*:**`render_shutter_speed`Sets a new shutter speed used for static exposure calculation. This setting is available for the physically-based camera*[setCameraMode()()](../../...md#render_camera_mode)* and indicates how long the sensor of the camera is actively collecting light. *Higher* values make the shutter speed faster and the image - darker.
+### Arguments
+
+- *float* **speed** - The shutter speed. Range of values: **[0, inf]**. The default value is : **250**.
+
+## float getShutterSpeed () const
+
+***Console*:**`render_shutter_speed`Returns the current shutter speed used for static exposure calculation. This setting is available for the physically-based camera*[setCameraMode()()](../../...md#render_camera_mode)* and indicates how long the sensor of the camera is actively collecting light. *Higher* values make the shutter speed faster and the image - darker.
+### Return value
+
+Current shutter speed.
+Range of values: **[0, inf]**. The default value is : **250**.
+## void setISO ( float iso = 100 )
+
+***Console*:**`render_iso`Sets a new ISO value used for static exposure calculation. This value is available for the physically-based camera*[setCameraMode()()](../../...md#render_camera_mode)* and represents the sensitivity of the camera sensor. The *higher* the ISO number, the more light is collected and the brighter the image is.
+### Arguments
+
+- *float* **iso** - The ISO value. Range of values: **[0, inf]**. The default value is : **100**.
+
+## float getISO () const
+
+***Console*:**`render_iso`Returns the current ISO value used for static exposure calculation. This value is available for the physically-based camera*[setCameraMode()()](../../...md#render_camera_mode)* and represents the sensitivity of the camera sensor. The *higher* the ISO number, the more light is collected and the brighter the image is.
+### Return value
+
+Current ISO value.
+Range of values: **[0, inf]**. The default value is : **100**.
+## void setCameraMode ( int mode = 0 )
+
+***Console*:**`render_camera_mode`Sets a new camera mode, which determines the way the exposure is set. Either of the following:
+- **Physically-Based** - the real-world values are used to set up lighting and camera exposure: ISO*[setISO()()](../../...md#render_iso)*, shutter speed*[setShutterSpeed()()](../../...md#render_shutter_speed)*, F-stop*[setFStop()()](../../...md#render_f_stop)*. With the default values of these parameters, the static exposure value is near 1. > **Notice:** For the physically-based mode, the exposure mode*[setExposureMode()()](../../...md#render_exposure_mode)* should be set to *Static* to avoid exposure issues.
+- **Classic** - the exposure is set by the Exposure value*[setExposure()()](../../...md#render_exposure)*.
+
+
+### Arguments
+
+- *int* **mode** - The camera mode. One of the following values:
+
+  - **0** - classic (by default)
+  - **1** - physically-based
+
+## int getCameraMode () const
+
+***Console*:**`render_camera_mode`Returns the current camera mode, which determines the way the exposure is set. Either of the following:
+- **Physically-Based** - the real-world values are used to set up lighting and camera exposure: ISO*[setISO()()](../../...md#render_iso)*, shutter speed*[setShutterSpeed()()](../../...md#render_shutter_speed)*, F-stop*[setFStop()()](../../...md#render_f_stop)*. With the default values of these parameters, the static exposure value is near 1. > **Notice:** For the physically-based mode, the exposure mode*[setExposureMode()()](../../...md#render_exposure_mode)* should be set to *Static* to avoid exposure issues.
+- **Classic** - the exposure is set by the Exposure value*[setExposure()()](../../...md#render_exposure)*.
+
+
+### Return value
+
+Current camera mode. One of the following values:
+- **0** - classic (by default)
+- **1** - physically-based
+
+## void setDirtTextureName ( )
+
+Sets a new name of the texture that modulates the pattern of lens flares. For example, it can be used to create an effect of light reflections or unclean optics when the camera looks at the sun.
+### Arguments
+
+- **name** - The name of the lens flares modulation texture.
+
+## getDirtTextureName () const
+
+Returns the current name of the texture that modulates the pattern of lens flares. For example, it can be used to create an effect of light reflections or unclean optics when the camera looks at the sun.
+### Return value
+
+Current name of the lens flares modulation texture.
+## void setDirtScale ( float scale = 0.5f )
+
+***Console*:**`render_dirt_scale`Sets a new intensity of lens dirt effect modulating the pattern of lens flares defined by the [Dirt Texture](../../../editor2/settings/render_settings/camera_effects/index.md#lens_dirt). For example, it can be used to create an effect of unclean optics when the camera looks at the sun.
+### Arguments
+
+- *float* **scale** - The dirt scale factor. Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
+
+## float getDirtScale () const
+
+***Console*:**`render_dirt_scale`Returns the current intensity of lens dirt effect modulating the pattern of lens flares defined by the [Dirt Texture](../../../editor2/settings/render_settings/camera_effects/index.md#lens_dirt). For example, it can be used to create an effect of unclean optics when the camera looks at the sun.
+### Return value
+
+Current dirt scale factor.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
+## void setCameraEffectsTemporalFiltering ( bool filtering = 0 )
+
+***Console*:**`render_camera_effects_temporal_filtering`Sets a new value indicating if temporal filtering for camera effects is enabled. Temporal filtering reduces flickering of the bloom effect on the small bright objects (such flickering may appear when the camera moves). For example, it can be used in scenes with industrial pipes.
+### Arguments
+
+- *bool* **filtering** - Set **true** to enable temporal filtering; **false** - to disable it. The default value is **false**.
+
+## bool isCameraEffectsTemporalFiltering () const
+
+***Console*:**`render_camera_effects_temporal_filtering`Returns the current value indicating if temporal filtering for camera effects is enabled. Temporal filtering reduces flickering of the bloom effect on the small bright objects (such flickering may appear when the camera moves). For example, it can be used in scenes with industrial pipes.
+### Return value
+
+**true** if temporal filtering is enabled; otherwise **false**. The default value is **false**.
+## void setCameraEffectsTemporalFilteringColorClampingIntensity ( float intensity = 3.0f )
+
+***Console*:**`render_camera_effects_temporal_filtering_color_clamping_intensity`Sets a new intensity of TAA color clamping for the Bloom effect. *Lower* values result in more accumulated frames combined, which reduces noise flickering, but increases ghosting effect. To reduce ghosting in this case you can use Min Velocity Clamping*[setCameraEffectsTemporalFilteringMinVelocityClamping()()](../../...md#render_camera_effects_temporal_filtering_min_velocity_clamping)* and Max Velocity Clamping*[setCameraEffectsTemporalFilteringMaxVelocityClamping()()](../../...md#render_camera_effects_temporal_filtering_max_velocity_clamping)*, while *higher* values reduce ghosting effect, but increase flickering.
+> **Notice:** This option is available only when the temporal filtering*[setCameraEffectsTemporalFiltering()()](../../...md#render_camera_effects_temporal_filtering)* is enabled.
+
+
+### Arguments
+
+- *float* **intensity** - The temporal filtering color clamping intensity. Range of values: **[1.0f, inf]**. The default value is : **3.0f**.
+
+## float getCameraEffectsTemporalFilteringColorClampingIntensity () const
+
+***Console*:**`render_camera_effects_temporal_filtering_color_clamping_intensity`Returns the current intensity of TAA color clamping for the Bloom effect. *Lower* values result in more accumulated frames combined, which reduces noise flickering, but increases ghosting effect. To reduce ghosting in this case you can use Min Velocity Clamping*[setCameraEffectsTemporalFilteringMinVelocityClamping()()](../../...md#render_camera_effects_temporal_filtering_min_velocity_clamping)* and Max Velocity Clamping*[setCameraEffectsTemporalFilteringMaxVelocityClamping()()](../../...md#render_camera_effects_temporal_filtering_max_velocity_clamping)*, while *higher* values reduce ghosting effect, but increase flickering.
+> **Notice:** This option is available only when the temporal filtering*[setCameraEffectsTemporalFiltering()()](../../...md#render_camera_effects_temporal_filtering)* is enabled.
+
+
+### Return value
+
+Current temporal filtering color clamping intensity.
+Range of values: **[1.0f, inf]**. The default value is : **3.0f**.
+## void setCameraEffectsTemporalFilteringMinVelocityClamping ( float clamping = 0.05f )
+
+***Console*:**`render_camera_effects_temporal_filtering_min_velocity_clamping`Sets a new sensitivity of TAA color clamping for the Bloom effect for static objects. This parameter is used to reduce ghosting effect for lower Color Clamping Intensity*[setCameraEffectsTemporalFilteringColorClampingIntensity()()](../../...md#render_camera_effects_temporal_filtering_color_clamping_intensity)* values: higher values reduce ghosting, but at the same time reduce the temporal filter effect.
+> **Notice:** This option is available only when the temporal filtering*[setCameraEffectsTemporalFiltering()()](../../...md#render_camera_effects_temporal_filtering)* is enabled.
+
+
+### Arguments
+
+- *float* **clamping** - The sensitivity value. Range of values: **[0.0f, 1.0f]**. The default value is : **0.05f**.
+
+## float getCameraEffectsTemporalFilteringMinVelocityClamping () const
+
+***Console*:**`render_camera_effects_temporal_filtering_min_velocity_clamping`Returns the current sensitivity of TAA color clamping for the Bloom effect for static objects. This parameter is used to reduce ghosting effect for lower Color Clamping Intensity*[setCameraEffectsTemporalFilteringColorClampingIntensity()()](../../...md#render_camera_effects_temporal_filtering_color_clamping_intensity)* values: higher values reduce ghosting, but at the same time reduce the temporal filter effect.
+> **Notice:** This option is available only when the temporal filtering*[setCameraEffectsTemporalFiltering()()](../../...md#render_camera_effects_temporal_filtering)* is enabled.
+
+
+### Return value
+
+Current sensitivity value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.05f**.
+## void setCameraEffectsTemporalFilteringMaxVelocityClamping ( float clamping = 0.1f )
+
+***Console*:**`render_camera_effects_temporal_filtering_max_velocity_clamping`Sets a new sensitivity of TAA color clamping for the Bloom effect for moving objects. This parameter is used to reduce ghosting effect for lower Color Clamping Intensity*[setCameraEffectsTemporalFilteringColorClampingIntensity()()](../../...md#render_camera_effects_temporal_filtering_color_clamping_intensity)* values: higher values reduce ghosting, but at the same time reduce the temporal filter effect.
+> **Notice:** This option is available only when the temporal filtering*[setCameraEffectsTemporalFiltering()()](../../...md#render_camera_effects_temporal_filtering)* is enabled.
+
+
+### Arguments
+
+- *float* **clamping** - The maximum sensitivity value. Range of values: **[0.0f, 1.0f]**. The default value is : **0.1f**.
+
+## float getCameraEffectsTemporalFilteringMaxVelocityClamping () const
+
+***Console*:**`render_camera_effects_temporal_filtering_max_velocity_clamping`Returns the current sensitivity of TAA color clamping for the Bloom effect for moving objects. This parameter is used to reduce ghosting effect for lower Color Clamping Intensity*[setCameraEffectsTemporalFilteringColorClampingIntensity()()](../../...md#render_camera_effects_temporal_filtering_color_clamping_intensity)* values: higher values reduce ghosting, but at the same time reduce the temporal filter effect.
+> **Notice:** This option is available only when the temporal filtering*[setCameraEffectsTemporalFiltering()()](../../...md#render_camera_effects_temporal_filtering)* is enabled.
+
+
+### Return value
+
+Current maximum sensitivity value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.1f**.
+## void setCameraEffectsThreshold ( float threshold = 1.0f )
+
+***Console*:**`render_camera_effects_threshold`Sets a new brightness threshold, which is used to detect if an object should be blurred in the HDR mode. By the minimum value of 0, the bright areas can become overexposed.
+### Arguments
+
+- *float* **threshold** - The HDR threshold. Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+
+## float getCameraEffectsThreshold () const
+
+***Console*:**`render_camera_effects_threshold`Returns the current brightness threshold, which is used to detect if an object should be blurred in the HDR mode. By the minimum value of 0, the bright areas can become overexposed.
+### Return value
+
+Current HDR threshold.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+## void setTranslucentColor ( )
+
+***Console*:**`render_translucent_color`Sets a new color used for translucent objects globally. When light shines on one side of the object, the other side is partially illuminated with this color.
+### Arguments
+
+- **color** - The translucent color. **vec4(1.0f, 1.0f, 1.0f, 1.0f)** - default value (white)
+
+## getTranslucentColor () const
+
+***Console*:**`render_translucent_color`Returns the current color used for translucent objects globally. When light shines on one side of the object, the other side is partially illuminated with this color.
+### Return value
+
+Current translucent color.
+**vec4(1.0f, 1.0f, 1.0f, 1.0f)** - default value (white)
+## void setIndirectDiffuseTemporalFilteringEnabled ( bool enabled = 1 )
+
+***Console*:**`render_indirect_diffuse_temporal_filtering_enabled`Sets a new value indicating if temporal filtering for Indirect Diffuse is enabled. Temporal filtering reduces flickering of indirect diffuse light.
+### Arguments
+
+- *bool* **enabled** - Set **true** to enable Indirect Diffuse temporal filtering; **false** - to disable it. The default value is **true**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DenoisePreset](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isIndirectDiffuseTemporalFilteringEnabled () const
+
+***Console*:**`render_indirect_diffuse_temporal_filtering_enabled`Returns the current value indicating if temporal filtering for Indirect Diffuse is enabled. Temporal filtering reduces flickering of indirect diffuse light.
+### Return value
+
+**true** if Indirect Diffuse temporal filtering is enabled; otherwise **false**. The default value is **true**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DenoisePreset](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setIndirectDiffuseTemporalFilteringFrameCount ( float count = 50.0f )
+
+***Console*:**`render_indirect_diffuse_temporal_filtering_frame_count`Sets a new [frame count](../../../principles/render/antialiasing/taa.md#taa_frame_count) of temporal filtering for the indirect diffuse effect. Specifies the number of frames for the velocity buffer. The higher the value, the more frames are combined into the final image and the better anti-aliasing.
+### Arguments
+
+- *float* **count** - The Indirect Diffuse temporal filtering frame count value. Range of values: **[0.0f, inf]**. The default value is : **50.0f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DenoisePreset](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getIndirectDiffuseTemporalFilteringFrameCount () const
+
+***Console*:**`render_indirect_diffuse_temporal_filtering_frame_count`Returns the current [frame count](../../../principles/render/antialiasing/taa.md#taa_frame_count) of temporal filtering for the indirect diffuse effect. Specifies the number of frames for the velocity buffer. The higher the value, the more frames are combined into the final image and the better anti-aliasing.
+### Return value
+
+Current Indirect Diffuse temporal filtering frame count value.
+Range of values: **[0.0f, inf]**. The default value is : **50.0f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DenoisePreset](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setIndirectDiffuseTemporalFilteringColorClampingIntensity ( float intensity = 1.0f )
+
+***Console*:**`render_indirect_diffuse_temporal_filtering_color_clamping_intensity`Sets a new intensity of temporal filtering color clamping at zero pixel velocity for Indirect Diffuse. *Lower* values result in more accumulated frames combined, which reduces noise flickering, but increases ghosting effect. To reduce ghosting in this case you can use Indirect Diffuse Color Clamping Velocity Threshold*[setIndirectDiffuseTemporalFilteringColorClampingVelocityThreshold()()](../../...md#render_indirect_diffuse_temporal_filtering_color_clamping_velocity_threshold)*, while *higher* values reduce ghosting effect, but increase flickering.
+### Arguments
+
+- *float* **intensity** - The Indirect Diffuse color clamping intensity. Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DenoisePreset](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getIndirectDiffuseTemporalFilteringColorClampingIntensity () const
+
+***Console*:**`render_indirect_diffuse_temporal_filtering_color_clamping_intensity`Returns the current intensity of temporal filtering color clamping at zero pixel velocity for Indirect Diffuse. *Lower* values result in more accumulated frames combined, which reduces noise flickering, but increases ghosting effect. To reduce ghosting in this case you can use Indirect Diffuse Color Clamping Velocity Threshold*[setIndirectDiffuseTemporalFilteringColorClampingVelocityThreshold()()](../../...md#render_indirect_diffuse_temporal_filtering_color_clamping_velocity_threshold)*, while *higher* values reduce ghosting effect, but increase flickering.
+### Return value
+
+Current Indirect Diffuse color clamping intensity.
+Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DenoisePreset](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setIndirectDiffuseTemporalFilteringColorClampingVelocityThreshold ( float threshold = 100.0f )
+
+***Console*:**`render_indirect_diffuse_temporal_filtering_color_clamping_velocity_threshold`Sets a new sensitivity of temporal filtering color clamping for Indirect Diffuse to pixel velocity change. This parameter is used to reduce ghosting effect for lower Color Clamping Intensity*[setIndirectDiffuseTemporalFilteringColorClampingIntensity()()](../../...md#render_indirect_diffuse_temporal_filtering_color_clamping_intensity)* values: it automatically increases clamping intensity for higher velocities, and disables clamping for low velocity values.
+### Arguments
+
+- *float* **threshold** - The Indirect Diffuse temporal filtering color clamping intensity threshold. Range of values: **[0.0f, inf]**. The default value is : **100.0f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DenoisePreset](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getIndirectDiffuseTemporalFilteringColorClampingVelocityThreshold () const
+
+***Console*:**`render_indirect_diffuse_temporal_filtering_color_clamping_velocity_threshold`Returns the current sensitivity of temporal filtering color clamping for Indirect Diffuse to pixel velocity change. This parameter is used to reduce ghosting effect for lower Color Clamping Intensity*[setIndirectDiffuseTemporalFilteringColorClampingIntensity()()](../../...md#render_indirect_diffuse_temporal_filtering_color_clamping_intensity)* values: it automatically increases clamping intensity for higher velocities, and disables clamping for low velocity values.
+### Return value
+
+Current Indirect Diffuse temporal filtering color clamping intensity threshold.
+Range of values: **[0.0f, inf]**. The default value is : **100.0f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DenoisePreset](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setIndirectDiffuseDenoiseEnabled ( bool enabled = 1 )
+
+***Console*:**`render_indirect_diffuse_denoise_enabled`Sets a new value indicating if noise reduction for Indirect Diffuse is enabled.
+### Arguments
+
+- *bool* **enabled** - Set **true** to enable Indirect Diffuse noise reduction; **false** - to disable it. The default value is **true**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DenoisePreset](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isIndirectDiffuseDenoiseEnabled () const
+
+***Console*:**`render_indirect_diffuse_denoise_enabled`Returns the current value indicating if noise reduction for Indirect Diffuse is enabled.
+### Return value
+
+**true** if Indirect Diffuse noise reduction is enabled; otherwise **false**. The default value is **true**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DenoisePreset](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setIndirectDiffuseDenoiseMaskEnabled ( bool enabled = 1 )
+
+***Console*:**`render_indirect_diffuse_denoise_mask_enabled`Sets a new value indicating if the denoise mask for Indirect Diffuse is enabled. This mask identifies which portions of the screen should be denoised more, and which - less. This may ensure more detailed ambient lighting.
+### Arguments
+
+- *bool* **enabled** - Set **true** to enable Indirect Diffuse noise reduction; **false** - to disable it. The default value is **true**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DenoisePreset](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isIndirectDiffuseDenoiseMaskEnabled () const
+
+***Console*:**`render_indirect_diffuse_denoise_mask_enabled`Returns the current value indicating if the denoise mask for Indirect Diffuse is enabled. This mask identifies which portions of the screen should be denoised more, and which - less. This may ensure more detailed ambient lighting.
+### Return value
+
+**true** if Indirect Diffuse noise reduction is enabled; otherwise **false**. The default value is **true**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DenoisePreset](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setIndirectDiffuseDenoiseThreshold ( float threshold = 1.0f )
+
+***Console*:**`render_indirect_diffuse_denoise_threshold`Sets a new threshold value for color difference of neighboring pixels used for noise reduction for Indirect Diffuse. Blur is applied when the color difference is less than the threshold value.
+> **Notice:** Setting too high values results in blurring the whole image.
+
+### Arguments
+
+- *float* **threshold** - The Indirect Diffuse noise reduction threshold value. Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DenoisePreset](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getIndirectDiffuseDenoiseThreshold () const
+
+***Console*:**`render_indirect_diffuse_denoise_threshold`Returns the current threshold value for color difference of neighboring pixels used for noise reduction for Indirect Diffuse. Blur is applied when the color difference is less than the threshold value.
+> **Notice:** Setting too high values results in blurring the whole image.
+
+### Return value
+
+Current Indirect Diffuse noise reduction threshold value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DenoisePreset](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setIndirectSpecularTemporalFilteringEnabled ( bool enabled = 1 )
+
+***Console*:**`render_indirect_specular_temporal_filtering_enabled`Sets a new value indicating if temporal filtering for Indirect Specular is enabled. Temporal filtering reduces flickering of Indirect Specular lighting.
+### Arguments
+
+- *bool* **enabled** - Set **true** to enable temporal filtering; **false** - to disable it. The default value is **true**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DenoisePreset](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isIndirectSpecularTemporalFilteringEnabled () const
+
+***Console*:**`render_indirect_specular_temporal_filtering_enabled`Returns the current value indicating if temporal filtering for Indirect Specular is enabled. Temporal filtering reduces flickering of Indirect Specular lighting.
+### Return value
+
+**true** if temporal filtering is enabled; otherwise **false**. The default value is **true**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DenoisePreset](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setIndirectSpecularTemporalFilteringFrameCount ( float count = 50.0f )
+
+***Console*:**`render_indirect_specular_temporal_filtering_frame_count`Sets a new [frame count](../../../principles/render/antialiasing/taa.md#taa_frame_count) of temporal filtering for Indirect Specular. Specifies the number of frames for the velocity buffer. The higher the value, the more frames are combined into the final image and the better anti-aliasing.
+### Arguments
+
+- *float* **count** - The Indirect Specular temporal filtering frame count value. Range of values: **[0.0f, inf]**. The default value is : **50.0f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DenoisePreset](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getIndirectSpecularTemporalFilteringFrameCount () const
+
+***Console*:**`render_indirect_specular_temporal_filtering_frame_count`Returns the current [frame count](../../../principles/render/antialiasing/taa.md#taa_frame_count) of temporal filtering for Indirect Specular. Specifies the number of frames for the velocity buffer. The higher the value, the more frames are combined into the final image and the better anti-aliasing.
+### Return value
+
+Current Indirect Specular temporal filtering frame count value.
+Range of values: **[0.0f, inf]**. The default value is : **50.0f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DenoisePreset](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setIndirectSpecularTemporalFilteringColorClampingIntensity ( float intensity = 1.0f )
+
+***Console*:**`render_indirect_specular_temporal_filtering_color_clamping_intensity`Sets a new intensity of temporal filtering color clamping at zero pixel velocity for Indirect Specular. *Lower* values result in more accumulated frames combined, which reduces noise flickering, but increases ghosting effect. To reduce ghosting in this case you can use Indirect Specular Temporal Filtering Color Clamping Velocity Threshold*[setIndirectSpecularTemporalFilteringColorClampingVelocityThreshold()()](../../...md#render_indirect_specular_temporal_filtering_color_clamping_velocity_threshold)*, while *higher* values reduce ghosting effect, but increase flickering.
+### Arguments
+
+- *float* **intensity** - The Indirect Specular color clamping intensity. Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DenoisePreset](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getIndirectSpecularTemporalFilteringColorClampingIntensity () const
+
+***Console*:**`render_indirect_specular_temporal_filtering_color_clamping_intensity`Returns the current intensity of temporal filtering color clamping at zero pixel velocity for Indirect Specular. *Lower* values result in more accumulated frames combined, which reduces noise flickering, but increases ghosting effect. To reduce ghosting in this case you can use Indirect Specular Temporal Filtering Color Clamping Velocity Threshold*[setIndirectSpecularTemporalFilteringColorClampingVelocityThreshold()()](../../...md#render_indirect_specular_temporal_filtering_color_clamping_velocity_threshold)*, while *higher* values reduce ghosting effect, but increase flickering.
+### Return value
+
+Current Indirect Specular color clamping intensity.
+Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DenoisePreset](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setIndirectSpecularTemporalFilteringColorClampingVelocityThreshold ( float threshold = 100.0f )
+
+***Console*:**`render_indirect_specular_temporal_filtering_color_clamping_velocity_threshold`Sets a new sensitivity of temporal filtering color clamping for Indirect Specular to pixel velocity change. This parameter is used to reduce ghosting effect for lower Color Clamping Intensity*[setIndirectSpecularTemporalFilteringColorClampingIntensity()()](../../...md#render_indirect_specular_temporal_filtering_color_clamping_intensity)* values: it automatically increases clamping intensity for higher velocities, and disables clamping for low velocity values.
+### Arguments
+
+- *float* **threshold** - The sensitivity value. Range of values: **[0.0f, inf]**. The default value is : **100.0f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DenoisePreset](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getIndirectSpecularTemporalFilteringColorClampingVelocityThreshold () const
+
+***Console*:**`render_indirect_specular_temporal_filtering_color_clamping_velocity_threshold`Returns the current sensitivity of temporal filtering color clamping for Indirect Specular to pixel velocity change. This parameter is used to reduce ghosting effect for lower Color Clamping Intensity*[setIndirectSpecularTemporalFilteringColorClampingIntensity()()](../../...md#render_indirect_specular_temporal_filtering_color_clamping_intensity)* values: it automatically increases clamping intensity for higher velocities, and disables clamping for low velocity values.
+### Return value
+
+Current sensitivity value.
+Range of values: **[0.0f, inf]**. The default value is : **100.0f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DenoisePreset](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setIndirectSpecularDenoiseEnabled ( bool enabled = 1 )
+
+***Console*:**`render_indirect_specular_denoise_enabled`Sets a new value indicating if noise reduction for Indirect Specular is enabled.
+### Arguments
+
+- *bool* **enabled** - Set **true** to enable Indirect Specular noise reduction; **false** - to disable it. The default value is **true**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DenoisePreset](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isIndirectSpecularDenoiseEnabled () const
+
+***Console*:**`render_indirect_specular_denoise_enabled`Returns the current value indicating if noise reduction for Indirect Specular is enabled.
+### Return value
+
+**true** if Indirect Specular noise reduction is enabled; otherwise **false**. The default value is **true**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DenoisePreset](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setIndirectSpecularDenoiseMaskEnabled ( bool enabled = 1 )
+
+***Console*:**`render_indirect_specular_denoise_mask_enabled`Sets a new value indicating if the denoise mask for Indirect Specular is enabled.This mask identifies which portions of the screen should be denoised more, and which - less. This may ensure more detailed ambient lighting.
+### Arguments
+
+- *bool* **enabled** - Set **true** to enable Indirect Specular noise reduction; **false** - to disable it. The default value is **true**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DenoisePreset](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isIndirectSpecularDenoiseMaskEnabled () const
+
+***Console*:**`render_indirect_specular_denoise_mask_enabled`Returns the current value indicating if the denoise mask for Indirect Specular is enabled.This mask identifies which portions of the screen should be denoised more, and which - less. This may ensure more detailed ambient lighting.
+### Return value
+
+**true** if Indirect Specular noise reduction is enabled; otherwise **false**. The default value is **true**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DenoisePreset](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setIndirectSpecularDenoiseThreshold ( float threshold = 1.0f )
+
+***Console*:**`render_indirect_specular_denoise_threshold`Sets a new threshold value for color difference of neighboring pixels used for noise reduction for the Indirect Specular effect. Blur is applied when the color difference is less than the threshold value.
+> **Notice:** Setting too high values results in blurring the whole image.
+
+### Arguments
+
+- *float* **threshold** - The Indirect Specular noise reduction threshold value. Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DenoisePreset](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getIndirectSpecularDenoiseThreshold () const
+
+***Console*:**`render_indirect_specular_denoise_threshold`Returns the current threshold value for color difference of neighboring pixels used for noise reduction for the Indirect Specular effect. Blur is applied when the color difference is less than the threshold value.
+> **Notice:** Setting too high values results in blurring the whole image.
+
+### Return value
+
+Current Indirect Specular noise reduction threshold value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DenoisePreset](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setDenoisePreset ( int preset = 0 )
+
+***Console*:**`render_denoise_preset`Sets a new Denoise preset used at the moment. ***Sharpest*** to ***Smoothest*** - intensity of applying the noise reduction temporal filter (smoother settings cause more ghosting, but provide a more credible and smooth effect in static scenes). ***Low*** to ***High*** - quality of blur processing in denoiser (higher values are more performance-consuming). To customize the Denoise effect options at run time, activate the **Custom** preset.
+### Arguments
+
+- *int* **preset** - The preset index. One of the following values:
+
+  - **0** - Disabled (by default)
+  - **1** - Sharpest Low
+  - **2** - Sharpest High
+  - **3** - Sharp Low
+  - **4** - Sharp High
+  - **5** - Smooth Low
+  - **6** - Smooth High
+  - **7** - Smoothest Low
+  - **8** - Smoothest High
+  - **9** - Custom
+
+## int getDenoisePreset () const
+
+***Console*:**`render_denoise_preset`Returns the current Denoise preset used at the moment. ***Sharpest*** to ***Smoothest*** - intensity of applying the noise reduction temporal filter (smoother settings cause more ghosting, but provide a more credible and smooth effect in static scenes). ***Low*** to ***High*** - quality of blur processing in denoiser (higher values are more performance-consuming). To customize the Denoise effect options at run time, activate the **Custom** preset.
+### Return value
+
+Current preset index. One of the following values:
+- **0** - Disabled (by default)
+- **1** - Sharpest Low
+- **2** - Sharpest High
+- **3** - Sharp Low
+- **4** - Sharp High
+- **5** - Smooth Low
+- **6** - Smooth High
+- **7** - Smoothest Low
+- **8** - Smoothest High
+- **9** - Custom
+
+## int getDenoisePresetNumNames () const
+
+Returns the current number of Denoise presets.
+### Return value
+
+Current number of presets.
+## void setDenoiseRadius ( int radius = 1 )
+
+***Console*:**`render_denoise_radius`Sets a new radius of each blur iteration in noise reduction. This value allows simulating a higher number of blur iterations without affecting performance. However, this may cause such screen-space artefact as insufficiently smooth denoiser blur.
+### Arguments
+
+- *int* **radius** - The radius of each blur iteration. Range of values: **[1, 3]**. The default value is : **1**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DenoisePreset](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## int getDenoiseRadius () const
+
+***Console*:**`render_denoise_radius`Returns the current radius of each blur iteration in noise reduction. This value allows simulating a higher number of blur iterations without affecting performance. However, this may cause such screen-space artefact as insufficiently smooth denoiser blur.
+### Return value
+
+Current radius of each blur iteration.
+Range of values: **[1, 3]**. The default value is : **1**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DenoisePreset](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setDenoiseNumBlurIterations ( int iterations = 5 )
+
+***Console*:**`render_denoise_num_blur_iterations`Sets a new number of iterations performed for blurring. Higher values increase the blur radius, which helps to reduce noise even in areas with very intense noise. However this greatly affects performance. Recommended values are in range [3, 5].
+### Arguments
+
+- *int* **iterations** - The number of iterations for blurring. Range of values: **[0, 10]**. The default value is : **5**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DenoisePreset](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## int getDenoiseNumBlurIterations () const
+
+***Console*:**`render_denoise_num_blur_iterations`Returns the current number of iterations performed for blurring. Higher values increase the blur radius, which helps to reduce noise even in areas with very intense noise. However this greatly affects performance. Recommended values are in range [3, 5].
+### Return value
+
+Current number of iterations for blurring.
+Range of values: **[0, 10]**. The default value is : **5**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DenoisePreset](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSSSS ( bool sssss = 0 )
+
+***Console*:**`render_sssss`Sets a new  value indicating if the SSSSS (Screen-Space Subsurface Scattering) effect is enabled. This effect is used to imitate human skin, wax, etc.
+### Arguments
+
+- *bool* **sssss** - Set **true** to enable SSSSS (Screen-Space Subsurface Scattering) effect; **false** - to disable it. The default value is **false**.
+
+## bool isSSSSS () const
+
+***Console*:**`render_sssss`Returns the current  value indicating if the SSSSS (Screen-Space Subsurface Scattering) effect is enabled. This effect is used to imitate human skin, wax, etc.
+### Return value
+
+**true** if SSSSS (Screen-Space Subsurface Scattering) effect is enabled; otherwise **false**. The default value is **false**.
+## void setSSSSSPreset ( int ssssspreset = 0 )
+
+***Console*:**`render_sssss_preset`Sets a new SSSSS (Screen-Space Subsurface Scattering) preset used at the moment. To customize the SSSSS effect options at run time you should activate the **Custom** preset:
+### Arguments
+
+- *int* **ssssspreset** - The preset index. One of the following values:
+
+  - **0** - Low (by default)
+  - **1** - Medium
+  - **2** - High
+  - **3** - Ultra
+  - **4** - Extreme
+  - **5** - Custom
+
+## int getSSSSSPreset () const
+
+***Console*:**`render_sssss_preset`Returns the current SSSSS (Screen-Space Subsurface Scattering) preset used at the moment. To customize the SSSSS effect options at run time you should activate the **Custom** preset:
+### Return value
+
+Current preset index. One of the following values:
+- **0** - Low (by default)
+- **1** - Medium
+- **2** - High
+- **3** - Ultra
+- **4** - Extreme
+- **5** - Custom
+
+## int getSSSSSPresetNumNames () const
+
+Returns the current number of SSSSS (Screen-Space Subsurface Scattering) presets.
+### Return value
+
+Current number of presets.
+## void setSSSSSQuality ( int sssssquality = 1 )
+
+***Console*:**`render_sssss_quality`Sets a new [quality](../../../editor2/settings/render_settings/sss/index.md#sss_quality) of the SSSSS (Screen-Space Subsurface Scattering) effect.
+### Arguments
+
+- *int* **sssssquality** - The SSSSS quality One of the following values: > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+  - *Low* - low quality
+  - *Medium* - medium quality (by default)
+  - *High* - high quality
+  - *Ultra* - ultra quality
+
+## int getSSSSSQuality () const
+
+***Console*:**`render_sssss_quality`Returns the current [quality](../../../editor2/settings/render_settings/sss/index.md#sss_quality) of the SSSSS (Screen-Space Subsurface Scattering) effect.
+### Return value
+
+Current SSSSS quality One of the following values:
+
+- *Low* - low quality
+- *Medium* - medium quality (by default)
+- *High* - high quality
+- *Ultra* - ultra quality
+
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSSSSResolution ( int sssssresolution = 1 )
+
+***Console*:**`render_sssss_resolution`Sets a new [resolution](../../../editor2/settings/render_settings/sss/index.md#sss_resolution) of the SSSSS (Screen-Space Subsurface Scattering) effect.
+### Arguments
+
+- *int* **sssssresolution** - The SSSSS resolution. One of the following values: > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+  - *Quarter* - quarter resolution
+  - *Half* - half resolution (by default)
+  - *Full* - full resolution
+
+## int getSSSSSResolution () const
+
+***Console*:**`render_sssss_resolution`Returns the current [resolution](../../../editor2/settings/render_settings/sss/index.md#sss_resolution) of the SSSSS (Screen-Space Subsurface Scattering) effect.
+### Return value
+
+Current SSSSS resolution. One of the following values:
+
+- *Quarter* - quarter resolution
+- *Half* - half resolution (by default)
+- *Full* - full resolution
+
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSSSSRadius ( float sssssradius = 1.0f )
+
+***Console*:**`render_sssss_radius`Sets a new  [subsurface scattering radius](../../../editor2/settings/render_settings/sss/index.md#sss_radius) - distance in the screen space, within which colors will be sampled.It controls how much wrinkles, pores and cavities will be blurred and highlighted. The higher the value, the farther subsurface scattering reaches. Too high values result in the ghosting effect. By the minimum value of 0, no subsurface scattering is rendered.
+### Arguments
+
+- *float* **sssssradius** - The subsurface scattering radius. Range of values: **[0.0f, inf]**. The default value is : **1.0f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getSSSSSRadius () const
+
+***Console*:**`render_sssss_radius`Returns the current  [subsurface scattering radius](../../../editor2/settings/render_settings/sss/index.md#sss_radius) - distance in the screen space, within which colors will be sampled.It controls how much wrinkles, pores and cavities will be blurred and highlighted. The higher the value, the farther subsurface scattering reaches. Too high values result in the ghosting effect. By the minimum value of 0, no subsurface scattering is rendered.
+### Return value
+
+Current subsurface scattering radius.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSSSSColor ( )
+
+***Console*:**`render_sssss_color`Sets a new  [subsurface scattering color](../../../editor2/settings/render_settings/sss/index.md#sss_color) used to simulate the subsurface component of skin lighting, i.e. the light that bounces inside of the subsurface tissue layers (epidermis and dermis) before exiting.For skin, subsurface color is reddish, due to blood circulating in skin tissues. To use this option, SSSSS effect *[setSSSSS()()](../../...md#render_sssss)* should be enabled.
+### Arguments
+
+- **ssssscolor** - The Subsurface scattering color. **vec4(1.0f, 0.0f, 0.0f, 1.0f)** - default value
+
+## getSSSSSColor () const
+
+***Console*:**`render_sssss_color`Returns the current  [subsurface scattering color](../../../editor2/settings/render_settings/sss/index.md#sss_color) used to simulate the subsurface component of skin lighting, i.e. the light that bounces inside of the subsurface tissue layers (epidermis and dermis) before exiting.For skin, subsurface color is reddish, due to blood circulating in skin tissues. To use this option, SSSSS effect *[setSSSSS()()](../../...md#render_sssss)* should be enabled.
+### Return value
+
+Current Subsurface scattering color.
+**vec4(1.0f, 0.0f, 0.0f, 1.0f)** - default value
+## void setSSSSSDiffuse ( bool sssssdiffuse = 1 )
+
+***Console*:**`render_sssss_diffuse`Sets a new value indicating if the SSSSS (Screen-Space Subsurface Scattering) calculation for diffuse lighting (directional lights) is enabled. If this option is not required, disable it to save performance. To use this option, the SSSSS effect*[setSSSSS()()](../../...md#render_sssss)* should be enabled.
+### Arguments
+
+- *bool* **sssssdiffuse** - Set **true** to enable SSSSS calculation for diffuse lighting; **false** - to disable it. The default value is **true**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isSSSSSDiffuse () const
+
+***Console*:**`render_sssss_diffuse`Returns the current value indicating if the SSSSS (Screen-Space Subsurface Scattering) calculation for diffuse lighting (directional lights) is enabled. If this option is not required, disable it to save performance. To use this option, the SSSSS effect*[setSSSSS()()](../../...md#render_sssss)* should be enabled.
+### Return value
+
+**true** if SSSSS calculation for diffuse lighting is enabled; otherwise **false**. The default value is **true**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSSSSAmbient ( bool sssssambient = 0 )
+
+***Console*:**`render_sssss_ambient`Sets a new value indicating if the SSSSS (Screen-Space Subsurface Scattering) calculation for ambient lighting (environment) is enabled. If this option is not required, disable it to save performance. To use this option, the SSSSS effect*[setSSSSS()()](../../...md#render_sssss)* should be enabled.
+### Arguments
+
+- *bool* **sssssambient** - Set **true** to enable SSSSS calculation for ambient lighting; **false** - to disable it. The default value is **false**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isSSSSSAmbient () const
+
+***Console*:**`render_sssss_ambient`Returns the current value indicating if the SSSSS (Screen-Space Subsurface Scattering) calculation for ambient lighting (environment) is enabled. If this option is not required, disable it to save performance. To use this option, the SSSSS effect*[setSSSSS()()](../../...md#render_sssss)* should be enabled.
+### Return value
+
+**true** if SSSSS calculation for ambient lighting is enabled; otherwise **false**. The default value is **false**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSSSSMinThreshold ( float threshold = 4.0f )
+
+***Console*:**`render_sssss_min_threshold`Sets a new threshold of SSSSS (Screen-Space Subsurface Scattering) for the material's [Translucent](../../../content/materials/library/mesh_base/index.md#parameter_translucency) parameter equal to 0 (minimum translucency). To use this option, the SSSSS effect*[setSSSSS()()](../../...md#render_sssss)* should be enabled.
+### Arguments
+
+- *float* **threshold** - The threshold scattering value. Range of values: **[0.0f, inf]**. The default value is : **4.0f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getSSSSSMinThreshold () const
+
+***Console*:**`render_sssss_min_threshold`Returns the current threshold of SSSSS (Screen-Space Subsurface Scattering) for the material's [Translucent](../../../content/materials/library/mesh_base/index.md#parameter_translucency) parameter equal to 0 (minimum translucency). To use this option, the SSSSS effect*[setSSSSS()()](../../...md#render_sssss)* should be enabled.
+### Return value
+
+Current threshold scattering value.
+Range of values: **[0.0f, inf]**. The default value is : **4.0f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSSSSMaxThreshold ( float threshold = 10.0f )
+
+***Console*:**`render_sssss_max_threshold`Sets a new threshold of SSSSS (Screen-Space Subsurface Scattering) for the material's [Translucent](../../../content/materials/library/mesh_base/index.md#parameter_translucency) parameter equal to 1 (maximum translucency). To use this option, the SSSSS effect*[setSSSSS()()](../../...md#render_sssss)* should be enabled.
+### Arguments
+
+- *float* **threshold** - The threshold scattering value. Range of values: **[0.0f, inf]**. The default value is : **10.0f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getSSSSSMaxThreshold () const
+
+***Console*:**`render_sssss_max_threshold`Returns the current threshold of SSSSS (Screen-Space Subsurface Scattering) for the material's [Translucent](../../../content/materials/library/mesh_base/index.md#parameter_translucency) parameter equal to 1 (maximum translucency). To use this option, the SSSSS effect*[setSSSSS()()](../../...md#render_sssss)* should be enabled.
+### Return value
+
+Current threshold scattering value.
+Range of values: **[0.0f, inf]**. The default value is : **10.0f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSSSSNoiseStep ( float step = 0.5f )
+
+***Console*:**`render_sssss_noise_step`Sets a new intensity of the step noise used for SSSSS (Screen-Space Subsurface Scattering) calculation to reduce banding artifacts of tracing. Higher values make banding less visible. To use this option, the SSSSS effect*[setSSSSS()()](../../...md#render_sssss)* should be enabled.
+### Arguments
+
+- *float* **step** - The step noise intensity. Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getSSSSSNoiseStep () const
+
+***Console*:**`render_sssss_noise_step`Returns the current intensity of the step noise used for SSSSS (Screen-Space Subsurface Scattering) calculation to reduce banding artifacts of tracing. Higher values make banding less visible. To use this option, the SSSSS effect*[setSSSSS()()](../../...md#render_sssss)* should be enabled.
+### Return value
+
+Current step noise intensity.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSSSSNoiseRay ( float ray = 0.5f )
+
+***Console*:**`render_sssss_noise_ray`Sets a new intensity of the ray noise used for SSSSS (Screen-Space Subsurface Scattering) calculation to reduce banding artifacts of tracing. Higher values make banding less visible. To use this option, the SSSSS effect*[setSSSSS()()](../../...md#render_sssss)* should be enabled.
+### Arguments
+
+- *float* **ray** - The ray noise intensity. Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getSSSSSNoiseRay () const
+
+***Console*:**`render_sssss_noise_ray`Returns the current intensity of the ray noise used for SSSSS (Screen-Space Subsurface Scattering) calculation to reduce banding artifacts of tracing. Higher values make banding less visible. To use this option, the SSSSS effect*[setSSSSS()()](../../...md#render_sssss)* should be enabled.
+### Return value
+
+Current ray noise intensity.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSSSSInterleaved ( bool sssssinterleaved = 0 )
+
+***Console*:**`render_sssss_interleaved`Sets a new value indicating if the [interleaved rendering mode](../../../editor2/settings/render_settings/sss/index.md#sss_interleaved) for SSSSS (Screen-Space Subsurface Scattering) is enabled. This option enables rendering of the effect in only half or quarter of all pixels with subsequent reconstruction of neighboring pixels using the data from previous frames, significantly improving performance.
+The effect is cumulative and works best with *[Temporal Filter](../../../editor2/settings/render_settings/sss/index.md#taa)*, which reduces ghosting and noise artifacts.
+
+### Arguments
+
+- *bool* **sssssinterleaved** - Set **true** to enable interleaved rendering mode for SSSSS; **false** - to disable it. The default value is **false**.
+
+## bool isSSSSSInterleaved () const
+
+***Console*:**`render_sssss_interleaved`Returns the current value indicating if the [interleaved rendering mode](../../../editor2/settings/render_settings/sss/index.md#sss_interleaved) for SSSSS (Screen-Space Subsurface Scattering) is enabled. This option enables rendering of the effect in only half or quarter of all pixels with subsequent reconstruction of neighboring pixels using the data from previous frames, significantly improving performance.
+The effect is cumulative and works best with *[Temporal Filter](../../../editor2/settings/render_settings/sss/index.md#taa)*, which reduces ghosting and noise artifacts.
+
+### Return value
+
+**true** if interleaved rendering mode for SSSSS is enabled; otherwise **false**. The default value is **false**.
+## void setSSSSSInterleavedColorClamping ( int clamping = 1 )
+
+***Console*:**`render_sssss_interleaved_color_clamping`Sets a new [color clamping mode](../../../editor2/settings/render_settings/sss/index.md#sss_interleaved_color_clamping) used to reduce ghosting effect. *Higher* values increase clamping intensity, but may cause flickering (to reduce flickering you can choose **High + Velocity**). When disabled, translucency has a lag as it is several frames behind.
+### Arguments
+
+- *int* **clamping** - The color clamping mode. One of the following values: > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+  - **0** - Disabled
+  - **1** - Low (by default)
+  - **2** - Medium
+  - **3** - High
+  - **4** - High + Velocity
+
+## int getSSSSSInterleavedColorClamping () const
+
+***Console*:**`render_sssss_interleaved_color_clamping`Returns the current [color clamping mode](../../../editor2/settings/render_settings/sss/index.md#sss_interleaved_color_clamping) used to reduce ghosting effect. *Higher* values increase clamping intensity, but may cause flickering (to reduce flickering you can choose **High + Velocity**). When disabled, translucency has a lag as it is several frames behind.
+### Return value
+
+Current color clamping mode. One of the following values:
+- **0** - Disabled
+- **1** - Low (by default)
+- **2** - Medium
+- **3** - High
+- **4** - High + Velocity
+
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSSSSInterleavedSamples ( int samples = 0 )
+
+***Console*:**`render_sssss_interleaved_samples`Sets a new number of pixels to be skipped when rendering the SSSSS (Screen-Space Subsurface Scattering) effect with subsequent reconstruction of neighboring pixels using the data from previous frames. The following options are available:
+- **1 x 2** (1.0 * width x 0.5 * height) - a half of all pixels is rendered, skipping each second line
+- **2 x 2** (0.5 * width x 0.5 * height) - a quarter of all pixels is rendered, skipping each second line and row
+
+
+### Arguments
+
+- *int* **samples** - The skipping mode. One of the following values: > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+  - **0** - 1 x 2 (by default)
+  - **1** - 2 x 2
+
+## int getSSSSSInterleavedSamples () const
+
+***Console*:**`render_sssss_interleaved_samples`Returns the current number of pixels to be skipped when rendering the SSSSS (Screen-Space Subsurface Scattering) effect with subsequent reconstruction of neighboring pixels using the data from previous frames. The following options are available:
+- **1 x 2** (1.0 * width x 0.5 * height) - a half of all pixels is rendered, skipping each second line
+- **2 x 2** (0.5 * width x 0.5 * height) - a quarter of all pixels is rendered, skipping each second line and row
+
+
+### Return value
+
+Current skipping mode. One of the following values:
+- **0** - 1 x 2 (by default)
+- **1** - 2 x 2
+
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSSSSTAA ( bool ssssstaa = 1 )
+
+***Console*:**`render_sssss_taa`Sets a new value indicating if [TAA (Temporal Anti-Aliasing)](../../../principles/render/antialiasing/taa.md) for Screen-Space Subsurface Scattering is enabled.
+### Arguments
+
+- *bool* **ssssstaa** - Set **true** to enable SSSSS TAA; **false** - to disable it. The default value is **true**.
+
+## bool isTAA () const
+
+***Console*:**`render_sssss_taa`Returns the current value indicating if [TAA (Temporal Anti-Aliasing)](../../../principles/render/antialiasing/taa.md) for Screen-Space Subsurface Scattering is enabled.
+### Return value
+
+**true** if SSSSS TAA is enabled; otherwise **false**. The default value is **true**.
+## void setSSSSSTAAFixFlicker ( bool flicker = 1 )
+
+***Console*:**`render_sssss_taa_fix_flicker`Sets a new value of TAA parameter for Screen-Space Subsurface Scattering that is similar to [TAA Fix Flicker](#render_taa_fix_flicker)*[setTAAFixFlicker()()](../../...md#render_taa_fix_flicker)*.
+### Arguments
+
+- *bool* **flicker** - Set **true** to enable TAA parameter value.; **false** - to disable it. The default value is **true**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isSSSSSTAAFixFlicker () const
+
+***Console*:**`render_sssss_taa_fix_flicker`Returns the current value of TAA parameter for Screen-Space Subsurface Scattering that is similar to [TAA Fix Flicker](#render_taa_fix_flicker)*[setTAAFixFlicker()()](../../...md#render_taa_fix_flicker)*.
+### Return value
+
+**true** if TAA parameter value. is enabled; otherwise **false**. The default value is **true**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSSSSTAAAntialiasingInMotion ( bool motion = 0 )
+
+***Console*:**`render_sssss_taa_antialiasing_in_motion`Sets a new value of TAA parameter for Screen-Space Subsurface Scattering that is similar to [TAA Antialiasing In Motion](#render_taa_antialiasing_in_motion)*[setTAAAntialiasingInMotion()()](../../...md#render_taa_antialiasing_in_motion)*.
+### Arguments
+
+- *bool* **motion** - Set **true** to enable TAA parameter value.; **false** - to disable it. The default value is **false**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isSSSSSTAAAntialiasingInMotion () const
+
+***Console*:**`render_sssss_taa_antialiasing_in_motion`Returns the current value of TAA parameter for Screen-Space Subsurface Scattering that is similar to [TAA Antialiasing In Motion](#render_taa_antialiasing_in_motion)*[setTAAAntialiasingInMotion()()](../../...md#render_taa_antialiasing_in_motion)*.
+### Return value
+
+**true** if TAA parameter value. is enabled; otherwise **false**. The default value is **false**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSSSSTAAFramesByColor ( bool color = 1 )
+
+***Console*:**`render_sssss_taa_frames_by_color`Sets a new value of TAA parameter for Screen-Space Subsurface Scattering that is similar to [TAA Frames By Color](#render_taa_frames_by_color)*[setTAAFramesByColor()()](../../...md#render_taa_frames_by_color)*.
+### Arguments
+
+- *bool* **color** - Set **true** to enable TAA parameter value.; **false** - to disable it. The default value is **true**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isSSSSSTAAFramesByColor () const
+
+***Console*:**`render_sssss_taa_frames_by_color`Returns the current value of TAA parameter for Screen-Space Subsurface Scattering that is similar to [TAA Frames By Color](#render_taa_frames_by_color)*[setTAAFramesByColor()()](../../...md#render_taa_frames_by_color)*.
+### Return value
+
+**true** if TAA parameter value. is enabled; otherwise **false**. The default value is **true**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSSSSTAAFramesByVelocity ( bool velocity = 1 )
+
+***Console*:**`render_sssss_taa_frames_by_velocity`Sets a new value of TAA parameter for Screen-Space Subsurface Scattering that is similar to [TAA Frames By Velocity](#render_taa_frames_by_velocity)*[setTAAFramesByVelocity()()](../../...md#render_taa_frames_by_velocity)*.
+### Arguments
+
+- *bool* **velocity** - Set **true** to enable TAA parameter value.; **false** - to disable it. The default value is **true**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isSSSSSTAAFramesByVelocity () const
+
+***Console*:**`render_sssss_taa_frames_by_velocity`Returns the current value of TAA parameter for Screen-Space Subsurface Scattering that is similar to [TAA Frames By Velocity](#render_taa_frames_by_velocity)*[setTAAFramesByVelocity()()](../../...md#render_taa_frames_by_velocity)*.
+### Return value
+
+**true** if TAA parameter value. is enabled; otherwise **false**. The default value is **true**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSSSSTAAPreserveDetails ( float details = 0.5f )
+
+***Console*:**`render_sssss_taa_preserve_details`Sets a new value of TAA parameter for Screen-Space Subsurface Scattering that is similar to [TAA Preserve Details](#render_taa_preserve_details)*[setTAAPreserveDetails()()](../../...md#render_taa_preserve_details)*.
+### Arguments
+
+- *float* **details** - The TAA parameter value. Range of values: **[0.0f, inf]**. The default value is : **0.5f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getSSSSSTAAPreserveDetails () const
+
+***Console*:**`render_sssss_taa_preserve_details`Returns the current value of TAA parameter for Screen-Space Subsurface Scattering that is similar to [TAA Preserve Details](#render_taa_preserve_details)*[setTAAPreserveDetails()()](../../...md#render_taa_preserve_details)*.
+### Return value
+
+Current TAA parameter value.
+Range of values: **[0.0f, inf]**. The default value is : **0.5f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSSSSTAAFrameCount ( float count = 30.0f )
+
+***Console*:**`render_sssss_taa_frame_count`Sets a new value of TAA parameter for Screen-Space Subsurface Scattering that is similar to [TAA Frame Count](#render_taa_frame_count)*[setTAAFrameCount()()](../../...md#render_taa_frame_count)*.
+### Arguments
+
+- *float* **count** - The TAA parameter value. Range of values: **[0.0f, inf]**. The default value is : **30.0f**.
+
+## float getSSSSSTAAFrameCount () const
+
+***Console*:**`render_sssss_taa_frame_count`Returns the current value of TAA parameter for Screen-Space Subsurface Scattering that is similar to [TAA Frame Count](#render_taa_frame_count)*[setTAAFrameCount()()](../../...md#render_taa_frame_count)*.
+### Return value
+
+Current TAA parameter value.
+Range of values: **[0.0f, inf]**. The default value is : **30.0f**.
+## void setSSSSSTAAFramesVelocityThreshold ( float threshold = 1.0f )
+
+***Console*:**`render_sssss_taa_frames_velocity_threshold`Sets a new value of TAA parameter for Screen-Space Subsurface Scattering that is similar to [TAA Frames Velocity Threshold](#render_taa_frames_velocity_threshold)*[setTAAFramesVelocityThreshold()()](../../...md#render_taa_frames_velocity_threshold)*.
+### Arguments
+
+- *float* **threshold** - The TAA parameter value. Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+
+## float getSSSSSTAAFramesVelocityThreshold () const
+
+***Console*:**`render_sssss_taa_frames_velocity_threshold`Returns the current value of TAA parameter for Screen-Space Subsurface Scattering that is similar to [TAA Frames Velocity Threshold](#render_taa_frames_velocity_threshold)*[setTAAFramesVelocityThreshold()()](../../...md#render_taa_frames_velocity_threshold)*.
+### Return value
+
+Current TAA parameter value.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+## void setSSSSSTAAPixelOffset ( float offset = 1.0f )
+
+***Console*:**`render_sssss_taa_pixel_offset`Sets a new value of TAA parameter for Screen-Space Subsurface Scattering that is similar to [TAA Pixel Offset](#render_taa_pixel_offset)*[setTAAPixelOffset()()](../../...md#render_taa_pixel_offset)*.
+### Arguments
+
+- *float* **offset** - The TAA parameter value. Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getSSSSSTAAPixelOffset () const
+
+***Console*:**`render_sssss_taa_pixel_offset`Returns the current value of TAA parameter for Screen-Space Subsurface Scattering that is similar to [TAA Pixel Offset](#render_taa_pixel_offset)*[setTAAPixelOffset()()](../../...md#render_taa_pixel_offset)*.
+### Return value
+
+Current TAA parameter value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSSSSTAACatmullResampling ( bool resampling = 1 )
+
+***Console*:**`render_sssss_taa_catmull_resampling`Sets a new value of TAA parameter for Screen-Space Subsurface Scattering that is similar to [TAA Catmull Resampling](#render_taa_catmull_resampling)*[setTAACatmullResampling()()](../../...md#render_taa_catmull_resampling)*.
+### Arguments
+
+- *bool* **resampling** - Set **true** to enable TAA parameter value.; **false** - to disable it. The default value is **true**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isSSSSSTAACatmullResampling () const
+
+***Console*:**`render_sssss_taa_catmull_resampling`Returns the current value of TAA parameter for Screen-Space Subsurface Scattering that is similar to [TAA Catmull Resampling](#render_taa_catmull_resampling)*[setTAACatmullResampling()()](../../...md#render_taa_catmull_resampling)*.
+### Return value
+
+**true** if TAA parameter value. is enabled; otherwise **false**. The default value is **true**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSSSSTAASamples ( int ssssstaasamples = 1 )
+
+***Console*:**`render_sssss_taa_samples`Sets a new value of TAA parameter for Screen-Space Subsurface Scattering that is similar to [TAA Samples](#render_taa_samples)*[setTAASamples()()](../../...md#render_taa_samples)*.
+### Arguments
+
+- *int* **ssssstaasamples** - The TAA parameter value. One of the following values: > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+  - **0** - 1 sample offset, no anti-aliasing
+  - **1** - 4 offsets (by default)
+  - **2** - 8 offsets
+  - **3** - 16 offsets
+
+## int getSSSSSTAASamples () const
+
+***Console*:**`render_sssss_taa_samples`Returns the current value of TAA parameter for Screen-Space Subsurface Scattering that is similar to [TAA Samples](#render_taa_samples)*[setTAASamples()()](../../...md#render_taa_samples)*.
+### Return value
+
+Current TAA parameter value. One of the following values:
+- **0** - 1 sample offset, no anti-aliasing
+- **1** - 4 offsets (by default)
+- **2** - 8 offsets
+- **3** - 16 offsets
+
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSSSSPreset](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSRTonemappingGamma ( float gamma = 2.0f )
+
+***Console*:**`render_ssr_tonemapping_gamma`Sets a new tonemapping Gamma value for the SSR effect. Helps reducing noise for reflections from bright surfaces. 1.0f corresponds to the physically correct value. The recommended value is 2.0f - although it slightly reduces the reflection brightness, it also significantly reduces noise.
+### Arguments
+
+- *float* **gamma** - The tonemapping Gamma value. Range of values: **[0.0f, 10.0f]**. The default value is : **2.0f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getSSRTonemappingGamma () const
+
+***Console*:**`render_ssr_tonemapping_gamma`Returns the current tonemapping Gamma value for the SSR effect. Helps reducing noise for reflections from bright surfaces. 1.0f corresponds to the physically correct value. The recommended value is 2.0f - although it slightly reduces the reflection brightness, it also significantly reduces noise.
+### Return value
+
+Current tonemapping Gamma value.
+Range of values: **[0.0f, 10.0f]**. The default value is : **2.0f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSRRoughnessMipOffset ( float offset = 4.0f )
+
+***Console*:**`render_ssr_roughness_mip_offset`Sets a new mip offset value for the SSR effect on rough surfaces. Enhances reading a color on rough surfaces on lower-resolution screens. This setting allows reducing the noise and improving performance.
+### Arguments
+
+- *float* **offset** - The roughness mip offset value. Range of values: **[0.0f, 10.0f]**. The default value is : **4.0f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getSSRRoughnessMipOffset () const
+
+***Console*:**`render_ssr_roughness_mip_offset`Returns the current mip offset value for the SSR effect on rough surfaces. Enhances reading a color on rough surfaces on lower-resolution screens. This setting allows reducing the noise and improving performance.
+### Return value
+
+Current roughness mip offset value.
+Range of values: **[0.0f, 10.0f]**. The default value is : **4.0f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSRPerspectiveCompensation ( float compensation = 1.0f )
+
+***Console*:**`render_ssr_perspective_compensation`Sets a new perspective compensation value for the SSR effect. At 0.0f, the raymarching step size doesn't depend on the distance from the reflecting surface to the camera. At 1.0f, the raymarching step size linearly depends on the distance from the reflecting surface to the camera.
+### Arguments
+
+- *float* **compensation** - The perspective compensation value. Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getSSRPerspectiveCompensation () const
+
+***Console*:**`render_ssr_perspective_compensation`Returns the current perspective compensation value for the SSR effect. At 0.0f, the raymarching step size doesn't depend on the distance from the reflecting surface to the camera. At 1.0f, the raymarching step size linearly depends on the distance from the reflecting surface to the camera.
+### Return value
+
+Current perspective compensation value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSRNonLinearStepSize ( float size = 1.0f )
+
+***Console*:**`render_ssr_non_linear_step_size`Sets a new linear step size for the SSR effect. At 0.0f, all raymarching steps are of the same size. At 1.0f, each raymarching step is longer than a preceding one, which allows increasing the ray length while keeping the same number of raymarching steps.
+### Arguments
+
+- *float* **size** - The linear step size. Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getSSRNonLinearStepSize () const
+
+***Console*:**`render_ssr_non_linear_step_size`Returns the current linear step size for the SSR effect. At 0.0f, all raymarching steps are of the same size. At 1.0f, each raymarching step is longer than a preceding one, which allows increasing the ray length while keeping the same number of raymarching steps.
+### Return value
+
+Current linear step size.
+Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSRAlphaAccumulationMode ( int mode = 1 )
+
+***Console*:**`render_ssr_alpha_accumulation_mode`Sets a new [accumulation mode](../../../editor2/settings/render_settings/sss/index.md#sss_interleaved_color_clamping) for Alpha values used when rendering screen-space reflections. Two modes are available:
+- Correct - physically correct implementation.
+- Boosted - artificial implementation that makes SSR more intense and adds additional contrast to some scenes.
+
+
+### Arguments
+
+- *int* **mode** - The Alpha accumulation mode. One of the following values: > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+  - **0** - Correct
+  - **1** - Boosted (by default)
+
+## int getSSRAlphaAccumulationMode () const
+
+***Console*:**`render_ssr_alpha_accumulation_mode`Returns the current [accumulation mode](../../../editor2/settings/render_settings/sss/index.md#sss_interleaved_color_clamping) for Alpha values used when rendering screen-space reflections. Two modes are available:
+- Correct - physically correct implementation.
+- Boosted - artificial implementation that makes SSR more intense and adds additional contrast to some scenes.
+
+
+### Return value
+
+Current Alpha accumulation mode. One of the following values:
+- **0** - Correct
+- **1** - Boosted (by default)
+
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSRThresholdOcclusion ( float occlusion = 1.0f )
+
+***Console*:**`render_ssr_threshold_occlusion`Sets a new value that [limits](../../../editor2/settings/render_settings/ssr/index.md#ssr_threshold_occlusion) imitation of environment cubemap occlusion in areas where SSR (Screen-Space Reflections) cannot get information. *Higher* values make the effect less pronounced. This parameter is mainly used for indoor environment to correct false reflections on occluded areas (false reflections are replaced with black color). For outdoor environment, higher values of this parameter are recommended.
+### Arguments
+
+- *float* **occlusion** - The SSR threshold occlusion. Range of values: **[0.0f, inf]**. The default value is : **1.0f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getSSRThresholdOcclusion () const
+
+***Console*:**`render_ssr_threshold_occlusion`Returns the current value that [limits](../../../editor2/settings/render_settings/ssr/index.md#ssr_threshold_occlusion) imitation of environment cubemap occlusion in areas where SSR (Screen-Space Reflections) cannot get information. *Higher* values make the effect less pronounced. This parameter is mainly used for indoor environment to correct false reflections on occluded areas (false reflections are replaced with black color). For outdoor environment, higher values of this parameter are recommended.
+### Return value
+
+Current SSR threshold occlusion.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSRThreshold ( float ssrthreshold = 1.0f )
+
+***Console*:**`render_ssr_threshold`Sets a new threshold used for SSR (Screen-Space Reflections) calculation to limit imitation of reflections in areas where SSR cannot get information. *Higher* values make the effect less pronounced.
+### Arguments
+
+- *float* **ssrthreshold** - The SSR threshold. Range of values: **[0.0f, inf]**. The default value is : **1.0f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getSSRThreshold () const
+
+***Console*:**`render_ssr_threshold`Returns the current threshold used for SSR (Screen-Space Reflections) calculation to limit imitation of reflections in areas where SSR cannot get information. *Higher* values make the effect less pronounced.
+### Return value
+
+Current SSR threshold.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSRVisibilityRoughnessMax ( float max = 1.0f )
+
+***Console*:**`render_ssr_visibility_roughness_max`Sets a new [maximum roughness value](../../../editor2/settings/render_settings/ssr/index.md#ssr_visibility_roughness_max), starting from which the SSR (Screen-Space Reflections) effect is not rendered. It allows reducing noise of reflections on rough materials.
+### Arguments
+
+- *float* **max** - The maximum roughness value. Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getSSRVisibilityRoughnessMax () const
+
+***Console*:**`render_ssr_visibility_roughness_max`Returns the current [maximum roughness value](../../../editor2/settings/render_settings/ssr/index.md#ssr_visibility_roughness_max), starting from which the SSR (Screen-Space Reflections) effect is not rendered. It allows reducing noise of reflections on rough materials.
+### Return value
+
+Current maximum roughness value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSRVisibilityRoughnessMin ( float min = 1.0f )
+
+***Console*:**`render_ssr_visibility_roughness_min`Sets a new [minimum roughness value](../../../editor2/settings/render_settings/ssr/index.md#ssr_visibility_roughness_min), starting from which the SSR (Screen-Space Reflections) effect begins to fade out. It allows reducing noise of reflections on rough materials.
+### Arguments
+
+- *float* **min** - The minimum roughness value. Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getSSRVisibilityRoughnessMin () const
+
+***Console*:**`render_ssr_visibility_roughness_min`Returns the current [minimum roughness value](../../../editor2/settings/render_settings/ssr/index.md#ssr_visibility_roughness_min), starting from which the SSR (Screen-Space Reflections) effect begins to fade out. It allows reducing noise of reflections on rough materials.
+### Return value
+
+Current minimum roughness value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSRInformationLostFix ( bool fix = 0 )
+
+***Console*:**`render_ssr_information_lost_fix`Sets a new value indicating if the information lost fix option is enabled for the SSR (Screen Space Reflections). This option removes artifacts in the information lost areas around moving objects.
+### Arguments
+
+- *bool* **fix** - Set **true** to enable the information lost fix option for the SSR; **false** - to disable it. The default value is **false**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isSSRInformationLostFix () const
+
+***Console*:**`render_ssr_information_lost_fix`Returns the current value indicating if the information lost fix option is enabled for the SSR (Screen Space Reflections). This option removes artifacts in the information lost areas around moving objects.
+### Return value
+
+**true** if the information lost fix option for the SSR is enabled; otherwise **false**. The default value is **false**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSRStepSize ( float size = 0.5f )
+
+***Console*:**`render_ssr_step_size`Sets a new [size of the trace step](../../../editor2/settings/render_settings/ssr/index.md#ssr_step_size) used for SSR calculation. *Higher* values result in longer traces (however, tiny objects may become missing), *lower* values produce more detailed reflections of tiny objects.
+### Arguments
+
+- *float* **size** - The step size. Range of values: **[0.0f, inf]**. The default value is : **0.5f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getSSRStepSize () const
+
+***Console*:**`render_ssr_step_size`Returns the current [size of the trace step](../../../editor2/settings/render_settings/ssr/index.md#ssr_step_size) used for SSR calculation. *Higher* values result in longer traces (however, tiny objects may become missing), *lower* values produce more detailed reflections of tiny objects.
+### Return value
+
+Current step size.
+Range of values: **[0.0f, inf]**. The default value is : **0.5f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSRNumSteps ( int steps = 16 )
+
+***Console*:**`render_ssr_num_steps`Sets a new [number of SSR steps](../../../editor2/settings/render_settings/ssr/index.md#ssr_num_steps) per ray that are used for trace calculation. The number of steps defines accuracy of reflections and causes a reasonable performance impact. The higher the value, the more accurate obstacles between objects are accounted.
+### Arguments
+
+- *int* **steps** - The number of steps. Range of values: **[1, 64]**. The default value is : **16**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## int getSSRNumSteps () const
+
+***Console*:**`render_ssr_num_steps`Returns the current [number of SSR steps](../../../editor2/settings/render_settings/ssr/index.md#ssr_num_steps) per ray that are used for trace calculation. The number of steps defines accuracy of reflections and causes a reasonable performance impact. The higher the value, the more accurate obstacles between objects are accounted.
+### Return value
+
+Current number of steps.
+Range of values: **[1, 64]**. The default value is : **16**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSRNumRays ( int rays = 4 )
+
+***Console*:**`render_ssr_num_rays`Sets a new [number of SSR rays](../../../editor2/settings/render_settings/ssr/index.md#ssr_num_rays) per pixel that are used to calculate rough refrections. Using more rays provides more precise SSR roughness calculation, however, it is more expensive.
+### Arguments
+
+- *int* **rays** - The number of rays. Range of values: **[1, 64]**. The default value is : **4**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## int getSSRNumRays () const
+
+***Console*:**`render_ssr_num_rays`Returns the current [number of SSR rays](../../../editor2/settings/render_settings/ssr/index.md#ssr_num_rays) per pixel that are used to calculate rough refrections. Using more rays provides more precise SSR roughness calculation, however, it is more expensive.
+### Return value
+
+Current number of rays.
+Range of values: **[1, 64]**. The default value is : **4**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSRResolutionColor ( int color = 0 )
+
+***Console*:**`render_ssr_resolution_color`Sets a new [resolution](../../../editor2/settings/render_settings/ssr/index.md#ssr_resolution_depth) of the color buffer used for SSR (Screen Space Reflections) calculation. It significantly affects performance.
+### Arguments
+
+- *int* **color** - The color buffer resolution. One of the following values: > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+  - *Quarter* - quarter resolution (by default)
+  - *Half* - half resolution
+  - *Full* - full resolution
+
+## int getSSRResolutionColor () const
+
+***Console*:**`render_ssr_resolution_color`Returns the current [resolution](../../../editor2/settings/render_settings/ssr/index.md#ssr_resolution_depth) of the color buffer used for SSR (Screen Space Reflections) calculation. It significantly affects performance.
+### Return value
+
+Current color buffer resolution. One of the following values:
+
+- *Quarter* - quarter resolution (by default)
+- *Half* - half resolution
+- *Full* - full resolution
+
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSRResolutionDepth ( int depth = 0 )
+
+***Console*:**`render_ssr_resolution_depth`Sets a new [resolution](../../../editor2/settings/render_settings/ssr/index.md#ssr_resolution_depth) of the depth buffer used for SSR (Screen Space Reflections) calculation. It affects detailing of reflections of tiny objects.
+> **Notice:** To gain performance, this option can be set to lower values while enabling increased accuracy*[setSSRIncreasedAccuracy()()](../../...md#render_ssr_increased_accuracy)*.
+
+### Arguments
+
+- *int* **depth** - The depth buffer resolution. One of the following values: > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+  - *Quarter* - quarter resolution (by default)
+  - *Half* - half resolution
+  - *Full* - full resolution
+
+## int getSSRResolutionDepth () const
+
+***Console*:**`render_ssr_resolution_depth`Returns the current [resolution](../../../editor2/settings/render_settings/ssr/index.md#ssr_resolution_depth) of the depth buffer used for SSR (Screen Space Reflections) calculation. It affects detailing of reflections of tiny objects.
+> **Notice:** To gain performance, this option can be set to lower values while enabling increased accuracy*[setSSRIncreasedAccuracy()()](../../...md#render_ssr_increased_accuracy)*.
+
+### Return value
+
+Current depth buffer resolution. One of the following values:
+
+- *Quarter* - quarter resolution (by default)
+- *Half* - half resolution
+- *Full* - full resolution
+
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSRResolution ( int ssrresolution = 1 )
+
+***Console*:**`render_ssr_resolution`Sets a new [resolution](../../../editor2/settings/render_settings/ssr/index.md#ssr_resolution) of SSR (Screen Space Reflections).
+### Arguments
+
+- *int* **ssrresolution** - The SSR resolution. One of the following values: > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+  - *Quarter* - quarter resolution
+  - *Half* - half resolution (by default)
+  - *Full* - full resolution
+
+## int getSSRResolution () const
+
+***Console*:**`render_ssr_resolution`Returns the current [resolution](../../../editor2/settings/render_settings/ssr/index.md#ssr_resolution) of SSR (Screen Space Reflections).
+### Return value
+
+Current SSR resolution. One of the following values:
+
+- *Quarter* - quarter resolution
+- *Half* - half resolution (by default)
+- *Full* - full resolution
+
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSRIncreasedAccuracy ( bool accuracy = 0 )
+
+***Console*:**`render_ssr_increased_accuracy`Sets a new value indicating if [increased accuracy](../../../editor2/settings/render_settings/ssr/index.md#ssr_increased_accuracy) option is enabled for the SSR (Screen Space Reflections). This option increases the accuracy of intersection detection between the ray and surfaces, which makes a reflection on smooth surfaces more detailed.
+### Arguments
+
+- *bool* **accuracy** - Set **true** to enable increased accuracy for SSR; **false** - to disable it. The default value is **false**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isSSRIncreasedAccuracy () const
+
+***Console*:**`render_ssr_increased_accuracy`Returns the current value indicating if [increased accuracy](../../../editor2/settings/render_settings/ssr/index.md#ssr_increased_accuracy) option is enabled for the SSR (Screen Space Reflections). This option increases the accuracy of intersection detection between the ray and surfaces, which makes a reflection on smooth surfaces more detailed.
+### Return value
+
+**true** if increased accuracy for SSR is enabled; otherwise **false**. The default value is **false**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSR ( bool ssr = 0 )
+
+***Console*:**`render_ssr`Sets a new value indicating if the SSR (Screen Space Reflections) effect is enabled.
+### Arguments
+
+- *bool* **ssr** - Set **true** to enable SSR (Screen Space Reflections) effect; **false** - to disable it. The default value is **false**.
+
+## bool isSSR () const
+
+***Console*:**`render_ssr`Returns the current value indicating if the SSR (Screen Space Reflections) effect is enabled.
+### Return value
+
+**true** if SSR (Screen Space Reflections) effect is enabled; otherwise **false**. The default value is **false**.
+## void setBentNormal ( bool normal = 0 )
+
+***Console*:**`render_bent_normal`Sets a new value indicating if ray-traced bent normals calculation is enabled. The use of SSRTGI for bent normals allows for smooth ambient lighting.
+> **Notice:** Ray-traced bent normals calculation available only when the SSRTGI technique*[setSSRTGIPreset()()](../../...md#render_ssrtgi_preset)* is enabled.
+
+
+### Arguments
+
+- *bool* **normal** - Set **true** to enable ray-traced bent normals calculation; **false** - to disable it. The default value is **false**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRTGIPreset](/api/library/rendering/class.render_cs#render_ssrtgi_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isBentNormal () const
+
+***Console*:**`render_bent_normal`Returns the current value indicating if ray-traced bent normals calculation is enabled. The use of SSRTGI for bent normals allows for smooth ambient lighting.
+> **Notice:** Ray-traced bent normals calculation available only when the SSRTGI technique*[setSSRTGIPreset()()](../../...md#render_ssrtgi_preset)* is enabled.
+
+
+### Return value
+
+**true** if ray-traced bent normals calculation is enabled; otherwise **false**. The default value is **false**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRTGIPreset](/api/library/rendering/class.render_cs#render_ssrtgi_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setBentNormalThreshold ( float threshold = 1.0f )
+
+***Console*:**`render_bent_normal_threshold`Sets a new threshold value for the ray-traced bent normals calculation.
+> **Notice:** Ray-traced bent normals calculation is available only when the SSRTGI technique*[setSSRTGIPreset()()](../../...md#render_ssrtgi_preset)* is enabled.
+
+### Arguments
+
+- *float* **threshold** - The threshold value. Range of values: **[0.0f, inf]**. The default value is : **1.0f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRTGIPreset](/api/library/rendering/class.render_cs#render_ssrtgi_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getBentNormalThreshold () const
+
+***Console*:**`render_bent_normal_threshold`Returns the current threshold value for the ray-traced bent normals calculation.
+> **Notice:** Ray-traced bent normals calculation is available only when the SSRTGI technique*[setSSRTGIPreset()()](../../...md#render_ssrtgi_preset)* is enabled.
+
+### Return value
+
+Current threshold value.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRTGIPreset](/api/library/rendering/class.render_cs#render_ssrtgi_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setBentNormalFixOverlitAreas ( bool areas = 0 )
+
+***Console*:**`render_bent_normal_fix_overlit_areas`Sets a new value indicating if correction of overlit areas for bent normals calculation is enabled.
+> **Notice:** - This option may significantly affect performance, so disable it when it's not necessary.
+> - Ray-traced bent normals calculation is available only when the SSRTGI technique*[setSSRTGIPreset()()](../../...md#render_ssrtgi_preset)* is enabled.
+
+
+### Arguments
+
+- *bool* **areas** - Set **true** to enable correction of overlit areas for ray-traced bent normals calculation; **false** - to disable it. The default value is **false**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRTGIPreset](/api/library/rendering/class.render_cs#render_ssrtgi_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isBentNormalFixOverlitAreas () const
+
+***Console*:**`render_bent_normal_fix_overlit_areas`Returns the current value indicating if correction of overlit areas for bent normals calculation is enabled.
+> **Notice:** - This option may significantly affect performance, so disable it when it's not necessary.
+> - Ray-traced bent normals calculation is available only when the SSRTGI technique*[setSSRTGIPreset()()](../../...md#render_ssrtgi_preset)* is enabled.
+
+
+### Return value
+
+**true** if correction of overlit areas for ray-traced bent normals calculation is enabled; otherwise **false**. The default value is **false**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRTGIPreset](/api/library/rendering/class.render_cs#render_ssrtgi_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSGI ( bool ssgi = 0 )
+
+***Console*:**`render_ssgi`Sets a new value indicating if the [SSGI](../../../editor2/settings/render_settings/global_illumination/indirect_diffuse/ssgi/index.md) (Screen Space Global Illumination) effect is enabled.
+### Arguments
+
+- *bool* **ssgi** - Set **true** to enable SSGI (Screen Space Global Illumination); **false** - to disable it. The default value is **false**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via ). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isSSGI () const
+
+***Console*:**`render_ssgi`Returns the current value indicating if the [SSGI](../../../editor2/settings/render_settings/global_illumination/indirect_diffuse/ssgi/index.md) (Screen Space Global Illumination) effect is enabled.
+### Return value
+
+**true** if SSGI (Screen Space Global Illumination) is enabled; otherwise **false**. The default value is **false**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via ). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSGIIntensity ( float ssgiintensity = 1.0f )
+
+***Console*:**`render_ssgi_intensity`Sets a new [intensity](../../../editor2/settings/render_settings/global_illumination/indirect_diffuse/ssgi/index.md#ssgi_intensity) of the SSGI (Screen Space Global Illumination) for the scene. By the minimum value of 0.0f, the global illumination is the darkest.
+### Arguments
+
+- *float* **ssgiintensity** - The SSGI intensity value. Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRTGIPreset](/api/library/rendering/class.render_cs#render_ssrtgi_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getSSGIIntensity () const
+
+***Console*:**`render_ssgi_intensity`Returns the current [intensity](../../../editor2/settings/render_settings/global_illumination/indirect_diffuse/ssgi/index.md#ssgi_intensity) of the SSGI (Screen Space Global Illumination) for the scene. By the minimum value of 0.0f, the global illumination is the darkest.
+### Return value
+
+Current SSGI intensity value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRTGIPreset](/api/library/rendering/class.render_cs#render_ssrtgi_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSGIInformationLostFix ( bool fix = 0 )
+
+***Console*:**`render_ssgi_information_lost_fix`Sets a new value indicating if the information lost fix option is enabled for the ray-traced SSGI (Screen Space Global Illumination). This option removes artifacts in the information lost areas around moving objects.
+### Arguments
+
+- *bool* **fix** - Set **true** to enable the information lost fix option for the ray-traced SSGI; **false** - to disable it. The default value is **false**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRTGIPreset](/api/library/rendering/class.render_cs#render_ssrtgi_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isSSGIInformationLostFix () const
+
+***Console*:**`render_ssgi_information_lost_fix`Returns the current value indicating if the information lost fix option is enabled for the ray-traced SSGI (Screen Space Global Illumination). This option removes artifacts in the information lost areas around moving objects.
+### Return value
+
+**true** if the information lost fix option for the ray-traced SSGI is enabled; otherwise **false**. The default value is **false**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRTGIPreset](/api/library/rendering/class.render_cs#render_ssrtgi_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSGIThreshold ( float ssgithreshold = 1.0f )
+
+***Console*:**`render_ssgi_threshold`Sets a new threshold value for the ray-traced SSGI (Screen Space Global Illumination).
+> **Notice:** Ray-traced SSGI calculation available only when the SSRTGI technique*[setSSRTGIPreset()()](../../...md#render_ssrtgi_preset)* is enabled.
+
+
+### Arguments
+
+- *float* **ssgithreshold** - The SSGI threshold value. Range of values: **[0.0f, inf]**. The default value is : **1.0f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRTGIPreset](/api/library/rendering/class.render_cs#render_ssrtgi_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getSSGIThreshold () const
+
+***Console*:**`render_ssgi_threshold`Returns the current threshold value for the ray-traced SSGI (Screen Space Global Illumination).
+> **Notice:** Ray-traced SSGI calculation available only when the SSRTGI technique*[setSSRTGIPreset()()](../../...md#render_ssrtgi_preset)* is enabled.
+
+
+### Return value
+
+Current SSGI threshold value.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRTGIPreset](/api/library/rendering/class.render_cs#render_ssrtgi_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSAOThreshold ( float ssaothreshold = 0.5f )
+
+***Console*:**`render_ssao_threshold`Sets a new threshold value for the SSAO (Screen Space Ambient Occlusion) effect. It limits SSAO in areas where information cannot be obtained. The *higher* the value, the less pronounced the effect is.
+### Arguments
+
+- *float* **ssaothreshold** - The threshold value. Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
+
+## float getSSAOThreshold () const
+
+***Console*:**`render_ssao_threshold`Returns the current threshold value for the SSAO (Screen Space Ambient Occlusion) effect. It limits SSAO in areas where information cannot be obtained. The *higher* the value, the less pronounced the effect is.
+### Return value
+
+Current threshold value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
+## void setSSAOCavityRadius ( float radius = 1.0f )
+
+***Console*:**`render_ssao_cavity_radius`Sets a new size of junction contours area for the cavity option for the SSAO (Screen Space Ambient Occlusion) effect*[setSSAOCavity()()](../../...md#render_ssao_cavity)*.
+### Arguments
+
+- *float* **radius** - The SSAO cavity radius value. Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+
+## float getSSAOCavityRadius () const
+
+***Console*:**`render_ssao_cavity_radius`Returns the current size of junction contours area for the cavity option for the SSAO (Screen Space Ambient Occlusion) effect*[setSSAOCavity()()](../../...md#render_ssao_cavity)*.
+### Return value
+
+Current SSAO cavity radius value.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+## void setSSAOCavityIntensity ( float intensity = 1.0f )
+
+***Console*:**`render_ssao_cavity_intensity`Sets a new intensity of sharpening of contours for the cavity option*[setSSAOCavity()()](../../...md#render_ssao_cavity)*.
+### Arguments
+
+- *float* **intensity** - The Sharpening intensity value. Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+
+## float getSSAOCavityIntensity () const
+
+***Console*:**`render_ssao_cavity_intensity`Returns the current intensity of sharpening of contours for the cavity option*[setSSAOCavity()()](../../...md#render_ssao_cavity)*.
+### Return value
+
+Current Sharpening intensity value.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+## void setSSAOIntensityReflection ( float reflection = 1.0f )
+
+***Console*:**`render_ssao_intensity_reflection`Sets a new intensity of SSAO (Screen Space Ambient Occlusion) on reflections.
+### Arguments
+
+- *float* **reflection** - The SSAO intensity on reflections. Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+
+## float getSSAOIntensityReflection () const
+
+***Console*:**`render_ssao_intensity_reflection`Returns the current intensity of SSAO (Screen Space Ambient Occlusion) on reflections.
+### Return value
+
+Current SSAO intensity on reflections.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+## void setSSAOIntensity ( float ssaointensity = 1.0f )
+
+***Console*:**`render_ssao_intensity`Sets a new [intensity](../../../editor2/settings/render_settings/global_illumination/indirect_diffuse/ssao/index.md#ssao_intensity) of the SSAO (Screen Space Ambient Occlusion) for the scene. The intensity value affects brightness of shadows: by the minimum value of 0.0f, the ambient occlusion shadowing is the lightest.
+### Arguments
+
+- *float* **ssaointensity** - The intensity value. Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+
+## float getSSAOIntensity () const
+
+***Console*:**`render_ssao_intensity`Returns the current [intensity](../../../editor2/settings/render_settings/global_illumination/indirect_diffuse/ssao/index.md#ssao_intensity) of the SSAO (Screen Space Ambient Occlusion) for the scene. The intensity value affects brightness of shadows: by the minimum value of 0.0f, the ambient occlusion shadowing is the lightest.
+### Return value
+
+Current intensity value.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+## void setSSAOCavity ( bool ssaocavity = 1 )
+
+***Console*:**`render_ssao_cavity`Sets a new value indicating if the cavity option for the SSAO (Screen Space Ambient Occlusion) effect is enabled. This option improves (sharpens) the look of junction contours at low resolutions, so it should be used for detail enhancement (small stones, bolts and so on).
+> **Notice:** When checking the parameter value via API, you'll get the corresponding setting stored in the active preset (default or custom one).
+
+
+### Arguments
+
+- *bool* **ssaocavity** - Set **true** to enable cavity option for SSAO; **false** - to disable it. The default value is **true**.
+
+## bool isSSAOCavity () const
+
+***Console*:**`render_ssao_cavity`Returns the current value indicating if the cavity option for the SSAO (Screen Space Ambient Occlusion) effect is enabled. This option improves (sharpens) the look of junction contours at low resolutions, so it should be used for detail enhancement (small stones, bolts and so on).
+> **Notice:** When checking the parameter value via API, you'll get the corresponding setting stored in the active preset (default or custom one).
+
+
+### Return value
+
+**true** if cavity option for SSAO is enabled; otherwise **false**. The default value is **true**.
+## void setSSAO ( bool ssao = 1 )
+
+***Console*:**`render_ssao`Sets a new value indicating if the [SSAO](../../../editor2/settings/render_settings/global_illumination/indirect_diffuse/ssao/index.md) (Screen Space Ambient Occlusion) effect is enabled.
+### Arguments
+
+- *bool* **ssao** - Set **true** to enable SSAO (Screen Space Ambient Occlusion) effect; **false** - to disable it. The default value is **true**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via ). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isSSAO () const
+
+***Console*:**`render_ssao`Returns the current value indicating if the [SSAO](../../../editor2/settings/render_settings/global_illumination/indirect_diffuse/ssao/index.md) (Screen Space Ambient Occlusion) effect is enabled.
+### Return value
+
+**true** if SSAO (Screen Space Ambient Occlusion) effect is enabled; otherwise **false**. The default value is **true**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via ). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSRTGIStepSize ( float size = 1.0f )
+
+***Console*:**`render_ssrtgi_step_size`Sets a new size of the trace step used for SSRTGI calculation. The higher the value, the longer the trace. However, tiny objects may be missed. The lower the value, the more detailed will be the tiny objects. The SSRTGI effect must be enabled*[setSSRTGIPreset()()](../../...md#render_ssrtgi_preset)*.
+### Arguments
+
+- *float* **size** - The step size. Range of values: **[0.0f, inf]**. The default value is : **1.0f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRTGIPreset](/api/library/rendering/class.render_cs#render_ssrtgi_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getSSRTGIStepSize () const
+
+***Console*:**`render_ssrtgi_step_size`Returns the current size of the trace step used for SSRTGI calculation. The higher the value, the longer the trace. However, tiny objects may be missed. The lower the value, the more detailed will be the tiny objects. The SSRTGI effect must be enabled*[setSSRTGIPreset()()](../../...md#render_ssrtgi_preset)*.
+### Return value
+
+Current step size.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRTGIPreset](/api/library/rendering/class.render_cs#render_ssrtgi_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSRTGINumSteps ( int steps = 8 )
+
+***Console*:**`render_ssrtgi_num_steps`Sets a new number of steps of SSRTGI per ray that are used for trace calculation. The higher the value, the more accurate obstacles between objects are accounted. However, this option significantly affects performance. SSRTGI must be enabled*[setSSRTGIPreset()()](../../...md#render_ssrtgi_preset)*.
+### Arguments
+
+- *int* **steps** - The number of steps per ray. Range of values: **[1, 256]**. The default value is : **8**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRTGIPreset](/api/library/rendering/class.render_cs#render_ssrtgi_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## int getSSRTGINumSteps () const
+
+***Console*:**`render_ssrtgi_num_steps`Returns the current number of steps of SSRTGI per ray that are used for trace calculation. The higher the value, the more accurate obstacles between objects are accounted. However, this option significantly affects performance. SSRTGI must be enabled*[setSSRTGIPreset()()](../../...md#render_ssrtgi_preset)*.
+### Return value
+
+Current number of steps per ray.
+Range of values: **[1, 256]**. The default value is : **8**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRTGIPreset](/api/library/rendering/class.render_cs#render_ssrtgi_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSRTGINumRays ( int rays = 8 )
+
+***Console*:**`render_ssrtgi_num_rays`Sets a new number of rays of SSRTGI per pixel that are used to calculate the final image. Using more rays provides more precise SSRTGI calculation, however, it is more expensive. SSRTGI must be enabled*[setSSRTGIPreset()()](../../...md#render_ssrtgi_preset)*.
+### Arguments
+
+- *int* **rays** - The number of rays per pixel. Range of values: **[1, 1024]**. The default value is : **8**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRTGIPreset](/api/library/rendering/class.render_cs#render_ssrtgi_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## int getSSRTGINumRays () const
+
+***Console*:**`render_ssrtgi_num_rays`Returns the current number of rays of SSRTGI per pixel that are used to calculate the final image. Using more rays provides more precise SSRTGI calculation, however, it is more expensive. SSRTGI must be enabled*[setSSRTGIPreset()()](../../...md#render_ssrtgi_preset)*.
+### Return value
+
+Current number of rays per pixel.
+Range of values: **[1, 1024]**. The default value is : **8**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRTGIPreset](/api/library/rendering/class.render_cs#render_ssrtgi_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSRTGIResolutionDepth ( int depth = 0 )
+
+***Console*:**`render_ssrtgi_resolution_depth`Sets a new resolution of the depth buffer used for SSRTGI (screen space ray-traced global illumination) calculation. This option significantly affects performance. To gain performance this option can be set to lower values while enabling the increased accuracy*[setSSRTGIIncreasedAccuracy()()](../../...md#render_ssrtgi_increased_accuracy)*. SSRTGI must be enabled*[setSSRTGIPreset()()](../../...md#render_ssrtgi_preset)*.
+### Arguments
+
+- *int* **depth** - The SSRTGI depth buffer resolution. One of the following values: > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRTGIPreset](/api/library/rendering/class.render_cs#render_ssrtgi_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+  - *Quarter* - quarter resolution (by default)
+  - *Half* - half resolution
+  - *Full* - full resolution
+
+## int getSSRTGIResolutionDepth () const
+
+***Console*:**`render_ssrtgi_resolution_depth`Returns the current resolution of the depth buffer used for SSRTGI (screen space ray-traced global illumination) calculation. This option significantly affects performance. To gain performance this option can be set to lower values while enabling the increased accuracy*[setSSRTGIIncreasedAccuracy()()](../../...md#render_ssrtgi_increased_accuracy)*. SSRTGI must be enabled*[setSSRTGIPreset()()](../../...md#render_ssrtgi_preset)*.
+### Return value
+
+Current SSRTGI depth buffer resolution. One of the following values:
+
+- *Quarter* - quarter resolution (by default)
+- *Half* - half resolution
+- *Full* - full resolution
+
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRTGIPreset](/api/library/rendering/class.render_cs#render_ssrtgi_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSRTGIResolution ( int ssrtgiresolution = 1 )
+
+***Console*:**`render_ssrtgi_resolution`Sets a new resolution of the SSRTGI (screen space ray-traced global illumination) effect. This option significantly affects performance. At low values, edges of objects become blurred. SSRTGI must be enabled*[setSSRTGIPreset()()](../../...md#render_ssrtgi_preset)*.
+### Arguments
+
+- *int* **ssrtgiresolution** - The SSRTGI resolution. One of the following values:
+
+  - *Quarter* - quarter resolution
+  - *Half* - half resolution (by default)
+  - *Full* - full resolution
+
+## int getSSRTGIResolution () const
+
+***Console*:**`render_ssrtgi_resolution`Returns the current resolution of the SSRTGI (screen space ray-traced global illumination) effect. This option significantly affects performance. At low values, edges of objects become blurred. SSRTGI must be enabled*[setSSRTGIPreset()()](../../...md#render_ssrtgi_preset)*.
+### Return value
+
+Current SSRTGI resolution. One of the following values:
+
+- *Quarter* - quarter resolution
+- *Half* - half resolution (by default)
+- *Full* - full resolution
+
+## void setSSRTGIUpscaling ( bool ssrtgiupscaling = 1 )
+
+***Console*:**`render_ssrtgi_upscaling`Sets a new value indicating if upscaling is enabled for the SSRTGI (screen space ray-traced global illumination). This option makes the quality of edges in half and quarter resolution look closer to full. SSRTGI must be enabled*[setSSRTGIPreset()()](../../...md#render_ssrtgi_preset)*.
+### Arguments
+
+- *bool* **ssrtgiupscaling** - Set **true** to enable upscaling for the SSRTGI; **false** - to disable it. The default value is **true**.
+
+## bool isSSRTGIUpscaling () const
+
+***Console*:**`render_ssrtgi_upscaling`Returns the current value indicating if upscaling is enabled for the SSRTGI (screen space ray-traced global illumination). This option makes the quality of edges in half and quarter resolution look closer to full. SSRTGI must be enabled*[setSSRTGIPreset()()](../../...md#render_ssrtgi_preset)*.
+### Return value
+
+**true** if upscaling for the SSRTGI is enabled; otherwise **false**. The default value is **true**.
+## void setSSRTGIIncreasedAccuracy ( bool accuracy = 1 )
+
+***Console*:**`render_ssrtgi_increased_accuracy`Sets a new value indicating if increased accuracy is enabled for the SSRTGI (Screen Space Ray-Traced Global Illumination). This option reduces visual artifacts by increasing accuracy of the last step. SSRTGI must be enabled*[setSSRTGIPreset()()](../../...md#render_ssrtgi_preset)*.
+### Arguments
+
+- *bool* **accuracy** - Set **true** to enable increased accuracy for the SSRTGI; **false** - to disable it. The default value is **true**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRTGIPreset](/api/library/rendering/class.render_cs#render_ssrtgi_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isSSRTGIIncreasedAccuracy () const
+
+***Console*:**`render_ssrtgi_increased_accuracy`Returns the current value indicating if increased accuracy is enabled for the SSRTGI (Screen Space Ray-Traced Global Illumination). This option reduces visual artifacts by increasing accuracy of the last step. SSRTGI must be enabled*[setSSRTGIPreset()()](../../...md#render_ssrtgi_preset)*.
+### Return value
+
+**true** if increased accuracy for the SSRTGI is enabled; otherwise **false**. The default value is **true**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRTGIPreset](/api/library/rendering/class.render_cs#render_ssrtgi_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSRTGIFastTracing ( bool tracing = 1 )
+
+***Console*:**`render_ssrtgi_fast_tracing`Sets a new value indicating if fast tracing is enabled for the SSRTGI (Screen Space Ray-Traced Global Illumination). This option dynamically changes step size to obtain indirect illumination bounces using low number of steps while keeping performance high. Disabling this option improves quality, but significantly reduces performance. SSRTGI must be enabled*[setSSRTGIPreset()()](../../...md#render_ssrtgi_preset)*.
+### Arguments
+
+- *bool* **tracing** - Set **true** to enable fast tracing for the SSRTGI; **false** - to disable it. The default value is **true**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRTGIPreset](/api/library/rendering/class.render_cs#render_ssrtgi_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isSSRTGIFastTracing () const
+
+***Console*:**`render_ssrtgi_fast_tracing`Returns the current value indicating if fast tracing is enabled for the SSRTGI (Screen Space Ray-Traced Global Illumination). This option dynamically changes step size to obtain indirect illumination bounces using low number of steps while keeping performance high. Disabling this option improves quality, but significantly reduces performance. SSRTGI must be enabled*[setSSRTGIPreset()()](../../...md#render_ssrtgi_preset)*.
+### Return value
+
+**true** if fast tracing for the SSRTGI is enabled; otherwise **false**. The default value is **true**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRTGIPreset](/api/library/rendering/class.render_cs#render_ssrtgi_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setReflectionLods ( bool lods = 1 )
+
+***Console*:**`render_reflection_lods`Sets a new value indicating if reduction of resolution of dynamic reflections when the camera moves away is enabled.
+### Arguments
+
+- *bool* **lods** - Set **true** to enable reduction of resolution of dynamic reflections when the camera moves away; **false** - to disable it. The default value is **true**.
+
+## bool isReflectionLods () const
+
+***Console*:**`render_reflection_lods`Returns the current value indicating if reduction of resolution of dynamic reflections when the camera moves away is enabled.
+### Return value
+
+**true** if reduction of resolution of dynamic reflections when the camera moves away is enabled; otherwise **false**. The default value is **true**.
+## void setReflectionDynamic ( bool dynamic = 1 )
+
+***Console*:**`render_reflection_dynamic`Sets a new value indicating if dynamic reflections for materials are enabled.
+### Arguments
+
+- *bool* **dynamic** - Set **true** to enable dynamic reflections for materials; **false** - to disable it. The default value is **true**.
+
+## bool isReflectionDynamic () const
+
+***Console*:**`render_reflection_dynamic`Returns the current value indicating if dynamic reflections for materials are enabled.
+### Return value
+
+**true** if dynamic reflections for materials is enabled; otherwise **false**. The default value is **true**.
+## void setTransparentBlur ( bool blur = 1 )
+
+***Console*:**`render_transparent_blur`Sets a new value indicating if transparent blur is enabled for materials. This option makes it possible to render matte transparent materials like matte glass.
+### Arguments
+
+- *bool* **blur** - Set **true** to enable transparent blur for materials; **false** - to disable it. The default value is **true**.
+
+## bool isTransparentBlur () const
+
+***Console*:**`render_transparent_blur`Returns the current value indicating if transparent blur is enabled for materials. This option makes it possible to render matte transparent materials like matte glass.
+### Return value
+
+**true** if transparent blur for materials is enabled; otherwise **false**. The default value is **true**.
+## void setRefractionDispersion ( )
+
+***Console*:**`render_refraction_dispersion`Sets a new refraction displacement for red, green, and blue channels (according to the refraction texture of refractive materials). Can be used to create light dispersion (chromatic aberrations). To use this option, render_refraction*[setRefraction()()](../../...md#render_refraction)* should be enabled.
+### Arguments
+
+- **dispersion** - The dispersion displacement per channel. vec3_one - default value
+
+## getRefractionDispersion () const
+
+***Console*:**`render_refraction_dispersion`Returns the current refraction displacement for red, green, and blue channels (according to the refraction texture of refractive materials). Can be used to create light dispersion (chromatic aberrations). To use this option, render_refraction*[setRefraction()()](../../...md#render_refraction)* should be enabled.
+### Return value
+
+Current dispersion displacement per channel.
+vec3_one - default value
+## void setRefraction ( bool refraction = 1 )
+
+***Console*:**`render_refraction`Sets a new value indicating if refraction is enabled.
+### Arguments
+
+- *bool* **refraction** - Set **true** to enable refraction rendering; **false** - to disable it. The default value is **true**.
+
+## bool isRefraction () const
+
+***Console*:**`render_refraction`Returns the current value indicating if refraction is enabled.
+### Return value
+
+**true** if refraction rendering is enabled; otherwise **false**. The default value is **true**.
+## void setSharpen ( bool sharpen = 0 )
+
+***Console*:**`render_sharpen`Sets a new value indicating if the sharpening post-processing effect is enabled.
+### Arguments
+
+- *bool* **sharpen** - Set **true** to enable sharpening post-processing effect; **false** - to disable it. The default value is **false**.
+
+## bool isSharpen () const
+
+***Console*:**`render_sharpen`Returns the current value indicating if the sharpening post-processing effect is enabled.
+### Return value
+
+**true** if sharpening post-processing effect is enabled; otherwise **false**. The default value is **false**.
+## void setSharpenIntensity ( float intensity = 0.5f )
+
+***Console*:**`render_sharpen_intensity`Sets a new intensity of the sharpening effect. To use this option, sharpening post-processing effect should be enabled*[setSharpen()()](../../...md#render_sharpen)*.
+### Arguments
+
+- *float* **intensity** - The intensity value. Range of values: **[0.0f, inf]**. The default value is : **0.5f**.
+
+## float getSharpenIntensity () const
+
+***Console*:**`render_sharpen_intensity`Returns the current intensity of the sharpening effect. To use this option, sharpening post-processing effect should be enabled*[setSharpen()()](../../...md#render_sharpen)*.
+### Return value
+
+Current intensity value.
+Range of values: **[0.0f, inf]**. The default value is : **0.5f**.
+## void setSharpenDiagonalSamples ( bool samples = 1 )
+
+***Console*:**`render_sharpen_diagonal_samples`Sets a new value indicating diagonal neighboring pixels are included in the blur calculation, which is a part of the [sharpening post-processing effect](#render_sharpen). When enabled, all eight surrounding pixels affect the blur, resulting in a more rounded and consistent blur shape, but may affect performance. Disabling it limits the effect to only horizontal and vertical neighbors (left, right, top, bottom).
+### Arguments
+
+- *bool* **samples** - Set **true** to enable the scope of pixels affected by the blur effect; **false** - to disable it. The default value is **true**.
+
+## bool isSharpenDiagonalSamples () const
+
+***Console*:**`render_sharpen_diagonal_samples`Returns the current value indicating diagonal neighboring pixels are included in the blur calculation, which is a part of the [sharpening post-processing effect](#render_sharpen). When enabled, all eight surrounding pixels affect the blur, resulting in a more rounded and consistent blur shape, but may affect performance. Disabling it limits the effect to only horizontal and vertical neighbors (left, right, top, bottom).
+### Return value
+
+**true** if the scope of pixels affected by the blur effect is enabled; otherwise **false**. The default value is **true**.
+## void setSharpenResolution ( int resolution = 2 )
+
+***Console*:**`render_sharpen_resolution`Sets a new resolution of the [sharpening post-processing effect](#render_sharpen).
+### Arguments
+
+- *int* **resolution** - The resolution of the sharpening effect One of the following values:
+
+  - *Quarter* - quarter resolution
+  - *Half* - half resolution
+  - *Full* - full resolution (by default)
+
+## int getSharpenResolution () const
+
+***Console*:**`render_sharpen_resolution`Returns the current resolution of the [sharpening post-processing effect](#render_sharpen).
+### Return value
+
+Current resolution of the sharpening effect One of the following values:
+
+- *Quarter* - quarter resolution
+- *Half* - half resolution
+- *Full* - full resolution (by default)
+
+## void setSharpenBlurColorThreshold ( float threshold = 0.2f )
+
+***Console*:**`render_sharpen_blur_color_threshold`Sets a new brightness difference threshold between neighboring pixels to determine whether they should be blurred together when the [sharpening post-processing effect](#render_sharpen) is applied. If the brightness difference is below this threshold, the pixels will be blurred as a group. Lower values help avoid visual artifacts such as blooming around objects, harsh shadows, or thin details like wires against the sky.
+### Arguments
+
+- *float* **threshold** - The brightness difference threshold Range of values: **[0.001f, inf]**. The default value is : **0.2f**.
+
+## float getSharpenBlurColorThreshold () const
+
+***Console*:**`render_sharpen_blur_color_threshold`Returns the current brightness difference threshold between neighboring pixels to determine whether they should be blurred together when the [sharpening post-processing effect](#render_sharpen) is applied. If the brightness difference is below this threshold, the pixels will be blurred as a group. Lower values help avoid visual artifacts such as blooming around objects, harsh shadows, or thin details like wires against the sky.
+### Return value
+
+Current brightness difference threshold
+Range of values: **[0.001f, inf]**. The default value is : **0.2f**.
+## void setSharpenBlurDarkColorThresholdBias ( float bias = 0.05f )
+
+***Console*:**`render_sharpen_blur_dark_color_threshold_bias`Sets a new bias value applied to the sharpening blur in dark regions of the image. This value is used in the [sharpening post-processing effect](#render_sharpen) to reduce excessive noise that may occur when sharpening low-light areas during post-processing.
+### Arguments
+
+- *float* **bias** - The bias value Range of values: **[0.0f, 1.0f]**. The default value is : **0.05f**.
+
+## float getSharpenBlurDarkColorThresholdBias () const
+
+***Console*:**`render_sharpen_blur_dark_color_threshold_bias`Returns the current bias value applied to the sharpening blur in dark regions of the image. This value is used in the [sharpening post-processing effect](#render_sharpen) to reduce excessive noise that may occur when sharpening low-light areas during post-processing.
+### Return value
+
+Current bias value
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.05f**.
+## void setSharpenBlurRadius ( int radius = 1 )
+
+***Console*:**`render_sharpen_blur_radius`Sets a new radius of the blur applied in the [sharpening post-processing effect](#render_sharpen). A radius greater than 1-2 pixels may cause an undesirable blooming effect and negatively affect performance.
+### Arguments
+
+- *int* **radius** - The radius of the blur applied in the sharpening effect Range of values: **[1, INT_MAX]**. The default value is : **1**.
+
+## int getSharpenBlurRadius () const
+
+***Console*:**`render_sharpen_blur_radius`Returns the current radius of the blur applied in the [sharpening post-processing effect](#render_sharpen). A radius greater than 1-2 pixels may cause an undesirable blooming effect and negatively affect performance.
+### Return value
+
+Current radius of the blur applied in the sharpening effect
+Range of values: **[1, INT_MAX]**. The default value is : **1**.
+## void setSharpenBlurSigma ( float sigma = 1.0f )
+
+***Console*:**`render_sharpen_blur_sigma`Sets a new smoothing applied to the Gaussian blur used in the [sharpening post-processing effect](#render_sharpen). Lower values result in a smoother, less noticeable blur. Such values are effective when the [blur radius](#render_sharpen_blur_radius) is greater than 1 pixel. If the blur radius is set to 1 pixel, a value of 1 is typically sufficient.
+### Arguments
+
+- *float* **sigma** - The smoothing value applied to the Gaussian blur used in the sharpening effect Range of values: **[0.001f, inf]**. The default value is : **1.0f**.
+
+## float getSharpenBlurSigma () const
+
+***Console*:**`render_sharpen_blur_sigma`Returns the current smoothing applied to the Gaussian blur used in the [sharpening post-processing effect](#render_sharpen). Lower values result in a smoother, less noticeable blur. Such values are effective when the [blur radius](#render_sharpen_blur_radius) is greater than 1 pixel. If the blur radius is set to 1 pixel, a value of 1 is typically sufficient.
+### Return value
+
+Current smoothing value applied to the Gaussian blur used in the sharpening effect
+Range of values: **[0.001f, inf]**. The default value is : **1.0f**.
+## void setAlphaFade ( bool fade = 1 )
+
+***Console*:**`render_alpha_fade`Sets a new value indicating if [alpha-blend fading](../../../principles/world_management/index.md#fading) (dithering) is enabled for objects. When the feature is enabled, objects LODs are smoothly blended into each other over a [fade distance](../../../principles/world_management/index.md#fading).
+### Arguments
+
+- *bool* **fade** - Set **true** to enable alpha fading; **false** - to disable it. The default value is **true**.
+
+## bool isAlphaFade () const
+
+***Console*:**`render_alpha_fade`Returns the current value indicating if [alpha-blend fading](../../../principles/world_management/index.md#fading) (dithering) is enabled for objects. When the feature is enabled, objects LODs are smoothly blended into each other over a [fade distance](../../../principles/world_management/index.md#fading).
+### Return value
+
+**true** if alpha fading is enabled; otherwise **false**. The default value is **true**.
+## void setAuxiliary ( bool auxiliary = 1 )
+
+***Console*:**`render_auxiliary`Sets a new value indicating if auxiliary render buffer is used. The buffer should be enabled for render and post post-processes to work.
+### Arguments
+
+- *bool* **auxiliary** - Set **true** to enable auxiliary render buffer; **false** - to disable it. The default value is **true**.
+
+## bool isAuxiliary () const
+
+***Console*:**`render_auxiliary`Returns the current value indicating if auxiliary render buffer is used. The buffer should be enabled for render and post post-processes to work.
+### Return value
+
+**true** if auxiliary render buffer is enabled; otherwise **false**. The default value is **true**.
+## void setDecals ( bool decals = 1 )
+
+***Console*:**`render_decals`Sets a new value indicating if rendering of decals is enabled.
+### Arguments
+
+- *bool* **decals** - Set **true** to enable decals rendering; **false** - to disable it. The default value is **true**.
+
+## bool isDecals () const
+
+***Console*:**`render_decals`Returns the current value indicating if rendering of decals is enabled.
+### Return value
+
+**true** if decals rendering is enabled; otherwise **false**. The default value is **true**.
+## void setTAA ( bool taa = 1 )
+
+***Console*:**`render_taa`Sets a new value indicating if [TAA (Temporal Anti-Aliasing)](../../../principles/render/antialiasing/taa.md) is enabled.
+### Arguments
+
+- *bool* **taa** - Set **true** to enable TAA; **false** - to disable it. The default value is **true**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[AAPreset](/api/library/rendering/class.render_cs#render_aa_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isTAA () const
+
+***Console*:**`render_taa`Returns the current value indicating if [TAA (Temporal Anti-Aliasing)](../../../principles/render/antialiasing/taa.md) is enabled.
+### Return value
+
+**true** if TAA is enabled; otherwise **false**. The default value is **true**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[AAPreset](/api/library/rendering/class.render_cs#render_aa_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setTAAPreset ( int taapreset = 0 )
+
+***Console*:**`render_taa_preset`Sets a new TAA (Temporal Anti-Aliasing) preset used at the moment. To customize Anti-Aliasing options at run time you should activate the **Custom** preset:
+### Arguments
+
+- *int* **taapreset** - The preset index. One of the following values:
+
+  - **0** - Sharpest (by default)
+  - **1** - Sharp
+  - **2** - Smooth
+  - **3** - Smoothest
+  - **4** - VR Mode
+  - **5** - Custom
+
+## int getTAAPreset () const
+
+***Console*:**`render_taa_preset`Returns the current TAA (Temporal Anti-Aliasing) preset used at the moment. To customize Anti-Aliasing options at run time you should activate the **Custom** preset:
+### Return value
+
+Current preset index. One of the following values:
+- **0** - Sharpest (by default)
+- **1** - Sharp
+- **2** - Smooth
+- **3** - Smoothest
+- **4** - VR Mode
+- **5** - Custom
+
+## int getTAAPresetNumNames () const
+
+Returns the current number of TAA (Temporal Anti-Aliasing) presets.
+### Return value
+
+Current number of presets.
+## void setTAAFixFlicker ( bool flicker = 1 )
+
+***Console*:**`render_taa_fix_flicker`Sets a new value indicating if the taa [fix flicker](../../../principles/render/antialiasing/taa.md#taa_fix_flicker) option is enabled. This option fixes flickering edges caused by TAA: it removes bright pixels by using the pixel brightness information from the previous frame. It is recommended to enable the option for bright thin ropes, wires and lines. The option is available only when TAA*[setTAA()()](../../...md#render_taa)* is enabled.
+> **Notice:** Enabling this option may increase performance costs.
+
+### Arguments
+
+- *bool* **flicker** - Set **true** to enable TAA fix flicker option; **false** - to disable it. The default value is **true**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[TAAPreset](/api/library/rendering/class.render_cs#render_taa_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isTAAFixFlicker () const
+
+***Console*:**`render_taa_fix_flicker`Returns the current value indicating if the taa [fix flicker](../../../principles/render/antialiasing/taa.md#taa_fix_flicker) option is enabled. This option fixes flickering edges caused by TAA: it removes bright pixels by using the pixel brightness information from the previous frame. It is recommended to enable the option for bright thin ropes, wires and lines. The option is available only when TAA*[setTAA()()](../../...md#render_taa)* is enabled.
+> **Notice:** Enabling this option may increase performance costs.
+
+### Return value
+
+**true** if TAA fix flicker option is enabled; otherwise **false**. The default value is **true**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[TAAPreset](/api/library/rendering/class.render_cs#render_taa_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setTAAAntialiasingInMotion ( bool motion = 0 )
+
+***Console*:**`render_taa_antialiasing_in_motion`Sets a new value indicating if improved anti-aliasing in motion (for moving camera and objects) is enabled. TAA*[setTAA()()](../../...md#render_taa)* must be enabled.
+### Arguments
+
+- *bool* **motion** - Set **true** to enable improved anti-aliasing in motion; **false** - to disable it. The default value is **false**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[TAAPreset](/api/library/rendering/class.render_cs#render_taa_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isTAAAntialiasingInMotion () const
+
+***Console*:**`render_taa_antialiasing_in_motion`Returns the current value indicating if improved anti-aliasing in motion (for moving camera and objects) is enabled. TAA*[setTAA()()](../../...md#render_taa)* must be enabled.
+### Return value
+
+**true** if improved anti-aliasing in motion is enabled; otherwise **false**. The default value is **false**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[TAAPreset](/api/library/rendering/class.render_cs#render_taa_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setTAAFramesByColor ( bool color = 1 )
+
+***Console*:**`render_taa_frames_by_color`Sets a new value indicating if TAA [color clamping](../../../principles/render/antialiasing/taa.md#taa_color_clamping) option is enabled. This option clamps the color of the current and previous frame. The image becomes more sharp. TAA*[setTAA()()](../../...md#render_taa)* must be enabled.
+### Arguments
+
+- *bool* **color** - Set **true** to enable TAA color clamping; **false** - to disable it. The default value is **true**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[TAAPreset](/api/library/rendering/class.render_cs#render_taa_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isTAAFramesByColor () const
+
+***Console*:**`render_taa_frames_by_color`Returns the current value indicating if TAA [color clamping](../../../principles/render/antialiasing/taa.md#taa_color_clamping) option is enabled. This option clamps the color of the current and previous frame. The image becomes more sharp. TAA*[setTAA()()](../../...md#render_taa)* must be enabled.
+### Return value
+
+**true** if TAA color clamping is enabled; otherwise **false**. The default value is **true**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[TAAPreset](/api/library/rendering/class.render_cs#render_taa_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setTAAFramesByVelocity ( bool velocity = 1 )
+
+***Console*:**`render_taa_frames_by_velocity`Sets a new value indicating if the TAA [velocity clamping](../../../principles/render/antialiasing/taa.md#taa_vc_enabled) option is enabled. This option controls the number of frames combined for pixels depending on the velocity in the fragment. It reduces blurring in dynamic scenes with a lot of moving objects.
+### Arguments
+
+- *bool* **velocity** - Set **true** to enable TAA velocity clamping; **false** - to disable it. The default value is **true**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[TAAPreset](/api/library/rendering/class.render_cs#render_taa_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isTAAFramesByVelocity () const
+
+***Console*:**`render_taa_frames_by_velocity`Returns the current value indicating if the TAA [velocity clamping](../../../principles/render/antialiasing/taa.md#taa_vc_enabled) option is enabled. This option controls the number of frames combined for pixels depending on the velocity in the fragment. It reduces blurring in dynamic scenes with a lot of moving objects.
+### Return value
+
+**true** if TAA velocity clamping is enabled; otherwise **false**. The default value is **true**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[TAAPreset](/api/library/rendering/class.render_cs#render_taa_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setTAADiagonalNeighbors ( bool neighbors = 0 )
+
+***Console*:**`render_taa_diagonal_neighbors`Sets a new value indicating if diagonally neighboring pixels are to be taken into account in the process of color clamping for TAA. This mode can be used for relatively static scenes when improved antialiasing is required. In case of a dynamic scene, blurring artefacts near the screen borders may appear.
+### Arguments
+
+- *bool* **neighbors** - Set **true** to enable taking diagonally neighboring pixels into account in the process of color clamping; **false** - to disable it. The default value is **false**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[TAAPreset](/api/library/rendering/class.render_cs#render_taa_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isTAADiagonalNeighbors () const
+
+***Console*:**`render_taa_diagonal_neighbors`Returns the current value indicating if diagonally neighboring pixels are to be taken into account in the process of color clamping for TAA. This mode can be used for relatively static scenes when improved antialiasing is required. In case of a dynamic scene, blurring artefacts near the screen borders may appear.
+### Return value
+
+**true** if taking diagonally neighboring pixels into account in the process of color clamping is enabled; otherwise **false**. The default value is **false**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[TAAPreset](/api/library/rendering/class.render_cs#render_taa_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setTAAPreserveDetails ( float details = 0.5f )
+
+***Console*:**`render_taa_preserve_details`Sets a new [detail level](../../../principles/render/antialiasing/taa.md#taa_preserve_details) of TAA (Temporal Anti-Aliasing). The higher the value, the more detailed the image is. Can produce additional flickering.
+### Arguments
+
+- *float* **details** - The TAA detail level. Range of values: **[0.0f, inf]**. The default value is : **0.5f**.
+
+## float getTAAPreserveDetails () const
+
+***Console*:**`render_taa_preserve_details`Returns the current [detail level](../../../principles/render/antialiasing/taa.md#taa_preserve_details) of TAA (Temporal Anti-Aliasing). The higher the value, the more detailed the image is. Can produce additional flickering.
+### Return value
+
+Current TAA detail level.
+Range of values: **[0.0f, inf]**. The default value is : **0.5f**.
+## void setTAAFrameCount ( float count = 30.0f )
+
+***Console*:**`render_taa_frame_count`Sets a new [frame count](../../../principles/render/antialiasing/taa.md#taa_frame_count) of TAA (Temporal Anti-Aliasing). Specifies the number of frames combined for pixels. The higher the value, the more frames are combined into the final image and the better anti-aliasing. This value is used only when the Frames By Velocity option*[setTAAFramesByVelocity()()](../../...md#render_taa_frames_by_velocity)* is disabled.
+### Arguments
+
+- *float* **count** - The TAA frame count value. Range of values: **[0.0f, inf]**. The default value is : **30.0f**.
+
+## float getTAAFrameCount () const
+
+***Console*:**`render_taa_frame_count`Returns the current [frame count](../../../principles/render/antialiasing/taa.md#taa_frame_count) of TAA (Temporal Anti-Aliasing). Specifies the number of frames combined for pixels. The higher the value, the more frames are combined into the final image and the better anti-aliasing. This value is used only when the Frames By Velocity option*[setTAAFramesByVelocity()()](../../...md#render_taa_frames_by_velocity)* is disabled.
+### Return value
+
+Current TAA frame count value.
+Range of values: **[0.0f, inf]**. The default value is : **30.0f**.
+## void setTAAFramesVelocityThreshold ( float threshold = 1.0f )
+
+***Console*:**`render_taa_frames_velocity_threshold`Sets a new [velocity threshold](../../../principles/render/antialiasing/taa.md#taa_vc_threshold) of TAA (Temporal Anti-Aliasing), at which pixels are treated as fast moving ones.This value specifies the intensity of velocity clamping. The following options must be enabled: TAA*[setTAA()()](../../...md#render_taa)* and TAA velocity clamping*[setTAAFramesByVelocity()()](../../...md#render_taa_frames_by_velocity)*.
+### Arguments
+
+- *float* **threshold** - The TAA velocity threshold. Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+
+## float getTAAFramesVelocityThreshold () const
+
+***Console*:**`render_taa_frames_velocity_threshold`Returns the current [velocity threshold](../../../principles/render/antialiasing/taa.md#taa_vc_threshold) of TAA (Temporal Anti-Aliasing), at which pixels are treated as fast moving ones.This value specifies the intensity of velocity clamping. The following options must be enabled: TAA*[setTAA()()](../../...md#render_taa)* and TAA velocity clamping*[setTAAFramesByVelocity()()](../../...md#render_taa_frames_by_velocity)*.
+### Return value
+
+Current TAA velocity threshold.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+## void setTAAPixelOffset ( float offset = 1.0f )
+
+***Console*:**`render_taa_pixel_offset`Sets a new size of the sample offset performed during subpixel jittering. The offset can be less than a pixel: for example, if **0.5** is set, frames will shift to half a pixel.
+### Arguments
+
+- *float* **offset** - The sample offset size. Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[TAAPreset](/api/library/rendering/class.render_cs#render_taa_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getTAAPixelOffset () const
+
+***Console*:**`render_taa_pixel_offset`Returns the current size of the sample offset performed during subpixel jittering. The offset can be less than a pixel: for example, if **0.5** is set, frames will shift to half a pixel.
+### Return value
+
+Current sample offset size.
+Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[TAAPreset](/api/library/rendering/class.render_cs#render_taa_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setTAACatmullResampling ( bool resampling = 1 )
+
+***Console*:**`render_taa_catmull_resampling`Sets a new value indicating if Catmull-Rom resampling is enabled. This option enables you to reduce image blurring when the camera moves forward/backward. It is recommended to disable resampling fow low-quality presets.
+### Arguments
+
+- *bool* **resampling** - Set **true** to enable Catmull-Rom resampling; **false** - to disable it. The default value is **true**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[TAAPreset](/api/library/rendering/class.render_cs#render_taa_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isTAACatmullResampling () const
+
+***Console*:**`render_taa_catmull_resampling`Returns the current value indicating if Catmull-Rom resampling is enabled. This option enables you to reduce image blurring when the camera moves forward/backward. It is recommended to disable resampling fow low-quality presets.
+### Return value
+
+**true** if Catmull-Rom resampling is enabled; otherwise **false**. The default value is **true**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[TAAPreset](/api/library/rendering/class.render_cs#render_taa_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setTAACatmullResamplingSharpness ( float sharpness = 0.7f )
+
+***Console*:**`render_taa_catmull_resampling_sharpness`Sets a new sharpness value for the [Catmull-Rom resampling](#TAACatmullResampling) option.
+### Arguments
+
+- *float* **sharpness** - The Catmull-Rom resampling sharpness. Range of values: **[0.0f, 1.0f]**. The default value is : **0.7f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[TAAPreset](/api/library/rendering/class.render_cs#render_taa_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float isTAACatmullResamplingSharpness () const
+
+***Console*:**`render_taa_catmull_resampling_sharpness`Returns the current sharpness value for the [Catmull-Rom resampling](#TAACatmullResampling) option.
+### Return value
+
+Current Catmull-Rom resampling sharpness.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.7f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[TAAPreset](/api/library/rendering/class.render_cs#render_taa_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setTAASamples ( int taasamples = 1 )
+
+***Console*:**`render_taa_samples`Sets a new number of the sample offsets performed during subpixel jittering. The parameter allows reducing image jittering and blurring. By the minimum value of 0 (1 sample offset), there will be no offsets, and, therefore, no anti-aliasing. TAA*[setTAA()()](../../...md#render_taa)* must be enabled.
+### Arguments
+
+- *int* **taasamples** - The number of samples. One of the following values: > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[TAAPreset](/api/library/rendering/class.render_cs#render_taa_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+  - **0** - 1 sample offset, no anti-aliasing
+  - **1** - 4 offsets (by default)
+  - **2** - 8 offsets
+  - **3** - 16 offsets
+
+## int getTAASamples () const
+
+***Console*:**`render_taa_samples`Returns the current number of the sample offsets performed during subpixel jittering. The parameter allows reducing image jittering and blurring. By the minimum value of 0 (1 sample offset), there will be no offsets, and, therefore, no anti-aliasing. TAA*[setTAA()()](../../...md#render_taa)* must be enabled.
+### Return value
+
+Current number of samples. One of the following values:
+- **0** - 1 sample offset, no anti-aliasing
+- **1** - 4 offsets (by default)
+- **2** - 8 offsets
+- **3** - 16 offsets
+
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[TAAPreset](/api/library/rendering/class.render_cs#render_taa_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setTAAEdgesFrameCountMultiplier ( float multiplier = 1.0f )
+
+***Console*:**`render_taa_edges_frame_count_multiplier`Sets a new multiplier for the number of frames accumulated for TAA effect on the sharp edges of objects within the image.
+### Arguments
+
+- *float* **multiplier** - The multiplier for the number of accumulated frames. Range of values: **[1.0f, inf]**. The default value is : **1.0f**.
+
+## float getTAAEdgesFrameCountMultiplier () const
+
+***Console*:**`render_taa_edges_frame_count_multiplier`Returns the current multiplier for the number of frames accumulated for TAA effect on the sharp edges of objects within the image.
+### Return value
+
+Current multiplier for the number of accumulated frames.
+Range of values: **[1.0f, inf]**. The default value is : **1.0f**.
+## void setFXAA ( bool fxaa = 1 )
+
+***Console*:**`render_fxaa`Sets a new value indicating if FXAA (post-process anti-aliasing) is enabled.
+### Arguments
+
+- *bool* **fxaa** - Set **true** to enable FXAA (post-process anti-aliasing); **false** - to disable it. The default value is **true**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[AAPreset](/api/library/rendering/class.render_cs#render_aa_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isFXAA () const
+
+***Console*:**`render_fxaa`Returns the current value indicating if FXAA (post-process anti-aliasing) is enabled.
+### Return value
+
+**true** if FXAA (post-process anti-aliasing) is enabled; otherwise **false**. The default value is **true**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[AAPreset](/api/library/rendering/class.render_cs#render_aa_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setFXAAIntensity ( float fxaaintensity = 0.0f )
+
+***Console*:**`render_fxaa_intensity`Sets a new intensity of FXAA. Intensity specifies the sample offset of FXAA fragment. The higher the value, the more blurred image will be.
+### Arguments
+
+- *float* **fxaaintensity** - The intensity value. Range of values: **[0.0f, 1.0f]**. The default value is : **0.0f**.
+
+## float getFXAAIntensity () const
+
+***Console*:**`render_fxaa_intensity`Returns the current intensity of FXAA. Intensity specifies the sample offset of FXAA fragment. The higher the value, the more blurred image will be.
+### Return value
+
+Current intensity value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.0f**.
+## void setSupersampling ( float supersampling = 1.0f )
+
+***Console*:**`render_supersampling`Sets a new number of samples per pixel used for [supersampling](../../../principles/render/antialiasing/supersampling.md).
+### Arguments
+
+- *float* **supersampling** - The number of samples. Range of values: **[1e-6f, 8.0f]**. The default value is : **1.0f**.
+
+## float getSupersampling () const
+
+***Console*:**`render_supersampling`Returns the current number of samples per pixel used for [supersampling](../../../principles/render/antialiasing/supersampling.md).
+### Return value
+
+Current number of samples.
+Range of values: **[1e-6f, 8.0f]**. The default value is : **1.0f**.
+## void setStereoFocusSupersampling ( float supersampling = 1.0f )
+
+***Console*:**`render_stereo_focus_supersampling`Sets a new supersampling factor for focus viewports in the stereo video mode (number of samples per pixel used for adjusting supersampling for focus displays). The main supersampling factor *[setSupersampling()()](../../...md#render_supersampling)* for focus viewports is multiplied by this value.
+### Arguments
+
+- *float* **supersampling** - The supersampling factor. Range of values: **[1e-6f, 2.0f]**. The default value is : **1.0f**.
+
+## float getStereoFocusSupersampling () const
+
+***Console*:**`render_stereo_focus_supersampling`Returns the current supersampling factor for focus viewports in the stereo video mode (number of samples per pixel used for adjusting supersampling for focus displays). The main supersampling factor *[setSupersampling()()](../../...md#render_supersampling)* for focus viewports is multiplied by this value.
+### Return value
+
+Current supersampling factor.
+Range of values: **[1e-6f, 2.0f]**. The default value is : **1.0f**.
+## void setStereoHiddenAreaExposureTransform ( )
+
+***Console*:**`render_stereo_hidden_area_exposure_transform`Sets a new area to be used for exposure calculation, when culling of pixels that are not visible in VR mode*[setStereoHiddenArea()()](../../...md#render_stereo_hidden_area)* is enabled. Correction of this area is used to avoid visual artefacts when clipped pixels affect exposure in visible areas. A four-component vector (X, Y, Z, W):
+- First two components **(X, Y)** - sizes along the X and Y axes respectively.
+- Second two components **(Z, W)** - offset values along the X and Y axes respectively. > **Notice:** These components can be used only when the hidden area culling mode*[setStereoHiddenArea()()](../../...md#render_stereo_hidden_area)* is set to 1 or 2.
+
+ All components are specified within the **[0.0f, 1.0f]** range.
+### Arguments
+
+- **transform** - The four-component vector (X, Y, Z, W) defining a rectangular area to be used for exposure calculation. **(0.6f, 0.6f, 0.0f, 0.0f)** - default value
+
+## getStereoHiddenAreaExposureTransform () const
+
+***Console*:**`render_stereo_hidden_area_exposure_transform`Returns the current area to be used for exposure calculation, when culling of pixels that are not visible in VR mode*[setStereoHiddenArea()()](../../...md#render_stereo_hidden_area)* is enabled. Correction of this area is used to avoid visual artefacts when clipped pixels affect exposure in visible areas. A four-component vector (X, Y, Z, W):
+- First two components **(X, Y)** - sizes along the X and Y axes respectively.
+- Second two components **(Z, W)** - offset values along the X and Y axes respectively. > **Notice:** These components can be used only when the hidden area culling mode*[setStereoHiddenArea()()](../../...md#render_stereo_hidden_area)* is set to 1 or 2.
+
+ All components are specified within the **[0.0f, 1.0f]** range.
+### Return value
+
+Current four-component vector (X, Y, Z, W) defining a rectangular area to be used for exposure calculation.
+**(0.6f, 0.6f, 0.0f, 0.0f)** - default value
+## void setStereoHiddenAreaTransform ( )
+
+***Console*:**`render_stereo_hidden_area_transform`Sets a new size and offset parameters for a new oval or circular mesh to be used for culling pixels, that are not visible in VR mode. A four-component vector (X, Y, Z, W), that determines an area to be used for exposure calculation, when culling of pixels, that are not visible in VR mode, is enabled:
+- First two components **(X, Y)** - sizes along the X and Y axes respectively.
+- Second two components **(Z, W)** - offset values along the X and Y axes respectively. > **Notice:** These components can be used only when the hidden area culling mode*[setStereoHiddenArea()()](../../...md#render_stereo_hidden_area)* is set to 2.
+
+ All components are specified within the **[0.0f, 1.0f]** range
+### Arguments
+
+- **transform** - The four-component vector (X, Y, Z, W) defining the culling area parameters. **(1.0f, 1.0f, 0.0f, 0.0f)** - default value
+
+## getStereoHiddenAreaTransform () const
+
+***Console*:**`render_stereo_hidden_area_transform`Returns the current size and offset parameters for a new oval or circular mesh to be used for culling pixels, that are not visible in VR mode. A four-component vector (X, Y, Z, W), that determines an area to be used for exposure calculation, when culling of pixels, that are not visible in VR mode, is enabled:
+- First two components **(X, Y)** - sizes along the X and Y axes respectively.
+- Second two components **(Z, W)** - offset values along the X and Y axes respectively. > **Notice:** These components can be used only when the hidden area culling mode*[setStereoHiddenArea()()](../../...md#render_stereo_hidden_area)* is set to 2.
+
+ All components are specified within the **[0.0f, 1.0f]** range
+### Return value
+
+Current four-component vector (X, Y, Z, W) defining the culling area parameters.
+**(1.0f, 1.0f, 0.0f, 0.0f)** - default value
+## void setStereoHiddenArea ( int area = 0 )
+
+***Console*:**`render_stereo_hidden_area`Sets a new culling mode for pixels that are not visible in VR mode. One of the following values:
+- 0 - hidden area culling is disabled (by default).
+- 1 - **OpenVR-based culling mode**. Culling is performed using meshes returned by OpenVR. > **Notice:** Culling result depends on HMD used.
+- **2** - **Custom culling mode**. Culling is performed using meshes returned by OpenVR and an oval or circular mesh determined by custom adjustable parameters*[setStereoHiddenAreaTransform()()](../../...md#render_stereo_hidden_area_transform)*.
+
+ This parameter is used for performance optimization.
+### Arguments
+
+- *int* **area** - The culling mode. One of the following values:
+
+  - **0** - disabled (by default)
+  - **1** - OpenVR-based culling mode
+  - **2** - Custom culling mode
+
+## int getStereoHiddenArea () const
+
+***Console*:**`render_stereo_hidden_area`Returns the current culling mode for pixels that are not visible in VR mode. One of the following values:
+- 0 - hidden area culling is disabled (by default).
+- 1 - **OpenVR-based culling mode**. Culling is performed using meshes returned by OpenVR. > **Notice:** Culling result depends on HMD used.
+- **2** - **Custom culling mode**. Culling is performed using meshes returned by OpenVR and an oval or circular mesh determined by custom adjustable parameters*[setStereoHiddenAreaTransform()()](../../...md#render_stereo_hidden_area_transform)*.
+
+ This parameter is used for performance optimization.
+### Return value
+
+Current culling mode. One of the following values:
+- **0** - disabled (by default)
+- **1** - OpenVR-based culling mode
+- **2** - Custom culling mode
+
+## void setStereoOffset ( float offset )
+
+Sets a new virtual camera offset (an offset after the perspective projection).
+### Arguments
+
+- *float* **offset** - The offset, in units.
+
+## float getStereoOffset () const
+
+Returns the current virtual camera offset (an offset after the perspective projection).
+### Return value
+
+Current offset, in units.
+## void setStereoRadius ( float radius )
+
+Sets a new radius for stereo (the half of the separation distance between the cameras).
+### Arguments
+
+- *float* **radius** - The radius, in units.
+
+## float getStereoRadius () const
+
+Returns the current radius for stereo (the half of the separation distance between the cameras).
+### Return value
+
+Current radius, in units.
+## void setStereoDistance ( float distance )
+
+Sets a new focal distance for stereo rendering (distance in the world space to the point where two views line up).
+### Arguments
+
+- *float* **distance** - The focal distance, in units.
+
+## float getStereoDistance () const
+
+Returns the current focal distance for stereo rendering (distance in the world space to the point where two views line up).
+### Return value
+
+Current focal distance, in units.
+## void setVREmulation ( int vremulation = 0 )
+
+***Console*:**`render_vr_emulation`Sets a new value indicating the current VR emulation mode. The FoV value in any selected mode is 110.
+### Arguments
+
+- *int* **vremulation** - The VR emulation mode. One of the following values:
+
+  - **0** - Disabled (by default)
+  - **1** - HTC Vive (1512x1680)
+  - **2** - HTC Vive Pro (2016x2240)
+  - **3** - HTC Vive Pro 2 (3428x3428)
+  - **4** - HTC Vive Focus 3(3428x3428)
+  - **5** - HTC Vive Focus Vision (3428x3428)
+  - **6** - HTC Vive XR Elite (1920x1920)
+  - **7** - Oculus Rift (1332x1586)
+  - **8** - Quest 2 (2712x2746)
+  - **9** - Quest 3S VR (2712x2746)
+  - **10** - Quest 3 (2064x2242)
+  - **11** - Quest Pro (1800x1950)
+  - **12** - Pico 4 (2160x2160)
+  - **13** - Valve Index (2016x2240)
+  - **14** - Varjo VR-3 (2880x2720)
+  - **15** - Varjo VR-4 (3840x3744)
+
+## int getVREmulation () const
+
+***Console*:**`render_vr_emulation`Returns the current value indicating the current VR emulation mode. The FoV value in any selected mode is 110.
+### Return value
+
+Current VR emulation mode. One of the following values:
+- **0** - Disabled (by default)
+- **1** - HTC Vive (1512x1680)
+- **2** - HTC Vive Pro (2016x2240)
+- **3** - HTC Vive Pro 2 (3428x3428)
+- **4** - HTC Vive Focus 3(3428x3428)
+- **5** - HTC Vive Focus Vision (3428x3428)
+- **6** - HTC Vive XR Elite (1920x1920)
+- **7** - Oculus Rift (1332x1586)
+- **8** - Quest 2 (2712x2746)
+- **9** - Quest 3S VR (2712x2746)
+- **10** - Quest 3 (2064x2242)
+- **11** - Quest Pro (1800x1950)
+- **12** - Pico 4 (2160x2160)
+- **13** - Valve Index (2016x2240)
+- **14** - Varjo VR-3 (2880x2720)
+- **15** - Varjo VR-4 (3840x3744)
+
+## float getAnimationOldTime () const
+
+Returns the current previous render animation time for vegetation.
+### Return value
+
+Current time, in milliseconds.
+## void setAnimationTime ( float time )
+
+Sets a new render animation time for vegetation.
+### Arguments
+
+- *float* **time** - The time, in milliseconds.
+
+## float getAnimationTime () const
+
+Returns the current render animation time for vegetation.
+### Return value
+
+Current time, in milliseconds.
+## void setAnimationWind ( )
+
+***Console*:**`render_animation_wind`Sets a new direction of wind for all vegetation (grass and trees). It is a multiplier for the stem offset (in grass, stem and leaves materials).
+### Arguments
+
+- **wind** - The offset for vegetation affected by wind for X, Y and Z axes. **(0.0f, 0.0f, 0.0f)** - default value
+
+## getAnimationWind () const
+
+***Console*:**`render_animation_wind`Returns the current direction of wind for all vegetation (grass and trees). It is a multiplier for the stem offset (in grass, stem and leaves materials).
+### Return value
+
+Current offset for vegetation affected by wind for X, Y and Z axes.
+**(0.0f, 0.0f, 0.0f)** - default value
+## void setAnimationScale ( float scale = 1.0f )
+
+***Console*:**`render_animation_scale`Sets a new global scale for rotation speed of vegetation leaves.
+### Arguments
+
+- *float* **scale** - The scale factor. Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+
+## float getAnimationScale () const
+
+***Console*:**`render_animation_scale`Returns the current global scale for rotation speed of vegetation leaves.
+### Return value
+
+Current scale factor.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+## void setAnimationLeaf ( float leaf = 1.0f )
+
+***Console*:**`render_animation_leaf`Sets a new global scale for rotation angle of vegetation leaves.
+### Arguments
+
+- *float* **leaf** - The scale factor. Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+
+## float getAnimationLeaf () const
+
+***Console*:**`render_animation_leaf`Returns the current global scale for rotation angle of vegetation leaves.
+### Return value
+
+Current scale factor.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+## void setAnimationStem ( float stem = 1.0f )
+
+***Console*:**`render_animation_stem`Sets a new global scale for movement amplitude of vegetation stems.
+### Arguments
+
+- *float* **stem** - The scale factor. Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+
+## float getAnimationStem () const
+
+***Console*:**`render_animation_stem`Returns the current global scale for movement amplitude of vegetation stems.
+### Return value
+
+Current scale factor.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+## void setShadowDistance ( float distance = 100.0f )
+
+***Console*:**`render_shadow_distance`Sets a new distance from the camera, beyond which shadows will not be rendered.
+> **Notice:** If this value is greater than the [visibility distance for objects](../../../editor2/settings/render_settings/visibility_distances/index.md#objects_distance) the shadows will still be rendered even though the objects themselves are not. Please, pay attention to setting these parameters properly to avoid wasting performance on rendering unnecessary shadows.
+
+
+### Arguments
+
+- *float* **distance** - The distance, in units. Range of values: **[0.0f, inf]**. The default value is : **100.0f**.
+
+## float getShadowDistance () const
+
+***Console*:**`render_shadow_distance`Returns the current distance from the camera, beyond which shadows will not be rendered.
+> **Notice:** If this value is greater than the [visibility distance for objects](../../../editor2/settings/render_settings/visibility_distances/index.md#objects_distance) the shadows will still be rendered even though the objects themselves are not. Please, pay attention to setting these parameters properly to avoid wasting performance on rendering unnecessary shadows.
+
+
+### Return value
+
+Current distance, in units.
+Range of values: **[0.0f, inf]**. The default value is : **100.0f**.
+## void setShadowDistanceScale ( float scale = 1.0f )
+
+***Console*:**`render_shadow_distance_scale`Sets a new global scale multiplier for [shadow distances](#render_shadow_distance). This option enables you to easily increase or decrease shadows rendering performance by changing the scale.
+> **Notice:** If this value is greater than the scale multiplier for objects*[setDistanceScale()()](../../...md#render_distance_scale)*, the shadows will still be rendered even though the objects themselves are not. Please, make sure you set these parameters properly to avoid wasting performance on rendering unnecessary shadows.
+
+### Arguments
+
+- *float* **scale** - The global shadow distance scale multiplier. Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+
+## float getShadowDistanceScale () const
+
+***Console*:**`render_shadow_distance_scale`Returns the current global scale multiplier for [shadow distances](#render_shadow_distance). This option enables you to easily increase or decrease shadows rendering performance by changing the scale.
+> **Notice:** If this value is greater than the scale multiplier for objects*[setDistanceScale()()](../../...md#render_distance_scale)*, the shadows will still be rendered even though the objects themselves are not. Please, make sure you set these parameters properly to avoid wasting performance on rendering unnecessary shadows.
+
+### Return value
+
+Current global shadow distance scale multiplier.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+## void setReflectionDistance ( float distance = inf )
+
+***Console*:**`render_reflection_distance`Sets a new distance starting from which (and farther) reflections will not be rendered.
+### Arguments
+
+- *float* **distance** - The distance, in units. Range of values: **[0.0f, inf]**. The default value is : **inf**.
+
+## float getReflectionDistance () const
+
+***Console*:**`render_reflection_distance`Returns the current distance starting from which (and farther) reflections will not be rendered.
+### Return value
+
+Current distance, in units.
+Range of values: **[0.0f, inf]**. The default value is : **inf**.
+## void setOccluderDistance ( float distance = inf )
+
+***Console*:**`render_occluder_distance`Sets a new distance starting from which (and farther) occluders will not be rendered.
+### Arguments
+
+- *float* **distance** - The distance, in units. Range of values: **[0.0f, inf]**. The default value is : **inf**.
+
+## float getOccluderDistance () const
+
+***Console*:**`render_occluder_distance`Returns the current distance starting from which (and farther) occluders will not be rendered.
+### Return value
+
+Current distance, in units.
+Range of values: **[0.0f, inf]**. The default value is : **inf**.
+## void setObjectDistance ( float distance = inf )
+
+***Console*:**`render_object_distance`Sets a new distance at which (and farther) objects will not be rendered.
+> **Notice:** If this value is less than the scale multiplier for shadows*[setShadowDistanceScale()()](../../...md#render_shadow_distance_scale)*, the shadows will still be rendered even though the objects themselves are not. Please, make sure you set these parameters properly to avoid wasting performance on rendering unnecessary shadows.
+
+### Arguments
+
+- *float* **distance** - The distance, in units. Range of values: **[0.0f, inf]**. The default value is : **inf**.
+
+## float getObjectDistance () const
+
+***Console*:**`render_object_distance`Returns the current distance at which (and farther) objects will not be rendered.
+> **Notice:** If this value is less than the scale multiplier for shadows*[setShadowDistanceScale()()](../../...md#render_shadow_distance_scale)*, the shadows will still be rendered even though the objects themselves are not. Please, make sure you set these parameters properly to avoid wasting performance on rendering unnecessary shadows.
+
+### Return value
+
+Current distance, in units.
+Range of values: **[0.0f, inf]**. The default value is : **inf**.
+## void setDecalDistance ( float distance = inf )
+
+***Console*:**`render_decal_distance`Sets a new distance at which (and farther) decals will not be rendered. The distance is measured from the camera to the decal's bound. If the value is greater than the *[World Distance](../../../editor2/settings/world/index.md#world_distance)* value, the latter is used instead.
+### Arguments
+
+- *float* **distance** - The distance, in units. Range of values: **[0.0f, inf]**. The default value is : **inf**.
+
+## float getDecalDistance () const
+
+***Console*:**`render_decal_distance`Returns the current distance at which (and farther) decals will not be rendered. The distance is measured from the camera to the decal's bound. If the value is greater than the *[World Distance](../../../editor2/settings/world/index.md#world_distance)* value, the latter is used instead.
+### Return value
+
+Current distance, in units.
+Range of values: **[0.0f, inf]**. The default value is : **inf**.
+## void setLightDistance ( float distance = inf )
+
+***Console*:**`render_light_distance`Sets a new distance at which (and farther) lights will not be rendered. The distance is measured from the camera to the light's bound. If the value is greater than the *[World Distance](../../../editor2/settings/world/index.md#world_distance)* value, the latter is used instead.
+### Arguments
+
+- *float* **distance** - The distance, in units. Range of values: **[0.0f, inf]**. The default value is : **inf**.
+
+## float getLightDistance () const
+
+***Console*:**`render_light_distance`Returns the current distance at which (and farther) lights will not be rendered. The distance is measured from the camera to the light's bound. If the value is greater than the *[World Distance](../../../editor2/settings/world/index.md#world_distance)* value, the latter is used instead.
+### Return value
+
+Current distance, in units.
+Range of values: **[0.0f, inf]**. The default value is : **inf**.
+## void setFieldDistance ( float distance = inf )
+
+***Console*:**`render_field_distance`Sets a new distance at which (and farther) [field](../../../objects/effects/fields/index.md) nodes will not be rendered. The distance is measured from the camera to the field's bound. If the value is greater than the *[World Distance](../../../editor2/settings/world/index.md#world_distance)* value, the latter is used instead.
+### Arguments
+
+- *float* **distance** - The distance, in units. Range of values: **[0.0f, inf]**. The default value is : **inf**.
+
+## float getFieldDistance () const
+
+***Console*:**`render_field_distance`Returns the current distance at which (and farther) [field](../../../objects/effects/fields/index.md) nodes will not be rendered. The distance is measured from the camera to the field's bound. If the value is greater than the *[World Distance](../../../editor2/settings/world/index.md#world_distance)* value, the latter is used instead.
+### Return value
+
+Current distance, in units.
+Range of values: **[0.0f, inf]**. The default value is : **inf**.
+## void setDistanceScale ( float scale = 1.0f )
+
+***Console*:**`render_distance_scale`Sets a new global distance multiplier for all distance parameters, such as the world rendering distance, [decal distance](#getDecalDistance_float), [field distance](#getFieldDistance_float), [light distance](#getLightDistance_float), [object distance](#getObjectDistance_float), [reflection distance](#getReflectionDistance_float), LODs, and surface visibility distances. This value enables you to easily increase or decrease rendering performance by changing the world extent. Distances are measured from the camera to the node's (surface's) bound. For example, if the maximum visibility distance of a LOD is 10 meters, and you set *Distance Scale = 2*, the LOD will disappear at the distance of 20 meters, not 10.
+> **Notice:** Increasing the value leads to decreasing the performance. The maximum recommended value is 4.
+
+### Arguments
+
+- *float* **scale** - The global shadow distance scale multiplier. Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+
+## float getDistanceScale () const
+
+***Console*:**`render_distance_scale`Returns the current global distance multiplier for all distance parameters, such as the world rendering distance, [decal distance](#getDecalDistance_float), [field distance](#getFieldDistance_float), [light distance](#getLightDistance_float), [object distance](#getObjectDistance_float), [reflection distance](#getReflectionDistance_float), LODs, and surface visibility distances. This value enables you to easily increase or decrease rendering performance by changing the world extent. Distances are measured from the camera to the node's (surface's) bound. For example, if the maximum visibility distance of a LOD is 10 meters, and you set *Distance Scale = 2*, the LOD will disappear at the distance of 20 meters, not 10.
+> **Notice:** Increasing the value leads to decreasing the performance. The maximum recommended value is 4.
+
+### Return value
+
+Current global shadow distance scale multiplier.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+## void setForceStreaming ( bool streaming )
+
+Sets a new value indicating if force-streaming is enabled for all resources.
+### Arguments
+
+- *bool* **streaming** - Set **true** to enable force-streaming; **false** - to disable it.
+
+## bool isForceStreaming () const
+
+Returns the current value indicating if force-streaming is enabled for all resources.
+### Return value
+
+**true** if force-streaming is enabled; otherwise **false**.
+## void setStreamingAnimationsLifeTime ( int time = -1 )
+
+***Console*:**`render_streaming_animations_life_time`Sets a new lifetime of GPU cache used for animations rendering.
+### Arguments
+
+- *int* **time** - The lifetime of animations, number of frames. Range of values: **[-1, INT_MAX]**. The default value is : **-1**.
+
+## int getStreamingAnimationsLifeTime () const
+
+***Console*:**`render_streaming_animations_life_time`Returns the current lifetime of GPU cache used for animations rendering.
+### Return value
+
+Current lifetime of animations, number of frames.
+Range of values: **[-1, INT_MAX]**. The default value is : **-1**.
+## void setStreamingParticlesMemoryLimit ( int limit = 3 )
+
+***Console*:**`render_streaming_particles_memory_limit`Sets a new cache memory limit for vertices of particle systems, in percentage of the total GPU memory.
+> **Notice:** Setting a too low limit for a huge number of particle systems in the scene may lead to rendering only some of them. Works only with the **Vulkan** graphics API.
+
+### Arguments
+
+- *int* **limit** - The memory limit, in percentage of the total GPU memory. Range of values: **[0, 100]**. The default value is : **3**.
+
+## int getStreamingParticlesMemoryLimit () const
+
+***Console*:**`render_streaming_particles_memory_limit`Returns the current cache memory limit for vertices of particle systems, in percentage of the total GPU memory.
+> **Notice:** Setting a too low limit for a huge number of particle systems in the scene may lead to rendering only some of them. Works only with the **Vulkan** graphics API.
+
+### Return value
+
+Current memory limit, in percentage of the total GPU memory.
+Range of values: **[0, 100]**. The default value is : **3**.
+## void setStreamingCacheRAM ( int ram = -1 )
+
+***Console*:**`render_streaming_cache_ram`Sets a new  maximum size of RAM available for streaming caches. When set to -1, caches grow freely up to [engine limits](#render_streaming_usage_limit_ram). When limited, caches will grow only up to the defined value. If the limit is too low, not all resources will fit into the cache in time, which may cause streaming to stutter.
+### Arguments
+
+- *int* **ram** - The maximum size of the streaming RAM cache. Range of values: **[-1, inf]**. The default value is : **-1**.
+
+## int getStreamingCacheRAM () const
+
+***Console*:**`render_streaming_cache_ram`Returns the current  maximum size of RAM available for streaming caches. When set to -1, caches grow freely up to [engine limits](#render_streaming_usage_limit_ram). When limited, caches will grow only up to the defined value. If the limit is too low, not all resources will fit into the cache in time, which may cause streaming to stutter.
+### Return value
+
+Current maximum size of the streaming RAM cache.
+Range of values: **[-1, inf]**. The default value is : **-1**.
+## void setStreamingCacheVRAM ( int vram = -1 )
+
+***Console*:**`render_streaming_cache_vram`Sets a new  maximum size of VRAM available for streaming caches. When set to -1, caches grow freely up to [engine limits](#render_streaming_usage_limit_vram). When limited, caches will grow only up to the defined value. If the limit is too low, not all resources will fit into the cache in time, which may cause streaming to stutter.
+### Arguments
+
+- *int* **vram** - The maximum size of the streaming VRAM cache. Range of values: **[-1, inf]**. The default value is : **-1**.
+
+## int getStreamingCacheVRAM () const
+
+***Console*:**`render_streaming_cache_vram`Returns the current  maximum size of VRAM available for streaming caches. When set to -1, caches grow freely up to [engine limits](#render_streaming_usage_limit_vram). When limited, caches will grow only up to the defined value. If the limit is too low, not all resources will fit into the cache in time, which may cause streaming to stutter.
+### Return value
+
+Current maximum size of the streaming VRAM cache.
+Range of values: **[-1, inf]**. The default value is : **-1**.
+## void setStreamingTexturesMode ( )
+
+***Console*:**`render_streaming_textures_mode`Sets a new streaming mode for textures. The following modes are available:
+- *Async* - asynchronous loading of textures.
+- *Force* - force-loading of textures required for each frame at ones.
+
+
+### Arguments
+
+- **mode** - The streaming mode for textures. One of the following values:
+
+  - **0** - asynchronous streaming (by default)
+  - **1** - force-loading of resources
+
+## getStreamingTexturesMode () const
+
+***Console*:**`render_streaming_textures_mode`Returns the current streaming mode for textures. The following modes are available:
+- *Async* - asynchronous loading of textures.
+- *Force* - force-loading of textures required for each frame at ones.
+
+
+### Return value
+
+Current streaming mode for textures. One of the following values:
+- **0** - asynchronous streaming (by default)
+- **1** - force-loading of resources
+
+## void setStreamingMeshesModeVRAM ( )
+
+***Console*:**`render_streaming_meshes_mode_vram`Sets a new streaming mode for loading meshes to video memory (VRAM). The following modes are available:
+- *Async* - asynchronous loading of meshes.
+- *Force* - force-loading of meshes required for the current frame at once.
+
+### Arguments
+
+- **vram** - The streaming mode. One of the following values:
+
+  - **0** - asynchronous streaming (by default)
+  - **1** - force-loading of resources
+
+## getStreamingMeshesModeVRAM () const
+
+***Console*:**`render_streaming_meshes_mode_vram`Returns the current streaming mode for loading meshes to video memory (VRAM). The following modes are available:
+- *Async* - asynchronous loading of meshes.
+- *Force* - force-loading of meshes required for the current frame at once.
+
+### Return value
+
+Current streaming mode. One of the following values:
+- **0** - asynchronous streaming (by default)
+- **1** - force-loading of resources
+
+## void setStreamingMeshesModeRAM ( )
+
+***Console*:**`render_streaming_meshes_mode_ram`Sets a new streaming mode for loading meshes to memory (RAM). The following modes are available:
+- *Async* - asychronous loading of meshes.
+- *Force* - force-loading of meshes required for the current frame at once.
+
+### Arguments
+
+- **ram** - The streaming mode. One of the following values:
+
+  - **0** - asynchronous streaming (by default)
+  - **1** - force-loading of resources
+
+## getStreamingMeshesModeRAM () const
+
+***Console*:**`render_streaming_meshes_mode_ram`Returns the current streaming mode for loading meshes to memory (RAM). The following modes are available:
+- *Async* - asychronous loading of meshes.
+- *Force* - force-loading of meshes required for the current frame at once.
+
+### Return value
+
+Current streaming mode. One of the following values:
+- **0** - asynchronous streaming (by default)
+- **1** - force-loading of resources
+
+## void setStreamingMeshesPrefetchCollision ( )
+
+***Console*:**`render_streaming_meshes_prefetch_collision`Sets a new mode of asynchronous pre-loading of meshes to memory before they are used. Pre-loading is available only for meshes, which have at least one surface with the *Collision* flag set. There are 2 modes of loading such meshes to RAM:
+- *Disable* - loading is disabled.
+- *Radius* - meshes within the prefetch radius are loaded.
+
+ This method should be used when the *Async* streaming mode for meshes is set.
+### Arguments
+
+- **collision** - The pre-loading mode. One of the following values:
+
+  - **0** - disable (by default)
+  - **1** - radius
+
+## getStreamingMeshesPrefetchCollision () const
+
+***Console*:**`render_streaming_meshes_prefetch_collision`Returns the current mode of asynchronous pre-loading of meshes to memory before they are used. Pre-loading is available only for meshes, which have at least one surface with the *Collision* flag set. There are 2 modes of loading such meshes to RAM:
+- *Disable* - loading is disabled.
+- *Radius* - meshes within the prefetch radius are loaded.
+
+ This method should be used when the *Async* streaming mode for meshes is set.
+### Return value
+
+Current pre-loading mode. One of the following values:
+- **0** - disable (by default)
+- **1** - radius
+
+## void setStreamingMeshesPrefetchIntersection ( )
+
+***Console*:**`render_streaming_meshes_prefetch_intersection`Sets a new mode of asynchronous pre-loading of meshes into memory before they are used. Pre-loading is available only for meshes, which have at least one surface with the *Intersection* flag set. There are 2 modes of loading such meshes to RAM:
+- *Disable* - loading is disabled.
+- *Radius* - all meshes within the prefetch radius are loaded.
+
+ This method should be used when the *Async* streaming mode for meshes is set.
+### Arguments
+
+- **intersection** - The pre-loading mode. One of the following values:
+
+  - **0** - disable (by default)
+  - **1** - radius
+
+## getStreamingMeshesPrefetchIntersection () const
+
+***Console*:**`render_streaming_meshes_prefetch_intersection`Returns the current mode of asynchronous pre-loading of meshes into memory before they are used. Pre-loading is available only for meshes, which have at least one surface with the *Intersection* flag set. There are 2 modes of loading such meshes to RAM:
+- *Disable* - loading is disabled.
+- *Radius* - all meshes within the prefetch radius are loaded.
+
+ This method should be used when the *Async* streaming mode for meshes is set.
+### Return value
+
+Current pre-loading mode. One of the following values:
+- **0** - disable (by default)
+- **1** - radius
+
+## void setStreamingMeshesPrefetchRadius ( float radius = 0.0f )
+
+***Console*:**`render_streaming_meshes_prefetch_radius`Sets a new radius within which meshes are pre-loaded into memory. The value should exceed the physics radius (for collisions) and/or the radius within which intersections are calculated.
+### Arguments
+
+- *float* **radius** - The prefetch radius. Range of values: **[0.0f, inf]**. The default value is : **0.0f**.
+
+## float getStreamingMeshesPrefetchRadius () const
+
+***Console*:**`render_streaming_meshes_prefetch_radius`Returns the current radius within which meshes are pre-loaded into memory. The value should exceed the physics radius (for collisions) and/or the radius within which intersections are calculated.
+### Return value
+
+Current prefetch radius.
+Range of values: **[0.0f, inf]**. The default value is : **0.0f**.
+## void setTexturesAnisotropy ( int anisotropy = 3 )
+
+***Console*:**`render_textures_anisotropy`Sets a new anisotropy level for textures (degree of anisotropic filtering).
+### Arguments
+
+- *int* **anisotropy** - The anisotropy level: One of the following values:
+
+  - **0** - level 1
+  - **1** - level 2
+  - **2** - level 4
+  - **3** - level 8 (by default)
+  - **4** - level 16
+
+## int getTexturesAnisotropy () const
+
+***Console*:**`render_textures_anisotropy`Returns the current anisotropy level for textures (degree of anisotropic filtering).
+### Return value
+
+Current anisotropy level: One of the following values:
+- **0** - level 1
+- **1** - level 2
+- **2** - level 4
+- **3** - level 8 (by default)
+- **4** - level 16
+
+## void setTexturesFilter ( int filter = 1 )
+
+***Console*:**`render_textures_filter`Sets a new texture filtering mode.
+### Arguments
+
+- *int* **filter** - The texture filtering mode. One of the following values:
+
+  - **0** - Bilinear
+  - **1** - Trilinear (by default)
+
+## int getTexturesFilter () const
+
+***Console*:**`render_textures_filter`Returns the current texture filtering mode.
+### Return value
+
+Current texture filtering mode. One of the following values:
+- **0** - Bilinear
+- **1** - Trilinear (by default)
+
+## void setTexturesMinResolution ( int resolution = 0 )
+
+***Console*:**`render_textures_min_resolution`Sets a new minimum resolution of all textures. The Engine doesn't compress existing textures: it uses specified mip maps of `*.dds` textures.
+### Arguments
+
+- *int* **resolution** - The resolution. One of the following values:
+
+  - **0** - 128x128 (by default)
+  - **1** - 256x256
+  - **2** - 512x512
+  - **3** - 1024x1024
+  - **4** - 2048x2048
+  - **5** - 4096x4096
+  - **6** - 8192x8192
+  - **7** - 16384x16384
+
+## int getTexturesMinResolution () const
+
+***Console*:**`render_textures_min_resolution`Returns the current minimum resolution of all textures. The Engine doesn't compress existing textures: it uses specified mip maps of `*.dds` textures.
+### Return value
+
+Current resolution. One of the following values:
+- **0** - 128x128 (by default)
+- **1** - 256x256
+- **2** - 512x512
+- **3** - 1024x1024
+- **4** - 2048x2048
+- **5** - 4096x4096
+- **6** - 8192x8192
+- **7** - 16384x16384
+
+## void setTexturesMaxResolution ( int resolution = 6 )
+
+***Console*:**`render_textures_max_resolution`Sets a new maximum resolution of all textures. the engine doesn't compress existing textures: it uses specified mipmaps of `*.dds` textures.
+### Arguments
+
+- *int* **resolution** - The resolution. One of the following values:
+
+  - **0** - 128x128
+  - **1** - 256x256
+  - **2** - 512x512
+  - **3** - 1024x1024
+  - **4** - 2048x2048
+  - **5** - 4096x4096
+  - **6** - 8192x8192 (by default)
+  - **7** - 16384x16384
+
+## int getTexturesMaxResolution () const
+
+***Console*:**`render_textures_max_resolution`Returns the current maximum resolution of all textures. the engine doesn't compress existing textures: it uses specified mipmaps of `*.dds` textures.
+### Return value
+
+Current resolution. One of the following values:
+- **0** - 128x128
+- **1** - 256x256
+- **2** - 512x512
+- **3** - 1024x1024
+- **4** - 2048x2048
+- **5** - 4096x4096
+- **6** - 8192x8192 (by default)
+- **7** - 16384x16384
+
+## void setTexturesQuality ( int quality = 2 )
+
+***Console*:**`render_textures_quality`Sets a new resolution of textures.
+### Arguments
+
+- *int* **quality** - The Texture resolution. One of the *[RENDER_QUALITY_*](#QUALITY_HIGH)* pre-defined variables. One of the following values:
+
+  - *Low* - low quality
+  - *Medium* - medium quality
+  - *High* - high quality (by default)
+
+## int getTexturesQuality () const
+
+***Console*:**`render_textures_quality`Returns the current resolution of textures.
+### Return value
+
+Current Texture resolution. One of the *[RENDER_QUALITY_*](#QUALITY_HIGH)* pre-defined variables. One of the following values:
+
+- *Low* - low quality
+- *Medium* - medium quality
+- *High* - high quality (by default)
+
+## void setLatency ( int latency = 1 )
+
+***Console*:**`render_latency`Sets a new maximum number of back buffer frames that a driver is allowed to queue for rendering. The buffers are used for GPU load optimization: in certain cases several command buffers (frames) can be processed by GPU at once increasing the [**Waiting GPU**](../../../tools/profiling/profiler/index.md#present) time for one frame and having zero **Waiting GPU** time for the next ones. Thus, GPU avoids rendering spikes, but increased **Waiting GPU** time will cause a spike in application logic, in case when the logic is bound to [duration of a single frame](../../../api/library/engine/class.game_usc.md#getIFps_float). **Frame latency** is the number of frames that are allowed to be stored in a queue before submission for rendering. Latency is often used to control how the CPU chooses between responding to user input and frames that are in the render queue. In certain cases (high GPU load, VSYNC usage) it may be required to queue more frames of data, it is also beneficial for applications with no user input (e.g., video playback).
+> **Notice:** Values 1-3 are available for DirectX only.
+
+### Arguments
+
+- *int* **latency** - The maximum number of back buffer frames allowed. One of the following values:
+
+  - **0** - sequential rendering CPU-GPU-CPU-GPU...
+  - **1** - 1 buffer (by default)
+  - **2** - 2 buffers
+  - **3** - 3 buffers
+
+## int getLatency () const
+
+***Console*:**`render_latency`Returns the current maximum number of back buffer frames that a driver is allowed to queue for rendering. The buffers are used for GPU load optimization: in certain cases several command buffers (frames) can be processed by GPU at once increasing the [**Waiting GPU**](../../../tools/profiling/profiler/index.md#present) time for one frame and having zero **Waiting GPU** time for the next ones. Thus, GPU avoids rendering spikes, but increased **Waiting GPU** time will cause a spike in application logic, in case when the logic is bound to [duration of a single frame](../../../api/library/engine/class.game_usc.md#getIFps_float). **Frame latency** is the number of frames that are allowed to be stored in a queue before submission for rendering. Latency is often used to control how the CPU chooses between responding to user input and frames that are in the render queue. In certain cases (high GPU load, VSYNC usage) it may be required to queue more frames of data, it is also beneficial for applications with no user input (e.g., video playback).
+> **Notice:** Values 1-3 are available for DirectX only.
+
+### Return value
+
+Current maximum number of back buffer frames allowed. One of the following values:
+- **0** - sequential rendering CPU-GPU-CPU-GPU...
+- **1** - 1 buffer (by default)
+- **2** - 2 buffers
+- **3** - 3 buffers
+
+## void setDeferredMaterialGUID ( UGUID guid )
+
+Sets a new material that will be used on the [Deferred Composite](../../../principles/render/sequence/index.md#deferred_composite) stage of rendering sequence. A [debug material](#addDebugMaterial_Material_void) can be put here in order to be added to the final image.
+### Arguments
+
+- *[UGUID](../../../api/library/filesystem/class.uguid_usc.md)* **guid** - The material GUID.
+
+## UGUID getDeferredMaterialGUID () const
+
+Returns the current material that will be used on the [Deferred Composite](../../../principles/render/sequence/index.md#deferred_composite) stage of rendering sequence. A [debug material](#addDebugMaterial_Material_void) can be put here in order to be added to the final image.
+### Return value
+
+Current material GUID.
+## void setDebug ( bool debug = 0 )
+
+***Console*:**`render_debug`Sets a new value indicating whether debug materials (the *debug_materials* material) are rendered. Debug materials can be used for debugging of image generation stages. For example, you can render only SSR, or only cubemaps and so on.
+### Arguments
+
+- *bool* **debug** - Set **true** to enable rendering of debug materials; **false** - to disable it. The default value is **false**.
+
+## bool isDebug () const
+
+***Console*:**`render_debug`Returns the current value indicating whether debug materials (the *debug_materials* material) are rendered. Debug materials can be used for debugging of image generation stages. For example, you can render only SSR, or only cubemaps and so on.
+### Return value
+
+**true** if rendering of debug materials is enabled; otherwise **false**. The default value is **false**.
+## void setGbufferLightmap ( bool lightmap = 1 )
+
+***Console*:**`render_gbuffer_lightmap`Sets a new value indicating if lightmap data is stored in the gbuffer.
+### Arguments
+
+- *bool* **lightmap** - Set **true** to enable storing lightmap data in the GBuffer; **false** - to disable it. The default value is **true**.
+
+## bool isGbufferLightmap () const
+
+***Console*:**`render_gbuffer_lightmap`Returns the current value indicating if lightmap data is stored in the gbuffer.
+### Return value
+
+**true** if storing lightmap data in the GBuffer is enabled; otherwise **false**. The default value is **true**.
+## void setDepthPrePass ( bool pass = 0 )
+
+***Console*:**`render_depth_pre_pass`Sets a new value indicating if depth pre-pass rendering is enabled. When enabled, an additional depth buffer rendering pass is performed in the beginning of the rendering sequence.
+> **Notice:** This option can be used to gain performance for well optimized scenes using LODs and having a low-to-medium number of triangles in case of GPU bottlenecks. In other cases (heavy CAD models, large number of triangles and CPU bottlenecks) it may reduce performance, so it is recommended to use [profiling tools](../../../tools/profiling/index.md) to make sure that a positive effect is obtained.
+
+
+### Arguments
+
+- *bool* **pass** - Set **true** to enable depth pre-pass rendering; **false** - to disable it. The default value is **false**.
+
+## bool isDepthPrePass () const
+
+***Console*:**`render_depth_pre_pass`Returns the current value indicating if depth pre-pass rendering is enabled. When enabled, an additional depth buffer rendering pass is performed in the beginning of the rendering sequence.
+> **Notice:** This option can be used to gain performance for well optimized scenes using LODs and having a low-to-medium number of triangles in case of GPU bottlenecks. In other cases (heavy CAD models, large number of triangles and CPU bottlenecks) it may reduce performance, so it is recommended to use [profiling tools](../../../tools/profiling/index.md) to make sure that a positive effect is obtained.
+
+
+### Return value
+
+**true** if depth pre-pass rendering is enabled; otherwise **false**. The default value is **false**.
+## void setVirtualResolution ( )
+
+***Console*:**`render_virtual_resolution`Sets a new virtual screen resolution. This option can be used to render video with high resolution (e.g. 8K) regardless of monitor's resolution.
+### Arguments
+
+- **resolution** - The virtual screen resolution (X, Y), in pixels (**[screen_width] [screen_height]**). **-1; -1** - default value
+
+## getVirtualResolution () const
+
+***Console*:**`render_virtual_resolution`Returns the current virtual screen resolution. This option can be used to render video with high resolution (e.g. 8K) regardless of monitor's resolution.
+### Return value
+
+Current virtual screen resolution (X, Y), in pixels (**[screen_width] [screen_height]**).
+**-1; -1** - default value
+## void setMaxFPS ( float fps = 0.0f )
+
+***Console*:**`render_max_fps`Sets a new maximum FPS value, to which rendering FPS is to be clamped.
+0 - disables FPS clamping. Both [VSync](../../../code/fundamentals/execution_sequence/index.md#waiting_gpu), and *Max FPS* are actually about an additional idle period at the end of the frame. In case of *VSync* the Engine shall wait for the monitor to draw the whole image, while *Max FPS* enables you to specify any value for the delay (even a fractional, like 24.5). This clamping limit can be used for both debugging purposes and in the final build as well enabling you to smooth an unstable "jigsaw" framerate. For example, in case FPS jumps between 45 and 90, setting *Max FPS* to 45 may significantly improve your application's response visually.
+### Arguments
+
+- *float* **fps** - The maximum FPS value for clamping. Range of values: **[0.0f, inf]**. The default value is : **0.0f**.
+
+## float getMaxFPS () const
+
+***Console*:**`render_max_fps`Returns the current maximum FPS value, to which rendering FPS is to be clamped.
+0 - disables FPS clamping. Both [VSync](../../../code/fundamentals/execution_sequence/index.md#waiting_gpu), and *Max FPS* are actually about an additional idle period at the end of the frame. In case of *VSync* the Engine shall wait for the monitor to draw the whole image, while *Max FPS* enables you to specify any value for the delay (even a fractional, like 24.5). This clamping limit can be used for both debugging purposes and in the final build as well enabling you to smooth an unstable "jigsaw" framerate. For example, in case FPS jumps between 45 and 90, setting *Max FPS* to 45 may significantly improve your application's response visually.
+### Return value
+
+Current maximum FPS value for clamping.
+Range of values: **[0.0f, inf]**. The default value is : **0.0f**.
+## void setVSync ( )
+
+***Console*:**`render_vsync`Sets a new vertical synchronization (vsync) mode. Prevents rendering more than *video_refresh* frames per second. The following modes are available:
+### Arguments
+
+- **vsync** - The vertical synchronization mode (see the [VSYNC_*](#VSYNC_DISABLE) variables). One of the following values:
+
+  - **0** - Disable (by default)
+  - **1** - Strict
+  - **2** - Adaptive
+
+## getVSync () const
+
+***Console*:**`render_vsync`Returns the current vertical synchronization (vsync) mode. Prevents rendering more than *video_refresh* frames per second. The following modes are available:
+### Return value
+
+Current vertical synchronization mode (see the [VSYNC_*](#VSYNC_DISABLE) variables). One of the following values:
+- **0** - Disable (by default)
+- **1** - Strict
+- **2** - Adaptive
+
+## void setBorder ( )
+
+***Console*:**`render_border`Sets a new width and height of the image border (in pixels), to be rendered outside the horizontal bounds of the screen to reduce artefacts of post effects.
+> **Notice:** Increasing the width of the border may increase performance costs.
+
+### Arguments
+
+- **border** - The vector with components representing border sizes: **X** - width, **Y** - height. **(0, 0)** - default value
+
+## getBorder () const
+
+***Console*:**`render_border`Returns the current width and height of the image border (in pixels), to be rendered outside the horizontal bounds of the screen to reduce artefacts of post effects.
+> **Notice:** Increasing the width of the border may increase performance costs.
+
+### Return value
+
+Current vector with components representing border sizes: **X** - width, **Y** - height.
+**(0, 0)** - default value
+## void setBudget ( float budget = 1/60 )
+
+***Console*:**`render_budget`Sets a new render budget value, in seconds, which limits the number of loaded/created graphics resources during a frame according to loading/creation time.
+### Arguments
+
+- *float* **budget** - The render budget value, in seconds. Range of values: **[0.0f, inf]**. The default value is : **1/60**.
+
+## float getBudget () const
+
+***Console*:**`render_budget`Returns the current render budget value, in seconds, which limits the number of loaded/created graphics resources during a frame according to loading/creation time.
+### Return value
+
+Current render budget value, in seconds.
+Range of values: **[0.0f, inf]**. The default value is : **1/60**.
+## void setCompositeMaterialGUID ( UGUID guid )
+
+Sets a new GUID of a custom composite material that specifies a custom shader used for the final composition of the full-screen image instead of the default one.
+### Arguments
+
+- *[UGUID](../../../api/library/filesystem/class.uguid_usc.md)* **guid** - The composite material GUID.
+
+## UGUID getCompositeMaterialGUID () const
+
+Returns the current GUID of a custom composite material that specifies a custom shader used for the final composition of the full-screen image instead of the default one.
+### Return value
+
+Current composite material GUID.
+## int getNumScriptableMaterials () const
+
+Returns the current total number of [scriptable materials](../../../content/materials/scriptable.md) applied globally.
+### Return value
+
+Current total number of global scriptable materials.
+## void setViewport ( )
+
+Sets a new custom [viewport](../../../api/library/rendering/class.viewport_usc.md). To get the main viewport regardless of whether it is a custom or default one use *[getViewportMain()()](../../...md#ViewportMain)*.
+> **Notice:** In case the default viewport is used the return value will be nullptr
+
+### Arguments
+
+- **viewport** - The custom main viewport instance.
+
+## getViewport () const
+
+Returns the current custom [viewport](../../../api/library/rendering/class.viewport_usc.md). To get the main viewport regardless of whether it is a custom or default one use *[getViewportMain()()](../../...md#ViewportMain)*.
+> **Notice:** In case the default viewport is used the return value will be nullptr
+
+### Return value
+
+Current custom main viewport instance.
+## getViewportMain () const
+
+Returns the current main [viewport](../../../api/library/rendering/class.viewport_usc.md). The return value is the main viewport, regardless of whether it is a custom or default one (unlike the *[getViewport()()](../../...md#getViewport_Viewport)*).
+### Return value
+
+Current main viewport instance.
+## void setViewportMode ( )
+
+***Console*:**`render_viewport_mode`Sets a new viewport rendering mode. The following modes are available:
+- *Default* - default rendering mode.
+- *Curved Panorama 180* - 180-degree panorama with curved edges.
+- *Curved Panorama 360* - 360-degree panorama with curved edges.
+- *Linear Panorama 180* - 180-degree linear panorama without distortion at the edges.
+- *Linear Panorama 360* - 360-degree linear panorama without distortion at the edges.
+- *Panorama Fisheye Orthographic* - orthographic spherical panorama (fisheye) with an adjustable Field of View.
+- *Panorama Fisheye Equidistant* - equidistant (tru-theta or f-theta) spherical panorama (fisheye) with an adjustable Field of View.
+- *Panorama Fisheye Stereographic* - stereographic spherical panorama (fisheye) with an adjustable Field of View.
+- *Panorama Fisheye Equisolid* - equisolid (equal-area) spherical panorama (fisheye) with an adjustable Field of View.
+- *Anaglyph* - stereo mode that is viewed with red-cyan anaglyph glasses.
+- *Interlaced* - stereo mode that is used with interlaced stereo monitors and polarized 3D glasses.
+- *Horizontal* - horizontal stereo mode.
+- *Vertical* - vertical stereo mode.
+
+
+> **Notice:** If the panoramic rendering is enabled, underwater shafts and water line effects will be disabled.
+
+
+### Arguments
+
+- **mode** - The viewport rendering mode (default, stereo, or panoramic - see the [VIEWPORT_MODE_*](#VIEWPORT_MODE_DEFAULT) variables). One of the following values:
+
+  - **0** - Default (by default)
+  - **1** - Curved Panorama 180
+  - **2** - Curved Panorama 360
+  - **3** - Linear Panorama 180
+  - **4** - Linear Panorama 360
+  - **5** - Panorama Fisheye Orthographic
+  - **6** - Panorama Fisheye Equidistant
+  - **7** - Panorama Fisheye Stereographic
+  - **8** - Panorama Fisheye Equisolid
+  - **9** - Anaglyph
+  - **10** - Interlaced
+  - **11** - Horizontal
+  - **12** - Vertical
+
+## getViewportMode () const
+
+***Console*:**`render_viewport_mode`Returns the current viewport rendering mode. The following modes are available:
+- *Default* - default rendering mode.
+- *Curved Panorama 180* - 180-degree panorama with curved edges.
+- *Curved Panorama 360* - 360-degree panorama with curved edges.
+- *Linear Panorama 180* - 180-degree linear panorama without distortion at the edges.
+- *Linear Panorama 360* - 360-degree linear panorama without distortion at the edges.
+- *Panorama Fisheye Orthographic* - orthographic spherical panorama (fisheye) with an adjustable Field of View.
+- *Panorama Fisheye Equidistant* - equidistant (tru-theta or f-theta) spherical panorama (fisheye) with an adjustable Field of View.
+- *Panorama Fisheye Stereographic* - stereographic spherical panorama (fisheye) with an adjustable Field of View.
+- *Panorama Fisheye Equisolid* - equisolid (equal-area) spherical panorama (fisheye) with an adjustable Field of View.
+- *Anaglyph* - stereo mode that is viewed with red-cyan anaglyph glasses.
+- *Interlaced* - stereo mode that is used with interlaced stereo monitors and polarized 3D glasses.
+- *Horizontal* - horizontal stereo mode.
+- *Vertical* - vertical stereo mode.
+
+
+> **Notice:** If the panoramic rendering is enabled, underwater shafts and water line effects will be disabled.
+
+
+### Return value
+
+Current viewport rendering mode (default, stereo, or panoramic - see the [VIEWPORT_MODE_*](#VIEWPORT_MODE_DEFAULT) variables). One of the following values:
+- **0** - Default (by default)
+- **1** - Curved Panorama 180
+- **2** - Curved Panorama 360
+- **3** - Linear Panorama 180
+- **4** - Linear Panorama 360
+- **5** - Panorama Fisheye Orthographic
+- **6** - Panorama Fisheye Equidistant
+- **7** - Panorama Fisheye Stereographic
+- **8** - Panorama Fisheye Equisolid
+- **9** - Anaglyph
+- **10** - Interlaced
+- **11** - Horizontal
+- **12** - Vertical
+
+## void setShaderDefines ( )
+
+***Console*:**`render_defines`Sets a new macros list related to the renderer (defines to make corresponding resources available in shaders).
+### Arguments
+
+- **defines** - The additional shader defines.
+
+## getShaderDefines () const
+
+***Console*:**`render_defines`Returns the current macros list related to the renderer (defines to make corresponding resources available in shaders).
+### Return value
+
+Current additional shader defines.
+## void setClearBufferMask ( int mask )
+
+Sets a new buffer cleanup mask. This mask determines which buffers are to be cleared next time the [Engine::render()](../../../code/fundamentals/execution_sequence/index.md) is called. Thus, you can determine the contents of which buffers is to be kept, avoiding situations, when necessary data is cleared.
+```csharp
+Render.ClearBufferMask = RenderState.BUFFER_ALL;
+// color, depth & stencil buffers will be cleared
+Render.ClearBufferMask = RenderState.BUFFER_NONE;
+// no buffers will be cleared (useful if you want to embed the engine somewhere)
+Render.ClearBufferMask = RenderState.BUFFER_DEPTH;
+// only the depth buffer will be cleared
+
+// masks can be combined:
+Render.ClearBufferMask = BUFFER_COLOR | BUFFER_STENCIL;
+// color and stencil buffer will be cleared
+
+// there is a separate BUFFER_DEPTH_STENCIL mask for convenience
+Render.ClearBufferMask(BUFFER_DEPTH_STENCIL);
+
+```
+
+
+### Arguments
+
+- *int* **mask** - The buffer mask: one of the [RENDER_STATE_BUFFER_*](../../../api/library/rendering/class.renderstate_usc.md#BUFFER_ALL) variables.
+
+## int getClearBufferMask () const
+
+Returns the current buffer cleanup mask. This mask determines which buffers are to be cleared next time the [Engine::render()](../../../code/fundamentals/execution_sequence/index.md) is called. Thus, you can determine the contents of which buffers is to be kept, avoiding situations, when necessary data is cleared.
+```csharp
+Render.ClearBufferMask = RenderState.BUFFER_ALL;
+// color, depth & stencil buffers will be cleared
+Render.ClearBufferMask = RenderState.BUFFER_NONE;
+// no buffers will be cleared (useful if you want to embed the engine somewhere)
+Render.ClearBufferMask = RenderState.BUFFER_DEPTH;
+// only the depth buffer will be cleared
+
+// masks can be combined:
+Render.ClearBufferMask = BUFFER_COLOR | BUFFER_STENCIL;
+// color and stencil buffer will be cleared
+
+// there is a separate BUFFER_DEPTH_STENCIL mask for convenience
+Render.ClearBufferMask(BUFFER_DEPTH_STENCIL);
+
+```
+
+
+### Return value
+
+Current buffer mask: one of the [RENDER_STATE_BUFFER_*](../../../api/library/rendering/class.renderstate_usc.md#BUFFER_ALL) variables.
+## void setFirstFrame ( bool frame )
+
+Sets a new value indicating if the first frame is enabled over the current frame.
+### Arguments
+
+- *bool* **frame** - Set **true** to enable first frame over the current frame; **false** - to disable it.
+
+## bool isFirstFrame () const
+
+Returns the current value indicating if the first frame is enabled over the current frame.
+### Return value
+
+**true** if first frame over the current frame is enabled; otherwise **false**.
+## void setData ( )
+
+Sets a new user data associated with the render. This string is written directly into a `*.world` file. Namely, into the *data* child tag of the *render* tag, for example:
+```xml
+<world version="1.21">
+	<render>
+		<data>User data</data>
+	</render>
+</world>
+
+```
+
+
+### Arguments
+
+- **data** - The user data. The data can contain an XML formatted string.
+
+## getData () const
+
+Returns the current user data associated with the render. This string is written directly into a `*.world` file. Namely, into the *data* child tag of the *render* tag, for example:
+```xml
+<world version="1.21">
+	<render>
+		<data>User data</data>
+	</render>
+</world>
+
+```
+
+
+### Return value
+
+Current user data. The data can contain an XML formatted string.
+## int getMaxFieldShorelines () const
+
+Returns the current maximum limit of [FieldShoreline](../../../api/library/fields/class.fieldshoreline_usc.md) nodes allowed to be used in shaders.
+> **Notice:** Higher values will affect shader compilation time and performance
+
+### Return value
+
+Current maximum number of [FieldShoreline](../../../api/library/fields/class.fieldshoreline_usc.md) nodes allowed.
+## int getMaxFieldHeights () const
+
+Returns the current maximum limit of [FieldHeight](../../../api/library/fields/class.fieldheight_usc.md) nodes allowed to be used in shaders.
+> **Notice:** Higher values will affect shader compilation time and performance
+
+### Return value
+
+Current maximum number of [FieldHeight](../../../api/library/fields/class.fieldheight_usc.md) nodes allowed.
+## int getMaxFieldAnimations () const
+
+Returns the current maximum limit of [FieldAnimation](../../../api/library/fields/class.fieldanimation_usc.md) nodes allowed to be used in shaders.
+> **Notice:** Higher values will affect shader compilation time and performance
+
+### Return value
+
+Current maximum number of [FieldAnimation](../../../api/library/fields/class.fieldanimation_usc.md) nodes allowed.
+## int getMaxFieldSpacers () const
+
+Returns the current maximum limit of [FieldSpacer](../../../api/library/fields/class.fieldspacer_usc.md) nodes allowed to be used in shaders.
+> **Notice:** Higher values will affect shader compilation time and performance
+
+### Return value
+
+Current maximum number of [FieldSpacer](../../../api/library/fields/class.fieldspacer_usc.md) nodes allowed.
+## int getNumInstances () const
+
+Returns the current maximum number of instances that can be rendered for each of the following node types:
+- [Field Animation](../../../objects/effects/fields/field_animation/index.md)
+- [Field Height](../../../objects/effects/fields/field_height/index.md)
+- [Field Shoreline](../../../objects/effects/fields/field_shoreline/index.md)
+- [Field Spacer](../../../objects/effects/fields/field_spacer/index.md)
+
+
+> **Notice:** Returned value depends on the graphics API used.
+
+
+### Return value
+
+Current maximum number of instances.
+## bool isFlipped () const
+
+Returns the current
+### Return value
+
+**true** if render flipping is enabled; otherwise **false**.
+## int getAPI () const
+
+Returns the current Graphics API (see *[API_*](#API_DIRECT3D12)* variables).
+### Return value
+
+Current graphics API flag (see *[API_*](#API_DIRECT3D12)* variables).
+## void setLandscapeCacheCPUSize ( int cpusize = 10 )
+
+***Console*:**`render_landscape_cache_cpu_size`Sets a new CPU cache size to be used for landscape terrain rendering, in percentage of the total memory. CPU cache size affects intersections, physics, streaming, etc. The size of CPU cache depends on the scene.
+### Arguments
+
+- *int* **cpusize** - The CPU cache size, in percentage of the total CPU memory. Range of values: **[1, 100]**. The default value is : **10**.
+
+## int getLandscapeCacheCPUSize () const
+
+***Console*:**`render_landscape_cache_cpu_size`Returns the current CPU cache size to be used for landscape terrain rendering, in percentage of the total memory. CPU cache size affects intersections, physics, streaming, etc. The size of CPU cache depends on the scene.
+### Return value
+
+Current CPU cache size, in percentage of the total CPU memory.
+Range of values: **[1, 100]**. The default value is : **10**.
+## void setLandscapeCacheCPUPrefetchRadius ( float radius = 0.0f )
+
+***Console*:**`render_landscape_cache_cpu_prefetch_radius`Sets a new radius within which heights data is pre-loaded into memory for correct calculation of collisions and intersections.
+### Arguments
+
+- *float* **radius** - The radius within which heights data is pre-loaded into memory. Range of values: **[0.0f, inf]**. The default value is : **0.0f**.
+
+## float getLandscapeCacheCPUPrefetchRadius () const
+
+***Console*:**`render_landscape_cache_cpu_prefetch_radius`Returns the current radius within which heights data is pre-loaded into memory for correct calculation of collisions and intersections.
+### Return value
+
+Current radius within which heights data is pre-loaded into memory.
+Range of values: **[0.0f, inf]**. The default value is : **0.0f**.
+## void setLandscapeCacheGPUSize ( int gpusize = 4 )
+
+***Console*:**`render_landscape_cache_gpu_size`Sets a new GPU cache size to be used for landscape terrain rendering, in percentage of the total GPU memory. GPU cache is used to accumulate tiles, that are visible to the camera, before streaming them to the megatexture.
+> **Notice:** High-resolution maps require larger cache capacity.
+
+### Arguments
+
+- *int* **gpusize** - The GPU cache size, in percentage of the total GPU memory. Range of values: **[1, 100]**. The default value is : **4**.
+
+## int getLandscapeCacheGPUSize () const
+
+***Console*:**`render_landscape_cache_gpu_size`Returns the current GPU cache size to be used for landscape terrain rendering, in percentage of the total GPU memory. GPU cache is used to accumulate tiles, that are visible to the camera, before streaming them to the megatexture.
+> **Notice:** High-resolution maps require larger cache capacity.
+
+### Return value
+
+Current GPU cache size, in percentage of the total GPU memory.
+Range of values: **[1, 100]**. The default value is : **4**.
+## void setLandscapeCacheGPULifeTime ( int time = 4 )
+
+***Console*:**`render_landscape_cache_gpu_life_time`Sets a new lifetime of GPU cache used for Landscape Terrain rendering, in frames.
+### Arguments
+
+- *int* **time** - The GPU cache lifetime, number of frames. Range of values: **[1, 60]**. The default value is : **4**.
+
+## int getLandscapeCacheGPULifeTime () const
+
+***Console*:**`render_landscape_cache_gpu_life_time`Returns the current lifetime of GPU cache used for Landscape Terrain rendering, in frames.
+### Return value
+
+Current GPU cache lifetime, number of frames.
+Range of values: **[1, 60]**. The default value is : **4**.
+## void setLandscapeTerrainGeometrySubpixelReduction ( float reduction = 6.0f )
+
+***Console*:**`render_landscape_terrain_geometry_subpixel_reduction`Sets a new minimum ratio between the polygon size (in screen space) to the size of an area in the viewport for [skipping polygons rendering](../../../objects/objects/terrain/landscape_terrain/settings.md#subpixel_reduction) (the ones having a lower ratio will be removed).
+> **Notice:** Setting too high values may cause small but noticeable visual artifacts when the camera moves.
+
+### Arguments
+
+- *float* **reduction** - The subpixel reduction ratio. Range of values: **[0.0f, 50.0f]**. The default value is : **6.0f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[LandscapeTerrainGeometryPreset](/api/library/rendering/class.render_cs#render_landscape_terrain_geometry_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getLandscapeTerrainGeometrySubpixelReduction () const
+
+***Console*:**`render_landscape_terrain_geometry_subpixel_reduction`Returns the current minimum ratio between the polygon size (in screen space) to the size of an area in the viewport for [skipping polygons rendering](../../../objects/objects/terrain/landscape_terrain/settings.md#subpixel_reduction) (the ones having a lower ratio will be removed).
+> **Notice:** Setting too high values may cause small but noticeable visual artifacts when the camera moves.
+
+### Return value
+
+Current subpixel reduction ratio.
+Range of values: **[0.0f, 50.0f]**. The default value is : **6.0f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[LandscapeTerrainGeometryPreset](/api/library/rendering/class.render_cs#render_landscape_terrain_geometry_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setLandscapeTerrainGeometryProgression ( float progression = 1.5f )
+
+***Console*:**`render_landscape_terrain_geometry_progression`Sets a new progression of [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md) geometry tessellation.
+> **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
+
+### Arguments
+
+- *float* **progression** - The progression value. Range of values: **[0.0f, 50.0f]**. The default value is : **1.5f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[LandscapeTerrainGeometryPreset](/api/library/rendering/class.render_cs#render_landscape_terrain_geometry_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getLandscapeTerrainGeometryProgression () const
+
+***Console*:**`render_landscape_terrain_geometry_progression`Returns the current progression of [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md) geometry tessellation.
+> **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
+
+### Return value
+
+Current progression value.
+Range of values: **[0.0f, 50.0f]**. The default value is : **1.5f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[LandscapeTerrainGeometryPreset](/api/library/rendering/class.render_cs#render_landscape_terrain_geometry_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setLandscapeTerrainGeometryPolygonSize ( float size = 0.01f )
+
+***Console*:**`render_landscape_terrain_geometry_polygon_size`Sets a new size of Landscape Terrain polygons defining the maximum allowed density of Landscape Terrain geometry.
+> **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
+
+### Arguments
+
+- *float* **size** - The size of Landscape Terrain polygons, in units. Range of values: **[0.0f, 1000.0f]**. The default value is : **0.01f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[LandscapeTerrainGeometryPreset](/api/library/rendering/class.render_cs#render_landscape_terrain_geometry_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getLandscapeTerrainGeometryPolygonSize () const
+
+***Console*:**`render_landscape_terrain_geometry_polygon_size`Returns the current size of Landscape Terrain polygons defining the maximum allowed density of Landscape Terrain geometry.
+> **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
+
+### Return value
+
+Current size of Landscape Terrain polygons, in units.
+Range of values: **[0.0f, 1000.0f]**. The default value is : **0.01f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[LandscapeTerrainGeometryPreset](/api/library/rendering/class.render_cs#render_landscape_terrain_geometry_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setLandscapeTerrainGeometryHoles ( bool holes = 1 )
+
+***Console*:**`render_landscape_terrain_geometry_holes`Sets a new value indicating if [decal-based holes](../../../objects/objects/terrain/landscape_terrain/index.md#decal_holes) for the [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md) are enabled.
+### Arguments
+
+- *bool* **holes** - Set **true** to enable decal-based holes for Landscape Terrain; **false** - to disable it. The default value is **true**.
+
+## bool isLandscapeTerrainGeometryHoles () const
+
+***Console*:**`render_landscape_terrain_geometry_holes`Returns the current value indicating if [decal-based holes](../../../objects/objects/terrain/landscape_terrain/index.md#decal_holes) for the [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md) are enabled.
+### Return value
+
+**true** if decal-based holes for Landscape Terrain is enabled; otherwise **false**. The default value is **true**.
+## void setLandscapeTerrainDetailResolutionAdditionalMask ( int mask = 4 )
+
+***Console*:**`render_landscape_terrain_detail_resolution_additional_mask`Sets a new resolution of the additional mask texture for details of the [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md).
+> **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
+
+
+### Arguments
+
+- *int* **mask** - The texture resolution, in pixels. One of the following values:
+
+  - **0** - 64×64
+  - **1** - 128×128
+  - **2** - 256×256
+  - **3** - 512×512
+  - **4** - 1024×1024 (by default)
+  - **5** - 2048×2048
+  - **6** - 4096×4096
+  - **7** - 8192×8192
+  - **8** - 16384×16384
+
+## int getLandscapeTerrainDetailResolutionAdditionalMask () const
+
+***Console*:**`render_landscape_terrain_detail_resolution_additional_mask`Returns the current resolution of the additional mask texture for details of the [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md).
+> **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
+
+
+### Return value
+
+Current texture resolution, in pixels. One of the following values:
+- **0** - 64×64
+- **1** - 128×128
+- **2** - 256×256
+- **3** - 512×512
+- **4** - 1024×1024 (by default)
+- **5** - 2048×2048
+- **6** - 4096×4096
+- **7** - 8192×8192
+- **8** - 16384×16384
+
+## void setLandscapeTerrainDetailResolutionHeight ( int height = 4 )
+
+***Console*:**`render_landscape_terrain_detail_resolution_height`Sets a new resolution of the height texture for details of the [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md).
+> **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
+
+
+### Arguments
+
+- *int* **height** - The height texture resolution. One of the following values:
+
+  - **0** - 64×64
+  - **1** - 128×128
+  - **2** - 256×256
+  - **3** - 512×512
+  - **4** - 1024×1024 (by default)
+  - **5** - 2048×2048
+  - **6** - 4096×4096
+  - **7** - 8192×8192
+  - **8** - 16384×16384
+
+## int getLandscapeTerrainDetailResolutionHeight () const
+
+***Console*:**`render_landscape_terrain_detail_resolution_height`Returns the current resolution of the height texture for details of the [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md).
+> **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
+
+
+### Return value
+
+Current height texture resolution. One of the following values:
+- **0** - 64×64
+- **1** - 128×128
+- **2** - 256×256
+- **3** - 512×512
+- **4** - 1024×1024 (by default)
+- **5** - 2048×2048
+- **6** - 4096×4096
+- **7** - 8192×8192
+- **8** - 16384×16384
+
+## void setLandscapeTerrainDetailResolutionAlbedo ( int albedo = 4 )
+
+***Console*:**`render_landscape_terrain_detail_resolution_albedo`Sets a new resolution of the albedo texture for details of the [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md).
+> **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
+
+
+### Arguments
+
+- *int* **albedo** - The albedo texture resolution. One of the following values:
+
+  - **0** - 64×64
+  - **1** - 128×128
+  - **2** - 256×256
+  - **3** - 512×512
+  - **4** - 1024×1024 (by default)
+  - **5** - 2048×2048
+  - **6** - 4096×4096
+  - **7** - 8192×8192
+  - **8** - 16384×16384
+
+## int getLandscapeTerrainDetailResolutionAlbedo () const
+
+***Console*:**`render_landscape_terrain_detail_resolution_albedo`Returns the current resolution of the albedo texture for details of the [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md).
+> **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
+
+
+### Return value
+
+Current albedo texture resolution. One of the following values:
+- **0** - 64×64
+- **1** - 128×128
+- **2** - 256×256
+- **3** - 512×512
+- **4** - 1024×1024 (by default)
+- **5** - 2048×2048
+- **6** - 4096×4096
+- **7** - 8192×8192
+- **8** - 16384×16384
+
+## void setLandscapeTerrainVTTilesReloadPerFrame ( int frame = 4 )
+
+***Console*:**`render_landscape_terrain_vt_tiles_reload_per_frame`Sets a new number of tiles to be reloaded per frame after applying changes to the [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md) surface.
+### Arguments
+
+- *int* **frame** - The number of tiles. Range of values: **[1, 64]**. The default value is : **4**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[LandscapeTerrainStreamingPreset](/api/library/rendering/class.render_cs#render_landscape_terrain_streaming_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## int getLandscapeTerrainVTTilesReloadPerFrame () const
+
+***Console*:**`render_landscape_terrain_vt_tiles_reload_per_frame`Returns the current number of tiles to be reloaded per frame after applying changes to the [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md) surface.
+### Return value
+
+Current number of tiles.
+Range of values: **[1, 64]**. The default value is : **4**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[LandscapeTerrainStreamingPreset](/api/library/rendering/class.render_cs#render_landscape_terrain_streaming_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setLandscapeTerrainVTTilesLoadPerFrame ( int frame = 4 )
+
+***Console*:**`render_landscape_terrain_vt_tiles_load_per_frame`Sets a new number of [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md) tiles loaded per frame. You can decrease the value of this parameter to reduce spikes, but in this case streaming becomes slower and more noticeable.
+### Arguments
+
+- *int* **frame** - The number of tiles. Range of values: **[1, 64]**. The default value is : **4**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[LandscapeTerrainStreamingPreset](/api/library/rendering/class.render_cs#render_landscape_terrain_streaming_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## int getLandscapeTerrainVTTilesLoadPerFrame () const
+
+***Console*:**`render_landscape_terrain_vt_tiles_load_per_frame`Returns the current number of [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md) tiles loaded per frame. You can decrease the value of this parameter to reduce spikes, but in this case streaming becomes slower and more noticeable.
+### Return value
+
+Current number of tiles.
+Range of values: **[1, 64]**. The default value is : **4**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[LandscapeTerrainStreamingPreset](/api/library/rendering/class.render_cs#render_landscape_terrain_streaming_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setLandscapeTerrainVTTilesUpdatePerFrame ( int frame = 60 )
+
+***Console*:**`render_landscape_terrain_vt_tiles_update_per_frame`Sets a new number of tiles passed to the virtual texture of the [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md) each frame.
+### Arguments
+
+- *int* **frame** - The number of tiles. Range of values: **[1, 256]**. The default value is : **60**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[LandscapeTerrainStreamingPreset](/api/library/rendering/class.render_cs#render_landscape_terrain_streaming_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## int getLandscapeTerrainVTTilesUpdatePerFrame () const
+
+***Console*:**`render_landscape_terrain_vt_tiles_update_per_frame`Returns the current number of tiles passed to the virtual texture of the [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md) each frame.
+### Return value
+
+Current number of tiles.
+Range of values: **[1, 256]**. The default value is : **60**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[LandscapeTerrainStreamingPreset](/api/library/rendering/class.render_cs#render_landscape_terrain_streaming_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setLandscapeTerrainVTFiltering ( int vtfiltering = 1 )
+
+***Console*:**`render_landscape_terrain_vt_filtering`Sets a new filtering mode for the [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md) textures. The following values are available:
+- Low - use the lower mip-level
+- Medium - use the higher mip-level
+- High - linearly interpolate between adjacent mip-levels
+
+
+### Arguments
+
+- *int* **vtfiltering** - The filtering mode to be used. One of the following values: > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[LandscapeTerrainStreamingPreset](/api/library/rendering/class.render_cs#render_landscape_terrain_streaming_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+  - **0** - Low
+  - **1** - Medium (by default)
+  - **2** - High
+
+## int getLandscapeTerrainVTFiltering () const
+
+***Console*:**`render_landscape_terrain_vt_filtering`Returns the current filtering mode for the [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md) textures. The following values are available:
+- Low - use the lower mip-level
+- Medium - use the higher mip-level
+- High - linearly interpolate between adjacent mip-levels
+
+
+### Return value
+
+Current filtering mode to be used. One of the following values:
+- **0** - Low
+- **1** - Medium (by default)
+- **2** - High
+
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[LandscapeTerrainStreamingPreset](/api/library/rendering/class.render_cs#render_landscape_terrain_streaming_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setLandscapeTerrainVTDetailLevelByAngle ( float angle = 0.95f )
+
+***Console*:**`render_landscape_terrain_vt_detail_level_by_angle`Sets a new value indicating detail level reduction depending on the inclination of the the Landscape Terrain polygons relative to viewing direction. Can be used to reduce streaming load and memory consumption. The value of 1 corresponds to the pixel-to-pixel quality, and lower values decrease it.
+### Arguments
+
+- *float* **angle** - The detail level quality. Range of values: **[0.0f, 1.0f]**. The default value is : **0.95f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[LandscapeTerrainStreamingPreset](/api/library/rendering/class.render_cs#render_landscape_terrain_streaming_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getLandscapeTerrainVTDetailLevelByAngle () const
+
+***Console*:**`render_landscape_terrain_vt_detail_level_by_angle`Returns the current value indicating detail level reduction depending on the inclination of the the Landscape Terrain polygons relative to viewing direction. Can be used to reduce streaming load and memory consumption. The value of 1 corresponds to the pixel-to-pixel quality, and lower values decrease it.
+### Return value
+
+Current detail level quality.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.95f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[LandscapeTerrainStreamingPreset](/api/library/rendering/class.render_cs#render_landscape_terrain_streaming_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setLandscapeTerrainVTTargetResolution ( )
+
+***Console*:**`render_landscape_terrain_vt_target_resolution`Sets a new [target resolution](../../../objects/objects/terrain/landscape_terrain/settings.md#target_resolution) (width x height) for the Landscape Terrain, in pixels.
+### Arguments
+
+- **resolution** - The target viewport resolution (in pixels) as a two-component vector (width, height). **1344 х 756** - (default)
+
+## getLandscapeTerrainVTTargetResolution () const
+
+***Console*:**`render_landscape_terrain_vt_target_resolution`Returns the current [target resolution](../../../objects/objects/terrain/landscape_terrain/settings.md#target_resolution) (width x height) for the Landscape Terrain, in pixels.
+### Return value
+
+Current target viewport resolution (in pixels) as a two-component vector (width, height).
+ **1344 х 756** - (default)
+## void setLandscapeTerrainVTMemorySize ( float size = 0.4f )
+
+***Console*:**`render_landscape_terrain_vt_memory_size`Sets a new value defining memory consumption for the [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md) textures. The value is interpreted as follows:
+- 0.0f - 3072×3072 (~200 MB of VRAM)
+- 1.0f - 16384×16384 (~3.1 GB of VRAM)
+- **0.4f** - 8192×8192 (~860 MB of VRAM)
+
+
+> **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
+
+
+### Arguments
+
+- *float* **size** - The memory consumption factor. Range of values: **[0.0f, 1.0f]**. The default value is : **0.4f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[LandscapeTerrainStreamingPreset](/api/library/rendering/class.render_cs#render_landscape_terrain_streaming_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getLandscapeTerrainVTMemorySize () const
+
+***Console*:**`render_landscape_terrain_vt_memory_size`Returns the current value defining memory consumption for the [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md) textures. The value is interpreted as follows:
+- 0.0f - 3072×3072 (~200 MB of VRAM)
+- 1.0f - 16384×16384 (~3.1 GB of VRAM)
+- **0.4f** - 8192×8192 (~860 MB of VRAM)
+
+
+> **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
+
+
+### Return value
+
+Current memory consumption factor.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.4f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[LandscapeTerrainStreamingPreset](/api/library/rendering/class.render_cs#render_landscape_terrain_streaming_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setLandscapeTerrainTexelSize ( float size = 0.001f )
+
+***Console*:**`render_landscape_terrain_texel_size`Sets a new texel size of the [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md) render textures representing the maximum level of detail for the albedo, normal, and height components of the Landscape Terrain.
+> **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
+
+### Arguments
+
+- *float* **size** - The Landscape Terrain texel size (in meters). Range of values: **[0.0001f, 1.0f]**. The default value is : **0.001f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[LandscapeTerrainStreamingPreset](/api/library/rendering/class.render_cs#render_landscape_terrain_streaming_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getLandscapeTerrainTexelSize () const
+
+***Console*:**`render_landscape_terrain_texel_size`Returns the current texel size of the [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md) render textures representing the maximum level of detail for the albedo, normal, and height components of the Landscape Terrain.
+> **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
+
+### Return value
+
+Current Landscape Terrain texel size (in meters).
+Range of values: **[0.0001f, 1.0f]**. The default value is : **0.001f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[LandscapeTerrainStreamingPreset](/api/library/rendering/class.render_cs#render_landscape_terrain_streaming_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setLandscapeTerrainVisibleDistance ( float distance = 30000.0f )
+
+***Console*:**`render_landscape_terrain_visible_distance`Sets a new maximum visibility distance for the [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md), in meters. The terrain is visible, as long as the distance between the camera and the terrain does not exceed this value.
+> **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
+
+### Arguments
+
+- *float* **distance** - The maximum visibility distance, in meters. Range of values: **[0.0f, inf]**. The default value is : **30000.0f**.
+
+## float getLandscapeTerrainVisibleDistance () const
+
+***Console*:**`render_landscape_terrain_visible_distance`Returns the current maximum visibility distance for the [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md), in meters. The terrain is visible, as long as the distance between the camera and the terrain does not exceed this value.
+> **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
+
+### Return value
+
+Current maximum visibility distance, in meters.
+Range of values: **[0.0f, inf]**. The default value is : **30000.0f**.
+## void setLandscapeTerrainMaskDithering ( float dithering = 1.0f )
+
+***Console*:**`render_landscape_terrain_mask_dithering`Sets a new global dither amount multiplier to be used for rendering details of the [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md). Dithering enables reduction of graphical artefacts in case of increased Mask Contrast values set for a detail. This is a global multiplier for dithering values set [for each detail mask](../../../api/library/objects/landscape_terrain/class.terraindetailmask_usc.md#setDithering_float_void).
+> **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
+
+### Arguments
+
+- *float* **dithering** - The global dither amount multiplier. Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+
+## float getLandscapeTerrainMaskDithering () const
+
+***Console*:**`render_landscape_terrain_mask_dithering`Returns the current global dither amount multiplier to be used for rendering details of the [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md). Dithering enables reduction of graphical artefacts in case of increased Mask Contrast values set for a detail. This is a global multiplier for dithering values set [for each detail mask](../../../api/library/objects/landscape_terrain/class.terraindetailmask_usc.md#setDithering_float_void).
+> **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
+
+### Return value
+
+Current global dither amount multiplier.
+Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+## void setFfpAntialiasingLines ( bool lines )
+
+***Console*:**`render_ffp_antialiasing_lines`Sets a new value indicating if antialiasing is enabled for rendering of the Visualizer and other FFP lines.
+### Arguments
+
+- *bool* **lines** - Set **true** to enable antialiasing for Visualizer and FFP; **false** - to disable it. The default value is **true**.
+
+## bool isFfpAntialiasingLines () const
+
+***Console*:**`render_ffp_antialiasing_lines`Returns the current value indicating if antialiasing is enabled for rendering of the Visualizer and other FFP lines.
+### Return value
+
+**true** if antialiasing for Visualizer and FFP is enabled; otherwise **false**. The default value is **true**.
+## void setWireframeAntialiasing ( bool antialiasing )
+
+***Console*:**`render_wireframe_antialiasing`Sets a new value indicating if antialiasing is enabled for wireframe rendering.
+### Arguments
+
+- *bool* **antialiasing** - Set **true** to enable antialiasing for wireframe rendering; **false** - to disable it. The default value is **true**.
+
+## bool isWireframeAntialiasing () const
+
+***Console*:**`render_wireframe_antialiasing`Returns the current value indicating if antialiasing is enabled for wireframe rendering.
+### Return value
+
+**true** if antialiasing for wireframe rendering is enabled; otherwise **false**. The default value is **true**.
+## void setEnvironmentHazeScreenSpaceGlobalIllumination ( bool illumination = 1 )
+
+***Console*:**`render_environment_haze_screen_space_global_illumination`Sets a new value indicating if the Screen-Space Haze Global Illumination effect is enabled. SSHGI - is a screen-space effect ensuring consistency of haze color with the current color of Global Illumination.
+> **Notice:** Available for **Physically Based** [haze gradient mode](#render_environment_haze_gradient) only.
+
+### Arguments
+
+- *bool* **illumination** - Set **true** to enable Screen-Space Haze Global Illumination effect; **false** - to disable it. The default value is **true**.
+
+## bool isEnvironmentHazeScreenSpaceGlobalIllumination () const
+
+***Console*:**`render_environment_haze_screen_space_global_illumination`Returns the current value indicating if the Screen-Space Haze Global Illumination effect is enabled. SSHGI - is a screen-space effect ensuring consistency of haze color with the current color of Global Illumination.
+> **Notice:** Available for **Physically Based** [haze gradient mode](#render_environment_haze_gradient) only.
+
+### Return value
+
+**true** if Screen-Space Haze Global Illumination effect is enabled; otherwise **false**. The default value is **true**.
+## void setEnvironmentHazeTemporalFilter ( bool filter = 1 )
+
+***Console*:**`render_environment_haze_temporal_filter`Sets a new value indicating if temporal filtering for the Screen-Space Haze Global Illumination effect is enabled.
+### Arguments
+
+- *bool* **filter** - Set **true** to enable temporal filtering for the Screen-Space Haze Global Illumination effect; **false** - to disable it. The default value is **true**.
+
+## bool isEnvironmentHazeTemporalFilter () const
+
+***Console*:**`render_environment_haze_temporal_filter`Returns the current value indicating if temporal filtering for the Screen-Space Haze Global Illumination effect is enabled.
+### Return value
+
+**true** if temporal filtering for the Screen-Space Haze Global Illumination effect is enabled; otherwise **false**. The default value is **true**.
+## void setEnvironmentHazeColorizationThreshold ( float threshold = 0.5f )
+
+***Console*:**`render_environment_haze_colorization_threshold`Sets a new treshold value for scene depth used when setting haze color for the SSHGI effect in "information lost" areas on the screen.
+- 0 - haze color is defined only by surfaces currently visible on the screen.
+- 1 - haze color is defined by surfaces everywhere, even in "information lost" areas.
+
+
+### Arguments
+
+- *float* **threshold** - The colorization threshold value. Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
+
+## float getEnvironmentHazeColorizationThreshold () const
+
+***Console*:**`render_environment_haze_colorization_threshold`Returns the current treshold value for scene depth used when setting haze color for the SSHGI effect in "information lost" areas on the screen.
+- 0 - haze color is defined only by surfaces currently visible on the screen.
+- 1 - haze color is defined by surfaces everywhere, even in "information lost" areas.
+
+
+### Return value
+
+Current colorization threshold value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
+## void setEnvironmentHazeColorizationIntensity ( float intensity = 0.95f )
+
+***Console*:**`render_environment_haze_colorization_intensity`Sets a new colorization intensity value that defines haze color in "information lost" areas on the screen.
+- 0 - haze in "information lost" areas will have the initial color (same as it would be without SSHGI).
+- 1 - haze in "information lost" areas will have the less bright color among the two, initial color and haze color with SSHGI correction.
+
+
+This parameter is ignored when *[Colorization Threshold](#render_environment_haze_colorization_threshold)* is set to 1, as there will be no "information lost" areas not covered by SSHGI.
+
+### Arguments
+
+- *float* **intensity** - The colorization intensity value. Range of values: **[0.0f, 1.0f]**. The default value is : **0.95f**.
+
+## float getEnvironmentHazeColorizationIntensity () const
+
+***Console*:**`render_environment_haze_colorization_intensity`Returns the current colorization intensity value that defines haze color in "information lost" areas on the screen.
+- 0 - haze in "information lost" areas will have the initial color (same as it would be without SSHGI).
+- 1 - haze in "information lost" areas will have the less bright color among the two, initial color and haze color with SSHGI correction.
+
+
+This parameter is ignored when *[Colorization Threshold](#render_environment_haze_colorization_threshold)* is set to 1, as there will be no "information lost" areas not covered by SSHGI.
+
+### Return value
+
+Current colorization intensity value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.95f**.
+## float getEnvironmentHazeScatteringMieFresnelPower () const
+
+Returns the current power of the Fresnel effect for Mie visibility. *Higher* values will tighten up the areas affected, while *lower* ones will allow more areas to be affected by the Fresnel effect.
+### Return value
+
+Current power of the Fresnel effect.
+## float getEnvironmentHazeScatteringMieFrontSideIntensity () const
+
+Returns the current falloff of the Fresnel effect for Mie intensity. This paremeter enables you to control light occlusion from *World* light sources by geometry.
+### Return value
+
+Current falloff of the Fresnel effect for Mie intensity.
+## float getEnvironmentHazeScatteringMieIntensity () const
+
+Returns the current minimum Mie intensity value for geometry-occluded areas. This value specifies the fraction of Mie intensity visible when the surface is viewed from straight on. Setting this value to 1 disables the Fresnel effect. You can use this parameter together with *Mie Frontside Intensity**[getEnvironmentHazeScatteringMieFrontSideIntensity()()](../../...md#getEnvironmentHazeScatteringMieFrontSideIntensity_float)* and *Mie Fresnel Power**[getEnvironmentHazeScatteringMieFresnelPower()()](../../...md#getEnvironmentHazeScatteringMieFresnelPower_float)* to control light occlusion from *World* light sources. Works for both opaque and transparent objects.
+### Return value
+
+Current minimum Mie intensity value for geometry-occluded areas in the [0.0f, 1.0f] range.
+## float getEnvironmentHazePhysicalSunColorSaturation () const
+
+Returns the current intensity of the impact of the sunlight on haze (how much the sunlight affects the haze).
+### Return value
+
+Current intensity of the sunlight color's contribution to the haze.
+## float getEnvironmentHazePhysicalSunLightIntensity () const
+
+Returns the current intensity of the impact of the sunlight on haze defining how much the sunlight affects the haze.
+### Return value
+
+Current intensity of the sunlight impact.
+## float getEnvironmentHazePhysicalAmbientColorSaturation () const
+
+Returns the current intensity of the ambient color's contribution to the haze (how much the sunlight affects the haze).
+### Return value
+
+Current intensity of the ambient color's contribution to the haze.
+## float getEnvironmentHazePhysicalAmbientLightIntensity () const
+
+Returns the current intensity of the impact of the ambient lighting on haze (how much the ambient lighting affects the haze).
+### Return value
+
+Current intensity of the ambient lighting impact.
+## float getEnvironmentHazePhysicalHalfFalloffHeight () const
+
+Returns the current height of the haze density gradient. The *higher* the value, the *longer* the haze desity reduces as the height grows, making the transition between the clear sky and haze smoother.
+### Return value
+
+Current height of the haze density gradient.
+## float getEnvironmentHazePhysicalHalfVisibilityDistance () const
+
+Returns the current distance to the boundary at which the visibility comprises 50%. There is no zero-visibility in the real world, so the half-visibility boundary is used to adjust haze distance.
+### Return value
+
+Current distance, in units.
+## float getEnvironmentHazePhysicalStartHeight () const
+
+Returns the current reference height value for the two parameters ([Half Visibility Distance](#getEnvironmentHazePhysicalHalfVisibilityDistance_float) and [Half Faloff Height](#getEnvironmentHazePhysicalHalfFalloffHeight_float)). To get the current reference height value for the specific preset, use *[RenderEnvironmentPreset::getHazePhysicalStartHeight()](../../../api/library/rendering/class.renderenvironmentpreset_usc.md#getHazePhysicalStartHeight_float)*.
+```cpp
+// get a reference height value for the preset that overlays the others
+Render::getEnvironmentHazePhysicalStartHeight();
+// get a reference height value for the second environment preset
+RenderEnvironmentPresetPtr preset = Render::getEnvironmentPreset(1);
+preset->getHazePhysicalStartHeight();
+
+```
+
+ reference height value for the two parameters ([Half Visibility Distance](#getEnvironmentHazePhysicalHalfVisibilityDistance_float) and [Half Faloff Height](#getEnvironmentHazePhysicalHalfFalloffHeight_float)). To get the current reference height value for the specific preset, use *[RenderEnvironmentPreset.getHazePhysicalStartHeight()](../../../api/library/rendering/class.renderenvironmentpreset_usc.md#getHazePhysicalStartHeight_float)*.
+```cpp
+// get a reference height value for the preset that overlays the others
+engine.render.getEnvironmentHazePhysicalStartHeight();
+// get a haze reference height value for the second environment preset
+RenderEnvironmentPreset preset = engine.render.getEnvironmentPreset(1);
+preset.getHazePhysicalStartHeight();
+
+```
+
+
+### Return value
+
+Current reference height value, in units.
+## void setTessellationDensityMultiplier ( float multiplier = 1.0f )
+
+***Console*:**`render_tessellation_density_multiplier`Sets a new global [Density](../../../content/materials/library/mesh_base/index.md#tessellation_density) multiplier for the adaptive hardware-accelerated tessellation. *Higher* values produce *denser* meshes.
+### Arguments
+
+- *float* **multiplier** - The tessellation Density multiplier. Range of values: **[0.0f, 10.0f]**. The default value is : **1.0f**.
+
+## float getTessellationDensityMultiplier () const
+
+***Console*:**`render_tessellation_density_multiplier`Returns the current global [Density](../../../content/materials/library/mesh_base/index.md#tessellation_density) multiplier for the adaptive hardware-accelerated tessellation. *Higher* values produce *denser* meshes.
+### Return value
+
+Current tessellation Density multiplier.
+Range of values: **[0.0f, 10.0f]**. The default value is : **1.0f**.
+## void setTessellationShadowDensityMultiplier ( float multiplier = 1.0f )
+
+***Console*:**`render_tessellation_shadow_density_multiplier`Sets a new global [Shadow Density](../../../content/materials/library/mesh_base/index.md#tessellation_density_shadow) multiplier for the Tessellated Displacement effect. *Higher* values produce more detailed shadows. You can make shadows from tessellated meshes simpler to save performance.
+### Arguments
+
+- *float* **multiplier** - The tessellation Shadow Density multiplier. Range of values: **[0.01f, 10.0f]**. The default value is : **1.0f**.
+
+## float getTessellationShadowDensityMultiplier () const
+
+***Console*:**`render_tessellation_shadow_density_multiplier`Returns the current global [Shadow Density](../../../content/materials/library/mesh_base/index.md#tessellation_density_shadow) multiplier for the Tessellated Displacement effect. *Higher* values produce more detailed shadows. You can make shadows from tessellated meshes simpler to save performance.
+### Return value
+
+Current tessellation Shadow Density multiplier.
+Range of values: **[0.01f, 10.0f]**. The default value is : **1.0f**.
+## void setTessellationDistanceMultiplier ( float multiplier = 1.0f )
+
+***Console*:**`render_tessellation_distance_multiplier`Sets a new global multiplier for all [distance](../../../content/materials/library/mesh_base/index.md#tessellation_distance_falloff_near) parameters of the adaptive hardware-accelerated tessellation used for distance-dependent optimization. *Higher* values make tessellation visible at longer distances from the camera (consuming more resources).
+### Arguments
+
+- *float* **multiplier** - The tessellation distance multiplier. Range of values: **[0.0f, 10.0f]**. The default value is : **1.0f**.
+
+## float getTessellationDistanceMultiplier () const
+
+***Console*:**`render_tessellation_distance_multiplier`Returns the current global multiplier for all [distance](../../../content/materials/library/mesh_base/index.md#tessellation_distance_falloff_near) parameters of the adaptive hardware-accelerated tessellation used for distance-dependent optimization. *Higher* values make tessellation visible at longer distances from the camera (consuming more resources).
+### Return value
+
+Current tessellation distance multiplier.
+Range of values: **[0.0f, 10.0f]**. The default value is : **1.0f**.
+## void setLightmapColor ( )
+
+***Console*:**`render_lightmap_color`Sets a new color multiplier for lightmaps.
+> **Notice:** Some light sources may be modified after the lightmap was baked. To make lighting in the scene consistent once again without any re-baking you can simply adjust the color multiplier for lightmaps. See the [How-To video tutorial](../../../videotutorials/how_to/how_to_rendering/lightmap_color.md) for additional information.
+
+### Arguments
+
+- **color** - The color multiplier. **vec4_one** - default value (white)
+
+## getLightmapColor () const
+
+***Console*:**`render_lightmap_color`Returns the current color multiplier for lightmaps.
+> **Notice:** Some light sources may be modified after the lightmap was baked. To make lighting in the scene consistent once again without any re-baking you can simply adjust the color multiplier for lightmaps. See the [How-To video tutorial](../../../videotutorials/how_to/how_to_rendering/lightmap_color.md) for additional information.
+
+### Return value
+
+Current color multiplier.
+**vec4_one** - default value (white)
+## void setSSRViewBias ( float bias = 1.0f )
+
+***Console*:**`render_ssr_view_bias`Sets a new bias value to which the ray starting position has been shifted along the view vector. This value is used for SSR (Screen-Space Reflections) calculation. Can be adjusted to fine-tune reflections of small objects at far distances. Recommended for narrow FOV angles. To use this option, SSR*[setSSR()()](../../...md#render_ssr)* should be enabled.
+### Arguments
+
+- *float* **bias** - The view bias value. Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getSSRViewBias () const
+
+***Console*:**`render_ssr_view_bias`Returns the current bias value to which the ray starting position has been shifted along the view vector. This value is used for SSR (Screen-Space Reflections) calculation. Can be adjusted to fine-tune reflections of small objects at far distances. Recommended for narrow FOV angles. To use this option, SSR*[setSSR()()](../../...md#render_ssr)* should be enabled.
+### Return value
+
+Current view bias value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSRNormalBias ( float bias = 1.0f )
+
+***Console*:**`render_ssr_normal_bias`Sets a new bias value to which the ray starting position has been shifted along the normal vector. This value is used for SSR (Screen-Space Reflections) calculation. Can be adjusted to fine-tune reflections of small objects at far distances. Recommended for narrow FOV angles. To use this option, SSR*[setSSR()()](../../...md#render_ssr)* should be enabled.
+### Arguments
+
+- *float* **bias** - The normal bias value. Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getSSRNormalBias () const
+
+***Console*:**`render_ssr_normal_bias`Returns the current bias value to which the ray starting position has been shifted along the normal vector. This value is used for SSR (Screen-Space Reflections) calculation. Can be adjusted to fine-tune reflections of small objects at far distances. Recommended for narrow FOV angles. To use this option, SSR*[setSSR()()](../../...md#render_ssr)* should be enabled.
+### Return value
+
+Current normal bias value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRPreset](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSSGIIntensityBoost ( int boost = 0 )
+
+***Console*:**`render_ssgi_intensity_boost`Sets a new boost intensity value. Increases the SSGI intensity by raising the value to the specified power.
+### Arguments
+
+- *int* **boost** - The power to which the intensity is raised. One of the following values: > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRTGIPreset](/api/library/rendering/class.render_cs#render_ssrtgi_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+  - **0** - power of 1 (by default)
+  - **1** - power of 2
+  - **2** - power of 3
+  - **3** - power of 4
+
+## int getSSGIIntensityBoost () const
+
+***Console*:**`render_ssgi_intensity_boost`Returns the current boost intensity value. Increases the SSGI intensity by raising the value to the specified power.
+### Return value
+
+Current power to which the intensity is raised. One of the following values:
+- **0** - power of 1 (by default)
+- **1** - power of 2
+- **2** - power of 3
+- **3** - power of 4
+
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[SSRTGIPreset](/api/library/rendering/class.render_cs#render_ssrtgi_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setSRAADepthThreshold ( float threshold = 0.1f )
+
+***Console*:**`render_sraa_depth_threshold`Sets a new depth threshold value used for edges detection that specifies the area for the SRAA processing. Turn on the debug mode and adjust this parameter in such a way that covers the required edges but at the same time leaves out the unnecessary geometry in the scene.
+### Arguments
+
+- *float* **threshold** - The depth threshold. Range of values: **[0.0f, inf]**. The default value is : **0.1f**.
+
+## float getSRAADepthThreshold () const
+
+***Console*:**`render_sraa_depth_threshold`Returns the current depth threshold value used for edges detection that specifies the area for the SRAA processing. Turn on the debug mode and adjust this parameter in such a way that covers the required edges but at the same time leaves out the unnecessary geometry in the scene.
+### Return value
+
+Current depth threshold.
+Range of values: **[0.0f, inf]**. The default value is : **0.1f**.
+## void setSRAADebug ( bool sraadebug = 0 )
+
+***Console*:**`render_sraa_debug`Sets a new value indicating if the SRAA debug mode is enabled. This mode shows the geometry edges smoothed by the SRAA.
+### Arguments
+
+- *bool* **sraadebug** - Set **true** to enable SRAA debug mode; **false** - to disable it. The default value is **false**.
+
+## bool isSRAADebug () const
+
+***Console*:**`render_sraa_debug`Returns the current value indicating if the SRAA debug mode is enabled. This mode shows the geometry edges smoothed by the SRAA.
+### Return value
+
+**true** if SRAA debug mode is enabled; otherwise **false**. The default value is **false**.
+## void setSRAATemporal ( bool sraatemporal = 1 )
+
+***Console*:**`render_sraa_temporal`Sets a new value indicating if TAA integration is enabled. SRAA will use the shading sample from the previously rendered frame (TAA) to achieve correct anti-aliasing. Uses camera jittering, so it works only when the TAA*[setTAA()()](../../...md#render_taa)* is enabled. It is recommended to use this option by default.
+### Arguments
+
+- *bool* **sraatemporal** - Set **true** to enable usage of the shading sample from the previously rendered frame (TAA); **false** - to disable it. The default value is **true**.
+
+## bool isSRAATemporal () const
+
+***Console*:**`render_sraa_temporal`Returns the current value indicating if TAA integration is enabled. SRAA will use the shading sample from the previously rendered frame (TAA) to achieve correct anti-aliasing. Uses camera jittering, so it works only when the TAA*[setTAA()()](../../...md#render_taa)* is enabled. It is recommended to use this option by default.
+### Return value
+
+**true** if usage of the shading sample from the previously rendered frame (TAA) is enabled; otherwise **false**. The default value is **true**.
+## void setSRAASamples ( int sraasamples = 1 )
+
+***Console*:**`render_sraa_samples`Sets a new number of depth geometry samples per pixel. This value may significantly affect performance, so keep it low when the image quality differences are not apparent.
+### Arguments
+
+- *int* **sraasamples** - The number of depth geometry samples per pixel. One of the following values:
+
+  - **0** - 2
+  - **1** - 4 (by default)
+  - **2** - 8
+
+## int getSRAASamples () const
+
+***Console*:**`render_sraa_samples`Returns the current number of depth geometry samples per pixel. This value may significantly affect performance, so keep it low when the image quality differences are not apparent.
+### Return value
+
+Current number of depth geometry samples per pixel. One of the following values:
+- **0** - 2
+- **1** - 4 (by default)
+- **2** - 8
+
+## void setSRAA ( bool sraa = 0 )
+
+***Console*:**`render_sraa`Sets a new value indicating if [Subpixel Reconstruction Anti-Aliasing (SRAA)](../../../principles/render/antialiasing/sraa.md) is enabled.
+### Arguments
+
+- *bool* **sraa** - Set **true** to enable SRAA; **false** - to disable it. The default value is **false**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[AAPreset](/api/library/rendering/class.render_cs#render_aa_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isSRAA () const
+
+***Console*:**`render_sraa`Returns the current value indicating if [Subpixel Reconstruction Anti-Aliasing (SRAA)](../../../principles/render/antialiasing/sraa.md) is enabled.
+### Return value
+
+**true** if SRAA is enabled; otherwise **false**. The default value is **false**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[AAPreset](/api/library/rendering/class.render_cs#render_aa_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setPanoramaFisheyeFov ( float fov = 0 )
+
+***Console*:**`render_panorama_fisheye_fov`Sets a new Field of View (in degrees) for the panoramic viewport mode selected at the moment.
+> **Notice:** Available only when the viewport rendering mode*[setViewportMode()()](../../...md#render_viewport_mode)* is set to one of the fisheye panorama modes (5-8).
+
+### Arguments
+
+- *float* **fov** - The Field of View, in degrees. Range of values: **[0, 360]**. The default value is : **0**.
+
+## float getPanoramaFisheyeFov () const
+
+***Console*:**`render_panorama_fisheye_fov`Returns the current Field of View (in degrees) for the panoramic viewport mode selected at the moment.
+> **Notice:** Available only when the viewport rendering mode*[setViewportMode()()](../../...md#render_viewport_mode)* is set to one of the fisheye panorama modes (5-8).
+
+### Return value
+
+Current Field of View, in degrees.
+Range of values: **[0, 360]**. The default value is : **0**.
+## void setShadowsWorldCascadesCullingClusters ( bool clusters = 0 )
+
+***Console*:**`render_shadows_world_cascades_culling_clusters`Sets a new value indicating whether culling of shadow cascades is enabled for *Mesh Cluster/Clutter* objects. If enabled, the *Mesh Cluster/Clutter* objects rendered in the nearest cascade won't be rendered again in farther cascades. If disabled, the *Mesh Cluster* objects rendered in the nearest cascade will also be rendered in all other cascades. In some cases performance may be better if this option is disabled.
+### Arguments
+
+- *bool* **clusters** - Set **true** to enable culling of shadow cascades for *Mesh Cluster/Clutter* objects; **false** - to disable it. The default value is **false**.
+
+## bool isShadowsWorldCascadesCullingClusters () const
+
+***Console*:**`render_shadows_world_cascades_culling_clusters`Returns the current value indicating whether culling of shadow cascades is enabled for *Mesh Cluster/Clutter* objects. If enabled, the *Mesh Cluster/Clutter* objects rendered in the nearest cascade won't be rendered again in farther cascades. If disabled, the *Mesh Cluster* objects rendered in the nearest cascade will also be rendered in all other cascades. In some cases performance may be better if this option is disabled.
+### Return value
+
+**true** if culling of shadow cascades for *Mesh Cluster/Clutter* objects is enabled; otherwise **false**. The default value is **false**.
+## void setReflectionDynamicAlphaFade ( bool fade = 0 )
+
+***Console*:**`render_reflection_dynamic_alpha_fade`Sets a new value indicating if [alpha-blend fading](../../../principles/world_management/index.md#fading) (dithering) is enabled for surfaces inside the dynamic reflections when switching between LODs. This feature may be disabled to save performance, but in this case surfaces rendered in dynamic reflections will pop in and pop out.
+### Arguments
+
+- *bool* **fade** - Set **true** to enable Alpha Fade for surfaces inside the dynamic reflections; **false** - to disable it. The default value is **false**.
+
+## bool isReflectionDynamicAlphaFade () const
+
+***Console*:**`render_reflection_dynamic_alpha_fade`Returns the current value indicating if [alpha-blend fading](../../../principles/world_management/index.md#fading) (dithering) is enabled for surfaces inside the dynamic reflections when switching between LODs. This feature may be disabled to save performance, but in this case surfaces rendered in dynamic reflections will pop in and pop out.
+### Return value
+
+**true** if Alpha Fade for surfaces inside the dynamic reflections is enabled; otherwise **false**. The default value is **false**.
+## void setReflectionDynamicRoughnessOffset ( bool offset = 0 )
+
+***Console*:**`render_reflection_dynamic_roughness_offset`Sets a new value indicating whether roughness offset is enabled for dynamic reflections produced by *Environment Probes*. Sometimes, when specular highlights from glossy surfaces get into dynamic *Environment Probes* a very bright flickering of lighting from it may appear. This option makes surrounding materials look more matte for an *Environment Probe* than they actually are, reducing such flickering artefacts.
+### Arguments
+
+- *bool* **offset** - Set **true** to enable roughness offset for dynamic reflections produced by *Environment Probes*; **false** - to disable it. The default value is **false**.
+
+## bool isReflectionDynamicRoughnessOffset () const
+
+***Console*:**`render_reflection_dynamic_roughness_offset`Returns the current value indicating whether roughness offset is enabled for dynamic reflections produced by *Environment Probes*. Sometimes, when specular highlights from glossy surfaces get into dynamic *Environment Probes* a very bright flickering of lighting from it may appear. This option makes surrounding materials look more matte for an *Environment Probe* than they actually are, reducing such flickering artefacts.
+### Return value
+
+**true** if roughness offset for dynamic reflections produced by *Environment Probes* is enabled; otherwise **false**. The default value is **false**.
+## void setClouds3dTextureVerticalResolution ( int resolution = 3 )
+
+***Console*:**`render_clouds_3d_texture_vertical_resolution`Sets a new vertical resolution for the 3D texture to be used for clouds rendering.
+> **Notice:** Setting too high resolution may significantly affect performance, so adjust it wisely.
+
+### Arguments
+
+- *int* **resolution** - The vertical resolution, in pixels. One of the following values:
+
+  - **0** - 32
+  - **1** - 64
+  - **2** - 128
+  - **3** - 256 (by default)
+  - **4** - 512
+
+## int getClouds3dTextureVerticalResolution () const
+
+***Console*:**`render_clouds_3d_texture_vertical_resolution`Returns the current vertical resolution for the 3D texture to be used for clouds rendering.
+> **Notice:** Setting too high resolution may significantly affect performance, so adjust it wisely.
+
+### Return value
+
+Current vertical resolution, in pixels. One of the following values:
+- **0** - 32
+- **1** - 64
+- **2** - 128
+- **3** - 256 (by default)
+- **4** - 512
+
+## void setClouds3dTextureHorizontalResolution ( int resolution = 2 )
+
+***Console*:**`render_clouds_3d_texture_horizontal_resolution`Sets a new horizontal resolution for the 3D texture to be used for clouds rendering.
+> **Notice:** Setting too high resolution may significantly affect performance, so adjust it wisely.
+
+### Arguments
+
+- *int* **resolution** - The horizontal resolution, in pixels. One of the following values:
+
+  - **0** - 64
+  - **1** - 128
+  - **2** - 256 (by default)
+  - **3** - 512
+  - **4** - 1024
+  - **5** - 2048
+
+## int getClouds3dTextureHorizontalResolution () const
+
+***Console*:**`render_clouds_3d_texture_horizontal_resolution`Returns the current horizontal resolution for the 3D texture to be used for clouds rendering.
+> **Notice:** Setting too high resolution may significantly affect performance, so adjust it wisely.
+
+### Return value
+
+Current horizontal resolution, in pixels. One of the following values:
+- **0** - 64
+- **1** - 128
+- **2** - 256 (by default)
+- **3** - 512
+- **4** - 1024
+- **5** - 2048
+
+## void setCloudsLightingSamplesDistribution ( float distribution = 1.0f )
+
+***Console*:**`render_clouds_lighting_samples_distribution`Sets a new value that controls distribution of samples for clouds lighting. Can be used to keep small details for long shadows when the lighting trace length value*[setCloudsLightingTraceLength()()](../../...md#render_clouds_lighting_tracelength)* is high.
+### Arguments
+
+- *float* **distribution** - The distribution value. Range of values: **[0.001f, 5.0f]**. The default value is : **1.0f**.
+
+## float getCloudsLightingSamplesDistribution () const
+
+***Console*:**`render_clouds_lighting_samples_distribution`Returns the current value that controls distribution of samples for clouds lighting. Can be used to keep small details for long shadows when the lighting trace length value*[setCloudsLightingTraceLength()()](../../...md#render_clouds_lighting_tracelength)* is high.
+### Return value
+
+Current distribution value.
+Range of values: **[0.001f, 5.0f]**. The default value is : **1.0f**.
+## void setCloudsTransparentOrder ( int order = 0 )
+
+***Console*:**`render_clouds_transparent_order`Sets a new rendering order for clouds relative to transparent objects (except water).
+- **Render Before Transparent** - render clouds before all [transparent objects](../../../principles/render/sequence/index.md#transparent) (except water).
+- **Render After Transparent** - render clouds after all [transparent objects](../../../principles/render/sequence/index.md#transparent) (except water).
+- **Sort Transparent** - enable rough sorting for [transparent objects](../../../principles/render/sequence/index.md#transparent) relative to clouds (*below the lowest cloud layer base -> inside the clouds -> above the highest cloud layer top*).
+
+
+### Arguments
+
+- *int* **order** - The rendering order for clouds. One of the following values:
+
+  - **0** - Render Before Transparent (by default)
+  - **1** - Render After Transparent
+  - **2** - Sort Transparent
+
+## int getCloudsTransparentOrder () const
+
+***Console*:**`render_clouds_transparent_order`Returns the current rendering order for clouds relative to transparent objects (except water).
+- **Render Before Transparent** - render clouds before all [transparent objects](../../../principles/render/sequence/index.md#transparent) (except water).
+- **Render After Transparent** - render clouds after all [transparent objects](../../../principles/render/sequence/index.md#transparent) (except water).
+- **Sort Transparent** - enable rough sorting for [transparent objects](../../../principles/render/sequence/index.md#transparent) relative to clouds (*below the lowest cloud layer base -> inside the clouds -> above the highest cloud layer top*).
+
+
+### Return value
+
+Current rendering order for clouds. One of the following values:
+- **0** - Render Before Transparent (by default)
+- **1** - Render After Transparent
+- **2** - Sort Transparent
+
+## int getCloudsQualityPresetNumNames () const
+
+Returns the current number of clouds quality presets.
+### Return value
+
+Current number of presets.
+## void setCloudsQualityPreset ( int preset = 0 )
+
+***Console*:**`render_clouds_quality_preset`Sets a new index of the clouds quality preset used at the moment.
+### Arguments
+
+- *int* **preset** - The preset index. One of the following values:
+
+  - **0** - Low (by default)
+  - **1** - Medium
+  - **2** - High + Interleaved
+  - **3** - High
+  - **4** - Ultra + Interleaved
+  - **5** - Ultra
+  - **6** - Extreme + Interleaved
+  - **7** - Extreme
+  - **8** - Custom
+
+## int getCloudsQualityPreset () const
+
+***Console*:**`render_clouds_quality_preset`Returns the current index of the clouds quality preset used at the moment.
+### Return value
+
+Current preset index. One of the following values:
+- **0** - Low (by default)
+- **1** - Medium
+- **2** - High + Interleaved
+- **3** - High
+- **4** - Ultra + Interleaved
+- **5** - Ultra
+- **6** - Extreme + Interleaved
+- **7** - Extreme
+- **8** - Custom
+
+## void setLandscapeOperationsPerFrame ( int frame = 10 )
+
+***Console*:**`render_landscape_operations_per_frame`Sets a new maximum number of Landscape texture draw operations (*[asyncTextureDraw](../../../api/library/objects/landscape_terrain/class.landscape_usc.md#asyncTextureDraw_int_UGUID_ivec2_ivec2_int_VECWorldBoundBox_void)*) that can be performed per frame.
+### Arguments
+
+- *int* **frame** - The number of operations. Range of values: **[1, 1000]**. The default value is : **10**.
+
+## int getLandscapeOperationsPerFrame () const
+
+***Console*:**`render_landscape_operations_per_frame`Returns the current maximum number of Landscape texture draw operations (*[asyncTextureDraw](../../../api/library/objects/landscape_terrain/class.landscape_usc.md#asyncTextureDraw_int_UGUID_ivec2_ivec2_int_VECWorldBoundBox_void)*) that can be performed per frame.
+### Return value
+
+Current number of operations.
+Range of values: **[1, 1000]**. The default value is : **10**.
+## int getLandscapeTerrainStreamingPresetNumNames () const
+
+Returns the current number of Landscape Terrain streaming presets.
+### Return value
+
+Current number of presets.
+## void setLandscapeTerrainStreamingPreset ( int preset = 0 )
+
+***Console*:**`render_landscape_terrain_streaming_preset`Sets a new index of the Landscape Terrain streaming preset used at the moment.
+> **Notice:** Presets override user-defined custom settings. When any preset other than Custom is active, modification of the parameters via [API](../../../api/library/rendering/class.render_usc.md) has no effect. The parameter value set via the last API call shall be used only when the Custom preset is active. When checking the current parameter value via API you'll get the corresponding setting stored in the active preset (default or custom one).
+
+### Arguments
+
+- *int* **preset** - The preset index. One of the following values:
+
+  - **0** - Low (by default)
+  - **1** - Medium
+  - **2** - High
+  - **3** - Ultra
+  - **4** - Extreme
+  - **5** - Custom
+
+## int getLandscapeTerrainStreamingPreset () const
+
+***Console*:**`render_landscape_terrain_streaming_preset`Returns the current index of the Landscape Terrain streaming preset used at the moment.
+> **Notice:** Presets override user-defined custom settings. When any preset other than Custom is active, modification of the parameters via [API](../../../api/library/rendering/class.render_usc.md) has no effect. The parameter value set via the last API call shall be used only when the Custom preset is active. When checking the current parameter value via API you'll get the corresponding setting stored in the active preset (default or custom one).
+
+### Return value
+
+Current preset index. One of the following values:
+- **0** - Low (by default)
+- **1** - Medium
+- **2** - High
+- **3** - Ultra
+- **4** - Extreme
+- **5** - Custom
+
+## int getLandscapeTerrainGeometryPresetNumNames () const
+
+Returns the current number of Landscape Terrain geometry presets.
+### Return value
+
+Current number of presets.
+## void setLandscapeTerrainGeometryPreset ( int preset = 0 )
+
+***Console*:**`render_landscape_terrain_geometry_preset`Sets a new index of the Landscape Terrain geometry preset used at the moment.
+> **Notice:** Presets override user-defined custom settings. When any preset other than Custom is active, modification of the parameters via [API](../../../api/library/rendering/class.render_usc.md) has no effect. The parameter value set via the last API call shall be used only when the Custom preset is active. When checking the current parameter value via API you'll get the corresponding setting stored in the active preset (default or custom one).
+
+### Arguments
+
+- *int* **preset** - The preset index. One of the following values:
+
+  - **0** - Low (by default)
+  - **1** - Medium
+  - **2** - High
+  - **3** - Ultra
+  - **4** - Extreme
+  - **5** - Custom
+
+## int getLandscapeTerrainGeometryPreset () const
+
+***Console*:**`render_landscape_terrain_geometry_preset`Returns the current index of the Landscape Terrain geometry preset used at the moment.
+> **Notice:** Presets override user-defined custom settings. When any preset other than Custom is active, modification of the parameters via [API](../../../api/library/rendering/class.render_usc.md) has no effect. The parameter value set via the last API call shall be used only when the Custom preset is active. When checking the current parameter value via API you'll get the corresponding setting stored in the active preset (default or custom one).
+
+### Return value
+
+Current preset index. One of the following values:
+- **0** - Low (by default)
+- **1** - Medium
+- **2** - High
+- **3** - Ultra
+- **4** - Extreme
+- **5** - Custom
+
+## int getWaterGeometryPresetNumNames () const
+
+Returns the current number of Global Water geometry presets.
+### Return value
+
+Current number of presets.
+## void setWaterGeometryPreset ( int preset = 0 )
+
+***Console*:**`render_water_geometry_preset`Sets a new index of the Global Water geometry preset used at the moment. To customize the Global Water geometry preset options at run time you should activate the **Custom** preset:
+### Arguments
+
+- *int* **preset** - The preset index. One of the following values:
+
+  - **0** - Low (by default)
+  - **1** - Medium
+  - **2** - High
+  - **3** - Ultra
+  - **4** - Extreme
+  - **5** - Custom
+
+## int getWaterGeometryPreset () const
+
+***Console*:**`render_water_geometry_preset`Returns the current index of the Global Water geometry preset used at the moment. To customize the Global Water geometry preset options at run time you should activate the **Custom** preset:
+### Return value
+
+Current preset index. One of the following values:
+- **0** - Low (by default)
+- **1** - Medium
+- **2** - High
+- **3** - Ultra
+- **4** - Extreme
+- **5** - Custom
+
+## int getDOFPresetNumNames () const
+
+Returns the current number of DoF presets.
+### Return value
+
+Current number of presets.
+## void setDOFPreset ( int dofpreset = 0 )
+
+***Console*:**`render_dof_preset`Sets a new DoF effect quality preset. To customize the DoF effect options at run time you should activate the **Custom** preset:
+### Arguments
+
+- *int* **dofpreset** - The preset index. One of the following values:
+
+  - **0** - Very Low (by default)
+  - **1** - Low
+  - **2** - Medium
+  - **3** - High
+  - **4** - Ultra
+  - **5** - Extreme
+  - **6** - Custom
+
+## int getDOFPreset () const
+
+***Console*:**`render_dof_preset`Returns the current DoF effect quality preset. To customize the DoF effect options at run time you should activate the **Custom** preset:
+### Return value
+
+Current preset index. One of the following values:
+- **0** - Very Low (by default)
+- **1** - Low
+- **2** - Medium
+- **3** - High
+- **4** - Ultra
+- **5** - Extreme
+- **6** - Custom
+
+## int getMotionBlurPresetNumNames () const
+
+Returns the current number of Motion Blur presets.
+### Return value
+
+Current number of presets.
+## void setMotionBlurPreset ( int preset = 0 )
+
+***Console*:**`render_motion_blur_preset`Sets a new Motion Blur preset. To customize the Motion Blur effect options at run time you should activate the **Custom** preset:
+### Arguments
+
+- *int* **preset** - The preset index. One of the following values:
+
+  - **0** - Low (by default)
+  - **1** - Medium
+  - **2** - High
+  - **3** - Ultra
+  - **4** - Custom
+
+## int getMotionBlurPreset () const
+
+***Console*:**`render_motion_blur_preset`Returns the current Motion Blur preset. To customize the Motion Blur effect options at run time you should activate the **Custom** preset:
+### Return value
+
+Current preset index. One of the following values:
+- **0** - Low (by default)
+- **1** - Medium
+- **2** - High
+- **3** - Ultra
+- **4** - Custom
+
+## int getSSRPresetNumNames () const
+
+Returns the current number of SSR (Screen-Space Reflections) presets.
+### Return value
+
+Current number of presets.
+## void setSSRPreset ( int ssrpreset = 0 )
+
+***Console*:**`render_ssr_preset`Sets a new SSR (Screen-Space Reflections) preset used at the moment. To customize the SSR effect options at run time you should activate the **Custom** preset:
+### Arguments
+
+- *int* **ssrpreset** - The preset index. One of the following values:
+
+  - **0** - Low (by default)
+  - **1** - Medium
+  - **2** - High
+  - **3** - Ultra
+  - **4** - Extreme
+  - **5** - Custom
+
+## int getSSRPreset () const
+
+***Console*:**`render_ssr_preset`Returns the current SSR (Screen-Space Reflections) preset used at the moment. To customize the SSR effect options at run time you should activate the **Custom** preset:
+### Return value
+
+Current preset index. One of the following values:
+- **0** - Low (by default)
+- **1** - Medium
+- **2** - High
+- **3** - Ultra
+- **4** - Extreme
+- **5** - Custom
+
+## int getSSRTGIPresetNumNames () const
+
+Returns the current number of SSRTGI (Screen-Space Ray-Traced Global Illumination) presets.
+### Return value
+
+Current number of presets.
+## void setSSRTGIPreset ( int ssrtgipreset = 0 )
+
+***Console*:**`render_ssrtgi_preset`Sets a new index of the SSRTGI (Screen-Space Ray-Traced Global Illumination) preset used at the moment. To customize the SSRTGI effect options at run time you should activate the **Custom** preset:
+### Arguments
+
+- *int* **ssrtgipreset** - The preset index. One of the following values:
+
+  - **0** - Disabled (by default)
+  - **1** - Low
+  - **2** - Medium
+  - **3** - High
+  - **4** - Ultra
+  - **5** - Extreme
+  - **6** - Custom
+
+## int getSSRTGIPreset () const
+
+***Console*:**`render_ssrtgi_preset`Returns the current index of the SSRTGI (Screen-Space Ray-Traced Global Illumination) preset used at the moment. To customize the SSRTGI effect options at run time you should activate the **Custom** preset:
+### Return value
+
+Current preset index. One of the following values:
+- **0** - Disabled (by default)
+- **1** - Low
+- **2** - Medium
+- **3** - High
+- **4** - Ultra
+- **5** - Extreme
+- **6** - Custom
+
+## void setRefractionWarpBackgroundTransparentSurfaces ( int surfaces = 0 )
+
+***Console*:**`render_refraction_warp_background_transparent_surfaces`Sets a new value indicating if refraction affects background transparent surfaces (except for water and clouds). The following values are available:
+- Never - no refraction distortion is applied to transparent surfaces.
+- Behind Farthest Refractive Surface - apply refraction distortion to all transparent surfaces behind the farthest refractive surface.
+
+ This method takes effect only when rendering of refractions*[setRefraction()()](../../...md#render_refraction)* is enabled.
+### Arguments
+
+- *int* **surfaces** - The refraction mode. One of the following values:
+
+  - **0** - Never (by default)
+  - **1** - Behind Farthest Refractive Surface
+
+## int getRefractionWarpBackgroundTransparentSurfaces () const
+
+***Console*:**`render_refraction_warp_background_transparent_surfaces`Returns the current value indicating if refraction affects background transparent surfaces (except for water and clouds). The following values are available:
+- Never - no refraction distortion is applied to transparent surfaces.
+- Behind Farthest Refractive Surface - apply refraction distortion to all transparent surfaces behind the farthest refractive surface.
+
+ This method takes effect only when rendering of refractions*[setRefraction()()](../../...md#render_refraction)* is enabled.
+### Return value
+
+Current refraction mode. One of the following values:
+- **0** - Never (by default)
+- **1** - Behind Farthest Refractive Surface
+
+## int getAAPresetNumNames () const
+
+Returns the current number of AA (Anti-Aliasing) presets.
+### Return value
+
+Current number of presets.
+## void setAAPreset ( int aapreset = 0 )
+
+***Console*:**`render_aa_preset`Sets a new index of the AA (Anti-Aliasing) preset used at the moment. To customize Anti-Aliasing options at run time you should activate the **Custom** preset:
+### Arguments
+
+- *int* **aapreset** - The preset index. One of the following values:
+
+  - **0** - Sharpest (by default)
+  - **1** - Sharp
+  - **2** - Smooth
+  - **3** - Smooth + SRAA
+  - **4** - Smoothest
+  - **5** - Smoothest + SRAA
+  - **6** - VR Mode
+  - **7** - Custom
+
+## int getAAPreset () const
+
+***Console*:**`render_aa_preset`Returns the current index of the AA (Anti-Aliasing) preset used at the moment. To customize Anti-Aliasing options at run time you should activate the **Custom** preset:
+### Return value
+
+Current preset index. One of the following values:
+- **0** - Sharpest (by default)
+- **1** - Sharp
+- **2** - Smooth
+- **3** - Smooth + SRAA
+- **4** - Smoothest
+- **5** - Smoothest + SRAA
+- **6** - VR Mode
+- **7** - Custom
+
+## void setACESWithReinhardShoulderLength ( float length = 0.14f )
+
+***Console*:**`render_aces_with_reinhard_shoulder_length`Sets a new [shoulder length](../../../editor2/settings/render_settings/color/index.md#shoulder_length) parameter for the ACES with Reinhard operator. Controls the amount of f-stops to add to the dynamic range of the curve. Defines how much of the highlights the curve takes into account.
+### Arguments
+
+- *float* **length** - The shoulder length. Range of values: **[0.0f, 1.0f]**. The default value is : **0.14f**.
+
+## float getACESWithReinhardShoulderLength () const
+
+***Console*:**`render_aces_with_reinhard_shoulder_length`Returns the current [shoulder length](../../../editor2/settings/render_settings/color/index.md#shoulder_length) parameter for the ACES with Reinhard operator. Controls the amount of f-stops to add to the dynamic range of the curve. Defines how much of the highlights the curve takes into account.
+### Return value
+
+Current shoulder length.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.14f**.
+## void setACESWithReinhardShoulderStrength ( float strength = 0.59f )
+
+***Console*:**`render_aces_with_reinhard_shoulder_strength`Sets a new [shoulder strength](../../../editor2/settings/render_settings/color/index.md#shoulder_length) parameter for the ACES with Reinhard operator. Controls the strength of the transition between the curve's midsection and the curve's shoulder.
+### Arguments
+
+- *float* **strength** - The shoulder strength. Range of values: **[0.0f, 10.0f]**. The default value is : **0.59f**.
+
+## float getACESWithReinhardShoulderStrength () const
+
+***Console*:**`render_aces_with_reinhard_shoulder_strength`Returns the current [shoulder strength](../../../editor2/settings/render_settings/color/index.md#shoulder_length) parameter for the ACES with Reinhard operator. Controls the strength of the transition between the curve's midsection and the curve's shoulder.
+### Return value
+
+Current shoulder strength.
+Range of values: **[0.0f, 10.0f]**. The default value is : **0.59f**.
+## void setACESWithReinhardShoulderAngle ( float angle = 2.43f )
+
+***Console*:**`render_aces_with_reinhard_shoulder_angle`Sets a new [shoulder angle](../../../editor2/settings/render_settings/color/index.md#shoulder_angle) parameter for the ACES with Reinhard operator. Controls how much overshoot should be added to the curve's shoulder.
+### Arguments
+
+- *float* **angle** - The shoulder angle. Range of values: **[0.0f, 10.0f]**. The default value is : **2.43f**.
+
+## float getACESWithReinhardShoulderAngle () const
+
+***Console*:**`render_aces_with_reinhard_shoulder_angle`Returns the current [shoulder angle](../../../editor2/settings/render_settings/color/index.md#shoulder_angle) parameter for the ACES with Reinhard operator. Controls how much overshoot should be added to the curve's shoulder.
+### Return value
+
+Current shoulder angle.
+Range of values: **[0.0f, 10.0f]**. The default value is : **2.43f**.
+## void setACESWithReinhardToe ( float toe = 0.03f )
+
+***Console*:**`render_aces_with_reinhard_toe`Sets a new [toe](../../../editor2/settings/render_settings/color/index.md#toe) parameter for the ACES with Reinhard operator. Controls the dark color. Higher values result in darker colors.
+### Arguments
+
+- *float* **toe** - The toe value. Range of values: **[0.0f, 10.0f]**. The default value is : **0.03f**.
+
+## float getACESWithReinhardToe () const
+
+***Console*:**`render_aces_with_reinhard_toe`Returns the current [toe](../../../editor2/settings/render_settings/color/index.md#toe) parameter for the ACES with Reinhard operator. Controls the dark color. Higher values result in darker colors.
+### Return value
+
+Current toe value.
+Range of values: **[0.0f, 10.0f]**. The default value is : **0.03f**.
+## void setACESWithReinhardWhiteClip ( float clip = 2.51f )
+
+***Console*:**`render_aces_with_reinhard_white_clip`Sets a new [white clip](../../../editor2/settings/render_settings/color/index.md#white_clip) parameter for the ACES with Reinhard operator. Controls the cut-off point for white.ACES with Reinhard operator's white clip.
+### Arguments
+
+- *float* **clip** - The white clip value. Range of values: **[0.0f, 10.0f]**. The default value is : **2.51f**.
+
+## float getACESWithReinhardWhiteClip () const
+
+***Console*:**`render_aces_with_reinhard_white_clip`Returns the current [white clip](../../../editor2/settings/render_settings/color/index.md#white_clip) parameter for the ACES with Reinhard operator. Controls the cut-off point for white.ACES with Reinhard operator's white clip.
+### Return value
+
+Current white clip value.
+Range of values: **[0.0f, 10.0f]**. The default value is : **2.51f**.
+## void setACESShoulderLength ( float length = 0.59f )
+
+***Console*:**`render_aces_shoulder_length`Sets a new [shoulder length](../../../editor2/settings/render_settings/color/index.md#shoulder_length) parameter for the ACES operator. Controls the amount of f-stops to add to the dynamic range of the curve. Defines how much of the highlights the curve takes into account.
+### Arguments
+
+- *float* **length** - The shoulder length. Range of values: **[0.0f, 1.0f]**. The default value is : **0.59f**.
+
+## float getACESShoulderLength () const
+
+***Console*:**`render_aces_shoulder_length`Returns the current [shoulder length](../../../editor2/settings/render_settings/color/index.md#shoulder_length) parameter for the ACES operator. Controls the amount of f-stops to add to the dynamic range of the curve. Defines how much of the highlights the curve takes into account.
+### Return value
+
+Current shoulder length.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.59f**.
+## void setACESShoulderStrength ( float strength = 0.59f )
+
+***Console*:**`render_aces_shoulder_strength`Sets a new [shoulder strength](../../../editor2/settings/render_settings/color/index.md#shoulder_length) parameter for the ACES operator. Controls the strength of the transition between the curve's midsection and the curve's shoulder.
+### Arguments
+
+- *float* **strength** - The shoulder strength. Range of values: **[0.0f, 10.0f]**. The default value is : **0.59f**.
+
+## float getACESShoulderStrength () const
+
+***Console*:**`render_aces_shoulder_strength`Returns the current [shoulder strength](../../../editor2/settings/render_settings/color/index.md#shoulder_length) parameter for the ACES operator. Controls the strength of the transition between the curve's midsection and the curve's shoulder.
+### Return value
+
+Current shoulder strength.
+Range of values: **[0.0f, 10.0f]**. The default value is : **0.59f**.
+## void setACESShoulderAngle ( float angle = 2.43f )
+
+***Console*:**`render_aces_shoulder_angle`Sets a new [shoulder angle](../../../editor2/settings/render_settings/color/index.md#shoulder_angle) parameter for the ACES operator. Controls how much overshoot should be added to the curve's shoulder.
+### Arguments
+
+- *float* **angle** - The shoulder angle. Range of values: **[0.0f, 10.0f]**. The default value is : **2.43f**.
+
+## float getACESShoulderAngle () const
+
+***Console*:**`render_aces_shoulder_angle`Returns the current [shoulder angle](../../../editor2/settings/render_settings/color/index.md#shoulder_angle) parameter for the ACES operator. Controls how much overshoot should be added to the curve's shoulder.
+### Return value
+
+Current shoulder angle.
+Range of values: **[0.0f, 10.0f]**. The default value is : **2.43f**.
+## void setACESToe ( float acestoe = 0.03f )
+
+***Console*:**`render_aces_toe`Sets a new [toe](../../../editor2/settings/render_settings/color/index.md#toe) parameter for the ACES operator. Controls the dark color. Higher values result in darker colors.
+### Arguments
+
+- *float* **acestoe** - The toe value. Range of values: **[0.0f, 10.0f]**. The default value is : **0.03f**.
+
+## float getACESToe () const
+
+***Console*:**`render_aces_toe`Returns the current [toe](../../../editor2/settings/render_settings/color/index.md#toe) parameter for the ACES operator. Controls the dark color. Higher values result in darker colors.
+### Return value
+
+Current toe value.
+Range of values: **[0.0f, 10.0f]**. The default value is : **0.03f**.
+## void setACESWhiteClip ( float clip = 2.51f )
+
+***Console*:**`render_aces_white_clip`Sets a new [white clip](../../../editor2/settings/render_settings/color/index.md#white_clip) parameter for the ACES operator. Controls the cut-off point for white.
+### Arguments
+
+- *float* **clip** - The white clip value. Range of values: **[0.0f, 10.0f]**. The default value is : **2.51f**.
+
+## float getACESWhiteClip () const
+
+***Console*:**`render_aces_white_clip`Returns the current [white clip](../../../editor2/settings/render_settings/color/index.md#white_clip) parameter for the ACES operator. Controls the cut-off point for white.
+### Return value
+
+Current white clip value.
+Range of values: **[0.0f, 10.0f]**. The default value is : **2.51f**.
+## void setACESWithReinhardMix ( float mix = 0.5f )
+
+***Console*:**`render_aces_with_reinhard_mix`Sets a new [ACES with Reinhard tonemapping](../../../editor2/settings/render_settings/color/index.md#mix_with_reinhard) operator contribution. If the value is closer to **0**, then ACES prevails. Otherwise, when the value is closer to **1**, the Reinhard has a grater impact.
+### Arguments
+
+- *float* **mix** - The ACES with Reinhard tonemapping operator contribution. Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
+
+## float getACESWithReinhardMix () const
+
+***Console*:**`render_aces_with_reinhard_mix`Returns the current [ACES with Reinhard tonemapping](../../../editor2/settings/render_settings/color/index.md#mix_with_reinhard) operator contribution. If the value is closer to **0**, then ACES prevails. Otherwise, when the value is closer to **1**, the Reinhard has a grater impact.
+### Return value
+
+Current ACES with Reinhard tonemapping operator contribution.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
+## void setReinhardLumaBasedContribution ( float contribution = 1.0f )
+
+***Console*:**`render_reinhard_luma_based_contribution`Sets a new [Reinhard Luma-Based tonemapping](../../../editor2/settings/render_settings/color/index.md#contribution_l) operator contribution. Controls the overall contribution that the Reinhard operator makes to the final color grading of the image. Higher values result in more tonemapping contribution to the final image.
+### Arguments
+
+- *float* **contribution** - The Reinhard Luma-Based tonemapping operator contribution. Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+
+## float getReinhardLumaBasedContribution () const
+
+***Console*:**`render_reinhard_luma_based_contribution`Returns the current [Reinhard Luma-Based tonemapping](../../../editor2/settings/render_settings/color/index.md#contribution_l) operator contribution. Controls the overall contribution that the Reinhard operator makes to the final color grading of the image. Higher values result in more tonemapping contribution to the final image.
+### Return value
+
+Current Reinhard Luma-Based tonemapping operator contribution.
+Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+## void setReinhardContribution ( float contribution = 1.0f )
+
+***Console*:**`render_reinhard_contribution`Sets a new [Reinhard tonemapping](../../../editor2/settings/render_settings/color/index.md#contribution_r) operator contribution.
+The value is calculated according to the following formula: **C / (1 + C)** It controls the overall contribution that the Reinhard operator makes to the final color grading of the image. The higher values result in more tonemapping contribution to the final image.
+
+### Arguments
+
+- *float* **contribution** - The Reinhard tonemapping operator contribution. Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+
+## float getReinhardContribution () const
+
+***Console*:**`render_reinhard_contribution`Returns the current [Reinhard tonemapping](../../../editor2/settings/render_settings/color/index.md#contribution_r) operator contribution.
+The value is calculated according to the following formula: **C / (1 + C)** It controls the overall contribution that the Reinhard operator makes to the final color grading of the image. The higher values result in more tonemapping contribution to the final image.
+
+### Return value
+
+Current Reinhard tonemapping operator contribution.
+Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+## void setTonemapper ( bool tonemapper = 1 )
+
+***Console*:**`render_tonemapper`Sets a new value indicating if [tone mapping](../../../editor2/settings/render_settings/color/index.md#tonemapper) is enabled.
+### Arguments
+
+- *bool* **tonemapper** - Set **true** to enable tone mappingtone mapping mode.; **false** - to disable it. The default value is **true**.
+
+## bool isTonemapper () const
+
+***Console*:**`render_tonemapper`Returns the current value indicating if [tone mapping](../../../editor2/settings/render_settings/color/index.md#tonemapper) is enabled.
+### Return value
+
+**true** if tone mappingtone mapping mode. is enabled; otherwise **false**. The default value is **true**.
+## void setTonemapperMode ( )
+
+***Console*:**`render_tonemapper_mode`Sets a new mode of [tone mapping](../../../editor2/settings/render_settings/color/index.md#tonemapper).
+### Arguments
+
+- **mode** - The tone mapping mode. One of the following values:
+
+  - **0** - Filmic
+  - **1** - ACES (by default)
+  - **2** - ACES with Reinhard
+  - **3** - Reinhard
+  - **4** - Reinhard Luma-Based
+
+## getTonemapperMode () const
+
+***Console*:**`render_tonemapper_mode`Returns the current mode of [tone mapping](../../../editor2/settings/render_settings/color/index.md#tonemapper).
+### Return value
+
+Current tone mapping mode. One of the following values:
+- **0** - Filmic
+- **1** - ACES (by default)
+- **2** - ACES with Reinhard
+- **3** - Reinhard
+- **4** - Reinhard Luma-Based
+
+## void setWaterWaterlineAccuracy ( int accuracy = 0 )
+
+***Console*:**`render_water_waterline_accuracy`Sets a new quality of underwater and waterline determination. Use high quality only if you need to submerge underwater (to see the waterline) and at medium and high Beaufort values.
+### Arguments
+
+- *int* **accuracy** - The accuracy value. One of the following values:
+
+  - *Low* - low quality (by default)
+  - *Medium* - medium quality
+  - *High* - high quality
+  - *Ultra* - ultra quality
+
+## int getWaterWaterlineAccuracy () const
+
+***Console*:**`render_water_waterline_accuracy`Returns the current quality of underwater and waterline determination. Use high quality only if you need to submerge underwater (to see the waterline) and at medium and high Beaufort values.
+### Return value
+
+Current accuracy value. One of the following values:
+
+- *Low* - low quality (by default)
+- *Medium* - medium quality
+- *High* - high quality
+- *Ultra* - ultra quality
+
+## void setWaterCullingObliqueFrustum ( float frustum = 0.9f )
+
+***Console*:**`render_water_culling_oblique_frustum`Sets a new multiplier for the size of viewing frustum used for culling polygons of *[Global Water](../../../objects/objects/water/water_object.md)* object beyond the oblique frustum plane. The higher the value, the more patches will be culled.
+### Arguments
+
+- *float* **frustum** - The multiplier value. Range of values: **[0.0f, 1.0f]**. The default value is : **0.9f**.
+
+## float getWaterCullingObliqueFrustum () const
+
+***Console*:**`render_water_culling_oblique_frustum`Returns the current multiplier for the size of viewing frustum used for culling polygons of *[Global Water](../../../objects/objects/water/water_object.md)* object beyond the oblique frustum plane. The higher the value, the more patches will be culled.
+### Return value
+
+Current multiplier value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.9f**.
+## void setWaterCullingFrustumPadding ( float padding = 0.1f )
+
+***Console*:**`render_water_culling_frustum_padding`Sets a new value, by which the borders of the current frustum are increased. Frustum culling is performed for the frustum of the increased size. By the maximum value of 1, the frustum borders will be increased by the size of the current frustum.
+### Arguments
+
+- *float* **padding** - The frustum padding multiplier value. Range of values: **[0.0f, 1.0f]**. The default value is : **0.1f**.
+
+## float getWaterCullingFrustumPadding () const
+
+***Console*:**`render_water_culling_frustum_padding`Returns the current value, by which the borders of the current frustum are increased. Frustum culling is performed for the frustum of the increased size. By the maximum value of 1, the frustum borders will be increased by the size of the current frustum.
+### Return value
+
+Current frustum padding multiplier value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.1f**.
+## void setWaterCullingAggressive ( bool aggressive = 1 )
+
+***Console*:**`render_water_culling_aggressive`Sets a new value indicating if frustum culling optimization is enabled for the [Global Water](../../../objects/objects/water/water_object.md). When enabled, the number of culled polygons increases thereby increasing performance. In case of any issues with polygons rendering, try disabling this option (however, note that performance may drop).
+### Arguments
+
+- *bool* **aggressive** - Set **true** to enable frustum culling optimization; **false** - to disable it. The default value is **true**.
+
+## bool isWaterCullingAggressive () const
+
+***Console*:**`render_water_culling_aggressive`Returns the current value indicating if frustum culling optimization is enabled for the [Global Water](../../../objects/objects/water/water_object.md). When enabled, the number of culled polygons increases thereby increasing performance. In case of any issues with polygons rendering, try disabling this option (however, note that performance may drop).
+### Return value
+
+**true** if frustum culling optimization is enabled; otherwise **false**. The default value is **true**.
+## void setWaterGeometrySubpixelReduction ( float reduction = 6.0f )
+
+***Console*:**`render_water_geometry_subpixel_reduction`Sets a new minimum ratio of a polygon size (in screen space) to the size of an area seen in the viewport. If the ratio calculated for the polygon is less than this value, such polygon will be removed.
+### Arguments
+
+- *float* **reduction** - The subpixel reduction ratio. Range of values: **[0.0f, 50.0f]**. The default value is : **6.0f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[WaterGeometryPreset](/api/library/rendering/class.render_cs#render_water_geometry_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getWaterGeometrySubpixelReduction () const
+
+***Console*:**`render_water_geometry_subpixel_reduction`Returns the current minimum ratio of a polygon size (in screen space) to the size of an area seen in the viewport. If the ratio calculated for the polygon is less than this value, such polygon will be removed.
+### Return value
+
+Current subpixel reduction ratio.
+Range of values: **[0.0f, 50.0f]**. The default value is : **6.0f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[WaterGeometryPreset](/api/library/rendering/class.render_cs#render_water_geometry_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setWaterGeometryFadeLods ( float lods = 0.5f )
+
+***Console*:**`render_water_geometry_fade_lods`Sets a new intensity of fading between levels of [Global Water](../../../objects/objects/water/water_object.md) geometry tessellation. This value can be increased to remove sharp edges between areas with different geometry density.
+### Arguments
+
+- *float* **lods** - The fading intensity value. Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[WaterGeometryPreset](/api/library/rendering/class.render_cs#render_water_geometry_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getWaterGeometryFadeLods () const
+
+***Console*:**`render_water_geometry_fade_lods`Returns the current intensity of fading between levels of [Global Water](../../../objects/objects/water/water_object.md) geometry tessellation. This value can be increased to remove sharp edges between areas with different geometry density.
+### Return value
+
+Current fading intensity value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[WaterGeometryPreset](/api/library/rendering/class.render_cs#render_water_geometry_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setWaterGeometryProgression ( float progression = 1.5f )
+
+***Console*:**`render_water_geometry_progression`Sets a new progression of [Global Water](../../../objects/objects/water/water_object.md) geometry tessellation.
+### Arguments
+
+- *float* **progression** - The CPU cache size, in percentage of the total CPU memory. Range of values: **[0.0f, 50.0f]**. The default value is : **1.5f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[WaterGeometryPreset](/api/library/rendering/class.render_cs#render_water_geometry_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getWaterGeometryProgression () const
+
+***Console*:**`render_water_geometry_progression`Returns the current progression of [Global Water](../../../objects/objects/water/water_object.md) geometry tessellation.
+### Return value
+
+Current CPU cache size, in percentage of the total CPU memory.
+Range of values: **[0.0f, 50.0f]**. The default value is : **1.5f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[WaterGeometryPreset](/api/library/rendering/class.render_cs#render_water_geometry_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setWaterGeometryPolygonSize ( float size = 0.01f )
+
+***Console*:**`render_water_geometry_polygon_size`Sets a new size of [Global Water](../../../objects/objects/water/water_object.md) polygons. The value defines the maximum allowed density of Global Water geometry. If the polygon size is large, small waves will be lost. It is better to set this parameter to about 1/3 or 1/4 of the smallest wavelength.
+### Arguments
+
+- *float* **size** - The size of Global Water polygons, in units. Range of values: **[0.0f, 1000.0f]**. The default value is : **0.01f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[WaterGeometryPreset](/api/library/rendering/class.render_cs#render_water_geometry_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getWaterGeometryPolygonSize () const
+
+***Console*:**`render_water_geometry_polygon_size`Returns the current size of [Global Water](../../../objects/objects/water/water_object.md) polygons. The value defines the maximum allowed density of Global Water geometry. If the polygon size is large, small waves will be lost. It is better to set this parameter to about 1/3 or 1/4 of the smallest wavelength.
+### Return value
+
+Current size of Global Water polygons, in units.
+Range of values: **[0.0f, 1000.0f]**. The default value is : **0.01f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[WaterGeometryPreset](/api/library/rendering/class.render_cs#render_water_geometry_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setWaterVisibleDistance ( float distance = 30000.0f )
+
+***Console*:**`render_water_visible_distance`Sets a new maximum visibility distance for the [Global Water](../../../objects/objects/water/water_object.md). The water is visible, as long as the distance between the camera and the water object does not exceed this value.
+### Arguments
+
+- *float* **distance** - The maximum visibility distance, in meters. Range of values: **[0.0f, inf]**. The default value is : **30000.0f**.
+
+## float getWaterVisibleDistance () const
+
+***Console*:**`render_water_visible_distance`Returns the current maximum visibility distance for the [Global Water](../../../objects/objects/water/water_object.md). The water is visible, as long as the distance between the camera and the water object does not exceed this value.
+### Return value
+
+Current maximum visibility distance, in meters.
+Range of values: **[0.0f, inf]**. The default value is : **30000.0f**.
+## void setDistanceOffset ( float offset = 0.0f )
+
+***Console*:**`render_distance_offset`Sets a new global distance offset for all distance parameters: shadow distance, light distance, LOD distances, etc.
+### Arguments
+
+- *float* **offset** - The distance offset value. Range of values: **[0.0f, inf]**. The default value is : **0.0f**.
+
+## float getDistanceOffset () const
+
+***Console*:**`render_distance_offset`Returns the current global distance offset for all distance parameters: shadow distance, light distance, LOD distances, etc.
+### Return value
+
+Current distance offset value.
+Range of values: **[0.0f, inf]**. The default value is : **0.0f**.
+## void setEnvironmentHemisphere ( bool hemisphere = 0 )
+
+***Console*:**`render_environment_hemisphere`Sets a new value indicating if rendering of environment only for the top (above-ground) hemisphere is enabled. The underground is rendered black. When disabled, environment for the whole sphere is rendered.
+### Arguments
+
+- *bool* **hemisphere** - Set **true** to enable rendering of environment only for the top (above-ground) hemisphere; **false** - to disable it. The default value is **false**.
+
+## bool isEnvironmentHemisphere () const
+
+***Console*:**`render_environment_hemisphere`Returns the current value indicating if rendering of environment only for the top (above-ground) hemisphere is enabled. The underground is rendered black. When disabled, environment for the whole sphere is rendered.
+### Return value
+
+**true** if rendering of environment only for the top (above-ground) hemisphere is enabled; otherwise **false**. The default value is **false**.
+## void setWaterPlanarProbes ( bool probes = 1 )
+
+***Console*:**`render_water_planar_probes`Sets a new value indicating if rendering of [Planar Reflection Probes](../../../objects/lights/planar/index.md) on the water surface is enabled.
+### Arguments
+
+- *bool* **probes** - Set **true** to enable rendering of planar reflection probes on the water surface; **false** - to disable it. The default value is **true**.
+
+## bool isWaterPlanarProbes () const
+
+***Console*:**`render_water_planar_probes`Returns the current value indicating if rendering of [Planar Reflection Probes](../../../objects/lights/planar/index.md) on the water surface is enabled.
+### Return value
+
+**true** if rendering of planar reflection probes on the water surface is enabled; otherwise **false**. The default value is **true**.
+## int getNumDebugMaterials () const
+
+Returns the current number of debug materials.
+### Return value
+
+Current number of debug materials.
+## void setColorCorrectionHuePerColor ( bool color = 1 )
+
+***Console*:**`color_correction_hue_per_color`Sets a new value indicating if fine-adjustment of hue (color shift) for each of the 12 major colors of the spectre is enabled.
+### Arguments
+
+- *bool* **color** - Set **true** to enable fine-adjustment of hue (color shift) for each of the 12 major colors of the spectre; **false** - to disable it. The default value is **true**.
+
+## bool isColorCorrectionHuePerColor () const
+
+***Console*:**`color_correction_hue_per_color`Returns the current value indicating if fine-adjustment of hue (color shift) for each of the 12 major colors of the spectre is enabled.
+### Return value
+
+**true** if fine-adjustment of hue (color shift) for each of the 12 major colors of the spectre is enabled; otherwise **false**. The default value is **true**.
+## void setColorCorrectionSaturationPerColor ( bool color = 1 )
+
+***Console*:**`color_correction_saturation_per_color`Sets a new value indicating if fine-adjustment of saturation for each of the 12 major colors of the spectre is enabled.
+### Arguments
+
+- *bool* **color** - Set **true** to enable fine-adjustment of saturation for each of the 12 major colors of the spectre; **false** - to disable it. The default value is **true**.
+
+## bool isColorCorrectionSaturationPerColor () const
+
+***Console*:**`color_correction_saturation_per_color`Returns the current value indicating if fine-adjustment of saturation for each of the 12 major colors of the spectre is enabled.
+### Return value
+
+**true** if fine-adjustment of saturation for each of the 12 major colors of the spectre is enabled; otherwise **false**. The default value is **true**.
+## void setColorCorrectionByCurves ( bool curves = 1 )
+
+***Console*:**`color_correction_by_curves`Sets a new value indicating if color correction via curves is enabled.
+### Arguments
+
+- *bool* **curves** - Set **true** to enable color correction via curves; **false** - to disable it. The default value is **true**.
+
+## bool isColorCorrectionByCurves () const
+
+***Console*:**`color_correction_by_curves`Returns the current value indicating if color correction via curves is enabled.
+### Return value
+
+**true** if color correction via curves is enabled; otherwise **false**. The default value is **true**.
+## void setVignetteMask ( bool mask = 0 )
+
+***Console*:**`render_vignette_mask`Sets a new value indicating if rendering of the *[Vignette Mask](../../../editor2/settings/render_settings/camera_effects/index.md#post_vignette)* post-effect is enabled. The effect applies darkening towards the edges of an image compared to the center usually caused by thick or stacked filters, secondary lenses, and lens hoods. It can be used for an artistic effect, to draw focus to the center of the image.
+### Arguments
+
+- *bool* **mask** - Set **true** to enable rendering of the Vignette Mask post-effect; **false** - to disable it. The default value is **false**.
+
+## bool isVignetteMask () const
+
+***Console*:**`render_vignette_mask`Returns the current value indicating if rendering of the *[Vignette Mask](../../../editor2/settings/render_settings/camera_effects/index.md#post_vignette)* post-effect is enabled. The effect applies darkening towards the edges of an image compared to the center usually caused by thick or stacked filters, secondary lenses, and lens hoods. It can be used for an artistic effect, to draw focus to the center of the image.
+### Return value
+
+**true** if rendering of the Vignette Mask post-effect is enabled; otherwise **false**. The default value is **false**.
+## void setVignetteMaskIntensity ( float intensity = 1.0f )
+
+***Console*:**`render_vignette_mask_intensity`Sets a new intensity of the *[Vignette Mask](../../../editor2/settings/render_settings/camera_effects/index.md#post_vignette)*. Defines the amount of vignetting on the screen: *higher* values moke the vignette wider.
+### Arguments
+
+- *float* **intensity** - The vignette mask Intensity value. Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+
+## float getVignetteMaskIntensity () const
+
+***Console*:**`render_vignette_mask_intensity`Returns the current intensity of the *[Vignette Mask](../../../editor2/settings/render_settings/camera_effects/index.md#post_vignette)*. Defines the amount of vignetting on the screen: *higher* values moke the vignette wider.
+### Return value
+
+Current vignette mask Intensity value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+## void setVignetteMaskPower ( float power = 1.0f )
+
+***Console*:**`render_vignette_mask_power`Sets a new Power value that controls mask opacity for the *[Vignette Mask](../../../editor2/settings/render_settings/camera_effects/index.md#post_vignette)* post-effect.
+### Arguments
+
+- *float* **power** - The vignette mask power value. Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+
+## float getVignetteMaskPower () const
+
+***Console*:**`render_vignette_mask_power`Returns the current Power value that controls mask opacity for the *[Vignette Mask](../../../editor2/settings/render_settings/camera_effects/index.md#post_vignette)* post-effect.
+### Return value
+
+Current vignette mask power value.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+## void setVignetteMaskTexturePath ( )
+
+Sets a new path to the custom mask texture for the *[Vignette Mask](../../../editor2/settings/render_settings/camera_effects/index.md#post_vignette)* post-effect.
+### Arguments
+
+- **path** - The path to the custom mask texture for the vignette.
+
+## getVignetteMaskTexturePath () const
+
+Returns the current path to the custom mask texture for the *[Vignette Mask](../../../editor2/settings/render_settings/camera_effects/index.md#post_vignette)* post-effect.
+### Return value
+
+Current path to the custom mask texture for the vignette.
+## void setNoise ( bool noise = 0 )
+
+***Console*:**`render_noise`Sets a new value indicating if rendering of the *[Noise](../../../editor2/settings/render_settings/camera_effects/index.md#post_noise)* post-effect is enabled.
+### Arguments
+
+- *bool* **noise** - Set **true** to enable rendering of the Noise post-effect; **false** - to disable it. The default value is **false**.
+
+## bool isNoise () const
+
+***Console*:**`render_noise`Returns the current value indicating if rendering of the *[Noise](../../../editor2/settings/render_settings/camera_effects/index.md#post_noise)* post-effect is enabled.
+### Return value
+
+**true** if rendering of the Noise post-effect is enabled; otherwise **false**. The default value is **false**.
+## void setNoiseIntensity ( float intensity = 0.03f )
+
+***Console*:**`render_noise_intensity`Sets a new intensity of the *[Noise](../../../editor2/settings/render_settings/camera_effects/index.md#post_noise)* post-effect. *Higher* values result in more noise applied to the image.
+### Arguments
+
+- *float* **intensity** - The noise intensity value. Range of values: **[0.0f, inf]**. The default value is : **0.03f**.
+
+## float getNoiseIntensity () const
+
+***Console*:**`render_noise_intensity`Returns the current intensity of the *[Noise](../../../editor2/settings/render_settings/camera_effects/index.md#post_noise)* post-effect. *Higher* values result in more noise applied to the image.
+### Return value
+
+Current noise intensity value.
+Range of values: **[0.0f, inf]**. The default value is : **0.03f**.
+## void setChromaticAberration ( bool aberration = 0 )
+
+***Console*:**`render_chromatic_aberration`Sets a new value indicating if rendering of the *[Chromatic Aberration](../../../editor2/settings/render_settings/camera_effects/index.md#post_chromatic_aberration)* post-effect is enabled. This effect simulates color shifts in real-world camera lenses due to light rays entering a lens at different points causing separation of RGB colors.
+### Arguments
+
+- *bool* **aberration** - Set **true** to enable rendering of the Chromatic Aberration post-effect; **false** - to disable it. The default value is **false**.
+
+## bool isChromaticAberration () const
+
+***Console*:**`render_chromatic_aberration`Returns the current value indicating if rendering of the *[Chromatic Aberration](../../../editor2/settings/render_settings/camera_effects/index.md#post_chromatic_aberration)* post-effect is enabled. This effect simulates color shifts in real-world camera lenses due to light rays entering a lens at different points causing separation of RGB colors.
+### Return value
+
+**true** if rendering of the Chromatic Aberration post-effect is enabled; otherwise **false**. The default value is **false**.
+## void setChromaticAberrationIntensity ( float intensity = 0.5f )
+
+***Console*:**`render_chromatic_aberration_intensity`Sets a new intensity (strength) of the *[Chromatic Aberration](../../../editor2/settings/render_settings/camera_effects/index.md#post_chromatic_aberration)* post-effect. Controls how much color shifting occurs.
+### Arguments
+
+- *float* **intensity** - The chromatic aberration intensity value. Range of values: **[0.0f, inf]**. The default value is : **0.5f**.
+
+## float getChromaticAberrationIntensity () const
+
+***Console*:**`render_chromatic_aberration_intensity`Returns the current intensity (strength) of the *[Chromatic Aberration](../../../editor2/settings/render_settings/camera_effects/index.md#post_chromatic_aberration)* post-effect. Controls how much color shifting occurs.
+### Return value
+
+Current chromatic aberration intensity value.
+Range of values: **[0.0f, inf]**. The default value is : **0.5f**.
+## void setChromaticAberrationNoiseIntensity ( float intensity = 0.3f )
+
+***Console*:**`render_chromatic_aberration_noise_intensity`Sets a new intensity of noise applied for the *[Chromatic Aberration](../../../editor2/settings/render_settings/camera_effects/index.md#post_chromatic_aberration)* post-effect.
+### Arguments
+
+- *float* **intensity** - The noise intensity value for the Chromatic Aberration post-effect. Range of values: **[0.0f, 1.0f]**. The default value is : **0.3f**.
+
+## float getChromaticAberrationNoiseIntensity () const
+
+***Console*:**`render_chromatic_aberration_noise_intensity`Returns the current intensity of noise applied for the *[Chromatic Aberration](../../../editor2/settings/render_settings/camera_effects/index.md#post_chromatic_aberration)* post-effect.
+### Return value
+
+Current noise intensity value for the Chromatic Aberration post-effect.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.3f**.
+## void setChromaticAberrationSamples ( int samples = 1 )
+
+***Console*:**`render_chromatic_aberration_samples`Sets a new number of samples used for calculation of the *[Chromatic Aberration](../../../editor2/settings/render_settings/camera_effects/index.md#post_chromatic_aberration)* post-effect. *Higher* values reduce banding making the effect look smoother.
+### Arguments
+
+- *int* **samples** - The number of samples used for calculation of the Chromatic Aberration post-effect. Range of values: **[1, 32]**. The default value is : **1**.
+
+## int getChromaticAberrationSamples () const
+
+***Console*:**`render_chromatic_aberration_samples`Returns the current number of samples used for calculation of the *[Chromatic Aberration](../../../editor2/settings/render_settings/camera_effects/index.md#post_chromatic_aberration)* post-effect. *Higher* values reduce banding making the effect look smoother.
+### Return value
+
+Current number of samples used for calculation of the Chromatic Aberration post-effect.
+Range of values: **[1, 32]**. The default value is : **1**.
+## void setLandscapeTerrainCullingMap ( float map = 0.3f )
+
+***Console*:**`render_landscape_terrain_culling_map`Sets a new  extent of culling of [Landscape Layer Maps](../../../objects/objects/terrain/landscape_terrain/landscape_layer_map.md) with the distance. In case small Landscape Layer Maps disappear too soon with the distance, try increasing this value.
+> **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
+
+
+### Arguments
+
+- *float* **map** - The extent of culling of Landscape Layer Maps with the distance. Range of values: **[0.0f, 1.0f]**. The default value is : **0.3f**.
+
+## float getLandscapeTerrainCullingMap () const
+
+***Console*:**`render_landscape_terrain_culling_map`Returns the current  extent of culling of [Landscape Layer Maps](../../../objects/objects/terrain/landscape_terrain/landscape_layer_map.md) with the distance. In case small Landscape Layer Maps disappear too soon with the distance, try increasing this value.
+> **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
+
+
+### Return value
+
+Current extent of culling of Landscape Layer Maps with the distance.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.3f**.
+## void setLandscapeTerrainCullingObliqueFrustum ( float frustum = 0.9f )
+
+***Console*:**`render_landscape_terrain_culling_oblique_frustum`Sets a new multiplier for culling of tessellation patches of the [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md) beyond the oblique frustum plane. *Higher* values result in more patches culled.
+### Arguments
+
+- *float* **frustum** - The multiplier value. Range of values: **[0.0f, 1.0f]**. The default value is : **0.9f**.
+
+## float getLandscapeTerrainCullingObliqueFrustum () const
+
+***Console*:**`render_landscape_terrain_culling_oblique_frustum`Returns the current multiplier for culling of tessellation patches of the [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md) beyond the oblique frustum plane. *Higher* values result in more patches culled.
+### Return value
+
+Current multiplier value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.9f**.
+## void setLandscapeTerrainCullingPaddingPatchCPU ( float cpu = 1.0f )
+
+***Console*:**`render_landscape_terrain_culling_padding_patch_cpu`Sets a new  padding between LODs of patches culled on CPU.
+### Arguments
+
+- *float* **cpu** - The padding between LODs of patches culled on CPU. Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+
+## float getLandscapeTerrainCullingPaddingPatchCPU () const
+
+***Console*:**`render_landscape_terrain_culling_padding_patch_cpu`Returns the current  padding between LODs of patches culled on CPU.
+### Return value
+
+Current padding between LODs of patches culled on CPU.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+## void setLandscapeTerrainCullingPaddingPatchGPU ( float gpu = 1.0f )
+
+***Console*:**`render_landscape_terrain_culling_padding_patch_gpu`Sets a new  padding between LODs of patches culled on GPU.
+### Arguments
+
+- *float* **gpu** - The padding between LODs of patches culled on GPU. Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+
+## float getLandscapeTerrainCullingPaddingPatchGPU () const
+
+***Console*:**`render_landscape_terrain_culling_padding_patch_gpu`Returns the current  padding between LODs of patches culled on GPU.
+### Return value
+
+Current padding between LODs of patches culled on GPU.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+## void setLandscapeTerrainCullingPaddingTriangles ( float triangles = 1.0f )
+
+***Console*:**`render_landscape_terrain_culling_padding_triangles`Sets a new  padding between LODs of tessellated polygons.
+### Arguments
+
+- *float* **triangles** - The padding between LODs of tessellated polygons. Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+
+## float getLandscapeTerrainCullingPaddingTriangles () const
+
+***Console*:**`render_landscape_terrain_culling_padding_triangles`Returns the current  padding between LODs of tessellated polygons.
+### Return value
+
+Current padding between LODs of tessellated polygons.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+## void setLandscapeTerrainCullingPatchBatching ( int batching = 16 )
+
+***Console*:**`render_landscape_terrain_culling_patch_batching`Sets a new  number of culling patches of [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md) processed in a batch. The higher this value, the more patches will be checked for visibility on CPU at once.
+### Arguments
+
+- *int* **batching** - The number of batched culling patches. Range of values: **[1, 64]**. The default value is : **16**.
+
+## int getLandscapeTerrainCullingPatchBatching () const
+
+***Console*:**`render_landscape_terrain_culling_patch_batching`Returns the current  number of culling patches of [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md) processed in a batch. The higher this value, the more patches will be checked for visibility on CPU at once.
+### Return value
+
+Current number of batched culling patches.
+Range of values: **[1, 64]**. The default value is : **16**.
+## void setLandscapeTerrainCullingPatchResolutionCPU ( int cpu = 2 )
+
+***Console*:**`render_landscape_terrain_culling_patch_resolution_cpu`Sets a new  number of subdivisions for patches of [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md) culled on the CPU side that are to be passed to GPU. The lowest value of 2 corresponds to no subdivisions at all, i.e. all patched will be culled on the CPU side. By increasing this value you can reduce the load on CPU as more patches will be checked for visibility on the GPU side.
+### Arguments
+
+- *int* **cpu** - The number of subdivisions for patches culled on CPU. Range of values: **[2, 64]**. The default value is : **2**.
+
+## int getLandscapeTerrainCullingPatchResolutionCPU () const
+
+***Console*:**`render_landscape_terrain_culling_patch_resolution_cpu`Returns the current  number of subdivisions for patches of [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md) culled on the CPU side that are to be passed to GPU. The lowest value of 2 corresponds to no subdivisions at all, i.e. all patched will be culled on the CPU side. By increasing this value you can reduce the load on CPU as more patches will be checked for visibility on the GPU side.
+### Return value
+
+Current number of subdivisions for patches culled on CPU.
+Range of values: **[2, 64]**. The default value is : **2**.
+## void setLandscapeTerrainCullingPatchResolutionGPU ( int gpu = 32 )
+
+***Console*:**`render_landscape_terrain_culling_patch_resolution_gpu`Sets a new  number of subdivisions for patches of [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md) culled on the GPU side that are to be tessellated. By lowering this value you reduce the load on CPU, by increasing it you reduce the load on GPU. The point is to find a trade-off between loads in the given conditions on the target hardware.
+### Arguments
+
+- *int* **gpu** - The number of subdivisions for patches culled on GPU. Range of values: **[4, 64]**. The default value is : **32**.
+
+## int getLandscapeTerrainCullingPatchResolutionGPU () const
+
+***Console*:**`render_landscape_terrain_culling_patch_resolution_gpu`Returns the current  number of subdivisions for patches of [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md) culled on the GPU side that are to be tessellated. By lowering this value you reduce the load on CPU, by increasing it you reduce the load on GPU. The point is to find a trade-off between loads in the given conditions on the target hardware.
+### Return value
+
+Current number of subdivisions for patches culled on GPU.
+Range of values: **[4, 64]**. The default value is : **32**.
+## void setLandscapeTerrainCullingDepthResolution ( int resolution = 64 )
+
+***Console*:**`render_landscape_terrain_culling_depth_resolution`Sets a new  resolution of the buffer used for culling by depth.
+### Arguments
+
+- *int* **resolution** - The resolution of the buffer used for culling by depth. Range of values: **[4, 2048]**. The default value is : **64**.
+
+## int getLandscapeTerrainCullingDepthResolution () const
+
+***Console*:**`render_landscape_terrain_culling_depth_resolution`Returns the current  resolution of the buffer used for culling by depth.
+### Return value
+
+Current resolution of the buffer used for culling by depth.
+Range of values: **[4, 2048]**. The default value is : **64**.
+## void setLandscapeTerrainCullingByDepth ( bool depth = 1 )
+
+***Console*:**`render_landscape_terrain_culling_by_depth`Sets a new  value indicating if culling by depth is enabled. Keep this option enabled to get the performance higher due to culling of tiles occluded by geometry and Landscape Terrain itself.
+### Arguments
+
+- *bool* **depth** - Set **true** to enable culling by depth; **false** - to disable it. The default value is **true**.
+
+## bool isLandscapeTerrainCullingByDepth () const
+
+***Console*:**`render_landscape_terrain_culling_by_depth`Returns the current  value indicating if culling by depth is enabled. Keep this option enabled to get the performance higher due to culling of tiles occluded by geometry and Landscape Terrain itself.
+### Return value
+
+**true** if culling by depth is enabled; otherwise **false**. The default value is **true**.
+## void setLandscapeTerrainCullingFrustumAggressive ( bool aggressive = 1 )
+
+***Console*:**`render_landscape_terrain_culling_frustum_aggressive`Sets a new value indicating if frustum culling optimization is enabled for the [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md). When enabled, the number of culled polygons increases thereby increasing performance. In case of any issues with polygons rendering, try disabling this option (however, note that performance may drop).
+### Arguments
+
+- *bool* **aggressive** - Set **true** to enable frustum culling optimization for the Landscape Terrain; **false** - to disable it. The default value is **true**.
+
+## bool isLandscapeTerrainCullingFrustumAggressive () const
+
+***Console*:**`render_landscape_terrain_culling_frustum_aggressive`Returns the current value indicating if frustum culling optimization is enabled for the [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md). When enabled, the number of culled polygons increases thereby increasing performance. In case of any issues with polygons rendering, try disabling this option (however, note that performance may drop).
+### Return value
+
+**true** if frustum culling optimization for the Landscape Terrain is enabled; otherwise **false**. The default value is **true**.
+## void setLandscapeTerrainGeometryDetailMaxHeight ( float height = 0.5f )
+
+***Console*:**`render_landscape_terrain_geometry_detail_max_height`Sets a new maximum height for detail displacement clamping. Adjust this value to the highest height value used in details in case of artifacts of stepped geometry caused by insufficient bit depth.
+> **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
+
+
+### Arguments
+
+- *float* **height** - The maximum height for detail displacement clamping. Range of values: **[0.0f, 10.0f]**. The default value is : **0.5f**.
+
+## float getLandscapeTerrainGeometryDetailMaxHeight () const
+
+***Console*:**`render_landscape_terrain_geometry_detail_max_height`Returns the current maximum height for detail displacement clamping. Adjust this value to the highest height value used in details in case of artifacts of stepped geometry caused by insufficient bit depth.
+> **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
+
+
+### Return value
+
+Current maximum height for detail displacement clamping.
+Range of values: **[0.0f, 10.0f]**. The default value is : **0.5f**.
+## void setLandscapeTerrainDetailCompression ( int compression = 1 )
+
+***Console*:**`render_landscape_terrain_detail_compression`Sets a new mode of detail textures compression. Compressed detail textures take less video memory.
+### Arguments
+
+- *int* **compression** - The detail textures compression. One of the following values:
+
+  - **0** - Disabled
+  - **1** - Fast Compression (by default)
+  - **2** - High Quality
+
+## int getLandscapeTerrainDetailCompression () const
+
+***Console*:**`render_landscape_terrain_detail_compression`Returns the current mode of detail textures compression. Compressed detail textures take less video memory.
+### Return value
+
+Current detail textures compression. One of the following values:
+- **0** - Disabled
+- **1** - Fast Compression (by default)
+- **2** - High Quality
+
+## void setLandscapeTerrainStreamingPerLods ( bool lods = 1 )
+
+***Console*:**`render_landscape_terrain_streaming_per_lods`Sets a new value indicating if streaming per LODs (MIP maps) is enabled. Disable this option to make streaming faster by skipping loading of intermediate MIP-levels for textures.
+### Arguments
+
+- *bool* **lods** - Set **true** to enable streaming per LODs (MIP maps); **false** - to disable it. The default value is **true**.
+
+## bool isLandscapeTerrainStreamingPerLods () const
+
+***Console*:**`render_landscape_terrain_streaming_per_lods`Returns the current value indicating if streaming per LODs (MIP maps) is enabled. Disable this option to make streaming faster by skipping loading of intermediate MIP-levels for textures.
+### Return value
+
+**true** if streaming per LODs (MIP maps) is enabled; otherwise **false**. The default value is **true**.
+## void setLandscapeTerrainStreamingThreads ( int threads = 1 )
+
+***Console*:**`render_landscape_terrain_streaming_threads`Sets a new  number of threads used for streaming.
+### Arguments
+
+- *int* **threads** - The number of threads used for streaming. Range of values: **[0, 32]**. The default value is : **1**.
+
+## int getLandscapeTerrainStreamingThreads () const
+
+***Console*:**`render_landscape_terrain_streaming_threads`Returns the current  number of threads used for streaming.
+### Return value
+
+Current number of threads used for streaming.
+Range of values: **[0, 32]**. The default value is : **1**.
+## void setLandscapeTerrainVTSamplerFeedbackBufferResolution ( )
+
+***Console*:**`render_landscape_terrain_vt_sampler_feedback_buffer_resolution`Sets a new resolution of the buffer used to transfer data about tiles and what MIP-levels to be loaded.
+> **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
+
+
+### Arguments
+
+- **resolution** - The buffer resolution (X, Y), in pixels. From **1x1** to **1024x1024** Default: **80x60**
+
+## getLandscapeTerrainVTSamplerFeedbackBufferResolution () const
+
+***Console*:**`render_landscape_terrain_vt_sampler_feedback_buffer_resolution`Returns the current resolution of the buffer used to transfer data about tiles and what MIP-levels to be loaded.
+> **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
+
+
+### Return value
+
+Current buffer resolution (X, Y), in pixels.
+From **1x1** to **1024x1024** Default: **80x60**
+## void setLandscapeTerrainVTSamplerFeedbackScreenResolution ( int resolution = 1 )
+
+***Console*:**`render_landscape_terrain_vt_sampler_feedback_screen_resolution`Sets a new resolution of the screen buffer used to detect visible tiles and what MIP-levels to be loaded.
+> **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
+
+
+### Arguments
+
+- *int* **resolution** - The screen buffer resolution. One of the following values:
+
+  - **0** - Quarter
+  - **1** - Half (by default)
+  - **2** - Full
+
+## int getLandscapeTerrainVTSamplerFeedbackScreenResolution () const
+
+***Console*:**`render_landscape_terrain_vt_sampler_feedback_screen_resolution`Returns the current resolution of the screen buffer used to detect visible tiles and what MIP-levels to be loaded.
+> **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
+
+
+### Return value
+
+Current screen buffer resolution. One of the following values:
+- **0** - Quarter
+- **1** - Half (by default)
+- **2** - Full
+
+## void setLandscapeTerrainVTHashSize ( int size = 1000000 )
+
+***Console*:**`render_landscape_terrain_vt_hash_size`Sets a new upper limit for the hash function used to determine tiles of *Landscape Terrain*. The value must be high enough to cover all variety of world-space positions of tiles being used and streamed.
+> **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
+
+
+### Arguments
+
+- *int* **size** - The upper limit for the hash function used to determine tiles of *Landscape Terrain*. Range of values: **[1000, 5000000]**. The default value is : **1000000**.
+
+## int getLandscapeTerrainVTHashSize () const
+
+***Console*:**`render_landscape_terrain_vt_hash_size`Returns the current upper limit for the hash function used to determine tiles of *Landscape Terrain*. The value must be high enough to cover all variety of world-space positions of tiles being used and streamed.
+> **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
+
+
+### Return value
+
+Current upper limit for the hash function used to determine tiles of *Landscape Terrain*.
+Range of values: **[1000, 5000000]**. The default value is : **1000000**.
+## void setLandscapeTerrainVTHashSizeNumberMistakes ( int mistakes = 2 )
+
+***Console*:**`render_landscape_terrain_vt_hash_number_mistakes`Sets a new number of mistakes of the hash function used in *Landscape Terrain* data streaming. This value actually represents the number of iterations to compute a new unique hash value that determines a tile being streamed. Too low values may introduce collisions and, therefore, wrong terrain data at certain areas.
+> **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
+
+
+### Arguments
+
+- *int* **mistakes** - The number of mistakes of the hash function used in *Landscape Terrain* data streaming. Range of values: **[1, 32]**. The default value is : **2**.
+
+## int getLandscapeTerrainVTHashSizeNumberMistakes () const
+
+***Console*:**`render_landscape_terrain_vt_hash_number_mistakes`Returns the current number of mistakes of the hash function used in *Landscape Terrain* data streaming. This value actually represents the number of iterations to compute a new unique hash value that determines a tile being streamed. Too low values may introduce collisions and, therefore, wrong terrain data at certain areas.
+> **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
+
+
+### Return value
+
+Current number of mistakes of the hash function used in *Landscape Terrain* data streaming.
+Range of values: **[1, 32]**. The default value is : **2**.
+## void setLocalTonemapper ( bool tonemapper = 0 )
+
+***Console*:**`render_local_tonemapper`Sets a new value indicating if the local tonemapper is enabled.
+### Arguments
+
+- *bool* **tonemapper** - Set **true** to enable local tonemapper; **false** - to disable it. The default value is **false**.
+
+## bool isLocalTonemapper () const
+
+***Console*:**`render_local_tonemapper`Returns the current value indicating if the local tonemapper is enabled.
+### Return value
+
+**true** if local tonemapper is enabled; otherwise **false**. The default value is **false**.
+## void setLocalTonemapperNumBlurIterations ( int iterations = 5 )
+
+***Console*:**`render_local_tonemapper_num_blur_iterations`Sets a new number of blur iterations applied to the screen texture, which is used to define bright and dark portions of the screen. A higher number of iterations increases the blur radius and reduces halo artifacts around objects, but may affect performance.
+### Arguments
+
+- *int* **iterations** - The number of blur iterations applied to the screen texture, which is used to define bright and dark portions of the screen. Range of values: **[0, 10]**. The default value is : **5**.
+
+## int getLocalTonemapperNumBlurIterations () const
+
+***Console*:**`render_local_tonemapper_num_blur_iterations`Returns the current number of blur iterations applied to the screen texture, which is used to define bright and dark portions of the screen. A higher number of iterations increases the blur radius and reduces halo artifacts around objects, but may affect performance.
+### Return value
+
+Current number of blur iterations applied to the screen texture, which is used to define bright and dark portions of the screen.
+Range of values: **[0, 10]**. The default value is : **5**.
+## void setLocalTonemapperDepthThreshold ( float threshold = 0.9f )
+
+***Console*:**`render_local_tonemapper_depth_threshold`Sets a new depth threshold value used to detect the areas affected by local tonemapping. A properly set value may help to reduce halo artifacts.
+### Arguments
+
+- *float* **threshold** - The depth threshold. Range of values: **[0.0f, 1.0f]**. The default value is : **0.9f**.
+
+## float getLocalTonemapperDepthThreshold () const
+
+***Console*:**`render_local_tonemapper_depth_threshold`Returns the current depth threshold value used to detect the areas affected by local tonemapping. A properly set value may help to reduce halo artifacts.
+### Return value
+
+Current depth threshold.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.9f**.
+## void setLocalTonemapperTonemappingIntensity ( float intensity = 0.5f )
+
+***Console*:**`render_local_tonemapper_tonemapping_intensity`Sets a new intensity of the local tonemapping effect.
+### Arguments
+
+- *float* **intensity** - The local tonemapping effect intensity value. Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
+
+## float getLocalTonemapperTonemappingIntensity () const
+
+***Console*:**`render_local_tonemapper_tonemapping_intensity`Returns the current intensity of the local tonemapping effect.
+### Return value
+
+Current local tonemapping effect intensity value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
+## void setLocalTonemapperEffectOnDarkAreas ( float areas = 0.1f )
+
+***Console*:**`render_local_tonemapper_effect_on_dark_areas`Sets a new extent of applying the local tonemapping effect on dark areas.
+### Arguments
+
+- *float* **areas** - The intensity of tonemapping effect on dark areas. Range of values: **[0.0f, 1.0f]**. The default value is : **0.1f**.
+
+## float getLocalTonemapperEffectOnDarkAreas () const
+
+***Console*:**`render_local_tonemapper_effect_on_dark_areas`Returns the current extent of applying the local tonemapping effect on dark areas.
+### Return value
+
+Current intensity of tonemapping effect on dark areas.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.1f**.
+## void setLocalTonemapperTargetMiddleGray ( float gray = 0.4f )
+
+***Console*:**`render_local_tonemapper_target_middle_gray`Sets a new target middle gray value for tonemapping.
+### Arguments
+
+- *float* **gray** - The target middle gray value. Range of values: **[0.0f, 1.0f]**. The default value is : **0.4f**.
+
+## float getLocalTonemapperTargetMiddleGray () const
+
+***Console*:**`render_local_tonemapper_target_middle_gray`Returns the current target middle gray value for tonemapping.
+### Return value
+
+Current target middle gray value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.4f**.
+## void setLocalTonemapperLumaBlurredIntensity ( float intensity = 1.0f )
+
+***Console*:**`render_local_tonemapper_luma_blurred_intensity`Sets a new intensity of blurring the luma values. It is recommended to keep the default value for this setting. With the value set to 0, a regular screen texture is used instead of a blurred screen texture. This might be required in a rare case of reducing the halo effect and increasing the tonemapping effect for small details.
+### Arguments
+
+- *float* **intensity** - The luma blurring intensity value. Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+
+## float getLocalTonemapperLumaBlurredIntensity () const
+
+***Console*:**`render_local_tonemapper_luma_blurred_intensity`Returns the current intensity of blurring the luma values. It is recommended to keep the default value for this setting. With the value set to 0, a regular screen texture is used instead of a blurred screen texture. This might be required in a rare case of reducing the halo effect and increasing the tonemapping effect for small details.
+### Return value
+
+Current luma blurring intensity value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+## getAutoExposureRamp () const
+
+Returns the current correction curve for the overall scene saturation. The input luminance values are mapped to the vertical saturation values. Higher values make colors more saturated and vibrant, lower values make colors duller and less saturated.
+### Return value
+
+Current auto exposure curve.
+## void setUpscaleMode ( )
+
+***Console*:**`render_upscale_mode`Sets a new Upscaling mode. Defines a technology to be used to render high-resolution images based on the lower resolution source, which may help preserve image quality while getting more fps.
+### Arguments
+
+- **mode** - The upscaling mode. One of the following values:
+
+  - **0** - *Disabled* for no upscaling. 1.0x per dimension, the final image has 100% rendered resolution.
+  - **1** - *FSR* for Fidelity FX Super Resolution by AMD.
+  - **2** - *DLSS* for Deep Learning Super Sampling by NVIDIA. (by default)
+
+## getUpscaleMode () const
+
+***Console*:**`render_upscale_mode`Returns the current Upscaling mode. Defines a technology to be used to render high-resolution images based on the lower resolution source, which may help preserve image quality while getting more fps.
+### Return value
+
+Current upscaling mode. One of the following values:
+- **0** - *Disabled* for no upscaling. 1.0x per dimension, the final image has 100% rendered resolution.
+- **1** - *FSR* for Fidelity FX Super Resolution by AMD.
+- **2** - *DLSS* for Deep Learning Super Sampling by NVIDIA. (by default)
+
+## void setUpscaleFixFlicker ( bool flicker = 0 )
+
+***Console*:**`render_upscale_fix_flicker`Sets a new value indicating whether a temporal filtering pass is applied when upscaling is active to reduce pixel flicker on bright thin details such as wires and lines. May increase rendering costs.
+### Arguments
+
+- *bool* **flicker** - Set **true** to enable pixel flicker fix for upscaling; **false** - to disable it. The default value is **false**.
+
+## bool isUpscaleFixFlicker () const
+
+***Console*:**`render_upscale_fix_flicker`Returns the current value indicating whether a temporal filtering pass is applied when upscaling is active to reduce pixel flicker on bright thin details such as wires and lines. May increase rendering costs.
+### Return value
+
+**true** if pixel flicker fix for upscaling is enabled; otherwise **false**. The default value is **false**.
+## void setDLSSMode ( )
+
+***Console*:**`render_upscale_dlss_mode`Sets a new DLSS quality.
+- *Ultra Performance* provides the highest performance boost by rendering at ~33.3% of the target resolution and upscaling to the output resolution. This mode is recommended only for 8K output resolution due to the significant reduction in internal image quality.
+- *Max Performance* provides a higher performance boost than *Balanced* by rendering at ~50% of the target resolution. Use when frame-rate is prioritized but some internal detail should be preserved. It is recommended for users with 1440p/2K monitors, providing better performance with minimal effort.
+- *Balanced* offers both optimized performance and image quality by rendering at approximately ~58% of the target resolution. Recommended as the general-purpose preset for users who want a compromise between frame-rate and visual fidelity.
+- *Max Quality* offers higher image quality than *Balanced* by rendering at approximately ~66.7% of the target resolution. Prioritizes visual fidelity while still delivering a meaningful performance improvement over native rendering.
+- *DLAA* (**Deep Learning Anti-Aliasing**) is an AI-powered tool to eliminate jagged edges in video apps, by rendering at native (100%) resolution. It improves image quality with less performance cost than traditional anti-aliasing methods.
+
+
+### Arguments
+
+- **dlssmode** - The DLSS quality. One of the following values:
+
+  - **0** - Ultra Performance
+  - **1** - Max Performance
+  - **2** - Balanced
+  - **3** - Max Quality (by default)
+  - **4** - DLAA (Deep Learning Anti-Aliasing).
+
+## getDLSSMode () const
+
+***Console*:**`render_upscale_dlss_mode`Returns the current DLSS quality.
+- *Ultra Performance* provides the highest performance boost by rendering at ~33.3% of the target resolution and upscaling to the output resolution. This mode is recommended only for 8K output resolution due to the significant reduction in internal image quality.
+- *Max Performance* provides a higher performance boost than *Balanced* by rendering at ~50% of the target resolution. Use when frame-rate is prioritized but some internal detail should be preserved. It is recommended for users with 1440p/2K monitors, providing better performance with minimal effort.
+- *Balanced* offers both optimized performance and image quality by rendering at approximately ~58% of the target resolution. Recommended as the general-purpose preset for users who want a compromise between frame-rate and visual fidelity.
+- *Max Quality* offers higher image quality than *Balanced* by rendering at approximately ~66.7% of the target resolution. Prioritizes visual fidelity while still delivering a meaningful performance improvement over native rendering.
+- *DLAA* (**Deep Learning Anti-Aliasing**) is an AI-powered tool to eliminate jagged edges in video apps, by rendering at native (100%) resolution. It improves image quality with less performance cost than traditional anti-aliasing methods.
+
+
+### Return value
+
+Current DLSS quality. One of the following values:
+- **0** - Ultra Performance
+- **1** - Max Performance
+- **2** - Balanced
+- **3** - Max Quality (by default)
+- **4** - DLAA (Deep Learning Anti-Aliasing).
+
+## void setFSRCustomResolutionScale ( float scale = 0.5f )
+
+***Console*:**`render_upscale_fsr_custom_resolution_scale`Sets a new custom resolution scale used when [FSRMode](#FSRMode) is set to *Custom*. The value directly multiplies the output resolution to determine the internal render resolution.
+### Arguments
+
+- *float* **scale** - The custom resolution scale for FSR Custom mode Range of values: **[0.1f, 1.0f]**. The default value is : **0.5f**.
+
+## float getFSRCustomResolutionScale () const
+
+***Console*:**`render_upscale_fsr_custom_resolution_scale`Returns the current custom resolution scale used when [FSRMode](#FSRMode) is set to *Custom*. The value directly multiplies the output resolution to determine the internal render resolution.
+### Return value
+
+Current custom resolution scale for FSR Custom mode
+Range of values: **[0.1f, 1.0f]**. The default value is : **0.5f**.
+## void setDLSSResolutionScaleEnabled ( bool enabled = 0 )
+
+***Console*:**`render_upscale_dlss_resolution_scale_enabled`Sets a new value indicating whether a custom resolution scale is used instead of the default render resolution provided by DLSS for the current [DLSSMode](#DLSSMode). When enabled, the render resolution is adjusted within the allowed range for the current mode using the [DLSSResolutionScaleValue](#DLSSResolutionScaleValue).
+### Arguments
+
+- *bool* **enabled** - Set **true** to enable custom resolution scale override for DLSS; **false** - to disable it. The default value is **false**.
+
+## bool isDLSSResolutionScaleEnabled () const
+
+***Console*:**`render_upscale_dlss_resolution_scale_enabled`Returns the current value indicating whether a custom resolution scale is used instead of the default render resolution provided by DLSS for the current [DLSSMode](#DLSSMode). When enabled, the render resolution is adjusted within the allowed range for the current mode using the [DLSSResolutionScaleValue](#DLSSResolutionScaleValue).
+### Return value
+
+**true** if custom resolution scale override for DLSS is enabled; otherwise **false**. The default value is **false**.
+## void setDLSSResolutionScaleValue ( float value = 0.5f )
+
+***Console*:**`render_upscale_dlss_resolution_scale_value`Sets a new custom resolution scale for DLSS within the allowed range for the current [DLSSMode](#DLSSMode) and output resolution, where 0.0 is the minimum and 1.0 is the maximum render resolution. [DLSSResolutionScaleEnabled](#DLSSResolutionScaleEnabled) must be enabled for this value to take effect.
+### Arguments
+
+- *float* **value** - The custom resolution scale value for DLSS Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
+
+## float getDLSSResolutionScaleValue () const
+
+***Console*:**`render_upscale_dlss_resolution_scale_value`Returns the current custom resolution scale for DLSS within the allowed range for the current [DLSSMode](#DLSSMode) and output resolution, where 0.0 is the minimum and 1.0 is the maximum render resolution. [DLSSResolutionScaleEnabled](#DLSSResolutionScaleEnabled) must be enabled for this value to take effect.
+### Return value
+
+Current custom resolution scale value for DLSS
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
+## void setDLSSPreset ( )
+
+***Console*:**`render_upscale_dlss_preset`Sets a new DLSS preset.
+- *A* - Legacy preset designed to mitigate ghosting artifacts, particularly in cases where input data (e.g., motion vectors) may be missing. **Intended modes:** Performance, Balanced, Quality
+- *B* - Variant of Preset A, optimized specifically for Ultra Performance mode. **Intended modes:** Ultra Performance
+- *C* - Prefers current-frame information, making it well-suited for fast-paced, high-motion content. **Intended modes:** Performance, Balanced, Quality
+- *D* - Functionally similar to Preset E but less commonly recommended. Preset E is preferred in most cases. **Intended modes:** Performance, Balanced, Quality
+- *E* - General-purpose preset prioritizing both performance and image stability. **Intended modes:** Performance, Balanced, Quality
+- *F* - Default preset for Ultra Performance and DLAA modes. Provides stable results across these configurations. **Intended modes:** Ultra Performance, DLAA
+- *G* is unused. Reverts to default preset behavior.
+- *H* is unused. Reverts to default preset behavior.
+- *I* is unused. Reverts to default preset behavior.
+- *J* - Transformer-based model similar to Preset K. May exhibit slightly less ghosting, but at the cost of additional flickering. Generally superseded by Preset K. **Intended modes:** DLAA, Performance, Balanced, Quality
+- *K* - Default transformer-based preset delivering the highest image quality. Reduces ghosting and shimmering compared to other presets, though at a higher performance cost. Recommended over Preset J. **Intended modes:** DLAA, Performance, Balanced, Quality
+
+
+### Arguments
+
+- **dlsspreset** - The DLSS preset. One of the following values:
+
+  - **0** - Default (by default)
+  - **1** - Preset A
+  - **2** - Preset B
+  - **3** - Preset C
+  - **4** - Preset D
+  - **5** - Preset E
+  - **6** - Preset F
+  - **7** - Preset G
+  - **8** - Preset H
+  - **9** - Preset I
+  - **10** - Preset J
+  - **11** - Preset K
+
+## getDLSSPreset () const
+
+***Console*:**`render_upscale_dlss_preset`Returns the current DLSS preset.
+- *A* - Legacy preset designed to mitigate ghosting artifacts, particularly in cases where input data (e.g., motion vectors) may be missing. **Intended modes:** Performance, Balanced, Quality
+- *B* - Variant of Preset A, optimized specifically for Ultra Performance mode. **Intended modes:** Ultra Performance
+- *C* - Prefers current-frame information, making it well-suited for fast-paced, high-motion content. **Intended modes:** Performance, Balanced, Quality
+- *D* - Functionally similar to Preset E but less commonly recommended. Preset E is preferred in most cases. **Intended modes:** Performance, Balanced, Quality
+- *E* - General-purpose preset prioritizing both performance and image stability. **Intended modes:** Performance, Balanced, Quality
+- *F* - Default preset for Ultra Performance and DLAA modes. Provides stable results across these configurations. **Intended modes:** Ultra Performance, DLAA
+- *G* is unused. Reverts to default preset behavior.
+- *H* is unused. Reverts to default preset behavior.
+- *I* is unused. Reverts to default preset behavior.
+- *J* - Transformer-based model similar to Preset K. May exhibit slightly less ghosting, but at the cost of additional flickering. Generally superseded by Preset K. **Intended modes:** DLAA, Performance, Balanced, Quality
+- *K* - Default transformer-based preset delivering the highest image quality. Reduces ghosting and shimmering compared to other presets, though at a higher performance cost. Recommended over Preset J. **Intended modes:** DLAA, Performance, Balanced, Quality
+
+
+### Return value
+
+Current DLSS preset. One of the following values:
+- **0** - Default (by default)
+- **1** - Preset A
+- **2** - Preset B
+- **3** - Preset C
+- **4** - Preset D
+- **5** - Preset E
+- **6** - Preset F
+- **7** - Preset G
+- **8** - Preset H
+- **9** - Preset I
+- **10** - Preset J
+- **11** - Preset K
+
+## void setFSRMode ( )
+
+***Console*:**`render_upscale_fsr_mode`Sets a new quality mode of FSR (FidelityFX Super Resolution upsampling technique).
+- *Ultra Performance* that offers the highest performance gain while still retaining image quality close to native. Scale factor: 3.0x per dimension (≈33.3% of output resolution)
+- *Performance* that delivers a substantial performance boost with image quality similar to native rendering. Scale factor: 2.0x per dimension (≈50.0% of output resolution)
+- *Balanced* that balances performance gains and image quality effectively. Scale factor: 1.7x per dimension (≈58.8% of output resolution)
+- *Quality* that provides image quality equal to or better than native with a meaningful performance improvement. Scale factor: 1.5x per dimension (≈66.6% of output resolution)
+- *Native AA* that renders at native resolution (no upscaling, scale factor 1.0x) and applies FSR anti-aliasing only.
+- *Custom* that uses a custom resolution scale set via the [FSRCustomResolutionScale](#FSRCustomResolutionScale) property (range: 0.1 to 1.0).
+
+
+### Arguments
+
+- **fsrmode** - The FSR quality mode. One of the following values:
+
+  - **0** - Ultra Performance (by default)
+  - **1** - Performance
+  - **2** - Balanced
+  - **3** - Quality
+  - **4** - Native AA
+  - **5** - Custom
+
+## getFSRMode () const
+
+***Console*:**`render_upscale_fsr_mode`Returns the current quality mode of FSR (FidelityFX Super Resolution upsampling technique).
+- *Ultra Performance* that offers the highest performance gain while still retaining image quality close to native. Scale factor: 3.0x per dimension (≈33.3% of output resolution)
+- *Performance* that delivers a substantial performance boost with image quality similar to native rendering. Scale factor: 2.0x per dimension (≈50.0% of output resolution)
+- *Balanced* that balances performance gains and image quality effectively. Scale factor: 1.7x per dimension (≈58.8% of output resolution)
+- *Quality* that provides image quality equal to or better than native with a meaningful performance improvement. Scale factor: 1.5x per dimension (≈66.6% of output resolution)
+- *Native AA* that renders at native resolution (no upscaling, scale factor 1.0x) and applies FSR anti-aliasing only.
+- *Custom* that uses a custom resolution scale set via the [FSRCustomResolutionScale](#FSRCustomResolutionScale) property (range: 0.1 to 1.0).
+
+
+### Return value
+
+Current FSR quality mode. One of the following values:
+- **0** - Ultra Performance (by default)
+- **1** - Performance
+- **2** - Balanced
+- **3** - Quality
+- **4** - Native AA
+- **5** - Custom
+
+## void setFSREnableSharpness ( bool sharpness = 0 )
+
+***Console*:**`render_upscale_fsr_enable_sharpness`Sets a new value indicating if additional sharpness pass for FidelityFX Super Resolution upscaling is enabled.
+### Arguments
+
+- *bool* **sharpness** - Set **true** to enable additional sharpness pass for FidelityFX Super Resolution upscaling; **false** - to disable it. The default value is **false**.
+
+## bool isFSREnableSharpness () const
+
+***Console*:**`render_upscale_fsr_enable_sharpness`Returns the current value indicating if additional sharpness pass for FidelityFX Super Resolution upscaling is enabled.
+### Return value
+
+**true** if additional sharpness pass for FidelityFX Super Resolution upscaling is enabled; otherwise **false**. The default value is **false**.
+## void setFSRSharpness ( float fsrsharpness = 0.5f )
+
+***Console*:**`render_upscale_fsr_sharpness`Sets a new sharpness value, where 0 is no additional sharpness and 1 is maximum additional sharpness.
+### Arguments
+
+- *float* **fsrsharpness** - The sharpness value. Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
+
+## float getFSRSharpness () const
+
+***Console*:**`render_upscale_fsr_sharpness`Returns the current sharpness value, where 0 is no additional sharpness and 1 is maximum additional sharpness.
+### Return value
+
+Current sharpness value.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
+## void setFSRPreExposure ( float exposure = 1.0f )
+
+***Console*:**`render_upscale_fsr_pre_exposure`Sets a new pre-exposure value by which we divide the input signal to get back to the original signal produced by the game before any packing into lower precision render targets.
+### Arguments
+
+- *float* **exposure** - The pre-exposure value. Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+
+## float getFSRPreExposure () const
+
+***Console*:**`render_upscale_fsr_pre_exposure`Returns the current pre-exposure value by which we divide the input signal to get back to the original signal produced by the game before any packing into lower precision render targets.
+### Return value
+
+Current pre-exposure value.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+## static getEventBegin () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginEnvironment () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndEnvironment () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginShadows () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginWorldShadow () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndWorldShadow () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginProjShadow () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndProjShadow () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginOmniShadow () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndOmniShadow () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndShadows () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginScreen () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginMixedRealityBlendMaskColor () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndMixedRealityBlendMaskColor () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## getEventBeginVisualizerQuadOverdraw () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## getEventEndVisualizerQuadOverdraw () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginOpacityGBuffer () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginAuxiliarySurfaces () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndAuxiliarySurfaces () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndOpacityGBuffer () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginOpacityDecals () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndOpacityDecals () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginAuxiliaryDecals () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndAuxiliaryDecals () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginCurvature () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndCurvature () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginCurvatureComposite () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndCurvatureComposite () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginSSRTGI () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndSSRTGI () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginOpacityLights () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndOpacityLights () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginOpacityVoxelProbes () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndOpacityVoxelProbes () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginOpacityEnvironmentProbes () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndOpacityEnvironmentProbes () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginOpacityPlanarProbes () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndOpacityPlanarProbes () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginRefractionBuffer () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndRefractionBuffer () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginTransparentBlurBuffer () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndTransparentBlurBuffer () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginSSSS () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndSSSS () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginSSR () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndSSR () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginSSAO () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndSSAO () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginSSGI () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndSSGI () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginSky () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndSky () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginCompositeDeferred () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndCompositeDeferred () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginTransparent () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginClouds () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndClouds () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginWater () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## getEventBeginWaterGBuffer () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## getEventEndWaterGBuffer () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginWaterDecals () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndWaterDecals () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginWaterLights () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndWaterLights () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginWaterVoxelProbes () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndWaterVoxelProbes () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginWaterEnvironmentProbes () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndWaterEnvironmentProbes () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginWaterPlanarProbes () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndWaterPlanarProbes () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndWater () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndTransparent () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginSrgbCorrection () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndSrgbCorrection () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginAdaptationColorAverage () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndAdaptationColorAverage () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginAdaptationColor () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndAdaptationColor () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginTAA () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndTAA () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginCameraEffects () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndCameraEffects () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginPostMaterials () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndPostMaterials () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginDebugMaterials () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndDebugMaterials () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventBeginVisualizer () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndVisualizer () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEndScreen () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## static getEventEnd () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## getEventEndFrameExecuteCommandLists () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## getEventEndVRQuadComposeEyeSwapchains () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## getEventGPUCrashDump () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event reference.
+## void setShowTextureResolutionStreamingAccountingMode ( )
+
+***Console*:**`render_show_texture_resolution_streaming_accounting_mode`Sets a new streaming accounting mode. The following modes are available:
+- *Actual Resolution* renders texel density based on the actual streaming result.
+- *Requested Texture Resolution* renders texel density for the current surface only, based on the surface texture resolution requested by the streaming system.
+- *Source Texture Resolution* renders texel density relative to the 0 mip level of the texture as if mipmap loading is disabled in the streaming system. This mode helps determine if the source texture resolution should be reduced.
+
+
+### Arguments
+
+- **mode** - The streaming accounting mode. One of the following values:
+
+  - **0** - Actual Resolution (by default)
+  - **1** - Requested Texture Resolution
+  - **2** - Source Texture Resolution
+
+## getShowTextureResolutionStreamingAccountingMode () const
+
+***Console*:**`render_show_texture_resolution_streaming_accounting_mode`Returns the current streaming accounting mode. The following modes are available:
+- *Actual Resolution* renders texel density based on the actual streaming result.
+- *Requested Texture Resolution* renders texel density for the current surface only, based on the surface texture resolution requested by the streaming system.
+- *Source Texture Resolution* renders texel density relative to the 0 mip level of the texture as if mipmap loading is disabled in the streaming system. This mode helps determine if the source texture resolution should be reduced.
+
+
+### Return value
+
+Current streaming accounting mode. One of the following values:
+- **0** - Actual Resolution (by default)
+- **1** - Requested Texture Resolution
+- **2** - Source Texture Resolution
+
+## void setIndirectLightingInterleavedSamples ( int samples = 1 )
+
+***Console*:**`render_indirect_lighting_interleaved_samples`Sets a new number of samples for interleaved rendering of indirect lighting defining the number of pixels to be skipped during interleaved rendering of indirect lighting with subsequent reconstruction of neighboring pixels using the data from previous frames (defines the size of reduced lights buffer relative to original size).
+- **1 x 2** - half of all pixels are rendered skipping each second line (1.0 * width x 0.5 * height)
+- **2 x 2** - quarter of all pixels are rendered skipping each second line and row (0.5 * width x 0.5 * height)
+
+
+### Arguments
+
+- *int* **samples** - The number of samples for interleaved rendering of indirect lighting. One of the following values:
+
+  - **0** - 1 x 2
+  - **1** - 2 x 2 (by default)
+
+## int getIndirectLightingInterleavedSamples () const
+
+***Console*:**`render_indirect_lighting_interleaved_samples`Returns the current number of samples for interleaved rendering of indirect lighting defining the number of pixels to be skipped during interleaved rendering of indirect lighting with subsequent reconstruction of neighboring pixels using the data from previous frames (defines the size of reduced lights buffer relative to original size).
+- **1 x 2** - half of all pixels are rendered skipping each second line (1.0 * width x 0.5 * height)
+- **2 x 2** - quarter of all pixels are rendered skipping each second line and row (0.5 * width x 0.5 * height)
+
+
+### Return value
+
+Current number of samples for interleaved rendering of indirect lighting. One of the following values:
+- **0** - 1 x 2
+- **1** - 2 x 2 (by default)
+
+## void setIndirectLightingInterleavedColorClamping ( int clamping = 2 )
+
+***Console*:**`render_indirect_lighting_interleaved_color_clamping`Sets a new color clamping mode to be used for interleaved rendering of indirect lighting. This mode is used to reduce ghosting effect: higher values increase clamping intensity but may cause flickering on rippled reflective surfaces (as this mode is not so good at the object's edges). When disabled, shadows and reflections have a lag as they are several frames behind.
+### Arguments
+
+- *int* **clamping** - The color clamping mode. One of the following values:
+
+  - **0** - Disabled
+  - **1** - Low
+  - **2** - High (by default)
+
+## int getIndirectLightingInterleavedColorClamping () const
+
+***Console*:**`render_indirect_lighting_interleaved_color_clamping`Returns the current color clamping mode to be used for interleaved rendering of indirect lighting. This mode is used to reduce ghosting effect: higher values increase clamping intensity but may cause flickering on rippled reflective surfaces (as this mode is not so good at the object's edges). When disabled, shadows and reflections have a lag as they are several frames behind.
+### Return value
+
+Current color clamping mode. One of the following values:
+- **0** - Disabled
+- **1** - Low
+- **2** - High (by default)
+
+## void setIndirectLightingInterleavedCatmullResampling ( bool resampling = false )
+
+***Console*:**`render_indirect_lighting_interleaved_catmull_resampling`Sets a new value indicating whether Catmull-Rom resampling is enabled or not. Catmull-Rom resampling allows you to reduce image blurring when the camera moves forward/backward. It is recommended to disable resampling for low quality presets.
+### Arguments
+
+- *bool* **resampling** - Set **true** to enable Catmull-Rom resampling; **false** - to disable it. The default value is **false**.
+
+## bool isIndirectLightingInterleavedCatmullResampling () const
+
+***Console*:**`render_indirect_lighting_interleaved_catmull_resampling`Returns the current value indicating whether Catmull-Rom resampling is enabled or not. Catmull-Rom resampling allows you to reduce image blurring when the camera moves forward/backward. It is recommended to disable resampling for low quality presets.
+### Return value
+
+**true** if Catmull-Rom resampling is enabled; otherwise **false**. The default value is **false**.
+## void setLocalTonemapperColorDifferenceThreshold ( float threshold = 0.1f )
+
+***Console*:**`render_local_tonemapper_color_difference_threshold`Sets a new threshold value that determines the extent to which color differences on the screen are considered. If you set the value to 1, the result will appear as if the [*Color Difference*](#LocalTonemapperColorDifferenceEnabled) feature is turned off.
+### Arguments
+
+- *float* **threshold** - The threshold value that determines the extent to which color differences on the screen are considered. Range of values: **[0.0f, 1.0f]**. The default value is : **0.1f**.
+
+## float getLocalTonemapperColorDifferenceThreshold () const
+
+***Console*:**`render_local_tonemapper_color_difference_threshold`Returns the current threshold value that determines the extent to which color differences on the screen are considered. If you set the value to 1, the result will appear as if the [*Color Difference*](#LocalTonemapperColorDifferenceEnabled) feature is turned off.
+### Return value
+
+Current threshold value that determines the extent to which color differences on the screen are considered.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.1f**.
+## void setLocalTonemapperColorDifferenceEnabled ( bool enabled = true )
+
+***Console*:**`render_local_tonemapper_color_difference_enabled`Sets a new value indicating whether considering of the image color rendered on the screen is enabled. Enabling this feature allows reducing halo artifacts on surfaces with sharp color transitions. For example, it can significantly improve the appearance of a distinct shadow from the sun on asphalt.
+### Arguments
+
+- *bool* **enabled** - Set **true** to enable considering of the image color rendered on the screen; **false** - to disable it. The default value is **false**.
+
+## bool isLocalTonemapperColorDifferenceEnabled () const
+
+***Console*:**`render_local_tonemapper_color_difference_enabled`Returns the current value indicating whether considering of the image color rendered on the screen is enabled. Enabling this feature allows reducing halo artifacts on surfaces with sharp color transitions. For example, it can significantly improve the appearance of a distinct shadow from the sun on asphalt.
+### Return value
+
+**true** if considering of the image color rendered on the screen is enabled; otherwise **false**. The default value is **false**.
+## void setLocalTonemapperDepthDifferenceEnabled ( bool enabled = true )
+
+***Console*:**`render_local_tonemapper_depth_difference_enabled`Sets a new value indicating whether considering of the depth difference between objects in the scene is enabled. Enabling this feature allows reducing halo artifacts around objects. However, we recommend using it only in exceptional cases, as it is a performance-costly operation.
+### Arguments
+
+- *bool* **enabled** - Set **true** to enable considering of the depth difference between objects in the scene; **false** - to disable it. The default value is **false**.
+
+## bool isLocalTonemapperDepthDifferenceEnabled () const
+
+***Console*:**`render_local_tonemapper_depth_difference_enabled`Returns the current value indicating whether considering of the depth difference between objects in the scene is enabled. Enabling this feature allows reducing halo artifacts around objects. However, we recommend using it only in exceptional cases, as it is a performance-costly operation.
+### Return value
+
+**true** if considering of the depth difference between objects in the scene is enabled; otherwise **false**. The default value is **false**.
+## void setLocalTonemapperBlurUpscaleKernelSize ( int size = 0 )
+
+***Console*:**`render_local_tonemapper_blur_upscale_kernel_size`Sets a new size of the kernel used for upscaling the blurred image. The higher the value the better the upscaling quality, but the lower the performance. It is recommended to set the kernel size as follows:
+- *3x3* for the *Half* resolution.
+- *5x5* for the *Quarter* resolution.
+
+
+### Arguments
+
+- *int* **size** - The kernel size. One of the following values:
+
+  - **0** - 3x3 (by default)
+  - **1** - 5x5
+
+## int getLocalTonemapperBlurUpscaleKernelSize () const
+
+***Console*:**`render_local_tonemapper_blur_upscale_kernel_size`Returns the current size of the kernel used for upscaling the blurred image. The higher the value the better the upscaling quality, but the lower the performance. It is recommended to set the kernel size as follows:
+- *3x3* for the *Half* resolution.
+- *5x5* for the *Quarter* resolution.
+
+
+### Return value
+
+Current kernel size. One of the following values:
+- **0** - 3x3 (by default)
+- **1** - 5x5
+
+## void setLocalTonemapperBlurUpscale ( bool upscale = true )
+
+***Console*:**`render_local_tonemapper_blur_upscale`Sets a new value indicating whether upscaling the blurred image from the *Quarter* or *Half* resolution to the *Full* one is enabled.
+### Arguments
+
+- *bool* **upscale** - Set **true** to enable upscaling the blurred image; **false** - to disable it. The default value is **false**.
+
+## bool isLocalTonemapperBlurUpscale () const
+
+***Console*:**`render_local_tonemapper_blur_upscale`Returns the current value indicating whether upscaling the blurred image from the *Quarter* or *Half* resolution to the *Full* one is enabled.
+### Return value
+
+**true** if upscaling the blurred image is enabled; otherwise **false**. The default value is **false**.
+## void setLocalTonemapperBlurResolution ( int resolution = 2 )
+
+***Console*:**`render_local_tonemapper_blur_resolution`Sets a new resolution of the blur applied during the tone mapping process.
+> **Notice:** It is recommended to use the *Half* resolution in conjunction with the *[Blur Upscale](#LocalTonemapperBlurUpscale)* mode enabled.
+
+
+### Arguments
+
+- *int* **resolution** - The blur resolution. One of the following values:
+
+  - *Quarter* - quarter resolution
+  - *Half* - half resolution
+  - *Full* - full resolution (by default)
+
+## int getLocalTonemapperBlurResolution () const
+
+***Console*:**`render_local_tonemapper_blur_resolution`Returns the current resolution of the blur applied during the tone mapping process.
+> **Notice:** It is recommended to use the *Half* resolution in conjunction with the *[Blur Upscale](#LocalTonemapperBlurUpscale)* mode enabled.
+
+
+### Return value
+
+Current blur resolution. One of the following values:
+
+- *Quarter* - quarter resolution
+- *Half* - half resolution
+- *Full* - full resolution (by default)
+
+## void setLocalTonemapperDebug ( bool debug = false )
+
+***Console*:**`render_local_tonemapper_debug`Sets a new value indicating whether the debug mode for the local tonemapper is enabled.
+### Arguments
+
+- *bool* **debug** - Set **true** to enable debug mode for the local tonemapper; **false** - to disable it. The default value is **false**.
+
+## bool isLocalTonemapperDebug () const
+
+***Console*:**`render_local_tonemapper_debug`Returns the current value indicating whether the debug mode for the local tonemapper is enabled.
+### Return value
+
+**true** if debug mode for the local tonemapper is enabled; otherwise **false**. The default value is **false**.
+## void setDenoiseColorClampingBlurResolution ( int resolution = 2 )
+
+***Console*:**`render_denoise_color_clamping_blur_resolution`Sets a new resolution of the Color Clamping Blur buffer. This buffer allows for reducing ghosting artifacts and information lost areas. The *Full* resolution is the slowest one, so we don't recommend using it.
+### Arguments
+
+- *int* **resolution** - The resolution value. One of the following values:
+
+  - *Quarter* - quarter resolution
+  - *Half* - half resolution
+  - *Full* - full resolution (by default)
+
+## int getDenoiseColorClampingBlurResolution () const
+
+***Console*:**`render_denoise_color_clamping_blur_resolution`Returns the current resolution of the Color Clamping Blur buffer. This buffer allows for reducing ghosting artifacts and information lost areas. The *Full* resolution is the slowest one, so we don't recommend using it.
+### Return value
+
+Current resolution value. One of the following values:
+
+- *Quarter* - quarter resolution
+- *Half* - half resolution
+- *Full* - full resolution (by default)
+
+## void setDenoiseWrongVelocityFixByDepthThreshold ( float threshold = 0.03f )
+
+***Console*:**`render_denoise_wrong_velocity_fix_by_depth_threshold`Sets a new threshold value of the difference between the depth in the current pixel and the pixel read using reprojection based on velocity. This threshold defines when to applying correction of incorrect velocity during the denoise process.
+### Arguments
+
+- *float* **threshold** - The threshold value. Range of values: **[0.0f, inf]**. The default value is : **0.03f**.
+
+## float getDenoiseWrongVelocityFixByDepthThreshold () const
+
+***Console*:**`render_denoise_wrong_velocity_fix_by_depth_threshold`Returns the current threshold value of the difference between the depth in the current pixel and the pixel read using reprojection based on velocity. This threshold defines when to applying correction of incorrect velocity during the denoise process.
+### Return value
+
+Current threshold value.
+Range of values: **[0.0f, inf]**. The default value is : **0.03f**.
+## void setDenoiseWrongVelocityFixByDepthEnabled ( bool enabled = true )
+
+***Console*:**`render_denoise_wrong_velocity_fix_by_depth_enabled`Sets a new value indicating whether correction of a wrong velocity during the denoise process is enabled. It helps reduce ghosting artifacts around moving objects.
+### Arguments
+
+- *bool* **enabled** - Set **true** to enable correction of a wrong velocity during the denoise process; **false** - to disable it. The default value is **false**.
+
+## bool isDenoiseWrongVelocityFixByDepthEnabled () const
+
+***Console*:**`render_denoise_wrong_velocity_fix_by_depth_enabled`Returns the current value indicating whether correction of a wrong velocity during the denoise process is enabled. It helps reduce ghosting artifacts around moving objects.
+### Return value
+
+**true** if correction of a wrong velocity during the denoise process is enabled; otherwise **false**. The default value is **false**.
+## void setTAAInformationLostDepthThreshold ( float threshold = 0.1f )
+
+***Console*:**`render_taa_information_lost_depth_threshold`Sets a new threshold value for the depth difference used to calculate information lost areas. "Information lost" refers to rendering of the surfaces that weren't rendered in the prevoius frame.
+### Arguments
+
+- *float* **threshold** - The threshold value. Range of values: **[0.0f, inf]**. The default value is : **0.1f**.
+
+## float getTAAInformationLostDepthThreshold () const
+
+***Console*:**`render_taa_information_lost_depth_threshold`Returns the current threshold value for the depth difference used to calculate information lost areas. "Information lost" refers to rendering of the surfaces that weren't rendered in the prevoius frame.
+### Return value
+
+Current threshold value.
+Range of values: **[0.0f, inf]**. The default value is : **0.1f**.
+## void setStreamingTexturesMipmapsDensity ( float density = 2.0f )
+
+***Console*:**`render_streaming_textures_mipmaps_density`Sets a new density of mipmaps relative to the screen resolution. This value helps to define which mipmap should be loaded at the current moment. You can specify different values for different quality presets.
+### Arguments
+
+- *float* **density** - The mipmap density. Range of values: **[0.0f, 1000000.0f]**. The default value is : **2.0f**.
+
+## float getStreamingTexturesMipmapsDensity () const
+
+***Console*:**`render_streaming_textures_mipmaps_density`Returns the current density of mipmaps relative to the screen resolution. This value helps to define which mipmap should be loaded at the current moment. You can specify different values for different quality presets.
+### Return value
+
+Current mipmap density.
+Range of values: **[0.0f, 1000000.0f]**. The default value is : **2.0f**.
+## void setStreamingTexturesMipmaps ( bool mipmaps = 0 )
+
+***Console*:**`render_streaming_textures_mipmaps`Sets a new value indicating whether texture mipmap loading is enabled.
+### Arguments
+
+- *bool* **mipmaps** - Set **true** to enable texture mipmap loading; **false** - to disable it. The default value is **false**.
+
+## bool isStreamingTexturesMipmaps () const
+
+***Console*:**`render_streaming_textures_mipmaps`Returns the current value indicating whether texture mipmap loading is enabled.
+### Return value
+
+**true** if texture mipmap loading is enabled; otherwise **false**. The default value is **false**.
+## void setStreamingVRAMBudget ( )
+
+***Console*:**`render_streaming_vram_budget`Sets a new mode for determining the amount of available VRAM. The following modes are available:
+- *System* - the available VRAM size is obtained from the operating system.
+- *Driver* - the VRAM available for the application is determined by the video driver.
+- *Full GPU Memory* - all VRAM is available for the application.
+
+
+### Arguments
+
+- **vrambudget** - The mode for determining the amount of available VRAM. One of the following values:
+
+  - **0** - System
+  - **1** - Driver (by default)
+  - **2** - Full GPU Memory
+
+## getStreamingVRAMBudget () const
+
+***Console*:**`render_streaming_vram_budget`Returns the current mode for determining the amount of available VRAM. The following modes are available:
+- *System* - the available VRAM size is obtained from the operating system.
+- *Driver* - the VRAM available for the application is determined by the video driver.
+- *Full GPU Memory* - all VRAM is available for the application.
+
+
+### Return value
+
+Current mode for determining the amount of available VRAM. One of the following values:
+- **0** - System
+- **1** - Driver (by default)
+- **2** - Full GPU Memory
+
+## void setStreamingVRAMOvercommit ( bool vramovercommit = 0 )
+
+***Console*:**`render_streaming_vram_overcommit`Sets a new value indicating whether VRAM limits (both the usage limit and free space) are applied.
+### Arguments
+
+- *bool* **vramovercommit** - Set **true** to enable application of VRAM limits (both the usage limit and free space); **false** - to disable it. The default value is **false**.
+
+## bool isStreamingVRAMOvercommit () const
+
+***Console*:**`render_streaming_vram_overcommit`Returns the current value indicating whether VRAM limits (both the usage limit and free space) are applied.
+### Return value
+
+**true** if application of VRAM limits (both the usage limit and free space) is enabled; otherwise **false**. The default value is **false**.
+## void setStreamingCommittedMemoryOvercommit ( bool overcommit = 1 )
+
+***Console*:**`render_streaming_committed_memory_overcommit`Sets a new value indicating whether the Engine enforces internal limits on committed memory usage.
+- When **disabled**, the Engine respects the **Free Space Committed RAM** setting and will not allocate more committed memory than the configured limit allows. In this mode, the amount of physical RAM and VRAM available to the Engine is effectively reduced to the portion of committed memory accessible within this limit.
+- When **enabled** (default), the Engine ignores the **Free Space Committed RAM** restriction and can use **all available committed memory** provided by the system. This may improve streaming performance, especially under high memory pressure (for example, when browsers or other background applications are running, or after long system uptime), but it also increases the risk of instability if the system runs out of virtual memory.
+
+
+> **Warning:** With overcommit enabled, crashes may occur if:
+>
+>
+> - the system has no page file
+> - there is insufficient free disk space on the drive where the page file is located.
+>
+>
+> If system committed memory is fully exhausted, this may affect not only the Engine, but also **other running applications**.
+
+
+### Arguments
+
+- *bool* **overcommit** - Set **true** to enable enforcement of committed memory usage limits by the Engine; **false** - to disable it. The default value is **true**.
+
+## bool isStreamingCommittedMemoryOvercommit () const
+
+***Console*:**`render_streaming_committed_memory_overcommit`Returns the current value indicating whether the Engine enforces internal limits on committed memory usage.
+- When **disabled**, the Engine respects the **Free Space Committed RAM** setting and will not allocate more committed memory than the configured limit allows. In this mode, the amount of physical RAM and VRAM available to the Engine is effectively reduced to the portion of committed memory accessible within this limit.
+- When **enabled** (default), the Engine ignores the **Free Space Committed RAM** restriction and can use **all available committed memory** provided by the system. This may improve streaming performance, especially under high memory pressure (for example, when browsers or other background applications are running, or after long system uptime), but it also increases the risk of instability if the system runs out of virtual memory.
+
+
+> **Warning:** With overcommit enabled, crashes may occur if:
+>
+>
+> - the system has no page file
+> - there is insufficient free disk space on the drive where the page file is located.
+>
+>
+> If system committed memory is fully exhausted, this may affect not only the Engine, but also **other running applications**.
+
+
+### Return value
+
+**true** if enforcement of committed memory usage limits by the Engine is enabled; otherwise **false**. The default value is **true**.
+## void setStreamingFreeSpaceRAM ( int ram = 1024 )
+
+***Console*:**`render_streaming_free_space_ram`Sets a new amount of physical memory that the Engine will always keep free and never allocate for its own use, in Mbytes.
+### Arguments
+
+- *int* **ram** - The amount of physical memory that the Engine will always keep free and never allocate for its own use, in Mbytes. Range of values: **[0, INT_MAX]**. The default value is : **1024**.
+
+## int getStreamingFreeSpaceRAM () const
+
+***Console*:**`render_streaming_free_space_ram`Returns the current amount of physical memory that the Engine will always keep free and never allocate for its own use, in Mbytes.
+### Return value
+
+Current amount of physical memory that the Engine will always keep free and never allocate for its own use, in Mbytes.
+Range of values: **[0, INT_MAX]**. The default value is : **1024**.
+## void setStreamingFreeSpaceVRAM ( int vram = 512 )
+
+***Console*:**`render_streaming_free_space_vram`Sets a new amount of VRAM that the Engine will always keep free and never allocate for its own use, in Mbytes.
+### Arguments
+
+- *int* **vram** - The amount of VRAM that the Engine will always keep free and never allocate for its own use, in Mbytes. Range of values: **[0, INT_MAX]**. The default value is : **512**.
+
+## int getStreamingFreeSpaceVRAM () const
+
+***Console*:**`render_streaming_free_space_vram`Returns the current amount of VRAM that the Engine will always keep free and never allocate for its own use, in Mbytes.
+### Return value
+
+Current amount of VRAM that the Engine will always keep free and never allocate for its own use, in Mbytes.
+Range of values: **[0, INT_MAX]**. The default value is : **512**.
+## void setStreamingFreeSpaceRAMCommitted ( int ramcommitted = 512 )
+
+***Console*:**`render_streaming_free_space_ram_committed`Sets a new amount of committed memory that the Engine will always keep free and never allocate for its own use, in Mbytes.
+### Arguments
+
+- *int* **ramcommitted** - The amount of committed memory that the Engine will always keep free and never allocate for its own use, in Mbytes. Range of values: **[0, INT_MAX]**. The default value is : **512**.
+
+## int getStreamingFreeSpaceRAMCommitted () const
+
+***Console*:**`render_streaming_free_space_ram_committed`Returns the current amount of committed memory that the Engine will always keep free and never allocate for its own use, in Mbytes.
+### Return value
+
+Current amount of committed memory that the Engine will always keep free and never allocate for its own use, in Mbytes.
+Range of values: **[0, INT_MAX]**. The default value is : **512**.
+## void setIndirectLightingInterleavedColorClampingVelocityThreshold ( float threshold = 100.0f )
+
+***Console*:**`render_indirect_lighting_interleaved_color_clamping_velocity_threshold`Sets a new velocity threshold of color clamping for interleaved indirect lighting. The higher the value, the less the ghosting effect. However, increasing the threshold may change the overall image brightness due to excessive color clamping.
+### Arguments
+
+- *float* **threshold** - The velocity threshold of color clamping for interleaved indirect lighting. Range of values: **[0.0f, 1000.0f]**. The default value is : **100.0f**.
+
+## float getIndirectLightingInterleavedColorClampingVelocityThreshold () const
+
+***Console*:**`render_indirect_lighting_interleaved_color_clamping_velocity_threshold`Returns the current velocity threshold of color clamping for interleaved indirect lighting. The higher the value, the less the ghosting effect. However, increasing the threshold may change the overall image brightness due to excessive color clamping.
+### Return value
+
+Current velocity threshold of color clamping for interleaved indirect lighting.
+Range of values: **[0.0f, 1000.0f]**. The default value is : **100.0f**.
+## void setIndirectLightingInterleavedColorClampingIntensity ( float intensity = 0.0f )
+
+***Console*:**`render_indirect_lighting_interleaved_color_clamping_intensity`Sets a new constant size of the intensity of color clamping for interleaved indirect lighting.
+### Arguments
+
+- *float* **intensity** - The constant size of the intensity of color clamping for interleaved indirect lighting. Range of values: **[0.0f, 100.0f]**. The default value is : **0.0f**.
+
+## float getIndirectLightingInterleavedColorClampingIntensity () const
+
+***Console*:**`render_indirect_lighting_interleaved_color_clamping_intensity`Returns the current constant size of the intensity of color clamping for interleaved indirect lighting.
+### Return value
+
+Current constant size of the intensity of color clamping for interleaved indirect lighting.
+Range of values: **[0.0f, 100.0f]**. The default value is : **0.0f**.
+## void setLocalTonemapperEffectOnDarkAreasGamma ( float gamma = 5.0f )
+
+***Console*:**`render_local_tonemapper_effect_on_dark_areas_gamma`Sets a new gamma correction value for dark areas. Specifying values greater than 1 decreases the local tone mapping effect in extremely dark areas.
+### Arguments
+
+- *float* **gamma** - The gamma correction value for dark areas. Range of values: **[0.0f, inf]**. The default value is : **5.0f**.
+
+## float getLocalTonemapperEffectOnDarkAreasGamma () const
+
+***Console*:**`render_local_tonemapper_effect_on_dark_areas_gamma`Returns the current gamma correction value for dark areas. Specifying values greater than 1 decreases the local tone mapping effect in extremely dark areas.
+### Return value
+
+Current gamma correction value for dark areas.
+Range of values: **[0.0f, inf]**. The default value is : **5.0f**.
+## void setStreamingUsageLimitRAM ( int ram = 80 )
+
+***Console*:**`render_streaming_usage_limit_ram`Sets a new percentage of the total physical memory (RAM) that the Engine is allowed to use for streaming. If the streaming exceeds the RAM usage limit, the application may become unstable or crash.
+### Arguments
+
+- *int* **ram** - The percentage of the total physical memory (RAM) that the Engine is allowed to use for streaming. Range of values: **[10, 100]**. The default value is : **80**.
+
+## int getStreamingUsageLimitRAM () const
+
+***Console*:**`render_streaming_usage_limit_ram`Returns the current percentage of the total physical memory (RAM) that the Engine is allowed to use for streaming. If the streaming exceeds the RAM usage limit, the application may become unstable or crash.
+### Return value
+
+Current percentage of the total physical memory (RAM) that the Engine is allowed to use for streaming.
+Range of values: **[10, 100]**. The default value is : **80**.
+## void setStreamingUsageLimitVRAM ( int vram = 80 )
+
+***Console*:**`render_streaming_usage_limit_vram`Sets a new percentage of the committed video memory available for streaming. If the streaming exceeds the VRAM usage limit, it will start using RAM for loading graphic resources.
+### Arguments
+
+- *int* **vram** - The percentage of the committed video memory available for streaming. Range of values: **[10, 100]**. The default value is : **80**.
+
+## int getStreamingUsageLimitVRAM () const
+
+***Console*:**`render_streaming_usage_limit_vram`Returns the current percentage of the committed video memory available for streaming. If the streaming exceeds the VRAM usage limit, it will start using RAM for loading graphic resources.
+### Return value
+
+Current percentage of the committed video memory available for streaming.
+Range of values: **[10, 100]**. The default value is : **80**.
+## void setMaterialsQuality ( )
+
+***Console*:**`render_materials_quality`Sets a new quality level of the rendered materials. Depending on the specified level, a certain set of features inside graph-based materials connected to the corresponding input of a ***[Material Quality Switch](../../../content/materials/graph/node_library/misc/material_quality_switch.md)*** node will be applied.
+### Arguments
+
+- **quality** - The quality level of the rendered materials. One of the following values:
+
+  - **0** - Low
+  - **1** - Medium
+  - **2** - High (by default)
+
+## getMaterialsQuality () const
+
+***Console*:**`render_materials_quality`Returns the current quality level of the rendered materials. Depending on the specified level, a certain set of features inside graph-based materials connected to the corresponding input of a ***[Material Quality Switch](../../../content/materials/graph/node_library/misc/material_quality_switch.md)*** node will be applied.
+### Return value
+
+Current quality level of the rendered materials. One of the following values:
+- **0** - Low
+- **1** - Medium
+- **2** - High (by default)
+
+## void setShadingQuality ( )
+
+***Console*:**`render_shading_quality`Sets a new quality level of shading. Depending on the specified level, a certain set of shading features inside graph-based materials connected to the corresponding input of a ***[Shading Quality Switch](../../../content/materials/graph/node_library/misc/shading_quality_switch.md)*** node will be applied.
+### Arguments
+
+- **quality** - The quality level of shading. One of the following values:
+
+  - **0** - Low
+  - **1** - Medium
+  - **2** - High (by default)
+
+## getShadingQuality () const
+
+***Console*:**`render_shading_quality`Returns the current quality level of shading. Depending on the specified level, a certain set of shading features inside graph-based materials connected to the corresponding input of a ***[Shading Quality Switch](../../../content/materials/graph/node_library/misc/shading_quality_switch.md)*** node will be applied.
+### Return value
+
+Current quality level of shading. One of the following values:
+- **0** - Low
+- **1** - Medium
+- **2** - High (by default)
+
+## void setMultithreaded ( bool multithreaded = 1 )
+
+***Console*:**`render_multithreaded`Sets a new value indicating if the multithreaded rendering mode is enabled (DX12 only).
+### Arguments
+
+- *bool* **multithreaded** - Set **true** to enable multithreaded rendering mode; **false** - to disable it. The default value is **true**.
+
+## bool isMultithreaded () const
+
+***Console*:**`render_multithreaded`Returns the current value indicating if the multithreaded rendering mode is enabled (DX12 only).
+### Return value
+
+**true** if multithreaded rendering mode is enabled; otherwise **false**. The default value is **true**.
+## void setMultithreadedEditor ( bool editor = 0 )
+
+***Console*:**`render_multithreaded_editor`Sets a new value indicating if the multithreaded rendering mode in the Editor is enabled (DX12 only).
+### Arguments
+
+- *bool* **editor** - Set **true** to enable multithreaded rendering mode in the Editor; **false** - to disable it. The default value is **false**.
+
+## bool isMultithreadedEditor () const
+
+***Console*:**`render_multithreaded_editor`Returns the current value indicating if the multithreaded rendering mode in the Editor is enabled (DX12 only).
+### Return value
+
+**true** if multithreaded rendering mode in the Editor is enabled; otherwise **false**. The default value is **false**.
+## void setShowQuadOverdrawBlend ( float blend = 1.0f )
+
+***Console*:**`render_show_quad_overdraw_blend`Sets a new opacity of the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer.
+### Arguments
+
+- *float* **blend** - The opacity of the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer. Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+
+## float getShowQuadOverdrawBlend () const
+
+***Console*:**`render_show_quad_overdraw_blend`Returns the current opacity of the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer.
+### Return value
+
+Current opacity of the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer.
+Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+## void setShowQuadOverdrawThreshold ( int threshold = 40 )
+
+***Console*:**`render_show_quad_overdraw_threshold`Sets a new threshold value of the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer.
+### Arguments
+
+- *int* **threshold** - The threshold value of the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer. Range of values: **[1, 1000000]**. The default value is : **40**.
+
+## int getShowQuadOverdrawThreshold () const
+
+***Console*:**`render_show_quad_overdraw_threshold`Returns the current threshold value of the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer.
+### Return value
+
+Current threshold value of the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer.
+Range of values: **[1, 1000000]**. The default value is : **40**.
+## void setShowQuadOverdrawWaterGlobal ( bool global = 0 )
+
+***Console*:**`render_show_quad_overdraw_water_global`Sets a new *[Water Global](../../../objects/objects/water/water_object.md)* rendering enabled state in the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer.
+### Arguments
+
+- *bool* **global** - Set **true** to enable *Water Global* rendering in the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer.; **false** - to disable it. The default value is **false**.
+
+## bool isShowQuadOverdrawWaterGlobal () const
+
+***Console*:**`render_show_quad_overdraw_water_global`Returns the current *[Water Global](../../../objects/objects/water/water_object.md)* rendering enabled state in the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer.
+### Return value
+
+**true** if *Water Global* rendering in the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer. is enabled; otherwise **false**. The default value is **false**.
+## void setShowQuadOverdrawLandscapeTerrain ( bool terrain = 0 )
+
+***Console*:**`render_show_quad_overdraw_landscape_terrain`Sets a new *[Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md)* rendering enabled state in the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer.
+### Arguments
+
+- *bool* **terrain** - Set **true** to enable Landscape Terrain rendering in the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer; **false** - to disable it. The default value is **false**.
+
+## bool isShowQuadOverdrawLandscapeTerrain () const
+
+***Console*:**`render_show_quad_overdraw_landscape_terrain`Returns the current *[Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md)* rendering enabled state in the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer.
+### Return value
+
+**true** if Landscape Terrain rendering in the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer is enabled; otherwise **false**. The default value is **false**.
+## void setShowQuadOverdrawWireframe ( bool wireframe = 0 )
+
+***Console*:**`render_show_quad_overdraw_wireframe`Sets a new Wireframe rendering enabled state in the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer.
+### Arguments
+
+- *bool* **wireframe** - Set **true** to enable *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* Wireframe rendering; **false** - to disable it. The default value is **false**.
+
+## bool isShowQuadOverdrawWireframe () const
+
+***Console*:**`render_show_quad_overdraw_wireframe`Returns the current Wireframe rendering enabled state in the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer.
+### Return value
+
+**true** if *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* Wireframe rendering is enabled; otherwise **false**. The default value is **false**.
+## void setShowQuadOverdrawPasses ( )
+
+***Console*:**`render_show_quad_overdraw_passes`Sets a new operating mode of the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer. The following options are available:
+- *All Passes with Depth Pre-Pass* (default) - Displays the total number of overdraws, including all passes (*Auxiliary, Emission, Ambient, Light*, and others), and depth pre-passes.
+- *Single Geometry Pass with Depth Pre-Pass* - Displays the number of overdraws for the primary rendering pass of the content after applying the depth pre-pass. Separate passes (such as Auxiliary or Emission) are not counted in this mode.
+- *Single Geometry Pass without Depth Pre-Pass* - Displays the number of content overdraws without using depth pre-pass (before any early depth rejection is applied).
+
+
+### Arguments
+
+- **passes** - The operating mode of the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer. One of the following values:
+
+  - **0** - All Passes with Depth Pre-Pass (by default)
+  - **1** - Single Geometry Pass with Depth Pre-Pass
+  - **2** - Single Geometry Pass without Depth Pre-Pass
+
+## getShowQuadOverdrawPasses () const
+
+***Console*:**`render_show_quad_overdraw_passes`Returns the current operating mode of the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer. The following options are available:
+- *All Passes with Depth Pre-Pass* (default) - Displays the total number of overdraws, including all passes (*Auxiliary, Emission, Ambient, Light*, and others), and depth pre-passes.
+- *Single Geometry Pass with Depth Pre-Pass* - Displays the number of overdraws for the primary rendering pass of the content after applying the depth pre-pass. Separate passes (such as Auxiliary or Emission) are not counted in this mode.
+- *Single Geometry Pass without Depth Pre-Pass* - Displays the number of content overdraws without using depth pre-pass (before any early depth rejection is applied).
+
+
+### Return value
+
+Current operating mode of the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer. One of the following values:
+- **0** - All Passes with Depth Pre-Pass (by default)
+- **1** - Single Geometry Pass with Depth Pre-Pass
+- **2** - Single Geometry Pass without Depth Pre-Pass
+
+## void setShowQuadOverdrawDisplayMode ( )
+
+***Console*:**`render_show_quad_overdraw_display_mode`Sets a new display mode of the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer. The following display modes are available:
+- *Gradient* - displays a color gradient representing overdraw intensity from black (0) to **white (*[setShowQuadOverdrawThreshold()()](../../...md#setShowQuadOverdrawThreshold_int_void)*)**.
+- *Discrete threshold* - highlights in red only the areas where the overdraw exceeds the specified threshold.
+
+
+### Arguments
+
+- **mode** - The display mode of the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer. One of the following values:
+
+  - **0** - Gradient (by default)
+  - **1** - Discrete threshold
+
+## getShowQuadOverdrawDisplayMode () const
+
+***Console*:**`render_show_quad_overdraw_display_mode`Returns the current display mode of the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer. The following display modes are available:
+- *Gradient* - displays a color gradient representing overdraw intensity from black (0) to **white (*[setShowQuadOverdrawThreshold()()](../../...md#setShowQuadOverdrawThreshold_int_void)*)**.
+- *Discrete threshold* - highlights in red only the areas where the overdraw exceeds the specified threshold.
+
+
+### Return value
+
+Current display mode of the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer. One of the following values:
+- **0** - Gradient (by default)
+- **1** - Discrete threshold
+
+## void setShowQuadOverdrawEnabled ( bool enabled = 0 )
+
+***Console*:**`render_show_quad_overdraw_enabled`Sets a new *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer enabled state.
+### Arguments
+
+- *bool* **enabled** - Set **true** to enable *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer; **false** - to disable it. The default value is **false**.
+
+## bool isShowQuadOverdrawEnabled () const
+
+***Console*:**`render_show_quad_overdraw_enabled`Returns the current *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer enabled state.
+### Return value
+
+**true** if *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer is enabled; otherwise **false**. The default value is **false**.
+## void setShowVertexDensityBlend ( float blend = 1.0f )
+
+***Console*:**`render_show_vertex_density_blend`Sets a new opacity of the *[Vertex Density](../../../content/optimization/geometry/vertex_density/index.md#tool_overview)* visualizer.
+### Arguments
+
+- *float* **blend** - The opacity of the *[Vertex Density](../../../content/optimization/geometry/vertex_density/index.md#tool_overview)* visualizer. Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+
+## float getShowVertexDensityBlend () const
+
+***Console*:**`render_show_vertex_density_blend`Returns the current opacity of the *[Vertex Density](../../../content/optimization/geometry/vertex_density/index.md#tool_overview)* visualizer.
+### Return value
+
+Current opacity of the *[Vertex Density](../../../content/optimization/geometry/vertex_density/index.md#tool_overview)* visualizer.
+Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+## void setShowVertexDensityThreshold ( int threshold = 100 )
+
+***Console*:**`render_show_vertex_density_threshold`Sets a new threshold value of the *[Vertex Density](../../../content/optimization/geometry/vertex_density/index.md#tool_overview)* visualizer.
+### Arguments
+
+- *int* **threshold** - The threshold value of the *[Vertex Density](../../../content/optimization/geometry/vertex_density/index.md#tool_overview)* visualizer. Range of values: **[1, 1000000]**. The default value is : **100**.
+
+## int getShowVertexDensityThreshold () const
+
+***Console*:**`render_show_vertex_density_threshold`Returns the current threshold value of the *[Vertex Density](../../../content/optimization/geometry/vertex_density/index.md#tool_overview)* visualizer.
+### Return value
+
+Current threshold value of the *[Vertex Density](../../../content/optimization/geometry/vertex_density/index.md#tool_overview)* visualizer.
+Range of values: **[1, 1000000]**. The default value is : **100**.
+## void setShowVertexDensitySearchArea ( int area = 8 )
+
+***Console*:**`render_show_vertex_density_search_area`Sets a new size of the vertex search area (in pixels).
+### Arguments
+
+- *int* **area** - The size of the vertex search area (in pixels). Range of values: **[1, 1024]**. The default value is : **8**.
+
+## int getShowVertexDensitySearchArea () const
+
+***Console*:**`render_show_vertex_density_search_area`Returns the current size of the vertex search area (in pixels).
+### Return value
+
+Current size of the vertex search area (in pixels).
+Range of values: **[1, 1024]**. The default value is : **8**.
+## void setShowVertexDensityDepthTest ( bool test = 1 )
+
+***Console*:**`render_show_vertex_density_depth_test`Sets a new *[Vertex Density](../../../content/optimization/geometry/vertex_density/index.md#tool_overview)* depth testing enabled state.
+### Arguments
+
+- *bool* **test** - Set **true** to enable *[Vertex Density](../../../content/optimization/geometry/vertex_density/index.md#tool_overview)* depth testing; **false** - to disable it. The default value is **true**.
+
+## bool isShowVertexDensityDepthTest () const
+
+***Console*:**`render_show_vertex_density_depth_test`Returns the current *[Vertex Density](../../../content/optimization/geometry/vertex_density/index.md#tool_overview)* depth testing enabled state.
+### Return value
+
+**true** if *[Vertex Density](../../../content/optimization/geometry/vertex_density/index.md#tool_overview)* depth testing is enabled; otherwise **false**. The default value is **true**.
+## void setShowVertexDensityMode ( )
+
+***Console*:**`render_show_vertex_density_mode`Sets a new mode of the *[Vertex Density](../../../content/optimization/geometry/vertex_density/index.md#tool_overview)* visualizer. The following modes are available:
+- *Discrete Threshold* - highlights in red only the areas where the vertex density exceeds the specified threshold within the defined area.
+- *Gradient* - displays a color gradient representing vertex density from black (0) to **white (*[setShowVertexDensityThreshold()()](../../...md#setShowVertexDensityThreshold_int_void)*)** within the defined searching area.
+
+
+### Arguments
+
+- **mode** - The mode of the *[Vertex Density](../../../content/optimization/geometry/vertex_density/index.md#tool_overview)* Visualizer. One of the following values:
+
+  - **0** - Discrete threshold (by default)
+  - **1** - Gradient
+
+## getShowVertexDensityMode () const
+
+***Console*:**`render_show_vertex_density_mode`Returns the current mode of the *[Vertex Density](../../../content/optimization/geometry/vertex_density/index.md#tool_overview)* visualizer. The following modes are available:
+- *Discrete Threshold* - highlights in red only the areas where the vertex density exceeds the specified threshold within the defined area.
+- *Gradient* - displays a color gradient representing vertex density from black (0) to **white (*[setShowVertexDensityThreshold()()](../../...md#setShowVertexDensityThreshold_int_void)*)** within the defined searching area.
+
+
+### Return value
+
+Current mode of the *[Vertex Density](../../../content/optimization/geometry/vertex_density/index.md#tool_overview)* Visualizer. One of the following values:
+- **0** - Discrete threshold (by default)
+- **1** - Gradient
+
+## void setShowVertexDensityEnabled ( bool enabled = 0 )
+
+***Console*:**`render_show_vertex_density_enabled`Sets a new *[Vertex Density](../../../content/optimization/geometry/vertex_density/index.md#tool_overview)* visualizer enabled state.
+### Arguments
+
+- *bool* **enabled** - Set **true** to enable *[Vertex Density](../../../content/optimization/geometry/vertex_density/index.md#tool_overview)* visualizer; **false** - to disable it. The default value is **false**.
+
+## bool isShowVertexDensityEnabled () const
+
+***Console*:**`render_show_vertex_density_enabled`Returns the current *[Vertex Density](../../../content/optimization/geometry/vertex_density/index.md#tool_overview)* visualizer enabled state.
+### Return value
+
+**true** if *[Vertex Density](../../../content/optimization/geometry/vertex_density/index.md#tool_overview)* visualizer is enabled; otherwise **false**. The default value is **false**.
+## void setLightsDitherScale ( float scale = 1.0f )
+
+***Console*:**`render_lights_dither_scale`Sets a new dithering intensity for light rendering. Dithering adds subtle noise to reduce color banding in light gradients.
+### Arguments
+
+- *float* **scale** - The **1.0f** - dithering intensity for lights Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+
+## float getLightsDitherScale () const
+
+***Console*:**`render_lights_dither_scale`Returns the current dithering intensity for light rendering. Dithering adds subtle noise to reduce color banding in light gradients.
+### Return value
+
+Current **1.0f** - dithering intensity for lights
+Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
+## float getEnvironmentMoonAngularSize () const
+
+Returns the current current angular size of the moon in degrees, as determined by the active environment preset. This is a read-only value interpolated from the environment presets. To change it, use [RenderEnvironmentPreset](../../../api/library/rendering/class.renderenvironmentpreset_usc.md).
+### Return value
+
+Current current moon angular size in degrees
+## float getEnvironmentSunAngularSize () const
+
+Returns the current current angular size of the sun in degrees, as determined by the active environment preset. This is a read-only value interpolated from the environment presets. To change it, use [RenderEnvironmentPreset](../../../api/library/rendering/class.renderenvironmentpreset_usc.md).
+### Return value
+
+Current current sun angular size in degrees
+## void setEnvironmentHazeDitherScale ( float scale = 0.0f )
+
+***Console*:**`render_environment_haze_dither_scale`Sets a new dithering intensity for haze rendering. Dithering adds subtle noise to reduce color banding in haze gradients.
+### Arguments
+
+- *float* **scale** - The **0.0f** - dithering intensity for haze Range of values: **[0.0f, 1.0f]**. The default value is : **0.0f**.
+
+## float getEnvironmentHazeDitherScale () const
+
+***Console*:**`render_environment_haze_dither_scale`Returns the current dithering intensity for haze rendering. Dithering adds subtle noise to reduce color banding in haze gradients.
+### Return value
+
+Current **0.0f** - dithering intensity for haze
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.0f**.
+## void setEnvironmentDitherScale ( float scale = 0.0f )
+
+***Console*:**`render_environment_dither_scale`Sets a new dithering intensity for environment rendering. Dithering adds subtle noise to reduce color banding in environment gradients.
+### Arguments
+
+- *float* **scale** - The **0.0f** - dithering intensity for environment Range of values: **[0.0f, 1.0f]**. The default value is : **0.0f**.
+
+## float getEnvironmentDitherScale () const
+
+***Console*:**`render_environment_dither_scale`Returns the current dithering intensity for environment rendering. Dithering adds subtle noise to reduce color banding in environment gradients.
+### Return value
+
+Current **0.0f** - dithering intensity for environment
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.0f**.
+## void setFSRShowDebugView ( bool view = 0 )
+
+***Console*:**`render_upscale_fsr_show_debug_view`Sets a new value indicating if FSR debug view is enabled.
+### Arguments
+
+- *bool* **view** - Set **true** to enable FSR debug view; **false** - to disable it. The default value is **false**.
+
+## bool isFSRShowDebugView () const
+
+***Console*:**`render_upscale_fsr_show_debug_view`Returns the current value indicating if FSR debug view is enabled.
+### Return value
+
+**true** if FSR debug view is enabled; otherwise **false**. The default value is **false**.
+## void setUpscaleOrder ( )
+
+***Console*:**`render_upscale_order`Sets a new stage of the rendering pipeline at which upscaling is applied.
+### Arguments
+
+- **order** - The upscale order in the rendering pipeline One of the following values:
+
+  - **0** - upscale before post-effects. (by default)
+  - **1** - upscale after color adaptation.
+  - **2** - upscale before TAA
+  - **3** - upscale after post-effects (before the Sharpen effect)
+
+## getUpscaleOrder () const
+
+***Console*:**`render_upscale_order`Returns the current stage of the rendering pipeline at which upscaling is applied.
+### Return value
+
+Current upscale order in the rendering pipeline One of the following values:
+- **0** - upscale before post-effects. (by default)
+- **1** - upscale after color adaptation.
+- **2** - upscale before TAA
+- **3** - upscale after post-effects (before the Sharpen effect)
+
+## void setStreamingIGpuVRAMBalance ( int vrambalance = 40 )
+
+***Console*:**`render_streaming_igpu_vram_balance`Sets a new percentage of total system RAM to be used as the VRAM budget for integrated GPUs. Applicable when [StreamingIGpuVRAMMode](#StreamingIGpuVRAMMode) is set to [BALANCE](#STREAMING_IGPU_VRAM_MODE_BALANCE).
+### Arguments
+
+- *int* **vrambalance** - The iGPU VRAM balance as a percentage of total RAM Range of values: **[10, 80]**. The default value is : **40**.
+
+## int getStreamingIGpuVRAMBalance () const
+
+***Console*:**`render_streaming_igpu_vram_balance`Returns the current percentage of total system RAM to be used as the VRAM budget for integrated GPUs. Applicable when [StreamingIGpuVRAMMode](#StreamingIGpuVRAMMode) is set to [BALANCE](#STREAMING_IGPU_VRAM_MODE_BALANCE).
+### Return value
+
+Current iGPU VRAM balance as a percentage of total RAM
+Range of values: **[10, 80]**. The default value is : **40**.
+## void setStreamingIGpuVRAMSize ( int vramsize = 4096 )
+
+***Console*:**`render_streaming_igpu_vram_size`Sets a new custom VRAM size (in MB) to be used as the VRAM budget for integrated GPUs. Applicable when [StreamingIGpuVRAMMode](#StreamingIGpuVRAMMode) is set to [SIZE](#STREAMING_IGPU_VRAM_MODE_SIZE).
+### Arguments
+
+- *int* **vramsize** - The iGPU VRAM size, in MB Range of values: **[512, 32768]**. The default value is : **4096**.
+
+## int getStreamingIGpuVRAMSize () const
+
+***Console*:**`render_streaming_igpu_vram_size`Returns the current custom VRAM size (in MB) to be used as the VRAM budget for integrated GPUs. Applicable when [StreamingIGpuVRAMMode](#StreamingIGpuVRAMMode) is set to [SIZE](#STREAMING_IGPU_VRAM_MODE_SIZE).
+### Return value
+
+Current iGPU VRAM size, in MB
+Range of values: **[512, 32768]**. The default value is : **4096**.
+## void setStreamingIGpuVRAMMode ( )
+
+***Console*:**`render_streaming_igpu_vram_mode`Sets a new mode that determines how the engine calculates the available VRAM budget for integrated GPUs (iGPU) that share system RAM instead of having dedicated video memory.
+### Arguments
+
+- **vrammode** - The iGPU VRAM budget mode One of the following values:
+
+  - **0** - system (by default)
+  - **1** - custom size
+  - **2** - total memory balance
+
+## getStreamingIGpuVRAMMode () const
+
+***Console*:**`render_streaming_igpu_vram_mode`Returns the current mode that determines how the engine calculates the available VRAM budget for integrated GPUs (iGPU) that share system RAM instead of having dedicated video memory.
+### Return value
+
+Current iGPU VRAM budget mode One of the following values:
+- **0** - system (by default)
+- **1** - custom size
+- **2** - total memory balance
+
+## int getNumCompiledPSOGlobal () const
+
+Returns the current number of global PSOs compiled during the current frame. Global PSOs represent the render pipeline state set dynamically before each draw call, as opposed to PSOs embedded in shader code.
+### Return value
+
+Current number of global PSOs compiled per frame
+---
+
+## int engine.render. isAPISupported ( int api )
+
+Returns a value indicating if the specified graphics API (Null/Vulkan/DirectX) is currently supported.
+### Arguments
+
+- *int* **api** - Graphics API ID. One of the [API_*](#API_NULL) values.
+
+### Return value
+
+**1** if the specified graphics API is currently supported; otherwise, **0**.
+## int engine.render. isUpscaleModeSupported ( int mode )
+
+Returns a value indicating if the specified upscale mode (FSR/DLSS) is currently supported.
+### Arguments
+
+- *int* **mode** - Upscaling mode to check. Defines a technology to be used to render high-resolution images based on the lower resolution source, which may help preserve image quality while getting more fps.
+
+### Return value
+
+**1** if the specified upscale mode is currently supported; otherwise, **0**.
+## void engine.render. beginDebugGroup ( string name )
+
+Starts a [GPU debug group](../../../tools/profiling/microprofile/index.md#gpu_debug_group) with a specified name in Microprofiler.
+### Arguments
+
+- *string* **name** - Name of debug group.
+
+## void engine.render. endDebugGroup ( )
+
+Ends a [GPU debug group](../../../tools/profiling/microprofile/index.md#gpu_debug_group) previously started via the [beginDebugGroup()](#beginDebugGroup_cstr_void) method.
+## void engine.render. memoryClear ( int soft = false )
+
+Clears the video memory, ffp buffer and memory pools, deletes textures and all meshes, including skinned meshes and decals. This method is called automatically after the world is loaded or the render preset has been changed. It is recommended to use it only in case a significant amount of memory needs to be released, the resources will be force removed at the end of the frame.
+### Arguments
+
+- *int* **soft** - If set to true, performs a soft clear: only unused textures and meshes are destroyed and memory pools are cleared. If set to false (default), performs a full clear: all temporary textures and resources are also destroyed and will be recreated on demand.
+
+## Texture engine.render. getBlack2DArrayTexture ( )
+
+Returns black 2D array texture.
+### Return value
+
+Black 2D array texture.
+## Texture engine.render. getBlack2DTexture ( )
+
+Returns black 2D texture.
+### Return value
+
+Black 2D texture.
+## Texture engine.render. getBlack2DUIntTexture ( )
+
+Returns black 2D UInt texture.
+### Return value
+
+Black 2D UInt texture.
+## Texture engine.render. getBlack3DTexture ( )
+
+Returns black 3D texture.
+### Return value
+
+Black 3D texture.
+## Texture engine.render. getBlackCubeTexture ( )
+
+Returns black Cube texture.
+### Return value
+
+Black Cube texture.
+## Texture engine.render. getGray2DArrayTexture ( )
+
+Returns gray 2D array texture.
+### Return value
+
+Gray 2D array texture.
+## Texture engine.render. getGray2DTexture ( )
+
+Returns gray 2D texture.
+### Return value
+
+Gray 2D texture.
+## Texture engine.render. getGray2DUIntTexture ( )
+
+Returns gray 2D UInt texture.
+### Return value
+
+Gray 2D UInt texture.
+## Texture engine.render. getGray3DTexture ( )
+
+Returns gray 3D texture.
+### Return value
+
+Gray 3D texture.
+## Texture engine.render. getGrayCubeTexture ( )
+
+Returns gray Cube texture.
+### Return value
+
+Gray Cube texture.
+## Texture engine.render. getWhite2DArrayTexture ( )
+
+Returns white 2D array texture.
+### Return value
+
+White 2D array texture.
+## Texture engine.render. getWhite2DTexture ( )
+
+Returns white 2D texture.
+### Return value
+
+White 2D texture.
+## Texture engine.render. getWhite2DUIntTexture ( )
+
+Returns white 2D UInt texture.
+### Return value
+
+White 2D UInt texture.
+## Texture engine.render. getWhite3DTexture ( )
+
+Returns white 3D texture.
+### Return value
+
+White 3D texture.
+## Texture engine.render. getWhiteCubeTexture ( )
+
+Returns white Cube texture.
+### Return value
+
+White Cube texture.
+## int engine.render. getMaxTextureBufferSize ( )
+
+Returns the maximum size of the texture buffer.
+### Return value
+
+Maximum size of the texture buffer.
+## void engine.render. addScriptableMaterial ( Material material )
+
+Adds a new global [scriptable material](../../../content/materials/scriptable.md). To apply a scriptable material per-camera or per-player, use the *[addScriptableMaterial()](../../../api/library/rendering/class.camera_usc.md#addScriptableMaterial_Material_void)* method of the Camera class or [the same method of the Player class](../../../api/library/players/class.player_usc.md#addScriptableMaterial_Material_void) respectively. The order of execution for scripts assigned to scriptable materials is defined by material's number in the list of materials applied globally.
+> **Notice:** Scriptable materials applied globally have their expressions executed before the ones that are applied [per-camera](../../../api/library/rendering/class.camera_usc.md#addScriptableMaterial_Material_void) or [per-player](../../../api/library/players/class.player_usc.md#addScriptableMaterial_Material_void).
+
+
+### Arguments
+
+- *[Material](../../../api/library/rendering/class.material_usc.md)* **material** - Scriptable material to be applied globally.
+
+## void engine.render. insertScriptableMaterial ( int num , Material material )
+
+Inserts a new global [scriptable material](../../../content/materials/scriptable.md) to the list of globally applied scriptable materials. To apply a scriptable material per-camera or per-player, use the *[insertScriptableMaterial()](../../../api/library/rendering/class.camera_usc.md#insertScriptableMaterial_int_Material_void)* method of the Camera class or [the same method of the Player class](../../../api/library/players/class.player_usc.md#insertScriptableMaterial_int_Material_void) respectively. The order of execution for scripts assigned to scriptable materials is defined by material's number in the list of materials applied globally.
+> **Notice:** Scriptable materials applied globally have their expressions executed before the ones that are applied [per-camera](../../../api/library/rendering/class.camera_usc.md#insertScriptableMaterial_int_Material_void) or [per-player](../../../api/library/players/class.player_usc.md#insertScriptableMaterial_int_Material_void).
+
+
+### Arguments
+
+- *int* **num** - Position at which a new scriptable material is to be inserted.
+- *[Material](../../../api/library/rendering/class.material_usc.md)* **material** - Scriptable material to be inserted into the list of globally applied scriptable materials.
+
+## void engine.render. removeScriptableMaterial ( int num )
+
+Removes the global [scriptable material](../../../content/materials/scriptable.md) with the specified number.
+### Arguments
+
+- *int* **num** - Scriptable material number in the range from 0 to the [total number of scriptable materials](#getNumScriptableMaterials_int).
+
+## int engine.render. findScriptableMaterial ( Material material )
+
+Returns the number of the specified [scriptable material](../../../content/materials/scriptable.md) applied globally. This number determines the order in which the assigned expressions are executed.
+> **Notice:** Scriptable materials applied globally have their expressions executed before the ones that are applied [per-camera](../../../api/library/rendering/class.camera_usc.md#addScriptableMaterial_Material_void) or [per-player](../../../api/library/players/class.player_usc.md#addScriptableMaterial_Material_void).
+
+
+### Arguments
+
+- *[Material](../../../api/library/rendering/class.material_usc.md)* **material** - Scriptable material for which a number is to be found.
+
+### Return value
+
+Scriptable material number in the range from 0 to the [total number of scriptable materials](#getNumScriptableMaterials_int), or -1 if the specified material was not found.
+## void engine.render. setScriptableMaterial ( int num , Material material )
+
+Replaces the [scriptable material](../../../content/materials/scriptable.md) with the specified number with the new scriptable material specified. The number of material determines the order in which the expressions assigned to it are executed.
+> **Notice:** Scriptable materials applied globally have their expressions executed before the ones that are applied [per-camera](../../../api/library/rendering/class.camera_usc.md#addScriptableMaterial_Material_void) or [per-player](../../../api/library/players/class.player_usc.md#addScriptableMaterial_Material_void).
+
+
+### Arguments
+
+- *int* **num** - Scriptable material number in the range from 0 to the [total number of scriptable materials](#getNumScriptableMaterials_int).
+- *[Material](../../../api/library/rendering/class.material_usc.md)* **material** - New scriptable material to replace the one with the specified number.
+
+## Material engine.render. getScriptableMaterial ( int num )
+
+Returns a [scriptable material](../../../content/materials/scriptable.md) applied globally by its number.
+### Arguments
+
+- *int* **num** - Scriptable material number in the range from 0 to the [total number of scriptable materials](#getNumScriptableMaterials_int).
+
+### Return value
+
+Scriptable material applied globally with the specified number.
+## void engine.render. setScriptableMaterialEnabled ( int num , int enabled )
+
+Enables or disables the [scriptable material](../../../content/materials/scriptable.md) with the specified number. When a material is disabled (inactive), the scripts attached to it are not executed.
+### Arguments
+
+- *int* **num** - Scriptable material number in the range from 0 to the [total number of scriptable materials](#getNumScriptableMaterials_int).
+- *int* **enabled** - 1 to enable the scriptable material with the specified number, 0 to disable it.
+
+## int engine.render. getScriptableMaterialEnabled ( int num )
+
+Returns a value indicating if the [scriptable material](../../../content/materials/scriptable.md) with the specified number is enabled (active). When a material is disabled (inactive), the scripts attached to it are not executed.
+### Arguments
+
+- *int* **num** - Scriptable material number in the range from 0 to the [total number of scriptable materials](#getNumScriptableMaterials_int).
+
+### Return value
+
+1 if the scriptable material with the specified number is enabled; otherwise, 0.
+## void engine.render. swapScriptableMaterials ( int num_0 , int num_1 )
+
+Swaps two [scriptable materials](../../../content/materials/scriptable.md) with specified numbers. The number of material determines the order in which the expressions assigned to it are executed.
+> **Notice:** Scriptable materials applied globally have their expressions executed before the ones that are applied [per-camera](../../../api/library/rendering/class.camera_usc.md#addScriptableMaterial_Material_void) or [per-player](../../../api/library/players/class.player_usc.md#addScriptableMaterial_Material_void).
+
+
+### Arguments
+
+- *int* **num_0** - Number of the first scriptable material in the range from 0 to the [total number of scriptable materials](#getNumScriptableMaterials_int).
+- *int* **num_1** - Number of the second scriptable material in the range from 0 to the [total number of scriptable materials](#getNumScriptableMaterials_int).
+
+## void engine.render. clearScriptableMaterials ( )
+
+Clears all global [scriptable materials](../../../content/materials/scriptable.md).
+## Texture engine.render. getTemporaryTexture ( int width , int height , int depth , int format , int flags = 0 , int type , string name = 0 , bool auto_release = false )
+
+
+Allocates a temporary render texture with the specified width, height, depth, format, flags, and type. This function can be used when you need a quick render texture to perform some temporary calculations. Release it using *[releaseTemporaryTexture()](#releaseTemporaryTexture_Texture_void)* as soon as you're done with it, so another call can start reusing it, if necessary. In any case, such texture shall be released automatically in the next frame.
+
+
+UNIGINE keeps an internal pool of temporary render textures, so a call to this method most often just returns an already created one (if the size and format match). These temporary textures are actually destroyed when they aren't used for a couple of frames.
+
+
+If you are doing a series of post-processing "blits", it's best for performance to get and release a temporary render texture for each blit, instead of getting one or two render textures upfront and reusing them.
+
+
+> **Notice:** You can't rely on any particular contents of a temporary texture obtained from this function: it might be garbage, or it might be cleared to some color, depending on the platform.
+
+
+It also automatically gives names to resources, which can be used for identification in [debug](../../../tools/profiling/microprofile/index.md#gpu_debug_group).
+
+
+### Arguments
+
+- *int* **width** - Width of the texture, in pixels.
+- *int* **height** - Height of the texture, in pixels.
+- *int* **depth** - Depth of the texture, in pixels.
+- *int* **format** - Texture format: one of the [TEXTURE_FORMAT_*](../../../api/library/rendering/class.texture_usc.md#FORMAT_ATI1) values.
+- *int* **flags** - Texture flags.
+- *int* **type** - Texture type (2D, 3D, Cube, etc.): one of the [TEXTURE_TEXTURE_*](../../../api/library/rendering/class.texture_usc.md#TEXTURE_2D) values.
+- *string* **name** - Name to be used for this temporary texture (optional). If not specified, a new name for it will be generated automatically.
+- *bool* **auto_release** - **1** to enable automatic release of the temporary texture by its [lifetime](#TEXTURE_LIFETIME), **0** to release it manually.
+
+### Return value
+
+Temporary texture.
+## Texture engine.render. getTemporaryTexture ( Texture texture , string name = 0 , int accessory = TEXTURE_ACCESSORY.NONE , int lifetime = TEXTURE_LIFETIME.FRAME_VIEWPORT , int auto_release = false )
+
+
+Allocates a temporary render texture with the specified width, height, depth, format, flags, and type. This function can be used when you need a quick render texture to perform some temporary calculations. Release it using *[releaseTemporaryTexture()](#releaseTemporaryTexture_Texture_void)* as soon as you're done with it, so another call can start reusing it, if necessary. In any case, such texture shall be released automatically in the next frame.
+
+
+UNIGINE keeps an internal pool of temporary render textures, so a call to this method most often just returns an already created one (if the size and format match). These temporary textures are actually destroyed when they aren't used for a couple of frames.
+
+
+If you are doing a series of post-processing "blits", it's best for performance to get and release a temporary render texture for each blit, instead of getting one or two render textures upfront and reusing them.
+
+
+> **Notice:** You can't rely on any particular contents of a temporary texture obtained from this function: it might be garbage, or it might be cleared to some color, depending on the platform.
+
+
+It also automatically gives names to resources, which can be used for identification in [debug](../../../tools/profiling/microprofile/index.md#gpu_debug_group).
+
+
+### Arguments
+
+- *[Texture](../../../api/library/rendering/class.texture_usc.md)* **texture**
+- *string* **name** - Name to be used for this temporary texture (optional). If not specified, a new name for it will be generated automatically.
+- *int* **accessory** - Texture render sequence accessory type. One of the [TEXTURE_ACCESSORY_*](#TEXTURE_ACCESSORY_NONE) values.
+- *int* **lifetime** - Texture lifetime (the texture will be released automatically when its lifetime expires, if the auto_release flag is set). One of the [TEXTURE_LIFETIME*](#TEXTURE_LIFETIME_FRAME_VIEWPORT) values.
+- *int* **auto_release** - **1** to enable automatic release of the temporary texture by its [lifetime](#TEXTURE_LIFETIME), **0** to release it manually.
+
+### Return value
+
+Temporary texture.
+## Texture engine.render. getTemporaryTexture2D ( int width , int height , int format , int flags = -1 , string name = 0 , bool auto_release = false )
+
+
+Allocates a temporary 2D texture with the specified width, height, format, and flags. This function can be used when you need a quick render texture to perform some temporary calculations. Release it using *[releaseTemporaryTexture()](#releaseTemporaryTexture_Texture_void)* as soon as you're done with it, so another call can start reusing it, if necessary. In any case, such texture shall be released automatically in the next frame.
+
+
+UNIGINE keeps an internal pool of temporary render textures, so a call to this method most often just returns an already created one (if the size and format match). These temporary textures are actually destroyed when they aren't used for a couple of frames.
+
+
+If you are doing a series of post-processing "blits", it's best for performance to get and release a temporary render texture for each blit, instead of getting one or two render textures upfront and reusing them.
+
+
+> **Notice:** You can't rely on any particular contents of a temporary texture obtained from this function: it might be garbage, or it might be cleared to some color, depending on the platform.
+
+
+### Arguments
+
+- *int* **width** - Width of the 2D texture, in pixels.
+- *int* **height** - Height of the 2D texture, in pixels.
+- *int* **format** - Texture format: one of the [TEXTURE_FORMAT_*](../../../api/library/rendering/class.texture_usc.md#FORMAT_ATI1) values.
+- *int* **flags** - Texture flags.
+- *string* **name** - Name to be used for this temporary texture (optional). If not specified, a new name for it will be generated automatically.
+- *bool* **auto_release** - **1** to enable automatic release of the temporary texture by its [lifetime](#TEXTURE_LIFETIME), **0** to release it manually.
+
+### Return value
+
+Temporary 2D texture.
+## Texture engine.render. getTemporaryTexture2DArray ( int width , int height , int depth , int format , int flags = 0 , string name = 0 , bool auto_release = false )
+
+
+Allocates a temporary 2D array texture with the specified width, height, number of layers, format, and flags. This function can be used when you need a quick render texture to perform some temporary calculations. Release it using *[releaseTemporaryTexture()](#releaseTemporaryTexture_Texture_void)* as soon as you're done with it, so another call can start reusing it, if necessary. In any case, such texture shall be released automatically in the next frame.
+
+
+UNIGINE keeps an internal pool of temporary render textures, so a call to this method most often just returns an already created one (if the size and format match). These temporary textures are actually destroyed when they aren't used for a couple of frames.
+
+
+If you are doing a series of post-processing "blits", it's best for performance to get and release a temporary render texture for each blit, instead of getting one or two render textures upfront and reusing them.
+
+
+> **Notice:** You can't rely on any particular contents of a temporary texture obtained from this function: it might be garbage, or it might be cleared to some color, depending on the platform.
+
+
+### Arguments
+
+- *int* **width** - Width of the 2D array texture, in pixels.
+- *int* **height** - Height of the 2D array texture, in pixels.
+- *int* **depth** - Number of layers in the 2D array texture.
+- *int* **format** - Texture format: one of the [TEXTURE_FORMAT_*](../../../api/library/rendering/class.texture_usc.md#FORMAT_ATI1) values.
+- *int* **flags** - Texture flags.
+- *string* **name** - Name to be used for this temporary 2D array texture (optional). If not specified, a new name for it will be generated automatically.
+- *bool* **auto_release** - **1** to enable automatic release of the temporary texture by its [lifetime](#TEXTURE_LIFETIME), **0** to release it manually.
+
+### Return value
+
+Temporary 2D array texture.
+## Texture engine.render. getTemporaryTexture3D ( int width , int height , int depth , int format , int flags = 0 , string name = 0 , bool auto_release = false )
+
+
+Allocates a temporary 3D texture with the specified width, height, depth, format, and flags. This function can be used when you need a quick render texture to perform some temporary calculations. Release it using *[releaseTemporaryTexture()](#releaseTemporaryTexture_Texture_void)* as soon as you're done with it, so another call can start reusing it, if necessary. In any case, such texture shall be released automatically in the next frame.
+
+
+UNIGINE keeps an internal pool of temporary render textures, so a call to this method most often just returns an already created one (if the size and format match). These temporary textures are actually destroyed when they aren't used for a couple of frames.
+
+
+If you are doing a series of post-processing "blits", it's best for performance to get and release a temporary render texture for each blit, instead of getting one or two render textures upfront and reusing them.
+
+
+> **Notice:** You can't rely on any particular contents of a temporary texture obtained from this function: it might be garbage, or it might be cleared to some color, depending on the platform.
+
+
+### Arguments
+
+- *int* **width** - Width of the 3D texture, in pixels.
+- *int* **height** - Height of the 3D texture, in pixels.
+- *int* **depth** - Depth of the 3D texture, in pixels.
+- *int* **format** - Texture format: one of the [TEXTURE_FORMAT_*](../../../api/library/rendering/class.texture_usc.md#FORMAT_ATI1) values.
+- *int* **flags** - Texture flags.
+- *string* **name** - Name to be used for this temporary 3D texture (optional). If not specified, a new name for it will be generated automatically.
+- *bool* **auto_release** - **1** to enable automatic release of the temporary texture by its [lifetime](#TEXTURE_LIFETIME), **0** to release it manually.
+
+### Return value
+
+Temporary 3D texture.
+## Texture engine.render. getTemporaryTextureCube ( int width , int height , int format , int flags = -1 , string name = 0 , bool auto_release = false )
+
+
+Allocates a temporary cubemap texture with the specified width, height, format, and flags. This function can be used when you need a quick render texture to perform some temporary calculations. Release it using *[releaseTemporaryTexture()](#releaseTemporaryTexture_Texture_void)* as soon as you're done with it, so another call can start reusing it, if necessary. In any case, such texture shall be released automatically in the next frame.
+
+
+UNIGINE keeps an internal pool of temporary render textures, so a call to this method most often just returns an already created one (if the size and format match). These temporary textures are actually destroyed when they aren't used for a couple of frames.
+
+
+If you are doing a series of post-processing "blits", it's best for performance to get and release a temporary render texture for each blit, instead of getting one or two render textures upfront and reusing them.
+
+
+> **Notice:** You can't rely on any particular contents of a temporary texture obtained from this function: it might be garbage, or it might be cleared to some color, depending on the platform.
+
+
+### Arguments
+
+- *int* **width** - Width of the cubemap texture, in pixels.
+- *int* **height** - Height of the cubemap texture, in pixels.
+- *int* **format** - Texture format: one of the [TEXTURE_FORMAT_*](../../../api/library/rendering/class.texture_usc.md#FORMAT_ATI1) values.
+- *int* **flags** - Texture flags.
+- *string* **name** - Name to be used for this temporary cubemap texture (optional). If not specified, a new name for it will be generated automatically.
+- *bool* **auto_release** - **1** to enable automatic release of the temporary texture by its [lifetime](#TEXTURE_LIFETIME), **0** to release it manually.
+
+### Return value
+
+Temporary cubemap texture.
+## Texture engine.render. getTemporaryTextureCubeArray ( int width , int height , int depth , int format , int flags = -1 , string name = 0 , bool auto_release = false )
+
+
+Allocates a temporary cubemap texture array with the specified width, height, number of layers, format, and flags. This function can be used when you need a quick render texture to perform some temporary calculations. Release it using *[releaseTemporaryTexture()](#releaseTemporaryTexture_Texture_void)* as soon as you're done with it, so another call can start reusing it, if necessary. In any case, such texture shall be released automatically in the next frame.
+
+
+UNIGINE keeps an internal pool of temporary render textures, so a call to this method most often just returns an already created one (if the size and format match). These temporary textures are actually destroyed when they aren't used for a couple of frames.
+
+
+If you are doing a series of post-processing "blits", it's best for performance to get and release a temporary render texture for each blit, instead of getting one or two render textures upfront and reusing them.
+
+
+> **Notice:** You can't rely on any particular contents of a temporary texture obtained from this function: it might be garbage, or it might be cleared to some color, depending on the platform.
+
+
+### Arguments
+
+- *int* **width** - Width of the cubemap cubemap array, in pixels.
+- *int* **height** - Height of the cubemap cubemap array, in pixels.
+- *int* **depth** - Number of layers in the cubemap array texture.
+- *int* **format** - Texture format: one of the [TEXTURE_FORMAT_*](../../../api/library/rendering/class.texture_usc.md#FORMAT_ATI1) values.
+- *int* **flags** - Texture flags.
+- *string* **name** - Name to be used for this temporary cubemap array texture (optional). If not specified, a new name for it will be generated automatically.
+- *bool* **auto_release** - **1** to enable automatic release of the temporary texture by its [lifetime](#TEXTURE_LIFETIME), **0** to release it manually.
+
+### Return value
+
+Temporary cubemap texture array.
+## Texture engine.render. getTemporaryOldTexture ( Material mat , int texture_id , int width , int height , int depth , int format , int flags , int type , string name )
+
+
+Allocates a temporary render texture from the previous frame with the specified width, height, depth, format, flags, and accessory type. This function can be used when you need a quick render texture to perform some temporary calculations. This texture doesn't require to be released.
+
+
+UNIGINE keeps an internal pool of temporary render textures, so a call to this method most often just returns an already created one (if the size and format match). These temporary textures are actually destroyed when they aren't used for a couple of frames.
+
+
+If you are doing a series of post-processing "blits", it's best for performance to get and release a temporary render texture for each blit, instead of getting one or two render textures upfront and reusing them.
+
+
+> **Notice:** You can't rely on any particular contents of a temporary texture obtained from this function: it might be garbage, or it might be cleared to some color, depending on the platform.
+
+
+It also automatically gives names to resources, which can be used for identification in [debug](../../../tools/profiling/microprofile/index.md#gpu_debug_group).
+
+
+### Arguments
+
+- *[Material](../../../api/library/rendering/class.material_usc.md)* **mat** - Material that will use the texture with the specified ID.
+- *int* **texture_id** - Texture ID set by the user, value in the range [0, 255].
+- *int* **width** - Width of the texture, in pixels.
+- *int* **height** - Height of the texture, in pixels.
+- *int* **depth** - Depth of the texture, in pixels.
+- *int* **format** - Texture format: one of the [TEXTURE_FORMAT_*](../../../api/library/rendering/class.texture_usc.md#FORMAT_ATI1) values.
+- *int* **flags** - Texture flags.
+- *int* **type** - Texture type (2D, 3D, Cube, etc.): one of the [TEXTURE_TEXTURE_*](../../../api/library/rendering/class.texture_usc.md#TEXTURE_2D) values.
+- *string* **name** - Name to be used for this temporary texture (optional).
+
+### Return value
+
+Temporary texture from the previous frame.
+## Texture engine.render. getTemporaryOldTexture ( Material mat , int texture_id , Texture texture , string name )
+
+
+Allocates a temporary render texture from the previous frame for the specified source texture (using all its parameters: resolution, flags, etc.). This function can be used when you need a quick render texture to perform some temporary calculations. This texture doesn't require to be released.
+
+
+UNIGINE keeps an internal pool of temporary render textures, so a call to this method most often just returns an already created one (if the size and format match). These temporary textures are actually destroyed when they aren't used for a couple of frames.
+
+
+If you are doing a series of post-processing "blits", it's best for performance to get and release a temporary render texture for each blit, instead of getting one or two render textures upfront and reusing them.
+
+
+> **Notice:** You can't rely on any particular contents of a temporary texture obtained from this function: it might be garbage, or it might be cleared to some color, depending on the platform.
+
+
+It also automatically gives names to resources, which can be used for identification in [debug](../../../tools/profiling/microprofile/index.md#gpu_debug_group).
+
+
+### Arguments
+
+- *[Material](../../../api/library/rendering/class.material_usc.md)* **mat** - Material that will use the texture with the specified ID.
+- *int* **texture_id** - Texture ID set by the user, value in the range [0, 255].
+- *[Texture](../../../api/library/rendering/class.texture_usc.md)* **texture** - Source texture for which a temporary texture is to be allocated in the pool.
+- *string* **name** - Name to be used for this temporary texture (optional).
+
+### Return value
+
+Temporary texture from the previous frame.
+## Texture engine.render. getTemporaryOldTexture2D ( Material mat , int texture_id , int width , int height , int format , int flags = -1 , string name = 0 )
+
+
+Allocates a temporary 2D texture with the specified width, height, format, and flags. This function can be used when you need a quick render texture to perform some temporary calculations. This texture doesn't require to be released.
+
+
+UNIGINE keeps an internal pool of temporary render textures, so a call to this method most often just returns an already created one (if the size and format match). These temporary textures are actually destroyed when they aren't used for a couple of frames.
+
+
+If you are doing a series of post-processing "blits", it's best for performance to get and release a temporary render texture for each blit, instead of getting one or two render textures upfront and reusing them.
+
+
+> **Notice:** You can't rely on any particular contents of a temporary texture obtained from this function: it might be garbage, or it might be cleared to some color, depending on the platform.
+
+
+It also automatically gives names to resources, which can be used for identification in [debug](../../../tools/profiling/microprofile/index.md#gpu_debug_group).
+
+
+### Arguments
+
+- *[Material](../../../api/library/rendering/class.material_usc.md)* **mat** - Material that will use the texture with the specified ID.
+- *int* **texture_id** - Texture ID set by the user, value in the range [0, 255].
+- *int* **width** - Width of the texture, in pixels.
+- *int* **height** - Height of the texture, in pixels.
+- *int* **format** - Texture format: one of the [TEXTURE_FORMAT_*](../../../api/library/rendering/class.texture_usc.md#FORMAT_ATI1) values.
+- *int* **flags** - Texture flags.
+- *string* **name**
+
+### Return value
+
+Temporary 2D texture from the previous frame.
+## Texture engine.render. getTemporaryOldTexture2DArray ( Material mat , int texture_id , int width , int height , int depth , int format , int flags = -1 , string name = 0 )
+
+
+Allocates a temporary 2D array texture with the specified width, height, format, and flags. This function can be used when you need a quick render texture to perform some temporary calculations. This texture doesn't require to be released.
+
+
+UNIGINE keeps an internal pool of temporary render textures, so a call to this method most often just returns an already created one (if the size and format match). These temporary textures are actually destroyed when they aren't used for a couple of frames.
+
+
+If you are doing a series of post-processing "blits", it's best for performance to get and release a temporary render texture for each blit, instead of getting one or two render textures upfront and reusing them.
+
+
+> **Notice:** You can't rely on any particular contents of a temporary texture obtained from this function: it might be garbage, or it might be cleared to some color, depending on the platform.
+
+
+It also automatically gives names to resources, which can be used for identification in [debug](../../../tools/profiling/microprofile/index.md#gpu_debug_group).
+
+
+### Arguments
+
+- *[Material](../../../api/library/rendering/class.material_usc.md)* **mat** - Material that will use the texture with the specified ID.
+- *int* **texture_id** - Texture ID set by the user, value in the range [0, 255].
+- *int* **width** - Width of the texture, in pixels.
+- *int* **height** - Height of the texture, in pixels.
+- *int* **depth** - Number of layers in the array, in pixels.
+- *int* **format** - Texture format: one of the [TEXTURE_FORMAT_*](../../../api/library/rendering/class.texture_usc.md#FORMAT_ATI1) values.
+- *int* **flags** - Texture flags.
+- *string* **name**
+
+### Return value
+
+Temporary 2D array texture from the previous frame.
+## Texture engine.render. getTemporaryOldTexture3D ( Material mat , int texture_id , int width , int height , int depth , int format , int flags = -1 , string name = 0 )
+
+
+Allocates a temporary 3D texture with the specified width, height, format, and flags. This function can be used when you need a quick render texture to perform some temporary calculations. This texture doesn't require to be released.
+
+
+UNIGINE keeps an internal pool of temporary render textures, so a call to this method most often just returns an already created one (if the size and format match). These temporary textures are actually destroyed when they aren't used for a couple of frames.
+
+
+If you are doing a series of post-processing "blits", it's best for performance to get and release a temporary render texture for each blit, instead of getting one or two render textures upfront and reusing them.
+
+
+> **Notice:** You can't rely on any particular contents of a temporary texture obtained from this function: it might be garbage, or it might be cleared to some color, depending on the platform.
+
+
+It also automatically gives names to resources, which can be used for identification in [debug](../../../tools/profiling/microprofile/index.md#gpu_debug_group).
+
+
+### Arguments
+
+- *[Material](../../../api/library/rendering/class.material_usc.md)* **mat** - Material that will use the texture with the specified ID.
+- *int* **texture_id** - Texture ID set by the user, value in the range [0, 255].
+- *int* **width** - Width of the texture, in pixels.
+- *int* **height** - Height of the texture, in pixels.
+- *int* **depth** - Depth of the texture, in pixels.
+- *int* **format** - Texture format: one of the [TEXTURE_FORMAT_*](../../../api/library/rendering/class.texture_usc.md#FORMAT_ATI1) values.
+- *int* **flags** - Texture flags.
+- *string* **name** - Name to be used for this temporary texture (optional).
+
+### Return value
+
+Temporary 3D texture from the previous frame.
+## Texture engine.render. getTemporaryOldTextureCube ( Material mat , int texture_id , int width , int height , int format , int flags = -1 , string name = 0 )
+
+
+Allocates a temporary cubemap texture with the specified width, height, format, and flags. This function can be used when you need a quick render texture to perform some temporary calculations. This texture doesn't require to be released.
+
+
+UNIGINE keeps an internal pool of temporary render textures, so a call to this method most often just returns an already created one (if the size and format match). These temporary textures are actually destroyed when they aren't used for a couple of frames.
+
+
+If you are doing a series of post-processing "blits", it's best for performance to get and release a temporary render texture for each blit, instead of getting one or two render textures upfront and reusing them.
+
+
+> **Notice:** You can't rely on any particular contents of a temporary texture obtained from this function: it might be garbage, or it might be cleared to some color, depending on the platform.
+
+
+It also automatically gives names to resources, which can be used for identification in [debug](../../../tools/profiling/microprofile/index.md#gpu_debug_group).
+
+
+### Arguments
+
+- *[Material](../../../api/library/rendering/class.material_usc.md)* **mat** - Material that will use the texture with the specified ID.
+- *int* **texture_id** - Texture ID set by the user, value in the range [0, 255].
+- *int* **width** - Width of the texture, in pixels.
+- *int* **height** - Height of the texture, in pixels.
+- *int* **format** - Texture format: one of the [TEXTURE_FORMAT_*](../../../api/library/rendering/class.texture_usc.md#FORMAT_ATI1) values.
+- *int* **flags** - Texture flags.
+- *string* **name** - Name to be used for this temporary texture (optional).
+
+### Return value
+
+Temporary cubemap texture from the previous frame.
+## Texture engine.render. getTemporaryOldTextureCubeArray ( Material mat , int texture_id , int width , int height , int depth , int format , int flags = -1 , string name = 0 )
+
+
+Allocates a temporary cubemap texture array with the specified width, height, format, and flags. This function can be used when you need a quick render texture to perform some temporary calculations. This texture doesn't require to be released.
+
+
+UNIGINE keeps an internal pool of temporary render textures, so a call to this method most often just returns an already created one (if the size and format match). These temporary textures are actually destroyed when they aren't used for a couple of frames.
+
+
+If you are doing a series of post-processing "blits", it's best for performance to get and release a temporary render texture for each blit, instead of getting one or two render textures upfront and reusing them.
+
+
+> **Notice:** You can't rely on any particular contents of a temporary texture obtained from this function: it might be garbage, or it might be cleared to some color, depending on the platform.
+
+
+It also automatically gives names to resources, which can be used for identification in [debug](../../../tools/profiling/microprofile/index.md#gpu_debug_group).
+
+
+### Arguments
+
+- *[Material](../../../api/library/rendering/class.material_usc.md)* **mat** - Material that will use the texture with the specified ID.
+- *int* **texture_id** - Texture ID set by the user, value in the range [0, 255].
+- *int* **width** - Width of the texture, in pixels.
+- *int* **height** - Height of the texture, in pixels.
+- *int* **depth** - Number of layers in the cubemap array texture.
+- *int* **format** - Texture format: one of the [TEXTURE_FORMAT_*](../../../api/library/rendering/class.texture_usc.md#FORMAT_ATI1) values.
+- *int* **flags** - Texture flags.
+- *string* **name** - Name to be used for this temporary texture (optional).
+
+### Return value
+
+Temporary cubemap texture array from the previous frame.
+## void engine.render. releaseTemporaryTexture ( Texture texture )
+
+Releases the temporary texture previously obtained via *[getTemporaryTexture()](#getTemporaryTexture_Texture_cstr_int_int_int_Texture)*, *[getTemporaryTexture2D()](#getTemporaryTexture2D_int_int_int_int_cstr_int_int_int_Texture)*, *[getTemporaryTexture2DArray()](#getTemporaryTexture2DArray_int_int_int_int_int_cstr_int_int_int_Texture)*, *[getTemporaryTexture3D()](#getTemporaryTexture3D_int_int_int_int_int_cstr_int_int_int_Texture)*, *[getTemporaryTextureCube()](#getTemporaryTextureCube_int_int_int_int_cstr_int_int_int_Texture)*, or *[getTemporaryTextureCubeArray()](#getTemporaryTextureCubeArray_int_int_int_int_int_cstr_int_int_int_Texture)* method and returns it to the pool.
+### Arguments
+
+- *[Texture](../../../api/library/rendering/class.texture_usc.md)* **texture** - Temporary texture or texture array to be returned to the pool.
+
+## void engine.render. releaseTemporaryTextures ( Texture [] textures )
+
+Releases the specified list of temporary textures previously obtained via *[getTemporaryTexture()](#getTemporaryTexture_Texture_cstr_int_int_int_Texture)*, *[getTemporaryTexture2D()](#getTemporaryTexture2D_int_int_int_int_cstr_int_int_int_Texture)*, *[getTemporaryTexture2DArray()](#getTemporaryTexture2DArray_int_int_int_int_int_cstr_int_int_int_Texture)*, *[getTemporaryTexture3D()](#getTemporaryTexture3D_int_int_int_int_int_cstr_int_int_int_Texture)*, *[getTemporaryTextureCube()](#getTemporaryTextureCube_int_int_int_int_cstr_int_int_int_Texture)*, or *[getTemporaryTextureCubeArray()](#getTemporaryTextureCubeArray_int_int_int_int_int_cstr_int_int_int_Texture)* method and returns it to the pool.
+### Arguments
+
+- *[Texture](../../../api/library/rendering/class.texture_usc.md)[]* **textures** - List of temporary textures or texture arrays to be returned to the pool.
+
+## int engine.render. isTemporaryTexture ( Texture texture )
+
+Returns a value indicating if the specified texture is a temporary one.
+### Arguments
+
+- *[Texture](../../../api/library/rendering/class.texture_usc.md)* **texture** - Texture to be checked.
+
+### Return value
+
+**1** if the specified texture is a temporary one; otherwise, **0**.
+## int engine.render. isTemporaryOldTexture ( Texture texture )
+
+Returns a value indicating if the specified texture is a temporary texture from the previous frame.
+### Arguments
+
+- *[Texture](../../../api/library/rendering/class.texture_usc.md)* **texture** - Texture to be checked.
+
+### Return value
+
+**1** if the specified texture is a temporary texture from the previous frame; otherwise, **0**.
+## RenderTarget engine.render. getTemporaryRenderTarget ( )
+
+
+Allocates a temporary [render target](../../../api/library/rendering/class.rendertarget_usc.md). This function can be used when you need a quick render target to perform some temporary calculations. Release it using [*releaseTemporaryRenderTarget()*](#releaseTemporaryRenderTarget_RenderTarget_void) as soon as you're done with it, so another call can start reusing it if necessary. In any case such render target shall be released automatically in the next frame.
+
+
+UNIGINE keeps an internal pool of temporary render targets, so a call to this method most often just returns an already created one (if the size and format matches). These temporary render targets are actually destroyed when they aren't used for a couple of frames.
+
+
+If you are doing a series of post-processing "blits", it's best for performance to get and release a temporary render targets for each blit, instead of getting one or two render targets upfront and reusing them.
+
+> **Notice:** You can't depend on any particular contents of a temporary render target obtained from this function: it might be garbage, or it might be cleared to some color, depending on the platform.
+
+
+### Return value
+
+Temporary render target.
+## void engine.render. releaseTemporaryRenderTarget ( RenderTarget render_target )
+
+Releases the temporary [render target](../../../api/library/rendering/class.rendertarget_usc.md) previously obtained via [*getTemporaryRenderTarget()*](#getTemporaryRenderTarget_RenderTarget) method and returns it to the pool.
+### Arguments
+
+- *[RenderTarget](../../../api/library/rendering/class.rendertarget_usc.md)* **render_target** - Temporary render target to be returned to the pool.
+
+## int engine.render. createMipmapsCubeGGXImage ( Image image , Texture dest , int quality )
+
+Generates mipmaps for a cubemap image using GGX BRDF microfacet model.
+### Arguments
+
+- *[Image](../../../api/library/common/class.image_usc.md)* **image** - Cubemap image. [IMAGE_CUBE](../../../api/library/common/class.image_usc.md#IMAGE_CUBE) or [IMAGE_CUBE_ARRAY](../../../api/library/common/class.image_usc.md#IMAGE_CUBE_ARRAY) types are accepted.
+- *[Texture](../../../api/library/rendering/class.texture_usc.md)* **dest** - Destination [Texture](../../../api/library/rendering/class.texture_usc.md) instance to save the result.
+- *int* **quality** - Quality of GGX mipmaps. One of the *[GGX_MIPMAPS_QUALITY](#GGX_MIPMAPS_QUALITY)* values.
+
+### Return value
+
+**1** if mipmaps for the specified cubemap image were generated successfully; otherwise - **0**.
+## int engine.render. createMipmapsCubeGGXTexture ( Texture texture , int quality , bool realtime = true )
+
+Generates mipmaps for a cubemap texture using GGX BRDF microfacet model.
+### Arguments
+
+- *[Texture](../../../api/library/rendering/class.texture_usc.md)* **texture** - Cubemap texture. [TEXTURE_CUBE](../../../api/library/rendering/class.texture_usc.md#TEXTURE_CUBE) or [TEXTURE_CUBE_ARRAY](../../../api/library/rendering/class.texture_usc.md#TEXTURE_CUBE_ARRAY) types are accepted.
+- *int* **quality** - Quality of GGX mipmaps. One of the *[GGX_MIPMAPS_QUALITY](#GGX_MIPMAPS_QUALITY)* values.
+- *bool* **realtime** - **1** if the operation should be performed in real-time mode; otherwise - **0**.
+
+### Return value
+
+**1** if mipmaps for the specified cubemap image were generated successfully; otherwise - **0**.
+## int engine.render. createShorelineDistanceField ( Texture image , Image mask , int shoreline_radius , int blur_radius , int downsample_resolution )
+
+Grabs a shoreline distance field texture with the specified parameters.
+### Arguments
+
+- *[Texture](../../../api/library/rendering/class.texture_usc.md)* **image** - Texture to grab a shoreline texture to.
+- *[Image](../../../api/library/common/class.image_usc.md)* **mask** - An **R16** mask texture Image. Each pixel of the mask has the following color value:0 if water level at this point of the grid is above the terrain level; otherwise, 65535.
+- *int* **shoreline_radius** - Shoreline radius value within the **[4; 128]** range. Padding distance (from the shore to the beginning of swash zone).
+- *int* **blur_radius** - Blur radius value within the **[0; 32]** range. Higher values make shoreline smoother.
+- *int* **downsample_resolution** - Texture resolution value, can be one of the following: **16, 32, 64, 128, 256, 512, 1024, 2048**.
+
+### Return value
+
+1 if the shoreline distance field texture is grabbed successfully; otherwise, 0.
+## int engine.render. setColorCorrectionLUTImage ( Image image )
+
+Sets a new color transformation image (LUT). This function resets a LUT texture name to null if it has been previously set via [setColorCorrectionLUTPath()](#setColorCorrectionLUTPath_cstr_void).
+```cpp
+Image lut;
+Image lut_0;
+Image lut_1;
+
+if(lut == NULL) {
+	lut = new Image();
+	lut_0 = new Image("unigine_project/textures/lookup_first.texture");
+	lut_1 = new Image("unigine_project/textures/lookup_second.texture");
+}
+
+float k = sin(engine.game.getTime() * 2.0f) * 0.5f + 0.5f;
+
+lut.copy(lut_0);
+lut.blend(lut_1,0,0,0,0,lut.getWidth(),lut.getHeight(),k);
+
+engine.render.setColorCorrectionLUTImage(lut);
+
+```
+
+
+### Arguments
+
+- *[Image](../../../api/library/common/class.image_usc.md)* **image** - Color transformation image.
+
+### Return value
+
+1 if the image is set successfully; otherwise, 0.
+## int engine.render. getColorCorrectionLUTImage ( Image image )
+
+Return the current color transformation image (LUT).
+### Arguments
+
+- *[Image](../../../api/library/common/class.image_usc.md)* **image** - Image to store the color transformation texture in.
+
+### Return value
+
+1 if an image is successfully received; otherwise, 0.
+## void engine.render. resetColorCorrectionRamp ( )
+
+Resets the [Color Correction ramp](../../../editor2/settings/render_settings/color/index.md#color_curve) to the default value.
+![](default_color_curve.png)
+
+
+## void engine.render. resetColorCorrectionSaturationRamp ( )
+
+Resets the [Saturation Correction ramp](../../../editor2/settings/render_settings/color/index.md#saturation) to the default value.
+![](default_saturation_curve.png)
+
+
+## void engine.render. resetAutoExposureRamp ( )
+
+Resets the correction curve for the overall scene saturation.
+## int engine.render. loadSettings ( string file , int clear = false )
+
+Loads render settings from a given file.
+### Arguments
+
+- *string* **file** - Path to an XML file with desired settings.
+- *int* **clear** - Clear flag. Set **1** to clear settings before loading (new settings shall be applied right after loading them), or **0** not to clear.
+
+### Return value
+
+1 if the settings are loaded successfully; otherwise, 0.
+## int engine.render. loadWorld ( Xml xml )
+
+Loads render state from the Xml.
+### Arguments
+
+- *[Xml](../../../api/library/common/class.xml_usc.md)* **xml** - Xml node.
+
+### Return value
+
+**1** if the state is loaded successfully; otherwise, **0**.
+## void engine.render. renderTexture2D ( Camera camera , Texture texture , int skip_flags )
+
+Renders the scene into a 2D texture in accordance with the specified parameters. The viewport position is taken from the camera created via [Camera](../../../api/library/rendering/class.camera_usc.md) class.
+### Arguments
+
+- *[Camera](../../../api/library/rendering/class.camera_usc.md)* **camera** - [Camera](../../../api/library/rendering/class.camera_usc.md) to be used.
+- *[Texture](../../../api/library/rendering/class.texture_usc.md)* **texture** - [Texture](../../../api/library/rendering/class.texture_usc.md) to save the result to.
+- *int* **skip_flags** - Skip the effects: 0 enables all the effects.
+
+  - VIEWPORT_SKIP_SHADOWS
+  - VIEWPORT_SKIP_VISUALIZER
+  - VIEWPORT_SKIP_SRGB
+  - VIEWPORT_SKIP_POSTEFFECTS
+  - VIEWPORT_SKIP_VELOCITY
+  - VIEWPORT_SKIP_DYNAMIC_REFLECTIONS
+
+## void engine.render. renderTexture2D ( Camera camera , Texture texture , int width , int height , int hdr , int skip_flags )
+
+Renders the scene into a 2D texture of the given size in accordance with the specified parameters. The viewport position is taken from the camera created via [Camera](../../../api/library/rendering/class.camera_usc.md) class.
+### Arguments
+
+- *[Camera](../../../api/library/rendering/class.camera_usc.md)* **camera** - [Camera](../../../api/library/rendering/class.camera_usc.md) to be used.
+- *[Texture](../../../api/library/rendering/class.texture_usc.md)* **texture** - [Texture](../../../api/library/rendering/class.texture_usc.md) to save the result to.
+- *int* **width** - Width of the projected texture, in units.
+- *int* **height** - Height of the projected texture, in units.
+- *int* **hdr** - 1 - enable HDR, 0 - disable HDR.
+- *int* **skip_flags** - Skip the effects: 0 enables all the effects.
+
+  - VIEWPORT_SKIP_SHADOWS
+  - VIEWPORT_SKIP_VISUALIZER
+  - VIEWPORT_SKIP_SRGB
+  - VIEWPORT_SKIP_POSTEFFECTS
+  - VIEWPORT_SKIP_VELOCITY
+  - VIEWPORT_SKIP_DYNAMIC_REFLECTIONS
+
+## void engine.render. renderTextureCube ( Camera camera , Texture texture , int skip_flags )
+
+Renders the scene into a cube map texture in accordance with the specified parameters.
+### Arguments
+
+- *[Camera](../../../api/library/rendering/class.camera_usc.md)* **camera** - [Camera](../../../api/library/rendering/class.camera_usc.md) to be used.
+- *[Texture](../../../api/library/rendering/class.texture_usc.md)* **texture** - [Texture](../../../api/library/rendering/class.texture_usc.md) to save the result to.
+- *int* **skip_flags** - Skip the effects: 0 enables all the effects.
+
+  - VIEWPORT_SKIP_SHADOWS
+  - VIEWPORT_SKIP_VISUALIZER
+  - VIEWPORT_SKIP_SRGB
+  - VIEWPORT_SKIP_POSTEFFECTS
+  - VIEWPORT_SKIP_VELOCITY
+  - VIEWPORT_SKIP_DYNAMIC_REFLECTIONS
+
+## void engine.render. renderTextureCube ( Camera camera , Texture texture , int size , int hdr , int skip_flags , int local_space = 0 )
+
+Renders the scene into a cube map in accordance with the specified parameters. The viewport position is taken from the camera created via [Camera](../../../api/library/rendering/class.camera_usc.md) class.
+### Arguments
+
+- *[Camera](../../../api/library/rendering/class.camera_usc.md)* **camera** - [Camera](../../../api/library/rendering/class.camera_usc.md) to be used.
+- *[Texture](../../../api/library/rendering/class.texture_usc.md)* **texture** - [Texture](../../../api/library/rendering/class.texture_usc.md) to save the result to.
+- *int* **size** - Texture dimensions (cube map edge size).
+- *int* **hdr** - 1 - enable HDR; 0 - disable HDR.
+- *int* **skip_flags** - Skip the effects: 0 enables all the effects.
+
+  - VIEWPORT_SKIP_SHADOWS
+  - VIEWPORT_SKIP_VISUALIZER
+  - VIEWPORT_SKIP_SRGB
+  - VIEWPORT_SKIP_POSTEFFECTS
+  - VIEWPORT_SKIP_VELOCITY
+  - VIEWPORT_SKIP_DYNAMIC_REFLECTIONS
+- *int* **local_space** - 1 - local space coordinates; 0 - world space coordinates.
+
+## void engine.render. renderNodeTexture2D ( Camera camera , Node node , Texture texture , int skip_flags , int light_usage , string environment_texture_name )
+
+Renders the given node into a 2D texture in accordance with the specified parameters. The viewport position is taken from the camera created via [Camera](../../../api/library/rendering/class.camera_usc.md) class. The node can be rendered using the specific type of lighting and environment cubemap.
+### Arguments
+
+- *[Camera](../../../api/library/rendering/class.camera_usc.md)* **camera** - [Camera](../../../api/library/rendering/class.camera_usc.md) to be used.
+- *[Node](../../../api/library/nodes/class.node_usc.md)* **node** - [Node](../../../api/library/nodes/class.node_usc.md) to be rendered.
+- *[Texture](../../../api/library/rendering/class.texture_usc.md)* **texture** - [Texture](../../../api/library/rendering/class.texture_usc.md) to save the result to.
+- *int* **skip_flags** - Skip the effects. One of the [SKIP_*](../../../api/library/rendering/class.viewport_usc.md#SKIP_DYNAMIC_REFLECTIONS) variables should be specified. 0 enables all the effects.
+- *int* **light_usage** - Sets the light sources that will affect the node (one of the [USAGE_*_LIGHTING](../../../api/library/rendering/class.viewport_usc.md#USAGE_WORLD_LIGHT) Viewport class variables.)
+- *string* **environment_texture_name** - Path to the environment cubemap to be used. Takes effect if the [first](../../../api/library/rendering/class.viewport_usc.md#USAGE_AUX_LIGHT) (auxiliary light) or [second](../../../api/library/rendering/class.viewport_usc.md#USAGE_NODE_LIGHT) (node light) lighting mode is used (see the *light_usage* argument above). In case LightWorld is used ([zero mode](../../../api/library/rendering/class.viewport_usc.md#USAGE_WORLD_LIGHT)), the environment cubemap used for the current world will be used.
+
+## void engine.render. renderNodeTexture2D ( Camera camera , Node node , Texture texture , int width , int height , int hdr , int skip_flags , int light_usage , string environment_texture_name )
+
+Renders the 2D texture of the given node in accordance with the specified parameters. The viewport position is taken from the camera created via [Camera](../../../api/library/rendering/class.camera_usc.md) class. The node can be rendered using the specific type of lighting and environment cubemap.
+### Arguments
+
+- *[Camera](../../../api/library/rendering/class.camera_usc.md)* **camera** - [Camera](../../../api/library/rendering/class.camera_usc.md) to be used.
+- *[Node](../../../api/library/nodes/class.node_usc.md)* **node** - [Node](../../../api/library/nodes/class.node_usc.md) to be rendered.
+- *[Texture](../../../api/library/rendering/class.texture_usc.md)* **texture** - [Texture](../../../api/library/rendering/class.texture_usc.md) to save the result to.
+- *int* **width** - Width of the texture, in units.
+- *int* **height** - Height of the texture, in units.
+- *int* **hdr** - HDR flag. This parameter determines the format of the 2D texture:
+
+  - 1 - texture format will be set to **RGBA16F**. It means that the HDR texture buffer will store pixel values outside the [0;1] range (i.e. both negative and positive values).
+  - 0 - texture format will be set to **RGBA8**.
+- *int* **skip_flags** - Skip the effects. One of the [SKIP_*](../../../api/library/rendering/class.viewport_usc.md#SKIP_DYNAMIC_REFLECTIONS) variables should be specified. 0 enables all the effects.
+- *int* **light_usage** - Sets the light sources that will affect the node (one of the [USAGE_*_LIGHTING](../../../api/library/rendering/class.viewport_usc.md#USAGE_WORLD_LIGHT) Viewport class variables).
+- *string* **environment_texture_name** - Path to the environment cubemap to be used. Takes effect if the [first](../../../api/library/rendering/class.viewport_usc.md#USAGE_AUX_LIGHT) (auxiliary light) or [second](../../../api/library/rendering/class.viewport_usc.md#USAGE_NODE_LIGHT) (node light) lighting mode is used (see the *light_usage* argument above). In case LightWorld is used ([zero mode](../../../api/library/rendering/class.viewport_usc.md#USAGE_WORLD_LIGHT)), the environment cubemap used for the current world will be used.
+
+## void engine.render. renderScreenMaterial ( string material_name )
+
+### Arguments
+
+- *string* **material_name** - Material name.
+
+## void engine.render. renderScreenMaterial ( string material_name , Texture color_texture )
+
+### Arguments
+
+- *string* **material_name** - Material name.
+- *[Texture](../../../api/library/rendering/class.texture_usc.md)* **color_texture** - Color texture.
+
+## void engine.render. renderScreenMaterial ( string material_name , string texture_name , Texture texture )
+
+### Arguments
+
+- *string* **material_name** - Material.
+- *string* **texture_name** - Material texture name.
+- *[Texture](../../../api/library/rendering/class.texture_usc.md)* **texture** - Texture.
+
+## int engine.render. saveSettings ( string file )
+
+Saves the current renderer settings to a given file.
+### Arguments
+
+- *string* **file** - Path to a target file.
+
+### Return value
+
+**1** if the settings are saved successfully; otherwise, **0**.
+## int engine.render. saveState ( Stream stream )
+
+Saves a render state into the stream.
+Saving into the stream requires creating a blob to save into. To restore the saved state the [restoreState()](#restoreState_Stream_int) method is used:
+
+
+```cpp
+// set state
+engine.render.setCloudsInterleavedRendering(0); // interleave = 0
+
+// save state
+Blob blob_state = new Blob();
+engine.render.saveState(blob_state);
+
+// change state
+engine.render.setCloudsInterleavedRendering(2); // now interleave = 2
+
+// restore state
+blob_state->seekSet(0);			// returning the carriage to the start of the blob
+engine.render.restoreState(blob_state); // restore interleave = 0
+
+```
+
+
+### Arguments
+
+- *[Stream](../../../api/library/common/class.stream_usc.md)* **stream** - Stream to save a state into.
+
+### Return value
+
+**1** if the state is saved successfully; otherwise, **0**.
+## int engine.render. restoreState ( Stream stream )
+
+Restores a render state from the stream.
+Restoring from the stream requires creating a blob to save into and saving the state using the [saveState()](#saveState_Stream_int) method:
+
+
+```cpp
+// set state
+engine.render.setCloudsInterleavedRendering(0); // interleave = 0
+
+// save state
+Blob blob_state = new Blob();
+engine.render.saveState(blob_state);
+
+// change state
+engine.render.setCloudsInterleavedRendering(2); // now interleave = 2
+
+// restore state
+blob_state->seekSet(0);			// returning the carriage to the start of the blob
+engine.render.restoreState(blob_state); // restore interleave = 0
+
+```
+
+
+### Arguments
+
+- *[Stream](../../../api/library/common/class.stream_usc.md)* **stream** - Stream to restore a state from.
+
+### Return value
+
+**1** if the state is restored successfully; otherwise, **0**.
+## int engine.render. saveWorld ( Xml xml )
+
+Saves the render state into the given Xml node.
+### Arguments
+
+- *[Xml](../../../api/library/common/class.xml_usc.md)* **xml** - Xml node.
+
+### Return value
+
+**1** if the state is saved successfully; otherwise, **0**.
+## RenderEnvironmentPreset engine.render. getEnvironmentPreset ( int num )
+
+Returns the environment preset of the given number.
+```cpp
+// get the second environment preset
+RenderEnvironmentPreset preset = engine.render.getEnvironmentPreset(1);
+// print the sky intensity of the obtained preset
+log.message("%f\n", preset.getSkyIntensity());
+
+```
+
+
+### Arguments
+
+- *int* **num** - The number of the environment preset. The value is clamped to the [0;2] range.
+
+### Return value
+
+Environment preset.
+## string engine.render. getCloudsQualityPresetName ( int num )
+
+Returns the Clouds Quality preset name by given index.
+### Arguments
+
+- *int* **num** - Clouds Quality preset index.
+
+### Return value
+
+Clouds Quality preset name.
+## string engine.render. getAAPresetName ( int num )
+
+Returns the AA (Anti-Aliasing) preset name by given index.
+### Arguments
+
+- *int* **num** - AA preset index.
+
+### Return value
+
+AA preset name.
+## string engine.render. getTAAPresetName ( int num )
+
+Returns the TAA (Temporal Anti-Aliasing) preset name by given index.
+### Arguments
+
+- *int* **num** - TAA preset index.
+
+### Return value
+
+TAA preset name.
+## string engine.render. getDenoisePresetName ( int num )
+
+Returns the denoiser preset name by given index.
+### Arguments
+
+- *int* **num** - Denoiser preset index.
+
+### Return value
+
+Denoiser preset name.
+## string engine.render. getSSRTGIPresetName ( int num )
+
+Returns the SSRTGI (Screen-Space Ray-Traced Global Illumination) preset name by given index.
+### Arguments
+
+- *int* **num** - SSRTGI preset index.
+
+### Return value
+
+SSRTGI preset name.
+## string engine.render. getSSRPresetName ( int num )
+
+Returns the SSR preset name by given index.
+### Arguments
+
+- *int* **num** - SSR preset index.
+
+### Return value
+
+SSR preset name.
+## string engine.render. getSSSSSPresetName ( int num )
+
+Returns the SSSSS preset name by given index.
+### Arguments
+
+- *int* **num** - SSSSS preset index.
+
+### Return value
+
+SSSSS preset name.
+## string engine.render. getMotionBlurPresetName ( int num )
+
+Returns the Motion Blur preset name by given index.
+### Arguments
+
+- *int* **num**
+
+### Return value
+
+Motion Blur preset name.
+## string engine.render. getDOFPresetName ( int num )
+
+Returns the DOF preset name by given index.
+### Arguments
+
+- *int* **num**
+
+### Return value
+
+DOF preset name.
+## string engine.render. getLandscapeTerrainGeometryPresetName ( int num )
+
+Returns the Landscape Terrain Geometry preset name by given index.
+### Arguments
+
+- *int* **num** - Landscape Terrain Geometry preset index.
+
+### Return value
+
+Landscape Terrain Geometry preset name.
+## string engine.render. getLandscapeTerrainStreamingPresetName ( int num )
+
+Returns the Landscape Terrain Streaming preset name by given index.
+### Arguments
+
+- *int* **num** - Landscape Terrain Streaming preset index.
+
+### Return value
+
+Landscape Terrain Streaming preset name.
+## string engine.render. getWaterGeometryPresetName ( int num )
+
+Returns the Global Water Geometry preset name by given index.
+### Arguments
+
+- *int* **num** - Global Water Geometry preset index.
+
+### Return value
+
+Global Water Geometry preset name.
+## int engine.render. isViewportModeStereo ( int mode )
+
+Returns a value indicating if the specified mode is one of the stereo rendering modes.
+### Arguments
+
+- *int* **mode** - Viewport mode to be checked. One of the [VIEWPORT_MODE_*](#VIEWPORT_MODE_DEFAULT) values.
+
+### Return value
+
+**1** if the specified mode is one of the stereo rendering modes; otherwise **0**.
+## int engine.render. isViewportModePanorama ( int mode )
+
+Returns a value indicating if the specified mode is one of the panorama rendering modes.
+### Arguments
+
+- *int* **mode** - Viewport mode to be checked. One of the [VIEWPORT_MODE_*](#VIEWPORT_MODE_DEFAULT) values.
+
+### Return value
+
+**1** if the specified mode is one of the panorama rendering modes; otherwise **0**.
+## void engine.render. clearDebugMaterials ( )
+
+Clears all global [debug materials](../../../content/materials/library/debug/index.md).
+## void engine.render. setDebugMaterial ( int num , Material material )
+
+Replaces the [debug material](../../../content/materials/library/debug/index.md) with the specified number with the new debug material specified. The number of material determines the order in which the expressions assigned to it are executed.
+### Arguments
+
+- *int* **num** - Debug material number in the range from 0 to the [total number of debug materials](#getNumDebugMaterials_int).
+- *[Material](../../../api/library/rendering/class.material_usc.md)* **material** - New debug material to replace the one with the specified number.
+
+## Material engine.render. getDebugMaterial ( int num )
+
+Returns a [debug material](../../../content/materials/library/debug/index.md) applied globally by its number.
+### Arguments
+
+- *int* **num** - Debug material number in the range from 0 to the [total number of debug materials](#getNumDebugMaterials_int).
+
+### Return value
+
+Debug material applied globally with the specified number.
+## void engine.render. insertDebugMaterial ( int num , Material material )
+
+Inserts a new global [debug material](../../../content/materials/library/debug/index.md) to the list of globally applied debug materials.
+### Arguments
+
+- *int* **num** - Position at which a new debug material is to be inserted.
+- *[Material](../../../api/library/rendering/class.material_usc.md)* **material** - Debug material to be inserted into the list of globally applied debug materials.
+
+## int engine.render. findDebugMaterial ( Material material )
+
+Returns the number of the specified [debug material](../../../content/materials/library/debug/index.md) applied globally. This number determines the order in which the assigned expressions are executed.
+### Arguments
+
+- *[Material](../../../api/library/rendering/class.material_usc.md)* **material** - Debug material for which a number is to be found.
+
+### Return value
+
+Debug material number in the range from 0 to the [total number of debug materials](#getNumDebugMaterials_int), or -1 if the specified material was not found.
+## void engine.render. addDebugMaterial ( Material material )
+
+Adds a new global [debug material](../../../content/materials/library/debug/index.md).
+### Arguments
+
+- *[Material](../../../api/library/rendering/class.material_usc.md)* **material** - Debug material to be applied globally.
+
+## void engine.render. removeDebugMaterial ( int num )
+
+Removes the global [debug material](../../../content/materials/library/debug/index.md) with the specified number.
+### Arguments
+
+- *int* **num** - Debug material number in the range from 0 to the [total number of debug materials](#getNumDebugMaterials_int).
+
+## void engine.render. swapDebugMaterials ( int num_0 , int num_1 )
+
+Swaps two [debug materials](../../../content/materials/library/debug/index.md) with specified numbers. The number of material determines the order in which the expressions assigned to it are executed.
+### Arguments
+
+- *int* **num_0** - Number of the first debug material in the range from 0 to the [total number of debug materials](#getNumDebugMaterials_int).
+- *int* **num_1** - Number of the second debug material in the range from 0 to the [total number of debug materials](#getNumDebugMaterials_int).
+
+## void engine.render. setDebugMaterialEnabled ( int num , int enabled )
+
+Enables or disables the [debug material](../../../content/materials/library/debug/index.md) with the specified number. When a material is disabled (inactive), the scripts attached to it are not executed.
+### Arguments
+
+- *int* **num** - Debug material number in the range from 0 to the [total number of debug materials](#getNumDebugMaterials_int).
+- *int* **enabled** - 1 to enable the debug material with the specified number, 0 to disable it.
+
+## int engine.render. getDebugMaterialEnabled ( int num )
+
+Returns a value indicating if the [debug material](../../../content/materials/library/debug/index.md) with the specified number is enabled (active). When a material is disabled (inactive), the scripts attached to it are not executed.
+### Arguments
+
+- *int* **num** - Debug material number in the range from 0 to the [total number of debug materials](#getNumDebugMaterials_int).
+
+### Return value
+
+1 if the debug material with the specified number is enabled; otherwise, 0.
+## Texture engine.render. getCacheTexture ( UGUID guid , int forced = false )
+
+Returns the texture cache by the texture GUID.
+### Arguments
+
+- *[UGUID](../../../api/library/filesystem/class.uguid_usc.md)* **guid** - Texture GUID.
+- *int* **forced**
+
+### Return value
+
+Texture cache.
+## void engine.render. reloadResource ( string path )
+
+Instantaneously reloads the resource (texture, node, geometry - MeshStatic/MeshSkinned) by GUID.
+### Arguments
+
+- *string* **path** - Path to the resource to be reloaded.
