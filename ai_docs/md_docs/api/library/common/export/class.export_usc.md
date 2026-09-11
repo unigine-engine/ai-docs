@@ -8,8 +8,6 @@ This is an export manager class. It is used to create [exporters](../../../../ap
 
 ## Export Class
 
-### Members
-
 ---
 
 ## engine.export. Export ( )

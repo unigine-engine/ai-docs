@@ -8,6 +8,7 @@ The *Mesh* class is a container that provides an interface for loading, manipula
 
 By using this class, you can create a mesh, add geometry to it (e.g. box, plane, capsule or cylinder surface) and then use it to create the following objects:
 
+
 - [Static mesh](../../../api/library/objects/class.objectmeshstatic_cpp.md)
 - [Dynamic mesh](../../../api/library/objects/class.objectmeshdynamic_cpp.md)
 - [Decal mesh](../../../api/library/decals/class.decalmesh_cpp.md)
@@ -140,6 +141,8 @@ The number of elements in these index buffers is equal to the [total number of v
 
 
 > **Notice:** There is no actual structure called a "triangle vertex." All vertex attributes (normals, tangents, UVs, etc.) are stored separately and linked via index buffers. The term "triangle vertex" is used here only for convenience to describe how attributes are associated with vertex positions.
+>
+>
 > See the ***[Mesh File Formats](../../../code/formats/file_formats.md#mesh)*** article for details on how mesh structure is organized from a file layout perspective.
 
 
@@ -265,6 +268,55 @@ Resolution of [lightmaps](../../../editor2/lighting/gi/lightmaps.md) to be gener
 
 ### Members
 
+## Math:: BoundSphere getBoundSphere () const
+
+Returns the current bounding sphere of the mesh.
+### Return value
+
+Current bounding sphere of the mesh
+## Math:: BoundBox getBoundBox () const
+
+Returns the current bounding box of the mesh.
+### Return value
+
+Current bounding box of the mesh
+## int getNumSurfaces () const
+
+Returns the current total number of mesh surfaces.
+### Return value
+
+Current total number of mesh surfaces
+## size_t getMemoryUsage () const
+
+Returns the current amount of memory used by the mesh, in bytes.
+### Return value
+
+Current amount of memory used by the mesh, in bytes
+## void setSpatialTreeTriangles ( int triangles )
+
+Sets a new number of triangles stored in each leaf node of the mesh's spatial tree.
+Lower values (default is 4) improve the precision of intersection and collision detections, but increase spatial tree generation time and memory usage.
+
+
+Higher values reduce generation cost and memory consumption at the expense of intersection and collision detections accuracy. Useful for high-poly meshes or frequently updated procedural geometry.
+
+
+### Arguments
+
+- *int* **triangles** - The number of triangles stored in each leaf node of the mesh's spatial tree
+
+## int getSpatialTreeTriangles () const
+
+Returns the current number of triangles stored in each leaf node of the mesh's spatial tree.
+Lower values (default is 4) improve the precision of intersection and collision detections, but increase spatial tree generation time and memory usage.
+
+
+Higher values reduce generation cost and memory consumption at the expense of intersection and collision detections accuracy. Useful for high-poly meshes or frequently updated procedural geometry.
+
+
+### Return value
+
+Current number of triangles stored in each leaf node of the mesh's spatial tree
 ---
 
 ## static MeshPtr create ( )
@@ -323,12 +375,6 @@ Returns the bounding box of the given mesh surface.
 ### Return value
 
 Bounding box.
-## Math:: BoundBox getBoundBox ( ) const
-
-Returns the bounding box of the current mesh.
-### Return value
-
-Bounding box.
 ## void setBoundSphere ( const Math:: BoundSphere & bs )
 
 Sets the bounding sphere for the current mesh.
@@ -344,12 +390,6 @@ Sets the bounding sphere for the given mesh surface.
 - *const  Math::[BoundSphere](../../../api/library/math/bounds/class.boundsphere_cpp.md) &* **bs** - Bounding sphere to be set.
 - *int* **surface** - Mesh surface number.
 
-## Math:: BoundSphere getBoundSphere ( ) const
-
-Returns the bounding sphere of the current mesh.
-### Return value
-
-Bounding sphere.
 ## Math:: BoundSphere getBoundSphere ( int surface ) const
 
 Returns the bounding sphere of the given mesh surface.
@@ -423,6 +463,8 @@ Returns the [coordinate index](#cindices) of the given vertex of the given surfa
 ## bool getIntersection ( const Math:: vec3 & p0 , const Math:: vec3 & p1 , Math:: vec3 * OUT_ret_point , Math:: vec3 * OUT_ret_normal , int * OUT_ret_index , int surface ) const
 
 Performs the search for the intersection of the given surface with the given traced line.
+
+
 > **Notice:** Mesh local space coordinates are used for this method.
 
 
@@ -441,6 +483,8 @@ Performs the search for the intersection of the given surface with the given tra
 ## void setNormal ( int num , const Math:: vec3 & normal , int surface = 0 )
 
 Sets the normal for the given [triangle vertex](#tvertex) of the given surface.
+
+
 > **Notice:** The normal of the vertex won't be written to the `*.mesh` file. It will be stored only in memory.
 
 
@@ -482,6 +526,8 @@ Number of coordinate indices.
 ## void setNumColors ( int size , int surface = 0 )
 
 Sets the total number of vertex color entries for the given surface.
+
+
 > **Notice:** Colors are specified for [triangle vertices](#tvertex).
 
 
@@ -493,6 +539,8 @@ Sets the total number of vertex color entries for the given surface.
 ## int getNumColors ( int surface = 0 ) const
 
 Returns the total number of vertex color entries for the given surface.
+
+
 > **Notice:** Colors are specified for [triangle vertices](#tvertex).
 
 
@@ -534,6 +582,8 @@ Number of coordinate indices.
 ## void setNumNormals ( int size , int surface = 0 )
 
 Sets the total number of vertex normal entries for the given surface.
+
+
 > **Notice:** Normals are specified for [triangle vertices](#tvertex).
 
 
@@ -545,6 +595,8 @@ Sets the total number of vertex normal entries for the given surface.
 ## int getNumNormals ( int surface = 0 ) const
 
 Returns the total number of vertex normal entries for the given surface.
+
+
 > **Notice:** Normals are specified for [triangle vertices](#tvertex).
 
 
@@ -555,15 +607,11 @@ Returns the total number of vertex normal entries for the given surface.
 ### Return value
 
 Number of vertex normal entries for the given surface.
-## int getNumSurfaces ( ) const
-
-Returns the total number of mesh surfaces.
-### Return value
-
-Number of mesh surfaces.
 ## void setNumTangents ( int size , int surface = 0 )
 
 Sets the total number of vertex tangent entries for the given surface.
+
+
 > **Notice:** Tangents are specified for [triangle vertices](#tvertex).
 
 
@@ -575,6 +623,8 @@ Sets the total number of vertex tangent entries for the given surface.
 ## int getNumTangents ( int surface ) const
 
 Returns the total number of vertex tangent entries for the given surface.
+
+
 > **Notice:** Tangents are specified for [triangle vertices](#tvertex).
 
 
@@ -588,6 +638,8 @@ Number of vertex tangent entries.
 ## void setNumTexCoords0 ( int size , int surface = 0 )
 
 Sets the total number of the first UV map texture coordinate entries for the given mesh surface.
+
+
 > **Notice:** First UV map texture coordinates are specified for [triangle vertices](#tvertex).
 
 
@@ -599,6 +651,8 @@ Sets the total number of the first UV map texture coordinate entries for the giv
 ## int getNumTexCoords0 ( int surface = 0 ) const
 
 Returns the total number of the first UV map texture coordinate entries for the given mesh surface.
+
+
 > **Notice:** First UV map texture coordinates are specified for [triangle vertices](#tvertex).
 
 
@@ -612,6 +666,8 @@ Total number of the first UV map texture coordinate entries.
 ## void setNumTexCoords1 ( int size , int surface )
 
 Sets the total number of the second UV map texture coordinate entries for the given mesh surface.
+
+
 > **Notice:** Second UV map texture coordinates are specified for [triangle vertices](#tvertex).
 
 
@@ -623,6 +679,8 @@ Sets the total number of the second UV map texture coordinate entries for the gi
 ## int getNumTexCoords1 ( int surface = 0 ) const
 
 Returns the total number of the second UV map texture coordinate entries for the given mesh surface.
+
+
 > **Notice:** Second UV map texture coordinates are specified for [triangle vertices](#tvertex).
 
 
@@ -664,6 +722,8 @@ Number of the triangle vertices.
 ## void setNumVertex ( int size , int surface = 0 )
 
 Sets the total number of vertices for the given surface.
+
+
 > **Notice:** The numbers of vertices and [coordinate vertices](#cvertex) are equal.
 
 
@@ -675,6 +735,8 @@ Sets the total number of vertices for the given surface.
 ## getNumVertex ( int surface ) const
 
 Returns the total number of vertices for the given surface.
+
+
 > **Notice:** The numbers of vertices and [coordinate vertices](#cvertex) are equal.
 
 
@@ -850,6 +912,8 @@ Vertex coordinates.
 ## int addBoxSurface ( const char * name , const Math:: vec3 & size , int collision_data_flags = COLLISION_DATA_ALL )
 
 Appends a box surface to the current mesh.
+
+
 ```cpp
 // create a mesh instance
 MeshPtr mesh = Mesh::create();
@@ -886,6 +950,8 @@ Added surface number.
 ## int addCapsuleSurface ( const char * name , float radius , float height , int stacks , int slices , int collision_data_flags = COLLISION_DATA_ALL )
 
 Appends a capsule surface to the current mesh. The stacks and slices specify the surface's subdivision.
+
+
 ```cpp
 // create a mesh instance
 MeshPtr mesh = Mesh::create();
@@ -943,6 +1009,8 @@ Appends the given color to the vertex color array of the given surface.
 ## int addCylinderSurface ( const char * name , float radius , float height , int stacks , int slices , int collision_data_flags = COLLISION_DATA_ALL )
 
 Appends a cylinder surface to the current mesh. The stacks and slices specify the surface's subdivision.
+
+
 ```cpp
 // create a mesh instance
 MeshPtr mesh = Mesh::create();
@@ -984,6 +1052,8 @@ The added surface number.
 ## int addDodecahedronSurface ( const char * name , float radius , int collision_data_flags = COLLISION_DATA_ALL )
 
 Appends a dodecahedron surface to the current mesh.
+
+
 ```cpp
 // create a mesh instance
 MeshPtr mesh = Mesh::create();
@@ -1021,6 +1091,8 @@ The added surface number.
 ## int addEmptySurface ( const char * name , int num_vertex , int num_indices )
 
 Appends a new empty surface to the current mesh.
+
+
 > **Notice:** This function allocates only vertex and index arrays. Texture coordinates, tangent basis, weights and color arrays must be allocated manually.
 
 
@@ -1036,6 +1108,8 @@ Number of the mesh surfaces.
 ## int addIcosahedronSurface ( const char * name , float radius , int collision_data_flags = COLLISION_DATA_ALL )
 
 Appends a icosahedron surface to the current mesh.
+
+
 ```cpp
 // create a mesh instance
 MeshPtr mesh = Mesh::create();
@@ -1081,6 +1155,8 @@ Appends a given index to the arrays of [coordinate](#cindices) and [triangle](#t
 ## int addMeshSurface ( const char * v , const Ptr <ConstMesh> & mesh , int surface , int collision_data_flags = COLLISION_DATA_ALL )
 
 Appends a surface of the source mesh to the current mesh as a new surface.
+
+
 The following example shows how to add a surface from the one mesh to another.
 
 
@@ -1130,6 +1206,8 @@ Number of the last added surface.
 ## int addMeshSurface ( int v , const Ptr <ConstMesh> & mesh , int surface , int collision_data_flags = COLLISION_DATA_ALL )
 
 Appends a surface of the source mesh to the existing surface of the current mesh.
+
+
 The following example shows how to add a surface from one mesh to another.
 
 
@@ -1187,6 +1265,8 @@ Appends a given normal to the array of normals of the given surface.
 ## int addPlaneSurface ( const char * name , float width , float height , float step , int collision_data_flags = COLLISION_DATA_ALL )
 
 Appends a plane surface to the current mesh. The plane is divided into equal squares whose size is defined by the given step.
+
+
 ```cpp
 // create a mesh instance
 MeshPtr mesh = Mesh::create();
@@ -1226,6 +1306,8 @@ Added surface number.
 ## int addPrismSurface ( const char * name , float size_0 , float size_1 , float height , int sides , int collision_data_flags = COLLISION_DATA_ALL )
 
 Appends a prism surface to the current mesh.
+
+
 ```cpp
 // create a mesh instance
 MeshPtr mesh = Mesh::create();
@@ -1267,6 +1349,8 @@ The added surface number.
 ## int addSphereSurface ( const char * name , float radius , int stacks , int slices , int collision_data_flags = COLLISION_DATA_ALL )
 
 Appends a sphere surface to the current mesh. The stacks and slices specify the surface's subdivision.
+
+
 ```cpp
 // create a mesh instance
 MeshPtr mesh = Mesh::create();
@@ -1307,6 +1391,8 @@ Added surface number.
 ## int addSurface ( const char * name = 0 )
 
 Append a new surface with the given name to the current mesh.
+
+
 In the following example, we create a new surface and add vertices and indices to create a plane.
 
 
@@ -1392,6 +1478,8 @@ Appends an index of a [triangle vertex](#tvertex) to the array of triangle indic
 ## void addVertex ( const Math:: vec3 & vertex , int surface = 0 )
 
 Appends a new [coordinate vertex](#cvertex) with the given coordinates to the mesh surface.
+
+
 In the following example, we create a new surface and add 4 vertices to it. We use local coordinates to define a vertex and specify the surface. After that we specify 6 indices to create a plane by using defined vertices.
 
 
@@ -1525,6 +1613,8 @@ Flips the sign of the binormal component of the surface tangent space.
 ## bool flipYZ ( int surface = -1 )
 
 Flips the Y and Z axes for the given surface:
+
+
 - Y axis becomes equal to -Z
 - Z axis becomes equal to Y
 
@@ -1588,7 +1678,7 @@ Clears the coordinate and [triangle indices](#tindices) of the given surface.
 Saves the given mesh in the *[MESH](../../../code/formats/file_formats.md#mesh_ff)* file format. Creates the given mesh path if it doesn't exist yet (including subdirectories).
 ### Arguments
 
-- *const char ** **path** - Path to the mesh including the file name and extension — `*.mesh`.
+- *const char ** **path** - Path to the mesh including the file name and extension � `*.mesh`.
 
 ### Return value
 
@@ -1633,7 +1723,7 @@ Add normals to the given surface.
 Add tangents to the given surface.
 ### Arguments
 
-- *const [Vector](../../../api/library/containers/vector/class.vector_cpp.md)< Math::[quat](../../../api/library/math/class.quat_cpp.md)> &* **tangents**
+- *const [Vector](../../../api/library/containers/vector/class.vector_cpp.md)< Math::[quat](../../../api/library/math/class.quat_cpp.md)> &* **tangents** - Array of tangents (each packed as a quaternion) to be added to the surface.
 - *int* **surface** - Mesh surface number.
 
 ## void addColors ( const Vector < Math:: vec4 > & colors , int surface = 0 )
@@ -1748,12 +1838,6 @@ Returns the triangle indices of the given surface.
 ### Return value
 
 Triangle indices.
-## size_t getMemoryUsage ( ) const
-
-Returns the amount of memory used by the mesh in bytes.
-### Return value
-
-Used memory in bytes.
 ## bool hasSpatialTree ( int surface ) const
 
 Returns the value indicating if the specified mesh surface has a spatial tree.
@@ -1771,34 +1855,9 @@ Generates a spatial tree for the mesh (or its specified surface), if it doesn't 
 
 - *int* **surface** - Mesh surface number.
 
-## void setSpatialTreeTriangles ( int triangles )
-
-
-Sets the number of triangles stored in each leaf node of the mesh's spatial tree.
-
-
-Lower values (default is 4) improve the precision of intersection and collision detections, but increase spatial tree generation time and memory usage.
-
-
-Higher values reduce generation cost and memory consumption at the expense of intersection and collision detections accuracy. Useful for high-poly meshes or frequently updated procedural geometry.
-
-
-### Arguments
-
-- *int* **triangles** - Number of triangles per spatial tree leaf node.
-
-## int getSpatialTreeTriangles ( ) const
-
-Returns the number of triangles currently configured per spatial tree leaf node.
-### Return value
-
-Triangle count per leaf node (default is 4).
 ## bool hasEdges ( int surface = -1 ) const
 
-
 Checks whether edge data has been generated for the specified surface. If -1 is passed, checks all surfaces.
-
-
 ### Arguments
 
 - *int* **surface** - Index of the surface to check. If -1 is passed, all surfaces will be updated.
@@ -1806,10 +1865,10 @@ Checks whether edge data has been generated for the specified surface. If -1 is 
 ### Return value
 
 
-Returns true if edge data exists, or if the surface has no geometry (empty edges are assumed).
+true if edge data exists, or if the surface has no geometry (empty edges are assumed).
 
 
-Returns false if the surface has geometry, but no edge data has been generated.
+false if the surface has geometry, but no edge data has been generated.
 
 
 ## void createEdges ( int surface = -1 )
@@ -1834,6 +1893,8 @@ Generates specified types of collision data for the given surface. The behavior 
 
 
 > **Notice:** This method **must** be called after **any** modification of mesh geometry.
+>
+>
 > Otherwise, intersections and collisions may produce **incorrect results** due to outdated internal mesh structures.
 
 

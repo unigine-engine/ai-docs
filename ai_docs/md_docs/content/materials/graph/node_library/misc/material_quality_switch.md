@@ -16,3 +16,9 @@ Receives different implementations of the same material for different quality le
 
 | [**View Fullscreen**](https://matgraph.unigine.com/DocsMaterialQualitySwitch_2.21/fullView) |
 |---|
+
+
+## See Also
+
+
+Video Tutorial on [Setting Up Material Quality Levels](../../../../../videotutorials/how_to/how_to_rendering/material_quality_switch.md):

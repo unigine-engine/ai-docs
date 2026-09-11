@@ -34,6 +34,42 @@ The object of this class looks as follows:
 
 ### Members
 
+## void setText ( string text )
+
+Sets a new text of the label.
+### Arguments
+
+- *string* **text** - The text of the label
+
+## const char * getText () const
+
+Returns the current text of the label.
+### Return value
+
+Current text of the label
+## void setTextAlign ( int align )
+
+Sets a new alignment of the label text. One of the following variables:
+- [*GUI_ALIGN_LEFT*](../../../api/library/gui/class.gui_usc.md#ALIGN_LEFT)
+- [*GUI_ALIGN_CENTER*](../../../api/library/gui/class.gui_usc.md#ALIGN_CENTER)
+- [*GUI_ALIGN_RIGHT*](../../../api/library/gui/class.gui_usc.md#ALIGN_RIGHT)
+
+
+### Arguments
+
+- *int* **align** - The alignment of the label text
+
+## int getTextAlign () const
+
+Returns the current alignment of the label text. One of the following variables:
+- [*GUI_ALIGN_LEFT*](../../../api/library/gui/class.gui_usc.md#ALIGN_LEFT)
+- [*GUI_ALIGN_CENTER*](../../../api/library/gui/class.gui_usc.md#ALIGN_CENTER)
+- [*GUI_ALIGN_RIGHT*](../../../api/library/gui/class.gui_usc.md#ALIGN_RIGHT)
+
+
+### Return value
+
+Current alignment of the label text
 ---
 
 ## static WidgetLabel ( Gui gui , string str = 0 )
@@ -50,37 +86,3 @@ Constructor. Creates a new text label and adds it to the Engine GUI.
 ### Arguments
 
 - *string* **str** - Text of the label. This is an optional parameter.
-
-## void setText ( string text )
-
-Sets a text for the label.
-### Arguments
-
-- *string* **text** - Label text.
-
-## string getText ( )
-
-Returns the text of the label.
-### Return value
-
-Label text.
-## void setTextAlign ( int align )
-
-Sets alignment of the label.
-### Arguments
-
-- *int* **align** - One of the following variables:
-
-  - [*GUI_ALIGN_LEFT*](../../../api/library/gui/class.gui_usc.md#ALIGN_LEFT)
-  - [*GUI_ALIGN_CENTER*](../../../api/library/gui/class.gui_usc.md#ALIGN_CENTER)
-  - [*GUI_ALIGN_RIGHT*](../../../api/library/gui/class.gui_usc.md#ALIGN_RIGHT)
-
-## int getTextAlign ( )
-
-Returns alignment of the label.
-### Return value
-
-One of the following variables:
-- [*GUI_ALIGN_LEFT*](../../../api/library/gui/class.gui_usc.md#ALIGN_LEFT)
-- [*GUI_ALIGN_CENTER*](../../../api/library/gui/class.gui_usc.md#ALIGN_CENTER)
-- [*GUI_ALIGN_RIGHT*](../../../api/library/gui/class.gui_usc.md#ALIGN_RIGHT)

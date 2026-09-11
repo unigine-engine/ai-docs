@@ -145,6 +145,8 @@ Argument value.
 ## bool saveState ( const Ptr < Stream > & stream )
 
 Saves the expression data (all its parameters) to the specified binary stream.
+
+
 **Example** using saveState() and [restoreState()](#restoreState_Stream_int) methods:
 
 
@@ -176,6 +178,8 @@ true if the expression data is saved successfully; otherwise, false.
 ## bool restoreState ( const Ptr < Stream > & stream )
 
 Restores the data of the expression (all its parameters) from the specified binary stream.
+
+
 **Example** using saveState() and [restoreState()](#restoreState_Stream_int) methods:
 
 

@@ -270,6 +270,8 @@ Disables time-constrained mode for the federate.
 ## void timeAdvanceRequest ( double time )
 
 Issues a Time Advance Request for the federate.
+
+
 > **Notice:** This method is used by time-stepped federates.
 
 
@@ -280,6 +282,8 @@ Issues a Time Advance Request for the federate.
 ## void timeAdvanceRequestAvailable ( double time )
 
 Enables time regulation mode for the federate.
+
+
 > **Notice:** This method is used by time-stepped federates.
 
 
@@ -289,7 +293,9 @@ Enables time regulation mode for the federate.
 
 ## void nextEventRequest ( double time )
 
-Advances the federate’s logical time to the time-stamp of the next relevant TSO event in the federation.
+Advances the federate�s logical time to the time-stamp of the next relevant TSO event in the federation.
+
+
 > **Notice:** This method is used by event-based federates.
 
 
@@ -299,7 +305,9 @@ Advances the federate’s logical time to the time-stamp of the next relevant TS
 
 ## void nextEventRequestAvailable ( double time )
 
-Advances the federate’s logical time to the time-stamp of the next relevant TSO event in the federation. The method is similar to [*nextEventRequest()*](#nextEventRequest_double_void), except that a time advance might be granted before all TSO events at the grant time have been delivered to the federate.
+Advances the federate�s logical time to the time-stamp of the next relevant TSO event in the federation. The method is similar to [*nextEventRequest()*](#nextEventRequest_double_void), except that a time advance might be granted before all TSO events at the grant time have been delivered to the federate.
+
+
 > **Notice:** This method is used by event-based federates.
 
 
@@ -325,7 +333,7 @@ Instructs the LRC not to deliver receive-ordered events in the absense of an in-
 Sets the new lookahead window for the federate.
 ### Arguments
 
-- *double* **lookahead** - New size of the interval extending forward from the federate’s logical time at a given point in execution in which a federate will not generate any time stamp ordered events.
+- *double* **lookahead** - New size of the interval extending forward from the federate�s logical time at a given point in execution in which a federate will not generate any time stamp ordered events.
 
 ## void queryLookahead ( double lookahead )
 

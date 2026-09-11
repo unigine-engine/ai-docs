@@ -10,45 +10,57 @@ This class is used to manage a group of [LODs](../../../objects/objects/terrain/
 
 ### Members
 
----
+## int getNumLods () const
 
-## int getDataFormat ( )
-
-Returns a value indicating current image format for the tile data.
+Returns the current total number of lods in the group.
 ### Return value
 
-Tile data image format. One of the [Image::FORMAT_*](../../../api/library/common/class.image_cpp.md#FORMAT_ATI1) values.
-## int getDataType ( )
-
-Returns a value indicating current image format for the tile data.
-### Return value
-
-Tile data image type. One of the [Image::IMAGE_*](../../../api/library/common/class.image_cpp.md#IMAGE_2D) values.
-## int getMaskFormat ( )
-
-Returns a value indicating current image format for the tile mask.
-### Return value
-
-Tile mask image format. One of the [Image::FORMAT_*](../../../api/library/common/class.image_cpp.md#FORMAT_ATI1) values.
+Current total number of lods in the group
 ## void setNumLayers ( int layers )
 
-Sets the number of layers of the LOD group.
+Sets a new number of layers of the lod group.
 ### Arguments
 
-- *int* **layers** - Number of layers.
+- *int* **layers** - The number of layers of the lod group
 
-## int getNumLayers ( )
+## int getNumLayers () const
 
-Returns the number of layers of the LOD group.
+Returns the current number of layers of the lod group.
 ### Return value
 
-Number of layers.
-## int getNumLods ( )
+Current number of layers of the lod group
+## int getMaskFormat () const
 
-Returns the total number of LODs in the group.
+Returns the current value indicating current image format for the tile mask. One of the [Image::FORMAT_*](../../../api/library/common/class.image_cpp.md) values.
 ### Return value
 
-Total number of LODs.
+Current value indicating current image format for the tile mask
+## int getDataFormat () const
+
+Returns the current value indicating current image format for the tile data. One of the [Image::FORMAT_*](../../../api/library/common/class.image_cpp.md#FORMAT_ATI1) values.
+### Return value
+
+Current value indicating current image format for the tile data
+## int getDataType () const
+
+Returns the current value indicating current image type for the tile data. One of the [Image::IMAGE_*](../../../api/library/common/class.image_cpp.md#IMAGE_2D) values.
+### Return value
+
+Current value indicating current image format for the tile data
+## int getType () const
+
+Returns the current type of lods.
+### Return value
+
+Current type of lods
+## const char * getName () const
+
+Returns the current name of the lod group.
+### Return value
+
+Current name of the lod group
+---
+
 ## int addLod ( )
 
 Adds a new LOD.
@@ -84,14 +96,14 @@ Loads the data of all LODs for the tiles within a given bounding box and a bound
 ### Return value
 
 **1** if the data of all LODs was fetched successfully; otherwise, 0.
-## int fetchData ( double x , double y , Pixel & ret_pixel , int layer , bool force )
+## int fetchData ( double x , double y , Image::Pixel & ret_pixel , int layer , bool force )
 
 Fetches the data for the point on the terrain with given coordinates and puts it to the specified output structure.
 ### Arguments
 
 - *double* **x** - X coordinate of the point on the terrain.
 - *double* **y** - Y coordinate of the point on the terrain.
-- *Pixel &* **ret_pixel** - Output [Pixel structure](../../../api/library/common/class.image_cpp.md#pixel) to store the pixel color.
+- *[Image::Pixel](../../../api/library/common/class.image_cpp.md#Pixel) &* **ret_pixel** - Output [Pixel structure](../../../api/library/common/class.image_cpp.md#pixel) to store the pixel color.
 - *int* **layer** - Layer number.
 - *bool* **force** - Force flag. > **Notice:** It is recommended to set this flag to 0 when possible to avoid spikes. .
 
@@ -101,15 +113,6 @@ Fetches the data for the point on the terrain with given coordinates and puts it
 ### Return value
 
 **1** if the data for the specified pixel was fetched successfully; otherwise, 0.
-## int getType ( )
-
-Returns the type of LODs.
-## const char * getName ( )
-
-Returns the name of the LOD group.
-### Return value
-
-LOD group name.
 ## Ptr < TerrainGlobalLod > getLod ( int num )
 
 Returns the LOD with a given number.

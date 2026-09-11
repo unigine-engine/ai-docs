@@ -3,10 +3,11 @@
 **Header:** #include <plugins/Unigine/IG/UnigineIG.h>
 
 
-This class represents the IG Symbols Controller interface. A symbol is a single drawing primitive or a group of drawing primitives that may be drawn on a symbol surface (plane) within a particular [view](../../../../../api/library/plugins/ig/api/class.view_cpp.md) or placed in 3D space relative to a particular [entity](../../../../../api/library/plugins/ig/api/class.entity_cpp.md).
+This class represents the *IG Symbols Controller* interface. A symbol is a single drawing primitive or a group of drawing primitives that may be drawn on a symbol surface (plane) within a particular [view](../../../../../api/library/plugins/ig/api/class.view_cpp.md) or placed in 3D space relative to a particular [entity](../../../../../api/library/plugins/ig/api/class.entity_cpp.md).
 
 
 The following symbol types are available: Polyline, Text, Circle.
+
 
 > **Notice:** IG plugin must be loaded.
 

@@ -60,7 +60,7 @@ namespace Foo {
 You can simply call the registered variables, functions, classes from Unigine scripts using the registered name. (If *Foo* library is not registered, the first dot in an object or function name is treated as an operator of class member access, which is wrong in our case).
 
 
-In the init() function of the world script `.usc` file add the following:
+In the *init()* function of the world script `.usc` file add the following:
 
 
 ```cpp

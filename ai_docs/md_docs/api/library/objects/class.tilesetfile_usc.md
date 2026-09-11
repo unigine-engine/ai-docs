@@ -3,24 +3,24 @@
 > **Warning:** The scope of applications for UnigineScript is limited to implementing materials-related logic (material expressions, scriptable materials, brush materials). Do not use UnigineScript as a language for application logic, please consider C#/C++ instead, as these APIs are the preferred ones. Availability of new Engine features in UnigineScript (beyond its scope of applications) is not guaranteed, as the current level of support assumes only fixing critical issues.
 
 
-This class is used to create a tileset file — the file that keeps data that is based on X and Y indices. The values of X and Y are limited to the integer and can be both positive and negative. The maximum size of the tile is limited to 2Gb. The maximum size of a tileset is limited to the unsigned integer value. Tileset files are stored using the .UTS and .UTSH formats.
+This class is used to create a tileset file � the file that keeps data that is based on X and Y indices. The values of X and Y are limited to the integer and can be both positive and negative. The maximum size of the tile is limited to 2Gb. The maximum size of a tileset is limited to the unsigned integer value. Tileset files are stored using the .UTS and .UTSH formats.
 
 
 ## TilesetFile Class
 
 ### Members
 
+## int getNumTiles () const
+
+Returns the current number of tiles in the tileset file.
+### Return value
+
+Current number of tiles in the tileset file
 ---
 
 ## static TilesetFile ( )
 
 Constructor. Creates a tileset file.
-## int getNumTiles ( )
-
-Returns the number of tiles in the tileset file.
-### Return value
-
-Number of tiles.
 ## long getOffset ( int x , int y )
 
 Returns the offset for the tile with specified coordinates.

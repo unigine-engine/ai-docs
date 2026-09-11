@@ -25,7 +25,7 @@ The object of this class may look as follows:
 
 ## int Orientation
 
-The current orientation of the spacer: horizontal or vertical one.
+The orientation of the spacer: horizontal or vertical.
 ### Members
 
 ---

@@ -23,6 +23,123 @@ This class is used to simulate [water body](../../../principles/physics/bodies/w
 
 ### Members
 
+## void setLiquidity ( float liquidity )
+
+Sets a new fluidity of the water.
+### Arguments
+
+- *float* **liquidity** - The fluidity of the water
+
+## float getLiquidity () const
+
+Returns the current fluidity of the water.
+### Return value
+
+Current fluidity of the water
+## void setIntersection ( int intersection )
+
+Sets a new value indicating if intersection with the ground is enabled. the ground should be a parent node.
+### Arguments
+
+- *int* **intersection** - The true if intersection with the ground is enabled; false if it is disabled
+
+## int getIntersection () const
+
+Returns the current value indicating if intersection with the ground is enabled. the ground should be a parent node.
+### Return value
+
+Current true if intersection with the ground is enabled; false if it is disabled
+## void setInteractionForce ( float force )
+
+Sets a new interaction force that determines how much velocity values of water and objects that get into it are leveled.
+### Arguments
+
+- *float* **force** - The interaction force between water and objects
+
+## float getInteractionForce () const
+
+Returns the current interaction force that determines how much velocity values of water and objects that get into it are leveled.
+### Return value
+
+Current interaction force between water and objects
+## void setLinearDamping ( float damping )
+
+Sets a new value indicating how much the linear velocity of the objects decreases when they get into the water.
+### Arguments
+
+- *float* **damping** - The damping of the objects linear velocity in the water
+
+## float getLinearDamping () const
+
+Returns the current value indicating how much the linear velocity of the objects decreases when they get into the water.
+### Return value
+
+Current damping of the objects linear velocity in the water
+## void setAngularDamping ( float damping )
+
+Sets a new value indicating how much the angular velocity of the objects decreases when they get into the water.
+### Arguments
+
+- *float* **damping** - The damping of the objects angular velocity in the water
+
+## float getAngularDamping () const
+
+Returns the current value indicating how much the angular velocity of the objects decreases when they get into the water.
+### Return value
+
+Current damping of the objects angular velocity in the water
+## void setDistance ( float distance )
+
+Sets a new distance of water simulation. it does not interfere with objects buoyancy.
+### Arguments
+
+- *float* **distance** - The distance of water simulation
+
+## float getDistance () const
+
+Returns the current distance of water simulation. it does not interfere with objects buoyancy.
+### Return value
+
+Current distance of water simulation
+## void setDepth ( float depth )
+
+Sets a new depth of the water (unless intersection has occurred).
+### Arguments
+
+- *float* **depth** - The depth of the water
+
+## float getDepth () const
+
+Returns the current depth of the water (unless intersection has occurred).
+### Return value
+
+Current depth of the water
+## void setDensity ( float density )
+
+Sets a new density of the water that determines objects buoyancy.
+### Arguments
+
+- *float* **density** - The density of the water
+
+## float getDensity () const
+
+Returns the current density of the water that determines objects buoyancy.
+### Return value
+
+Current density of the water
+## void setAbsorption ( int absorption )
+
+Sets a new value indicating if the waves are dispersed along the mesh perimeter.
+### Arguments
+
+- *int* **absorption** - The true if the waves are dispersed along the mesh perimeter; false if they are not
+
+## int getAbsorption () const
+
+Returns the current value indicating if the waves are dispersed along the mesh perimeter.
+### Return value
+
+Current true if the waves are dispersed along the mesh perimeter; false if they are not
 ---
 
 ## static BodyWater ( )
@@ -35,123 +152,6 @@ Constructor. Creates a water body with default properties for a given object.
 
 - *[Object](../../../api/library/objects/class.object_usc.md)* **object** - Object with a new water body.
 
-## void setAbsorption ( int absorption )
-
-Updates a value indicating if the waves should be dispersed along the mesh perimeter.
-### Arguments
-
-- *int* **absorption** - Positive number to allow wave dispersion, **0** for the waves to be reflected.
-
-## int getAbsorption ( )
-
-Returns a value indicating if the waves are dispersed along the mesh perimeter.
-### Return value
-
-Positive value, if the waves are dispersed along the mesh perimeter; **0** if they are reflected.
-## void setAngularDamping ( float damping )
-
-Updates a value indicating how much the angular velocity of the objects decreases when they get into the water.
-### Arguments
-
-- *float* **damping** - Anglular damping value. If a negative value is provided, **0** will be used instead.
-
-## float getAngularDamping ( )
-
-Returns the current value indicating how much the angular velocity of the objects decreases when they get into the water.
-### Return value
-
-Anglular damping value.
-## void setDensity ( float density )
-
-Updates the density of the water that determines objects buoyancy.
-### Arguments
-
-- *float* **density** - Density value. If a negative value is provided, **0** will be used instead.
-
-## float getDensity ( )
-
-Returns the current density of the water that determines objects buoyancy.
-### Return value
-
-Density value.
-## void setDepth ( float depth )
-
-Updates the depth of the water (unless [intersection](#setIntersection_int_void) has occurred).
-### Arguments
-
-- *float* **depth** - Depth value. If a negative value is provided, **0** will be used instead.
-
-## float getDepth ( )
-
-Returns the current depth of the water (unless [intersection](#setIntersection_int_void) has occurred).
-### Return value
-
-Depth value.
-## void setDistance ( float distance )
-
-Updates the distance of water simulation. It does not interfere with objects buoyancy.
-### Arguments
-
-- *float* **distance** - Simulation distance. If a negative value is provided, **0** will be used instead.
-
-## float getDistance ( )
-
-Returns the current distance of water simulation. It does not interfere with objects buoyancy.
-### Return value
-
-Simulation distance.
-## void setInteractionForce ( float force )
-
-Updates the interaction force that determines how much velocity values of water and objects that get into it are leveled.
-### Arguments
-
-- *float* **force** - Interaction force value. If a negative value is provided, **0** will be used instead.
-
-## float getInteractionForce ( )
-
-Returns the current interaction force that determines how much velocity values of water and objects that get into it are leveled.
-### Return value
-
-Interaction force value.
-## void setIntersection ( int intersection )
-
-Updates a value indicating if intersection with the ground is enabled. The ground should be a parent node.
-### Arguments
-
-- *int* **intersection** - Positive value to enable intersection, **0** to disable it.
-
-## int getIntersection ( )
-
-Returns a value indicating if intersection with the ground is enabled. The ground should be a parent node.
-### Return value
-
-Positive value if intersection is enabled, **0** if disabled.
-## void setLinearDamping ( float damping )
-
-Updates a value indicating how much the linear velocity of the objects decreases when they get into the water.
-### Arguments
-
-- *float* **damping** - Linear damping value. If a negative value is provided, **0** will be used instead.
-
-## float getLinearDamping ( )
-
-Returns the current value indicating how much the linear velocity of the objects decreases when they get into the water.
-### Return value
-
-Linear damping value.
-## void setLiquidity ( float liquidity )
-
-Updates the viscosity of the water.
-### Arguments
-
-- *float* **liquidity** - Liquidity value. If a negative value is provided, **0** will be used instead.
-
-## float getLiquidity ( )
-
-Returns the current fluidity of the water.
-### Return value
-
-Liquidity value.
 ## float getParticleHeight ( vec3 position )
 
 Returns the vertical shift of the given point of the water.

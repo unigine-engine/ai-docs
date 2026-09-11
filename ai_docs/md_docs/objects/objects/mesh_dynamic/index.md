@@ -1,7 +1,7 @@
 # Dynamic Mesh
 
 
-A ![](dynamic.png)   **dynamic mesh** is an object that represents a collection of vertices, edges and triangular faces (organized in polygons) defining the object's geometry that can be modified procedurally. It has all the static meshes' shader functionalities, so you can load an existing static mesh as a dynamic one in order to modify it.
+A ![](dynamic.png) � **dynamic mesh** is an object that represents a collection of vertices, edges and triangular faces (organized in polygons) defining the object's geometry that can be modified procedurally. It has all the static meshes' shader functionalities, so you can load an existing static mesh as a dynamic one in order to modify it.
 
 
 It is usually used to modify the mesh instance because of interaction (impact, shot, tear-out, etc.) or, for example, to create dynamic changing surface: cloth, rope, wire, liquid and so on.

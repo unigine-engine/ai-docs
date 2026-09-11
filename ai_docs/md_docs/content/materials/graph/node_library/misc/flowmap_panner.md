@@ -13,6 +13,7 @@ This node creates a flow effect for a source texture based on a flow map. Using 
 
 The workflow is the following:
 
+
 1. Using the flowmap texture, offset for UV coordinates is applied twice with a time shift.
 2. Using 2 different UVs from the previous stage, source texture sampling is pefromed. In the result, 2 textures distorted over time according to the flowmap are created.
 3. The created textures are blended (linear interpolation) using the time coefficient to make even and continuous distortion.

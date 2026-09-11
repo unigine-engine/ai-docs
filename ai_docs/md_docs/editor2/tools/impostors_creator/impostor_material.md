@@ -13,7 +13,7 @@ The *impostor_material* material is used for [impostors](../../../editor2/tools/
 In addition to the common [material options](../../../editor2/materials_settings/index.md#options) and such *mesh_base* options as *[Material Mask](../../../content/materials/library/mesh_base/index.md#material_mask)*, *[Terrain Lerp](../../../content/materials/library/mesh_base/index.md#terrain_lerp)*, and *[Lightmap Cubic Filtering](../../../content/materials/library/mesh_base/index.md#option_light_map_cubic_filtering)*, this material has a specific option that configures the [object bounds](../../../principles/world_management/index.md#bounds):
 
 
-| Bound Mode | - **Custom** — bound box around the impostor. The default values are taken from the source mesh. - **Default** — flat bound rectangle at the impostor spot. |
+| Bound Mode | - **Custom** � bound box around the impostor. The default values are taken from the source mesh. - **Default** � flat bound rectangle at the impostor spot. |
 |---|---|
 | Bound Minimum | Coordinates of the bound box minimum. |
 | Bound Maximum | Coordinates of the bound box maximum. |

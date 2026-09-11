@@ -11,3 +11,5 @@ Nodes for embedding reusable animation logic from external `.asubgraph` files. S
 - [SubGraph Inputs Node](../../../../../content/animations/graph/node_library/subgraph/sub_graph_inputs.md)
 
 - [SubGraph Outputs Node](../../../../../content/animations/graph/node_library/subgraph/sub_graph_outputs.md)
+
+- [Preview Output Pose Node](../../../../../content/animations/graph/node_library/subgraph/preview_output_pose.md)

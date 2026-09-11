@@ -62,9 +62,9 @@
 
 - [ObjectGuiMesh Class (CPP)](../../../api/library/objects/class.objectguimesh_cpp.md)
 
-- [ObjectIntersection Class (CS)](../../../api/library/objects/class.objectintersection_cs.md)
-
 - [ObjectIntersection Class (USC)](../../../api/library/objects/class.objectintersection_usc.md)
+
+- [ObjectIntersection Class (CS)](../../../api/library/objects/class.objectintersection_cs.md)
 
 - [ObjectIntersection Class (CPP)](../../../api/library/objects/class.objectintersection_cpp.md)
 
@@ -206,9 +206,9 @@
 
 - [TileSet Class (CPP)](../../../api/library/objects/class.tileset_cpp.md)
 
-- [TileSetFile Class (CS)](../../../api/library/objects/class.tilesetfile_cs.md)
-
 - [TileSetFile Class (USC)](../../../api/library/objects/class.tilesetfile_usc.md)
+
+- [TileSetFile Class (CS)](../../../api/library/objects/class.tilesetfile_cs.md)
 
 - [TileSetFile Class (CPP)](../../../api/library/objects/class.tilesetfile_cpp.md)
 

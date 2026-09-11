@@ -21,6 +21,68 @@ This widget should contain exactly two children. If fewer children are provided,
 
 ### Members
 
+## void setSecondSize ( int size )
+
+Sets a new size of the second child.
+### Arguments
+
+- *int* **size** - The size of the second child
+
+## int getSecondSize () const
+
+Returns the current size of the second child.
+### Return value
+
+Current size of the second child
+## void setFirstSize ( int size )
+
+Sets a new size of the first child.
+### Arguments
+
+- *int* **size** - The size of the first child
+
+## int getFirstSize () const
+
+Returns the current size of the first child.
+### Return value
+
+Current size of the first child
+## void setFixed ( int fixed )
+
+Sets a new number of the child with the fixed size:
+- 0 - size of both children is not fixed.
+- 1 - size of the first child is fixed.
+- 2 - size of the second child is fixed.
+
+
+### Arguments
+
+- *int* **fixed** - The number of the child with the fixed size
+
+## int getFixed () const
+
+Returns the current number of the child with the fixed size:
+- 0 - size of both children is not fixed.
+- 1 - size of the first child is fixed.
+- 2 - size of the second child is fixed.
+
+
+### Return value
+
+Current number of the child with the fixed size
+## void setValue ( int value )
+
+Sets a new value specifying how the child widgets are resized, in range **[-32767; 32767]**. **-32767** means that during resize the upper child will remain fixed. **32767** means that during resize the lower child will remain fixed. **0** means that both children will be resized equally. Other values specify proportions, in which the children are resized.
+### Arguments
+
+- *int* **value** - The value specifying how the child widgets are resized
+
+## int getValue () const
+
+Returns the current value specifying how the child widgets are resized, in range **[-32767; 32767]**. **-32767** means that during resize the upper child will remain fixed. **32767** means that during resize the lower child will remain fixed. **0** means that both children will be resized equally. Other values specify proportions, in which the children are resized.
+### Return value
+
+Current value specifying how the child widgets are resized
 ---
 
 ## static WidgetVPanedPtr create ( const Ptr < Gui > & gui )
@@ -33,59 +95,3 @@ Constructor. Creates a new vertical box with an ability to resize its children a
 ## static WidgetVPanedPtr create ( )
 
 Constructor. Creates a new vertical box with an ability to resize its children and adds it to the Engine GUI.
-## void setFirstSize ( int size )
-
-Sets the size of the first child.
-### Arguments
-
-- *int* **size** - Size of the first child in pixels.
-
-## int getFirstSize ( ) const
-
-Returns the size of the first child.
-### Return value
-
-Size of the first child in pixels.
-## void setFixed ( int fixed )
-
-Sets the number of the child with the fixed size. The default is 0.
-### Arguments
-
-- *int* **fixed** - Number of the child:
-
-  - 0 - size of both children is not fixed.
-  - 1 - size of the first child is fixed.
-  - 2 - size of the second child is fixed.
-
-## int getFixed ( ) const
-
-Returns the number of the child with the fixed size.
-### Return value
-
-Number of the child. 0 means that the size of both children is not fixed.
-## void setSecondSize ( int size )
-
-Sets the size of the second child.
-### Arguments
-
-- *int* **size** - Size of the second child in pixels.
-
-## int getSecondSize ( ) const
-
-Returns the size of the second child.
-### Return value
-
-Size of the second child in pixels.
-## void setValue ( int value )
-
-Specifies how child widgets will be resized. The default is 0.
-### Arguments
-
-- *int* **value** - Value in range **[-32767; 32767]**. **-32767** means that during resize the upper child will remain fixed. **32767** means that during resize the lower child will remain fixed. **0** means that both children will be resized equally. Other values specify proportions, in which the children are resized.
-
-## int getValue ( ) const
-
-Returns a value specifying how child widgets will be resized.
-### Return value
-
-Value in range **[-32767; 32767]**. **-32767** means that during resize the upper child will remain fixed. **32767** means that during resize the lower child will remain fixed. **0** means that both children will be resized equally. Other values specify proportions, in which the children are resized.

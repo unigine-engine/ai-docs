@@ -142,6 +142,9 @@ The following statistics are displayed in addition to the [generic](#generic) on
 | RAM Meshes Static Unused | Amount of RAM reserved for cached static meshes that are currently not in use. |
 | RAM Meshes Skinned Used | Amount of RAM actively used for skinned meshes rendering. |
 | RAM Meshes Skinned Unused | Amount of RAM reserved for skinned meshes that are currently not in use. |
+| RAM Animations Used | Amount of RAM, in megabytes, currently used by animations that are actively in use. |
+| RAM Animations Unused | Amount of RAM, in megabytes, used by animations that are no longer in use but are kept in the streaming cache for possible reuse (see the [animation lifetime](../../../principles/data_streaming/index.md#animation_streaming)). |
+| RAM Animations Held | Amount of RAM, in megabytes, used by animations that are explicitly held in memory and are never unloaded until released. |
 | VRAM Usage Advanced: |  |
 | VRAM Render Buffers Used | Amount of VRAM actively used for rendering buffers (Gbuffer, post-effects, etc.). |
 | VRAM Render Buffers Unused | Amount of VRAM currently reserved for rendering buffers (Gbuffer, post-effects, etc.) that are currently not in use. |
@@ -164,7 +167,7 @@ The following statistics are displayed in addition to the [generic](#generic) on
 | VRAM Meshes Skinned Used | Amount of VRAM actively used for skinned meshes rendering. |
 | VRAM Meshes Skinned Unused | Amount of VRAM used for cached skinned meshes. |
 | VRAM Meshes Skinned Allocator: |  |
-| VRAM Meshes Skinned Allocator Size | Total allocated video memory reserved for skinned mesh data; if usage exceeds current size, the allocator expands. You can configure the size of a skinned mesh chunk using the *[skinned_mesh_pool_chunk_size](../../../code/console/index.md#skinned_mesh_pool_chunk_size)* setting. Reducing the chunk size may lead to performance degradation, as it's more efficient to perform skinning when the geometry fits within a single chunk. |
+| VRAM Meshes Skinned Allocator Size | Total allocated video memory reserved for skinned mesh data; if usage exceeds current size, the allocator expands. You can configure the size of a skinned mesh chunk using the *[skinned_mesh_pool_chunk_size](../../../code/console/index.md#skinned_pool_chunk_size)* setting. Reducing the chunk size may lead to performance degradation, as it's more efficient to perform skinning when the geometry fits within a single chunk. |
 | VRAM Meshes Skinned Allocator Usage | Amount of video memory currently in use for storing skinned mesh data; reflects how much of the reserved allocator space is actively occupied. |
 | VRAM Meshes Decals Allocator: |  |
 | VRAM Meshes Decals Allocator Size | Total video memory allocated for decal mesh data; defines the reserved memory pool size used specifically for rendering mesh-based decals. You can configure the size of a decal chunk using the *[decal_pool_chunk_size](../../../code/console/index.md#decal_pool_chunk_size)* setting. Unlike skinned meshes, reducing the chunk size does not negatively impact performance. |
@@ -327,3 +330,51 @@ The following statistics are displayed in addition to the [generic](#generic) on
 | Sound | Time of asynchronous loading of sounds, in milliseconds. |
 | PathFind | Time of asynchronous pathfinding calculations, in milliseconds. |
 | Profiler Dump | Time taken to serialize and write profiler data for the current frame into the [Profiler Dump](../../../tools/profiling/profiler_dump/index_cpp.md). This value is shown only if the Profiler Dump is being recorded. |
+
+
+## Experimental Navigation Profiler
+
+
+This profiler shows what the experimental navigation system holds in memory and how much of a frame it takes.
+
+
+> **Notice:** You can enable this profiler via the UnigineEditor interface (*Tools -> Performance Profiler -> Experimental Navigation*) and via the [`show_profiler_experimental_navigation 1`](../../../code/console/index.md#show_profiler_experimental_navigation) console command.
+
+
+Counters of the data the system currently keeps:
+
+
+| ExperimentalNavigation Meshes | Number of [navigation meshes](../../../objects/navigations/experimental/navigation_mesh/index.md) in the world. |
+|---|---|
+| ExperimentalNavigation Tiles | Number of tiles currently loaded, out of the number of tiles all navigation meshes are cut into. The two differ when streaming is on: a tile that no [invoker](../../../objects/navigations/experimental/invoker/index.md) asks for is not loaded. |
+| ExperimentalNavigation Polygons | Number of polygons in the loaded tiles. This is what path searches walk over. |
+| ExperimentalNavigation Path Tasks | Number of path searches running in the background right now. |
+
+
+Memory, in bytes:
+
+
+| ExperimentalNavigation RAM | Memory the whole system takes, the rows below added together. |
+|---|---|
+| ExperimentalNavigation Data RAM | Memory the streamed data takes. The second value is the [Streaming Memory Limit](../../../editor2/settings/navigation/index.md#streaming_memory_limit): once the first reaches it, streaming stops loading and the navigation mesh is left with holes. |
+| ExperimentalNavigation Tiles RAM | Memory the polygons of the loaded tiles take. |
+| ExperimentalNavigation Voxels RAM | Memory the loaded voxel data takes. Navigation meshes keep it to rebuild tiles without reading the world again. |
+| ExperimentalNavigation Query RAM | Memory the search structures take. |
+| ExperimentalNavigation Thread Query RAM | Memory the per-thread copies of the search structures take. It grows with the number of threads that run path searches. |
+| ExperimentalNavigation Obstacle Snapshots RAM | Memory the snapshots of [obstacles](../../../objects/navigations/obstacle/index.md) take. Queries read obstacles from a snapshot instead of the scene. |
+| ExperimentalNavigation Corridors RAM | Memory all *[corridors](../../../api/library/pathfinding/class.experimentalnavigationmeshcorridor_cpp.md)* take together. |
+| ExperimentalNavigation Avoidance RAM | Memory all *[avoidance](../../../api/library/pathfinding/class.experimentalnavigationavoidance_cpp.md)* solvers take together. |
+
+
+Time per frame, in milliseconds:
+
+
+| ExperimentalNavigation Streaming | Time spent loading and unloading tiles. It is capped by the [Streaming Budget](../../../editor2/settings/navigation/index.md#streaming_budget). |
+|---|---|
+| ExperimentalNavigation Invalidate | Time spent rebuilding the tiles that changed. It is capped by the [Invalidate Budget](../../../editor2/settings/navigation/index.md#invalidate_budget). |
+| ExperimentalNavigation Path | Time spent searching for paths. |
+| ExperimentalNavigation Corridors | Time spent moving agents along their corridors. |
+| ExperimentalNavigation Avoidance | Time spent computing velocities that keep agents apart. |
+
+
+> **Notice:** Corridors are timed only while this profiler is on. Turning it on costs a pair of timer calls per corridor call, so the numbers it reports for corridors are not free.

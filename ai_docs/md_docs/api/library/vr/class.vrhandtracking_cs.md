@@ -28,24 +28,24 @@ The right hand.
 ## bool VisualizerEnabled
 
 ***Console*:**`vr_hand_tracking_visualizer_enabled`The  value indicating if the visualizer for hands is enabled. When set to 1, the engine will draw a simple debug skeleton of the hands, showing bones only. This option requires the [Visualizer](../../../code/console/index.md#show_visualizer) to be enabled.
-![](../../../../../../../../../en/docs/future/api/library/vr/ht_command_visualizer.png)
+![](../../../api/library/vr/ht_command_visualizer.png)
 
   The default value is **false**.
 ## bool ShowBasis
 
 ***Console*:**`vr_hand_tracking_show_basis`The  value indicating if the visualizer for the coordinate axes (basis) of each hand bone is enabled. This option requires the [Hand visualizer](#vr_hand_tracking_visualizer_enabled) to be enabled.
-![](../../../../../../../../../en/docs/future/api/library/vr/ht_command_bone_basis.png)
+![](../../../api/library/vr/ht_command_bone_basis.png)
 
   The default value is **false**.
 ## bool ShowVelocity
 
 ***Console*:**`vr_hand_tracking_show_velocity`The  value indicating if the visualizer for the velocity vectors of each hand bone is enabled. Useful for debugging motion-based interactions like swipes or throws. This option requires the [Hand visualizer](#vr_hand_tracking_visualizer_enabled) to be enabled.
-![](../../../../../../../../../en/docs/future/api/library/vr/ht_command_bone_velocity.png)
+![](../../../api/library/vr/ht_command_bone_velocity.png)
 
   The default value is **false**.
 ## bool ShowBoneSizes
 
 ***Console*:**`vr_hand_tracking_show_bone_sizes`The  value indicating if the visualizer for the size of each hand bone is enabled. Displays red spheres representing the size (radius) of each bone, providing a visual reference for the physical dimensions of the tracked hand. This option requires the [Hand visualizer](#vr_hand_tracking_visualizer_enabled) to be enabled.
-![](../../../../../../../../../en/docs/future/api/library/vr/ht_command_bone_sizes.png)
+![](../../../api/library/vr/ht_command_bone_sizes.png)
 
   The default value is **false**.

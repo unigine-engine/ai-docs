@@ -116,151 +116,189 @@ int AppWorldLogic::shutdown()
 
 ### Members
 
----
+## void setSourceOcclusion ( bool occlusion )
 
-## void setAdaptation ( float adaptation )
-
-Sets sound occlusion with the specified adaptation time.
+Sets a new value indicating if occlusion for sounds is enabled. When enabled, the sound will be occluded when there are other nodes between the listener and the sound source.
 ### Arguments
 
-- *float* **adaptation** - Time for sound adaptation to a filter, used when the sound source becomes occluded or other way round.
+- *bool* **occlusion** - Set **true** to enable occlusion for sounds is enabled; **false** - to disable it.
 
-## float getAdaptation ( )
+## bool isSourceOcclusion () const
 
-Returns the current time set for sound adaptation, that is used when the sound source becomes occluded or other way round.
+Returns the current value indicating if occlusion for sounds is enabled. When enabled, the sound will be occluded when there are other nodes between the listener and the sound source.
 ### Return value
 
-Time for sound adaptation to a filter.
+**true** if occlusion for sounds is enabled; otherwise **false**.
+## void setSourceReverbMode ( int mode )
+
+Sets a new sound reverberation mode. One of the [REVERB_*](#REVERB_DISABLED) values. The default value is [REVERB_MULTIPLE](#REVERB_MULTIPLE).
+### Arguments
+
+- *int* **mode** - The sound reverberation mode
+
+## int getSourceReverbMode () const
+
+Returns the current sound reverberation mode. One of the [REVERB_*](#REVERB_DISABLED) values. The default value is [REVERB_MULTIPLE](#REVERB_MULTIPLE).
+### Return value
+
+Current sound reverberation mode
+## void setHRTF ( bool hrtf )
+
+Sets a new value indicating if the binaural HRTF (head related transfer function) sound is enabled. HRTF provides imitation of the surround sound for the stereo wired headset.
+### Arguments
+
+- *bool* **hrtf** - Set **true** to enable the binaural HRTF (head related transfer function) sound is enabled; **false** - to disable it.
+
+## bool isHRTF () const
+
+Returns the current value indicating if the binaural HRTF (head related transfer function) sound is enabled. HRTF provides imitation of the surround sound for the stereo wired headset.
+### Return value
+
+**true** if the binaural HRTF (head related transfer function) sound is enabled; otherwise **false**.
 ## void setAttenuation ( int attenuation )
 
-Sets the specified sound attenuation mode. Attenuation is the ability of a sound to lower in volume as the player moves away from it.
+Sets a new sound attenuation mode. Attenuation is the ability of a sound to lower in volume as the player moves away from it. One of the [ATTENUATION_*](#ATTENUATION_EXPONENT) values. The default value is [ATTENUATION_LINEAR_CLAMPED](#ATTENUATION_LINEAR_CLAMPED).
 ### Arguments
 
-- *int* **attenuation** - One of the [*ATTENUATION_**](#ATTENUATION_EXPONENT) variables. The default value is [ATTENUATION_LINEAR_CLAMPED](#ATTENUATION_LINEAR_CLAMPED).
+- *int* **attenuation** - The sound attenuation mode
 
-## int getAttenuation ( )
+## int getAttenuation () const
 
-Returns the current sound attenuation mode.
+Returns the current sound attenuation mode. Attenuation is the ability of a sound to lower in volume as the player moves away from it. One of the [ATTENUATION_*](#ATTENUATION_EXPONENT) values. The default value is [ATTENUATION_LINEAR_CLAMPED](#ATTENUATION_LINEAR_CLAMPED).
 ### Return value
 
-One of the [*ATTENUATION_**](#ATTENUATION_EXPONENT) variables.
-## void setData ( const char * data )
+Current sound attenuation mode
+## void setScale ( float scale )
 
-Sets user data associated with the world. This string is written directly into a `*.world` file, into the *data* child tag of the *sound* tag, for example:
-```xml
-<world version="2.16.0.2">
-
-	<sound>
-		<data>User data</data>
-	</sound>
-
-</world>
-
-
-```
-
-
+Sets a new time scale for the sound playing. The provided value is clamped in the range **[0; 2]**.
 ### Arguments
 
-- *const char ** **data** - New user data. Data can contain an XML formatted string
+- *float* **scale** - The time scale for the sound playing
 
-## const char * getData ( )
+## float getScale () const
 
-Returns user string data associated with the world. This string is written directly into the data tag of the `*.world` file, into the *data* child tag of the *sound* tag, for example:
-```xml
-<world version="2.16.0.2">
-
-	<sound>
-		<data>User data</data>
-	</sound>
-
-</world>
-
-
-```
-
-
+Returns the current time scale for the sound playing. The provided value is clamped in the range **[0; 2]**.
 ### Return value
 
-User data. Data can contain an XML formatted string.
+Current time scale for the sound playing
 ## void setDoppler ( float doppler )
 
-Sets the Doppler factor. This parameter allows you to exaggerate or tone-down the Doppler shift effect. By default, it is set to 1.0f.
+Sets a new Doppler factor. This parameter allows you to exaggerate or tone-down the Doppler shift effect. The default value is 1.0f.
 ### Arguments
 
-- *float* **doppler** - Doppler factor.
+- *float* **doppler** - The Doppler factor
 
-## float getDoppler ( )
+## float getDoppler () const
 
 Returns the current Doppler factor. This parameter allows you to exaggerate or tone-down the Doppler shift effect. The default value is 1.0f.
 ### Return value
 
-Doppler factor.
-## void setEnabled ( int enabled )
+Current Doppler factor
+## void setAdaptation ( float adaptation )
 
-Enables or disables all sounds in the scene.
+Sets a new time set for sound adaptation, that is used when the sound source becomes occluded or other way round.
 ### Arguments
 
-- *int* **enabled** - true to enable all sounds, false to disable them.
+- *float* **adaptation** - The time set for sound adaptation
 
-## int isEnabled ( )
+## float getAdaptation () const
 
-Returns a value indicating if sounds in the scene are enabled.
+Returns the current time set for sound adaptation, that is used when the sound source becomes occluded or other way round.
 ### Return value
 
-true if sounds are enabled; otherwise, **false**.
-## void setHRTF ( int hrtf )
+Current time set for sound adaptation
+## void setVelocity ( float velocity )
 
-Enables or disables the HRTF (Head Related Transfer Function) mode. This mode provides imitation of the surround sound for the stereo wired headset.
+Sets a new velocity value the Doppler shift calculation is based upon. By default, it is set to 343.3f. If you have players moving really fast, then you may want to adjust this to prevent the Doppler shift from distorting the sound too much.
 ### Arguments
 
-- *int* **hrtf** - true to enable binaural sound; false to disable it.
+- *float* **velocity** - The velocity value the Doppler shift calculation is based upon
 
-## int isHRTF ( )
+## float getVelocity () const
 
-Returns a value indicating if the binaural HRTF (Head Related Transfer Function) sound is enabled. An HRTF provides imitation of the surround sound for the stereo wired headset.
+Returns the current velocity value the Doppler shift calculation is based upon. By default, it is set to 343.3f. If you have players moving really fast, then you may want to adjust this to prevent the Doppler shift from distorting the sound too much.
 ### Return value
 
-true if the binaural sound is enabled; otherwise, false.
-## void setSourceReverbMode ( int mode )
+Current velocity value the Doppler shift calculation is based upon
+## void setVolume ( float volume )
 
-Sets sound reverberation mode.
+Sets a new sound volume. 0 means the muted sound, 1 means the maximum volume. The default value is 1.0f.
 ### Arguments
 
-- *int* **mode** - Reverberation mode. One of the [REVERB_*](#REVERB_DISABLED) variables. The default value is [REVERB_MULTIPLE](#REVERB_MULTIPLE).
+- *float* **volume** - The sound volume
 
-## int getSourceReverbMode ( )
+## float getVolume () const
 
-Returns current sound reverberation mode.
+Returns the current sound volume. 0 means the muted sound, 1 means the maximum volume. The default value is 1.0f.
 ### Return value
 
-Current sound reverberation mode. One of the [REVERB_*](#REVERB_DISABLED) variables. The default value is [REVERB_MULTIPLE](#REVERB_MULTIPLE).
-## void setSourceOcclusion ( int occlusion )
+Current sound volume
+## float getTotalTime () const
 
-Enables or disables occlusion for sounds. When enabled, the sound will be occluded when there are other nodes between the listener and the sound source.
+Returns the current total time of asynchronous loading sounds.
+### Return value
+
+Current total time of asynchronous loading sounds
+## void setData ( const char * data )
+
+Sets a new user string data associated with the world. This string is written directly into the data tag of the `*.world` file, into the *data* child tag of the *sound* tag, for example:
+```xml
+<world version="2.16.0.2">
+
+	<sound>
+		<data>User data</data>
+	</sound>
+
+</world>
+
+
+```
+
+
 ### Arguments
 
-- *int* **occlusion** - true to enable occlusion for sounds, false to disable it.
+- *const char ** **data** - The user string data associated with the world
 
-## int isSourceOcclusion ( )
+## const char * getData () const
 
-Returns a value indicating if occlusion for sounds is enabled. When enabled, the sound will be occluded when there are other nodes between the listener and the sound source.
+Returns the current user string data associated with the world. This string is written directly into the data tag of the `*.world` file, into the *data* child tag of the *sound* tag, for example:
+```xml
+<world version="2.16.0.2">
+
+	<sound>
+		<data>User data</data>
+	</sound>
+
+</world>
+
+
+```
+
+
 ### Return value
 
-true if sound occlusion for sounds is enabled; otherwise, false.
-## void setScale ( float scale )
+Current user string data associated with the world
+## void setEnabled ( bool enabled )
 
-Set the time scale for the sound playing.
+Sets a new value indicating if sounds in the scene are enabled.
 ### Arguments
 
-- *float* **scale** - Sound time scale. The provided value is clamped in the range **[0; 2]**.
+- *bool* **enabled** - Set **true** to enable sounds in the scene are enabled; **false** - to disable it.
 
-## float getScale ( )
+## bool isEnabled () const
 
-Returns the current time scale for the sound playing.
+Returns the current value indicating if sounds in the scene are enabled.
 ### Return value
 
-Sound time scale.
+**true** if sounds in the scene are enabled; otherwise **false**.
+---
+
+## bool isInitialized ( )
+
+Returns a value indicating if the sound system is initialized.
+### Return value
+
+true if the sound system is initialized; otherwise, false.
 ## void setSourceLimit ( int source , int limit )
 
 Limits the number of simultaneously played sound sources per one mixer channel. This setting is also available in the Editor global [sound settings](../../../editor2/settings/sound_global/index.md#volume_channels).
@@ -285,7 +323,7 @@ Sets the volume of the specified mixer channel.
 ### Arguments
 
 - *int* **source** - Number of the mixer channel (from **0** to **31**).
-- *float* **volume** - Channel volume. The provided value is clamped within **[0;1]** range, where 0 means muted sound and 1 is the maximum volume.
+- *float* **volume** - Channel volume. The provided value is clamped within [0;1] range, where 0 means muted sound and 1 is the maximum volume.
 
 ## float getSourceVolume ( int source )
 
@@ -297,39 +335,7 @@ Returns the current volume of the specified mixer channel.
 ### Return value
 
 Volume of the specified mixer channel. The returning value is in range [0;1], where 0 means muted sound and 1 is the maximum volume.
-## float getTotalTime ( )
-
-Returns the total time of asynchronous loading sounds.
-### Return value
-
-The total time value, milliseconds.
-## void setVelocity ( float velocity )
-
-Sets the velocity value the Doppler shift calculation is based upon. By default, it is set to 343.3f. If you have players moving really fast, then you may want to adjust this to prevent the Doppler shift from distorting the sound too much.
-### Arguments
-
-- *float* **velocity** - New velocity value for the Doppler shift calculation to be set.
-
-## float getVelocity ( )
-
-Returns the current velocity value the Doppler shift calculation is based upon. By default, it is set to 343.3f. If you have players moving really fast, then you may want to adjust this to prevent the Doppler shift from distorting the sound too much.
-### Return value
-
-Current velocity value for the Doppler shift calculation.
-## void setVolume ( float volume )
-
-Sets the sound volume. By default, it is set to 1.0f.
-### Arguments
-
-- *float* **volume** - Sound volume. 0 means the muted sound, 1 means the maximum volume.
-
-## float getVolume ( )
-
-Returns the current sound volume. The default value is 1.0f.
-### Return value
-
-Sound volume. 0 means the muted sound, 1 means the maximum volume.
-## int loadSettings ( const char * name , bool clear = false )
+## bool loadSettings ( const char * name , bool clear = false )
 
 Loads the sound settings from the given file.
 ### Arguments
@@ -340,7 +346,7 @@ Loads the sound settings from the given file.
 ### Return value
 
 true if the sound settings are loaded successfully; otherwise, false.
-## int loadWorld ( const Ptr < Xml > & xml )
+## bool loadWorld ( const Ptr < Xml > & xml )
 
 Loads a sound state from the Xml. The sound state includes such settings as the volume, velocity, adaptation, Doppler factor, time scale and number of sound sources and their volumes.
 ### Arguments
@@ -353,6 +359,8 @@ true if the sound state is loaded successfully; otherwise, false.
 ## void renderWorld ( int force )
 
 Forces update of the sound system: all sound changes (such as *[play()](../../../api/library/sounds/class.ambientsource_cpp.md#play_void)* or *[stop()](../../../api/library/sounds/class.ambientsource_cpp.md#stop_void)* events and change of parameters) will be applied at once. The sound thread is updated at 30 FPS. Imagine, you have a [sound sample](../../../api/library/sounds/class.ambientsource_cpp.md) playing and you want to update the time, from which the sample should be played. But playback won't stop immediately, so the a new time value won't be set. You need force updating of the sound thread after stopping it:
+
+
 ```cpp
 AmbientSourcePtr sound = AmbientSource::create("ambient_sample.oga");
 // ...
@@ -377,7 +385,7 @@ if (sound->isPlaying())
 
 - *int* **force** - true to force update of the sound system; otherwise, false.
 
-## int saveSettings ( const char * name , int force = 0 )
+## bool saveSettings ( const char * name , int force = 0 )
 
 Saves the current sound settings to the given file.
 ### Arguments
@@ -391,6 +399,8 @@ true if the sound settings are saved successfully; otherwise, false.
 ## bool saveState ( const Ptr < Stream > & stream )
 
 Saves a sound state into the stream. The sound state includes such settings as the volume, velocity, adaptation, Doppler factor, time scale and number of sound sources and their volumes.
+
+
 **Example** using saveState() and [restoreState()](#restoreState_Stream_int) methods:
 
 
@@ -421,9 +431,11 @@ Unigine::Sound::restoreState(blob_state);
 ### Return value
 
 true if the sound state is saved successfully; otherwise, false.
-## int restoreState ( const Ptr < Stream > & stream )
+## bool restoreState ( const Ptr < Stream > & stream )
 
 Restores a sound state from the stream. The sound state includes such settings as the volume, velocity, adaptation, Doppler factor, time scale and number of sound sources and their volumes.
+
+
 **Example** using [saveState()](#saveState_Stream_int) and restoreState() methods:
 
 
@@ -454,7 +466,7 @@ Unigine::Sound::restoreState(blob_state);
 ### Return value
 
 true if the sound state is restored successfully; otherwise, false.
-## int saveWorld ( const Ptr < Xml > & xml , int force = 0 )
+## bool saveWorld ( const Ptr < Xml > & xml , int force = 0 )
 
 Saves a sound state into the given Xml node. The sound state includes such settings as the volume, velocity, adaptation, Doppler factor, time scale and number of sound sources and their volumes.
 ### Arguments

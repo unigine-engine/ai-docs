@@ -91,7 +91,7 @@ The *density* of a *Landscape Layer Map* data is calculated as its [**Spatial Si
 > **Notice:** The final density of the terrain graphic data is limited by the [render parameters](../../../../objects/objects/terrain/landscape_terrain/settings.md#render).
 
 
-For example, if you need to create a square terrain 100 × 100 km and with 3 mpx density, you will need to prepare 32768 × 32768 px textures. You can slice huge textures to tilesets with proper [naming](#naming_type), to operate on regular size textures (e.g., 8×8 textures each of 4096×4096 pixels).
+For example, if you need to create a square terrain 100 � 100 km and with 3 mpx density, you will need to prepare 32768 � 32768 px textures. You can slice huge textures to tilesets with proper [naming](#naming_type), to operate on regular size textures (e.g., 8�8 textures each of 4096�4096 pixels).
 
 
 Regardless of the bit depth of input textures, uncompressed graphic data of any *Landscape Layer Map* is saved using the following formats:
@@ -108,13 +108,13 @@ Thus, if all components are used each pixel of graphic data takes more than 50 b
 | **Resolution, px*** | Approximate size | Height | Albedo | Each 4 Masks |  |  |
 |---|---|---|---|---|---|---|
 | Color | Opacity | Color | Opacity |  |  |  |
-| **1024×1024** | 74 Mb | 5.7 Mb | 5.7 Mb | 5.7 Mb | 5.7 Mb | 5.7 Mb |
-| **2048×2048** | 295 Mb | 22.7 Mb | 22.7 Mb | 22.7 Mb | 22.7 Mb | 22.7 Mb |
-| **4096×4096** | 1.1 Gb | 91 Mb | 91 Mb | 91 Mb | 91 Mb | 91 Mb |
-| **8192×8192** | 4.6 Gb | 364 Mb | 364 Mb | 364 Mb | 364 Mb | 364 Mb |
-| **16384×16384** | 18.3 Gb | 1.41 Gb | 1.41 Gb | 1.41 Gb | 1.41 Gb | 1.41 Gb |
-| **32768×32768** | 74 Gb | 5.7 Gb | 5.7 Gb | 5.7 Gb | 5.7 Gb | 5.7 Gb |
-| **65536×65536** | 295 Gb | 22.7 Gb | 22.7 Gb | 22.7 Gb | 22.7 Gb | 22.7 Gb |
+| **1024�1024** | 74 Mb | 5.7 Mb | 5.7 Mb | 5.7 Mb | 5.7 Mb | 5.7 Mb |
+| **2048�2048** | 295 Mb | 22.7 Mb | 22.7 Mb | 22.7 Mb | 22.7 Mb | 22.7 Mb |
+| **4096�4096** | 1.1 Gb | 91 Mb | 91 Mb | 91 Mb | 91 Mb | 91 Mb |
+| **8192�8192** | 4.6 Gb | 364 Mb | 364 Mb | 364 Mb | 364 Mb | 364 Mb |
+| **16384�16384** | 18.3 Gb | 1.41 Gb | 1.41 Gb | 1.41 Gb | 1.41 Gb | 1.41 Gb |
+| **32768�32768** | 74 Gb | 5.7 Gb | 5.7 Gb | 5.7 Gb | 5.7 Gb | 5.7 Gb |
+| **65536�65536** | 295 Gb | 22.7 Gb | 22.7 Gb | 22.7 Gb | 22.7 Gb | 22.7 Gb |
 
 
 **The highest resolution is taken from the input textures.*
@@ -138,9 +138,9 @@ Compression options serve for reduction of the size of the `*.lmap` file, which 
 Supported compression methods:
 
 
-- **Our Method** — recommended. UNIGINE compression method optimized for compressing 2D and 3D textures. It provides better results than **LZ4** and **Zlib** without quality reduction.
-- **Zlib** — for high compression ratio (can provide up to 2 times higher compression ratio, but takes up to 20 times longer).
-- **LZ4** — temporary option, planned to be removed in the upcoming releases.
+- **Our Method** � recommended. UNIGINE compression method optimized for compressing 2D and 3D textures. It provides better results than **LZ4** and **Zlib** without quality reduction.
+- **Zlib** � for high compression ratio (can provide up to 2 times higher compression ratio, but takes up to 20 times longer).
+- **LZ4** � temporary option, planned to be removed in the upcoming releases.
 
 
 *Lossless* and *Lossy* compression options are available. When it is needed to apply any changes, the graphic data needs to be decompressed first. Therefore, depending on applicability, these options have different advantages:
@@ -203,15 +203,15 @@ There is a set of buttons to work with import settings:
 Import settings:
 
 
-| Compression | Compression options: - **Off** — compression is disabled (maximum file size). - **Lossless** — lossless compression **Our Method** is enabled, all lossy compressions are disabled. - **Lossy** — lossless compression **Our Method** is enabled, all lossy compressions are enabled for all data (*Lossy Compression* checkboxes are checked). > **Warning:** Use of Lossy compression will lead to quality deterioration every time the data is compressed. - **Custom** — *Compression Method* combo box appears below, *Lossy Compression* checkbox appears for *Albedo* and *Masks*. |
+| Compression | Compression options: - **Off** � compression is disabled (maximum file size). - **Lossless** � lossless compression **Our Method** is enabled, all lossy compressions are disabled. - **Lossy** � lossless compression **Our Method** is enabled, all lossy compressions are enabled for all data (*Lossy Compression* checkboxes are checked). > **Warning:** Use of Lossy compression will lead to quality deterioration every time the data is compressed. - **Custom** � *Compression Method* combo box appears below, *Lossy Compression* checkbox appears for *Albedo* and *Masks*. |
 |---|---|
-| Compression Method | Compression method options: - **Our Method** — recommended. UNIGINE compression method optimized for compressing 2D and 3D textures. It provides better results than **LZ4** and **Zlib** without deteriorating the quality. - **Zlib** — for high compression ratio (can provide up to 2 times higher compression ratio, but takes up to 20 times longer). - **LZ4** — temporary option, planned to be removed in the upcoming releases. |
-| Data Filling | Origin of terrain data: - **Manual** — this type of data is selected for work with brushes. > **Notice:** The only setting available for this option is **Resolution**. - **From Tileset** — this type of data is used to add any available data sources. |
-| Data Sources | Where data is taken from: - **Assets** — available asset files. This option is good for small terrains. - **External files** — absolute path to the file is indicated (for example, network disk). A recommended option in case of creating a huge terrain using high-density graphic data. > **Notice:** The engine doesn't track the changes made to external files. If there are some changes, you can update graphic data via the [*Reimport*](#reimport) button. |
-| Resolution | Resolution of maps limited only by available video memory. The following values are available: - **Manual** — set by the user. Graphic data from textures is remapped to fit the resolution. - **Auto** — automatically detected from the specified textures, the resolution of the biggest texture is used. If a tileset is specified the resulting resolution of all tiles combined will be considered. |
+| Compression Method | Compression method options: - **Our Method** � recommended. UNIGINE compression method optimized for compressing 2D and 3D textures. It provides better results than **LZ4** and **Zlib** without deteriorating the quality. - **Zlib** � for high compression ratio (can provide up to 2 times higher compression ratio, but takes up to 20 times longer). - **LZ4** � temporary option, planned to be removed in the upcoming releases. |
+| Data Filling | Origin of terrain data: - **Manual** � this type of data is selected for work with brushes. > **Notice:** The only setting available for this option is **Resolution**. - **From Tileset** � this type of data is used to add any available data sources. |
+| Data Sources | Where data is taken from: - **Assets** � available asset files. This option is good for small terrains. - **External files** � absolute path to the file is indicated (for example, network disk). A recommended option in case of creating a huge terrain using high-density graphic data. > **Notice:** The engine doesn't track the changes made to external files. If there are some changes, you can update graphic data via the [*Reimport*](#reimport) button. |
+| Resolution | Resolution of maps limited only by available video memory. The following values are available: - **Manual** � set by the user. Graphic data from textures is remapped to fit the resolution. - **Auto** � automatically detected from the specified textures, the resolution of the biggest texture is used. If a tileset is specified the resulting resolution of all tiles combined will be considered. |
 | Flip Y | Flip tiles along the Y axis. |
-| Naming Type | The source tileset layout type. The following values are available: - **Row Column** — the row-column based tileset. When set, each tile of the source tileset is determined by the row and column numbers (e.g. `tileset_x0_y2.png`). - **Indexed** — the index-based tileset. When set, each tile of the source tileset is determined by the index (e.g. `tileset_0.png`). The number of columns of the source tileset is specified in the *Number of Columns* field. |
-| Pattern Matching | - **Auto** — automatically select the naming pattern. - **Manual** — manually specify the naming pattern. |
+| Naming Type | The source tileset layout type. The following values are available: - **Row Column** � the row-column based tileset. When set, each tile of the source tileset is determined by the row and column numbers (e.g. `tileset_x0_y2.png`). - **Indexed** � the index-based tileset. When set, each tile of the source tileset is determined by the index (e.g. `tileset_0.png`). The number of columns of the source tileset is specified in the *Number of Columns* field. |
+| Pattern Matching | - **Auto** � automatically select the naming pattern. - **Manual** � manually specify the naming pattern. |
 | Pattern | A string naming pattern (e.g. *_x%X_y%Y* for the *Row Column* naming type or *_%X* for the *Indexed* type). |
 | Number of Columns | The number of columns in the tileset. |
 | Horizontal Order | Horizontal loading direction of the source tileset. - Left -> Right - Right -> Left |
@@ -227,14 +227,14 @@ Import settings:
 ![](heightmap.png)
 
 
-| Heightmap data | - *None* — no data of this type is available at all. - *Only Heightmap* — load the specified heightmap as is. In this case, data of this layer will always overlap data of underlying layers. - *Heightmap with Opacity* — load the specified heightmap with an additional opacity mask applied. The mode is useful for blending height data with data of underlying layers. |
+| Heightmap data | - *None* � no data of this type is available at all. - *Only Heightmap* � load the specified heightmap as is. In this case, data of this layer will always overlap data of underlying layers. - *Heightmap with Opacity* � load the specified heightmap with an additional opacity mask applied. The mode is useful for blending height data with data of underlying layers. |
 |---|---|
-| Heightmap | A single-channel texture to be treated as the Heightmap. To use a tileset, specify the first tile here. Height values can be interpreted the following ways: - *Normalized* — normalized height values are mapped to the range specified by the Min and Max Height values. - *Unnormalized* — the height values are used as is. It is recommended to use 16bit or 32bit sources for height as lower bit depth may not provide sufficient quality: ![](terrain_height_8bit.png) ![](terrain_height_16bit.png) |
-| Height | Min/Max — the values used to transform the value [0,1] stored in the heightmap to meters. |
+| Heightmap | A single-channel texture to be treated as the Heightmap. To use a tileset, specify the first tile here. Height values can be interpreted the following ways: - *Normalized* � normalized height values are mapped to the range specified by the Min and Max Height values. - *Unnormalized* � the height values are used as is. It is recommended to use 16bit or 32bit sources for height as lower bit depth may not provide sufficient quality: ![](terrain_height_8bit.png) ![](terrain_height_16bit.png) |
+| Height | Min/Max � the values used to transform the value [0,1] stored in the heightmap to meters. |
 | Attenuation Distance | Distance of the transparency attenuation, starting from the edge of the map. |
 | Height opacity | Sets the height opacity map and channel where data is stored. |
 | Opacity Lossy Compression | Enables lossy compression. |
-| Blending mode | - *[Alpha-Blend](../../../../principles/render/blending/index.md#id_2)* — the colors of the heightmap of this layer map and the underlying one are blended. - *[Additive](../../../../principles/render/blending/index.md#id_8)* — data of the layer map is added atop. |
+| Blending mode | - *[Alpha-Blend](../../../../principles/render/blending/index.md#id_2)* � the colors of the heightmap of this layer map and the underlying one are blended. - *[Additive](../../../../principles/render/blending/index.md#id_8)* � data of the layer map is added atop. |
 
 
 ### Albedo
@@ -248,11 +248,11 @@ Import settings:
 
 | Lossy Compression | Enables lossy compression. |
 |---|---|
-| Albedo Data | - *None* — no data of this type is available at all. - *Only Albedo* — load the specified albedo data as is. In this case, data of this layer will always overlap data of underlying layers. - *Albedo with Opacity* — load the specified albedo map with an additional opacity mask applied. The mode is useful for blending albedo data with data of underlying layers. |
+| Albedo Data | - *None* � no data of this type is available at all. - *Only Albedo* � load the specified albedo data as is. In this case, data of this layer will always overlap data of underlying layers. - *Albedo with Opacity* � load the specified albedo map with an additional opacity mask applied. The mode is useful for blending albedo data with data of underlying layers. |
 | Albedo Color | Albedo color image. |
 | Attenuation Distance | Distance of the transparency attenuation, starting from the edge of the map. |
 | Albedo opacity | Sets the albedo opacity map and channel where data is stored. |
-| Albedo Blending | - *[Alpha-Blend](../../../../principles/render/blending/index.md#id_2)* — the colors of this layer map and the underlying one are blended. - *[Additive](../../../../principles/render/blending/index.md#id_8)* — data of the layer map is added atop. - *[Overlay](../../../../principles/render/blending/index.md#id_1)* — added data replaces the data below it. - *[Multiplicative](../../../../principles/render/blending/index.md#id_9)* — the albedo colors are multiplied. |
+| Albedo Blending | - *[Alpha-Blend](../../../../principles/render/blending/index.md#id_2)* � the colors of this layer map and the underlying one are blended. - *[Additive](../../../../principles/render/blending/index.md#id_8)* � data of the layer map is added atop. - *[Overlay](../../../../principles/render/blending/index.md#id_1)* � added data replaces the data below it. - *[Multiplicative](../../../../principles/render/blending/index.md#id_9)* � the albedo colors are multiplied. |
 
 
 ### Masks
@@ -267,11 +267,11 @@ Import settings:
 | Lossy Compression | Enables lossy compression. |
 |---|---|
 | Name | The mask name, which is synchronized with the current active [ObjectLandscapeTerrain](../../../../objects/objects/terrain/landscape_terrain/index.md#details). On change, no reimport required. > **Notice:** Names of masks are stored by *Landscape Terrain* objects, i.e. names shown in the parameters of a *Landscape Layer Map* will change in correspondence with the current enabled *Landscape Terrain*. |
-| Data | - *None* — no data of this type is available at all. - *Only Mask* — load the specified texture as is. In this case, data of this layer will always overlap data of underlying layers. - *Mask with Opacity* — load the specified mask with an additional opacity mask applied. The mode is useful for blending the mask with data of underlying layers. |
+| Data | - *None* � no data of this type is available at all. - *Only Mask* � load the specified texture as is. In this case, data of this layer will always overlap data of underlying layers. - *Mask with Opacity* � load the specified mask with an additional opacity mask applied. The mode is useful for blending the mask with data of underlying layers. |
 | Color | The image and its channel to be applied as mask to the *LandscapeLayerMap*. > **Notice:** Instead of specifying a single-color image for the mask, you can set the [**Default Value**](../../../../objects/objects/terrain/landscape_terrain/index.md#mask_default_value) for it and avoid excessive data loading. |
 | Attenuation Distance | Distance of the transparency attenuation, starting from the edge of the map. |
 | Opacity | Sets the opacity map and channel where data is stored. |
-| Blending | Mode of blending this detail layer with other data layers: - *[Alpha-Blend](../../../../principles/render/blending/index.md#id_2)* — the corresponding masks of this layer map and the underlying one are blended. - *[Additive](../../../../principles/render/blending/index.md#id_8)* — data of the layer map is added atop. - *[Overlay](../../../../principles/render/blending/index.md#id_1)* — added data replaces the data below it. - *[Multiplicative](../../../../principles/render/blending/index.md#id_9)* — the colors of the masks are multiplied. |
+| Blending | Mode of blending this detail layer with other data layers: - *[Alpha-Blend](../../../../principles/render/blending/index.md#id_2)* � the corresponding masks of this layer map and the underlying one are blended. - *[Additive](../../../../principles/render/blending/index.md#id_8)* � data of the layer map is added atop. - *[Overlay](../../../../principles/render/blending/index.md#id_1)* � added data replaces the data below it. - *[Multiplicative](../../../../principles/render/blending/index.md#id_9)* � the colors of the masks are multiplied. |
 
 
 > **Notice:** Enter the *Masks Debug* mode by using the **[Landscape Masks](../../../../editor2/using_visual_helpers/index.md#landscape_masks)** helper in the Editor or via the `render_show_landscape_mask N` console command, where *N* is the index of a mask from 1 to 20.

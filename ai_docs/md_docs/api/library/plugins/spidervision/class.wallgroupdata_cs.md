@@ -38,13 +38,6 @@ The
 ## ViewportData.DISPLAY_TRANSFORM_TYPE TransformType
 
 The
-### Members
+## float PixelDensity
 
----
-
-## void Generate ( )
-
-Generates a group of viewports using the [createViewport()](../../../../api/library/plugins/spidervision/class.displaysconfig_cs.md#createViewport_int_ViewportData) method.
-## void Refresh ( )
-
-Updates the viewports' position and orientation based on the specified [size](#setSize_ivec2_void), [offset](#setOffset_vec2_void), [distance to viewer](#setDistanceToViewer_float_void), and [angle](#setAngle_float_void) values.
+The pixel density assigned to the viewports of the generated group, in pixels per meter: the render texture size is calculated automatically from the physical screen dimensions and the specified pixel density, preserving the correct aspect ratio. The default value is 1200.

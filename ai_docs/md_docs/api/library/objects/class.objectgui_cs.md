@@ -41,13 +41,13 @@ The physical height of the gui object.
 The physical width of the gui object.
 ## float PolygonOffset
 
-The offset of the gui object above the background to avoid z-fighting.
+The offset of the gui object above the background to avoid z-fighting. If a negative value is provided, 0 will be used instead.
 ## float ControlDistance
 
 The distance at which the gui becomes controllable.
 ## int MouseMode
 
-The current mouse mode.
+The mouse mode. One of the [MOUSE_*](#MOUSE_VIRTUAL) variables.
 ## bool MouseShow
 
 The value indicating if the mouse cursor is rendered in the gui object.

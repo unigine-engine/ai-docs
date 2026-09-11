@@ -120,13 +120,16 @@ Current total number of handlers.
 
 ## void engine.visualizer. clear ( )
 
+
 Clears all internal primitives created by calls to *renderSmth* functions. These primitives are accumulated in the internal buffer and then rendered together.
+
+
 > **Notice:** This method can be used to render several viewports with visualizer.
 
 
 ## void engine.visualizer. renderPoint2D ( vec2 v , float size , vec4 color , float order = 0.0f , float duration = 0.0f )
 
-Renders a 2D point of a given size and color. 2D points are rendered in the screen plane; coordinates of the upper left corner are (0; 0), of the lower right corner—(1; 1).
+Renders a 2D point of a given size and color. 2D points are rendered in the screen plane; coordinates of the upper left corner are (0; 0), of the lower right corner�(1; 1).
 ### Arguments
 
 - *vec2* **v** - Point coordinates.
@@ -148,11 +151,11 @@ Renders a 3D point of a given size and color. 3D points are rendered in the worl
   - **false** - use the world space dimensions
   - **true** - use the screen space dimensions
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** — to disable it.
+- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** � to disable it.
 
 ## void engine.visualizer. renderLine2D ( vec2 v0 , vec2 v1 , vec4 color , float order = 0.0f , float duration = 0.0f )
 
-Renders a 2D line of a given color. 2D lines are rendered in the screen plane; coordinates of the upper left corner are **(0; 0)**, of the lower right corner — **(1; 1)**.
+Renders a 2D line of a given color. 2D lines are rendered in the screen plane; coordinates of the upper left corner are **(0; 0)**, of the lower right corner � **(1; 1)**.
 ### Arguments
 
 - *vec2* **v0** - Starting point of the line.
@@ -170,11 +173,11 @@ Renders a 3D line of a given color. 3D lines are rendered in the world space.
 - *Vec3* **v1** - Ending point of the line.
 - *vec4* **color** - Line color.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** — to disable it.
+- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** � to disable it.
 
 ## void engine.visualizer. renderLine2D ( vec2 v0 , vec2 v1 , vec2 v2 , vec4 color , float order = 0.0f , float duration = 0.0f )
 
-Renders a 2D line of a given color by using 3 points. 2D lines are rendered in the screen plane; coordinates of the upper left corner are **(0; 0)**, of the lower right corner — **(1; 1)**.
+Renders a 2D line of a given color by using 3 points. 2D lines are rendered in the screen plane; coordinates of the upper left corner are **(0; 0)**, of the lower right corner � **(1; 1)**.
 ### Arguments
 
 - *vec2* **v0** - Coordinates of the starting point of the line.
@@ -194,11 +197,11 @@ Renders a 3D line of a given color. 3D lines are rendered in the world space.
 - *Vec3* **v2** - Coordinates of the ending point of the line.
 - *vec4* **color** - Line color.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** — to disable it.
+- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** � to disable it.
 
 ## void engine.visualizer. renderLine2D ( vec2 v0 , vec2 v1 , vec2 v2 , vec2 v3 , vec4 color , float order = 0.0f , float duration = 0.0f )
 
-Renders a 2D line of a given color. 2D lines are rendered in the screen plane; coordinates of the upper left corner are **(0; 0)**, of the lower right corner — **(1; 1)**.
+Renders a 2D line of a given color. 2D lines are rendered in the screen plane; coordinates of the upper left corner are **(0; 0)**, of the lower right corner � **(1; 1)**.
 ### Arguments
 
 - *vec2* **v0** - Coordinates of the starting point of the line.
@@ -220,11 +223,11 @@ Renders a 3D line of a given color. 3D lines are rendered in the world space.
 - *Vec3* **v3** - Coordinates of the ending point of the line.
 - *vec4* **color** - Color, in which the line will be rendered.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** — to disable it.
+- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** � to disable it.
 
 ## void engine.visualizer. renderTriangle2D ( vec2 v0 , vec2 v1 , vec2 v2 , vec4 color , float order = 0.0f , float duration = 0.0f )
 
-Renders a 2D triangle of a given color. 2D triangles are rendered in the screen plane; coordinates of the upper left corner are **(0; 0)**, of the lower right corner—**(1; 1)**.
+Renders a 2D triangle of a given color. 2D triangles are rendered in the screen plane; coordinates of the upper left corner are **(0; 0)**, of the lower right corner�**(1; 1)**.
 ### Arguments
 
 - *vec2* **v0** - Coordinates of the first vertex.
@@ -244,11 +247,11 @@ Renders a 3D triangle of a given color. 3D triangles are rendered in the world s
 - *Vec3* **v2** - Coordinates of the third vertex.
 - *vec4* **color** - Triangle color.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** — to disable it.
+- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** � to disable it.
 
 ## void engine.visualizer. renderQuad2D ( vec2 v0 , vec2 v1 , vec2 v2 , vec2 v3 , vec4 color , float order = 0.0f , float duration = 0.0f )
 
-Renders a 2D quad of a given color. 2D quads are rendered in the screen plane; coordinates of the upper left corner are **(0; 0)**, of the lower right corner—**(1; 1)**.
+Renders a 2D quad of a given color. 2D quads are rendered in the screen plane; coordinates of the upper left corner are **(0; 0)**, of the lower right corner�**(1; 1)**.
 ### Arguments
 
 - *vec2* **v0** - Coordinates of the first vertex.
@@ -270,7 +273,7 @@ Renders a 3D quad of a given color. 3D quads are rendered in the world space.
 - *Vec3* **v3** - Coordinates of the fourth vertex.
 - *vec4* **color** - Color, in which the quad will be rendered.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** — to disable it.
+- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** � to disable it.
 
 ## void engine.visualizer. renderBillboard3D ( Vec3 v , float size , vec4 texcoord , int screen_space = false , float duration = 0.0f , int depth_test = true )
 
@@ -290,7 +293,7 @@ Renders a 3D billboard of the specified size. You can customize billboard image 
   - **false** - use the world space dimensions
   - **true** - use the screen space dimensions
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** — to disable it.
+- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** � to disable it.
 
 ## void engine.visualizer. renderVector ( Vec3 position_start , Vec3 position_end , vec4 color , float arrow_size = 0.25f , int screen_space = false , float duration = 0.0f , int depth_test = true )
 
@@ -306,7 +309,7 @@ Renders a vector of a given color.
   - **false** - use the world space dimensions
   - **true** - use the screen space dimensions
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** — to disable it.
+- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** � to disable it.
 
 ## void engine.visualizer. renderDirection ( Vec3 position , vec3 direction , vec4 color , float arrow_size = 0.25f , int screen_space = true , float duration = 0.0f , int depth_test = true )
 
@@ -322,7 +325,7 @@ Renders a direction vector of a given color.
   - **false** - use the world space dimensions
   - **true** - use the screen space dimensions
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** — to disable it.
+- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** � to disable it.
 
 ## void engine.visualizer. renderBox ( vec3 size , Mat4 transform , vec4 color , float duration = 0.0f , int depth_test = true )
 
@@ -333,7 +336,7 @@ Renders a box of a given color.
 - *Mat4* **transform** - Transformation matrix, which is used to position the box.
 - *vec4* **color** - Color, in which the box will be rendered.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** — to disable it.
+- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** � to disable it.
 
 ## void engine.visualizer. renderFrustum ( mat4 projection , Mat4 transform , vec4 color , float duration = 0.0f , int depth_test = true )
 
@@ -344,7 +347,7 @@ Renders a wireframe frustum of a given color.
 - *Mat4* **transform** - Transformation matrix used to position the frustum.
 - *vec4* **color** - Color, in which the frustum will be rendered.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** — to disable it.
+- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** � to disable it.
 
 ## void engine.visualizer. renderCircle ( float radius , Mat4 transform , vec4 color , float duration = 0.0f , int depth_test = true )
 
@@ -355,7 +358,7 @@ Renders a wireframe circle of a given color.
 - *Mat4* **transform** - Transformation matrix used to position the circle.
 - *vec4* **color** - Circle color.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** — to disable it.
+- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** � to disable it.
 
 ## void engine.visualizer. renderSector ( float radius , float angle , Mat4 transform , vec4 color , float duration = 0.0f , int depth_test = true )
 
@@ -367,7 +370,7 @@ Renders a wireframe sector of a given color.
 - *Mat4* **transform** - Transformation matrix used to position the sector.
 - *vec4* **color** - Sector color.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** — to disable it.
+- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** � to disable it.
 
 ## void engine.visualizer. renderCone ( float radius , float angle , Mat4 transform , vec4 color , float duration = 0.0f , int depth_test = true )
 
@@ -379,7 +382,7 @@ Renders a wireframe cone of a given color.
 - *Mat4* **transform** - Transformation matrix used to position the cone.
 - *vec4* **color** - Color, in which the cone will be rendered.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** — to disable it.
+- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** � to disable it.
 
 ## void engine.visualizer. renderSphere ( float radius , Mat4 transform , vec4 color , float duration = 0.0f , int depth_test = true )
 
@@ -390,7 +393,7 @@ Renders a sphere in a given color.
 - *Mat4* **transform** - Transformation matrix used to position the sphere.
 - *vec4* **color** - Color, in which the sphere will be rendered.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** — to disable it.
+- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** � to disable it.
 
 ## void engine.visualizer. renderCapsule ( float radius , float height , Mat4 transform , vec4 color , float duration = 0.0f , int depth_test = true )
 
@@ -402,7 +405,7 @@ Renders a wireframe capsule (capped cylinder) of a given color.
 - *Mat4* **transform** - Transformation matrix used to position the capsule.
 - *vec4* **color** - Capsule color.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** — to disable it.
+- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** � to disable it.
 
 ## void engine.visualizer. renderCylinder ( float radius , float height , Mat4 transform , vec4 color , float duration = 0.0f , int depth_test = true )
 
@@ -414,7 +417,7 @@ Renders a wireframe cylinder of a given color.
 - *Mat4* **transform** - Transformation matrix used to position the cylinder.
 - *vec4* **color** - Cylinder color.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** — to disable it.
+- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** � to disable it.
 
 ## void engine.visualizer. renderEllipse ( vec3 radius , Mat4 transform , vec4 color , float duration = 0.0f , int depth_test = true )
 
@@ -425,7 +428,7 @@ Renders a wireframe ellipse of a given color.
 - *Mat4* **transform** - Transformation matrix for the ellipse.
 - *vec4* **color** - Ellipse color.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** — to disable it.
+- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** � to disable it.
 
 ## void engine.visualizer. renderSolidBox ( vec3 size , Mat4 transform , vec4 color , float duration = 0.0f , int depth_test = true )
 
@@ -436,7 +439,7 @@ Renders a solid box of a given color.
 - *Mat4* **transform** - Transformation matrix used to position the solid box.
 - *vec4* **color** - Box color.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** — to disable it.
+- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** � to disable it.
 
 ## void engine.visualizer. renderSolidSphere ( float radius , Mat4 transform , vec4 color , float duration = 0.0f , int depth_test = true )
 
@@ -447,7 +450,7 @@ Renders a solid sphere of a given color.
 - *Mat4* **transform** - Transformation matrix used to position the solid sphere.
 - *vec4* **color** - Sphere color.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** — to disable it.
+- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** � to disable it.
 
 ## void engine.visualizer. renderSolidCapsule ( float radius , float height , Mat4 transform , vec4 color , float duration = 0.0f , int depth_test = true )
 
@@ -459,7 +462,7 @@ Renders a solid capsule af a given color.
 - *Mat4* **transform** - Transformation matrix used to position the capsule.
 - *vec4* **color** - Capsule color.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** — to disable it.
+- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** � to disable it.
 
 ## void engine.visualizer. renderSolidCylinder ( float radius , float height , Mat4 transform , vec4 color , float duration = 0.0f , int depth_test = true )
 
@@ -471,7 +474,7 @@ Renders a solid cylinder of a given color.
 - *Mat4* **transform** - Transformation matrix used to position the cylinder.
 - *vec4* **color** - Cylinder color.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** — to disable it.
+- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** � to disable it.
 
 ## void engine.visualizer. renderSolidEllipse ( vec3 radius , Mat4 transform , vec4 color , float duration = 0.0f , int depth_test = true )
 
@@ -482,7 +485,7 @@ Renders a solid ellipse of a given color.
 - *Mat4* **transform** - Transformation matrix used to position the ellipse.
 - *vec4* **color** - Ellipse color.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** — to disable it.
+- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** � to disable it.
 
 ## void engine.visualizer. renderRectangle ( vec4 rectangle , vec4 color , float duration = 0.0f )
 
@@ -502,7 +505,7 @@ Renders the bounding box of a given color.
 - *Mat4* **transform** - Transformation matrix for the bounding box.
 - *vec4* **color** - Color, in which the box will be rendered.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** — to disable it.
+- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** � to disable it.
 
 ## void engine.visualizer. renderBoundSphere ( BoundSphere bs , Mat4 transform , vec4 color , float duration = 0.0f , int depth_test = true )
 
@@ -513,7 +516,7 @@ Renders the bounding sphere of a given color.
 - *Mat4* **transform** - Transformation matrix for the bounding sphere.
 - *vec4* **color** - Color, in which the sphere will be rendered.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** — to disable it.
+- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** � to disable it.
 
 ## void engine.visualizer. renderNodeBoundBox ( Node node , vec4 color , float duration = 0.0f , int depth_test = true )
 
@@ -523,7 +526,7 @@ Renders an axis-aligned bound box of a given node.
 - *[Node](../../../api/library/nodes/class.node_usc.md)* **node** - Node, for which the bound box is rendered.
 - *vec4* **color** - Color, in which the box will be rendered.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** — to disable it.
+- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** � to disable it.
 
 ## void engine.visualizer. renderNodeBoundSphere ( Node node , vec4 color , float duration = 0.0f , int depth_test = true )
 
@@ -533,7 +536,7 @@ Renders a bound sphere of a given node.
 - *[Node](../../../api/library/nodes/class.node_usc.md)* **node** - Node, for which the bound sphere is rendered.
 - *vec4* **color** - Color, in which the sphere will be rendered.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** — to disable it.
+- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** � to disable it.
 
 ## void engine.visualizer. renderObjectSurfaceBoundBox ( Object object , int surface , vec4 color , float duration = 0.0f , int depth_test = true )
 
@@ -544,7 +547,7 @@ Renders a bound box of a given object surface.
 - *int* **surface** - The number of the target surface in the object.
 - *vec4* **color** - Color, in which the box will be rendered.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** — to disable it.
+- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** � to disable it.
 
 ## void engine.visualizer. renderObjectSurfaceBoundSphere ( Object object , int surface , vec4 color , float duration = 0.0f , int depth_test = true )
 
@@ -555,7 +558,7 @@ Renders a bound sphere of a given object surface.
 - *int* **surface** - The number of the target surface in the object.
 - *vec4* **color** - Color, in which the sphere will be rendered.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** — to disable it.
+- *int* **depth_test** - **1** to enable depth testing for the element (if it should be obscured by elements closer to the camera); **0** � to disable it.
 
 ## void engine.visualizer. renderNodeHandler ( Node node , float duration = 0.0f )
 
@@ -631,7 +634,10 @@ Renders a message in a given color. Message position is specified in world coord
 
 ## Node engine.visualizer. getHandlerNode ( int num )
 
+
 Returns the handler node by its index.
+
+
 > **Notice:** The handler index may change every frame depending on the camera transforms (i.e. how many handlers are visible in the current frame), therefore it is not recommended to save and reuse this value.
 
 
@@ -652,3 +658,17 @@ Returns the handler icon size in units by its index. This value may be affected 
 ### Return value
 
 The handler icon size, in units.
+## void engine.visualizer. clearNodeTypeIcons ( )
+
+Removes all custom per-node-type handler icons set via **[setNodeTypeIcon()()](../../...md#setNodeTypeIcon_int_cstr_int)**, so all node handlers revert to the default icon.
+## int engine.visualizer. setNodeTypeIcon ( int type , string path )
+
+Replaces the billboard icon the visualizer draws for node handlers of the given node type (the per-node icons shown when visualizer node handlers are enabled). Node types without a custom icon keep the default handler icon.
+### Arguments
+
+- *int* **type** - Node type, one of the *Node::TYPE* values.
+- *string* **path** - Path to the icon image file.
+
+### Return value
+
+true if the icon is set successfully; otherwise, false (the type is out of range or the image cannot be loaded).

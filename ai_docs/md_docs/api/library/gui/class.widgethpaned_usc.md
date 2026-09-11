@@ -19,8 +19,6 @@ This widget should contain exactly two children. If fewer children are provided,
 
 ## WidgetHPaned Class
 
-### Members
-
 ---
 
 ## static WidgetHPaned ( Gui gui )

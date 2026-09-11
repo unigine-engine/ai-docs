@@ -23,31 +23,31 @@ This class is used to simulate [water body](../../../principles/physics/bodies/w
 
 ## float Liquidity
 
-The current fluidity of the water.
-## int Intersection
+The fluidity of the water.
+## bool Intersection
 
-The A value indicating if intersection with the ground is enabled. the ground should be a parent node.
+The value indicating if intersection with the ground is enabled. the ground should be a parent node.
 ## float InteractionForce
 
-The current interaction force that determines how much velocity values of water and objects that get into it are leveled.
+The interaction force that determines how much velocity values of water and objects that get into it are leveled.
 ## float LinearDamping
 
-The current value indicating how much the linear velocity of the objects decreases when they get into the water.
+The value indicating how much the linear velocity of the objects decreases when they get into the water.
 ## float AngularDamping
 
-The current value indicating how much the angular velocity of the objects decreases when they get into the water.
+The value indicating how much the angular velocity of the objects decreases when they get into the water.
 ## float Distance
 
-The current distance of water simulation. it does not interfere with objects buoyancy.
+The distance of water simulation. it does not interfere with objects buoyancy.
 ## float Depth
 
-The current depth of the water (unless [intersection](#setIntersection_int_void) has occurred).
+The depth of the water (unless intersection has occurred).
 ## float Density
 
-The current density of the water that determines objects buoyancy.
-## int Absorption
+The density of the water that determines objects buoyancy.
+## bool Absorption
 
-The A value indicating if the waves are dispersed along the mesh perimeter.
+The value indicating if the waves are dispersed along the mesh perimeter.
 ### Members
 
 ---

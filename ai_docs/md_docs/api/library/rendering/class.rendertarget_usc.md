@@ -10,6 +10,18 @@ A container to which an image is rendered (a [framebuffer](https://en.wikipedia.
 
 ### Members
 
+## int isCompleted () const
+
+Returns the current value indicating if the render target is completed.
+### Return value
+
+Current render target is completed
+## int isEnabled () const
+
+Returns the current value indicating if the render target is enabled.
+### Return value
+
+Current render target is enabled
 ---
 
 ## static RenderTarget ( )
@@ -185,7 +197,7 @@ Binds all layers and faces (if supported by the texture type) of a texture on th
 - *int* **slot** - Texture slot.
 - *[Texture](../../../api/library/rendering/class.texture_usc.md)* **texture** - Unordered access texture to be bound.
 - *int* **writeonly** - Access flag. **1** to use the texture for writing only, otherwise **0**.
-- *int* **atomic** - Set **1** to bind the texture with the *GL_32UI* format; otherwise — **0**. This flag is to be set for Vulkan only.
+- *int* **atomic** - Set **1** to bind the texture with the *GL_32UI* format; otherwise � **0**. This flag is to be set for Vulkan only.
 
 ## void bindUnorderedAccessTexture2D ( int slot , Texture texture , int writeonly = false , int atomic = false , int mip = 0 )
 
@@ -195,7 +207,7 @@ Binds a 2D texture on the specified mipmap level to the specified slot for unord
 - *int* **slot** - Texture slot.
 - *[Texture](../../../api/library/rendering/class.texture_usc.md)* **texture** - Unordered access 2D texture to be bound.
 - *int* **writeonly** - Access flag. **1** to use the texture for writing only, otherwise **0**.
-- *int* **atomic** - Set **1** to bind the texture with the *GL_32UI* format; otherwise — **0**. This flag is to be set for Vulkan only.
+- *int* **atomic** - Set **1** to bind the texture with the *GL_32UI* format; otherwise � **0**. This flag is to be set for Vulkan only.
 - *int* **mip** - Mipmap level number in the range from **0** to the [total number of mipmaps](../../../api/library/rendering/class.texture_usc.md#getNumMipmaps_int).
 
 ## void bindUnorderedAccessTexture2DArray ( int slot , Texture texture , int writeonly = false , int atomic = false , int layer = -1 , int mip = 0 )
@@ -206,7 +218,7 @@ Binds the specified layer of a 2D texture array on the specified mipmap level to
 - *int* **slot** - Texture slot.
 - *[Texture](../../../api/library/rendering/class.texture_usc.md)* **texture** - Unordered access 2D texture array to be bound.
 - *int* **writeonly** - Access flag. **1** to use the texture for writing only, otherwise **0**.
-- *int* **atomic** - Set **1** to bind the texture with the *GL_32UI* format; otherwise — **0**. This flag is to be set for Vulkan only.
+- *int* **atomic** - Set **1** to bind the texture with the *GL_32UI* format; otherwise � **0**. This flag is to be set for Vulkan only.
 - *int* **layer** - Number of the 2D texture array layer. With the default value of -1, all layers of the texture on a specified mip level are bound.
 - *int* **mip** - Mipmap level number in the range from **0** to the [total number of mipmaps](../../../api/library/rendering/class.texture_usc.md#getNumMipmaps_int).
 
@@ -218,7 +230,7 @@ Binds the specified face of a texture cube on the specified mipmap level to the 
 - *int* **slot** - Texture slot.
 - *[Texture](../../../api/library/rendering/class.texture_usc.md)* **texture** - Unordered access texture cube to be bound.
 - *int* **writeonly** - Access flag. **1** to use the texture for writing only, otherwise **0**.
-- *int* **atomic** - Set **1** to bind the texture with the *GL_32UI* format; otherwise — **0**. This flag is to be set for Vulkan only.
+- *int* **atomic** - Set **1** to bind the texture with the *GL_32UI* format; otherwise � **0**. This flag is to be set for Vulkan only.
 - *int* **face** - The face of the cube. With the default value of -1, all faces of the texture on a specified mip level are bound.
 - *int* **mip** - Mipmap level number in the range from **0** to the [total number of mipmaps](../../../api/library/rendering/class.texture_usc.md#getNumMipmaps_int).
 
@@ -230,7 +242,7 @@ Binds the specified layer and face of a texture cube on the specified mipmap lev
 - *int* **slot** - Texture slot.
 - *[Texture](../../../api/library/rendering/class.texture_usc.md)* **texture** - Unordered access texture cube array to be bound.
 - *int* **writeonly** - Access flag. **1** to use the texture for writing only, otherwise **0**.
-- *int* **atomic** - Set **1** to bind the texture with the *GL_32UI* format; otherwise — **0**. This flag is to be set for Vulkan only.
+- *int* **atomic** - Set **1** to bind the texture with the *GL_32UI* format; otherwise � **0**. This flag is to be set for Vulkan only.
 - *int* **layer** - Number of the texture cube array layer.
 - *int* **face** - The face of the cube. With the default value of -1, all faces of the texture on a specified mip level are bound.
 - *int* **mip** - Mipmap level number in the range from **0** to the [total number of mipmaps](../../../api/library/rendering/class.texture_usc.md#getNumMipmaps_int).
@@ -243,7 +255,7 @@ Binds the specified layer of a 3D texture on the specified mipmap level to the s
 - *int* **slot** - Texture slot.
 - *[Texture](../../../api/library/rendering/class.texture_usc.md)* **texture** - Unordered access 3D texture to be bound.
 - *int* **writeonly** - Access flag. **1** to use the texture for writing only, otherwise **0**.
-- *int* **atomic** - Set **1** to bind the texture with the *GL_32UI* format; otherwise — **0**. This flag is to be set for Vulkan only.
+- *int* **atomic** - Set **1** to bind the texture with the *GL_32UI* format; otherwise � **0**. This flag is to be set for Vulkan only.
 - *int* **depth** - 3D texture depth layer. With the default value of -1, all depth layers of the texture on a specified mip level are bound.
 - *int* **mip** - Mipmap level number in the range from **0** to the [total number of mipmaps](../../../api/library/rendering/class.texture_usc.md#getNumMipmaps_int).
 
@@ -285,18 +297,6 @@ Unbinds a structured buffer for unordered access resources.
 ## void unbindStructuredBuffers ( )
 
 Unbinds all structured buffers for unordered access resources.
-## int isEnabled ( )
-
-Returns a value indicating if the render target is enabled.
-### Return value
-
-**1** if the render target is enabled, otherwise **0**.
-## int isCompleted ( )
-
-Returns a value indicating if the render target is completed.
-### Return value
-
-**1** if the render target is completed, otherwise **0**.
 ## void unbindAll ( )
 
 Unbinds all color, depth, and unordered access textures as well as structured buffers.

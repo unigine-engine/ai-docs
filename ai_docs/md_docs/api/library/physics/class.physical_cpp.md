@@ -12,18 +12,16 @@ This class is used to create physicals that represent an invisible force acting 
 
 ### Members
 
----
-
 ## void setPhysicalMask ( int mask )
 
-Sets the bit mask for physical interactions. The Physical object will interact with the other object if they both have matching masks.
+Sets a new bit mask for physical interactions. the physical object will interact with the other object if they both have matching masks.
 ### Arguments
 
-- *int* **mask** - An integer value, each bit of which is used to set a bit mask.
+- *int* **mask** - The bit mask for physical interactions
 
-## int getPhysicalMask ( )
+## int getPhysicalMask () const
 
-Returns the bit mask for physical interactions. The Physical object will interact with the other object if they both have matching masks.
+Returns the current bit mask for physical interactions. the physical object will interact with the other object if they both have matching masks.
 ### Return value
 
-An integer value, each bit of which is used to set a bit mask.
+Current bit mask for physical interactions

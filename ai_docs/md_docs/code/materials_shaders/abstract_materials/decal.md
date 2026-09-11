@@ -68,7 +68,7 @@ The abstract material for decals has features implemented as internal states tha
 | Editable: | false |
 | Default: | **false** |
 | tbn_mode ( State ) |  |
-| Description: | Defines the tangent space (*Tangent-Binormal-Normal* matrix) used for normal mapping: - **Take From Decal Mesh** (0) — normals of the decal mesh (for *Mesh* decals) or plane (for *Orthographic* and *Projected* decals) are used; - **Up Direction of Decal** (1) — decal's local up vector is used; - **GBuffer Normal** (2) — normals from the screen *normal* buffer are used; - **GBuffer Depth Based Normal** (3) — normals are constructed based on the screen *depth* buffer content. Unlike *GBuffer Normal*, this option provides unaltered normals as they are presented in the scene geometry. |
+| Description: | Defines the tangent space (*Tangent-Binormal-Normal* matrix) used for normal mapping: - **Take From Decal Mesh** (0) � normals of the decal mesh (for *Mesh* decals) or plane (for *Orthographic* and *Projected* decals) are used; - **Up Direction of Decal** (1) � decal's local up vector is used; - **GBuffer Normal** (2) � normals from the screen *normal* buffer are used; - **GBuffer Depth Based Normal** (3) � normals are constructed based on the screen *depth* buffer content. Unlike *GBuffer Normal*, this option provides unaltered normals as they are presented in the scene geometry. |
 | Editable: | false |
 | Default: | **0** |
 | material_mask ( Mask24 ) |  |
@@ -103,7 +103,7 @@ Using the following structures you can get access to the base and user data in t
 
 | Name | Arguments | Description |
 |---|---|---|
-| INIT_USER_DATA | **TYPE** — type of the user data **NAME** — name of the user data | Initializes user data that will be interpolated between vertices and passed through the shader pipeline. |
+| INIT_USER_DATA | **TYPE** � type of the user data **NAME** � name of the user data | Initializes user data that will be interpolated between vertices and passed through the shader pipeline. |
 
 
 ### vertex
@@ -125,11 +125,11 @@ Performs operations (e.g., transformations) on individual vertices received from
 | VERTEX_IN_GAME_TIME | float | Current game time that relates to Game::setScale and Game::setIFps. Updates automatically to correctly calculate velocity. |
 | VERTEX_IN_POSITION | float3 | Vertex position in object space. |
 | VERTEX_IN_UV | float4 | Vertex projected UV. |
-| VERTEX_IN_COLOR | float4 | Color of the vertex. Constant value — float4(1, 1, 1, 1) (only for DecalProj and DecalOrtho). |
-| VERTEX_IN_BASIS | float4 | Vertex encoded basis, use getTangentBasis(). Constant value — float4(0, 0, 0, -1) (only for DecalProj and DecalOrtho). |
-| VERTEX_IN_TANGENT | float3 | Vertex object space tangent. Constant value — float3(1, 0, 0) (only for DecalProj and DecalOrtho). |
-| VERTEX_IN_BINORMAL | float3 | Vertex object space binormal. Constant value — float3(0, -1, 0) (only for DecalProj and DecalOrtho). |
-| VERTEX_IN_NORMAL | float3 | Vertex object space normal. Constant value — float3(0, 0, 1) (only for DecalProj and DecalOrtho). |
+| VERTEX_IN_COLOR | float4 | Color of the vertex. Constant value � float4(1, 1, 1, 1) (only for DecalProj and DecalOrtho). |
+| VERTEX_IN_BASIS | float4 | Vertex encoded basis, use getTangentBasis(). Constant value � float4(0, 0, 0, -1) (only for DecalProj and DecalOrtho). |
+| VERTEX_IN_TANGENT | float3 | Vertex object space tangent. Constant value � float3(1, 0, 0) (only for DecalProj and DecalOrtho). |
+| VERTEX_IN_BINORMAL | float3 | Vertex object space binormal. Constant value � float3(0, -1, 0) (only for DecalProj and DecalOrtho). |
+| VERTEX_IN_NORMAL | float3 | Vertex object space normal. Constant value � float3(0, 0, 1) (only for DecalProj and DecalOrtho). |
 
 
 #### Output Data
@@ -141,7 +141,7 @@ Performs operations (e.g., transformations) on individual vertices received from
 | DATA_TANGENT | float3 | Vertex tangent in view space |
 | DATA_BINORMAL | float3 | Vertex binormal in view space |
 | DATA_NORMAL | float3 | Vertex normal in view space |
-| DATA_UV | float4 | Contains a set of vertex UV coordinates. For DecalMesh: - **xy** — base UV - **zw** — lightmap UV For DecalProj/DecalOrtho: - **xy** — UV for current vertex - **zw** — 0, 0 |
+| DATA_UV | float4 | Contains a set of vertex UV coordinates. For DecalMesh: - **xy** � base UV - **zw** � lightmap UV For DecalProj/DecalOrtho: - **xy** � UV for current vertex - **zw** � 0, 0 |
 | DATA_COLOR | float4 | Vertex RGBA color |
 
 
@@ -160,7 +160,7 @@ Produces shading data for each interpolated pixel fragment.
 | DATA_BINORMAL | float3 | Tangent in view space. |
 | DATA_NORMAL | float3 | Binormal in view space. |
 | DATA_SIGN_BINORMAL | float | Sign of the binormal. |
-| DATA_UV | float4 | A set of UV coordinates. For DecalMesh: - **xy** — base UV - **zw** — lightmap UV For DecalProj/DecalOrtho: - **xy** — UV for current vertex - **zw** — 0, 0 |
+| DATA_UV | float4 | A set of UV coordinates. For DecalMesh: - **xy** � base UV - **zw** � lightmap UV For DecalProj/DecalOrtho: - **xy** � UV for current vertex - **zw** � 0, 0 |
 | DATA_COLOR | float4 | RGBA color. |
 | PROJECTED_NORMAL | float3 | Normal in view space. |
 | PROJECTED_POSITION | float3 | Fragment camera world space position. |

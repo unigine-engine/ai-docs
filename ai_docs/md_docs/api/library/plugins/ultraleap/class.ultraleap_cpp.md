@@ -38,158 +38,179 @@
 
 ### Members
 
----
-
 ## void setBackgroundUpdate ( bool update )
 
-Sets the value indicating whether the application is allowed to receive frames in the background. By default your UNIGINE application stops rendering frames and updating its main window, when it window goes out of focus (e.g. user switches to another window). Setting the background update mode enables constant rendering regardless of whether the application window is focused or in the background.
+Sets a new value indicating if the application is allowed to receive frames in the background. By default your UNIGINE application stops rendering frames and updating its main window, when its window goes out of focus (e.g. user switches to another window). Setting the background update mode enables constant rendering regardless of whether the application window is focused or in the background.
 ### Arguments
 
-- *bool* **update** - The window update mode: true for constantly repeating update cycle (i.e. the application is updated even if the window is hidden or out of focus); otherwise, false.
+- *bool* **update** - Set **true** to enable the application is allowed to receive frames in the background; **false** - to disable it.
 
-## bool isBackgroundUpdate ( ) const
+## bool isBackgroundUpdate () const
 
-Returns a value indicating whether the application is allowed to receive frames in the background.
+Returns the current value indicating if the application is allowed to receive frames in the background. By default your UNIGINE application stops rendering frames and updating its main window, when its window goes out of focus (e.g. user switches to another window). Setting the background update mode enables constant rendering regardless of whether the application window is focused or in the background.
 ### Return value
 
-**true** if the update cycle is constantly repeated (i.e. the application is updated even if the window is hidden or out of focus); otherwise, **false**.
+**true** if the application is allowed to receive frames in the background; otherwise **false**.
 ## void setStreamImages ( bool images )
 
-Enables or disables streaming of images.
+Sets a new value indicating if streaming of images is currently enabled.
 ### Arguments
 
-- *bool* **images** - true - to enable streaming of images; false - to disable it.
+- *bool* **images** - Set **true** to enable streaming of images is currently enabled; **false** - to disable it.
 
-## bool isStreamImages ( ) const
+## bool isStreamImages () const
 
-Returns a value indicating if streaming of images is currently enabled.
+Returns the current value indicating if streaming of images is currently enabled.
 ### Return value
 
-true if streaming of images is currently enabled; otherwise, false.
+**true** if streaming of images is currently enabled; otherwise **false**.
 ## void setPaused ( bool paused )
 
-Pauses or resumes the Ultraleap service.
+Sets a new value indicating if the Ultraleap service is currently paused.
 ### Arguments
 
-- *bool* **paused** - true - to pause the Ultraleap service; false - to resume it.
+- *bool* **paused** - Set **true** to enable the Ultraleap service is currently paused; **false** - to disable it.
 
-## bool isPaused ( ) const
+## bool isPaused () const
 
-Returns a value indicating if the Ultraleap service is currently paused.
+Returns the current value indicating if the Ultraleap service is currently paused.
 ### Return value
 
-true if the Ultraleap service is currently paused; otherwise, false.
+**true** if the Ultraleap service is currently paused; otherwise **false**.
 ## void setAllowPauseResume ( bool resume )
 
-Allows the application to pause and unpause the Ultraleap service.
+Sets a new value indicating if the application is allowed to pause and unpause the Ultraleap service.
 ### Arguments
 
-- *bool* **resume** - true — to allow the application pause and unpause the Ultraleap service; otherwise, false.
+- *bool* **resume** - Set **true** to enable the application is allowed to pause and unpause the Ultraleap service; **false** - to disable it.
 
-## bool isAllowPauseResume ( ) const
+## bool isAllowPauseResume () const
 
-Returns a value indicating if the application is allowed to pause and unpause the Ultraleap service.
+Returns the current value indicating if the application is allowed to pause and unpause the Ultraleap service.
 ### Return value
 
-true if the application is allowed to pause and unpause the Ultraleap service; otherwise, false.
+**true** if the application is allowed to pause and unpause the Ultraleap service; otherwise **false**.
 ## void setOptimizeMode ( Ultraleap::OPTIMIZE_MODE mode )
 
-Sets an optimization mode for tracking. Some policies can be denied if the user has disabled the feature on their Ultraleap control panel.
+Sets a new optimization mode set for tracking. One of the [OPTIMIZE_MODE_*](#OPTIMIZE_MODE_DISABLED) values. Some policies can be denied if the user has disabled the feature on their Ultraleap control panel.
 ### Arguments
 
-- *[Ultraleap::OPTIMIZE_MODE](../../../../api/library/plugins/ultraleap/class.ultraleap_cpp.md#OPTIMIZE_MODE)* **mode** - The optimization mode. One of the [UltraleapFinger::OPTIMIZE_MODE_*](#OPTIMIZE_MODE_DISABLED) values.
+- *[Ultraleap::OPTIMIZE_MODE](../../../../api/library/plugins/ultraleap/class.ultraleap_cpp.md#OPTIMIZE_MODE)* **mode** - The optimization mode set for tracking
 
-## Ultraleap::OPTIMIZE_MODE getOptimizeMode ( ) const
+## Ultraleap::OPTIMIZE_MODE getOptimizeMode () const
 
-Returns the current optimization mode set for tracking.
+Returns the current optimization mode set for tracking. One of the [OPTIMIZE_MODE_*](#OPTIMIZE_MODE_DISABLED) values. Some policies can be denied if the user has disabled the feature on their Ultraleap control panel.
 ### Return value
 
-The optimization mode. One of the [OPTIMIZE_MODE_*](#OPTIMIZE_MODE_DISABLED) values.
+Current optimization mode set for tracking
 ## void setTrackingMode ( Ultraleap::TRACKING_MODE mode )
 
-Sets the tracking mode.
+Sets a new tracking mode. One of the [TRACKING_MODE_*](#TRACKING_MODE_DESKTOP) values.
 ### Arguments
 
-- *[Ultraleap::TRACKING_MODE](../../../../api/library/plugins/ultraleap/class.ultraleap_cpp.md#TRACKING_MODE)* **mode** - The tracking mode. One of the [TRACKING_MODE_*](#TRACKING_MODE_DESKTOP) values.
+- *[Ultraleap::TRACKING_MODE](../../../../api/library/plugins/ultraleap/class.ultraleap_cpp.md#TRACKING_MODE)* **mode** - The tracking mode
 
-## Ultraleap::TRACKING_MODE getTrackingMode ( ) const
+## Ultraleap::TRACKING_MODE getTrackingMode () const
 
-Returns the current tracking mode.
+Returns the current tracking mode. One of the [TRACKING_MODE_*](#TRACKING_MODE_DESKTOP) values.
 ### Return value
 
-The tracking mode. One of the [TRACKING_MODE_*](#TRACKING_MODE_DESKTOP) values.
+Current tracking mode
 ## void setTrackingInterpolation ( bool interpolation )
 
-Toggles the tracking interpolation on and off.
+Sets a new value indicating if the tracking interpolation is enabled.
 ### Arguments
 
-- *bool* **interpolation** - true — to enable the tracking interpolation; otherwise, false.
+- *bool* **interpolation** - Set **true** to enable the tracking interpolation is enabled; **false** - to disable it.
 
-## bool isTrackingInterpolation ( ) const
+## bool isTrackingInterpolation () const
 
-Returns the value indicating if the tracking interpolation is enabled.
+Returns the current value indicating if the tracking interpolation is enabled.
 ### Return value
 
-true if the tracking interpolation is enabled; otherwise, false.
-## Ultraleap::CONNECTION_STATUS getConnectionStatus ( ) const
+**true** if the tracking interpolation is enabled; otherwise **false**.
+## Ultraleap::CONNECTION_STATUS getConnectionStatus () const
 
-Retuns the status of connection to the Ultraleap daemon/service.
+Returns the current status of connection to the Ultraleap daemon/service. One of the [CONNECTION_STATUS_*](#CONNECTION_STATUS_NOT_CONNECTED) values.
 ### Return value
 
-The connection status. One of the [CONNECTION_STATUS_*](#CONNECTION_STATUS_NOT_CONNECTED) values.
-## bool isStatusLowFPSDetected ( ) const
+Current status of connection to the Ultraleap daemon/service
+## bool isStatusLowFPSDetected () const
 
-Returns the value indicating if the service cannot receive frames fast enough from the underlying hardware.
+Returns the current value indicating if the service cannot receive frames fast enough from the underlying hardware.
 ### Return value
 
-true if the service cannot receive frames fast enough from the underlying hardware; otherwise, false.
-## bool isStatusPoorPerformancePause ( ) const
+**true** if the service cannot receive frames fast enough from the underlying hardware; otherwise **false**.
+## bool isStatusPoorPerformancePause () const
 
-Returns the value indicating if the service has paused itself due to an insufficient frame rate from the hardware.
+Returns the current value indicating if the service has paused itself due to an insufficient frame rate from the hardware.
 ### Return value
 
-true if the service has paused itself due to an insufficient frame rate from the hardware; otherwise, false.
-## bool isStatusTrackingErrorUnknown ( ) const
+**true** if the service has paused itself due to an insufficient frame rate from the hardware; otherwise **false**.
+## bool isStatusTrackingErrorUnknown () const
 
-Returns the value indicating if the service has failed to start tracking due to unknown reasons.
+Returns the current value indicating if the service has failed to start tracking due to unknown reasons.
 ### Return value
 
-true if the service has failed to start tracking due to unknown reasons; otherwise, false.
-## void setTrackingOffsetDefault ( const Math::Vec3& val )
+**true** if the service has failed to start tracking due to unknown reasons; otherwise **false**.
+## void setTrackingOffsetDefault ( const Math:: Vec3 & default )
 
-Sets the default offset for the newly connected device. The Y value specifies the offset from the eyes to the frontal camera plane, in meters, and the Z value — the offset from the eye level up to the camera level, in meters. The X value should be set to 0. These settings can be used to match the physical position and orientation of the Tracking Hardware on a tracked device it is mounted on (such as a VR headset).
+Sets a new virtual offset for the newly connected device. The Y value specifies the offset from the eyes to the frontal camera plane, in meters, and the Z value � the offset from the eye level up to the camera level, in meters. The X value should be set to 0. These settings can be used to match the physical position and orientation of the Tracking Hardware on a tracked device it is mounted on (such as a VR headset).
 ### Arguments
 
-- *const  Math::Vec3&* **val** - The the default offset for the newly connected device. The Y value specifies the offset from the eyes to the frontal camera plane, in meters, and the Z value — the offset from the eye level up to the camera level, in meters. The X value should be set to 0. These settings can be used to match the physical position and orientation of the Tracking Hardware on a tracked device it is mounted on (such as a VR headset).
+- *const  Math::[Vec3](../../../../api/library/math/class.vec3_cpp.md)&* **default** - The virtual offset for the newly connected device. The Y value specifies the offset from the eyes to the frontal camera plane, in meters, and the Z value � the offset from the eye level up to the camera level, in meters
 
-## Math:: Vec3 getTrackingOffsetDefault ( ) const
+## Math:: Vec3 getTrackingOffsetDefault () const
 
-Returns the current virtual offset for the newly connected device. The Y value specifies the offset from the eyes to the frontal camera plane, in meters, and the Z value — the offset from the eye level up to the camera level, in meters.
+Returns the current virtual offset for the newly connected device. The Y value specifies the offset from the eyes to the frontal camera plane, in meters, and the Z value � the offset from the eye level up to the camera level, in meters. The X value should be set to 0. These settings can be used to match the physical position and orientation of the Tracking Hardware on a tracked device it is mounted on (such as a VR headset).
 ### Return value
 
-The default offset for the newly connected device. The Y value specifies the offset from the eyes to the frontal camera plane, in meters, and the Z value — the offset from the eye level up to the camera level, in meters.
-## void setTransformModeOffsetDefault ( UltraleapDevice::TRANSFORM_MODE val )
+Current virtual offset for the newly connected device. The Y value specifies the offset from the eyes to the frontal camera plane, in meters, and the Z value � the offset from the eye level up to the camera level, in meters
+## void setTransformModeOffsetDefault ( UltraleapDevice::TRANSFORM_MODE default )
 
-Sets the offset to manually adjust the specified transform mode. These settings can be used to match the physical position and orientation of the Tracking Hardware on a tracked device it is mounted on (such as a VR headset).
+Sets a new default transform mode for the offset of a newly connected device.
+One of the [TRANSFORM_MODE_*](../../../../api/library/plugins/ultraleap/class.ultraleapdevice_cpp.md#TRANSFORM_MODE_HMD_VARJO) values. Setting it adjusts the offset to manually match the physical position and orientation of the Tracking Hardware on a tracked device it is mounted on (such as a VR headset).
+
+
 > **Notice:** If the [HMD VARJO](../../../../api/library/plugins/ultraleap/class.ultraleapdevice_cpp.md#TRANSFORM_MODE_HMD_VARJO) transform mode has been set, but AppVarjo hasn't been found, the transform mode is switched to [MANUAL](../../../../api/library/plugins/ultraleap/class.ultraleapdevice_cpp.md#TRANSFORM_MODE_MANUAL).
 
 
 ### Arguments
 
-- *[UltraleapDevice::TRANSFORM_MODE](../../../../api/library/plugins/ultraleap/class.ultraleapdevice_cpp.md#TRANSFORM_MODE)* **val** - Transform mode. One of the [TRANSFORM_MODE*](../../../../api/library/plugins/ultraleap/class.ultraleapdevice_cpp.md#TRANSFORM_MODE_HMD_VARJO) values.
+- *[UltraleapDevice::TRANSFORM_MODE](../../../../api/library/plugins/ultraleap/class.ultraleapdevice_cpp.md#TRANSFORM_MODE)* **default** - The default transform mode for the offset of a newly connected device
 
-## UltraleapDevice::TRANSFORM_MODE getTransformModeOffsetDefault ( ) const
+## UltraleapDevice::TRANSFORM_MODE getTransformModeOffsetDefault () const
 
-Returns the default transform mode for the offset of a newly connected device.
+Returns the current default transform mode for the offset of a newly connected device.
+One of the [TRANSFORM_MODE_*](../../../../api/library/plugins/ultraleap/class.ultraleapdevice_cpp.md#TRANSFORM_MODE_HMD_VARJO) values. Setting it adjusts the offset to manually match the physical position and orientation of the Tracking Hardware on a tracked device it is mounted on (such as a VR headset).
+
+
+> **Notice:** If the [HMD VARJO](../../../../api/library/plugins/ultraleap/class.ultraleapdevice_cpp.md#TRANSFORM_MODE_HMD_VARJO) transform mode has been set, but AppVarjo hasn't been found, the transform mode is switched to [MANUAL](../../../../api/library/plugins/ultraleap/class.ultraleapdevice_cpp.md#TRANSFORM_MODE_MANUAL).
+
+
 ### Return value
 
-The transform mode. One of the [TRANSFORM_MODE*](../../../../api/library/plugins/ultraleap/class.ultraleapdevice_cpp.md#TRANSFORM_MODE_HMD_VARJO) values.
-## int getNumDevices ( ) const
+Current default transform mode for the offset of a newly connected device
+## int getNumDevices () const
 
-Returns the total number of recognized devices.
+Returns the current total number of recognized devices.
 ### Return value
 
-The number of connected devices.
+Current total number of recognized devices
+## int getNumDevicesConnected () const
+
+Returns the current number of connected Ultraleap controller devices.
+### Return value
+
+Current number of connected Ultraleap controller devices
+## long long getLeapNow () const
+
+Returns the current universal clock value used by the system to timestamp image and tracking frames, in microseconds since an epoch time. The clock used for the counter itself is implementation-defined, but generally speaking, it is global, monotonic, and makes use of the most accurate high-performance counter available on the system.
+### Return value
+
+Current universal clock value, in microseconds since an unspecified epoch
+---
+
 ## UltraleapDevice * getDevice ( int device_id ) const
 
 Returns the Ultraleap controller device from the list of recognized devices.
@@ -200,12 +221,6 @@ Returns the Ultraleap controller device from the list of recognized devices.
 ### Return value
 
 The Ultraleap controller device.
-## int getNumDevicesConnected ( ) const
-
-Returns the number of connected Ultraleap controller devices.
-### Return value
-
-The number of connected Ultraleap controller devices.
 ## UltraleapDevice * getDeviceConnected ( int device_id ) const
 
 Returns the Ultraleap controller device from the list of connected devices.
@@ -216,10 +231,6 @@ Returns the Ultraleap controller device from the list of connected devices.
 ### Return value
 
 The Ultraleap controller device.
-## long long getLeapNow ( ) const
-
-Samples the universal clock used by the system to timestamp image and tracking frames. The returned counter value is given in microseconds since an epoch time. The clock used for the counter itself is implementation-defined, but generally speaking, it is global, monotonic, and makes use of the most accurate high-performance counter available on the system.
-### Return value
-
-The time, in microseconds since an unspecified epoch.
 ## void synchronize ( ) const
+
+Synchronizes the internal Ultraleap clock rebaser with the current engine time. This keeps the Ultraleap tracking clock aligned with the engine timeline so that tracking frames are timestamped consistently (used, in particular, for tracking interpolation). In manual (non-VR) mode this is called automatically each frame on the begin render event.

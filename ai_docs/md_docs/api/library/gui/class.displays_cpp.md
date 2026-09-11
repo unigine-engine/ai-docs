@@ -131,26 +131,32 @@ int AppSystemLogic::showDisplayInfo(int i)
 
 ### Members
 
+## int getMain () const
+
+Returns the current index of the main system display.
+### Return value
+
+Current index of the main system display
+## int getDefaultSystemDPI () const
+
+Returns the current default system dots/pixels-per-inch value.
+### Return value
+
+Current default system dots/pixels-per-inch value
+## int getNum () const
+
+Returns the current number of available video displays.
+### Return value
+
+Current number of available video displays
+## int getCurrent () const
+
+Returns the current index of the display that is currently under the cursor.
+### Return value
+
+Current index of the display that is currently under the cursor
 ---
 
-## int getMain ( ) const
-
-Returns the main system display index.
-### Return value
-
-The index of the main system display.
-## int getDefaultSystemDPI ( ) const
-
-Returns the default system dots/pixels-per-inch value.
-### Return value
-
-The dots/pixels-per-inch value.
-## int getNum ( ) const
-
-Returns the number of available video displays.
-### Return value
-
-The number of available video displays.
 ## Math:: ivec2 getPosition ( int display_index ) const
 
 Returns the display position by its index.
@@ -223,12 +229,6 @@ Returns the system name of the display.
 ### Return value
 
 System name of the display.
-## int getCurrent ( ) const
-
-Returns the index of the display that is currently under cursor.
-### Return value
-
-The index of the display that is currently under cursor.
 ## int getRefreshRate ( int display_index ) const
 
 Returns the current refresh rate of the specified display.

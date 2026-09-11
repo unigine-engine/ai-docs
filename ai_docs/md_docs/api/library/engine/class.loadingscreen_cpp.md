@@ -8,7 +8,7 @@
 A singleton that controls the settings of the [loading screen](../../../code/gui/screens/index.md#loading). Demonstration of it gives UNIGINE the time to load all world nodes and resources. You can also show your own loading screen when needed.
 
 
-A loading screen displays a [texture](../../../code/gui/skin/index.md#splash) that is usually divided into two parts stacked vertically — the initial and final pictures — which are gradually blended from the beginning up to the end of loading to show the progress. Blending is performed based on the alpha channel of the outro (lower) part of the texture so pseudo-animation can be created using the alpha channel: regions of the lower half with small alpha values will be shown first, regions with larger alpha values will be shown last.
+A loading screen displays a [texture](../../../code/gui/skin/index.md#splash) that is usually divided into two parts stacked vertically � the initial and final pictures � which are gradually blended from the beginning up to the end of loading to show the progress. Blending is performed based on the alpha channel of the outro (lower) part of the texture so pseudo-animation can be created using the alpha channel: regions of the lower half with small alpha values will be shown first, regions with larger alpha values will be shown last.
 
 
 ### See Also
@@ -184,21 +184,24 @@ Sets a new text of the loading screen.
 
 - *const char ** **text** - The text of the loading screen. Can be either a plain or [rich text](../../../code/gui/ui/index.md#rich_text). A number of aliases is available:
 
-  - UNIGINE_COPYRIGHT — the UNIGINE copyright text.
-  - UNIGINE_VERSION — the current UNIGINE version.
-  - LOADING_PROGRESS — the loading progress going from 0 to 100.
-  - LOADING_WORLD — the world being loaded (if any).
+  - UNIGINE_COPYRIGHT � the UNIGINE copyright text.
+  - UNIGINE_VERSION � the current UNIGINE version.
+  - LOADING_PROGRESS � the loading progress going from 0 to 100.
+  - LOADING_WORLD � the world being loaded (if any).
 
 ## const char * getText () const
 
 Returns the current text of the loading screen.
 ### Return value
 
-Current text of the loading screen. Can be either a plain or [rich text](../../../code/gui/ui/index.md#rich_text). A number of aliases is available:
-- UNIGINE_COPYRIGHT — the UNIGINE copyright text.
-- UNIGINE_VERSION — the current UNIGINE version.
-- LOADING_PROGRESS — the loading progress going from 0 to 100.
-- LOADING_WORLD — the world being loaded (if any).
+Current
+text of the loading screen. Can be either a plain or [rich text](../../../code/gui/ui/index.md#rich_text). A number of aliases is available:
+
+
+- UNIGINE_COPYRIGHT � the UNIGINE copyright text.
+- UNIGINE_VERSION � the current UNIGINE version.
+- LOADING_PROGRESS � the loading progress going from 0 to 100.
+- LOADING_WORLD � the world being loaded (if any).
 
 
 ## void setBackgroundColor ( const Math:: vec4 & color )
@@ -288,10 +291,10 @@ Returns the current value indicating if manual rendering of a loading screen is 
 
 ### Return value
 
-**true** if rendering of the loading screen is enabled; otherwise **false**.
+**true** if rendering of the loading screen is enabled ; otherwise **false**.
 ## static Event<> getEventRenderEnd () const
 
-event triggered when rendering of the loading screen ends. The function is useful when you implement a custom loading screen rendering function, for example. The event handler must not take arguments. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when rendering of the loading screen ends. The function is useful when you implement a custom loading screen rendering function, for example. The event handler must not take arguments. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -427,10 +430,10 @@ LoadingScreen::getEventRenderEnd().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventRenderBegin () const
 
-event triggered when rendering of the loading screen begins. The function is useful when you implement a custom loading screen rendering function, for example. The event handler must not take arguments. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when rendering of the loading screen begins. The function is useful when you implement a custom loading screen rendering function, for example. The event handler must not take arguments. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -566,7 +569,7 @@ LoadingScreen::getEventRenderBegin().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## void setImage ( const Ptr < Image > & image )

@@ -28,7 +28,7 @@ Sets a new value indicating if the ULON node value is used (obtained via one of 
 Returns the current value indicating if the ULON node value is used (obtained via one of the *get*()* methods).
 ### Return value
 
-**true** if usage of the ULON node value is enabled; otherwise **false**.
+**true** if usage of the ULON node value is enabled ; otherwise **false**.
 ---
 
 ## static UlonValuePtr create ( )

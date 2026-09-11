@@ -31,7 +31,7 @@ For example, by using *World Expression*, you can transform objects in the scene
 - Tutorial on *[Adding Scripts to the Project](../../../code/uniginescript/add_scripts/index.md#world_expression)*
 - Set of samples located in the `<UnigineSDK>/data/samples/worlds/` folder:
 
-  - `expression_00` — `expression_05`
+  - `expression_00` � `expression_05`
 
 
 ## Creating World Expression

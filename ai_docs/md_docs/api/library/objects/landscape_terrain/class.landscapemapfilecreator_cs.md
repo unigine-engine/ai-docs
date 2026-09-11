@@ -89,7 +89,7 @@ void end_handler(LandscapeMapFileCreator creator)
 
 ```
 
- You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+ You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cs.md) article.
 
@@ -189,7 +189,7 @@ void begin_handler(LandscapeMapFileCreator creator)
 
 ```
 
- You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+ You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cs.md) article.
 
@@ -289,7 +289,7 @@ void progress_handler(LandscapeMapFileCreator creator)
 
 ```
 
- You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+ You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cs.md) article.
 
@@ -389,7 +389,7 @@ void create_handler(LandscapeMapFileCreator creator,  LandscapeImages images,  i
 
 ```
 
- You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+ You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cs.md) article.
 
@@ -508,7 +508,7 @@ Returns the current filtering type used for image downscaling performed for LODs
 Filter type used for image downscaling. See the [Unigine::Image Enumerations with FILTER_* prefixes](../../../../api/library/common/class.image_cs.md#FILTER_LINEAR).
 ## bool Run ( bool is_empty = false , bool is_safe = true )
 
-Runs the landscape map file creation process. You can [set callbacks](#example) to be fired in the beginning, upon completion and during the process to monitor progress and display statistics. Creates the landscape map file path if it doesn’t exist yet (including subdirectories).
+Runs the landscape map file creation process. You can [set callbacks](#example) to be fired in the beginning, upon completion and during the process to monitor progress and display statistics. Creates the landscape map file path if it doesn�t exist yet (including subdirectories).
 ### Arguments
 
 - *bool* **is_empty** - true to create an empty `.lmap` file (e.g., when you create a layer map to be manually sculpted from scratch using [brushes](../../../../editor2/brush_editor/index.md)), false - to get necessary data from the sources and put them to the generated `.lmap` file.

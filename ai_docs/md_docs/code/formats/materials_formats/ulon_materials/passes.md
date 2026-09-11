@@ -32,30 +32,30 @@ PASS_<pass name>
 ## Types of Passes
 
 
-- custom_pass_name (*string*) — name of a custom rendering pass (up to 32 custom passes are supported)
-- wireframe — *wireframe* pass
-- visualizer_solid — *visualizer* solid pass
-- lightmap_data — *lightmap baking* pass
-- deferred — *deferred* pass
-- auxiliary — *auxiliary* pass
-- emission — *emission* pass
-- refraction — *refraction* pass
-- reflection — *reflection* pass
-- transparent_blur — *transparent blur* pass
-- ambient — *ambient* pass
-- light_environment_probe — *Environment Probe* light pass
-- light_voxel_probe — *Voxel Probe* light pass
-- light_omni — *omni-directional* light pass
-- light_proj — *projected light* pass
-- light_world — *world light* pass (called only when there are more than one *[WorldLight](../../../../objects/lights/world/index.md)* present in the world)
-- light_all — *environment probe, omni-directional light, projected light, world light* passes
-- depth_pre_pass — *native depth* pre-pass
-- ms_depth — *SRAA* pass
-- shadow — *shadows* pass
-- post — *post-process* pass
-- object_post — *object post-process* pass
-- procedural_decals — *procedural decals* pass
-- procedural_fields — *procedural fields* pass
+- custom_pass_name (*string*) � name of a custom rendering pass (up to 32 custom passes are supported)
+- wireframe � *wireframe* pass
+- visualizer_solid � *visualizer* solid pass
+- lightmap_data � *lightmap baking* pass
+- deferred � *deferred* pass
+- auxiliary � *auxiliary* pass
+- emission � *emission* pass
+- refraction � *refraction* pass
+- reflection � *reflection* pass
+- transparent_blur � *transparent blur* pass
+- ambient � *ambient* pass
+- light_environment_probe � *Environment Probe* light pass
+- light_voxel_probe � *Voxel Probe* light pass
+- light_omni � *omni-directional* light pass
+- light_proj � *projected light* pass
+- light_world � *world light* pass (called only when there are more than one *[WorldLight](../../../../objects/lights/world/index.md)* present in the world)
+- light_all � *environment probe, omni-directional light, projected light, world light* passes
+- depth_pre_pass � *native depth* pre-pass
+- ms_depth � *SRAA* pass
+- shadow � *shadows* pass
+- post � *post-process* pass
+- object_post � *object post-process* pass
+- procedural_decals � *procedural decals* pass
+- procedural_fields � *procedural fields* pass
 
 
 ## Usage Examples
@@ -105,7 +105,7 @@ Pass lightmap_data
 ```
 
 
-It is also possible to write inline shaders inside the *Pass* node (put them inside the **#{ … #}** construct):
+It is also possible to write inline shaders inside the *Pass* node (put them inside the **#{ � #}** construct):
 
 
 ```cpp
@@ -156,30 +156,30 @@ Specifies the type of a node for which this pass will be used (by default - all 
 Available values:
 
 
-- [DecalProj](../../../../api/library/decals/class.decalproj_cpp.md) — projected decal
-- [DecalOrtho](../../../../api/library/decals/class.decalortho_cpp.md) — orthographic decal
-- [DecalMesh](../../../../api/library/decals/class.decalmesh_cpp.md) — mesh decal
-- [LandscapeLayerMap](../../../../api/library/objects/landscape_terrain/class.landscapelayermap_cpp.md) — landscape layer map
-- [ObjectDummy](../../../../api/library/objects/class.objectdummy_cpp.md) — *Dummy* object
-- [ObjectDynamic](../../../../api/library/objects/class.objectdynamic_cpp.md) — dynamic object
-- [ObjectMeshStatic](../../../../api/library/objects/class.objectmeshstatic_cpp.md) — static mesh
-- [ObjectMeshCluster](../../../../api/library/objects/class.objectmeshcluster_cpp.md) — mesh cluster
-- [ObjectMeshClutter](../../../../api/library/objects/class.objectmeshclutter_cpp.md) — mesh clutter
-- [ObjectMeshSkinned](../../../../api/library/objects/class.objectmeshskinned_cpp.md) — *Skinned Mesh*
-- [ObjectMeshDynamic](../../../../api/library/objects/class.objectmeshdynamic_cpp.md) — *Dynamic Mesh*
-- [ObjectMeshSplineCluster](../../../../api/library/objects/class.objectmeshsplinecluster_cpp.md) — mesh spline cluster
-- [ObjectLandscapeTerrain](../../../../api/library/objects/landscape_terrain/index.md) — *Landscape Terrain*
-- [ObjectTerrainGlobal](../../../../api/library/objects/class.objectterrainglobal_cpp.md) — *Global Terrain*
-- [ObjectGrass](../../../../api/library/objects/class.objectgrass_cpp.md) — *Grass*
-- [ObjectParticles](../../../../api/library/objects/class.objectparticles_cpp.md) — particles
-- [ObjectBillboards](../../../../api/library/objects/class.objectbillboards_cpp.md) — billboards
-- [ObjectVolumeBox](../../../../api/library/objects/class.objectvolumebox_cpp.md) — *Volume Box*
-- [ObjectVolumeSphere](../../../../api/library/objects/class.objectvolumesphere_cpp.md) — *Volume Sphere*
-- [ObjectVolumeOmni](../../../../api/library/objects/class.objectvolumeomni_cpp.md) — *Volume Omni*
-- [ObjectVolumeProj](../../../../api/library/objects/class.objectvolumeproj_cpp.md) — *Volume Projected*
-- [ObjectGui](../../../../api/library/objects/class.objectgui_cpp.md) — *GUI* object
-- [ObjectGuiMesh](../../../../api/library/objects/class.objectguimesh_cpp.md) — *GUI* mesh
-- [ObjectWaterGlobal](../../../../api/library/objects/class.objectwaterglobal_cpp.md) — *Global Water*
+- [DecalProj](../../../../api/library/decals/class.decalproj_cpp.md) � projected decal
+- [DecalOrtho](../../../../api/library/decals/class.decalortho_cpp.md) � orthographic decal
+- [DecalMesh](../../../../api/library/decals/class.decalmesh_cpp.md) � mesh decal
+- [LandscapeLayerMap](../../../../api/library/objects/landscape_terrain/class.landscapelayermap_cpp.md) � landscape layer map
+- [ObjectDummy](../../../../api/library/objects/class.objectdummy_cpp.md) � *Dummy* object
+- [ObjectDynamic](../../../../api/library/objects/class.objectdynamic_cpp.md) � dynamic object
+- [ObjectMeshStatic](../../../../api/library/objects/class.objectmeshstatic_cpp.md) � static mesh
+- [ObjectMeshCluster](../../../../api/library/objects/class.objectmeshcluster_cpp.md) � mesh cluster
+- [ObjectMeshClutter](../../../../api/library/objects/class.objectmeshclutter_cpp.md) � mesh clutter
+- [ObjectMeshSkinned](../../../../api/library/objects/class.objectmeshskinned_cpp.md) � *Skinned Mesh*
+- [ObjectMeshDynamic](../../../../api/library/objects/class.objectmeshdynamic_cpp.md) � *Dynamic Mesh*
+- [ObjectMeshSplineCluster](../../../../api/library/objects/class.objectmeshsplinecluster_cpp.md) � mesh spline cluster
+- [ObjectLandscapeTerrain](../../../../api/library/objects/landscape_terrain/index.md) � *Landscape Terrain*
+- [ObjectTerrainGlobal](../../../../api/library/objects/class.objectterrainglobal_cpp.md) � *Global Terrain*
+- [ObjectGrass](../../../../api/library/objects/class.objectgrass_cpp.md) � *Grass*
+- [ObjectParticles](../../../../api/library/objects/class.objectparticles_cpp.md) � particles
+- [ObjectBillboards](../../../../api/library/objects/class.objectbillboards_cpp.md) � billboards
+- [ObjectVolumeBox](../../../../api/library/objects/class.objectvolumebox_cpp.md) � *Volume Box*
+- [ObjectVolumeSphere](../../../../api/library/objects/class.objectvolumesphere_cpp.md) � *Volume Sphere*
+- [ObjectVolumeOmni](../../../../api/library/objects/class.objectvolumeomni_cpp.md) � *Volume Omni*
+- [ObjectVolumeProj](../../../../api/library/objects/class.objectvolumeproj_cpp.md) � *Volume Projected*
+- [ObjectGui](../../../../api/library/objects/class.objectgui_cpp.md) � *GUI* object
+- [ObjectGuiMesh](../../../../api/library/objects/class.objectguimesh_cpp.md) � *GUI* mesh
+- [ObjectWaterGlobal](../../../../api/library/objects/class.objectwaterglobal_cpp.md) � *Global Water*
 
 
 #### Usage Example

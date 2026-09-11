@@ -25,16 +25,16 @@ This class is used to simulate a point force that pulls physical bodies [up to o
 
 ## float Rotator
 
-The current rotation force that will be applied to objects in the physical force radius.
+The rotation force that will be applied to objects in the physical force radius.
 ## float Radius
 
-The current radius set for applying the physical force.
+The radius set for applying the physical force.
 ## float Attractor
 
-The current attraction force applied to objects in the physical force radius. positive values pull objects away from the force point, negative values pull them up to it.
+The attraction force applied to objects in the physical force radius. positive values pull objects away from the force point, negative values pull them up to it.
 ## float Attenuation
 
-The current attenuation factor for the physical force.
+The attenuation factor for the physical force.
 ### Members
 
 ---

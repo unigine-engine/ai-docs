@@ -5,10 +5,20 @@
 **Inherits from:** Object
 
 
-A [MeshCluster](../../../objects/objects/mesh_cluster/index.md) class allows you to bake identical meshes (with the same material applied to their surfaces) into one object, which provides less cluttered spatial tree, reduces the number of texture fetches and speeds up rendering.
+The [MeshCluster](../../../objects/objects/mesh_cluster/index.md) class allows you to bake identical meshes (with the same material applied to their surfaces) into one object, which provides less cluttered spatial tree, reduces the number of texture fetches and speeds up rendering.
 
 
 Meshes are rendered within a specified [visibility distance](#setVisibleDistance_float_void) from the camera. When moving away from this distance, meshes [fade out](#setFadeDistance_float_void) and then disappear completely.
+
+
+*Mesh Cluster* data are stored in the [binary format](../../../objects/objects/mesh_cluster/index.md#data_storage) that adds to boosting performance and reducing both memory and disk space usage.
+
+
+> **Notice:** However, when saving data through the API, the storage format depends on the method used:
+>
+>
+> - Using *[()](../../../api/library/engine/class.world_usc.md#saveNode_cstr_Node_int_int)* or *[()](../../../api/library/engine/class.world_usc.md#saveNodes_cstr_VECNode_int_int)* ensures that cluster data is stored in the **optimized binary format**.
+> - Calling *[()](../../../api/library/engine/class.world_usc.md#saveWorld_int)* writes cluster data using the **legacy format**, embedding it directly into the `*.xml` world file.
 
 
 ### See Also
@@ -32,6 +42,97 @@ Meshes are rendered within a specified [visibility distance](#setVisibleDistance
 
 ### Members
 
+## int getNumMeshes () const
+
+Returns the current total number of meshes handled by the mesh cluster.
+### Return value
+
+Current total number of meshes handled by the mesh cluster
+## void setFadeDistance ( float distance )
+
+Sets a new distance up to which meshes handled by the mesh cluster will be fading out (that is, fewer meshes will be rendered instead of all). The distance is measured starting from the [visible distance](#setVisibleDistance_float_void). The default is 0. Using fade distance allows the objects to disappear one by one until up to the fade distance only a few left. It makes the disappearing smooth and much less noticeable. If a negative value is provided, **0** will be used instead.
+### Arguments
+
+- *float* **distance** - The distance up to which meshes handled by the mesh cluster will be fading out
+
+## float getFadeDistance () const
+
+Returns the current distance up to which meshes handled by the mesh cluster will be fading out (that is, fewer meshes will be rendered instead of all). The distance is measured starting from the [visible distance](#setVisibleDistance_float_void). The default is 0. Using fade distance allows the objects to disappear one by one until up to the fade distance only a few left. It makes the disappearing smooth and much less noticeable. If a negative value is provided, **0** will be used instead.
+### Return value
+
+Current distance up to which meshes handled by the mesh cluster will be fading out
+## void setVisibleDistance ( float distance )
+
+Sets a new distance up to which meshes handled by the mesh cluster are rendered. The default is infinity (in this case, [fade distance](#setFadeDistance_float_void) is ignored). If a negative value is provided, 0 will be used instead.
+### Arguments
+
+- *float* **distance** - The distance up to which meshes handled by the mesh cluster are rendered
+
+## float getVisibleDistance () const
+
+Returns the current distance up to which meshes handled by the mesh cluster are rendered. The default is infinity (in this case, [fade distance](#setFadeDistance_float_void) is ignored). If a negative value is provided, 0 will be used instead.
+### Return value
+
+Current distance up to which meshes handled by the mesh cluster are rendered
+## void setMeshPath ( string path )
+
+Sets a new path to the source *.mesh*-file of mesh handled by the *Mesh Cluster*.
+> **Notice:** Setting a new path does not update the mesh immediately. If the mesh is in the procedural mode, it will be reset.
+
+### Arguments
+
+- *string* **path** - The path to the source .mesh-file of mesh handled by the Mesh Cluster
+
+## const char * getMeshPath () const
+
+Returns the current path to the source *.mesh*-file of mesh handled by the *Mesh Cluster*.
+> **Notice:** Setting a new path does not update the mesh immediately. If the mesh is in the procedural mode, it will be reset.
+
+### Return value
+
+Current path to the source .mesh-file of mesh handled by the Mesh Cluster
+## int isMeshLoadedVRAM () const
+
+Returns the current value indicating if the source mesh used for the object is loaded to video memory (VRAM).
+### Return value
+
+Current the source mesh used for the object is loaded to video memory (VRAM)
+## int isMeshLoadedRAM () const
+
+Returns the current value indicating if the source mesh used for the object is loaded to memory (RAM).
+### Return value
+
+Current the source mesh used for the object is loaded to memory (RAM)
+## int isMeshNull () const
+
+Returns the current value indicating if the source mesh used for the object is null (does not exist, unassigned, not loaded, etc.).
+### Return value
+
+Current the source mesh used for the object is null (does not exist, unassigned, not loaded, etc.)
+## int getMeshProceduralMode () const
+
+Returns the current value indicating if the source mesh used for the object is [procedural](../../../api/library/objects/class.objectmeshstatic_usc.md#PROCEDURAL_MODE). A procedural mesh is a [mesh](../../../api/library/rendering/class.mesh_usc.md) created via code, such meshes have a specific streaming mode - they are always kept in memory after creation and never unloaded until the object is destroyed via code or the mesh returns to its normal mode (streaming from a source file). Changing of the static mesh is possible only if it is in the procedural mode.
+### Return value
+
+Current procedural mode of the source mesh used for the object
+## int isMeshProceduralDynamic () const
+
+Returns the current value indicating if the current procedural mode is *[PROCEDURAL_MODE_DYNAMIC](../../../api/library/objects/class.objectmeshstatic_usc.md#PROCEDURAL_MODE_DYNAMIC)*.
+### Return value
+
+Current the current procedural mode is PROCEDURAL_MODE_DYNAMIC
+## int isMeshProceduralActive () const
+
+Returns the current value indicating if an asynchronous operation on the procedural mesh is currently in progress.
+### Return value
+
+Current an asynchronous operation on the procedural mesh is currently in progress
+## int isMeshProceduralDone () const
+
+Returns the current value indicating if all asynchronous operations on the procedural mesh have completed.
+### Return value
+
+Current all asynchronous operations on the procedural mesh have completed
 ---
 
 ## static ObjectMeshCluster ( string path )
@@ -44,38 +145,6 @@ ObjectMeshCluster constructor. Creates a mesh cluster with a source mesh loaded 
 ## static ObjectMeshCluster ( )
 
 ObjectMeshCluster constructor. Creates an empty mesh cluster
-## void setFadeDistance ( float distance )
-
-Sets the distance up to which meshes handled by the mesh cluster will be fading out (that is, fewer meshes will be rendered instead of all). The distance is measured starting from the [visibility distance](#setVisibleDistance_float_void).
-> **Notice:** In order for a fade distance to be applied, [visibility distance](#getVisibleDistance_float) should not be infinite.
-
-
-### Arguments
-
-- *float* **distance** - Distance of fading for meshes, in units. If a negative value is provided, **0** will be used instead.
-
-## float getFadeDistance ( )
-
-Returns the current distance up to which meshes handled by the mesh cluster are fading out (that is, fewer meshes will be rendered instead of all). The distance is measured starting from the [visibility distance](#setVisibleDistance_float_void).
-> **Notice:** In order for a fade distance to be applied, [visibility distance](#getVisibleDistance_float) should not be infinite.
-
-
-### Return value
-
-Fade distance, in units.
-## void setMeshPath ( string path )
-
-Sets a path to the mesh hadled by the *Mesh Cluster*. Does not update mesh immediately using the new path. If the mesh is in the procedural mode, it will be reset.
-### Arguments
-
-- *string* **path** - New path to the source *.mesh*-file to be set.
-
-## string getMeshPath ( )
-
-Returns the path to the source *.mesh*-file of the mesh handled by *Mesh Cluster*.
-### Return value
-
-Path to the source *.mesh*-file.
 ## int addMeshTransform ( )
 
 Adds a new mesh instance transformation to the *Mesh Cluster*. To set the new added transformation pass the return value of this method to the [*setMeshTransform()*](#setMeshTransform_int_mat4_void) method.
@@ -114,25 +183,6 @@ Removes the transformation of the specified mesh instance from the cluster.
 
 - *int* **num** - Mesh instance number.
 
-## int getNumMeshes ( )
-
-Returns the total number of meshes handled by the mesh cluster.
-### Return value
-
-Number of meshes.
-## void setVisibleDistance ( float distance )
-
-Sets the distance up to which meshes handled by the mesh cluster will be rendered. The default is infinity (in this case, [fade distance](#setFadeDistance_float_void) will be ignored).
-### Arguments
-
-- *float* **distance** - Visibility distance for meshes in units. If a negative value is provided, 0 will be used instead.
-
-## float getVisibleDistance ( )
-
-Returns the distance up to which meshes handled by the mesh cluster are rendered. The default is infinity (in this case, [fade distance](#setFadeDistance_float_void) is ignored).
-### Return value
-
-Visibility distance for meshes in units.
 ## void clearMeshes ( )
 
 Deletes all meshes currently baked into mesh cluster.
@@ -282,24 +332,6 @@ Performs force-loading of the mesh to memory (RAM) immediately.
 ### Return value
 
 **1** if the mesh is loaded successfully, otherwise **0**. If the mesh is already loaded to RAM, **1** will be returned.
-## int isMeshNull ( )
-
-Returns a value indicating if the source mesh used for the object is null (does not exist, unassigned, not loaded, etc.).
-### Return value
-
-**1** if the source mesh used for the object is null; otherwise, **0**.
-## int isMeshLoadedRAM ( )
-
-Returns a value indicating if the source mesh used for the object is loaded to memory (RAM).
-### Return value
-
-**1** if the source mesh used for the object is loaded to RAM; otherwise, **0**.
-## int isMeshLoadedVRAM ( )
-
-Returns a value indicating if the source mesh used for the object is loaded to video memory (VRAM).
-### Return value
-
-**1** if the source mesh used for the object is loaded to VRAM; otherwise, **0**.
 ## Mesh createCopyMeshRAM ( )
 
 Creates and returns a copy of the source mesh used by the object, loading it directly from disk if it is not present in cache. This method does not stream the copied mesh into memory cache, resulting in lower RAM usage.
@@ -326,14 +358,6 @@ Sets the procedural mode for the mesh. The specified mode defines how procedural
 - *int* **mode** - One of the *[PROCEDURAL_MODE](../../../api/library/objects/class.objectmeshstatic_usc.md#PROCEDURAL_MODE)* to apply to the mesh.
 - *int* **mesh_render_flags** - Optional [usage flags](../../../api/library/rendering/class.meshrender_usc.md#USAGE_DYNAMIC_VERTEX) that control how vertex and index data are stored for the mesh render.
 
-## int getMeshProceduralMode ( )
-
-Returns a value indicating which procedural mode assigned to the mesh. The value corresponds to one of the available *[PROCEDURAL_MODE](../../../api/library/objects/class.objectmeshstatic_usc.md#PROCEDURAL_MODE)* types, determining how procedural data is stored, updated, and unloaded.
-> **Notice:** Please note that procedural mesh modification **directly affects streaming and memory usage (RAM, VRAM, and disk)** depending on the selected procedural mode. For details, see the [Procedural Mesh Workflow](#procedural_workflow) section.
-
-### Return value
-
-Current procedural mode of the mesh.
 ## int applyCopyMeshProceduralForce ( ConstMesh mesh , int mesh_render_flags = 0 )
 
 **[ Main Thread ]**
@@ -493,3 +517,42 @@ Starts immediate (forced) generation of procedural mesh data. The *callback_gene
 ### Return value
 
 true if the generation was completed and applied successfully, otherwise false
+## int hasInstanceCustomParameters ( int instance , int surface )
+
+Checks if the given cluster instance has at least one custom surface parameter override on the given surface.
+### Arguments
+
+- *int* **instance** - Instance number.
+- *int* **surface** - Surface number.
+
+### Return value
+
+**1** if the instance has at least one custom parameter override on the surface; otherwise, **0**.
+## bool isInstanceCustomParameterOverridden ( int instance , int surface , int param )
+
+Checks if the custom surface parameter with the given number is overridden for the given surface of the given cluster instance.
+### Arguments
+
+- *int* **instance** - Instance number.
+- *int* **surface** - Surface number.
+- *int* **param** - Parameter number.
+
+### Return value
+
+**1** if the parameter is overridden for the instance; otherwise, **0**.
+## void resetInstanceCustomParameter ( int instance , int surface , int param )
+
+Resets the override of the custom surface parameter with the given number for the given surface of the given cluster instance: the instance uses the effective per-surface value of the cluster object again.
+### Arguments
+
+- *int* **instance** - Instance number.
+- *int* **surface** - Surface number.
+- *int* **param** - Parameter number.
+
+## void resetInstanceCustomParameters ( int instance , int surface )
+
+Resets all custom surface parameter overrides of the given cluster instance on the given surface.
+### Arguments
+
+- *int* **instance** - Instance number.
+- *int* **surface** - Surface number.

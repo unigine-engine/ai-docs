@@ -27,19 +27,18 @@ The number of the intersected instance.
 > - *[ObjectMeshCluster](../../../api/library/objects/class.objectmeshcluster_cs.md)*
 > - *[ObjectMeshSplineCluster](../../../api/library/objects/class.objectmeshsplinecluster_cs.md)*
 
-
 ## int Index
 
 The number of the intersected triangle.
 ## vec3 Point
 
-The Coordinates of the intersection point.
+The coordinates of the intersection point.
 ## 🔒︎ string TypeName
 
-The Object intersection type name.
+The object intersection type name.
 ## 🔒︎ ObjectIntersection.TYPE Type
 
-The Object [intersection type identifier](#OBJECT_INTERSECTION).
+The object [intersection type identifier](#OBJECT_INTERSECTION).
 ### Members
 
 ---

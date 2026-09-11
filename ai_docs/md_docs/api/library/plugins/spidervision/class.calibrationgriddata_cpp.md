@@ -41,7 +41,7 @@ Sets a new value indicating if the calibration grid is rendered.
 Returns the current value indicating if the calibration grid is rendered.
 ### Return value
 
-**true** if rendering of the calibration grid is enabled; otherwise **false**.
+**true** if rendering of the calibration grid is enabled ; otherwise **false**.
 ## void setDistance ( float distance )
 
 Sets a new distance from the viewpoint to the grid. The difference is noticeable with the Box type of calibration pattern.
@@ -80,7 +80,7 @@ Sets a new value indicating if the Sphere Cut option is enabled for the sperical
 Returns the current value indicating if the Sphere Cut option is enabled for the sperical calibration grid. This option allows hiding the top and bottom poles.
 ### Return value
 
-**true** if Sphere Cut option is enabled; otherwise **false**.
+**true** if Sphere Cut option is enabled ; otherwise **false**.
 ## void setLinesVerticalStep ( float step )
 
 Sets a new distance between major vertical lines.
@@ -145,7 +145,7 @@ Sets a new value indicating if text on the calibration grid is rendered.
 Returns the current value indicating if text on the calibration grid is rendered.
 ### Return value
 
-**true** if text rendering on the calibration grid is enabled; otherwise **false**.
+**true** if text rendering on the calibration grid is enabled ; otherwise **false**.
 ## void setTextFontSize ( int size )
 
 Sets a new size of the text displayed on the calibration grid.
@@ -171,7 +171,7 @@ Sets a new highlighting of one horizontal and one vertical line.
 Returns the current highlighting of one horizontal and one vertical line.
 ### Return value
 
-**true** if highlighting of one horizontal and one vertical line is enabled; otherwise **false**.
+**true** if highlighting of one horizontal and one vertical line is enabled ; otherwise **false**.
 ## void setLineHighlightHorizontalIndex ( int index )
 
 Sets a new index of the horizontal highlight. Only one line can be highlighted. The line is invisible if its index is set to zero.
@@ -239,7 +239,7 @@ Returns the current grid transform along the longitudinal axis. Only the grid is
 Current roll angle, in degrees.
 ## static Event<> getEventChanged () const
 
-event triggered on changing calibration grid data. You can subscribe to events via *connect()*   and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered on changing calibration grid data. You can subscribe to events via *connect()* � and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -375,7 +375,7 @@ CalibrationGridData::getEventChanged().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## void setBackgroundColor ( const Math:: vec4 & color )
 
 Sets a new background color of the calibration grid.

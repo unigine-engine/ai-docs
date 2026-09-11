@@ -9,12 +9,13 @@ This class stores the texture coordinates of the intersection point. You should 
 #### Usage Example
 
 
-The following example shows how you can get texture coordinates at the intersection point (vec4) by using the WorldIntersectionTexCoord class. In this example the line is an invisible traced line from the point of the camera (vec3 p0) to the point of the mouse pointer (vec3 p1). The executing sequence is the following:
+The following example shows how you can get texture coordinates at the intersection point (vec4) by using the *WorldIntersectionTexCoord* class. In this example the line is an invisible traced line from the point of the camera (*vec3 **p0***) to the point of the mouse pointer (*vec3 **p1***). The executing sequence is the following:
 
-- Define and initialize two points (p0 and p1) by using the *[Player.getDirectionFromScreen()](../../../api/library/players/class.player_cs.md#getDirectionFromScreen_Vec3_Vec3_int_int_int_int_int_int_void)*> function.
-- Create an instance of the WorldIntersectionTexCoord class to get the intersection information.
+
+- Define and initialize two points (p0 and p1) by using the *[Player.getDirectionFromScreen()](../../../api/library/players/class.player_cs.md#getDirectionFromScreen_Vec3_Vec3_int_int_int_int_int_int_void)* function.
+- Create an instance of the *WorldIntersectionTexCoord* class to get the intersection information.
 - Check, if there is a intersection with an object. The [*World.getIntersection()*](../../../api/library/engine/class.world_cs.md#getIntersection_vec3_vec3_int_Variable_Object) function returns an intersected object when the object intersects with the traced line.
-- In this example, when the object intersects with the traced line, all the surfaces of the intersected object change their material parameters. The WorldIntersectionTexCoord class instance gets the texture coordinates of the intersection point. You can get the texture coordinates by using the [*getTexCoord()*](#getTexCoord_vec4) function.
+- In this example, when the object intersects with the traced line, all the surfaces of the intersected object change their material parameters. The *WorldIntersectionTexCoord* class instance gets the texture coordinates of the intersection point. You can get the texture coordinates by using the [*getTexCoord()*](#getTexCoord_vec4) function.
 
 
 ```csharp
@@ -74,7 +75,7 @@ if(obj != null)
 
 ## vec4 TexCoord
 
-The Texture coordinates of the intersection point.
+The texture coordinates of the intersection point.
 ### Members
 
 ---

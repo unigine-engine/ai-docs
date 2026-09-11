@@ -275,23 +275,23 @@ Returns the current multiplier value for the animation playback [time](#setTime_
 Current playback speed multiplier value.
 ## void setTime ( float time )
 
-Sets a new the animation time, in animation frames. The time count starts from the zero frame. If the time is set to be between frames, animation is blended. If the time is set outside the animation frame range, the animation is looped.
+Sets a new animation time, in animation frames. The time count starts from the zero frame. If the time is set to be between frames, animation is blended. If the time is set outside the animation frame range, the animation is looped.
 > **Notice:** *[setTime()()](../../...md#setTime_float_void)* function corresponds to the [Play](../../../objects/objects/mesh_skinned_legacy/index.md#play) and [Stop](../../../objects/objects/mesh_skinned_legacy/index.md#stop) options in the editor. In all other cases use *[setLayerFrame()()](../../...md#setLayerFrame_int_float_int_int_float)* to set the animation.
 
 
 ### Arguments
 
-- *float* **time** - The animation time, in animation frames.
+- *float* **time** - The animation time, in animation frames
 
 ## float getTime () const
 
-Returns the current the animation time, in animation frames. The time count starts from the zero frame. If the time is set to be between frames, animation is blended. If the time is set outside the animation frame range, the animation is looped.
+Returns the current animation time, in animation frames. The time count starts from the zero frame. If the time is set to be between frames, animation is blended. If the time is set outside the animation frame range, the animation is looped.
 > **Notice:** *[setTime()()](../../...md#setTime_float_void)* function corresponds to the [Play](../../../objects/objects/mesh_skinned_legacy/index.md#play) and [Stop](../../../objects/objects/mesh_skinned_legacy/index.md#stop) options in the editor. In all other cases use *[setLayerFrame()()](../../...md#setLayerFrame_int_float_int_int_float)* to set the animation.
 
 
 ### Return value
 
-Current animation time, in animation frames.
+Current animation time, in animation frames
 ## void setLoop ( int loop )
 
 Sets a new value indicating if the animation is looped or played only once.
@@ -418,7 +418,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginBoneConstraints () const
 
 The event handler signature is as follows: *myhandler()*
@@ -435,7 +435,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndIKSolvers () const
 
 The event handler signature is as follows: *myhandler()*
@@ -452,7 +452,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginIKSolvers () const
 
 The event handler signature is as follows: *myhandler()*
@@ -469,7 +469,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndLookAtSolvers () const
 
 The event handler signature is as follows: *myhandler()*
@@ -486,7 +486,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginLookAtSolvers () const
 
 The event handler signature is as follows: *myhandler()*
@@ -503,7 +503,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -520,7 +520,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## int getNumBoneConstraints () const
 
 Returns the current total number of bone rotation constraints.
@@ -553,25 +553,25 @@ Returns the current path to a file containing the specified animation.
 ### Return value
 
 Current path to a file containing the specified animation.
-## void setMeshProceduralMode ( bool mode )
+## void setMeshProceduralMode ( int mode )
 
-Sets a new value idicating if the [procedural mesh usage mode](#procedural_modification) is enabled for the object. With the procedural mode enabled, geometry of the **ObjectMeshSkinnedLegacy** can be modified via *[applyMeshProcedural()()](../../...md#applyMeshProcedural_ConstMeshSkinned_int)*. Disabling the procedural mode restores the object's initial geometry, removing any changes applied. For skinned meshes, procedural geometry editing is done only through the direct main-thread workflow, unlike static meshes that can use asynchronous generation or [other update strategies](../../../api/library/objects/class.objectmeshstatic_usc.md#procedural_workflow).
+Sets a new value indicating if the [procedural mesh usage mode](#procedural_modification) is enabled for the object. With the procedural mode enabled, geometry of the **ObjectMeshSkinnedLegacy** can be modified via *[applyMeshProcedural()()](../../...md#applyMeshProcedural_ConstMeshSkinned_int)*. Disabling the procedural mode restores the object's initial geometry, removing any changes applied. For skinned meshes, procedural geometry editing is done only through the direct main-thread workflow, unlike static meshes that can use asynchronous generation or [other update strategies](../../../api/library/objects/class.objectmeshstatic_usc.md#procedural_workflow).
 ### Arguments
 
-- *bool* **mode** - Set **true** to enable the procedural mode for the mesh; **false** - to disable it.
+- *int* **mode** - The value indicating if the procedural mesh usage mode is enabled for the object
 
-## bool isMeshProceduralMode () const
+## int isMeshProceduralMode () const
 
-Returns the current value idicating if the [procedural mesh usage mode](#procedural_modification) is enabled for the object. With the procedural mode enabled, geometry of the **ObjectMeshSkinnedLegacy** can be modified via *[applyMeshProcedural()()](../../...md#applyMeshProcedural_ConstMeshSkinned_int)*. Disabling the procedural mode restores the object's initial geometry, removing any changes applied. For skinned meshes, procedural geometry editing is done only through the direct main-thread workflow, unlike static meshes that can use asynchronous generation or [other update strategies](../../../api/library/objects/class.objectmeshstatic_usc.md#procedural_workflow).
+Returns the current value indicating if the [procedural mesh usage mode](#procedural_modification) is enabled for the object. With the procedural mode enabled, geometry of the **ObjectMeshSkinnedLegacy** can be modified via *[applyMeshProcedural()()](../../...md#applyMeshProcedural_ConstMeshSkinned_int)*. Disabling the procedural mode restores the object's initial geometry, removing any changes applied. For skinned meshes, procedural geometry editing is done only through the direct main-thread workflow, unlike static meshes that can use asynchronous generation or [other update strategies](../../../api/library/objects/class.objectmeshstatic_usc.md#procedural_workflow).
 ### Return value
 
-**true** if the procedural mode for the mesh is enabled; otherwise **false**.
-## bool isLoaded () const
+Current value indicating if the procedural mesh usage mode is enabled for the object
+## int isLoaded () const
 
 Returns the current value indicating if the mesh is loaded (it is either a procedural one or has been loaded via the [setMeshPath()](#setMeshPath_cstr_void) method).
 ### Return value
 
-**true** if the mesh is procedural or has been loaded from a mesh file; otherwise **false**.
+Current the mesh is procedural or has been loaded from a mesh file
 ## void setMeshPath ( )
 
 Sets a new path to the mesh file. If the *Procedural* flag is enabled for the object, the mesh won't be loaded.
@@ -2444,3 +2444,39 @@ Returns the maximum angle restricting the bone rotation along the roll axis.
 ### Return value
 
 The maximum rotation angle.
+## int isLayerAnimationStreaming ( int layer )
+
+Returns a value indicating if the animation on the specified layer is currently being loaded by the [data streaming](../../../principles/data_streaming/index.md) system. While the animation is streaming, the layer holds the first frame of this animation.
+### Arguments
+
+- *int* **layer** - Layer number.
+
+### Return value
+
+true if the animation assigned to the specified layer is still being streamed in; otherwise, false.
+## void resetLayerToBindPose ( int layer )
+
+Sets the skeleton's bind pose on the specified layer.
+### Arguments
+
+- *int* **layer** - Layer number.
+
+## void resetLayerToRestPose ( int layer )
+
+Sets the mesh's rest pose on the specified layer.
+### Arguments
+
+- *int* **layer** - Layer number.
+
+## int loadAsyncRender ( )
+
+Requests asynchronous loading of the mesh for rendering. The mesh becomes available in one of the following frames, so the object keeps rendering whatever it already has until then.
+### Return value
+
+true if the request has been queued; otherwise, false.
+## int loadForceRender ( )
+
+Loads the mesh for rendering immediately, blocking until it is done.
+### Return value
+
+true if the mesh has been loaded; otherwise, false.

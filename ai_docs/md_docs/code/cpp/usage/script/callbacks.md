@@ -5,6 +5,7 @@
 
 Any function from system, world or editor scripts can be called in a C++ code. UnigineScript functions that are called from an external code are known as callbacks. Via callbacks scripts can communicate with each other, as well as with the external application.
 
+
 - Callbacks support up to **4** arguments and can return a value of an arbitrary type.
 
 

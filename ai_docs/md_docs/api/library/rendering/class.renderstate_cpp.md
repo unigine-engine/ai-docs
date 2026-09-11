@@ -111,7 +111,10 @@ Returns the current shader to be used.
 Current shader to be used.
 ## void setAnisotropy ( )
 
-Sets a new texture anisotropy level (degree of anisotropic filtering). Available values:
+Sets a new
+texture anisotropy level (degree of anisotropic filtering). Available values:
+
+
 - **0** - anisotropy level 1.
 - **1** - anisotropy level 2.
 - **2** - anisotropy level 4.
@@ -125,7 +128,10 @@ Sets a new texture anisotropy level (degree of anisotropic filtering). Available
 
 ## getAnisotropy () const
 
-Returns the current texture anisotropy level (degree of anisotropic filtering). Available values:
+Returns the current
+texture anisotropy level (degree of anisotropic filtering). Available values:
+
+
 - **0** - anisotropy level 1.
 - **1** - anisotropy level 2.
 - **2** - anisotropy level 4.
@@ -174,7 +180,7 @@ Sets a new value indicating if the polygon front mode is set.
 Returns the current value indicating if the polygon front mode is set.
 ### Return value
 
-**true** if polygon front mode is enabled; otherwise **false**.
+**true** if polygon front mode is enabled ; otherwise **false**.
 ## void setDepthFunc ( )
 
 Sets a new depth function (one of the [DEPTH_*](#DEPTH_NONE) variables).
@@ -200,31 +206,31 @@ Sets a new value indicating if writing to the depth buffer is enabled.
 Returns the current value indicating if writing to the depth buffer is enabled.
 ### Return value
 
-**true** if writing to the depth buffer is enabled; otherwise **false**.
+**true** if writing to the depth buffer is enabled ; otherwise **false**.
 ## getHeight () const
 
 Returns the current viewport height, in pixels.
 ### Return value
 
-Current
+Current viewport height, in pixels.
 ## getWidth () const
 
 Returns the current viewport width, in pixels.
 ### Return value
 
-Current
+Current viewport width, in pixels.
 ## getCoordX () const
 
 Returns the current X-coordinate of the viewport.
 ### Return value
 
-Current
+Current X-coordinate of the viewport.
 ## getCoordY () const
 
 Returns the current Y-coordinate of the viewport.
 ### Return value
 
-Current
+Current Y-coordinate of the viewport.
 ## getScreenColorTexture () const
 
 Returns the current screen color texture.
@@ -366,7 +372,7 @@ Sets a new value indicating if conservative rasterization is enabled. Conservati
 Returns the current value indicating if conservative rasterization is enabled. Conservative rasterization (alternative to normal rasterization) is a graphics rendering technique used in GPUs where a triangle (or other primitive) is rasterized in a way that guarantees any pixel even slightly touched by the primitive is considered covered. This technique is useful in a number of situations, including for certainty in collision detection, occlusion culling, and tiled rendering.
 ### Return value
 
-**true** if conservative rasterization is enabled; otherwise **false**.
+**true** if conservative rasterization is enabled ; otherwise **false**.
 ---
 
 ## int getBlendDestFuncBuffer ( int num ) const
@@ -502,7 +508,7 @@ Returns the current scissor test status.
 1 if scissor test is enabled; otherwise, 0.
 ## void setStructuredBuffer ( int slot , const Ptr < StructuredBuffer > & buffer )
 
-Binds a [StructuredBuffer](../../../api/library/rendering/class.structuredbuffer_cpp.md) to the specified slot in the render state, making it accessible from shaders.
+Binds a *[StructuredBuffer](../../../api/library/rendering/class.structuredbuffer_cpp.md)* to the specified slot in the render state, making it accessible from shaders.
 ### Arguments
 
 - *int* **slot** - Buffer slot index to bind to. Each slot corresponds to a buffer register in the shader.
@@ -513,7 +519,7 @@ Binds a [StructuredBuffer](../../../api/library/rendering/class.structuredbuffer
 Binds a texture to the specified slot in the render state. Sampler flags are taken from the texture itself.
 ### Arguments
 
-- *int* **binding** - Shader stages that will read the texture: [BIND_ALL](#BIND_ALL) for all stages (vertex, fragment, compute), [BIND_FRAGMENT](#BIND_FRAGMENT) for the fragment shader only. Use BIND_FRAGMENT when the texture is only needed in the fragment shader, as it may be more efficient.
+- *int* **binding** - Shader stages that will read the texture: *[BIND_ALL](#BIND_ALL)* for all stages (*vertex, fragment, compute*), [BIND_FRAGMENT](#BIND_FRAGMENT) for the fragment shader only. Use *BIND_FRAGMENT* when the texture is only needed in the fragment shader, as it may be more efficient.
 - *int* **slot** - Texture slot index to bind the texture to. Each slot corresponds to a texture register in the shader.
 - *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Texture](../../../api/library/rendering/class.texture_cpp.md)> &* **texture** - Texture to bind. Pass nullptr to unbind the texture from the slot.
 
@@ -522,7 +528,7 @@ Binds a texture to the specified slot in the render state. Sampler flags are tak
 Binds a texture to the specified slot in the render state with custom sampler flags that override the texture's own sampler settings.
 ### Arguments
 
-- *int* **binding** - Shader stages that will read the texture: [BIND_ALL](#BIND_ALL) for all stages (vertex, fragment, compute), [BIND_FRAGMENT](#BIND_FRAGMENT) for the fragment shader only. Use BIND_FRAGMENT when the texture is only needed in the fragment shader, as it may be more efficient.
+- *int* **binding** - Shader stages that will read the texture: *[BIND_ALL](#BIND_ALL)* for all stages (*vertex, fragment, compute*), *[BIND_FRAGMENT](#BIND_FRAGMENT)* for the fragment shader only. Use *BIND_FRAGMENT* when the texture is only needed in the fragment shader, as it may be more efficient.
 - *int* **slot** - Texture slot index to bind the texture to. Each slot corresponds to a texture register in the shader.
 - *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Texture](../../../api/library/rendering/class.texture_cpp.md)> &* **texture** - Texture to bind. Pass nullptr to unbind the texture from the slot.
 - *int* **sampler_flags** - Sampler flags to use instead of the texture's own sampler settings. This lets you override filtering, wrapping, and other [sampler parameters](../../../api/library/rendering/class.texture_cpp.md#sampler_flags) without modifying the texture.
@@ -569,7 +575,7 @@ Clears all current render states. This method is used to prevent certain renderi
 Unbinds the specified structured buffer from all slots in the render state.
 ### Arguments
 
-- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[StructuredBuffer](../../../api/library/rendering/class.structuredbuffer_cpp.md)> &* **buffer** - [StructuredBuffer](../../../api/library/rendering/class.structuredbuffer_cpp.md) to unbind.
+- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[StructuredBuffer](../../../api/library/rendering/class.structuredbuffer_cpp.md)> &* **buffer** - *[StructuredBuffer](../../../api/library/rendering/class.structuredbuffer_cpp.md)* to unbind.
 
 ## void clearStructuredBuffers ( )
 
@@ -592,13 +598,13 @@ Forces a full CPU-GPU synchronization, blocking until all previously submitted G
 Flushes the current render state to GPU. See the [usage example](#usage), that illustrates the typical use case.
 ## void saveState ( )
 
-Saves the current render state. This method is to be used together with the [restoreState()](#restoreState_void) method to enclose a segment of code, that changes the render state. See the [usage example](#usage), that illustrates the typical use case.
+Saves the current render state. This method is to be used together with the *[restoreState()](#restoreState_void)* method to enclose a segment of code, that changes the render state. See the [usage example](#usage), that illustrates the typical use case.
 ## void restoreState ( )
 
-Restores the current render state, that was saved by calling the [saveState()](#saveState_void) method. These two methods are used together to enclose a segment of code, that changes the render state. See the [usage example](#usage), that illustrates the typical use case.
+Restores the current render state, that was saved by calling the *[saveState()](#saveState_void)* method. These two methods are used together to enclose a segment of code, that changes the render state. See the [usage example](#usage), that illustrates the typical use case.
 ## void dispatch ( int group_threads_x , int group_threads_y , int group_threads_z )
 
-Executes commands in a compute shader (similar to [ID3D12GraphicsCommandList::Dispatch](https://learn.microsoft.com/en-us/windows/win32/api/d3d12/nf-d3d12-id3d12graphicscommandlist-dispatch) or [vkCmdDispatch](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDispatch.html) method). A compute shader can be run on many threads in parallel, within a thread group. Index a particular thread, within a thread group using a 3D vector given by (x,y,z).
+Executes commands in a compute shader (similar to *[ID3D12GraphicsCommandList::Dispatch](https://learn.microsoft.com/en-us/windows/win32/api/d3d12/nf-d3d12-id3d12graphicscommandlist-dispatch)* or *[vkCmdDispatch](https://registry.khronos.org/vulkan/specs/latest/man/html/vkCmdDispatch.html)* method). A compute shader can be run on many threads in parallel, within a thread group. Index a particular thread, within a thread group using a 3D vector given by (x,y,z).
 ### Arguments
 
 - *int* **group_threads_x** - Local X work-group size of the compute shader.
@@ -607,7 +613,10 @@ Executes commands in a compute shader (similar to [ID3D12GraphicsCommandList::Di
 
 ## int render ( RenderState::RENDER_MODE mode , int base , int begin , int end , int num )
 
+
 Renders the specified number of instances of the surface defined by the begin and end indices.
+
+
 > **Notice:** The **pass, material, and shader must be set** via *[Renderer::setShaderParameters()](../../../api/library/rendering/class.renderer_cpp.md#setShaderParameters_int_Shader_Material_int_void)* and/or *[Renderer::setMaterial()](../../../api/library/rendering/class.renderer_cpp.md#setMaterial_int_Material_void)* **before calling this function**. Otherwise, there won't be sufficient shader parameters for rendering.
 
 

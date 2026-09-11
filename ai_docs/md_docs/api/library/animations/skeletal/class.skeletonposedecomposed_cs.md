@@ -29,7 +29,7 @@ The skeleton associated with this pose. Determines the joint hierarchy and the n
 The total number of joint transforms in the pose, matching the number of joints in the assigned skeleton.
 ## 🔒︎ SkeletonPoseDecomposed.SPACE_TYPE SpaceType
 
-The current coordinate space of the pose transforms.
+The coordinate space of the pose transforms.
 ### Members
 
 ---

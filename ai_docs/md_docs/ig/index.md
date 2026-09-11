@@ -10,6 +10,9 @@
 The **Image Generator** (IG) renders scenes of the virtual world, providing an immersive view of the simulation, it can be thought of as a *viewport* into the virtual world of simulation. A simulator may have one or more IG channels rendering an "out-the-window" view and might have several additional views representing various sensors: electro-optical (EO), infrared (IR), and night vision (NV); and sometimes radar. The way these views are displayed may vary from a simple desktop monitor to a multiple projector dome display.
 
 
+To synchronize the IG application and launch it across the machines of a multi-projector or **CAVE** setup, use the [IG Control Panel](../ig/ig_control_panel.md) tool.
+
+
 ![](displays.png)
 
 
@@ -25,7 +28,7 @@ The simulator and the IG can be integrated into a single application, where the 
 ![Communication Protocols](protocols.png)
 
 
-HLA is a standard for interoperability among simulations. Rather than a networking protocol (wire standard) like DIS, HLA defines an architecture with a set of Application Programmer’s Interface (API) Standards. Simulation applications (known as federates) communicate by making calls to the HLA APIs. A piece of software known as the Runtime Infrastructure (RTI) implements the HLA API, and is responsible for transporting data from one federate to another.
+HLA is a standard for interoperability among simulations. Rather than a networking protocol (wire standard) like DIS, HLA defines an architecture with a set of Application Programmer�s Interface (API) Standards. Simulation applications (known as federates) communicate by making calls to the HLA APIs. A piece of software known as the Runtime Infrastructure (RTI) implements the HLA API, and is responsible for transporting data from one federate to another.
 
 
 An **Entity** is a static or dynamic simulation object that can be created, manipulated, and destroyed by the host. The virtual world is filled with entities, they represent certain objects of the real world (e.g. aircrafts, vehicles, ships, etc.)
@@ -34,7 +37,7 @@ An **Entity** is a static or dynamic simulation object that can be created, mani
 A **Terrain Database** (or simply *Database*) is a virtual model of the landscape where the simulation takes place. Its character, quality, and content defines what can be done in the simulation environment. The resolution and level of detail of the terrain database content define the fidelity of interactions possible within the environment. UNIGINE supports [double-precision coordinates](../code/double_precision/index.md) enabling you to extend geographic coverage of the terrain, that defines the size of the area where the simulation can take place, up to the whole Earth's surface.
 
 
-There’s more in a scene than the [terrain database](#database) and the [entities](#entity) moving around – **sky, atmosphere**, and **water**. Drawing these ethereal parts of the environment is the IG’s responsibility too. Since their appearance varies dramatically depending on the weather and the time of day, several models are implemented to simulate the environment:
+There�s more in a scene than the [terrain database](#database) and the [entities](#entity) moving around � **sky, atmosphere**, and **water**. Drawing these ethereal parts of the environment is the IG�s responsibility too. Since their appearance varies dramatically depending on the weather and the time of day, several models are implemented to simulate the environment:
 
 
 - An **ephemeris model** determines the position of the sun and moon, which both cast light into the scene, depending on given coordinates and date/time.
@@ -103,10 +106,10 @@ UNIGINE IG is currently implemented as **IG Template**.
 ### Interpolation and Extrapolation
 
 
-Unigine IG uses **Interpolated Snapshots** (IS) to tackle with the problem of lost packets between the IG and hosts. It works by taking two old, but known positions and interpolating the object between them. It is accomplished by having a buffer of received positions and rotations, along with the time they represent. We usually take our current local time minus some predefined amount — **interpolation period** (**40** ms by default), then go into our buffer, find the two indices that are just before and just after this time and interpolate.
+Unigine IG uses **Interpolated Snapshots** (IS) to tackle with the problem of lost packets between the IG and hosts. It works by taking two old, but known positions and interpolating the object between them. It is accomplished by having a buffer of received positions and rotations, along with the time they represent. We usually take our current local time minus some predefined amount � **interpolation period** (**40** ms by default), then go into our buffer, find the two indices that are just before and just after this time and interpolate.
 
 
-If we don't have a received position and rotation for the time we're looking for, the **extrapolation** (guessing) is used. It also has a limited time — **extrapolation period** (**200** ms by default). If the extrapolation period is over but there are still no packets received, all objects will freeze.
+If we don't have a received position and rotation for the time we're looking for, the **extrapolation** (guessing) is used. It also has a limited time � **extrapolation period** (**200** ms by default). If the extrapolation period is over but there are still no packets received, all objects will freeze.
 
 
 In most cases, this method provides a very accurate representation of the world to each slave, as in general only already known positions of remote objects are rendered and in rare cases the system will try to extrapolate (guess) where an object is. This, however, comes at a cost, as we always render **40** ms (interpolation period) behind current time, so that new packets have time to arrive with data.
@@ -183,7 +186,7 @@ If the IG is launched with a connector, the latter starts using IG API immediate
 
 
 ```text
-IG::Manager::wait_for_all_connections(): waiting for all connections within a minute…
+IG::Manager::wait_for_all_connections(): waiting for all connections within a minute�
 
 ```
 

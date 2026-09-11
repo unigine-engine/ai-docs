@@ -33,6 +33,6 @@ There are two ways to install SDK:
 To start your project with UNIGINE SDK you need to install the required software to prepare the development environment:
 
 
-1. **IDE** — we recommend using [Microsoft Visual Studio 2022](http://www.microsoft.com/) (C#/C++), [Visual Studio Code](https://code.visualstudio.com/download) (C#/C++), [Rider](https://www.jetbrains.com/rider/) (C#), [Qt Creator](https://www.qt.io/product/development-tools) (mostly used for Qt framework development, but also suitable for regular C++ projects).
+1. **IDE** � we recommend using [Microsoft Visual Studio 2022](http://www.microsoft.com/) (C#/C++), [Visual Studio Code](https://code.visualstudio.com/download) (C#/C++), [Rider](https://www.jetbrains.com/rider/) (C#), [Qt Creator](https://www.qt.io/product/development-tools) (mostly used for Qt framework development, but also suitable for regular C++ projects).
 2. **CMake 3.21+** or higher (can be [downloaded for free](http://www.cmake.org/)). CMake is a tool that simplifies project building for different platforms.
 3. **.NET SDK** (can be [downloaded for free](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)). It is required to develop projects using [C# Component System](../../principles/component_system/component_system_cs/index.md). See [here](../../troubleshooting/dotnet_issues.md#install_dotnet_sdk_windows) how to install **.NET SDK** and check its version.

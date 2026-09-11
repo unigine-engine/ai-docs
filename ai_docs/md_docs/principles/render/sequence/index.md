@@ -437,7 +437,7 @@ Screen-Space Reflections are rendered in **RGBA16F** textures. They are applied 
 |---|---|
 
 
-There are two different types of *SSR* — with importance sampling and without it:
+There are two different types of *SSR* � with importance sampling and without it:
 
 
 #### Importance Sampling is On
@@ -567,9 +567,9 @@ During this step, all [layers](../../../objects/objects/cloud_layer/index.md) of
 Due to optimization, Volumetric Clouds are rendered in a certain order depending on the following conditions:
 
 
-- **Before Water and Transparent Objects** — if the value of the `render_clouds_transparent_order` console command is set to 0, and the current camera is below the water highest point or under the surface.
-- **Between Water and Transparent Objects** — if the value of the `render_clouds_transparent_order` console command is set to 0 and the current camera is above the water highest point.
-- **After Water and Transparent Objects** — if the value of the `render_clouds_transparent_order` console command is set to 1.
+- **Before Water and Transparent Objects** � if the value of the `render_clouds_transparent_order` console command is set to 0, and the current camera is below the water highest point or under the surface.
+- **Between Water and Transparent Objects** � if the value of the `render_clouds_transparent_order` console command is set to 0 and the current camera is above the water highest point.
+- **After Water and Transparent Objects** � if the value of the `render_clouds_transparent_order` console command is set to 1.
 
 
 ### Water

@@ -72,7 +72,7 @@ private void Update()
 ```
 
 
-The following code illustrates receiving the immediate input — the user receives the event notification immediately after filtering:
+The following code illustrates receiving the immediate input � the user receives the event notification immediately after filtering:
 
 
 ```csharp
@@ -558,7 +558,7 @@ POV (Point-of-View) switch or DPad states.
 | **DPAD_RIGHT** = 35 | Sensor panel right button. |
 | **DPAD_CENTER** = 36 | Sensor panel center button. |
 | **THUMBREST** = 37 | Thumb rest, a place for the user to rest their thumb. |
-| **THUMB_RESTING_SURFACES** = 38 | Thumb resting surfaces — any surfaces that a thumb may naturally rest on. This may include, but is not limited to, face buttons, thumbstick, and thumbrest. |
+| **THUMB_RESTING_SURFACES** = 38 | Thumb resting surfaces � any surfaces that a thumb may naturally rest on. This may include, but is not limited to, face buttons, thumbstick, and thumbrest. |
 | **PROXIMITY_SENSOR** = 39 | Proximity sensor. |
 | **APPLICATION** = 40 | Application menu button. |
 | **NUM_VR_BUTTONS** = 41 | Total number of VR buttons and axes. |
@@ -582,6 +582,9 @@ POV (Point-of-View) switch or DPad states.
 
 ### Properties
 
+## bool IMEEnabled
+
+The value indicating if the system IME (Input Method Editor, used for composed text input such as CJK) is enabled. When enabled, the OS can open its composition and candidate window, and the engine receives *[text editing](../../../api/library/controls/class.inputeventtextediting_cs.md)* (preedit) events while the user composes text. Disabled by default.
 ## 🔒︎ int NumJoysticks
 
 The number of joysticks.
@@ -641,7 +644,7 @@ The head VR controller.
 The number of all VR devices.
 ## 🔒︎ Event< InputEvent > EventImmediateInput
 
-The event triggered immediately at input as received from proxy before being processed by the engine. This event can be triggered in different threads depending on the proxy implementation. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered immediately at input as received from proxy before being processed by the engine. This event can be triggered in different threads depending on the proxy implementation. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -735,7 +738,7 @@ Input.EventImmediateInput.Enabled = true;
 
 ## 🔒︎ Event<int, int> EventJoyPovMotion
 
-The event triggered when a joystick POV state value is changed. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a joystick POV state value is changed. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -829,7 +832,7 @@ Input.EventJoyPovMotion.Enabled = true;
 
 ## 🔒︎ Event<int, int> EventJoyAxisMotion
 
-The event triggered when a joystick axis state value is changed. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a joystick axis state value is changed. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -923,7 +926,7 @@ Input.EventJoyAxisMotion.Enabled = true;
 
 ## 🔒︎ Event<int, int> EventJoyButtonUp
 
-The event triggered when a joystick button is released. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a joystick button is released. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1017,7 +1020,7 @@ Input.EventJoyButtonUp.Enabled = true;
 
 ## 🔒︎ Event<int, int> EventJoyButtonDown
 
-The event triggered when a joystick button is pressed. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a joystick button is pressed. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1111,7 +1114,7 @@ Input.EventJoyButtonDown.Enabled = true;
 
 ## 🔒︎ Event<int> EventJoyDisconnected
 
-The event triggered when a joystick is disconnected. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a joystick is disconnected. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1205,7 +1208,7 @@ Input.EventJoyDisconnected.Enabled = true;
 
 ## 🔒︎ Event<int> EventJoyConnected
 
-The event triggered when a joystick is connected. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a joystick is connected. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1299,7 +1302,7 @@ Input.EventJoyConnected.Enabled = true;
 
 ## 🔒︎ Event<int, int> EventVrDeviceAxisMotion
 
-The event triggered when a VR device axis state value is changed. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a VR device axis state value is changed. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1393,7 +1396,7 @@ Input.EventVrDeviceAxisMotion.Enabled = true;
 
 ## 🔒︎ Event<int, Input.VR_BUTTON > EventVrDeviceButtonTouchUp
 
-The event triggered when a finger is withdrawn from a VR device button. If the finger is releasing a button that has been pressed, this event is triggered along with [EventVrDeviceButtonUp](#EventVrDeviceButtonUp). You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a finger is withdrawn from a VR device button. If the finger is releasing a button that has been pressed, this event is triggered along with [EventVrDeviceButtonUp](#EventVrDeviceButtonUp). You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1487,7 +1490,7 @@ Input.EventVrDeviceButtonTouchUp.Enabled = true;
 
 ## 🔒︎ Event<int, Input.VR_BUTTON > EventVrDeviceButtonTouchDown
 
-The event triggered when a VR device button is touched. If the button has been touched and pressed, [EventVrDeviceButtonDown](#EventVrDeviceButtonDown) is triggered along with this event. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a VR device button is touched. If the button has been touched and pressed, [EventVrDeviceButtonDown](#EventVrDeviceButtonDown) is triggered along with this event. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1581,7 +1584,7 @@ Input.EventVrDeviceButtonTouchDown.Enabled = true;
 
 ## 🔒︎ Event<int, Input.VR_BUTTON > EventVrDeviceButtonUp
 
-The event triggered when a VR device button is released. If the finger is withdrawn from the button that has been pressed, [EventVrDeviceButtonTouchUp](#EventVrDeviceButtonTouchUp) is triggered along with this event. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a VR device button is released. If the finger is withdrawn from the button that has been pressed, [EventVrDeviceButtonTouchUp](#EventVrDeviceButtonTouchUp) is triggered along with this event. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1675,7 +1678,7 @@ Input.EventVrDeviceButtonUp.Enabled = true;
 
 ## 🔒︎ Event<int, Input.VR_BUTTON > EventVrDeviceButtonDown
 
-The event triggered when a VR device button is pressed. If the button has not previously been touched, [EventVrDeviceButtonTouchDown](#EventVrDeviceButtonTouchDown) is triggered along with this event. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a VR device button is pressed. If the button has not previously been touched, [EventVrDeviceButtonTouchDown](#EventVrDeviceButtonTouchDown) is triggered along with this event. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1769,7 +1772,7 @@ Input.EventVrDeviceButtonDown.Enabled = true;
 
 ## 🔒︎ Event<int> EventVrDeviceDisconnected
 
-The event triggered when a VR device is disconnected. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a VR device is disconnected. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1863,7 +1866,7 @@ Input.EventVrDeviceDisconnected.Enabled = true;
 
 ## 🔒︎ Event<int> EventVrDeviceConnected
 
-The event triggered when a VR device is connected. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a VR device is connected. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1957,7 +1960,7 @@ Input.EventVrDeviceConnected.Enabled = true;
 
 ## 🔒︎ Event<int, int, int> EventGamepadTouchMotion
 
-The event triggered when the finger touching the gamepad touch panel moves across it. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when the finger touching the gamepad touch panel moves across it. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -2051,7 +2054,7 @@ Input.EventGamepadTouchMotion.Enabled = true;
 
 ## 🔒︎ Event<int, int, int> EventGamepadTouchUp
 
-The event triggered when the touch is withdrawn from the gamepad touch panel. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when the touch is withdrawn from the gamepad touch panel. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -2145,7 +2148,7 @@ Input.EventGamepadTouchUp.Enabled = true;
 
 ## 🔒︎ Event<int, int, int> EventGamepadTouchDown
 
-The event triggered when the gamepad touch panel is touched. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when the gamepad touch panel is touched. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -2239,7 +2242,7 @@ Input.EventGamepadTouchDown.Enabled = true;
 
 ## 🔒︎ Event<int, Input.GAMEPAD_AXIS > EventGamepadAxisMotion
 
-The event triggered when a gamepad axis state value is changed. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a gamepad axis state value is changed. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -2333,7 +2336,7 @@ Input.EventGamepadAxisMotion.Enabled = true;
 
 ## 🔒︎ Event<int, Input.GAMEPAD_BUTTON > EventGamepadButtonUp
 
-The event triggered when a gamepad button is released. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a gamepad button is released. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -2427,7 +2430,7 @@ Input.EventGamepadButtonUp.Enabled = true;
 
 ## 🔒︎ Event<int, Input.GAMEPAD_BUTTON > EventGamepadButtonDown
 
-The event triggered when a gamepad button is pressed. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a gamepad button is pressed. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -2521,7 +2524,7 @@ Input.EventGamepadButtonDown.Enabled = true;
 
 ## 🔒︎ Event<int> EventGamepadDisconnected
 
-The event triggered when a gamepad is disconnected. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a gamepad is disconnected. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -2615,7 +2618,7 @@ Input.EventGamepadDisconnected.Enabled = true;
 
 ## 🔒︎ Event<int> EventGamepadConnected
 
-The event triggered when a gamepad is connected. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a gamepad is connected. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -2709,7 +2712,7 @@ Input.EventGamepadConnected.Enabled = true;
 
 ## 🔒︎ Event<int> EventTouchMotion
 
-The event triggered when the touch is moved. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when the touch is moved. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -2803,7 +2806,7 @@ Input.EventTouchMotion.Enabled = true;
 
 ## 🔒︎ Event<int> EventTouchUp
 
-The event triggered when the touch is released. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when the touch is released. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -2897,7 +2900,7 @@ Input.EventTouchUp.Enabled = true;
 
 ## 🔒︎ Event<int> EventTouchDown
 
-The event triggered when the touch is pressed. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when the touch is pressed. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -2991,7 +2994,7 @@ Input.EventTouchDown.Enabled = true;
 
 ## 🔒︎ Event<uint> EventTextPress
 
-The event triggered when the key that has a corresponding printable symbol is pressed. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when the key that has a corresponding printable symbol is pressed. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -3085,7 +3088,7 @@ Input.EventTextPress.Enabled = true;
 
 ## 🔒︎ Event<uint> EventKeyRepeat
 
-The event triggered when the key is pressed repeatedly. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when the key is pressed repeatedly. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -3179,7 +3182,7 @@ Input.EventKeyRepeat.Enabled = true;
 
 ## 🔒︎ Event< Input.KEY > EventKeyUp
 
-The event triggered when the key is released. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when the key is released. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -3273,7 +3276,7 @@ Input.EventKeyUp.Enabled = true;
 
 ## 🔒︎ Event< Input.KEY > EventKeyDown
 
-The event triggered when the key is pressed and held. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when the key is pressed and held. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -3367,7 +3370,7 @@ Input.EventKeyDown.Enabled = true;
 
 ## 🔒︎ Event<int, int> EventMouseMotion
 
-The event triggered when the mouse is moved. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when the mouse is moved. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -3461,7 +3464,7 @@ Input.EventMouseMotion.Enabled = true;
 
 ## 🔒︎ Event<int> EventMouseWheelHorizontal
 
-The event triggered when the mouse wheel is moved horizontally. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when the mouse wheel is moved horizontally. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -3555,7 +3558,7 @@ Input.EventMouseWheelHorizontal.Enabled = true;
 
 ## 🔒︎ Event<int> EventMouseWheel
 
-The event triggered when the mouse scroll wheel is moved. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when the mouse scroll wheel is moved. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -3649,7 +3652,7 @@ Input.EventMouseWheel.Enabled = true;
 
 ## 🔒︎ Event< Input.MOUSE_BUTTON > EventMouseUp
 
-The event triggered when the mouse button is released. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when the mouse button is released. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -3743,7 +3746,7 @@ Input.EventMouseUp.Enabled = true;
 
 ## 🔒︎ Event< Input.MOUSE_BUTTON > EventMouseDown
 
-The event triggered when the mouse button is pressed. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when the mouse button is pressed. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -3830,6 +3833,100 @@ Input.EventMouseDown.Enabled = false;
 
 // and enable it back when necessary
 Input.EventMouseDown.Enabled = true;
+
+```
+
+</details>
+
+## 🔒︎ Event<string, int, int> EventTextEditing
+
+The event triggered while the user is composing text via an IME (Input Method Editor). The handler receives the current UTF-8 composition (preedit) text, the cursor position within it, and the length of the selected portion (both in codepoints). You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience.
+
+> **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
+
+ The event handler signature is as follows: *myhandler(string **text**, int **cursor**, int **length**)*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```csharp
+// implement the TextEditing event handler
+void textediting_event_handler(string text, int cursor, int length)
+{
+	Log.Message("\Handling TextEditing event\n");
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//  1. Multiple subscriptions can be linked to an EventConnections instance
+//  class that you can use later to remove all these subscriptions at once
+//////////////////////////////////////////////////////////////////////////////
+
+// create an instance of the EventConnections class
+EventConnections textediting_event_connections = new EventConnections();
+
+// link to this instance when subscribing to an event (subscription to various events can be linked)
+Input.EventTextEditing.Connect(textediting_event_connections, textediting_event_handler);
+
+// other subscriptions are also linked to this EventConnections instance
+// (e.g. you can subscribe using lambdas)
+Input.EventTextEditing.Connect(textediting_event_connections, (string text, int cursor, int length) => {
+		Log.Message("Handling TextEditing event lambda\n");
+		}
+	);
+
+// later all of these linked subscriptions can be removed with a single line
+textediting_event_connections.DisconnectAll();
+
+//////////////////////////////////////////////////////////////////////////////
+//  2. You can subscribe and unsubscribe via the handler function directly
+//////////////////////////////////////////////////////////////////////////////
+
+// subscribe to the TextEditing event with a handler function
+Input.EventTextEditing.Connect(textediting_event_handler);
+
+// remove subscription to the TextEditing event later by the handler function
+Input.EventTextEditing.Disconnect(textediting_event_handler);
+
+//////////////////////////////////////////////////////////////////////////////
+//   3. Subscribe to an event and unsubscribe later via an EventConnection instance
+//////////////////////////////////////////////////////////////////////////////
+
+// define a connection to be used to unsubscribe later
+EventConnection textediting_event_connection;
+
+// subscribe to the TextEditing event with a lambda handler function and keeping the connection
+textediting_event_connection = Input.EventTextEditing.Connect((string text, int cursor, int length) => {
+		Log.Message("Handling TextEditing event lambda\n");
+	}
+);
+
+// ...
+
+// you can temporarily disable a particular event connection
+textediting_event_connection.Enabled = false;
+
+// ... perform certain actions
+
+// and enable it back when necessary
+textediting_event_connection.Enabled = true;
+
+// ...
+
+// remove the subscription later using the saved connection
+textediting_event_connection.Disconnect();
+
+//////////////////////////////////////////////////////////////////////////////
+//   4. Ignoring TextEditing events when necessary
+//////////////////////////////////////////////////////////////////////////////
+
+// you can temporarily disable the event to perform certain actions without triggering it
+Input.EventTextEditing.Enabled = false;
+
+// ... actions to be performed
+
+// and enable it back when necessary
+Input.EventTextEditing.Enabled = true;
 
 ```
 
@@ -4009,7 +4106,7 @@ Returns a vector containing integer values of touch position.
 The touch position.
 ## ivec2 GetTouchDelta ( int index )
 
-Returns a vector containing screen position change of the touch along the X and Y axes — the difference between the values in the previous and the current frames.
+Returns a vector containing screen position change of the touch along the X and Y axes � the difference between the values in the previous and the current frames.
 ### Arguments
 
 - *int* **index** - Touch input index.
@@ -4267,3 +4364,12 @@ Returns the VR device by its number.
 ### Return value
 
 VR device.
+## void SetIMETextInputRect ( int position_x , int position_y , int width , int height )
+
+Tells the operating system where the text caret or edit area is located, so that the IME composition and candidate window can be positioned next to it. Has no effect if text input is not currently active.
+### Arguments
+
+- *int* **position_x** - Horizontal position of the top-left corner of the text input rectangle, in render pixels relative to the engine window.
+- *int* **position_y** - Vertical position of the top-left corner of the text input rectangle, in render pixels relative to the engine window.
+- *int* **width** - Width of the text input rectangle, in pixels.
+- *int* **height** - Height of the text input rectangle, in pixels.

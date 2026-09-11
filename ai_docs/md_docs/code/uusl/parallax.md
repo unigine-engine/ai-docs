@@ -65,12 +65,12 @@ Input data for the parallax occlusion shadowing.
 Returns the UV transform for the cutout effect providing smooth edges between the opaque and transparent areas. The resulting UV transform is used as the cutout transform in the [parallaxOcclusionMapping()](#parallaxOcclusionMapping_ParallaxIn_float4_Texture2D) function.
 ### Arguments
 
-- *float4* **parallax_uv_transform** - Parallax texture coordinates transformation: (X,Y) — scale, (Z,W) — offset.
-- *float4* **cutout_uv_transform** - UV transform: (X,Y) — scale, (Z,W) — offset.
+- *float4* **parallax_uv_transform** - Parallax texture coordinates transformation: (X,Y) � scale, (Z,W) � offset.
+- *float4* **cutout_uv_transform** - UV transform: (X,Y) � scale, (Z,W) � offset.
 
 ### Return value
 
-Resulting UV transform: (X,Y) — scale, (Z,W) — offset.
+Resulting UV transform: (X,Y) � scale, (Z,W) � offset.
 ## Parallax parallaxOcclusionMapping ( ParallaxIn data , float4 cutout_transform , Texture2D TEX_HEIGHT )
 
 Returns the calculated parallax occlusion mapping data.

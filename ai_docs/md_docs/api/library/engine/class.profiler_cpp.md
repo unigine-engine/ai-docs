@@ -161,6 +161,16 @@ int AppWorldLogic::update()
 
 ## Profiler Class
 
+### Enums
+
+## COUNTER_VR_FLAG
+
+Flags defining whether a custom counter appears in the VR (HMD) profiler overlay in addition to the regular screen profiler.
+| Name | Description |
+|---|---|
+| **COUNTER_VR_FLAG_DISABLED** = 0 | The counter is displayed only in the regular screen profiler and never in the VR profiler overlay (default). |
+| **COUNTER_VR_FLAG_PERFORMANCE_ADVANCED** = 1 << 1 | The counter is included in the advanced performance panel of the VR profiler shown inside the HMD (requires the VR profiler enabled in the advanced mode). |
+
 ### Members
 
 ## void setGui ( const Ptr < Gui >& gui )
@@ -188,7 +198,7 @@ Sets a new value indicating if the profiler is enabled.
 Returns the current value indicating if the profiler is enabled.
 ### Return value
 
-**true** if the profiler is enabled; otherwise **false**.
+**true** if the profiler is enabled ; otherwise **false**.
 ## const char * getMicroprofileUrl () const
 
 Returns the current microprofile web server url.
@@ -206,7 +216,7 @@ Returns the current total number of the profiler counters.
 Current total number of the profiler counters
 ## static Event<> getEventProfileDumpStart () const
 
-Event triggered when profiler dump recording starts. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+Event triggered when profiler dump recording starts. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -342,10 +352,10 @@ Profiler::getEventProfileDumpStart().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventProfileDumpEnd () const
 
-Event triggered when profiler dump recording ends. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+Event triggered when profiler dump recording ends. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -481,50 +491,54 @@ Profiler::getEventProfileDumpEnd().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
-## void setValue ( const char * name , const char * units , int value , int max_value , float * OUT_arg5 )
+## void setValue ( const char * name , const char * units , int value , int max_value , float * OUT_arg5 , Profiler::COUNTER_VR_FLAG vr_flags = Enum.Profiler.COUNTER_VR_FLAG.DISABLED , bool show_chart = true )
 
-Updates settings of the integer counter.
+Sets the value of a custom integer counter displayed in the engine profiler and, depending on the flags, in the VR profiler overlay. The counter is updated only while the profiler (or the VR profiler) is enabled.
 ```cpp
 // add a counter without a graph
-Profiler::setValue("Random value 1", "", rand() % 5, 4, NULL);
+Profiler::setValue("Random value 1", "", rand() % 5, 4, NULL, COUNTER_VR_FLAG_DISABLED);
 // add a counter with a colored graph
-Profiler::setValue("Random value 2", "", rand() % 10, 9, Math::vec4(1.0f));
+Profiler::setValue("Random value 2", "", rand() % 10, 9, Math::vec4(1.0f), COUNTER_VR_FLAG_DISABLED);
 
 ```
 
 
 ### Arguments
 
-- *const char ** **name** - Name of the counter.
-- *const char ** **units** - Counter units.
-- *int* **value** - Value of the counter.
-- *int* **max_value** - Counter maximum value.
-- *float ** **OUT_arg5** - Color of the graph. Pass NULL if no graph is required. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
+- *const char ** **name** - Name of the counter, also used as its label.
+- *const char ** **units** - Unit suffix appended after the printed value (for example, ms); can be omitted.
+- *int* **value** - Value of the counter for the current frame.
+- *int* **max_value** - Reference maximum used to scale the counter's colored bar in the profiler chart.
+- *float ** **OUT_arg5** - Color of the counter's chart bar (RGBA); if omitted, no chart bar is created. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
+- *[Profiler::COUNTER_VR_FLAG](../../../api/library/engine/class.profiler_cpp.md#COUNTER_VR_FLAG)* **vr_flags** - Flags controlling the counter's visibility in the VR profiler, a combination of the *COUNTER_VR_FLAG_** values.
+- *bool* **show_chart** - Flag defining whether the counter draws its chart curve in the profiler.
 
-## void setValue ( const char * name , const char * units , float value , float max_value , float * OUT_arg5 )
+## void setValue ( const char * name , const char * units , float value , float max_value , float * OUT_arg5 , Profiler::COUNTER_VR_FLAG vr_flags = Enum.Profiler.COUNTER_VR_FLAG.DISABLED , bool show_chart = true )
 
-Updates settings of the float counter.
+Sets the value of a custom float counter displayed in the engine profiler and, depending on the flags, in the VR profiler overlay. The counter is updated only while the profiler (or the VR profiler) is enabled.
 ```cpp
 float rvalue1 = static_cast<float>(rand()) / static_cast<float>(RAND_MAX);
 float rvalue2 = static_cast<float>(rand()) / static_cast<float>(RAND_MAX);
 // add a counter without a graph
-Profiler::setValue("Random value 1", "", rvalue1, 1.0f, NULL);
+Profiler::setValue("Random value 1", "", rvalue1, 1.0f, NULL, COUNTER_VR_FLAG_DISABLED);
 // add a counter with a colored graph
-Profiler::setValue("Random value 2", "", 1 + rvalue2, 10.0f, Math::vec4(1.0f));
+Profiler::setValue("Random value 2", "", 1 + rvalue2, 10.0f, Math::vec4(1.0f), COUNTER_VR_FLAG_DISABLED);
 
 ```
 
 
 ### Arguments
 
-- *const char ** **name** - Name of the counter.
-- *const char ** **units** - Counter units.
-- *float* **value** - Value of the counter.
-- *float* **max_value** - Counter maximum value.
-- *float ** **OUT_arg5** - Color of the graph. Pass NULL if no graph is required. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
+- *const char ** **name** - Name of the counter, also used as its label.
+- *const char ** **units** - Unit suffix appended after the printed value (for example, ms); can be omitted.
+- *float* **value** - Value of the counter for the current frame.
+- *float* **max_value** - Reference maximum used to scale the counter's colored bar in the profiler chart.
+- *float ** **OUT_arg5** - Color of the counter's chart bar (RGBA); if omitted, no chart bar is created. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
+- *[Profiler::COUNTER_VR_FLAG](../../../api/library/engine/class.profiler_cpp.md#COUNTER_VR_FLAG)* **vr_flags** - Flags controlling the counter's visibility in the VR profiler, a combination of the *COUNTER_VR_FLAG_** values.
+- *bool* **show_chart** - Flag defining whether the counter draws its chart curve in the profiler.
 
 ## float getValue ( const char * name ) const
 
@@ -538,7 +552,10 @@ Returns a value of the specified counter.
 Value of the counter in milliseconds.
 ## void begin ( const char * name , const Math:: vec4 & color ) const
 
+
 Starts a counter with a given name and shows a colored graph (if the `show_profiler 1` console variable is set). The counter shows user how many millisecods have been spent for the operation that is performed between the *begin()* and the *[end()](#end_float)* functions.
+
+
 ```cpp
 int size = 128;
 
@@ -574,7 +591,10 @@ Unigine::ObjectMeshDynamicPtr mesh;
 
 ## void begin ( const char * name ) const
 
+
 Starts a counter with a given name. The counter shows user how many millisecods have been spent for the operation that is performed between the *begin()* and the *[end()](#end_float)* functions.
+
+
 ```cpp
 Unigine::ObjectMeshDynamicPtr mesh;
 
@@ -602,7 +622,10 @@ Stops the last [activated](#begin_cstr_vec4_void) counter and returns its value.
 Value of the counter in milliseconds.
 ## int beginMicro ( const char * name , bool gpu = 0 ) const
 
+
 Starts a counter with a given name in the [Microprofile](../../../tools/profiling/microprofile/index_cpp.md) only, without overloading the [Performance Profiler](../../../tools/profiling/profiler/index.md) layout. The counter shows user how many millisecods have been spent for the operation that is performed between the *beginMicro()* and the *[endMicro()](#endMicro_int_void)* functions.
+
+
 > **Notice:** Each counter has an ID. Thus, several nested *beginMicro() / endMicro()* blocks can be created, which can't be done in the [Performance Profiler](../../../tools/profiling/profiler/index.md).
 
 
@@ -626,7 +649,7 @@ Unigine::ObjectMeshDynamicPtr mesh;
 ### Arguments
 
 - *const char ** **name** - Name of the counter.
-- *bool* **gpu** - true for the GPU counter; false — for the CPU counter. The default value is false.
+- *bool* **gpu** - true for the GPU counter; false � for the CPU counter. The default value is false.
 
 ### Return value
 
@@ -640,7 +663,10 @@ Stops a previously [activated](#beginMicro_cstr_int_int) Microprofile counter wi
 
 ## void initThread ( const char * name , int priority = 0 )
 
+
 Initiates the custom thread for Microprofile calculations to avoid spikes, which otherwise are registered by Microprofile on registering a new thread. This method shall be called at the beginning of the thread and before [*beginMicro()*](#beginMicro_cstr_int_int) and followed by [*shutdownThread()*](#shutdownThread_void) when the thread is not required anymore.
+
+
 ```cpp
 void thread_function()
 {

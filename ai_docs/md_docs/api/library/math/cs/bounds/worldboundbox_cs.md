@@ -260,7 +260,10 @@ Checks if the box with the given coordinates is inside the current bounding box.
 **true** if the box is inside the bounding box; otherwise, **false**.
 ## bool InsideValid ( dvec3 point )
 
+
 Checks if given point is inside the bounding box.
+
+
 > **Notice:** The method doesn't check if the minimum and maximum coordinates of the current bound are valid.
 
 
@@ -274,6 +277,7 @@ Checks if given point is inside the bounding box.
 ## bool InsideValid ( dvec3 point , double radius )
 
 Checks if the sphere is inside the bounding box.
+
 > **Notice:** The method doesn't check if the minimum and maximum coordinates of the current bound are valid.
 
 ### Arguments
@@ -287,6 +291,7 @@ Checks if the sphere is inside the bounding box.
 ## bool InsideValid ( dvec3 min_ , dvec3 max_ )
 
 Checks if the box specified in the argument is inside the current bound.
+
 > **Notice:** The method doesn't check if the minimum and maximum coordinates of the current bound are valid.
 
 ### Arguments
@@ -300,6 +305,7 @@ Checks if the box specified in the argument is inside the current bound.
 ## bool InsideValid ( dvec3[] points )
 
 Checks if the points specified in the argument are inside the current bound.
+
 > **Notice:** The method doesn't check if the minimum and maximum coordinates of the current bound are valid.
 
 ### Arguments
@@ -331,7 +337,10 @@ Checks if the bounding box specified in the argument is inside the current bound
 **true** if the bounding box is inside the bounding box; otherwise, **false**.
 ## bool InsideValid ( WorldBoundSphere bs )
 
+
 Checks if the bounding sphere specified in the argument is inside the current bounding box.
+
+
 > **Notice:** The method doesn't check if the minimum and maximum coordinates of the current bounding box are valid.
 
 
@@ -344,7 +353,10 @@ Checks if the bounding sphere specified in the argument is inside the current bo
 **true** if the bounding sphere is inside the bounding box; otherwise, **false**.
 ## bool InsideValid ( WorldBoundBox bb )
 
+
 Checks if the bounding box specified in the argument is inside the current bounding box.
+
+
 > **Notice:** The method doesn't check if the minimum and maximum coordinates of the current bounding box are valid.
 
 
@@ -377,7 +389,10 @@ Checks if the whole bounding box specified in the argument is inside the current
 **true** if the whole bounding box is inside the bounding box; otherwise, **false**.
 ## bool InsideAllValid ( WorldBoundSphere bs )
 
+
 Checks if the bounding sphere specified in the argument is inside the current bounding box.
+
+
 > **Notice:** The method doesn't check if the minimum and maximum coordinates of the current bounding box are valid.
 
 
@@ -390,7 +405,10 @@ Checks if the bounding sphere specified in the argument is inside the current bo
 **true** if the whole bounding sphere is inside the bounding box; otherwise, **false**.
 ## bool InsideAllValid ( WorldBoundBox bb )
 
+
 Checks if the whole bounding box specified in the argument is inside the current bounding box.
+
+
 > **Notice:** The method doesn't check if the minimum and maximum coordinates of the current bounding box are valid.
 
 
@@ -447,7 +465,10 @@ Checks for an intersection between a line and the current bounding box.
 **true** if the given line intersects the bounding box; otherwise, **false**.
 ## bool RayIntersectionValid ( dvec3 point , dvec3 direction )
 
+
 Checks for an intersection between a ray and the current bounding box.
+
+
 > **Notice:** This function doesn't check if the minimum and maximum coordinates of the bounding box are valid.
 
 
@@ -461,7 +482,10 @@ Checks for an intersection between a ray and the current bounding box.
 **true** if the given ray intersects the bounding box; otherwise, **false**.
 ## bool IRayIntersectionValid ( dvec3 point , dvec3 idirection )
 
+
 Checks for an intersection between a ray and the current bounding box. This function uses the inverse direction of the ray, which increases performance.
+
+
 > **Notice:** This function doesn't check if the minimum and maximum coordinates of the bounding box are valid.
 
 
@@ -475,7 +499,10 @@ Checks for an intersection between a ray and the current bounding box. This func
 **true** if the given ray intersects the bounding box; otherwise, **false**.
 ## bool GetIntersectionValid ( dvec3 p0 , dvec3 p1 )
 
+
 Checks for an intersection between a line and the current bounding box.
+
+
 > **Notice:** This function doesn't check if the minimum and maximum coordinates of the bounding box are valid.
 
 
@@ -505,7 +532,10 @@ Returns the distance from the given point to the closest vertex of the bounding 
 Distance in units if the minimum and maximum coordinates of the bounding box are valid; otherwise, **[INF](../../../../../api/library/math/constants_cs.md)**.
 ## double DistanceValid ( )
 
+
 Returns the distance from the origin of coordinates to the closest vertex of the bounding box.
+
+
 > **Notice:** This function doesn't check if the minimum and maximum coordinates of the bounding box are valid.
 
 
@@ -514,7 +544,10 @@ Returns the distance from the origin of coordinates to the closest vertex of the
 Resulting *double* value.
 ## double DistanceValid ( dvec3 point )
 
+
 Returns the distance from the given point to the closest vertex of the bounding box.
+
+
 > **Notice:** This function doesn't check if the minimum and maximum coordinates of the bounding box are valid.
 
 

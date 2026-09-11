@@ -16,7 +16,7 @@ The overall life cycle of graphic data can be thought of as follows:
 
 
 1. The system determines the tiles that are currently visible in the viewport, their spatial size and their highest available mip-level depending on the distance, terrain density limits and streaming settings.
-2. The required graphic data of requested tiles of base textures is loaded from `.lmap` assets in chunks of *128×128 pixels* and cached in the RAM (CPU cache) to be used in intersection calculations and physics.
+2. The required graphic data of requested tiles of base textures is loaded from `.lmap` assets in chunks of *128�128 pixels* and cached in the RAM (CPU cache) to be used in intersection calculations and physics.
 3. The acquired data is uploaded to the GPU and cached in the video memory, if necessary (GPU cache).
 4. The data of several *Landscape Layer Maps* (*Albedo, Height* and *Mask* textures) is blended according to the [Blending Settings](../../../objects/objects/terrain/landscape_terrain/index.md#layers_blending).
 5. The base textures are blended with textures of the [details](../../../objects/objects/terrain/landscape_terrain/index.md#details) (if any).
@@ -67,7 +67,7 @@ At that, multi-core processors have an advantage here enabling you to distribute
 ### Landscape Layers
 
 
-The number and density of different [Landscape Layer Maps](../../../objects/objects/terrain/landscape_terrain/landscape_layer_map.md) that define the look of the terrain at the current moment is an important factor — multiple blended layers with high resolution textures might make a significant performance drop. In most cases it is reasonable to combine multiple textures into a single one in a raster graphics editor.
+The number and density of different [Landscape Layer Maps](../../../objects/objects/terrain/landscape_terrain/landscape_layer_map.md) that define the look of the terrain at the current moment is an important factor � multiple blended layers with high resolution textures might make a significant performance drop. In most cases it is reasonable to combine multiple textures into a single one in a raster graphics editor.
 
 
 > **Notice:** In contrast, you can use several *Landscape Layer Maps* that refer to the same `.lmap` asset without performance drop. You can create a *[Node Reference](../../../objects/nodes/reference/index.md)* containing a *Landscape Layer Map* to propagate repetitive areas.
@@ -76,7 +76,7 @@ The number and density of different [Landscape Layer Maps](../../../objects/obje
 The **[Current Data Density](../../../objects/objects/terrain/landscape_terrain/landscape_layer_map.md#density)** value for a *Landscape Layer Map* is calculated based on its spatial size and the resolution of base textures used. It's hard to miss that a decent high-detailed landscape would require a texture tileset of an extremely large resolution.
 
  Best PracticeUse base textures of *Landscape Layer Maps* to create a coarse look of the *Landscape Terrain* and refine the surface using [details](../../../objects/objects/terrain/landscape_terrain/index.md#details) for high-detailed per-pixel quality.
-Also, the visibility of layers is taken into account — if a large *Landscape Layer Map* overlaps other layers (has a higher **[Order](../../../objects/objects/terrain/landscape_terrain/landscape_layer_map.md#order)** value), only its graphic data will be loaded and rendered.
+Also, the visibility of layers is taken into account � if a large *Landscape Layer Map* overlaps other layers (has a higher **[Order](../../../objects/objects/terrain/landscape_terrain/landscape_layer_map.md#order)** value), only its graphic data will be loaded and rendered.
 
 
 ![](../../../objects/objects/terrain/landscape_terrain/layers_order.png)
@@ -128,7 +128,7 @@ When it comes to optimizing intersection and collision detection performed on th
 When something changes a loaded area of the *Landscape Terrain*, the affected tiles are to be restreamed with the changes taken into account.
 
 
-Increase the **[Tiles Reload Per Frame](../../../editor2/settings/render_settings/landscape/index.md#tiles_reload_per_frame)** parameter—the number of reloaded tiles per each frame—to make the changes be committed faster.
+Increase the **[Tiles Reload Per Frame](../../../editor2/settings/render_settings/landscape/index.md#tiles_reload_per_frame)** parameter�the number of reloaded tiles per each frame�to make the changes be committed faster.
 
 
 However, be careful not to exceed the bandwidth of the system with too many tiles reloaded at the same time; otherwise, the performance may drop a lot. It is therefore very important to monitor the streaming settings and dynamics of layers and avoid per-frame changes of large areas that cause many tiles to reload.
@@ -194,7 +194,7 @@ You can decrease the maximum allowed level of detail for the albedo, normal and 
 ![](../../../editor2/settings/render_settings/landscape/texel_size_1.png) ![](../../../editor2/settings/render_settings/landscape/texel_size_2.png)
 
 
-Decrease **[Target Resolution](../../../editor2/settings/render_settings/landscape/index.md#target_resolution)**—the resolution of the screen buffer for the *Landscape Terrain* renderer—to gain more performance at a cost of visual quality.
+Decrease **[Target Resolution](../../../editor2/settings/render_settings/landscape/index.md#target_resolution)**�the resolution of the screen buffer for the *Landscape Terrain* renderer�to gain more performance at a cost of visual quality.
 
 
 You can also reduce the detail level of polygons facing the camera at oblique viewing angles (**[Detail Level By Angle](../../../editor2/settings/render_settings/landscape/index.md#detail_level_by_angle)**) to optimize streaming load and memory consumption.

@@ -42,6 +42,12 @@ The type of this retargeter instance, identifying which subclass strategy it imp
 ## 🔒︎ string TypeName
 
 The human-readable name of the retargeter type.
+## 🔒︎ UGUID FirstFileGUID
+
+The GUID of the first of the two skeleton files this retargeter was registered for.
+## 🔒︎ UGUID SecondFileGUID
+
+The GUID of the second of the two skeleton files this retargeter was registered for.
 ### Members
 
 ---

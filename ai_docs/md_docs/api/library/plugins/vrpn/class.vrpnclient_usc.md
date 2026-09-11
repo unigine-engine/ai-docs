@@ -20,8 +20,6 @@ A class for the [VRPN Plugin](../../../../code/plugins/vrpn/index_usc.md) that a
 
 ## VrpnClient Class
 
-### Members
-
 ---
 
 ## VrpnAnalogDevice createAnalogDevice ( string name )

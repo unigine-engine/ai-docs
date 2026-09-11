@@ -20,7 +20,6 @@ This section contains settings related to resource streaming.
 | Usage Limit RAM | The percentage of the total physical memory (RAM) that the Engine is allowed to use for streaming. If the streaming exceeds the RAM usage limit, the application may become unstable or crash. Range of values: **[10, 100]**. The default value is : **80**. `Console access:render_streaming_usage_limit_ram` ([API control](../../../../api/library/rendering/class.render_cpp.md#render_streaming_usage_limit_ram)) |
 | Cache VRAM | The  maximum size of VRAM available for streaming caches. When set to -1, caches grow freely up to [engine limits](#render_streaming_usage_limit_vram). When limited, caches will grow only up to the defined value. If the limit is too low, not all resources will fit into the cache in time, which may cause streaming to stutter. Range of values: **[-1, inf]**. The default value is : **-1**. `Console access:render_streaming_cache_vram` ([API control](../../../../api/library/rendering/class.render_cpp.md#render_streaming_cache_vram)) |
 | Cache RAM | The  maximum size of RAM available for streaming caches. When set to -1, caches grow freely up to [engine limits](#render_streaming_usage_limit_ram). When limited, caches will grow only up to the defined value. If the limit is too low, not all resources will fit into the cache in time, which may cause streaming to stutter. Range of values: **[-1, inf]**. The default value is : **-1**. `Console access:render_streaming_cache_ram` ([API control](../../../../api/library/rendering/class.render_cpp.md#render_streaming_cache_ram)) |
-| Animations Life Time | The lifetime of GPU cache used for animations rendering. Range of values: **[-1, INT_MAX]**. The default value is : **-1**. `Console access:render_streaming_animations_life_time` ([API control](../../../../api/library/rendering/class.render_cpp.md#render_streaming_animations_life_time)) |
 
 
 ## Shaders
@@ -51,6 +50,14 @@ This section contains settings related to resource streaming.
 
 | Streaming Mode | The streaming mode for loading meshes to memory (RAM). The following modes are available: - *Async* - asychronous loading of meshes. - *Force* - force-loading of meshes required for the current frame at once. Option **#1** is selected by default (see above). `Console access:render_streaming_meshes_mode_ram` ([API control](../../../../api/library/rendering/class.render_cpp.md#render_streaming_meshes_mode_ram)) |
 |---|---|
+
+
+## Animations
+
+
+| Streaming Mode | The streaming mode for skinned mesh animations. The following modes are available: - *Async* - asynchronous loading of animations. - *Force* - force-loading of animations required for the current frame at once. Option **#2** is selected by default (see above). `Console access:render_streaming_animations_mode` ([API control](../../../../api/library/rendering/class.render_cpp.md#render_streaming_animations_mode)) |
+|---|---|
+| Life Time | The lifetime of the RAM cache used for animation streaming, in frames. When an animation is no longer used, it remains in the cache for this number of frames before being unloaded, so that it can be reused without reloading. The default value of -1 keeps animations in memory permanently - they are never unloaded. Values below 6 are clamped to 6 frames. Range of values: **[-1, INT_MAX]**. The default value is : **-1**. `Console access:render_streaming_animations_life_time` ([API control](../../../../api/library/rendering/class.render_cpp.md#render_streaming_animations_life_time)) |
 
 
 ## Prefetch CPU

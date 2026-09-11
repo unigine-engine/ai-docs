@@ -67,7 +67,10 @@ The value indicating if Mesh Dynamic has the [USAGE_MISC_SHARED](#USAGE_MISC_SHA
 
 ## MeshDynamic ( int flags )
 
+
 Creates a new dynamic mesh in accordance with the specified flags.
+
+
 > **Notice:** The [USAGE_IMMUTABLE_VERTEX](#USAGE_IMMUTABLE_VERTEX) flag cannot be used together with [USAGE_DYNAMIC_VERTEX](#USAGE_DYNAMIC_VERTEX) flag.
 >
 >
@@ -83,7 +86,10 @@ Creates a new dynamic mesh in accordance with the specified flags.
 
 ## MeshDynamic Create ( int flags )
 
+
 Creates a new dynamic mesh instance in accordance with the specified flags.
+
+
 > **Notice:** The [USAGE_IMMUTABLE_VERTEX](#USAGE_IMMUTABLE_VERTEX) flag cannot be used together with [USAGE_DYNAMIC_VERTEX](#USAGE_DYNAMIC_VERTEX) flag.
 >
 >
@@ -934,7 +940,10 @@ Adds a given number of quadrilaterals to the dynamic mesh. This method does not 
 
 ## int SaveState ( Stream stream )
 
+
 Saves the current state of the dynamic mesh (vertices, indices, etc.) to the specified stream.
+
+
 Saving into the stream requires creating a blob to save into. To restore the saved state the [RestoreState()](#restoreState_Stream_int) method is used:
 
 
@@ -965,7 +974,10 @@ dynamicMesh.RestoreState(blob_state);
 true if the current state of the dynamic mesh is saved successfully; otherwise, false.
 ## int RestoreState ( Stream stream )
 
+
 Restores a previously saved state of the dynamic mesh (vertices, indices, etc.) from the specified stream.
+
+
 Restoring from the stream requires creating a blob to save into and saving the state using the [SaveState()](#saveState_Stream_int) method:
 
 

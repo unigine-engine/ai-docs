@@ -24,10 +24,10 @@ It is very easy to start your own C# project by using UNIGINE SDK Browser:
 2. Go to the *[Templates](../../sdk/index.md#templates)* tab and click *Create Project* button on the *C# Empty* template card. ![](../../sdk/projects/create_project_cs.png)
 3. Specify the following parameters: ![](../../start/quick_start/setup_project/create_new_cs.png) > **Notice:** Read more about these parameters in [this article](../../sdk/projects/index_cpp.md).
 
-  - **Project name** — specify the name of your project.
-  - **Location** — specify the path to your project folder.
-  - **SDK** — choose the Unigine SDK.
-  - **Precision** — specify the precision. In this example we will use [double precision](../../code/double_precision/index.md).
+  - **Project name** � specify the name of your project.
+  - **Location** � specify the path to your project folder.
+  - **SDK** � choose the Unigine SDK.
+  - **Precision** � specify the precision. In this example we will use [double precision](../../code/double_precision/index.md).
 4. Click the *Create New Project* button. The project will appear in the *My Projects* tab list. ![](project_created.png)
 
 

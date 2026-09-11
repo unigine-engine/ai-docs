@@ -18,7 +18,7 @@ This class is used to create and manage [Landscape Terrain](../../../../objects/
 
 ## float IntersectionPrecision
 
-The Precision for intersection detection as a fraction of maximum precision in the [0; 1] range. The default value is 0.5f. Maximum precision is determined by the Engine on the basis of the data of your Landscape Terrain.
+The precision for intersection detection as a fraction of maximum precision in the [0; 1] range. The default value is 0.5f. Maximum precision is determined by the Engine on the basis of the data of your Landscape Terrain.
 ## 🔒︎ int NumDetailMasks
 
 The total number of detail masks of the landscape terrain.
@@ -63,7 +63,6 @@ void Update()
 
 ```
 
-
 ### Members
 
 ---
@@ -91,9 +90,9 @@ Returns the detail mask by its rendering order. The number of detail masks is fi
 ### Return value
 
 Detail mask having the specified rendering order.
-## TerrainDetailMask FindChild ( string name )
+## TerrainDetailMask FindDetailMask ( string name )
 
-Returns a child detail's number by its name. The search is performed among the immediate children only.
+Returns a detail mask by its name. The search is performed among the immediate children only.
 ### Arguments
 
 - *string* **name** - Detail mask name.
@@ -115,55 +114,6 @@ Builds the list of all detail masks of the landscape terrain according to their 
 
 - *[TerrainDetailMask](../../../../api/library/objects/landscape_terrain/class.terraindetailmask_cs.md)[]* **masks** - Buffer to which the list of detail masks it to be put.
 
-## long GetLastStreamingFrame ( )
-
-Returns the number of the frame when the last commit to the *Virtual Texture* was performed. This method enables you to check if the *Landscape Terrain* data is loaded completely at the moment (the *Virtual Texture* is created and the last commit to it is already applied).
-```cpp
-#include "AppWorldLogic.h"
-#include <UnigineWorld.h>
-#include <UnigineGame.h>
-
-using namespace Unigine;
-ObjectLandscapeTerrainPtr terrain;
-
-int AppWorldLogic::init()
-{
-	terrain = checked_ptr_cast<ObjectLandscapeTerrain>(World::getNodeByName("ObjectLandscapeTerrain"));
-
-	return 1;
-}
-
-int AppWorldLogic::update()
-{
-	if (!terrain.isValid())
-		return 1;
-	int64_t last_commit_frame = terrain->getLastStreamingFrame();
-	if (last_commit_frame == -1)
-	{
-		Log::message("The Virtual Texture is not created yet\n");
-		return 1;
-		// not ready
-	}
-	if ((Game::getFrame() - last_commit_frame) > 45)
-	{
-		Log::message("Virtual Texture update is completed (all commits are applied)\n");
-		// ...
-	}
-	else
-	{
-		Log::message("Virtual Texture update is pending (commit_frame = %d)\n", last_commit_frame);
-		// ...
-	}
-	return 1;
-}
-
-
-```
-
-
-### Return value
-
-Number of the last streaming frame.
 ## static int type ( )
 
 Returns the type of the node.

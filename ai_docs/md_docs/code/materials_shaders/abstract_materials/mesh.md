@@ -260,8 +260,8 @@ Using the following structures you can get access to the base and user data in t
 | Name | Arguments | Description |
 |---|---|---|
 | INIT_BASE_DATA | *(none)* | Initializes the base structure variables (available in all shaders). |
-| INIT_USER_DATA | **TYPE** — type of the user data **NAME** — name of the user data | Initializes user data that will be interpolated between vertices and **passed through the shader pipeline**. |
-| INIT_USER_NOINTERPOLATION_DATA | **TYPE** — type of the user data **NAME** — name of the user data | Initializes user data that won’t be interpolated between vertices but still **will be passed through shader pipeline**. |
+| INIT_USER_DATA | **TYPE** � type of the user data **NAME** � name of the user data | Initializes user data that will be interpolated between vertices and **passed through the shader pipeline**. |
+| INIT_USER_NOINTERPOLATION_DATA | **TYPE** � type of the user data **NAME** � name of the user data | Initializes user data that won�t be interpolated between vertices but still **will be passed through shader pipeline**. |
 
 
 **INIT_BASE_DATA** initializes the following set of semantics:
@@ -308,7 +308,7 @@ Performs operations (e.g., transformations) on individual vertices received from
 | VERTEX_IN_TRANSFORM | float4x4 | Transforms from object space to view space. |
 | VERTEX_IN_MODELVIEW | float4x4 | Transforms from world space to view space. Updates automatically to correctly calculate velocity. |
 | VERTEX_IN_IMODELVIEW | float4x4 | Transforms from view space to world space. Updates automatically to correctly calculate velocity. |
-| VERTEX_IN_INSTANCE | uint | Object’s batched instance ID. |
+| VERTEX_IN_INSTANCE | uint | Object�s batched instance ID. |
 | VERTEX_IN_TIME | float | Current global engine time elapsed since the engine initialization in ms. Updates automatically to correctly calculate velocity. |
 | VERTEX_IN_GAME_TIME | float | Current game time that relates to Game::setScale and Game::setIFps. Updates automatically to correctly calculate velocity. |
 
@@ -325,7 +325,7 @@ Use these variables as they are automatically updated during the material proces
 | DATA_TANGENT | float3 | Vertex tangent in view space |
 | DATA_BINORMAL | float3 | Vertex binormal in view space |
 | DATA_NORMAL | float3 | Vertex normal in view space |
-| DATA_UV | float4 | Contains a set of vertex UV coordinates: - **xy** — base UV - **zw** — lightmap UV |
+| DATA_UV | float4 | Contains a set of vertex UV coordinates: - **xy** � base UV - **zw** � lightmap UV |
 | DATA_COLOR | float4 | Vertex RGBA color |
 | DATA_TESSELLATION_FACTOR | float | Mesh tessellation factor. Available only when tessellation state is enabled. |
 
@@ -351,8 +351,8 @@ All tessellated vertex data get interpolated here.
 
 | Name | Arguments | Description |
 |---|---|---|
-| TEXTURE | **Name** — name of the texture slot **UV** — texture uv value | Samples a texture. |
-| TEXTURE_MIP_OFFSET | **Name** — name of the texture slot **UV** — texture uv value **Offset** — texture uv offset value | Samples a texture with mipmap offset. |
+| TEXTURE | **Name** � name of the texture slot **UV** � texture uv value | Samples a texture. |
+| TEXTURE_MIP_OFFSET | **Name** � name of the texture slot **UV** � texture uv value **Offset** � texture uv offset value | Samples a texture with mipmap offset. |
 
 
 ### fragment
@@ -369,7 +369,7 @@ Produces color values for each interpolated pixel fragment. You can use the prov
 | DATA_NORMAL | float3 | Normal in view space |
 | DATA_BINORMAL | float3 | Binormal in view space |
 | DATA_TANGENT | float3 | Tangent in view space |
-| DATA_UV | float4 | A set of UV coordinates - **xy** — base UV - **zw** — lightmap UV |
+| DATA_UV | float4 | A set of UV coordinates - **xy** � base UV - **zw** � lightmap UV |
 | DATA_COLOR | float4 | Vertex color |
 | DATA_ALPHA_FADE | float | Alpha fade value |
 

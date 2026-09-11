@@ -125,6 +125,110 @@ int AppWorldLogic::update()
 
 ### Members
 
+## void setThreshold ( const Math:: vec3 & threshold )
+
+Sets a new threshold distance set for the physical noise node. the threshold determines the distance of gradual change from zero to full force value. this values are relative to the size of the physical noise box. it means that the threshold values should be less than the size of the physical noise box.
+### Arguments
+
+- *const  Math::[vec3](../../../api/library/math/class.vec3_cpp.md)&* **threshold** - The threshold distance for the physical noise node
+
+## Math:: vec3 getThreshold () const
+
+Returns the current threshold distance set for the physical noise node. the threshold determines the distance of gradual change from zero to full force value. this values are relative to the size of the physical noise box. it means that the threshold values should be less than the size of the physical noise box.
+### Return value
+
+Current threshold distance for the physical noise node
+## void setStep ( const Math:: vec3 & step )
+
+Sets a new sampling step that is used for pixel sampling from the noise texture. This parameter can be used to animate a force field in run-time.
+### Arguments
+
+- *const  Math::[vec3](../../../api/library/math/class.vec3_cpp.md)&* **step** - The sampling step for pixel sampling from the noise texture
+
+## Math:: vec3 getStep () const
+
+Returns the current sampling step that is used for pixel sampling from the noise texture. This parameter can be used to animate a force field in run-time.
+### Return value
+
+Current sampling step for pixel sampling from the noise texture
+## void setSize ( const Math:: vec3 & size )
+
+Sets a new size of the physical noise node.
+### Arguments
+
+- *const  Math::[vec3](../../../api/library/math/class.vec3_cpp.md)&* **size** - The size of the physical noise node
+
+## Math:: vec3 getSize () const
+
+Returns the current size of the physical noise node.
+### Return value
+
+Current size of the physical noise node
+## void setNoiseScale ( float scale )
+
+Sets a new scale of the noise texture.
+### Arguments
+
+- *float* **scale** - The scale of the noise texture
+
+## float getNoiseScale () const
+
+Returns the current scale of the noise texture.
+### Return value
+
+Current scale of the noise texture
+## void setOffset ( const Math:: vec3 & offset )
+
+Sets a new sampling offset that is used for pixel sampling from the noise texture. This parameter can be used to animate a force field in run-time.
+### Arguments
+
+- *const  Math::[vec3](../../../api/library/math/class.vec3_cpp.md)&* **offset** - The sampling offset for pixel sampling from the noise texture
+
+## Math:: vec3 getOffset () const
+
+Returns the current sampling offset that is used for pixel sampling from the noise texture. This parameter can be used to animate a force field in run-time.
+### Return value
+
+Current sampling offset for pixel sampling from the noise texture
+## void setImageSize ( int size )
+
+Sets a new size of the noise texture in pixels.
+### Arguments
+
+- *int* **size** - The size of the noise texture in pixels
+
+## int getImageSize () const
+
+Returns the current size of the noise texture in pixels.
+### Return value
+
+Current size of the noise texture in pixels
+## void setFrequency ( int frequency )
+
+Sets a new number of octaves for the perlin noise texture generation. It is not recommended to change this parameter in run-time as the noise texture will be regenerated and the performance will decrease.
+### Arguments
+
+- *int* **frequency** - The number of octaves for the noise texture generation
+
+## int getFrequency () const
+
+Returns the current number of octaves for the perlin noise texture generation. It is not recommended to change this parameter in run-time as the noise texture will be regenerated and the performance will decrease.
+### Return value
+
+Current number of octaves for the noise texture generation
+## void setForce ( float force )
+
+Sets a new value of the force multiplier.
+### Arguments
+
+- *float* **force** - The force multiplier
+
+## float getForce () const
+
+Returns the current value of the force multiplier.
+### Return value
+
+Current force multiplier
 ---
 
 ## static PhysicalNoisePtr create ( const Math:: vec3 & size )
@@ -134,139 +238,12 @@ Constructor. Creates a physical noise node of the specified size.
 
 - *const  Math::[vec3](../../../api/library/math/class.vec3_cpp.md) &* **size** - Physical noise box size in units.
 
-## void setForce ( float force )
-
-Sets the value of the force multiplier.
-### Arguments
-
-- *float* **force** - Force multiplier. The higher the value is, the higher the value of the resulting force that affects an object inside the physical noise node will be.
-
-## float getForce ( )
-
-Returns the value of the force multiplier.
-### Return value
-
-Force multiplier. The higher the value is, the higher the value of the resulting force that affects an object inside the physical noise node will be.
-## void setFrequency ( int frequency )
-
-Sets the number of octaves for the Perlin noise texture generation.
-> **Notice:** It is not recommended to change this parameter in run-time as the noise texture will be regenerated and the performance will decrease.
-
-
-### Arguments
-
-- *int* **frequency** - Number of octaves for the Perlin noise texture generation. The minimum value is **1**, the maximum value is **16**. The higher the value is, the more details the noise texture has.
-
-## int getFrequency ( )
-
-Returns the number of octaves for the Perlin noise texture generation.
-> **Notice:** It is not recommended to change this parameter in run-time as the noise texture will be regenerated and the performance will decrease.
-
-
-### Return value
-
-Number of octaves for the Perlin noise texture generation. The minimum value is **1**, the maximum value is **16**. The higher the value is, the more details the noise texture has.
 ## Ptr < Image > getImage ( )
 
 Returns the noise texture image.
 ### Return value
 
 Noise texture image.
-## void setImageSize ( int size )
-
-Sets the size of the noise texture in pixels.
-### Arguments
-
-- *int* **size** - Size of the noise texture in pixels.
-
-## int getImageSize ( )
-
-Returns the size of the noise texture in pixels.
-### Return value
-
-Size of the noise texture in pixels.
-## void setNoiseScale ( float scale )
-
-Sets the scale of the noise texture.
-> **Notice:** It is not recommended to change this parameter in run-time as the noise texture will be regenerated and the performance will decrease.
-
-
-### Arguments
-
-- *float* **scale** - Scale of the noise texture. The minimum value is **0**, the maximum value is **1**.
-
-## float getNoiseScale ( )
-
-Returns the scale of the noise texture.
-### Return value
-
-Scale of the noise texture. The minimum value is 0, the maximum value is 1.
-## void setOffset ( const Math:: vec3 & offset )
-
-Sets the sampling offset that will be used for pixel sampling from the noise texture.
-> **Notice:** This parameter can be used to animate a force field in run-time.
-
-
-### Arguments
-
-- *const  Math::[vec3](../../../api/library/math/class.vec3_cpp.md) &* **offset** - Sampling offset along the X, Y and Z axes.
-
-## Math:: vec3 getOffset ( )
-
-Returns the sampling offset that is used for pixel sampling from the noise texture.
-> **Notice:** This parameter can be used to animate a force field in run-time.
-
-
-### Return value
-
-Sampling offset along the X, Y and Z axes.
-## void setSize ( const Math:: vec3 & size )
-
-Sets the size for the physical noise node.
-### Arguments
-
-- *const  Math::[vec3](../../../api/library/math/class.vec3_cpp.md) &* **size** - Size of the physical noise box in units. If a negative value is provided, 0 will be used instead.
-
-## Math:: vec3 getSize ( )
-
-Returns the current size of the physical noise node.
-### Return value
-
-Size of the physical noise box in units.
-## void setStep ( const Math:: vec3 & step )
-
-Sets the sampling step that is used for pixel sampling from the noise texture.
-> **Notice:** This parameter can be used to animate a force field in run-time.
-
-
-### Arguments
-
-- *const  Math::[vec3](../../../api/library/math/class.vec3_cpp.md) &* **step** - Sampling step size along the X, Y and Z axes.
-
-## Math:: vec3 getStep ( )
-
-Returns the sampling step that is used for pixel sampling from the noise texture.
-> **Notice:** This parameter can be used to animate a force field in run-time.
-
-
-### Return value
-
-Sampling step size along the X, Y and Z axes.
-## void setThreshold ( const Math:: vec3 & threshold )
-
-Sets a threshold distance set for the physical noise node.  The threshold determines the distance of gradual change from zero to full force value. This values are relative to the size of the physical noise box. It means that the threshold values should be less than the size of the physical noise box.
-![](../../../objects/effects/physicals/threshold.png)
-
-
-### Arguments
-
-- *const  Math::[vec3](../../../api/library/math/class.vec3_cpp.md) &* **threshold** - Threshold distance along the X, Y and Z axes.
-
-## Math:: vec3 getThreshold ( )
-
- Returns the threshold distance set for the physical noise node. The threshold determines the distance of gradual change from zero to full force value. This values are relative to the size of the physical noise box. It means that the threshold values should be less than the size of the physical noise box.
-### Return value
-
 ## static int type ( )
 
 Returns the type of the node.

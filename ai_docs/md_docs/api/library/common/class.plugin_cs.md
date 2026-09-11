@@ -1,7 +1,7 @@
 # Unigine::Plugin Class (CS)
 
 
-Unigine Plugin class allows loading a custom library dynamically at Unigine runtime.
+Unigine *Plugin* class allows loading a custom library dynamically at Unigine runtime.
 
 
 ## Plugin Class
@@ -24,7 +24,10 @@ Returns the name of the plugin.
 Plugin name.
 ## int GetOrder ( )
 
-Returns the execution order of the plugin. Each plugin has its execution order, which determines the sequence in which plugin’s functions (*[update](#update_void) / [postUpdate](#postUpdate_void) / [render](#render_const_EngineWindowViewportPtr_ref_void) / [shutdown](#shutdown_int)*) will be executed. The only exception is the [*init*](#init_int) function as it is called just after loading the plugin.
+
+Returns the execution order of the plugin. Each plugin has its execution order, which determines the sequence in which plugin�s functions (*[update](#update_void) / [postUpdate](#postUpdate_void) / [render](#render_const_EngineWindowViewportPtr_ref_void) / [shutdown](#shutdown_int)*) will be executed. The only exception is the [*init*](#init_int) function as it is called just after loading the plugin.
+
+
 > **Notice:** Remember, when [writing your own plugin](../../../code/cpp/plugin.md), that requires interaction with other ones, specifying correct order value is required to avoid issues and ensure proper execution sequence. If in your case the order doesn't matter, set the default 0 value.
 
 
@@ -36,7 +39,7 @@ Plugin execution order.
 Engine calls this function before updating each physics frame.
 ## virtual void Gui ( EngineWindowViewport window )
 
-Engine calls this function before gui each render frame for the specified engine window viewport.
+Engine calls this function before GUI each render frame for the specified engine window viewport.
 ### Arguments
 
 - *[EngineWindowViewport](../../../api/library/gui/class.enginewindowviewport_cs.md)* **window** - Target Engine window viewport.
@@ -73,13 +76,13 @@ Engine calls this function on world saving.
 
 ### Return value
 
-Returns **true** on success, or false if an error has occurred.
+true on success, or false if an error has occurred.
 ## virtual bool Shutdown ( )
 
 Engine calls this function on plugin shutdown.
 ### Return value
 
-Returns **true** on success, or false if an error has occurred.
+true on success, or false if an error has occurred.
 ## virtual void Swap ( )
 
 Engine calls this function before swapping each render frame.

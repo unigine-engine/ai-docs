@@ -103,7 +103,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEnter () const
 
 The event handler signature is as follows: *myhandler()*
@@ -120,7 +120,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## static WorldTrigger ( vec3 size )

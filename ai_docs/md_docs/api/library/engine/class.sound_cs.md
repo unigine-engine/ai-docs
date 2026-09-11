@@ -104,37 +104,37 @@ private void Shutdown()
 
 ## bool SourceOcclusion
 
-The value indicating if occlusion for sounds is enabled. when enabled, the sound will be occluded when there are other nodes between the listener and the sound source.
+The value indicating if occlusion for sounds is enabled. When enabled, the sound will be occluded when there are other nodes between the listener and the sound source.
 ## int SourceReverbMode
 
-The current sound reverberation mode.
+The sound reverberation mode. One of the [REVERB_*](#REVERB_DISABLED) values. The default value is [REVERB_MULTIPLE](#REVERB_MULTIPLE).
 ## bool HRTF
 
 The value indicating if the binaural HRTF (head related transfer function) sound is enabled. HRTF provides imitation of the surround sound for the stereo wired headset.
 ## int Attenuation
 
-The current sound attenuation mode.
+The sound attenuation mode. Attenuation is the ability of a sound to lower in volume as the player moves away from it. One of the [ATTENUATION_*](#ATTENUATION_EXPONENT) values. The default value is [ATTENUATION_LINEAR_CLAMPED](#ATTENUATION_LINEAR_CLAMPED).
 ## float Scale
 
-The current time scale for the sound playing.
+The time scale for the sound playing. The provided value is clamped in the range **[0; 2]**.
 ## float Doppler
 
-The current doppler factor. This parameter allows you to exaggerate or tone-down the Doppler shift effect. The default value is 1.0f.
+The Doppler factor. This parameter allows you to exaggerate or tone-down the Doppler shift effect. The default value is 1.0f.
 ## float Adaptation
 
-The current time set for sound adaptation, that is used when the sound source becomes occluded or other way round.
+The time set for sound adaptation, that is used when the sound source becomes occluded or other way round.
 ## float Velocity
 
 The velocity value the Doppler shift calculation is based upon. By default, it is set to 343.3f. If you have players moving really fast, then you may want to adjust this to prevent the Doppler shift from distorting the sound too much.
 ## float Volume
 
-The current sound volume. the default value is 1.0f.
+The sound volume. 0 means the muted sound, 1 means the maximum volume. The default value is 1.0f.
 ## 🔒︎ float TotalTime
 
 The total time of asynchronous loading sounds.
 ## string Data
 
-The user string data associated with the world. this string is written directly into the data tag of the `*.world` file, into the *data* child tag of the *sound* tag, for example:
+The user string data associated with the world. This string is written directly into the data tag of the `*.world` file, into the *data* child tag of the *sound* tag, for example:
 ```xml
 <world version="2.16.0.2">
 
@@ -179,7 +179,7 @@ Sets the volume of the specified mixer channel.
 ### Arguments
 
 - *int* **source** - Number of the mixer channel (from **0** to **31**).
-- *float* **volume** - Channel volume. The provided value is clamped within **[0;1]** range, where 0 means muted sound and 1 is the maximum volume.
+- *float* **volume** - Channel volume. The provided value is clamped within [0;1] range, where 0 means muted sound and 1 is the maximum volume.
 
 ## float GetSourceVolume ( int source )
 
@@ -215,6 +215,8 @@ true if the sound state is loaded successfully; otherwise, false.
 ## void RenderWorld ( int force )
 
 Forces update of the sound system: all sound changes (such as *[play()](../../../api/library/sounds/class.ambientsource_cs.md#play_void)* or *[stop()](../../../api/library/sounds/class.ambientsource_cs.md#stop_void)* events and change of parameters) will be applied at once. The sound thread is updated at 30 FPS. Imagine, you have a [sound sample](../../../api/library/sounds/class.ambientsource_cs.md) playing and you want to update the time, from which the sample should be played. But playback won't stop immediately, so the a new time value won't be set. You need force updating of the sound thread after stopping it:
+
+
 ```csharp
 AmbientSource sound = new AmbientSource("ambient_sample.oga");
 // ...
@@ -253,6 +255,8 @@ true if the sound settings are saved successfully; otherwise, false.
 ## bool SaveState ( Stream stream )
 
 Saves a sound state into the stream. The sound state includes such settings as the volume, velocity, adaptation, Doppler factor, time scale and number of sound sources and their volumes.
+
+
 **Example** using saveState() and [restoreState()](#restoreState_Stream_int) methods:
 
 
@@ -286,6 +290,8 @@ true if the sound state is saved successfully; otherwise, false.
 ## bool RestoreState ( Stream stream )
 
 Restores a sound state from the stream. The sound state includes such settings as the volume, velocity, adaptation, Doppler factor, time scale and number of sound sources and their volumes.
+
+
 **Example** using [saveState()](#saveState_Stream_int) and restoreState() methods:
 
 

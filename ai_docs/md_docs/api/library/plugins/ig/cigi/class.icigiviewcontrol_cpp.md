@@ -22,13 +22,12 @@ View ID.
 Returns the view group ID specified in the packet.
 ### Return value
 
-View group ID.
-> **Notice:** 0 - means the view is not a member of any group.
-
-
+View group ID. 0 - means the view is not a member of any group.
 ## int getEntityID ( ) const
 
 Returns the entity ID specified in the packet.
+
+
 > **Notice:** This value shall be ignored if the view is in a group.
 
 

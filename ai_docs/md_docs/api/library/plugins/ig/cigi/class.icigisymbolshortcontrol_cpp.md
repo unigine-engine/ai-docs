@@ -55,7 +55,7 @@ Returns the value of the **Attach State** parameter specified in the packet. Det
 Attach State parameter value. 1 the symbol is attached as a child; otherwise, 0.
 ## int getFlashControl ( ) const
 
-Returns the value of the **Flash Control** parameter specified in the packet. Defines whether the IG shall continue the symbol’s flash cycle from its present state or restart it from the beginning.
+Returns the value of the **Flash Control** parameter specified in the packet. Defines whether the IG shall continue the symbol�s flash cycle from its present state or restart it from the beginning.
 ### Return value
 
 Flash Control parameter value: 0 if Continue; otherwise, 1.

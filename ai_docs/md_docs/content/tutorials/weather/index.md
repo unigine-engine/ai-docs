@@ -53,7 +53,15 @@ To simulate **fog**, take a look at the *[Environment Haze](../../../editor2/lig
 ![](storm.gif)
 
 
-Waves can also be controlled via [code](../../../api/library/objects/class.objectwaterglobal_cpp.md). A set of the **Water Global** samples in the *[C++](../../../sdk/api_samples/cpp/nodes.md#cpp_samples_water_surface_parameters_fetch)*, *[C++ SIM](../../../sdk/api_samples/sim_cpp/simulation.md#cpp_sim_samples_ship_buoyancy_high_accuracy_voxel_approximation)* and *[C# Component](../../../sdk/api_samples/cs/nodes.md#csharp_component_samples_water_surface_parameters_fetch)*, *[C# SIM](../../../sdk/api_samples/sim_cs/simulation.md#csharp_sim_samples_floating_buoy)* sample suites included in the SDK demonstrates how to use API to control *Global Water* and [fetch water level](../../../objects/objects/water/water_object.md#fetch_intersection) at a given point simulating a water splash at a point of contact with a boat or another object.
+Waves can also be controlled via [code](../../../api/library/objects/class.objectwaterglobal_cpp.md). A set of the **Water Global** samples included in the SDK demonstrate how to use API to control *Global Water* and [fetch water level](../../../objects/objects/water/water_object.md#fetch_intersection) at a given point simulating a water splash at a point of contact with a boat or another object:
+
+
+-
+-
+-
+-
+-
+-
 
 
 ## Wind

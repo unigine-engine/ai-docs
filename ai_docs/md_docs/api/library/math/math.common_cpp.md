@@ -172,10 +172,16 @@ Returns the result of a componentwise addition of three components of vectors by
 Pointer to the array that stores the return value.
 ## float bezier ( const float * times , const float * values , float time )
 
+
 Calculates the value of a cubic Bezier function for *t = time*.
+
+
 ![](cubic_bezier.gif)
 
+
 A cubic Bezier curve is represented by 4 points. **Po** is the start point, **P1** and **P2** are control points 1 and 2 and **P3** is the end point. The start and end point denote the beginning and end points of the path and the control points determine how the path moves from the start to the finish. As can be seen from the image, the only variable changing is **t** which determines how far the path has progressed from P0 to P3. Cubic Bezier curves are used as timing functions particularly for keyframe interpolation.
+
+
 ### Arguments
 
 - *const float ** **times** - Coordinates of the four points of the curve along the horizontal *T* (times) axis in the range **[0.0f, 1.0f]**.
@@ -187,10 +193,16 @@ A cubic Bezier curve is represented by 4 points. **Po** is the start point, **P1
 Value of the Bezier function.
 ## double bezier ( const float * times , const double * values , float time )
 
+
 Calculates the value of a cubic Bezier function for *t = time*.
+
+
 ![](cubic_bezier.gif)
 
+
 A cubic Bezier curve is represented by 4 points. **Po** is the start point, **P1** and **P2** are control points 1 and 2 and **P3** is the end point. The start and end point denote the beginning and end points of the path and the control points determine how the path moves from the start to the finish. As can be seen from the image, the only variable changing is **t** which determines how far the path has progressed from P0 to P3. Cubic Bezier curves are used as timing functions particularly for keyframe interpolation.
+
+
 ### Arguments
 
 - *const float ** **times** - Coordinates of the four points of the curve along the horizontal *T* (times) axis in the range **[0.0f, 1.0f]**.
@@ -213,7 +225,10 @@ Returns a blue noise value for the given pixel coordinates.
 Blue noise value.
 ## float ceil ( float v )
 
+
 Ceiling function that returns the smallest integer value that is not less than the argument.
+
+
 ```text
 float a = ceil(3.141593); // a = 4.0
 ```
@@ -228,7 +243,10 @@ float a = ceil(3.141593); // a = 4.0
 Smallest integer value not less than *v*.
 ## double ceil ( double v )
 
+
 Ceiling function that returns the smallest integer value that is not less than the argument.
+
+
 ```text
 double a = ceil(3.141593); // a = 4.0
 ```
@@ -387,7 +405,7 @@ Checks if the input value is within the specified range.
 
 ### Return value
 
-true if the value is within the range, otherwise — false.
+true if the value is within the range, otherwise � false.
 ## bool checkRange ( double value , double range_min , double range_max )
 
 Checks if the input value is within the specified range.
@@ -399,7 +417,7 @@ Checks if the input value is within the specified range.
 
 ### Return value
 
-true if the value is within the range, otherwise — false.
+true if the value is within the range, otherwise � false.
 ## bool checkRange ( int value , int range_min , int range_max )
 
 Checks if the input value is within the specified range.
@@ -411,7 +429,7 @@ Checks if the input value is within the specified range.
 
 ### Return value
 
-true if the value is within the range, otherwise — false.
+true if the value is within the range, otherwise � false.
 ## bool checkRange ( long long value , long long range_min , long long range_max )
 
 Checks if the input value is within the specified range.
@@ -423,7 +441,7 @@ Checks if the input value is within the specified range.
 
 ### Return value
 
-true if the value is within the range, otherwise — false.
+true if the value is within the range, otherwise � false.
 ## bool checkRange ( short value , short range_min , short range_max )
 
 Checks if the input value is within the specified range.
@@ -435,7 +453,7 @@ Checks if the input value is within the specified range.
 
 ### Return value
 
-true if the value is within the range, otherwise — false.
+true if the value is within the range, otherwise � false.
 ## bool checkRange ( char value , char range_min , char range_max )
 
 Checks if the input value is within the specified range.
@@ -447,7 +465,7 @@ Checks if the input value is within the specified range.
 
 ### Return value
 
-true if the value is within the range, otherwise — false.
+true if the value is within the range, otherwise � false.
 ## double clamp ( double v , double v0 , double v1 )
 
 Clamps a value within the specified *min* and *max* limits.
@@ -1332,7 +1350,10 @@ Returns the dot product between a 2-component vector v and another 2-component v
 Resulting scalar.
 ## double dot3 ( const dvec3 & v0 , const dvec4 & v1 )
 
+
 Dot product of three components of vectors. *W* components of four-component vectors are ignored.
+
+
 ```cpp
 float a = dot3(vec3(1, 2, 3), vec4(1, 2, 3, 4));
 double b = dot3(dvec4(1, 2, 3, 4), dvec4(1, 2, 3, 4));
@@ -1355,7 +1376,10 @@ b = 14.000000
 Resulting scalar.
 ## double dot3 ( const dvec4 & v0 , const dvec3 & v1 )
 
+
 Dot product of three components of vectors. *W* components of four-component vectors are ignored.
+
+
 ```cpp
 float a = dot3(vec3(1, 2, 3), vec4(1, 2, 3, 4));
 double b = dot3(dvec4(1, 2, 3, 4), dvec4(1, 2, 3, 4));
@@ -1378,7 +1402,10 @@ b = 14.000000
 Resulting scalar.
 ## double dot3 ( const dvec4 & v0 , const dvec4 & v1 )
 
+
 Dot product of three components of vectors. *W* components of four-component vectors are ignored.
+
+
 ```cpp
 float a = dot3(vec3(1, 2, 3), vec4(1, 2, 3, 4));
 double b = dot3(dvec4(1, 2, 3, 4), dvec4(1, 2, 3, 4));
@@ -1401,7 +1428,10 @@ b = 14.000000
 Resulting scalar.
 ## float dot3 ( const vec3 & v0 , const vec4 & v1 )
 
+
 Dot product of three components of vectors. *W* components of four-component vectors are ignored.
+
+
 ```cpp
 float a = dot3(vec3(1, 2, 3), vec4(1, 2, 3, 4));
 double b = dot3(dvec4(1, 2, 3, 4), dvec4(1, 2, 3, 4));
@@ -1424,7 +1454,10 @@ b = 14.000000
 Resulting scalar.
 ## float dot3 ( const vec4 & v0 , const vec3 & v1 )
 
+
 Dot product of three components of vectors. *W* components of four-component vectors are ignored.
+
+
 ```cpp
 float a = dot3(vec3(1, 2, 3), vec4(1, 2, 3, 4));
 double b = dot3(dvec4(1, 2, 3, 4), dvec4(1, 2, 3, 4));
@@ -1447,7 +1480,10 @@ b = 14.000000
 Resulting scalar.
 ## float dot3 ( const vec4 & v0 , const vec4 & v1 )
 
+
 Dot product of three components of vectors. *W* components of four-component vectors are ignored.
+
+
 ```cpp
 float a = dot3(vec3(1, 2, 3), vec4(1, 2, 3, 4));
 double b = dot3(dvec4(1, 2, 3, 4), dvec4(1, 2, 3, 4));
@@ -1513,7 +1549,10 @@ Converts a double value to a long value.
 Long value.
 ## double floor ( double v )
 
+
 Rounds an argument down to the nearest integer.
+
+
 ```text
 float a = floor(2.3) // a = 2.0
 ```
@@ -1528,7 +1567,10 @@ float a = floor(2.3) // a = 2.0
 Largest integer value not greater than *arg*.
 ## float floor ( float v )
 
+
 Rounds an argument down to the nearest integer.
+
+
 ```text
 double a = floor(2.3) // a = 2.0
 ```
@@ -1623,7 +1665,10 @@ Returns the largest value that is less than or equal to the argument, stored as 
 Resulting *int* value.
 ## float frac ( float v )
 
+
 Returns the fractional part of the argument.
+
+
 ```text
 float a = frac(3.141593); // a = 0.141593
 ```
@@ -1638,7 +1683,10 @@ float a = frac(3.141593); // a = 0.141593
 Fractional part of the argument.
 ## double frac ( double v )
 
+
 Returns the fractional part of the argument.
+
+
 ```text
 double a = frac(3.141593); // a = 0.141593
 ```
@@ -1748,12 +1796,18 @@ Extracts a specific bit from an integer value and returns it as a boolean.
 true if the specified bit in the value is set, othewise false.
 ## float gradient4 ( float x , const vec4 & gradient )
 
+
 Returns a gradient value for the specified argument using four key components. The gradient value is determined as follows:
+
+
 ```text
 smoothstep(gradient.x, gradient.y, x) - smoothstep(gradient.z, gradient.w, x);
 ```
 
+
 See the [smoothstep()](#smoothstep_float_float_float_float) method.
+
+
 ### Arguments
 
 - *float* **x** - Argument.
@@ -2924,6 +2978,26 @@ Converts a long value to a double value.
 ### Return value
 
 Double value.
+## float logit ( float x )
+
+Returns the logit of the argument - the inverse of the logistic sigmoid: **ln(x / (1 - x))**.
+### Arguments
+
+- *float* **x** - Argument, expected to be in the range of **0.0** to **1.0**, exclusive.
+
+### Return value
+
+Logit of the argument.
+## double logit ( double x )
+
+Returns the logit of the argument - the inverse of the logistic sigmoid: **ln(x / (1 - x))**.
+### Arguments
+
+- *double* **x** - Argument, expected to be in the range of **0.0** to **1.0**, exclusive.
+
+### Return value
+
+Logit of the argument.
 ## float max ( float v0 , float v1 )
 
 Compares the arguments and returns the maximum value.
@@ -3602,8 +3676,13 @@ Returns a resulting matrix for rotation by the specified angle around the axis s
 Resulting rotation matrix.
 ## double round ( double v )
 
+
 Rounds an argument to the nearest integer value.
+
+
 > **Notice:** In halfway cases, when an argument has a fractional part of exactly 0.5, the function rounds away from zero to the integer with larger magnitude.
+>
+>
 > - 3.5 -> 4
 > - - 3.5 -> - 4
 
@@ -3625,8 +3704,13 @@ double c = round(-5.5) 					// c = -6.0
 Nearest integer value to the argument.
 ## float round ( float v )
 
+
 Rounds an argument to the nearest integer value.
+
+
 > **Notice:** In halfway cases, when an argument has a fractional part of exactly 0.5, the function rounds away from zero to the integer with larger magnitude.
+>
+>
 > - 3.5 -> 4
 > - - 3.5 -> - 4
 
@@ -3648,7 +3732,10 @@ float c = round(-5.5) 					// c = -6.0
 Nearest integer value to the argument.
 ## int roundFast ( float v )
 
+
 Rounds an argument to the nearest integer value by adding 0.5 to the argument and discarding the decimal part.
+
+
 > **Notice:** This method works for positive numbers but has limitations for negative numbers because it doesn't handle rounding in the traditional way for negative values.
 
 
@@ -3736,6 +3823,26 @@ Clamps the values of vector components within the range of **0.0** to **1.0**.
 ### Return value
 
 Vector with components clamped within the range of **0.0** to **1.0**.
+## float sigmoid ( float x )
+
+Returns the logistic sigmoid of the argument: **1 / (1 + e^-x)**.
+### Arguments
+
+- *float* **x** - Argument.
+
+### Return value
+
+Logistic sigmoid of the argument, in the range of **0.0** to **1.0**, exclusive.
+## double sigmoid ( double x )
+
+Returns the logistic sigmoid of the argument: **1 / (1 + e^-x)**.
+### Arguments
+
+- *double* **x** - Argument.
+
+### Return value
+
+Logistic sigmoid of the argument, in the range of **0.0** to **1.0**, exclusive.
 ## float sign ( float v )
 
 Returns the sign of the argument.
@@ -3796,7 +3903,10 @@ It is convenient for creating a sequence of transitions using smoothstep to inte
 
 ### Return value
 
+
 One of the following values:
+
+
 - 0 if **x** is less than 0;
 - 1 if **x** is greater than 1;
 - interpolated value between 0 and 1 if **x** is in the range [**0**, **1**].
@@ -3820,7 +3930,10 @@ It is convenient for creating a sequence of transitions using smoothstep to inte
 
 ### Return value
 
+
 One of the following values:
+
+
 - 0 if **x** is less than 0;
 - 1 if **x** is greater than 1;
 - interpolated value between 0 and 1 if **x** is in the range [**0**, **1**].
@@ -3846,7 +3959,10 @@ It is convenient for creating a sequence of transitions using smoothstep to inte
 
 ### Return value
 
+
 One of the following values:
+
+
 - 0 if **x** is less than **edge0**;
 - 1 if **x** is greater than **edge1**;
 - interpolated value between 0 and 1 if **x** is in the range [**edge0**, **edge1**].
@@ -3872,7 +3988,10 @@ It is convenient for creating a sequence of transitions using smoothstep to inte
 
 ### Return value
 
+
 One of the following values:
+
+
 - 0 if **x** is less than **edge0**;
 - 1 if **x** is greater than **edge1**;
 - interpolated value between 0 and 1 if **x** is in the range [**edge0**, **edge1**].
@@ -3896,7 +4015,10 @@ It is convenient for creating a sequence of transitions using smoothstep to inte
 
 ### Return value
 
+
 One of the following values:
+
+
 - 0 if **x** is less than 0;
 - 1 if **x** is greater than 1;
 - interpolated value between 0 and 1 if **x** is in the range [**0**, **1**].
@@ -3920,7 +4042,10 @@ It is convenient for creating a sequence of transitions using smoothstep to inte
 
 ### Return value
 
+
 One of the following values:
+
+
 - 0 if **x** is less than 0;
 - 1 if **x** is greater than 1;
 - interpolated value between 0 and 1 if **x** is in the range [**0**, **1**].
@@ -3946,7 +4071,10 @@ It is convenient for creating a sequence of transitions using smoothstep to inte
 
 ### Return value
 
+
 One of the following values:
+
+
 - 0 if **x** is less than **edge0**;
 - 1 if **x** is greater than **edge1**;
 - interpolated value between 0 and 1 if **x** is in the range [**edge0**, **edge1**].
@@ -3972,7 +4100,10 @@ It is convenient for creating a sequence of transitions using smoothstep to inte
 
 ### Return value
 
+
 One of the following values:
+
+
 - 0 if **x** is less than **edge0**;
 - 1 if **x** is greater than **edge1**;
 - interpolated value between 0 and 1 if **x** is in the range [**edge0**, **edge1**].
@@ -5562,7 +5693,7 @@ Performs integer division with rounding up: it adds 1 to the result if there is 
 The rounded up quotient of two arguments that satisfies the following condition: *y* * *z* >= *x*.
 ## vec2 vogelDisk ( uint i , uint count , float noise )
 
-Returns a generated set of points with X and Y coordinates in the [-1; 1] range that describe a circle with uniform distribution of samples inside. This method is suitable for getting uniform distribution of coordinates for a circle. For example you can use it is a loop to generate UV coordinates offset for making the uniform circular blur effect. You can use the current loop iteration index as the i argument and the maximum number of iterations — as count.
+Returns a generated set of points with X and Y coordinates in the [-1; 1] range that describe a circle with uniform distribution of samples inside. This method is suitable for getting uniform distribution of coordinates for a circle. For example you can use it is a loop to generate UV coordinates offset for making the uniform circular blur effect. You can use the current loop iteration index as the i argument and the maximum number of iterations ï¿½ as count.
 ### Arguments
 
 - *uint* **i** - Index of the current point for the disk.
@@ -5574,7 +5705,7 @@ Returns a generated set of points with X and Y coordinates in the [-1; 1] range 
 Set of points with X and Y coordinates in the [-1; 1] range that describe a circle with uniform distribution of samples inside.
 ## vec2 vogelDisk ( uint i , uint count )
 
-Returns a generated set of points with X and Y coordinates in the [-1; 1] range that describe a circle with uniform distribution of samples inside. This method is suitable for getting uniform distribution of coordinates for a circle. For example you can use it is a loop to generate UV coordinates offset for making the uniform circular blur effect. You can use the current loop iteration index as the i argument and the maximum number of iterations — as count.
+Returns a generated set of points with X and Y coordinates in the [-1; 1] range that describe a circle with uniform distribution of samples inside. This method is suitable for getting uniform distribution of coordinates for a circle. For example you can use it is a loop to generate UV coordinates offset for making the uniform circular blur effect. You can use the current loop iteration index as the i argument and the maximum number of iterations ï¿½ as count.
 ### Arguments
 
 - *uint* **i** - Index of the current point for the disk.

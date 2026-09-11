@@ -52,5 +52,5 @@ Returns a three-component vector UV coordinates of the given vertex. This vector
 
 ### Return value
 
-Three-component vector with the UV coordinates of the given vertex **(Center U, Center V, Z)**, in symbol’s local coordinate system.
+Three-component vector with the UV coordinates of the given vertex **(Center U, Center V, Z)**, in symbol�s local coordinate system.
 > **Notice:** The third component of the vector is ignored.

@@ -50,74 +50,74 @@ Returns the current value indicating if the window is set as the main window in 
 ### Return value
 
 Current the window as the main window
-## void setConsoleUsage ( )
+## void setConsoleUsage ( int usage )
 
 Sets a new value indicating if the console is displayed for the window currently in focus.
 ### Arguments
 
-- **usage** - The the console display for the window currently in focus
+- *int* **usage** - The the console display for the window currently in focus
 
-## isConsoleUsage () const
+## int isConsoleUsage () const
 
 Returns the current value indicating if the console is displayed for the window currently in focus.
 ### Return value
 
 Current the console display for the window currently in focus
-## void setProfilerUsage ( )
+## void setProfilerUsage ( int usage )
 
 Sets a new value indicating if the profiler is displayed for the window currently in focus.
 ### Arguments
 
-- **usage** - The the profiler display for the window currently in focus
+- *int* **usage** - The the profiler display for the window currently in focus
 
-## isProfilerUsage () const
+## int isProfilerUsage () const
 
 Returns the current value indicating if the profiler is displayed for the window currently in focus.
 ### Return value
 
 Current the profiler display for the window currently in focus
-## void setVisualizerUsage ( )
+## void setVisualizerUsage ( int usage )
 
 Sets a new value indicating if the visualizer is displayed for the window currently in focus.
 ### Arguments
 
-- **usage** - The the visualizer display for the window currently in focus
+- *int* **usage** - The the visualizer display for the window currently in focus
 
-## isVisualizerUsage () const
+## int isVisualizerUsage () const
 
 Returns the current value indicating if the visualizer is displayed for the window currently in focus.
 ### Return value
 
 Current the visualizer display for the window currently in focus
-## void setSkipRenderEngine ( )
+## void setSkipRenderEngine ( int engine )
 
 Sets a new value indicating whether the Engine rendering for the current window is disabled (even if it has the [main camera flag](#setMain_int_void) or the [user camera](#setCamera_Camera_void) set). This doesn't disable the Gui instance, so widgets and the console remain available.
 ### Arguments
 
-- **engine** - The true to disable Engine rendering; false to enable it.
+- *int* **engine** - The value indicating whether the Engine rendering for the current window is disabled
 
-## isSkipRenderEngine () const
+## int isSkipRenderEngine () const
 
 Returns the current value indicating whether the Engine rendering for the current window is disabled (even if it has the [main camera flag](#setMain_int_void) or the [user camera](#setCamera_Camera_void) set). This doesn't disable the Gui instance, so widgets and the console remain available.
 ### Return value
 
-Current true to disable Engine rendering; false to enable it.
-## isFullscreen () const
+Current value indicating whether the Engine rendering for the current window is disabled
+## int isFullscreen () const
 
 Returns the current value indicating if the engine window is the fullscreen state. A nested window will be withdrawn from the group if set to fullscreen.
 ### Return value
 
 Current true if the engine window is the fullscreen state, false if it is in the window mode.
-## void setMouseGrab ( )
+## void setMouseGrab ( int grab )
 
 Sets a new value indicating if the mouse pointer is bound to the engine window viewport.
 > **Notice:** This method can be applied to a separate or parent window, using this method for a nested window is not allowed (it returns false).
 
 ### Arguments
 
-- **grab** - The the pointer cannot leave the engine window viewport
+- *int* **grab** - The the pointer cannot leave the engine window viewport
 
-## isMouseGrab () const
+## int isMouseGrab () const
 
 Returns the current value indicating if the mouse pointer is bound to the engine window viewport.
 > **Notice:** This method can be applied to a separate or parent window, using this method for a nested window is not allowed (it returns false).
@@ -136,20 +136,20 @@ Current total number of children widgets of the engine window.
 The event handler signature is as follows: *myhandler()*
 ### Return value
 
-Event reference.
-## void setAspectCorrection ( bool correction )
+Event instance.
+## void setAspectCorrection ( int correction )
 
 Sets a new value indicating if the aspect correction for the engine window viewport is enabled.
 ### Arguments
 
-- *bool* **correction** - Set **true** to enable the aspect correction; **false** - to disable it.
+- *int* **correction** - The the aspect correction
 
-## bool isAspectCorrection () const
+## int isAspectCorrection () const
 
 Returns the current value indicating if the aspect correction for the engine window viewport is enabled.
 ### Return value
 
-**true** if the aspect correction is enabled; otherwise **false**.
+Current the aspect correction
 ---
 
 ## static EngineWindowViewport ( ivec2 size , int flags = 0 )
@@ -231,3 +231,11 @@ Checks if the argument widget is the child of the current window viewport.
 ### Return value
 
 **1** if the widget is the child of the current window viewport; otherwise, **0**.
+## void calculateEngineRenderResolution ( ivec2 & render_resolution_min , ivec2 & render_resolution_max , ivec2 & render_resolution )
+
+Calculates the actual internal render resolutions for this viewport window based on the current client render size and the global render settings (render border, supersampling, dynamic resolution bounds, and the upscaler input resolution when the viewport renders the full pipeline).
+### Arguments
+
+- *ivec2 &* **render_resolution_min** - Output value: the minimum resolution the engine may render at (differs from the maximum only when dynamic resolution is enabled).
+- *ivec2 &* **render_resolution_max** - Output value: the maximum resolution the engine may render at.
+- *ivec2 &* **render_resolution** - Output value: the resolution the next frame is going to be rendered at.

@@ -4,7 +4,7 @@
 > You should upgrade to [**Sim**](https://l.unigine.com/SdhugY462) SDK edition to use it.
 
 
-UNIGINE SDK Browser contains a set of C# SIM samples demonstrating various aspects that can be implemented via code. You can run each sample and open and edit its code in IDE.
+UNIGINE SDK Browser contains a set of **C# SIM Samples** demonstrating various aspects that can be implemented via code. You can run each sample and open and edit its code in IDE.
 
 
 ![C# Sim Samples section](index.jpg)

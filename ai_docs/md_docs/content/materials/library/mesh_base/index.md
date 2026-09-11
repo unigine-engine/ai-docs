@@ -25,8 +25,8 @@ We strongly recommend to use the Metalness workflow for creating materials in ne
 By using the **Workflow** field you can specify the workflow of the material:
 
 
-- **Metalness** — with the new standard of textures.
-- **Specular** — with the old standard of textures.
+- **Metalness** � with the new standard of textures.
+- **Specular** � with the old standard of textures.
 
 
 ## Deferred Buffers
@@ -274,15 +274,15 @@ Specifies the size of the reflection map: the higher the value, the better the q
 Available sizes of the map are:
 
 
-- **128** — creates a reflection image with 128x128 resolution.
-- **256** — creates a reflection image with 256x256 resolution.
-- **512** — creates a reflection image with 512x512 resolution.
-- **1024** — creates a reflection image with 1024x1024 resolution.
-- **2048** — creates a reflection image with 2048x2048 resolution.
-- **4096** — creates a reflection image with 4096x4096 resolution.
-- **Quart height** — creates a reflection image with the resolution *height/4* x*height/4*, where height is an application window height.
-- **Half height** — creates a reflection image with the resolution *height/2* x*height/2*, where height is an application window height.
-- **Height** — creates a reflection image with the resolution *height* x*height*, where height is an application window height.
+- **128** � creates a reflection image with 128x128 resolution.
+- **256** � creates a reflection image with 256x256 resolution.
+- **512** � creates a reflection image with 512x512 resolution.
+- **1024** � creates a reflection image with 1024x1024 resolution.
+- **2048** � creates a reflection image with 2048x2048 resolution.
+- **4096** � creates a reflection image with 4096x4096 resolution.
+- **Quart height** � creates a reflection image with the resolution *height/4* x*height/4*, where height is an application window height.
+- **Half height** � creates a reflection image with the resolution *height/2* x*height/2*, where height is an application window height.
+- **Height** � creates a reflection image with the resolution *height* x*height*, where height is an application window height.
 
 
 ### Two Sided
@@ -374,9 +374,9 @@ The *mesh_base* material allows creating materials for vegetation foliage and st
 Enables vegetation animation. The available values are:
 
 
-- **Disable** — the material is static.
-- **Default** — animation of stems and leaves is enabled and can be controlled by the [animation parameters](#animation_parameters).
-- **Field** — animation of stems and leaves is enabled, can be controlled by the [animation parameters](#animation_parameters), and the material's animation parameters can be affected by the [animation field](../../../../objects/effects/fields/field_animation/index.md).
+- **Disable** � the material is static.
+- **Default** � animation of stems and leaves is enabled and can be controlled by the [animation parameters](#animation_parameters).
+- **Field** � animation of stems and leaves is enabled, can be controlled by the [animation parameters](#animation_parameters), and the material's animation parameters can be affected by the [animation field](../../../../objects/effects/fields/field_animation/index.md).
 
 
 ### Leaves
@@ -385,10 +385,10 @@ Enables vegetation animation. The available values are:
 **Leaves** specifies the way to render the leaves geometry:
 
 
-- **Disable** — leaves are not rendered.
-- **Billboard** — leaves are rendered as billboards that always face the camera. This is the most performance-friendly way of animating distant vegetation. Animation uses UV channel 2 of an object as follows: in the UV grid, [0,1] is the pivot point for the billboard's movements, and the billboard's size can be changed by scaling the polygon in the UV channel. If a billboard object uses the below UV map for animation, it would be represented by three objects rotating around their centers. | ![](billboard_uv.png) | ![](billboard_uv.gif) | |---|---|
-- **Geometry UV-based** — leaves are rendered as standard polygons. Animation uses UV channel 2 of an object as follows: in the UV grid, [0,1] is the pivot point for the object's movements and the stiffest part of the object, and towards [1,0], the object becomes more flexible. In the diagram below, the stiffest part of the object is against the white background, and the most flexible — against the blue background. | ![](leaf_mesh_uv.png) | ![](geometry_uv.gif) | |---|---|
-- **Geometry Vertex Color based** — leaves are rendered as standard polygons; vertex colors are used for animation. Vegetation movements are configured using RGB channels as follows: | ![](R_channel_veg.png) | Red channel is used for animation of smaller or peripheral parts of vegetation (leaves). Bright parts are animated, and dark parts are not animated. | |---|---| | ![](G_channel_veg.png) | Green channel is used to define the movement order for branches in order to desynchronize them. The movement sequence starts from the brightest element to the darkest. | | ![](B_channel_veg.png) | Blue channel is used to define which parts of branches can be bent. Brigher parts indicate bendable portions, and darker parts — stiff portions. |
+- **Disable** � leaves are not rendered.
+- **Billboard** � leaves are rendered as billboards that always face the camera. This is the most performance-friendly way of animating distant vegetation. Animation uses UV channel 2 of an object as follows: in the UV grid, [0,1] is the pivot point for the billboard's movements, and the billboard's size can be changed by scaling the polygon in the UV channel. If a billboard object uses the below UV map for animation, it would be represented by three objects rotating around their centers. | ![](billboard_uv.png) | ![](billboard_uv.gif) | |---|---|
+- **Geometry UV-based** � leaves are rendered as standard polygons. Animation uses UV channel 2 of an object as follows: in the UV grid, [0,1] is the pivot point for the object's movements and the stiffest part of the object, and towards [1,0], the object becomes more flexible. In the diagram below, the stiffest part of the object is against the white background, and the most flexible���against the blue background. | ![](leaf_mesh_uv.png) | ![](geometry_uv.gif) | |---|---|
+- **Geometry Vertex Color based** � leaves are rendered as standard polygons; vertex colors are used for animation. Vegetation movements are configured using RGB channels as follows: | ![](R_channel_veg.png) | Red channel is used for animation of smaller or peripheral parts of vegetation (leaves). Bright parts are animated, and dark parts are not animated. | |---|---| | ![](G_channel_veg.png) | Green channel is used to define the movement order for branches in order to desynchronize them. The movement sequence starts from the brightest element to the darkest. | | ![](B_channel_veg.png) | Blue channel is used to define which parts of branches can be bent. Brigher parts indicate bendable portions, and darker parts���stiff portions. |
 
 
 > **Notice:** If leaves are rendered, their animation is controlled by the [animation parameters](#animation_parameters).
@@ -430,11 +430,11 @@ Animation parameters are available on the *Parameters* tab if the *[Animation](#
 *Animation parameters,Parameterstab*
 
 
-- **Stem Noise Scale** — a coefficient to scale spatial noise that diversifies the movement direction of vegetation stems. This coefficient should be identical for the stem and the leaves that are related to this stem to synchronize their movement. ![](stem_noise.gif) *Stem Noise Scale: 0.0, 0.5, and 1.0*
-- **Stem Offset** — a coefficient to scale an amplitude of horizontal movement for the vegetation stem. This coefficient should be identical for the stem and the leaves that are related to this stem to synchronize their movement. ![](stem_offset.gif) *Stem Offset: 0.5, 1.0, and 1.5*
-- **Stem Radius** — a coefficient to scale an amplitude of vertical movement for the vegetation stem. This coefficient should be identical for the stem and the leaves that are related to this stem to synchronize their movement. ![](stem_radius.gif) *Stem Radius: 0.0, 5.0, and 10.0*
-- **Stem Animation Speed** — a coefficient to scale the speed of stem movements. This coefficient should be identical for the stem and the leaves that are related to this stem to synchronize their movement. ![](stem_anim_speed.gif) *Stem Animation Speed: 0.0, 4.0, and 8.0*
-- **Field Mask** — a mask that specifies an area of the animation field to be applied to stems and leaves (if rendered). This mask must match the field mask of the [animation field](../../../../objects/effects/fields/field_animation/index.md#editing). > **Notice:** The Field Mask parameter is available only if the *Animation* state is set to *Field*.
+- **Stem Noise Scale** � a coefficient to scale spatial noise that diversifies the movement direction of vegetation stems. This coefficient should be identical for the stem and the leaves that are related to this stem to synchronize their movement. ![](stem_noise.gif) *Stem Noise Scale: 0.0, 0.5, and 1.0*
+- **Stem Offset** � a coefficient to scale an amplitude of horizontal movement for the vegetation stem. This coefficient should be identical for the stem and the leaves that are related to this stem to synchronize their movement. ![](stem_offset.gif) *Stem Offset: 0.5, 1.0, and 1.5*
+- **Stem Radius** � a coefficient to scale an amplitude of vertical movement for the vegetation stem. This coefficient should be identical for the stem and the leaves that are related to this stem to synchronize their movement. ![](stem_radius.gif) *Stem Radius: 0.0, 5.0, and 10.0*
+- **Stem Animation Speed** � a coefficient to scale the speed of stem movements. This coefficient should be identical for the stem and the leaves that are related to this stem to synchronize their movement. ![](stem_anim_speed.gif) *Stem Animation Speed: 0.0, 4.0, and 8.0*
+- **Field Mask** � a mask that specifies an area of the animation field to be applied to stems and leaves (if rendered). This mask must match the field mask of the [animation field](../../../../objects/effects/fields/field_animation/index.md#editing). > **Notice:** The Field Mask parameter is available only if the *Animation* state is set to *Field*.
 
 
 If [leaves](#vegetation_leaves) are rendered, the following animation parameters are also available:
@@ -445,11 +445,11 @@ If [leaves](#vegetation_leaves) are rendered, the following animation parameters
 *Animation parameters,Parameterstab*
 
 
-- **Leaves Noise Scale** — a coefficient to randomize the orientation and direction of rotation for leaves (seen only on several nodes with the same material). By the minimum value of **0**, all leaves are synchronized in their movement. Higher values make leaves randomly move in different directions. | ![](leaves_noise_billboard.gif) | ![](leaves_noise_uv.gif) | ![](leaves_noise_vertex.gif) | |---|---|---| | *Leaves Noise Scale: 50.0* | *Leaves Noise Scale:1.0, 10.0, and 20.0* | *Leaves Noise Scale: 0.0 and 3.0* |
-- **Leaves Offset** — a coefficient to scale leaves rotation amplitude. By the minimum value of **0**, leaves do not move at all. Higher values make leaves move with a greater amplitude. | ![](leaves_offset_billboard.gif) | ![](leaves_offset_uv.gif) | ![](leaves_offset_vertex.gif) | |---|---|---| | *Leaves Offset: 1.785* | *Leaves Offset:0.06, 0.08, and 0.1* | *Leaves Offset: 0.05 and 0.1* |
-- **Leaves Animation Speed** — a coefficient to scale the speed of leaves rotation. By the minimum value of **0**, leaves do not move at all. Higher values make leaves move faster. | ![](leaves_anim_billboard.gif) | ![](leaves_anim_uv.gif) | ![](leaves_anim_vertex.gif) | |---|---|---| | *Leaves Animation Speed:0.765 and 2.287* | *Leaves Animation Speed:0.0, 1.0, and 4.0* | *Leaves Animation Speed: 2.0 and 5.0* |
-- **Branch Offset** — a coefficient to scale the rotation amplitude for a whole branch. Available for the [vertex color based geometry](#vegetation_animation_vertex) only. ![](branch_offset_vertex.gif) *Branch Offset: 0.1 and 0.3*
-- **Branch Animation Speed** — a coefficient to scale the rotation speed for a whole branch. Available for the [vertex color based geometry](#vegetation_animation_vertex) only. ![](branch_anim_vertex.gif) *Branch Animation Speed: 3.0 and 8.0*
+- **Leaves Noise Scale** � a coefficient to randomize the orientation and direction of rotation for leaves (seen only on several nodes with the same material). By the minimum value of **0**, all leaves are synchronized in their movement. Higher values make leaves randomly move in different directions. | ![](leaves_noise_billboard.gif) | ![](leaves_noise_uv.gif) | ![](leaves_noise_vertex.gif) | |---|---|---| | *Leaves Noise Scale: 50.0* | *Leaves Noise Scale:1.0, 10.0, and 20.0* | *Leaves Noise Scale: 0.0 and 3.0* |
+- **Leaves Offset** � a coefficient to scale leaves rotation amplitude. By the minimum value of **0**, leaves do not move at all. Higher values make leaves move with a greater amplitude. | ![](leaves_offset_billboard.gif) | ![](leaves_offset_uv.gif) | ![](leaves_offset_vertex.gif) | |---|---|---| | *Leaves Offset: 1.785* | *Leaves Offset:0.06, 0.08, and 0.1* | *Leaves Offset: 0.05 and 0.1* |
+- **Leaves Animation Speed** � a coefficient to scale the speed of leaves rotation. By the minimum value of **0**, leaves do not move at all. Higher values make leaves move faster. | ![](leaves_anim_billboard.gif) | ![](leaves_anim_uv.gif) | ![](leaves_anim_vertex.gif) | |---|---|---| | *Leaves Animation Speed:0.765 and 2.287* | *Leaves Animation Speed:0.0, 1.0, and 4.0* | *Leaves Animation Speed: 2.0 and 5.0* |
+- **Branch Offset** � a coefficient to scale the rotation amplitude for a whole branch. Available for the [vertex color based geometry](#vegetation_animation_vertex) only. ![](branch_offset_vertex.gif) *Branch Offset: 0.1 and 0.3*
+- **Branch Animation Speed** � a coefficient to scale the rotation speed for a whole branch. Available for the [vertex color based geometry](#vegetation_animation_vertex) only. ![](branch_anim_vertex.gif) *Branch Animation Speed: 3.0 and 8.0*
 
 
 #### Shadow Offset
@@ -602,18 +602,18 @@ Available options are (when the state is enabled):
 ![](option_detail_enabled.png)
 
 
-- **Blending** — the type of the detail material blending. | ![](detail_alpha_blend.png) | ![](detail_overlay.png) | ![](detail_multiply.png) | |---|---|---| | *Alpha blending mode* | *Overlay mode* | *Multiply mode* |
+- **Blending** � the type of the detail material blending. | ![](detail_alpha_blend.png) | ![](detail_overlay.png) | ![](detail_multiply.png) | |---|---|---| | *Alpha blending mode* | *Overlay mode* | *Multiply mode* |
 
-  - **Alpha blend** — an [alpha blending](../../../../principles/render/blending/index.md#formula) mode.
+  - **Alpha blend** � an [alpha blending](../../../../principles/render/blending/index.md#formula) mode.
   - **Overlay** - depending on the base texture (diffuse or albedo) color, the base and detail textures colors are either multiplied (for dark color pixels) or screened (for light color pixels), which leads to the contrast increase while preserving highlights and shadows. Grey pixels are not effected at all.
-  - **Multiply** — the base texture (diffuse or albedo) color is multiplied by the detail texture color, resulting in darker colors. White pixels are not effected at all. > **Notice:** If detail textures are not visible enough in the resulting image, try increasing its color scale parameter (**Diffuse** or **Albedo**).
-- **Angle fade** — detail angle fade.
+  - **Multiply** � the base texture (diffuse or albedo) color is multiplied by the detail texture color, resulting in darker colors. White pixels are not effected at all. > **Notice:** If detail textures are not visible enough in the resulting image, try increasing its color scale parameter (**Diffuse** or **Albedo**).
+- **Angle fade** � detail angle fade.
 
-  - **Disable** — disable overlapping of the base material.
-  - **Object transform (overlap)** — overlap the base material by using the object transformation (detail textures will be rotated with the mesh). This option can be used to create stone material with moss, rust and corrosion atop. | ![](overlap_object_0.png) | ![](overlap_object_1.png) | |---|---| | *Base albedo texture* | *Detail albedo texture* |
-  - **World transform (overlap)** — overlap the base textures by using the world transformation (no matter if you rotate the object, the detail textures will always be projected atop). This option can be used to create stone material with moss, rust and corrosion atop. | ![](overlap_world_0.png) | ![](overlap_world_1.png) | |---|---| | *Base albedo texture* | *Detail albedo texture* | > **Notice:** These two overlap options (*Overlap (object transform)* and *Overlap (world transform)*) replaced the old *mesh_overlap_base* material.
-- **Mask** — a flag indicating that a texture mask is used for blending base and detail materials selectively (the detail textures will be shown according to the mask). > **Notice:** This option replaced the old *mesh_layer_base* material. Enabling the mask activates the *[Detail mask](#uv_mapping)* field that specifies which UV coordinates of the mesh will be used for the detail mask.
-- **Normal Substitute** — enabling this flag makes the [detail normal texture](#textures_detail) overlap the [base normal texture](#texture_normal_met). If disabled, the base and detail normal maps are combined. ![](normal_substitute_off.jpg) ![](normal_substitute_on.jpg)
+  - **Disable** � disable overlapping of the base material.
+  - **Object transform (overlap)** � overlap the base material by using the object transformation (detail textures will be rotated with the mesh). This option can be used to create stone material with moss, rust and corrosion atop. | ![](overlap_object_0.png) | ![](overlap_object_1.png) | |---|---| | *Base albedo texture* | *Detail albedo texture* |
+  - **World transform (overlap)** � overlap the base textures by using the world transformation (no matter if you rotate the object, the detail textures will always be projected atop). This option can be used to create stone material with moss, rust and corrosion atop. | ![](overlap_world_0.png) | ![](overlap_world_1.png) | |---|---| | *Base albedo texture* | *Detail albedo texture* | > **Notice:** These two overlap options (*Overlap (object transform)* and *Overlap (world transform)*) replaced the old *mesh_overlap_base* material.
+- **Mask** � a flag indicating that a texture mask is used for blending base and detail materials selectively (the detail textures will be shown according to the mask). > **Notice:** This option replaced the old *mesh_layer_base* material. Enabling the mask activates the *[Detail mask](#uv_mapping)* field that specifies which UV coordinates of the mesh will be used for the detail mask.
+- **Normal Substitute** � enabling this flag makes the [detail normal texture](#textures_detail) overlap the [base normal texture](#texture_normal_met). If disabled, the base and detail normal maps are combined. ![](normal_substitute_off.jpg) ![](normal_substitute_on.jpg)
 
 
 > **Notice:** See also the chapters on [detail texures](#textures_detail) and detail textures [shading parameters](#detail).
@@ -1383,7 +1383,7 @@ The option activates the [Angle Power](#angle_fade_power_parameter) and [Angle O
 **Angle fade power** is a coefficient to scale the angle at which the surface is cut out.
 
 
-The pictures below demonstrate the difference between foliage with disabled and enabled angle fade (Angle Power = 3.0) depending on the angle between the surface normal and the camera view direction vector.
+The pictures below demonstrate the difference between foliage with disabled and enabled angle fade (Angle�Power�=�3.0) depending on the angle between the surface normal and the camera view direction vector.
 
 
 ![](angle_fade_power_0_0.png) ![](angle_fade_power_3_0.png)
@@ -1578,10 +1578,10 @@ These options control rendering of shadows cast on transparent objects.
 Filtering mode to be used for shadows from all light sources cast on the material. This mode determines the quality of soft shadows reducing the stair-step effect. *Higher* quality produces *smoother* shadows. Available values:
 
 - **Disabled** - filtering for shadows is disabled, the stair-step effect is clearly seen at the edges of shadows.
-- **Low** — low quality
-- **Medium** — medium quality
-- **High** — high quality
-- **Ultra** — ultra quality
+- **Low** � low quality
+- **Medium** � medium quality
+- **High** � high quality
+- **Ultra** � ultra quality
 
 
 > **Notice:** This parameter is similar to the [global shadow filtering mode](../../../../editor2/settings/render_settings/shadows/index.md#filter_mode) (*Settings -> Render -> Shadows*), but is used for transparent objects on a per-material basis.
@@ -1593,10 +1593,10 @@ Filtering mode to be used for shadows from all light sources cast on the materia
 Quality mode to be used for rendering penumbra from all light sources cast on the material. This mode enables simulation of real-world shadows by keeping sharp contact shadows closer to the base and softening the farther the shadow stretches away. *Higher* quality produces *softer* shadows. Available values:
 
 - **Disabled** - penumbra rendering is disabled, shadow edges are crisp and sharp (no shadow softness at all).
-- **Low** — low quality
-- **Medium** — medium quality
-- **High** — high quality
-- **Ultra** — ultra quality
+- **Low** � low quality
+- **Medium** � medium quality
+- **High** � high quality
+- **Ultra** � ultra quality
 
 
 > **Notice:** This parameter is similar to the [global shadow penumbra mode](../../../../editor2/settings/render_settings/shadows/index.md#penumbra_mode) (*Settings -> Render -> Shadows*), but is used for transparent objects on a per-material basis.

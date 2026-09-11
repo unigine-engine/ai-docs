@@ -49,6 +49,8 @@ Returns the priority of the thread.
 ### Return value
 
 Priority of the thread:
+
+
 - **0** - normal
 - **1** - above normal
 - **-1** - below normal
@@ -226,11 +228,11 @@ Runs the given function and a vector in asynchronous way.
 Unlocks the previously [locked](#lock_void) resource.
 ## void wait ( int id )
 
-Waits until the [isRunning()](#isRunning_int_int) function returns 0 (i.e. a thread with a specified ID is not active).
+Waits until the *[isRunning()](#isRunning_int_int)* function returns 0 (i.e. a thread with a specified ID is not active).
 ### Arguments
 
 - *int* **id** - Thread ID.
 
 ## void wait ( )
 
-Waits until the [isRunning()](#isRunning_int) function returns 0 (i.e. any thread is not active).
+Waits until the *[isRunning()](#isRunning_int)* function returns 0 (i.e. any thread is not active).

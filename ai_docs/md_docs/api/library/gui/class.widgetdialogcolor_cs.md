@@ -15,13 +15,13 @@ This class creates a dialog with clickable color field, RGB value sliders, color
 
 ## string PaletteColors
 
-The current palette colors.
+The palette colors of the dialog, as a list of colors in the web format separated with semicolons.
 ## string WebColor
 
-The currently selected color in the web format.
+The color selected in the dialog, in the web (hexadecimal) format.
 ## vec4 Color
 
-The currently selected color.
+The color selected in the dialog.
 ### Members
 
 ---

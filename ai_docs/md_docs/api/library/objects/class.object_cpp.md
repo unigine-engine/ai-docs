@@ -29,6 +29,59 @@ An [object](../../../objects/index.md) with a set of [surfaces](../../../princip
 
 ### Members
 
+## int getNumSurfaces () const
+
+Returns the current number of surfaces of the object.
+> **Notice:** For your convenience, *[ObjectMeshDynamic::create()](../../../api/library/objects/class.objectmeshdynamic_cpp.md#ObjectMeshDynamic_constPtrMesh_int)* initializes the object with one internal surface named "`dynamic`". The first call to *[addSurface()](../../../api/library/objects/class.objectmeshdynamic_cpp.md#addSurface_cstr_void)* simply assigns a user-defined name to this surface without changing the total surface count. To create additional surfaces, call *[addSurface()](../../../api/library/objects/class.objectmeshdynamic_cpp.md#addSurface_cstr_void)* again.
+
+
+### Return value
+
+Current number of surfaces of the object
+## void setEnabled ( bool enabled )
+
+Sets a new value indicating if the node and its parent nodes are enabled.
+### Arguments
+
+- *bool* **enabled** - Set **true** to enable node; **false** - to disable it.
+
+## bool isEnabled () const
+
+Returns the current value indicating if the node and its parent nodes are enabled.
+### Return value
+
+**true** if node is enabled ; otherwise **false**.
+## Ptr < BodyRigid > getBodyRigid () const
+
+Returns the current rigid body assigned to the object.
+### Return value
+
+Current rigid body assigned to the object
+## void setBody ( const Ptr < Body >& body )
+
+Sets a new physical body assigned to the object, or **NULL** (**0**) if no body is assigned.
+### Arguments
+
+- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Body](../../../api/library/physics/class.body_cpp.md)>&* **body** - The physical body assigned to the object
+
+## Ptr < Body > getBody () const
+
+Returns the current physical body assigned to the object, or **NULL** (**0**) if no body is assigned.
+### Return value
+
+Current physical body assigned to the object
+## bool isVisibleShadow () const
+
+Returns the current value indicating if the object's shadow is rendered.
+### Return value
+
+**true** if the object's shadow is rendered; otherwise **false**.
+## bool isVisibleCamera () const
+
+Returns the current value indicating if the object is rendered.
+### Return value
+
+**true** if the object is rendered; otherwise **false**.
 ---
 
 ## bool setBody ( const Ptr < Body > & body , bool update = 1 )
@@ -42,25 +95,6 @@ Assigns a physical body to the object.
 ### Return value
 
 true if the specified body is set successfully; otherwise, false.
-## void setBody ( const Ptr < Body > & body )
-
-Assigns a physical body to the object.
-### Arguments
-
-- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Body](../../../api/library/physics/class.body_cpp.md)> &* **body** - Physical body to be assigned to the object.
-
-## Ptr < Body > getBody ( ) const
-
-Returns a physical body assigned to the object.
-### Return value
-
-Body assigned to the object or **NULL** (**0**), if no body is assigned.
-## Ptr < BodyRigid > getBodyRigid ( ) const
-
-Returns a rigid body assigned to the object.
-### Return value
-
-Rigid body assigned to the object or **NULL** (**0**), if no body is assigned or the body is not rigid.
 ## Math:: BoundBox getBoundBox ( int surface ) const
 
 Returns the bounding box of a given surface.
@@ -207,13 +241,6 @@ Returns the collision mask for a given surface.
 ### Return value
 
 Surface collision mask.
-## void setEnabled ( bool enabled )
-
-Enables or disables the node.
-### Arguments
-
-- *bool* **enabled** - true to enable the node, false to disable it.
-
 ## void setEnabled ( bool enabled , int surface )
 
 Enables or disables a surface with the specified number. The disabled surface is not rendered, does not take part in collision detection, and does not cast shadows.
@@ -258,12 +285,6 @@ if(!obj->isEnabled(0))
 ### Return value
 
 true if the surface is enabled; otherwise, false.
-## bool isEnabled ( ) const
-
-Returns a value indicating if the node and its parent nodes are enabled.
-### Return value
-
-Positive number if the node and its parent nodes are enabled; otherwise, **0**.
 ## void setIntersection ( bool enabled , int surface )
 
 Enables or disables intersections with a given surface.
@@ -803,6 +824,60 @@ Returns minimum visibility distance of a given surface. It is the distance, star
 ### Return value
 
 Minimum visibility distance, in units.
+## void setExperimentalNavigation ( bool enabled , int surface )
+
+Sets a value indicating if a given surface contributes to the walkable surface when an [ExperimentalNavigationMesh](../../../api/library/pathfinding/class.experimentalnavigationmesh_cpp.md) is baked. Marking geometry is opt-in: a surface takes part in baking only when this flag is set, which keeps decoration and clutter out of the navigation mesh.
+### Arguments
+
+- *bool* **enabled** - Navigation flag. The default value is false.
+- *int* **surface** - Surface number.
+
+## bool getExperimentalNavigation ( int surface ) const
+
+Returns a value indicating if a given surface contributes to the walkable surface when a navigation mesh is baked.
+### Arguments
+
+- *int* **surface** - Surface number.
+
+### Return value
+
+true if the surface takes part in navigation mesh baking; otherwise, false.
+## void setExperimentalNavigationBakeMask ( int mask , int surface )
+
+Sets the bake mask of a given surface. The surface is taken in only by the navigation meshes whose own bake mask shares at least one bit with this one, which is how one scene feeds several navigation meshes with different geometry.
+### Arguments
+
+- *int* **mask** - [Bake mask](../../../principles/bit_masking/index.md#bake_mask). The default value is 1.
+- *int* **surface** - Surface number.
+
+## int getExperimentalNavigationBakeMask ( int surface ) const
+
+Returns the bake mask of a given surface.
+### Arguments
+
+- *int* **surface** - Surface number.
+
+### Return value
+
+Bake mask of the surface.
+## void setExperimentalNavigationArea ( int area , int surface )
+
+Sets the area stamped onto the navigation mesh polygons baked from a given surface. It is how a road, a patch of mud, or a metal walkway gets its own traversal cost without a volume being placed over it.
+### Arguments
+
+- *int* **area** - Area index from the registry of the [ExperimentalNavigation](../../../api/library/pathfinding/class.experimentalnavigation_cpp.md) singleton. The default value is 63.
+- *int* **surface** - Surface number.
+
+## int getExperimentalNavigationArea ( int surface ) const
+
+Returns the area stamped onto the navigation mesh polygons baked from a given surface.
+### Arguments
+
+- *int* **surface** - Surface number.
+
+### Return value
+
+Area index of the surface.
 ## void setMaxVisibleDistance ( float distance , int surface )
 
 Updates the maximum visibility distance of a given surface. It is the distance, starting from which the surface begins to [fade out](#setMaxFadeDistance_float_int_void) until it becomes completely invisible.
@@ -893,14 +968,6 @@ Returns the surface maximum LOD parent surface number.
 ### Return value
 
 Surface maximum LOD parent surface number.
-## int getNumSurfaces ( ) const
-
-Returns the number of surfaces of the object.
-> **Notice:** For your convenience, *[ObjectMeshDynamic::create()](../../../api/library/objects/class.objectmeshdynamic_cpp.md#ObjectMeshDynamic_constPtrMesh_int)* initializes the object with one internal surface named "`dynamic`". The first call to *[addSurface()](../../../api/library/objects/class.objectmeshdynamic_cpp.md#addSurface_cstr_void)* simply assigns a user-defined name to this surface without changing the total surface count. To create additional surfaces, call *[addSurface()](../../../api/library/objects/class.objectmeshdynamic_cpp.md#addSurface_cstr_void)* again.
-
-
-### Return value
-
 ## int getNumTriangles ( int surface ) const
 
 Returns the number of triangles comprising a given surface.
@@ -1319,18 +1386,6 @@ Returns the [GUID](../../../api/library/filesystem/class.uguid_cpp.md) of a lost
 ### Return value
 
 Lost property [GUID](../../../api/library/filesystem/class.uguid_cpp.md).
-## bool isVisibleCamera ( ) const
-
-Checks if the object is rendered.
-### Return value
-
-**1** if the object is rendered; otherwise, **0**.
-## bool isVisibleShadow ( ) const
-
-Checks if only the object shadow is rendered.
-### Return value
-
-**1** if the object shadow is rendered; otherwise, **0**.
 ## void setLightingMode ( Object::SURFACE_LIGHTING_MODE mode , int surface )
 
 Sets the lighting mode for the specified surface.
@@ -1512,3 +1567,148 @@ Returns the number of [Engine frame](../../../api/library/engine/class.engine_cp
 ### Return value
 
 Number of frame, in which the specified surface was drawn last time.
+## float getSurfaceRenderCustomParameterFloat ( int surface , const char * name ) const
+
+Returns the current value of the custom surface parameter with the given name for the given surface of the object. If the parameter is not overridden for the surface, the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cpp.md#getSurfaceParameters_CustomParameterLayout)* is returned.
+### Arguments
+
+- *int* **surface** - Surface number.
+- *const char ** **name** - Parameter name.
+
+### Return value
+
+Current parameter value, or 0 if no parameter with this name exists.
+## float getSurfaceRenderCustomParameterFloat ( int surface , int param ) const
+
+Returns the current value of the custom surface parameter with the given number for the given surface of the object. If the parameter is not overridden for the surface, the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cpp.md#getSurfaceParameters_CustomParameterLayout)* is returned.
+### Arguments
+
+- *int* **surface** - Surface number.
+- *int* **param** - Parameter number.
+
+### Return value
+
+Current parameter value.
+## int getSurfaceRenderCustomParameterInt ( int surface , const char * name ) const
+
+Returns the current value of the custom surface parameter with the given name for the given surface of the object. If the parameter is not overridden for the surface, the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cpp.md#getSurfaceParameters_CustomParameterLayout)* is returned.
+### Arguments
+
+- *int* **surface** - Surface number.
+- *const char ** **name** - Parameter name.
+
+### Return value
+
+Current parameter value, or 0 if no parameter with this name exists.
+## int getSurfaceRenderCustomParameterInt ( int surface , int param ) const
+
+Returns the current value of the custom surface parameter with the given number for the given surface of the object. If the parameter is not overridden for the surface, the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cpp.md#getSurfaceParameters_CustomParameterLayout)* is returned.
+### Arguments
+
+- *int* **surface** - Surface number.
+- *int* **param** - Parameter number.
+
+### Return value
+
+Current parameter value.
+## unsigned int getSurfaceRenderCustomParameterUInt ( int surface , const char * name ) const
+
+Returns the current value of the custom surface parameter with the given name for the given surface of the object. If the parameter is not overridden for the surface, the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cpp.md#getSurfaceParameters_CustomParameterLayout)* is returned.
+### Arguments
+
+- *int* **surface** - Surface number.
+- *const char ** **name** - Parameter name.
+
+### Return value
+
+Current parameter value, or 0 if no parameter with this name exists.
+## unsigned int getSurfaceRenderCustomParameterUInt ( int surface , int param ) const
+
+Returns the current value of the custom surface parameter with the given number for the given surface of the object. If the parameter is not overridden for the surface, the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cpp.md#getSurfaceParameters_CustomParameterLayout)* is returned.
+### Arguments
+
+- *int* **surface** - Surface number.
+- *int* **param** - Parameter number.
+
+### Return value
+
+Current parameter value.
+## bool isSurfaceRenderCustomParameterOverridden ( int surface , int param ) const
+
+Checks if the custom surface parameter with the given number is overridden for the given surface of the object.
+### Arguments
+
+- *int* **surface** - Surface number.
+- *int* **param** - Parameter number.
+
+### Return value
+
+true if the parameter is overridden for the surface; otherwise, false.
+## void resetSurfaceRenderCustomParameter ( int surface , int param )
+
+Resets the override of the custom surface parameter with the given number for the given surface: the surface uses the default value from the *[surface parameters layout](../../../api/library/rendering/class.render_cpp.md#getSurfaceParameters_CustomParameterLayout)* again.
+### Arguments
+
+- *int* **surface** - Surface number.
+- *int* **param** - Parameter number.
+
+## void resetSurfaceRenderCustomParameters ( int surface )
+
+Resets the overrides of all custom surface parameters for the given surface of the object.
+### Arguments
+
+- *int* **surface** - Surface number.
+
+## void setSurfaceRenderCustomParameterFloat ( int surface , const char * name , float value )
+
+Sets a new value of the custom surface parameter with the given name for the given surface of the object. The value overrides the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cpp.md#getSurfaceParameters_CustomParameterLayout)*. If no parameter with this name exists in the layout, the method does nothing.
+### Arguments
+
+- *int* **surface** - Surface number.
+- *const char ** **name** - Parameter name.
+- *float* **value** - New parameter value.
+
+## void setSurfaceRenderCustomParameterFloat ( int surface , int param , float value )
+
+Sets a new value of the custom surface parameter with the given number for the given surface of the object. The value overrides the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cpp.md#getSurfaceParameters_CustomParameterLayout)*.
+### Arguments
+
+- *int* **surface** - Surface number.
+- *int* **param** - Parameter number.
+- *float* **value** - New parameter value.
+
+## void setSurfaceRenderCustomParameterInt ( int surface , const char * name , int value )
+
+Sets a new value of the custom surface parameter with the given name for the given surface of the object. The value overrides the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cpp.md#getSurfaceParameters_CustomParameterLayout)*. If no parameter with this name exists in the layout, the method does nothing.
+### Arguments
+
+- *int* **surface** - Surface number.
+- *const char ** **name** - Parameter name.
+- *int* **value** - New parameter value.
+
+## void setSurfaceRenderCustomParameterInt ( int surface , int param , int value )
+
+Sets a new value of the custom surface parameter with the given number for the given surface of the object. The value overrides the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cpp.md#getSurfaceParameters_CustomParameterLayout)*.
+### Arguments
+
+- *int* **surface** - Surface number.
+- *int* **param** - Parameter number.
+- *int* **value** - New parameter value.
+
+## void setSurfaceRenderCustomParameterUInt ( int surface , const char * name , unsigned int value )
+
+Sets a new value of the custom surface parameter with the given name for the given surface of the object. The value overrides the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cpp.md#getSurfaceParameters_CustomParameterLayout)*. If no parameter with this name exists in the layout, the method does nothing.
+### Arguments
+
+- *int* **surface** - Surface number.
+- *const char ** **name** - Parameter name.
+- *unsigned int* **value** - New parameter value.
+
+## void setSurfaceRenderCustomParameterUInt ( int surface , int param , unsigned int value )
+
+Sets a new value of the custom surface parameter with the given number for the given surface of the object. The value overrides the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cpp.md#getSurfaceParameters_CustomParameterLayout)*.
+### Arguments
+
+- *int* **surface** - Surface number.
+- *int* **param** - Parameter number.
+- *unsigned int* **value** - New parameter value.

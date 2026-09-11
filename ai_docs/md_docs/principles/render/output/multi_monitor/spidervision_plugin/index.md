@@ -5,9 +5,15 @@ The *SpiderVision* plugin allows creating various display and projection configu
 
 
 - **Projections and multi-projector setups** ![](../../appprojection/projection_setup.png)
-- Configurable number of windows that can be arranged into **[multi-screen walls](../../../../../principles/render/output/multi_monitor/spidervision_plugin/presets.md)** | ![Four monitors in 2x2 configuration](../appwall/2x2.jpg) *2×2 configuration* | ![Four monitors in 4x1 configuration](../appwall/4x1.jpg) *4×1 configuration* | |---|---|
+- Configurable number of windows that can be arranged into **[multi-screen walls](../../../../../principles/render/output/multi_monitor/spidervision_plugin/presets.md#wall)** and **[CAVE systems](../../../../../principles/render/output/multi_monitor/spidervision_plugin/presets.md#cave)** | ![Four monitors in 2x2 configuration](../appwall/2x2.jpg) *2�2 configuration* | ![Four monitors in 4x1 configuration](../appwall/4x1.jpg) *4�1 configuration* | |---|---|
 - [Syncker](../../../../../code/plugins/syncker/index.md) projections
 - Multi-projector setups that are stored in the [EasyBlend](../../../../../principles/render/output/multi_monitor/spidervision_plugin/displays_setup.md#easyblend) calibration files created via Scalable Display Manager and set up via EasyBlend SDK
+
+
+> **Warning:** *SpiderVision* currently doesn't support:
+>
+>
+> - [Panoramic rendering](../../../../../principles/render/output/apppanorama/index.md)
 
 
 The plugin provides:

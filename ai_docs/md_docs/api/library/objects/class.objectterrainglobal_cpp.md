@@ -24,6 +24,94 @@ This class is used to create a [global terrain](../../../objects/objects/terrain
 
 ### Members
 
+## void setForceIntersection ( bool intersection )
+
+Sets a new value indicating if forced loading of terrain tiles for intersection detection is enabled.
+> **Notice:** - When enabled, this option may significantly reduce performance. Thus, it is recommended to enable it, perform intersection check, and disable it again.
+> - It is recommended to make two or more intersection requests to make sure you get the required result when necessary, as in some rare cases forced loading of tiles may not give you a 100% guarantee.
+
+### Arguments
+
+- *bool* **intersection** - value indicating if forced loading of terrain tiles for intersection detection is enabled
+
+## bool isForceIntersection () const
+
+Returns the current value indicating if forced loading of terrain tiles for intersection detection is enabled.
+> **Notice:** - When enabled, this option may significantly reduce performance. Thus, it is recommended to enable it, perform intersection check, and disable it again.
+> - It is recommended to make two or more intersection requests to make sure you get the required result when necessary, as in some rare cases forced loading of tiles may not give you a 100% guarantee.
+
+### Return value
+
+value indicating if forced loading of terrain tiles for intersection detection is enabled
+## Ptr < Texture > getHeightTextureArray () const
+
+Returns the current height textures array.
+### Return value
+
+Current height textures array
+## void setHeightTextureArrayName ( const char * name )
+
+Sets a new name of the height textures array.
+### Arguments
+
+- *const char ** **name** - The name of the height textures array
+
+## const char * getHeightTextureArrayName () const
+
+Returns the current name of the height textures array.
+### Return value
+
+Current name of the height textures array
+## Ptr < Texture > getNormalTextureArray () const
+
+Returns the current normal textures array.
+### Return value
+
+Current normal textures array
+## void setNormalTextureArrayName ( const char * name )
+
+Sets a new name of the normal textures array.
+### Arguments
+
+- *const char ** **name** - The name of the normal textures array
+
+## const char * getNormalTextureArrayName () const
+
+Returns the current name of the normal textures array.
+### Return value
+
+Current name of the normal textures array
+## Ptr < Texture > getAlbedoTextureArray () const
+
+Returns the current albedo textures array.
+### Return value
+
+Current albedo textures array
+## void setAlbedoTextureArrayName ( const char * name )
+
+Sets a new name of the albedo textures array.
+### Arguments
+
+- *const char ** **name** - The name of the albedo textures array
+
+## const char * getAlbedoTextureArrayName () const
+
+Returns the current name of the albedo textures array.
+### Return value
+
+Current name of the albedo textures array
+## int getNumDetails () const
+
+Returns the current total number of details.
+### Return value
+
+Current total number of details
+## int getNumMasks () const
+
+Returns the current total number of masks.
+### Return value
+
+Current total number of masks
 ---
 
 ## static ObjectTerrainGlobalPtr create ( )
@@ -44,25 +132,6 @@ Returns the [group](../../../api/library/objects/class.terraingloballods_cpp.md)
 ### Return value
 
 Terrain albedo LODs group.
-## Ptr < Texture > getAlbedoTextureArray ( ) const
-
-Returns the albedo textures array.
-### Return value
-
-Albedo textures array.
-## void setAlbedoTextureArrayName ( const char * name )
-
-Sets the name of the albedo textures array.
-### Arguments
-
-- *const char ** **name** - Name of the albedo textures array.
-
-## const char * getAlbedoTextureArrayName ( ) const
-
-Returns the name of the albedo textures array.
-### Return value
-
-Name of the albedo textures array.
 ## int addDetail ( const char * name )
 
 Adds a new detail to the vector of terrain details.
@@ -115,35 +184,6 @@ Resizes the vector of terrain details.
 
 - *int* **size** - New size.
 
-## int getNumDetails ( ) const
-
-Returns the total number of details.
-### Return value
-
-Number of details.
-## void setForceIntersection ( bool intersection )
-
-
-Enables or disables forced loading of necessary terrain tiles to ensure correct intersection detection.
-
-
-> **Notice:** - When enabled, this option may significantly reduce performance. Thus, it is recommended to enable it, perform intersection check, and disable it again.
-> - It is recommended to make two or more intersection requests to make sure you get the required result when necessary, as in some rare cases forced loading of tiles may not give you a 100% guarantee.
-
-
-### Arguments
-
-- *bool* **intersection** - true to load necessary terrain tiles for intersection detection; otherwise, false. The default value is false.
-
-## bool isForceIntersection ( ) const
-
-Returns a value indicating if forced loading of terrain tiles for intersection detection is enabled.
-> **Notice:** This option is used to enable force loading of terrain tiles to ensure correct intersection detection.
-
-
-### Return value
-
-true if forced loading of terrain tiles for intersection detection is enabled; otherwise, false.
 ## int addMask ( const char * name )
 
 Adds a new mask to the vector of masks.
@@ -196,12 +236,6 @@ Resizes the vector of masks.
 
 - *int* **size** - New size.
 
-## int getNumMasks ( ) const
-
-Returns the total number of masks.
-### Return value
-
-Number of masks.
 ## Ptr < TerrainGlobalLods > getMaskLods ( )
 
 Returns the [group](../../../api/library/objects/class.terraingloballods_cpp.md) of terrain mask LODs.
@@ -232,50 +266,12 @@ Returns the [group](../../../api/library/objects/class.terraingloballods_cpp.md)
 ### Return value
 
 Terrain height LODs group.
-## Ptr < Texture > getHeightTextureArray ( ) const
-
-Returns the height textures array.
-### Return value
-
-Height textures array.
-## void setHeightTextureArrayName ( const char * name )
-
-Sets the name of the height textures array.
-### Arguments
-
-- *const char ** **name** - Name of the height textures array.
-
-## const char * getHeightTextureArrayName ( ) const
-
-Returns the name of the height textures array.
-### Return value
-
-Name of the height textures array.
 ## Ptr < TerrainGlobalLods > getNormalLods ( )
 
 Returns the [group](../../../api/library/objects/class.terraingloballods_cpp.md) of terrain normal LODs.
 ### Return value
 
 Terrain normal LODs group.
-## Ptr < Texture > getNormalTextureArray ( ) const
-
-Returns the normal textures array.
-### Return value
-
-Normal textures array.
-## void setNormalTextureArrayName ( const char * name )
-
-Sets the name of the normal textures array.
-### Arguments
-
-- *const char ** **name** - Name of the normal textures array.
-
-## const char * getNormalTextureArrayName ( ) const
-
-Returns the name of the normal textures array.
-### Return value
-
-Name of the normal textures array.
 ## int fetchTopologyData ( double x , double y , Math:: Vec3 & ret_point , Math:: vec3 & ret_normal , Math:: vec3 & ret_up , int force = 0 )
 
 Returns topology data for a given terrain point.

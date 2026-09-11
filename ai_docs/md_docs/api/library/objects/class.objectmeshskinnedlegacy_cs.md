@@ -473,7 +473,7 @@ The playback status.
 The multiplier value for the animation playback [time](#setTime_float_void).
 ## float Time
 
-The the animation time, in animation frames. The time count starts from the zero frame. If the time is set to be between frames, animation is blended. If the time is set outside the animation frame range, the animation is looped.
+The animation time, in animation frames. The time count starts from the zero frame. If the time is set to be between frames, animation is blended. If the time is set outside the animation frame range, the animation is looped.
 > **Notice:** *[SetTime()](../../...md#setTime_float_void)* function corresponds to the [Play](../../../objects/objects/mesh_skinned_legacy/index.md#play) and [Stop](../../../objects/objects/mesh_skinned_legacy/index.md#stop) options in the editor. In all other cases use *[SetLayerFrame()](../../...md#setLayerFrame_int_float_int_int_float)* to set the animation.
 
 
@@ -506,7 +506,7 @@ The value indicating if visualization for bones and their basis vectors is enabl
 The number of [IK chains](#ik_chains) of the skinned mesh.
 ## 🔒︎ Event< ObjectMeshSkinnedLegacy > EventEndBoneConstraints
 
-The Event triggered after the bone rotation constraints are applied. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The Event triggered after the bone rotation constraints are applied. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 <details>
 <summary>See Example | Close</summary>
@@ -688,7 +688,7 @@ publisher.EventEndBoneConstraints.Enabled = true;
 
 ## 🔒︎ Event< ObjectMeshSkinnedLegacy > EventBeginBoneConstraints
 
-The Event triggered before the bone rotation constraints are applied. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The Event triggered before the bone rotation constraints are applied. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 <details>
 <summary>See Example | Close</summary>
@@ -870,7 +870,7 @@ publisher.EventBeginBoneConstraints.Enabled = true;
 
 ## 🔒︎ Event< ObjectMeshSkinnedLegacy > EventEndIKSolvers
 
-The Event triggered after the IK solvers are applied. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The Event triggered after the IK solvers are applied. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 <details>
 <summary>See Example | Close</summary>
@@ -1052,7 +1052,7 @@ publisher.EventEndIKSolvers.Enabled = true;
 
 ## 🔒︎ Event< ObjectMeshSkinnedLegacy > EventBeginIKSolvers
 
-The Event triggered before the IK solvers are applied. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The Event triggered before the IK solvers are applied. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 <details>
 <summary>See Example | Close</summary>
@@ -1234,7 +1234,7 @@ publisher.EventBeginIKSolvers.Enabled = true;
 
 ## 🔒︎ Event< ObjectMeshSkinnedLegacy > EventEndLookAtSolvers
 
-The Event triggered after the LookAtChain solvers are applied. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The Event triggered after the LookAtChain solvers are applied. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 <details>
 <summary>See Example | Close</summary>
@@ -1416,7 +1416,7 @@ publisher.EventEndLookAtSolvers.Enabled = true;
 
 ## 🔒︎ Event< ObjectMeshSkinnedLegacy > EventBeginLookAtSolvers
 
-The Event triggered before the LookAtChain solvers are applied. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The Event triggered before the LookAtChain solvers are applied. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 <details>
 <summary>See Example | Close</summary>
@@ -1598,7 +1598,7 @@ publisher.EventBeginLookAtSolvers.Enabled = true;
 
 ## 🔒︎ Event<float, ObjectMeshSkinnedLegacy > EventUpdate
 
-The Event triggered when the Engine calls the object update. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The Event triggered when the Engine calls the object update. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 <details>
 <summary>See Example | Close</summary>
@@ -1789,7 +1789,7 @@ The interpolation mode for the bone rotations. The value is set to HIGH by defau
 The path to a file containing the specified animation.
 ## bool MeshProceduralMode
 
-The value idicating if the [procedural mesh usage mode](#procedural_modification) is enabled for the object. With the procedural mode enabled, geometry of the **ObjectMeshSkinnedLegacy** can be modified via *[ApplyMeshProcedural()](../../...md#applyMeshProcedural_ConstMeshSkinned_int)*. Disabling the procedural mode restores the object's initial geometry, removing any changes applied. For skinned meshes, procedural geometry editing is done only through the direct main-thread workflow, unlike static meshes that can use asynchronous generation or [other update strategies](../../../api/library/objects/class.objectmeshstatic_cs.md#procedural_workflow).
+The value indicating if the [procedural mesh usage mode](#procedural_modification) is enabled for the object. With the procedural mode enabled, geometry of the **ObjectMeshSkinnedLegacy** can be modified via *[ApplyMeshProcedural()](../../...md#applyMeshProcedural_ConstMeshSkinned_int)*. Disabling the procedural mode restores the object's initial geometry, removing any changes applied. For skinned meshes, procedural geometry editing is done only through the direct main-thread workflow, unlike static meshes that can use asynchronous generation or [other update strategies](../../../api/library/objects/class.objectmeshstatic_cs.md#procedural_workflow).
 ## 🔒︎ bool IsLoaded
 
 The value indicating if the mesh is loaded (it is either a procedural one or has been loaded via the [setMeshPath()](#setMeshPath_cstr_void) method).
@@ -3721,3 +3721,39 @@ Returns the maximum angle restricting the bone rotation along the roll axis.
 ### Return value
 
 The maximum rotation angle.
+## bool IsLayerAnimationStreaming ( int layer )
+
+Returns a value indicating if the animation on the specified layer is currently being loaded by the [data streaming](../../../principles/data_streaming/index.md) system. While the animation is streaming, the layer holds the first frame of this animation.
+### Arguments
+
+- *int* **layer** - Layer number.
+
+### Return value
+
+true if the animation assigned to the specified layer is still being streamed in; otherwise, false.
+## void ResetLayerToBindPose ( int layer )
+
+Sets the skeleton's bind pose on the specified layer.
+### Arguments
+
+- *int* **layer** - Layer number.
+
+## void ResetLayerToRestPose ( int layer )
+
+Sets the mesh's rest pose on the specified layer.
+### Arguments
+
+- *int* **layer** - Layer number.
+
+## bool LoadAsyncRender ( )
+
+Requests asynchronous loading of the mesh for rendering. The mesh becomes available in one of the following frames, so the object keeps rendering whatever it already has until then.
+### Return value
+
+true if the request has been queued; otherwise, false.
+## bool LoadForceRender ( )
+
+Loads the mesh for rendering immediately, blocking until it is done.
+### Return value
+
+true if the mesh has been loaded; otherwise, false.

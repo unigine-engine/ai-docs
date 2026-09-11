@@ -29,7 +29,10 @@ For any other purposes, the [mat4](../../../api/library/math/class.mat4_cpp.md) 
 Default constructor. Produces an identity matrix.
 ## dmat4 ( const dvec3& c0 , const dvec3& c1 , const dvec3& c2 , const dvec3& c3 )
 
+
 Constructor. Initializes the matrix using given three [dvec3](../../../api/library/math/class.dvec3_cpp.md) vectors.
+
+
 ```text
 Resulting matrix:
     | col0.x  	 col1.x	  	col2.x	   col3.x |
@@ -64,7 +67,10 @@ Constructor. Initializes the matrix using a given source [mat3](../../../api/lib
 
 ## dmat4 ( const mat3& m )
 
+
 Constructor. Initializes the matrix using a given [mat3](../../../api/library/math/class.mat3_cpp.md) source matrix (3x3). The matrix elements are filled using corresponding elements of the source matrix.
+
+
 ```text
 Resulting matrix:
     | m00  	 m01  	 m02	  0.0f |
@@ -80,7 +86,10 @@ M=  | m10    m11  	 m12      0.0f |
 
 ## dmat4 ( const mat2& m )
 
+
 Constructor. Initializes the matrix using a given [mat2](../../../api/library/math/class.mat2_cpp.md) source matrix (2x2). The matrix elements are filled using corresponding elements of the source matrix.
+
+
 ```text
 Resulting matrix:
     | m00  	 m01  	 0.0f	  0.0f |
@@ -96,7 +105,10 @@ M=  | m10    m11  	 0.0f     0.0f |
 
 ## dmat4 ( double v )
 
+
 Constructor. Initializes the matrix using a given scalar value.
+
+
 ```cpp
 dmat4(2.0);
 
@@ -168,7 +180,10 @@ Constructor. Initializes the matrix with double values using the given source ma
 
 ## dmat4 ( double m00_ , double m10_ , double m20_ , double m01_ , double m11_ , double m21_ , double m02_ , double m12_ , double m22_ , double m03_ , double m13_ , double m23_ )
 
+
 Constructor. Initializes the matrix using given double elements.
+
+
 ```text
  Resulting matrix:
     | m00  	 m01  	 m02	 m03 |
@@ -195,7 +210,10 @@ M=  | m10    m11  	 m12     m13 |
 
 ## dmat4 ( double v , ConstexprTag )
 
+
 Constructor. Initializes every element of the matrix with the given double element.
+
+
 ```text
  Resulting matrix:
     | v    v 	v   v |
@@ -212,7 +230,10 @@ M=  | v    v  	v   v |
 
 ## dmat4 ( double m00_ , double m10_ , double m20_ , double m01_ , double m11_ , double m21_ , double m02_ , double m12_ , double m22_ , double m03_ , double m13_ , double m23_ , ConstexprTag )
 
+
 Constructor. Initializes the matrix using given double elements.
+
+
 ```text
  Resulting matrix:
     | m00  	 m01  	 m02	 m03 |
@@ -492,7 +513,10 @@ Returns the first three elements of the specified matrix row.
 The [dvec3](../../../api/library/math/class.dvec3_cpp.md) vector with the first three elements of the specified matrix row.
 ## void setScale ( const dvec3& v )
 
+
 Fills the scaling matrix using a given [dvec3](../../../api/library/math/class.dvec3_cpp.md) source vector.
+
+
 ```text
 Scaling matrix:
     | v.x   	0.0f  	  0.0f	    0.0f |
@@ -514,7 +538,10 @@ Returns the three-component [vec3](../../../api/library/math/class.vec3_cpp.md) 
 Three-component vector with the scaling part of the matrix.
 ## void setTranslate ( const dvec3& v )
 
+
 Fills the translation matrix using a given [dvec3](../../../api/library/math/class.dvec3_cpp.md) source vector.
+
+
 ```text
 Translation matrix:
     | 1.0f   	0.0f  	  0.0f	    v.x |
@@ -627,7 +654,10 @@ Performs array access to the matrix item using given item index.
 Matrix item.
 ## dvec3 getAxisX ( ) const
 
+
 Returns the normalized vector representing the X axis. Call this method to get the right or left vector of the matrix:
+
+
 ```cpp
 matrix.getAxisX(); // the left vector
 -matrix.getAxisX(); // the right vector
@@ -640,7 +670,10 @@ matrix.getAxisX(); // the left vector
 Vector representing the X axis.
 ## dvec3 getAxisY ( ) const
 
+
 Returns the normalized vector representing the Y axis. Call this method to get the back or forward vector of the matrix:
+
+
 ```cpp
 matrix.getAxisY(); // the back vector
 -matrix.getAxisY(); // the forward vector
@@ -653,7 +686,10 @@ matrix.getAxisY(); // the back vector
 Vector representing the Y axis.
 ## dvec3 getAxisZ ( ) const
 
+
 Returns the normalized vector representing the Z axis. Call this method to get the up or down vector of the matrix:
+
+
 ```cpp
 matrix.getAxisZ(); // the up vector
 -matrix.getAxisZ(); // the down vector
@@ -676,7 +712,10 @@ Returns the determinant of the given matrix.
 Determinant of the matrix.
 ## dmat4 translate ( const dvec3& v )
 
+
 Returns the translation matrix using a given [dvec3](../../../api/library/math/class.dvec3_cpp.md) translation vector.
+
+
 ```text
 Translation matrix:
     | 1.0f   	0.0f  	  0.0f	    v.x |
@@ -695,7 +734,10 @@ T=  | 0.0f      1.0f  	  0.0f      v.y |
 Translated matrix.
 ## dmat4 translate ( const dvec4& v )
 
+
 Returns the translation matrix using a given [dvec4](../../../api/library/math/class.dvec4_cpp.md) translation vector.
+
+
 ```text
 Translation matrix:
     | 1.0f   	0.0f  	  0.0f	    v.x |
@@ -714,7 +756,10 @@ T=  | 0.0f      1.0f  	  0.0f      v.y |
 Translated matrix.
 ## dmat4 translate ( const dvec2& v )
 
+
 Returns the translation matrix using a given [dvec2](../../../api/library/math/class.dvec2_cpp.md) translation vector.
+
+
 ```text
 Translation matrix:
     | 1.0f   	0.0f  	  0.0f	    v.x |
@@ -733,7 +778,10 @@ T=  | 0.0f      1.0f  	  0.0f      v.y |
 Translated matrix.
 ## dmat4 translate ( double x , double y , double z )
 
+
 Returns the translation matrix using a [dvec3](../../../api/library/math/class.dvec3_cpp.md) translation vector with given components.
+
+
 ```text
 Translation matrix:
     | 1.0f   	0.0f  	  0.0f	    v.x |
@@ -808,7 +856,10 @@ Returns the matrix rotated around the Z-axis by a given angle.
 Rotated matrix.
 ## dmat4 scale ( const dvec3& v )
 
+
 Returns the matrix scaled by a given [dvec3](../../../api/library/math/class.dvec3_cpp.md) source vector.
+
+
 ```text
 Scaling matrix:
     | v.x   	0.0f  	  0.0f	    0.0f |
@@ -827,7 +878,10 @@ S=  | 0.0f      v.y  	  0.0f      0.0f |
 Scaled matrix.
 ## dmat4 scale ( double x , double y , double z )
 
+
 Returns the matrix scaled by a given [dvec3](../../../api/library/math/class.dvec3_cpp.md) source vector.
+
+
 ```text
 Scaling matrix:
     | v.x   	0.0f  	  0.0f	    0.0f |
@@ -848,7 +902,10 @@ S=  | 0.0f      v.y  	  0.0f      0.0f |
 Scaled matrix.
 ## dmat4 scale ( double x )
 
+
 Returns the matrix scaled by a given [dvec3](../../../api/library/math/class.dvec3_cpp.md) source vector where every component is the same provided value.
+
+
 ```text
 Scaling matrix:
     | v.x   	0.0f  	  0.0f	    0.0f |

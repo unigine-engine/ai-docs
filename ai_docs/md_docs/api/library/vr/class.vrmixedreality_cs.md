@@ -255,7 +255,7 @@ The number of visible marker objects.
 
 ## 🔒︎ Event EventCameraPropertyUpdateSharpness
 
-The Event triggered when the sharpness value is changed in Varjo Base. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The Event triggered when the sharpness value is changed in Varjo Base. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -349,7 +349,7 @@ VRMixedReality.EventCameraPropertyUpdateSharpness.Enabled = true;
 
 ## 🔒︎ Event EventCameraPropertyUpdateFlickerCompensation
 
-The Event triggered when the flicker compensation value of the camera is changed in Varjo Base. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The Event triggered when the flicker compensation value of the camera is changed in Varjo Base. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -443,7 +443,7 @@ VRMixedReality.EventCameraPropertyUpdateFlickerCompensation.Enabled = true;
 
 ## 🔒︎ Event EventCameraPropertyUpdateISO
 
-The Event triggered when the camera ISO value and/or the ISO adjustment mode are changed in Varjo Base. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The Event triggered when the camera ISO value and/or the ISO adjustment mode are changed in Varjo Base. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -537,7 +537,7 @@ VRMixedReality.EventCameraPropertyUpdateISO.Enabled = true;
 
 ## 🔒︎ Event EventCameraPropertyUpdateWhiteBalance
 
-The Event triggered when the white balance correction value of the camera and/or the white balance adjustment mode are changed in Varjo Base. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The Event triggered when the white balance correction value of the camera and/or the white balance adjustment mode are changed in Varjo Base. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -631,7 +631,7 @@ VRMixedReality.EventCameraPropertyUpdateWhiteBalance.Enabled = true;
 
 ## 🔒︎ Event EventCameraPropertyUpdateExposureTime
 
-The Event triggered when the exposure time value of the camera and/or the exposure adjustment mode are changed in Varjo Base. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The Event triggered when the exposure time value of the camera and/or the exposure adjustment mode are changed in Varjo Base. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -725,7 +725,7 @@ VRMixedReality.EventCameraPropertyUpdateExposureTime.Enabled = true;
 
 ## 🔒︎ Event EventChromakeyUpdate
 
-The Event triggered when the chroma keying settings are changed in Varjo Base. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The Event triggered when the chroma keying settings are changed in Varjo Base. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -819,7 +819,7 @@ VRMixedReality.EventChromakeyUpdate.Enabled = true;
 
 ## 🔒︎ Event EventDeviceDisconnected
 
-The Event triggered when the Varjo device is disconnected. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The Event triggered when the Varjo device is disconnected. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -913,7 +913,7 @@ VRMixedReality.EventDeviceDisconnected.Enabled = true;
 
 ## 🔒︎ Event EventDeviceConnected
 
-The Event triggered when the Varjo device is connected. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The Event triggered when the Varjo device is connected. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1007,7 +1007,7 @@ VRMixedReality.EventDeviceConnected.Enabled = true;
 
 ## 🔒︎ Event EventCameraPropertyUpdateVSTReprojection
 
-The Event triggered when the camera VST reprojection property is updated. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The Event triggered when the camera VST reprojection property is updated. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 

@@ -12,7 +12,7 @@ The *Sounds* class contains methods for handling the sound output source.
 
 ## string CurrentDeviceName
 
-The name of the currently used device.
+The current device name (changing the name changes the currently used device as well). Only names got by the *[getDeviceName()](#getDeviceName_int_cstr)* method are supported.
 ## 🔒︎ string DefaultDeviceName
 
 The name of the device set in its system by default.
@@ -42,3 +42,15 @@ The name of the device.
 ## void UpdateDeviceList ( )
 
 Updates the list of available devices each 5 seconds.
+## float GetSampleWaveform ( string name , int num_bins , float[] OUT_out_peaks )
+
+Builds a peak-amplitude waveform preview of a sound file without playing it. The file is decoded in streaming chunks, so long tracks do not need to fit into memory entirely.
+### Arguments
+
+- *string* **name** - Path to the sound sample file.
+- *int* **num_bins** - Number of bins in the output waveform. If a non-positive value is passed, the bin count is chosen automatically as 100 bins per second of audio, clamped to the [256; 16384] range.
+- *float[]* **OUT_out_peaks** - Output vector resized to the number of bins, where each element is the peak amplitude of the frames falling into that time slice, normalized to the [0; 1] range. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
+
+### Return value
+
+Duration of the sample in seconds, or 0.0 if the file cannot be loaded.

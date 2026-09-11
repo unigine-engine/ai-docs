@@ -127,6 +127,65 @@ Mode defining the source of surface custom texture to be used.
 
 ### Members
 
+## void setMeshPath ( const char * path )
+
+Sets a new path to the source *.mesh*-file used for the object.
+> **Notice:** Setting a new path does not update the mesh immediately. If the mesh is in the procedural mode, it will be reset.
+
+### Arguments
+
+- *const char ** **path** - The path to the source .mesh-file used for the object
+
+## const char * getMeshPath () const
+
+Returns the current path to the source *.mesh*-file used for the object.
+> **Notice:** Setting a new path does not update the mesh immediately. If the mesh is in the procedural mode, it will be reset.
+
+### Return value
+
+Current path to the source .mesh-file used for the object
+## bool isMeshLoadedVRAM () const
+
+Returns the current value indicating if the source mesh used for the object is loaded to video memory (VRAM).
+### Return value
+
+**true** if the source mesh used for the object is loaded to video memory (VRAM); otherwise **false**.
+## bool isMeshLoadedRAM () const
+
+Returns the current value indicating if the source mesh used for the object is loaded to memory (RAM).
+### Return value
+
+**true** if the source mesh used for the object is loaded to memory (RAM); otherwise **false**.
+## bool isMeshNull () const
+
+Returns the current value indicating if the source mesh used for the object is null (does not exist, unassigned, not loaded, etc.).
+### Return value
+
+**true** if the source mesh used for the object is null (does not exist, unassigned, not loaded, etc.); otherwise **false**.
+## ObjectMeshStatic::PROCEDURAL_MODE getMeshProceduralMode () const
+
+Returns the current value indicating which procedural mesh generation mode assigned to the mesh. The value corresponds to one of the available *[PROCEDURAL_MODE](#PROCEDURAL_MODE)* types, determining how procedural data is stored, updated, and unloaded.
+### Return value
+
+Current procedural mesh generation mode assigned to the mesh
+## bool isMeshProceduralDynamic () const
+
+Returns the current value indicating if the current procedural mode is *[PROCEDURAL_MODE_DYNAMIC](#PROCEDURAL_MODE_DYNAMIC)*.
+### Return value
+
+**true** if the current procedural mode is PROCEDURAL_MODE_DYNAMIC; otherwise **false**.
+## bool isMeshProceduralActive () const
+
+Returns the current value indicating if an asynchronous operation on the procedural mesh is currently in progress.
+### Return value
+
+**true** if an asynchronous operation on the procedural mesh is currently in progress; otherwise **false**.
+## bool isMeshProceduralDone () const
+
+Returns the current value indicating if all asynchronous operations on the procedural mesh have completed.
+### Return value
+
+**true** if all asynchronous operations on the procedural mesh have completed; otherwise **false**.
 ---
 
 ## static ObjectMeshStaticPtr create ( const char * path )
@@ -145,19 +204,6 @@ Returns the type of the object.
 ### Return value
 
 *Object Mesh Static* type identifier.
-## void setMeshPath ( const char * path )
-
-Sets the new path to the source mesh. Does not update mesh immediately using the new path. If the mesh is in the procedural mode, it will be reset.
-### Arguments
-
-- *const char ** **path** - Path to the source *.mesh*-file.
-
-## const char * getMeshPath ( ) const
-
-Returns the path to the current source mesh file.
-### Return value
-
-Path to the source *.mesh*-file.
 ## void setLightmapEnabled ( bool enabled , int surface )
 
 Sets a value indicating if [lightmapping](../../../editor2/lighting/gi/lightmaps.md) is to be enabled for the surface with the specified number.
@@ -454,32 +500,6 @@ Sets the procedural mode for the mesh. The specified mode defines how procedural
 - *[ObjectMeshStatic::PROCEDURAL_MODE](../../../api/library/objects/class.objectmeshstatic_cpp.md#PROCEDURAL_MODE)* **mode** - One of the *[PROCEDURAL_MODE](#PROCEDURAL_MODE)* to apply to the mesh.
 - *int* **mesh_render_flags** - Optional [usage flags](../../../api/library/rendering/class.meshrender_cpp.md#USAGE_DYNAMIC_VERTEX) that control how vertex and index data are stored for the mesh render.
 
-## ObjectMeshStatic::PROCEDURAL_MODE getMeshProceduralMode ( ) const
-
-Returns a value indicating which procedural mode assigned to the mesh. The value corresponds to one of the available *[PROCEDURAL_MODE](#PROCEDURAL_MODE)* types, determining how procedural data is stored, updated, and unloaded.
-> **Notice:** Please note that procedural mesh modification **directly affects streaming and memory usage (RAM, VRAM, and disk)** depending on the selected procedural mode. For details, see the [Procedural Mesh Workflow](#procedural_workflow) section.
-
-### Return value
-
-Current procedural mode of the mesh.
-## bool isMeshNull ( ) const
-
-Returns a value indicating if the source mesh used for the object is null (does not exist, unassigned, not loaded, etc.).
-### Return value
-
-true if the source mesh used for the object is null; otherwise, false.
-## bool isMeshLoadedRAM ( ) const
-
-Returns a value indicating if the source mesh used for the object is loaded to memory (RAM).
-### Return value
-
-true if the source mesh used for the object is loaded to RAM; otherwise, false.
-## bool isMeshLoadedVRAM ( ) const
-
-Returns a value indicating if the source mesh used for the object is loaded to video memory (VRAM).
-### Return value
-
-true if the source mesh used for the object is loaded to VRAM; otherwise, false.
 ## Ptr < Mesh > createCopyMeshRAM ( ) const
 
 Creates and returns a copy of the source mesh used by the object, loading it directly from disk if it is not present in cache. This method does not stream the copied mesh into memory cache, resulting in lower RAM usage.
@@ -496,30 +516,6 @@ Retrieves a copy of the source mesh used by the object and writes it to the prov
 ### Return value
 
 true if the mesh was copied successfully, false if source mesh is not present in RAM or its file path is invalid.
-## bool isMeshProceduralDone ( ) const
-
-Returns a value indicating if all asynchronous operations on the procedural mesh have completed.
-> **Notice:** Please note that procedural mesh modification **directly affects streaming and memory usage (RAM, VRAM, and disk)** depending on the selected procedural mode. For details, see the [Procedural Mesh Workflow](#procedural_workflow) section.
-
-### Return value
-
-true if no asynchronous geometry operation is active, otherwise false.
-## bool isMeshProceduralActive ( ) const
-
-Returns a value indicating if an asynchronous operation on the procedural mesh is currently in progress.
-> **Notice:** Please note that procedural mesh modification **directly affects streaming and memory usage (RAM, VRAM, and disk)** depending on the selected procedural mode. For details, see the [Procedural Mesh Workflow](#procedural_workflow) section.
-
-### Return value
-
-true if an asynchronous geometry operation is active, otherwise false.
-## bool isMeshProceduralDynamic ( ) const
-
-Returns a value indicating if the current procedural mode is *[PROCEDURAL_MODE_DYNAMIC](#PROCEDURAL_MODE_DYNAMIC)*.
-> **Notice:** Please note that procedural mesh modification **directly affects streaming and memory usage (RAM, VRAM, and disk)** depending on the selected procedural mode. For details, see the [Procedural Mesh Workflow](#procedural_workflow) section.
-
-### Return value
-
-true if *[PROCEDURAL_MODE_DYNAMIC](#PROCEDURAL_MODE_DYNAMIC)* is active, otherwise false.
 ## bool applyCopyMeshProceduralForce ( const Ptr<ConstMesh> & mesh , int mesh_render_flags = 0 )
 
 **[ Main Thread ]**

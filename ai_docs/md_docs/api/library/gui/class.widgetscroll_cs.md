@@ -35,25 +35,25 @@ The object of this class may look as follows:
 The value indicating if slider buttons are displayed.
 ## int Value
 
-The value of the scroller, i.e. its position.
+The value (position) of the scroller. The minimum value is 0, the maximum value is the difference between the object width and the frame width.
 ## int StepSize
 
 The step of the scroller. This step is used to increment the scroll position.
 ## int FrameSize
 
-The size of the currently visible area.
+The size of the visible area, in pixels. The minimum is 1 pixel.
 ## int ObjectSize
 
 The size of the whole area that is scrolled through.
 ## int Orientation
 
-The orientation of the scroller: horizontal or vertical one.
+The orientation of the scroller: horizontal or vertical.
 ## vec4 ScrollColor
 
 The color used for the widget's scroll.
 ## int MouseWheelOrientation
 
-The 1 if the orientation is horizontal; 0 if it is vertical.
+The orientation of the mouse wheel scroll: horizontal or vertical.
 ### Members
 
 ---

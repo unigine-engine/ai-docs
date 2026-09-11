@@ -8,7 +8,7 @@
 This class provides functionality for the [editor script](../../../code/fundamentals/execution_sequence/app_logic_system.md#editor_logic) that loads and manages the hierarchy of nodes displayed in the editor.
 
 
-> **Notice:** C++ methods running editor script functions are described in the [Engine class](../../../api/library/engine/class.engine_usc.md) reference.
+> **Notice:** C++ methods running editor script functions are described in the *[Engine](../../../api/library/engine/class.engine_usc.md)* class reference.
 
 
 ## Editor Class
@@ -18,7 +18,7 @@ This class provides functionality for the [editor script](../../../code/fundamen
 ## void setPlayer ( Player player )
 
 Sets a new player used in the Editor mode at the moment.
-> **Notice:** Editor player is handled differently than in-game players. Parameters set directly for the player are ignored; instead, Editor player uses [Camera](../../../editor2/camera_settings/index.md) parameters set via the interface. (See Editor scripts in `data/core/editor` folder for implementation.)
+> **Notice:** Editor player is handled differently than in-game players. Parameters set directly for the player are ignored; instead, *Editor* player uses [Camera](../../../editor2/camera_settings/index.md) parameters set via the interface. (See Editor scripts in `data/core/editor` folder for implementation.)
 
 
 ### Arguments
@@ -28,7 +28,7 @@ Sets a new player used in the Editor mode at the moment.
 ## Player getPlayer () const
 
 Returns the current player used in the Editor mode at the moment.
-> **Notice:** Editor player is handled differently than in-game players. Parameters set directly for the player are ignored; instead, Editor player uses [Camera](../../../editor2/camera_settings/index.md) parameters set via the interface. (See Editor scripts in `data/core/editor` folder for implementation.)
+> **Notice:** Editor player is handled differently than in-game players. Parameters set directly for the player are ignored; instead, *Editor* player uses [Camera](../../../editor2/camera_settings/index.md) parameters set via the interface. (See Editor scripts in `data/core/editor` folder for implementation.)
 
 
 ### Return value
@@ -36,7 +36,10 @@ Returns the current player used in the Editor mode at the moment.
 Current editor player.
 ## void setVRPlayer ( )
 
-Sets a new player used to render VR in the Editor mode at the moment. If VR Player has not been set, VR is rendered to the [Editor Player](#getPlayer_Player); if the Editor Player hasn't been set either, the [Game Player](../../../api/library/engine/class.game_usc.md#getPlayer_Player) is used for rendering.
+Sets a new player used to render VR in the Editor mode at the moment.
+If VR Player has not been set, VR is rendered to the [Editor Player](#getPlayer_Player); if the *Editor* Player hasn't been set either, the [Game Player](../../../api/library/engine/class.game_usc.md#getPlayer_Player) is used for rendering.
+
+
 > **Notice:** Editor player is handled differently than in-game players. Parameters set directly for the player are ignored; instead, Editor player uses [Camera](../../../editor2/camera_settings/index.md) parameters set via the interface. (See Editor scripts in `data/core/editor` folder for implementation.)
 
 
@@ -46,7 +49,10 @@ Sets a new player used to render VR in the Editor mode at the moment. If VR Play
 
 ## getVRPlayer () const
 
-Returns the current player used to render VR in the Editor mode at the moment. If VR Player has not been set, VR is rendered to the [Editor Player](#getPlayer_Player); if the Editor Player hasn't been set either, the [Game Player](../../../api/library/engine/class.game_usc.md#getPlayer_Player) is used for rendering.
+Returns the current player used to render VR in the Editor mode at the moment.
+If VR Player has not been set, VR is rendered to the [Editor Player](#getPlayer_Player); if the *Editor* Player hasn't been set either, the [Game Player](../../../api/library/engine/class.game_usc.md#getPlayer_Player) is used for rendering.
+
+
 > **Notice:** Editor player is handled differently than in-game players. Parameters set directly for the player are ignored; instead, Editor player uses [Camera](../../../editor2/camera_settings/index.md) parameters set via the interface. (See Editor scripts in `data/core/editor` folder for implementation.)
 
 
@@ -132,9 +138,9 @@ Traces a line from one point to another to find an object located on that line, 
 Depending on the variable, passed as an argument, the intersection result will be presented as follows:
 
 
-- WorldIntersection intersection — The WorldIntersection node.
-- WorldIntersectionNormal normal — The WorldIntersectionNormal node.
-- WorldIntersectionTexCoord texcoord — The WorldIntersectionTexCoord node.
+- WorldIntersection intersection � The WorldIntersection node.
+- WorldIntersectionNormal normal � The WorldIntersectionNormal node.
+- WorldIntersectionTexCoord texcoord � The WorldIntersectionTexCoord node.
 
 
 ### Arguments
@@ -159,9 +165,9 @@ Traces a line from one point to another to find an object located on that line. 
 Depending on the variable, passed as an argument, the intersection result will be presented as follows:
 
 
-- WorldIntersection intersection — The WorldIntersection node.
-- WorldIntersectionNormal normal — The WorldIntersectionNormal node.
-- WorldIntersectionTexCoord texcoord — The WorldIntersectionTexCoord node.
+- WorldIntersection intersection � The WorldIntersection node.
+- WorldIntersectionNormal normal � The WorldIntersectionNormal node.
+- WorldIntersectionTexCoord texcoord � The WorldIntersectionTexCoord node.
 
 
 ### Arguments

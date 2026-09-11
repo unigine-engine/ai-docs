@@ -107,7 +107,7 @@ Attributes:
 - *widget* The *widget* attribute sets a widget reference to be passed as an argument to the callback function. Any existing widget [name](../../../code/gui/ui/index.md#param_name) is allowed.
 - *string* The *string* attribute sets a string argument for the callback function. Any valid string is acceptable. This attribute can also be used to pass any other data types.
 - *variable* The *variable* attribute sets an argument of any variable type for the callback function. You can also pass [vectors](../../../code/uniginescript/language/containers/index.md#vector) and [maps](../../../code/uniginescript/language/containers/index.md#maps).
-- *accel_key* The *accel_key* attribute sets a hotkey for a given callback.  For example, to run the user-defined *esc_clicked()* callback by pressing the ESC button, use the following: ```xml <button> <callback type="clicked" accel_key="esc">esc_clicked</callback> </button> ``` The following keys can be set as the hotkey:
+- *accel_key* The *accel_key* attribute sets a hotkey for a given callback. For example, to run the user-defined *esc_clicked()* callback by pressing the ESC button, use the following: ```xml <button> <callback type="clicked" accel_key="esc">esc_clicked</callback> </button> ``` The following keys can be set as the hotkey:
 
   - **ascii symbol** Any button, which has a corresponding ASCII code.
   - **esc** ESC.
@@ -124,7 +124,7 @@ Attributes:
   - **right** ARROW RIGHT.
   - **up** ARROW UP.
   - **down** ARROW DOWN.
-  - **f1–f12** Any of twelve functional buttons.
+  - **f1�f12** Any of twelve functional buttons.
 - *accel_ctrl* Whether the CTRL button is pressed or not.
 
   - **0** or **no** CTRL button isn't pressed.
@@ -362,7 +362,7 @@ Corresponds to an object of the [WidgetComboBox](../../../api/library/gui/class.
 Attributes:
 
 
-- *texture* Path to a texture with mini-icons. This texture is a strip of N pixels in width and N×M pixels in height.
+- *texture* Path to a texture with mini-icons. This texture is a strip of N pixels in width and N�M pixels in height.
 
 
 Children:
@@ -405,12 +405,12 @@ The result is a list of items with icons:
 ![](examples/combobox.png)
 
 
-The `combobox_icons.png` image is a vertical strip of square (16×16 pixels) mini-icons that have a transparent background:
+The `combobox_icons.png` image is a vertical strip of square (16�16 pixels) mini-icons that have a transparent background:
 
 
 ![](examples/combobox_icons.png)
 
-*16×64 strip of mini-icons*
+*16�64 strip of mini-icons*
 
 
 See the article on [Skin Layout](../../../code/gui/skin/index.md) for more details.
@@ -522,6 +522,7 @@ Children:
 
 The *edittext* widget can be used, for example, to input some source code:
 
+
 ```xml
 <hbox align="expand">
 	<label align="left,top">Source:</label>
@@ -530,11 +531,15 @@ The *edittext* widget can be used, for example, to input some source code:
 
 ```
 
- The result is the following:
+
+The result is the following:
+
+
 ![](examples/edittext.png)
 
 
 If the text scrolling is required, define the *edittext* widget inside the [*scrollbox*](../../../code/gui/ui/ui_containers.md#scrollbox) container:
+
 
 ```xml
 <scrollbox name="Test::scrollbox" align="expand">
@@ -543,7 +548,10 @@ If the text scrolling is required, define the *edittext* widget inside the [*scr
 
 ```
 
- If you type the long text, the following result is shown:
+
+If you type the long text, the following result is shown:
+
+
 ![](examples/edittext_scroll.png)
 
 
@@ -607,6 +615,7 @@ Children:
 
 It is possible to combine several horizontal sliders by using one of the [containers](../../../code/gui/ui/ui_containers.md). For example:
 
+
 ```xml
 <hbox space_x="10">
 	<vbox space_y="20">
@@ -629,7 +638,10 @@ It is possible to combine several horizontal sliders by using one of the [contai
 
 ```
 
- The example produces the following:
+
+The example produces the following:
+
+
 ![](examples/hslider.png)
 
 
@@ -655,6 +667,7 @@ Attributes:
 
 The *hspacer* widget can be used to group the other widgets. For example:
 
+
 ```xml
 <vbox>
 	<gridbox name="Test::gridbox_1" space="10">
@@ -674,7 +687,10 @@ The *hspacer* widget can be used to group the other widgets. For example:
 
 ```
 
- The result is the following:
+
+The result is the following:
+
+
 ![](examples/hspacer.png)
 
 
@@ -684,7 +700,7 @@ The *hspacer* widget can be used to group the other widgets. For example:
 Corresponds to an object of the [WidgetIcon](../../../api/library/gui/class.widgeticon_cpp.md) class.
 
 
-It is a square image, whose size is divisible by 2. For example, 16×16, 32×32, 64×64. Each icon has 4 states. For more details, see the article on [Skin Layout](../../../code/gui/skin/index.md#icon).
+It is a square image, whose size is divisible by 2. For example, 16�16, 32�32, 64�64. Each icon has 4 states. For more details, see the article on [Skin Layout](../../../code/gui/skin/index.md#icon).
 
 
 ![icon widget](widgets/icon.png)
@@ -715,6 +731,7 @@ Children:
 
 To add an image caption, use the *text* tag with the required set of attributes:
 
+
 ```xml
 <icon name="Test::icon_1" export="1" texture="icon.png">
 	<text voffset="25" size="15">Icon Caption</text>
@@ -732,14 +749,14 @@ The following example demonstrates icons of different size and sets of attribute
 ```xml
 <gridbox name="Test::gridbox" space_y="10">
 	<label>
-		<text>16×16 icons:</text>
+		<text>16�16 icons:</text>
 	</label>
 	<hbox name="Test::hbox_1">
 		<icon name="Test::icon_1" export="1" texture="icon_1.png" toggleable="1"/>
 		<icon name="Test::icon_2" export="1" texture="icon_2.png"/>
 	</hbox>
 	<label>
-		<text>32×32 icons:</text>
+		<text>32�32 icons:</text>
 	</label>
 	<hbox name="Test::hbox_2">
 		<icon name="Test::icon_3" export="1" texture="icon_3.png"/>
@@ -761,7 +778,7 @@ Each icon represented by the image that includes [4 states](../../../code/gui/sk
 
 | ![](examples/icon_1.png) | ![](examples/icon_2.png) |
 |---|---|
-| *4 states of the 16×16 square icon* | *4 states of the 32×32 square icon* |
+| *4 states of the 16�16 square icon* | *4 states of the 32�32 square icon* |
 
 
 ## label
@@ -815,6 +832,7 @@ It is possible to change the width and height of the label, its alignment or pos
 
 If the *text* tag is omitted, text formatting attributes can be specified as follows:
 
+
 ```xml
 <label font="fontb.ttf" size="10">Label</label>
 ```
@@ -833,7 +851,7 @@ Attributes:
 
 
 - *multi_selection* Whether to allow picking more than one item or not. CTRL and SHIFT modifiers are used for multiple selection.
-- *texture* Path to a listbox texture of mini-icons. This texture is a bar of N pixels in width and N×M pixels in height.
+- *texture* Path to a listbox texture of mini-icons. This texture is a bar of N pixels in width and N�M pixels in height.
 
 
 Children:
@@ -878,12 +896,12 @@ The result is:
 ![](examples/listbox.png)
 
 
-The `menu_icons.png` image is a vertical strip of square mini-icons, each the size of 16×16 pixels, that has a transparent background:
+The `menu_icons.png` image is a vertical strip of square mini-icons, each the size of 16�16 pixels, that has a transparent background:
 
 
 ![](examples/menu_icons.png)
 
-*16×64 strip of mini-icons*
+*16�64 strip of mini-icons*
 
 
 See the article on [Skin Layout](../../../code/gui/skin/index.md) for more details.
@@ -926,19 +944,19 @@ Children:
 		<menu>
 			<text>File</text>
 			<menubox name="Test::file_mb">
-				…
+				�
 			</menubox>
 		</menu>
 		<menu>
 			<text>Edit</text>
 			<menubox name="Test::edit_mb">
-				…
+				�
 			</menubox>
 		</menu>
 		<menu>
 			<text>Help</text>
 			<menubox name="Test::help_mb">
-				…
+				�
 			</menubox>
 		</menu>
 	</menubar>
@@ -994,7 +1012,7 @@ Corresponds to an object of the [WidgetMenuBox](../../../api/library/gui/class.w
 Attributes:
 
 
-- *texture* Path to a menubox texture of mini-icons. This texture is a strip of N pixels in width and N×M pixels in height.
+- *texture* Path to a menubox texture of mini-icons. This texture is a strip of N pixels in width and N�M pixels in height.
 - *space* Overall spacing (pixels).
 - *space_x* Horizontal spacing (pixels).
 - *space_y* Vertical spacing (pixels).
@@ -1112,12 +1130,12 @@ The result is the following:
 ![](examples/menubox_texture.png)
 
 
-The `menu_icons.png` image is a vertical strip of square mini-icons, each the size of 16×16 pixels, that has a transparent background:
+The `menu_icons.png` image is a vertical strip of square mini-icons, each the size of 16�16 pixels, that has a transparent background:
 
 
 ![](examples/menu_icons.png)
 
-*16×64 strip of mini-icons*
+*16�64 strip of mini-icons*
 
 
 See the article on [Skin Layout](../../../code/gui/skin/index.md) for more details.
@@ -1241,7 +1259,7 @@ Attributes:
 
 - *editable* Whether to allow modifying the hierarchy of items or not. The hierarchy can be modified by dragging items with ALT pressed.
 - *multi_selection* Whether to allow picking more than one item or not. CTRL and SHIFT modifiers are used for multiple selection.
-- *texture* Path to a treebox texture of mini-icons. This texture is a bar of N pixels in width and N×M pixels in height.
+- *texture* Path to a treebox texture of mini-icons. This texture is a bar of N pixels in width and N�M pixels in height.
 
 
 Children:
@@ -1268,12 +1286,12 @@ Children:
 ```
 
 
-The `menu_icons.png` image is a vertical strip of square mini-icons, each the size of 16×16 pixels, that has a transparent background:
+The `menu_icons.png` image is a vertical strip of square mini-icons, each the size of 16�16 pixels, that has a transparent background:
 
 
 ![](examples/menu_icons.png)
 
-*16×64 strip of mini-icons*
+*16�64 strip of mini-icons*
 
 
 See the article on [Skin Layout](../../../code/gui/skin/index.md) for more details.

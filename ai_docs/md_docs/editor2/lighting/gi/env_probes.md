@@ -48,10 +48,10 @@ The [Baking Settings](../../../objects/lights/envprobe/index.md#baking_settings)
 ### Static Reflections
 
 
-An Environment Probe with the **Dynamic option disabled** provides static reflections — the same cubemap is used until it is re-baked or replaced.
+An Environment Probe with the **Dynamic option disabled** provides static reflections � the same cubemap is used until it is re-baked or replaced.
 
 
-> **Notice:** It is not recommended to bake cubemaps for environment probes stored in multiple [*Node References*](../../../objects/nodes/reference/index.md) that refer to the same `.node` asset — the assigned cubemaps will be lost. However, you can export an environment probe to a node reference after baking and clone, if needed.
+> **Notice:** It is not recommended to bake cubemaps for environment probes stored in multiple [*Node References*](../../../objects/nodes/reference/index.md) that refer to the same `.node` asset � the assigned cubemaps will be lost. However, you can export an environment probe to a node reference after baking and clone, if needed.
 
 
 You can specify a custom cubemap texture for the probe or bake it from the environment by using the *[Bake Lighting](../../../editor2/lighting/gi/bake_lighting/index.md)* tool. For this purpose, a set of preparations is needed:

@@ -172,7 +172,7 @@ Sets a new value indicating if the reflection is two-sided.
 Returns the current value indicating if the reflection is two-sided.
 ### Return value
 
-**true** if two-sided reflection is enabled; otherwise **false**.
+**true** if two-sided reflection is enabled ; otherwise **false**.
 ## void setStereoPerEyeEnabled ( bool enabled )
 
 Sets a new value indicating if rendering of the reflection for each eye separately is enabled.
@@ -185,7 +185,7 @@ Sets a new value indicating if rendering of the reflection for each eye separate
 Returns the current value indicating if rendering of the reflection for each eye separately is enabled.
 ### Return value
 
-**true** if rendering of the reflection for each eye separately is enabled; otherwise **false**.
+**true** if rendering of the reflection for each eye separately is enabled ; otherwise **false**.
 ## void setDistanceScale ( float scale )
 
 Sets a new distance multiplier for the reflection visibility distance. Distance Scale is applied to the distance measured from the reflection camera to the node (surface) bound.
@@ -295,7 +295,7 @@ Sets a new value indicating if rendering of the sky is enabled or disabled for t
 Returns the current value indicating if rendering of the sky is enabled or disabled for the reflection.
 ### Return value
 
-**true** if rendering of the sky for the reflection is enabled; otherwise **false**.
+**true** if rendering of the sky for the reflection is enabled ; otherwise **false**.
 ## void setParallax ( float parallax )
 
 Sets a new degree of reflection distortion. Distortion depends on an angle between the probe plane and the surface onto which the probe projects reflection. Increasing the value amplifies visual distortion as a result of increasing this angle.

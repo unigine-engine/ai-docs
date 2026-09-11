@@ -57,6 +57,12 @@
 
 - [Curve2d Class (CPP)](../../../api/library/common/class.curve2d_cpp.md)
 
+- [CustomParameterLayout Class (USC)](../../../api/library/common/class.customparameterlayout_usc.md)
+
+- [CustomParameterLayout Class (CS)](../../../api/library/common/class.customparameterlayout_cs.md)
+
+- [CustomParameterLayout Class (CPP)](../../../api/library/common/class.customparameterlayout_cpp.md)
+
 - [Expression Class (CPP)](../../../api/library/common/class.expression_cpp.md)
 
 - [Expression Class (CS)](../../../api/library/common/class.expression_cs.md)

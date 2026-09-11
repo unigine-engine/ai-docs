@@ -16,8 +16,8 @@ Check this video from the series of [video tutorials on the terrain generation](
 ## Setting the Building Object
 
 
-1. Create the object: in the *Objects* panel, click *+* for *Buildings*. ![](add_object.png)
-2. In the *Parameters* tab, add a source: click the *Add Source(s)* button, select *Assets* and set the path to the `UnigineGeoreferencedTerrainGeneration/vector/buildings.shp` file. As the source is added, we can click the *Preview* button below to see the building data preview on the map. ![](preview.png)
+1. Create the object: in the *Objects* list of the *Sources* panel, click *+* for *Buildings*. ![](add_object.png)
+2. In the *Parameters* panel, add a source: click the *Add Source(s)* button, select *Assets* and set the path to the `UnigineGeoreferencedTerrainGeneration/vector/buildings.shp` file. As the source is added, we can click the *Preview* button below to see the building data preview on the map. ![](preview.png)
 3. Add a [filter](../../../../editor2/sandworm/sources/index.md#filters) if you want to pick specific data from the source. Open the Attributes Table (the ![](../../sources/table_sign.png) button) to look through all available data and set any filter you want. If you add no filters, all buildings will be generated.
 4. In fact, we can already generate the buildings with Auto settings. However, if you do that, you'll notice several skyscrapers not typical for such towns. This is due to the data provided in the floor column of the Attributes table: some values are irrelevant. Filters also can't help in this case as the data is in the string format. To solve this problem, let's switch to the *[Manual](../../../../editor2/sandworm/sources/buildings/index.md#parameters)* mode and set the *Floor Number* parameter to Random: ![](floor_parameters.png) In this case *Sandworm* will disregard any floor number values from the data source and generate buildings with a random number of floors from 1 to 5 as set in *Floor Number Range*.
 5. Click the *Create Building Object* button.

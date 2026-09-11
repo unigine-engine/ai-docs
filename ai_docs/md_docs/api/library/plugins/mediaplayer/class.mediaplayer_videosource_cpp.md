@@ -204,7 +204,7 @@ Sets a new value indicating whether looping is enabled.
 Returns the current value indicating whether looping is enabled.
 ### Return value
 
-**true** if video looping is enabled; otherwise **false**.
+**true** if video looping is enabled ; otherwise **false**.
 ## int getWidth () const
 
 Returns the current video width in pixels.

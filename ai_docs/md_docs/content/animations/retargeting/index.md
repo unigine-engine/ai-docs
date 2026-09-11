@@ -16,7 +16,7 @@ Before explaining retargeting itself, it helps to understand the full path anima
 
 
 1. **Animation Auto-Mapping.** The animation asset references a `*.skeleton` (its **shared skeleton**). The Engine matches joints by name. Curves for joints not in the shared skeleton are skipped.
-2. **Retargeting.** If the skeletons differ at either boundary (animation → **NodeSkeletonPose**, or **NodeSkeletonPose** → mesh), the Engine creates a retargeter automatically and adjusts the pose. If all skeletons are the same, no retargeting is needed. This is the step you can configure, see [Retargeting Modes](#retargeting_modes) below.
+2. **Retargeting.** If the skeletons differ at either boundary (animation -> **NodeSkeletonPose**, or **NodeSkeletonPose** -> mesh), the Engine creates a retargeter automatically and adjusts the pose. If all skeletons are the same, no retargeting is needed. This is the step you can configure, see [Retargeting Modes](#retargeting_modes) below.
 3. **Mesh Auto-Mapping.** The skinned mesh also references a `*.skeleton` (its **shared skeleton**). The Engine matches joints by name. Joints not in the shared skeleton stay in their rest pose.
 
 

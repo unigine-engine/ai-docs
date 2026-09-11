@@ -27,7 +27,7 @@ Current server frame time, in seconds
 Returns the current
 ### Return value
 
-**true** if is enabled; otherwise **false**.
+**true** if is enabled ; otherwise **false**.
 ---
 
 ## Server * initServerBroadcast ( const char * broadcast_address , unsigned short udp_port )

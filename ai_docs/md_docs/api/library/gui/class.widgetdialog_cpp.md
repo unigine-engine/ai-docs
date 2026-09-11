@@ -24,6 +24,63 @@ The object of this class looks as follows:
 
 ### Members
 
+## void setCloseText ( const char * text )
+
+Sets a new caption of the Close button. The default is empty.
+### Arguments
+
+- *const char ** **text** - The caption of the Close button
+
+## const char * getCloseText () const
+
+Returns the current caption of the Close button. The default is empty.
+### Return value
+
+Current caption of the Close button
+## void setCancelText ( const char * text )
+
+Sets a new caption of the Cancel button. The default is Cancel.
+### Arguments
+
+- *const char ** **text** - The caption of the Cancel button
+
+## const char * getCancelText () const
+
+Returns the current caption of the Cancel button. The default is Cancel.
+### Return value
+
+Current caption of the Cancel button
+## void setOkText ( const char * text )
+
+Sets a new caption of the OK button. The default is OK.
+### Arguments
+
+- *const char ** **text** - The caption of the OK button
+
+## const char * getOkText () const
+
+Returns the current caption of the OK button. The default is OK.
+### Return value
+
+Current caption of the OK button
+## bool isOkClicked () const
+
+Returns the current value indicating if the OK button is clicked.
+### Return value
+
+**true** if the OK button is clicked; otherwise **false**.
+## int getResult () const
+
+Returns the current value indicating which button has been clicked: 1 if the OK button is clicked; -1 if the Cancel button is clicked; 0 if the Close button is clicked.
+### Return value
+
+Current value indicating which button has been clicked
+## bool isDone () const
+
+Returns the current value indicating if the dialog window is closed.
+### Return value
+
+**true** if the dialog window is closed; otherwise **false**.
 ---
 
 ## static WidgetDialogPtr create ( const Ptr < Gui > & gui , const char * str = 0 , int x = 0 , int y = 0 )
@@ -57,19 +114,6 @@ Returns a value indicating if the Cancel button is clicked.
 ### Return value
 
 1 if the Cancel button is clicked; otherwise, 0.
-## void setCancelText ( const char * text )
-
-Sets a caption of the Cancel button.
-### Arguments
-
-- *const char ** **text** - Cancel button caption.
-
-## const char * getCancelText ( ) const
-
-Returns the caption of the Cancel button. The default is Cancel.
-### Return value
-
-Cancel button caption.
 ## Ptr < WidgetButton > getCloseButton ( ) const
 
 Returns the button that closes an action.
@@ -82,53 +126,9 @@ Returns a value indicating if the Close button is clicked.
 ### Return value
 
 1 if the Close button is clicked; otherwise, 0.
-## void setCloseText ( const char * text )
-
-Sets a caption of the Close button.
-### Arguments
-
-- *const char ** **text** - Close button caption.
-
-## const char * getCloseText ( ) const
-
-Returns the caption of the Close button. The default is empty.
-### Return value
-
-Close button caption.
-## bool isDone ( ) const
-
-Returns a value indicating if the dialog window is closed.
-### Return value
-
-**1** if the dialog window is closed; otherwise, **0**.
 ## Ptr < WidgetButton > getOkButton ( ) const
 
 Returns the button that approves an action.
 ### Return value
 
 OK button.
-## bool isOkClicked ( ) const
-
-Returns a value indicating if the OK button is clicked.
-### Return value
-
-true if the OK button is clicked; otherwise, false.
-## void setOkText ( const char * text )
-
-Sets a caption of the OK button.
-### Arguments
-
-- *const char ** **text** - OK button caption.
-
-## const char * getOkText ( ) const
-
-Returns the caption of the OK button. The default is OK.
-### Return value
-
-OK button caption.
-## int getResult ( ) const
-
-Returns a value indicating which button has been clicked.
-### Return value
-
-1 if the OK button is clicked; -1 if the Cancel button is clicked; 0 if the Close button is clicked.

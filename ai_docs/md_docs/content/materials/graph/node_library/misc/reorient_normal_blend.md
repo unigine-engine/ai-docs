@@ -14,14 +14,14 @@ This node is used for blending normals while preserving their correct orientatio
 **Inputs:**
 
 
-- **Base Normal** **(float3)** – The base layer of normals, which can come from either geometry vertex normals or a normal map texture.
-- **Detail Normal** **(float3)** – The secondary normal map to be blended with the base normal, adding supplementary surface details.
+- **Base Normal** **(float3)** � The base layer of normals, which can come from either geometry vertex normals or a normal map texture.
+- **Detail Normal** **(float3)** � The secondary normal map to be blended with the base normal, adding supplementary surface details.
 
 
 **Output:**
 
 
-- **Blended Normal** **(float3)** – The resulting normal vector after correctly reorienting and blending the two input normal maps, ensuring a properly oriented final normal.
+- **Blended Normal** **(float3)** � The resulting normal vector after correctly reorienting and blending the two input normal maps, ensuring a properly oriented final normal.
 
 
 ## Usage Examples

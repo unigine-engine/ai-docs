@@ -248,43 +248,43 @@ Returns the current value of the node ID property parameter.
 Current value of the node ID property parameter.
 ## void setValueNode ( const Ptr < Node >& node )
 
-Sets a new value of the [Node](../../../api/library/nodes/class.node_cpp.md) property parameter.
+Sets a new value of the *[Node](../../../api/library/nodes/class.node_cpp.md)* property parameter.
 ### Arguments
 
-- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Node](../../../api/library/nodes/class.node_cpp.md)>&* **node** - The value of the [Node](../../../api/library/nodes/class.node_cpp.md) property parameter.
+- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Node](../../../api/library/nodes/class.node_cpp.md)>&* **node** - The value of the *[Node](../../../api/library/nodes/class.node_cpp.md)* property parameter.
 
 ## Ptr < Node > getValueNode () const
 
-Returns the current value of the [Node](../../../api/library/nodes/class.node_cpp.md) property parameter.
+Returns the current value of the *[Node](../../../api/library/nodes/class.node_cpp.md)* property parameter.
 ### Return value
 
-Current value of the [Node](../../../api/library/nodes/class.node_cpp.md) property parameter.
+Current value of the *[Node](../../../api/library/nodes/class.node_cpp.md)* property parameter.
 ## void setValueMaterial ( const Ptr < Material >& material )
 
-Sets a new value of the [Material](../../../api/library/rendering/class.material_cpp.md) property parameter.
+Sets a new value of the *[Material](../../../api/library/rendering/class.material_cpp.md)* property parameter.
 ### Arguments
 
-- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Material](../../../api/library/rendering/class.material_cpp.md)>&* **material** - The value of the [Material](../../../api/library/rendering/class.material_cpp.md) property parameter.
+- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Material](../../../api/library/rendering/class.material_cpp.md)>&* **material** - The value of the *[Material](../../../api/library/rendering/class.material_cpp.md)* property parameter.
 
 ## Ptr < Material > getValueMaterial () const
 
-Returns the current value of the [Material](../../../api/library/rendering/class.material_cpp.md) property parameter.
+Returns the current value of the *[Material](../../../api/library/rendering/class.material_cpp.md)* property parameter.
 ### Return value
 
-Current value of the [Material](../../../api/library/rendering/class.material_cpp.md) property parameter.
+Current value of the *[Material](../../../api/library/rendering/class.material_cpp.md)* property parameter.
 ## void setValueProperty ( const Ptr < Property >& property )
 
-Sets a new value of the [Property](../../../api/library/common/class.property_cpp.md)-type property parameter.
+Sets a new value of the *[Property](../../../api/library/common/class.property_cpp.md)*-type property parameter.
 ### Arguments
 
-- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Property](../../../api/library/common/class.property_cpp.md)>&* **property** - The value of the [Property](../../../api/library/common/class.property_cpp.md)-type property parameter.
+- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Property](../../../api/library/common/class.property_cpp.md)>&* **property** - The value of the *[Property](../../../api/library/common/class.property_cpp.md)*-type property parameter.
 
 ## Ptr < Property > getValueProperty () const
 
-Returns the current value of the [Property](../../../api/library/common/class.property_cpp.md)-type property parameter.
+Returns the current value of the *[Property](../../../api/library/common/class.property_cpp.md)*-type property parameter.
 ### Return value
 
-Current value of the [Property](../../../api/library/common/class.property_cpp.md)-type property parameter.
+Current value of the *[Property](../../../api/library/common/class.property_cpp.md)*-type property parameter.
 ## void setValueVec4 ( const Math:: vec4 & vec4 )
 
 Sets a new value of the four-component [vec4](../../../api/library/math/class.vec4_cpp.md) vector property parameter
@@ -378,7 +378,10 @@ Returns the current value of the integer property parameter.
 Current value of the integer property parameter.
 ## Ptr < Curve2d > getValueCurve2dOverride () const
 
-Returns the current [Curve2d](../../../api/library/common/class.curve2d_cpp.md) instance for the data stored in the specified property parameter overriding the default one. This method enables you to set individual curves, adjusting the value of the resulting property.
+Returns the current [Curve2d](../../../api/library/common/class.curve2d_cpp.md) instance for the data stored in the specified property parameter overriding the default one.
+This method enables you to set individual curves, adjusting the value of the resulting property.
+
+
 > **Notice:** Modifications made to the curve shall not propagate to the parent and sibling properties.
 
 
@@ -526,16 +529,16 @@ Returns the current value indicating if the property parameter is a toggle.
 **true** if the property parameter is a toggle; otherwise **false**.
 ## bool isDouble () const
 
-Returns the current value indicating if the property parameter is a double.
+Returns the current value indicating if the property parameter is a *double*.
 ### Return value
 
-**true** if the property parameter is a double; otherwise **false**.
+**true** if the property parameter is a *double*; otherwise **false**.
 ## bool isFloat () const
 
-Returns the current value indicating if the property parameter is a float.
+Returns the current value indicating if the property parameter is a *float*.
 ### Return value
 
-**true** if the property parameter is a float; otherwise **false**.
+**true** if the property parameter is a *float*; otherwise **false**.
 ## bool isInt () const
 
 Returns the current value indicating if the property parameter is an integer.
@@ -544,13 +547,16 @@ Returns the current value indicating if the property parameter is an integer.
 **true** if the property parameter is an integer; otherwise **false**.
 ## const char * getFilter () const
 
-Returns the current filter string associated with the property parameter. This string specifies a filter for file, material or property parameter values thet will be used in the unigineeditor. for example, you can specify ".xml|.node|.txt" to filter certain types of assets, or specify a base material to filter out materials, that cannot be used in a particular case (e.g. to avoid an attempt of assigning a post material to a mesh).
+Returns the current filter string associated with the property parameter.
+This string specifies a filter for *File, Material* or *Property* parameter values thet will be used in the UnigineEditor. for example, you can specify *".xml|.node|.txt"* to filter certain types of assets, or specify a base material to filter out materials, that cannot be used in a particular case (e.g. to avoid an attempt of assigning a post material to a mesh).
+
+
 > **Notice:** This attribute is available only for [file](../../../api/library/common/class.property_cpp.md#PARAMETER_FILE), [material](../../../api/library/common/class.property_cpp.md#PARAMETER_MATERIAL) and [property](../../../api/library/common/class.property_cpp.md#PARAMETER_PROPERTY) parameter types.
 
 
 ### Return value
 
-Current string specifying a filter for file, material or property parameter values.
+Current string specifying a filter for *File, Material* or *Property* parameter values.
 ## const char * getGroup () const
 
 Returns the current name of the group to which the property parameter belongs.
@@ -559,13 +565,13 @@ Returns the current name of the group to which the property parameter belongs.
 Current name of the group to which the property parameter belongs.
 ## const char * getTooltip () const
 
-Returns the current tooltip for the property parameter. This title is displayed in the UNIGINE Editor's UI.
+Returns the current tooltip for the property parameter. This title is displayed in the UnigineEditor UI.
 ### Return value
 
 Current tooltip for the property parameter.
 ## const char * getTitle () const
 
-Returns the current title of the property parameter. This title is displayed in the UNIGINE Editor's UI.
+Returns the current title of the property parameter. This title is displayed in the UnigineEditor UI.
 ### Return value
 
 Current title of the property parameter.
@@ -577,7 +583,10 @@ Returns the current name of the property parameter.
 Current name of the property parameter.
 ## int getType () const
 
-Returns the current [type](../../../code/formats/property_format.md#parameter_type) identifier of the property parameter. You can get the name of the parameter type using the *[Property::parameterNameByType()](../../../api/library/common/class.property_cpp.md#parameterNameByType_int_cstr)* method:
+Returns the current [type](../../../code/formats/property_format.md#parameter_type) identifier of the property parameter.
+You can get the name of the parameter type using the *[Property::parameterNameByType()](../../../api/library/common/class.property_cpp.md#parameterNameByType_int_cstr)* method:
+
+
 ```cpp
 Log::message("Parameter type: %s\n", prop_param->parameterNameByType(prop_param->getType()));
 ```
@@ -660,7 +669,7 @@ Suppose we have a property switch parameter declared as follows:
 > **Notice:** Spaces in the *items* attribute declaration are taken into account. Thus, **items="red=-1, green"** shall produce 2 items: **"red"** and **" green"**
 
 
-After loading we'll have switch items with the following values: red = -1, green = 0, blue = 5, yellow = 6.
+After loading we'll have switch items with the following values: *red = -1, green = 0, blue = 5, yellow = 6*.
 
 
 ```cpp
@@ -692,7 +701,7 @@ Suppose we have a property switch parameter declared as follows:
 > **Notice:** Spaces in the *items* attribute declaration are taken into account. Thus, **items="red=-1, green"** shall produce 2 items: **"red"** and **" green"**
 
 
-After loading we'll have switch items with the following values: red = -1, green = 0, blue = 5, yellow = 6.
+After loading we'll have switch items with the following values: *red = -1, green = 0, blue = 5, yellow = 6*.
 
 
 ```cpp
@@ -990,13 +999,16 @@ Sets the value of the property parameter using the [Curve2d](../../../api/librar
 
 ## void resetValue ( )
 
+
 Resets an overridden value of the property parameter.
+
+
 > **Notice:** Resetting a value of the property parameter affects all its children.
 
 
 ## Variable getValue ( ) const
 
-Returns the current value of the property parameter as a [Variable](../../../api/library/common/class.variable_cpp.md).
+Returns the current value of the property parameter as a *[Variable](../../../api/library/common/class.variable_cpp.md)*.
 ### Return value
 
 Value of the property parameter.
@@ -1041,7 +1053,10 @@ Returns the current value of the [file parameter](../../../code/formats/property
 
 ### Return value
 
+
 Current file parameter value depending on the [flags](../../../code/formats/property_format.md#parameter_flags) set for the parameter:
+
+
 ```cpp
 // flags = "asset"
 setValueFile("guid://asset_guid"); 		// getValueFile() -> asset_path
@@ -1061,7 +1076,7 @@ setValueFile(file_path);				// getValueFile() -> file_path
 ```
 
 
-> **Notice:** To get a GUID of the file, use the [getValueGUID()](#getValueGUID_UGUID) method.
+> **Notice:** To get a GUID of the file, use the *[getValueGUID()](#getValueGUID_UGUID)* method.
 
 
 ## const char * getValueFile ( ) const
@@ -1097,7 +1112,9 @@ true if a file corresponding to the property parameter exists; otherwise, false.
 ## bool saveState ( const Ptr < Stream > & stream ) const
 
 Saves data of the property parameter into a binary stream.
-**Example** using saveState() and [restoreState()](#restoreState_Stream_int_int) methods:
+
+
+**Example** using *saveState()* and *[restoreState()](#restoreState_Stream_int_int)* methods:
 
 
 ```cpp
@@ -1127,8 +1144,11 @@ propertyparam1->restoreState(blob_state, 0);
 true if the property parameter data is saved successfully; otherwise, false.
 ## bool restoreState ( const Ptr < Stream > & stream , int restore_mode = 0 )
 
+
 Restores the data of the property parameter from a binary stream in the specified mode.
-**Example** using [saveState()](#saveState_Stream_int) and restoreState() methods:
+
+
+**Example** using *[saveState()](#saveState_Stream_int)* and *restoreState()* methods:
 
 
 ```cpp
@@ -1159,10 +1179,10 @@ propertyparam1->restoreState(blob_state, 0);
 true if the property parameter data is restored successfully; otherwise, false.
 ## bool isValuePropertyInternal ( ) const
 
-Checks if the property parameter [flag](../../../code/formats/property_format.md#parameter_flags) is set to internal (flags="internal"). If it is internal, only a property assigned to some node can be assigned to it. If the property parameter is not internal, a property from the Asset Browser can be assigned to it.
+Checks if the property parameter [flag](../../../code/formats/property_format.md#parameter_flags) is set to internal (*flags="internal"*). If it is internal, only a property assigned to some node can be assigned to it. If the property parameter is not internal, a property from the Asset Browser can be assigned to it.
 ### Return value
 
-true if a property parameter's flag is set to "Internal"; otherwise, false.
+true if a property parameter's flag is set to *"Internal"*; otherwise, false.
 ## bool isValueFitFilter ( const Ptr < Node > & value ) const
 
 Checks if the type of the indicated node fits the current property parameter [filter](../../../code/formats/property_format.md#parameter_filter).
@@ -1205,9 +1225,12 @@ Checks if the indicated GUID fits the current property parameter [filter](../../
 true, if the GUID fits the filter; otherwise, false.
 ## bool isValuePropertyInterface ( ) const
 
-Checks if the property parameter [flag](../../../code/formats/property_format.md#parameter_flags) is defined as an interface type (flags="interface"), allowing any component that implements the required interface to be assigned to it.
+
+Checks if the property parameter [flag](../../../code/formats/property_format.md#parameter_flags) is defined as an interface type (*flags="interface"*), allowing any component that implements the required interface to be assigned to it.
+
+
 > **Notice:** You can use interfaces only within the C# Component System. For more information, see the article [C# Interfaces and Abstract Classes.](../../../code/csharp/interfaces_and_abstract_classes.md).
 
 ### Return value
 
-true if a property parameter's flag is set to "interface"; otherwise, false.
+true if a property parameter's flag is set to *"interface"*; otherwise, false.

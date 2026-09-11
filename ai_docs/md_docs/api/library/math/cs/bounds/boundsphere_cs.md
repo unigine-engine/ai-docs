@@ -281,6 +281,7 @@ Checks if the box is inside the bounding sphere.
 ## bool InsideValid ( vec3 point )
 
 Checks if the given point is inside the current bounding sphere.
+
 > **Notice:** The method doesn't check if the current bounding sphere is valid.
 
 ### Arguments
@@ -293,6 +294,7 @@ Checks if the given point is inside the current bounding sphere.
 ## bool InsideValid ( vec3 point , float radius )
 
 Checks if the sphere specified in the argument is inside the current bounding sphere.
+
 > **Notice:** The method doesn't check if the current bounding sphere is valid.
 
 ### Arguments
@@ -306,6 +308,7 @@ Checks if the sphere specified in the argument is inside the current bounding sp
 ## bool InsideValid ( vec3 min , vec3 max )
 
 Checks if the box specified in the argument is inside the current bounding sphere.
+
 > **Notice:** The method doesn't check if the current bounding sphere is valid.
 
 ### Arguments
@@ -339,6 +342,7 @@ Checks if the bounding box specified in the argument is inside the current bound
 ## bool InsideValid ( BoundSphere bs )
 
 Checks if the bounding sphere specified in the argument is inside the current bounding sphere.
+
 > **Notice:** This method doesn't check if the current bounding sphere is valid (has a positive radius).
 
 ### Arguments
@@ -351,6 +355,7 @@ Checks if the bounding sphere specified in the argument is inside the current bo
 ## bool InsideValid ( BoundBox bb )
 
 Checks if the bounding box specified in the argument is inside the current bounding sphere.
+
 > **Notice:** This method doesn't check if the current bounding sphere is valid (has a positive radius).
 
 ### Arguments
@@ -383,6 +388,7 @@ Checks if the whole specified bounding box is inside the current bounding sphere
 ## bool InsideAllValid ( BoundSphere bs )
 
 Checks if the whole bounding sphere specified in the argument is completely inside the current bounding sphere.
+
 > **Notice:** This method doesn't check if the current bounding sphere is valid (has a positive radius).
 
 ### Arguments
@@ -395,6 +401,7 @@ Checks if the whole bounding sphere specified in the argument is completely insi
 ## bool InsideAllValid ( BoundBox bb )
 
 Checks if the whole bounding box specified in the argument is completely inside the current bounding sphere.
+
 > **Notice:** This method doesn't check if the current bounding sphere is valid (has a positive radius).
 
 ### Arguments
@@ -429,6 +436,7 @@ Checks for an intersection of a line with the current bounding sphere.
 ## bool RayIntersectionValid ( vec3 point , vec3 direction )
 
 Checks for an intersection between a ray and the current bound.
+
 > **Notice:** This method doesn't check if the current bounding sphere is valid (has a positive radius).
 
 ### Arguments
@@ -441,7 +449,10 @@ Checks for an intersection between a ray and the current bound.
 **true** if an intersection has occurred; otherwise, **false**.
 ## bool GetIntersectionValid ( vec3 p0 , vec3 p1 )
 
+
 Checks for an intersection of a line with the current bounding sphere.
+
+
 > **Notice:** This method doesn't check if the current bounding sphere is valid (has a positive radius).
 
 
@@ -471,7 +482,10 @@ Returns the distance from the given point to the closest point of the current bo
 Distance from the point, in units.
 ## float DistanceValid ( )
 
+
 Returns the distance from the origin of coordinates to the closest point of the current bounding sphere.
+
+
 > **Notice:** This method doesn't check if the current bounding sphere is valid (has a positive radius).
 
 
@@ -480,7 +494,10 @@ Returns the distance from the origin of coordinates to the closest point of the 
 Distance from the origin, in units.
 ## float DistanceValid ( vec3 point )
 
+
 Returns the distance from the given point to the closest point of the current bounding sphere.
+
+
 > **Notice:** This method doesn't check if the current bounding sphere is valid (has a positive radius).
 
 

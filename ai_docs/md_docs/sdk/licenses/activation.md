@@ -12,6 +12,9 @@ Having just [installed SDK](../../sdk/index.md#sdks), you should activate your [
 - [USB Key (HASP) Activation](#usb)
 
 
+> **Notice:** Alternatively, a license can be served to all machines on your local network from a single machine by the console-based [Offline Licensing Server](../../sdk/licenses/licensing_server.md).
+
+
 Licenses are assigned to user accounts via [License Manager](../../sdk/licenses/admin_panel.md).
 
 

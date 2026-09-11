@@ -3,10 +3,20 @@
 **Inherits from:** Object
 
 
-A [MeshCluster](../../../objects/objects/mesh_cluster/index.md) class allows you to bake identical meshes (with the same material applied to their surfaces) into one object, which provides less cluttered spatial tree, reduces the number of texture fetches and speeds up rendering.
+The [MeshCluster](../../../objects/objects/mesh_cluster/index.md) class allows you to bake identical meshes (with the same material applied to their surfaces) into one object, which provides less cluttered spatial tree, reduces the number of texture fetches and speeds up rendering.
 
 
 Meshes are rendered within a specified [visibility distance](#setVisibleDistance_float_void) from the camera. When moving away from this distance, meshes [fade out](#setFadeDistance_float_void) and then disappear completely.
+
+
+*Mesh Cluster* data are stored in the [binary format](../../../objects/objects/mesh_cluster/index.md#data_storage) that adds to boosting performance and reducing both memory and disk space usage.
+
+
+> **Notice:** However, when saving data through the API, the storage format depends on the method used:
+>
+>
+> - Using *[*World.SaveNode*()](../../../api/library/engine/class.world_cs.md#saveNode_cstr_Node_int_int)* or *[*World.SaveNodes*()](../../../api/library/engine/class.world_cs.md#saveNodes_cstr_VECNode_int_int)* ensures that cluster data is stored in the **optimized binary format**.
+> - Calling *[*ObjectMeshCluster.SaveWorld*()](../../../api/library/engine/class.world_cs.md#saveWorld_int)* writes cluster data using the **legacy format**, embedding it directly into the `*.xml` world file.
 
 
 ### See Also
@@ -35,13 +45,15 @@ Meshes are rendered within a specified [visibility distance](#setVisibleDistance
 The total number of meshes handled by the mesh cluster.
 ## float FadeDistance
 
-The distance up to which meshes handled by the mesh cluster will be fading out. The default is 0.
+The distance up to which meshes handled by the mesh cluster will be fading out (that is, fewer meshes will be rendered instead of all). The distance is measured starting from the [visible distance](#setVisibleDistance_float_void). The default is 0. Using fade distance allows the objects to disappear one by one until up to the fade distance only a few left. It makes the disappearing smooth and much less noticeable. If a negative value is provided, **0** will be used instead.
 ## float VisibleDistance
 
-The distance up to which meshes handled by the mesh cluster are rendered. The default is infinity (in this case, [fade distance](#setFadeDistance_float_void) is ignored).
+The distance up to which meshes handled by the mesh cluster are rendered. The default is infinity (in this case, [fade distance](#setFadeDistance_float_void) is ignored). If a negative value is provided, 0 will be used instead.
 ## string MeshPath
 
 The path to the source *.mesh*-file of mesh handled by the *Mesh Cluster*.
+> **Notice:** Setting a new path does not update the mesh immediately. If the mesh is in the procedural mode, it will be reset.
+
 ## 🔒︎ bool IsMeshLoadedVRAM
 
 The value indicating if the source mesh used for the object is loaded to video memory (VRAM).
@@ -53,7 +65,7 @@ The value indicating if the source mesh used for the object is loaded to memory 
 The value indicating if the source mesh used for the object is null (does not exist, unassigned, not loaded, etc.).
 ## 🔒︎ ObjectMeshStatic.PROCEDURAL_MODE MeshProceduralMode
 
-The value indicating if the source mesh used for the object is procedural. A procedural mesh is a [mesh](../../../api/library/rendering/class.mesh_cs.md) created via code, such meshes have a specific streaming mode - they are always kept in memory after creation and never unloaded until the object is destroyed via code or the mesh returns to its normal mode (streaming from a source file). Changing of the static mesh is possible only if it is in the procedural mode.
+The value indicating if the source mesh used for the object is [procedural](../../../api/library/objects/class.objectmeshstatic_cs.md#PROCEDURAL_MODE). A procedural mesh is a [mesh](../../../api/library/rendering/class.mesh_cs.md) created via code, such meshes have a specific streaming mode - they are always kept in memory after creation and never unloaded until the object is destroyed via code or the mesh returns to its normal mode (streaming from a source file). Changing of the static mesh is possible only if it is in the procedural mode.
 ## 🔒︎ bool IsMeshProceduralDynamic
 
 The value indicating if the current procedural mode is *[PROCEDURAL_MODE_DYNAMIC](../../../api/library/objects/class.objectmeshstatic_cs.md#PROCEDURAL_MODE_DYNAMIC)*.
@@ -564,3 +576,174 @@ Starts immediate (forced) generation of procedural mesh data. The *callback_gene
 ### Return value
 
 true if the generation was completed and applied successfully, otherwise false
+## float GetInstanceCustomParameterFloat ( int instance , int surface , string name )
+
+Returns the current value of the custom surface parameter with the given name for the given surface of the given cluster instance. If the parameter is not overridden for this instance, the effective per-surface value of the cluster object is returned.
+### Arguments
+
+- *int* **instance** - Instance number.
+- *int* **surface** - Surface number.
+- *string* **name** - Parameter name.
+
+### Return value
+
+Current parameter value, or 0 if no parameter with this name exists.
+## float GetInstanceCustomParameterFloat ( int instance , int surface , int param )
+
+Returns the current value of the custom surface parameter with the given number for the given surface of the given cluster instance. If the parameter is not overridden for this instance, the effective per-surface value of the cluster object is returned.
+### Arguments
+
+- *int* **instance** - Instance number.
+- *int* **surface** - Surface number.
+- *int* **param** - Parameter number.
+
+### Return value
+
+Current parameter value.
+## int GetInstanceCustomParameterInt ( int instance , int surface , string name )
+
+Returns the current value of the custom surface parameter with the given name for the given surface of the given cluster instance. If the parameter is not overridden for this instance, the effective per-surface value of the cluster object is returned.
+### Arguments
+
+- *int* **instance** - Instance number.
+- *int* **surface** - Surface number.
+- *string* **name** - Parameter name.
+
+### Return value
+
+Current parameter value, or 0 if no parameter with this name exists.
+## int GetInstanceCustomParameterInt ( int instance , int surface , int param )
+
+Returns the current value of the custom surface parameter with the given number for the given surface of the given cluster instance. If the parameter is not overridden for this instance, the effective per-surface value of the cluster object is returned.
+### Arguments
+
+- *int* **instance** - Instance number.
+- *int* **surface** - Surface number.
+- *int* **param** - Parameter number.
+
+### Return value
+
+Current parameter value.
+## uint GetInstanceCustomParameterUInt ( int instance , int surface , string name )
+
+Returns the current value of the custom surface parameter with the given name for the given surface of the given cluster instance. If the parameter is not overridden for this instance, the effective per-surface value of the cluster object is returned.
+### Arguments
+
+- *int* **instance** - Instance number.
+- *int* **surface** - Surface number.
+- *string* **name** - Parameter name.
+
+### Return value
+
+Current parameter value, or 0 if no parameter with this name exists.
+## uint GetInstanceCustomParameterUInt ( int instance , int surface , int param )
+
+Returns the current value of the custom surface parameter with the given number for the given surface of the given cluster instance. If the parameter is not overridden for this instance, the effective per-surface value of the cluster object is returned.
+### Arguments
+
+- *int* **instance** - Instance number.
+- *int* **surface** - Surface number.
+- *int* **param** - Parameter number.
+
+### Return value
+
+Current parameter value.
+## bool HasInstanceCustomParameters ( int instance , int surface )
+
+Checks if the given cluster instance has at least one custom surface parameter override on the given surface.
+### Arguments
+
+- *int* **instance** - Instance number.
+- *int* **surface** - Surface number.
+
+### Return value
+
+true if the instance has at least one custom parameter override on the surface; otherwise, false.
+## bool IsInstanceCustomParameterOverridden ( int instance , int surface , int param )
+
+Checks if the custom surface parameter with the given number is overridden for the given surface of the given cluster instance.
+### Arguments
+
+- *int* **instance** - Instance number.
+- *int* **surface** - Surface number.
+- *int* **param** - Parameter number.
+
+### Return value
+
+true if the parameter is overridden for the instance; otherwise, false.
+## void ResetInstanceCustomParameter ( int instance , int surface , int param )
+
+Resets the override of the custom surface parameter with the given number for the given surface of the given cluster instance: the instance uses the effective per-surface value of the cluster object again.
+### Arguments
+
+- *int* **instance** - Instance number.
+- *int* **surface** - Surface number.
+- *int* **param** - Parameter number.
+
+## void ResetInstanceCustomParameters ( int instance , int surface )
+
+Resets all custom surface parameter overrides of the given cluster instance on the given surface.
+### Arguments
+
+- *int* **instance** - Instance number.
+- *int* **surface** - Surface number.
+
+## void SetInstanceCustomParameterFloat ( int instance , int surface , string name , float value )
+
+Sets a new value of the custom surface parameter with the given name for the given surface of the given cluster instance. The value overrides the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cs.md#getSurfaceParameters_CustomParameterLayout)*. If no parameter with this name exists in the layout, the method does nothing. Per-instance overrides are not saved in the world file.
+### Arguments
+
+- *int* **instance** - Instance number.
+- *int* **surface** - Surface number.
+- *string* **name** - Parameter name.
+- *float* **value** - New parameter value.
+
+## void SetInstanceCustomParameterFloat ( int instance , int surface , int param , float value )
+
+Sets a new value of the custom surface parameter with the given number for the given surface of the given cluster instance. The value overrides the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cs.md#getSurfaceParameters_CustomParameterLayout)*. Per-instance overrides are not saved in the world file.
+### Arguments
+
+- *int* **instance** - Instance number.
+- *int* **surface** - Surface number.
+- *int* **param** - Parameter number.
+- *float* **value** - New parameter value.
+
+## void SetInstanceCustomParameterInt ( int instance , int surface , string name , int value )
+
+Sets a new value of the custom surface parameter with the given name for the given surface of the given cluster instance. The value overrides the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cs.md#getSurfaceParameters_CustomParameterLayout)*. If no parameter with this name exists in the layout, the method does nothing. Per-instance overrides are not saved in the world file.
+### Arguments
+
+- *int* **instance** - Instance number.
+- *int* **surface** - Surface number.
+- *string* **name** - Parameter name.
+- *int* **value** - New parameter value.
+
+## void SetInstanceCustomParameterInt ( int instance , int surface , int param , int value )
+
+Sets a new value of the custom surface parameter with the given number for the given surface of the given cluster instance. The value overrides the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cs.md#getSurfaceParameters_CustomParameterLayout)*. Per-instance overrides are not saved in the world file.
+### Arguments
+
+- *int* **instance** - Instance number.
+- *int* **surface** - Surface number.
+- *int* **param** - Parameter number.
+- *int* **value** - New parameter value.
+
+## void SetInstanceCustomParameterUInt ( int instance , int surface , string name , uint value )
+
+Sets a new value of the custom surface parameter with the given name for the given surface of the given cluster instance. The value overrides the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cs.md#getSurfaceParameters_CustomParameterLayout)*. If no parameter with this name exists in the layout, the method does nothing. Per-instance overrides are not saved in the world file.
+### Arguments
+
+- *int* **instance** - Instance number.
+- *int* **surface** - Surface number.
+- *string* **name** - Parameter name.
+- *uint* **value** - New parameter value.
+
+## void SetInstanceCustomParameterUInt ( int instance , int surface , int param , uint value )
+
+Sets a new value of the custom surface parameter with the given number for the given surface of the given cluster instance. The value overrides the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cs.md#getSurfaceParameters_CustomParameterLayout)*. Per-instance overrides are not saved in the world file.
+### Arguments
+
+- *int* **instance** - Instance number.
+- *int* **surface** - Surface number.
+- *int* **param** - Parameter number.
+- *uint* **value** - New parameter value.

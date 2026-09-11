@@ -71,6 +71,56 @@ Constructor. Creates the expression from the specified source buffer.
 - *string* **src** - Source buffer. Source buffer is a string containing expression's source code.
 - *int* **scope** - 1 to treat the expression namespace as the global; otherwise, 0 (by default).
 
+## int getFunction ( string name , int num_args )
+
+Returns the ID of the function from the expression namespace. It can be used to call a function by its ID instead of the name (speeds up the function call; it is almost as fast the direct call).
+### Arguments
+
+- *string* **name** - Name of the function.
+- *int* **num_args** - Number of function arguments.
+
+### Return value
+
+Function ID.
+## int isFunction ( string name , int num_args )
+
+Checks if a given user-defined function exists in the expression namespace.
+### Arguments
+
+- *string* **name** - Full name of the target function.
+- *int* **num_args** - Number of arguments of the target function.
+
+### Return value
+
+**1** if the function exists; otherwise, **0**.
+## void setVariable ( string name , variable value )
+
+Set the value of the variable from the expression namespace by its name.
+### Arguments
+
+- *string* **name** - Variable name.
+- *[variable](../../../api/library/common/class.variable_cs.md)* **value** - Variable value to set.
+
+## variable getVariable ( string name )
+
+Returns ID of the variable from the expression namespace. It can be used to pass a variable by its ID instead of the name. It speeds up passing of the variable and can be used when performance is crucial.
+### Arguments
+
+- *string* **name** - Variable name.
+
+### Return value
+
+Variable, if it exists; otherwise, **0**.
+## int isVariable ( string name )
+
+Checks if a given user-defined variable exists in the expression namespace.
+### Arguments
+
+- *string* **name** - Name of the target variable.
+
+### Return value
+
+**1** if the variable exists; otherwise, **0**.
 ## variable run ( )
 
 Runs the given expression.
@@ -80,6 +130,8 @@ Argument value.
 ## bool saveState ( Stream stream )
 
 Saves the expression data (all its parameters) to the specified binary stream.
+
+
 **Example** using saveState() and [restoreState()](#restoreState_Stream_int) methods:
 
 
@@ -111,6 +163,8 @@ true if the expression data is saved successfully; otherwise, false.
 ## bool restoreState ( Stream stream )
 
 Restores the data of the expression (all its parameters) from the specified binary stream.
+
+
 **Example** using saveState() and [restoreState()](#restoreState_Stream_int) methods:
 
 

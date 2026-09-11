@@ -110,25 +110,25 @@ public partial class PhysicsIntersectionClass : Component
 |---|---|
 | **PHYSICS_INTERSECTION** = 0 | PhysicsIntersection object, which stores basic information on the intersection point (coordinates of the intersection, the shape of the object, the index of the surface). |
 | **PHYSICS_INTERSECTION_NORMAL** = 1 | [PhysicsIntersectionNormal](../../../api/library/physics/class.physicsintersectionnormal_cs.md) object, which stores the same information as the PhysicsIntersection object plus additional information on the normal at the intersection point. |
-| **NUM_PHYSICS_INTERSECTIONS** = 2 |  |
+| **NUM_PHYSICS_INTERSECTIONS** = 2 | Number of physics intersection types. |
 
 ### Properties
 
 ## int Surface
 
-The Intersected surface number.
+The intersected surface number.
 ## vec3 Point
 
-The Coordinates of the intersection point.
+The coordinates of the intersection point.
 ## Shape Shape
 
-The Intersected shape.
+The intersected shape.
 ## 🔒︎ string TypeName
 
-The Name of the intersection object type.
+The name of the intersection object type.
 ## 🔒︎ PhysicsIntersection.TYPE Type
 
-The Intersection object type.
+The intersection object type, one of the [PHYSICS_INTERSECTION*](#PHYSICS_INTERSECTION) values.
 ### Members
 
 ---
@@ -136,17 +136,3 @@ The Intersection object type.
 ## PhysicsIntersection ( )
 
 The PhysicsIntersection constructor.
-## PhysicsIntersection.TYPE GetType ( )
-
-Returns the type of physics intersection. The type defines information stored by the object (if the data on the normal at the intersection point is included or not).
-### Return value
-
-Physics intersection type, one of the [TYPE](#PHYSICS_INTERSECTION) values.
-## string GetTypeName ( )
-
-Returns the name of the physics intersection type. The type defines information stored by the object (if the data on the normal at the intersection point is included or not).
-### Return value
-
-Name of the physics intersection type. One of the following values:
-- PhysicsIntersection
-- PhysicsIntersectionNormal

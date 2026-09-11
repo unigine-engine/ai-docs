@@ -21,7 +21,7 @@ The profiler features the following:
 ## Running Microprofile
 
 
-The *Microprofile* tool is available **only for the *Development* builds** of UNIGINE Engine: it won't be compiled for the *Debug* and *Release* ones. You can use the `microprofile_info` console command to check if the *Microprofile* is compiled.
+The *Microprofile* tool is available **only for the *Development* builds** of UNIGINE Engine: it won't be compiled for the *Debug* and *Release* ones. You can use the `microprofile_info` console command to check if the *Microprofile* is included into the compilation.
 
 
 The performance data obtained by the *Microprofile* can be output to a local web server or to an HTML file.
@@ -33,19 +33,15 @@ The performance data obtained by the *Microprofile* can be output to a local web
 ### Enabling and Disabling Microprofile
 
 
-*Microprofile* is performance-consuming, that's why we recommend you to **enable it only when you work with it and keep disabled otherwise**.
+> **Warning:** *Microprofile* is performance-consuming, that's why we recommend you to **enable it only when you work with it and keep disabled otherwise**.
 
 
-One way to disable *Microprofile* is to untick the corresponding option before running [UnigineEditor](../../../sdk/projects/index_cs.md#customize_edit) or the [application](../../../sdk/projects/index_cs.md#customize_run):
+1. Make sure that your project [runs on the *Development* build](../../../sdk/projects/index_cs.md#engine_build). The *Microprofile* tool is available for the *Development* build only. If your project runs on a *Release* build, [reconfigure](../../../sdk/projects/index_cs.md#update_config) it via *SDK Browser*.
+2. Toggle *Microprofile*.
 
-
-![Disabling Microprofile via SDK Browser](disable_microprofile.png)
-
-
-Another way is to use the `microprofile_enabled` console command.
-
-
-> **Notice:** If you change the *Microprofile* status via the console, this setting is saved in the `<Project_Name>/data/configs/default.user` file. The state set in the user configuration file will override the state defined via SDK Browser.
+  - One way to toggle *Microprofile* is to toggle the corresponding option before running [UnigineEditor](../../../sdk/projects/index_cs.md#customize_edit) or the [application](../../../sdk/projects/index_cs.md#customize_run): ![Disabling Microprofile via SDK Browser](disable_microprofile.png)
+  - Another way is to use the `microprofile_enabled` console command. > **Notice:** If you change the *Microprofile* status via the console, this setting is saved in the `<Project_Name>/data/configs/default.user` file. The state set in the user configuration file will override the state defined via SDK Browser.
+3. Run the Editor or application.
 
 
 ### Saving Performance Data to File

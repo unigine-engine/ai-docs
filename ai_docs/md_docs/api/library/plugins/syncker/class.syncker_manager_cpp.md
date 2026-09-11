@@ -19,8 +19,8 @@ This class represents Syncker manager interface used to initialize and destroy S
 
 | Name | Description |
 |---|---|
-| **NETWORK** = 0 | The instance sends the full [EasyBlend](../../../../principles/render/output/multi_monitor/spidervision_plugin/displays_setup.md#easyblend) data over the network: distortion mesh, source file name, all relevant EasyBlend parameters, and any additional related metadata. Use this mode when the instance should act as a source of complete EasyBlend configuration data. |
-| **LOAD_FROM_LOCAL_STORAGE** = 1 | The instance sends only a reference (typically the file path) to the [EasyBlend](../../../../principles/render/output/multi_monitor/spidervision_plugin/displays_setup.md#easyblend) configuration file. Receiving instances are expected to reload the required EasyBlend data from their own local storage. This reduces network traffic, since only the file path is transmitted instead of the full configuration data. |
+| **NETWORK** = 0 | The instance sends the full *[EasyBlend](../../../../principles/render/output/multi_monitor/spidervision_plugin/displays_setup.md#easyblend)* data over the network: distortion mesh, source file name, all relevant EasyBlend parameters, and any additional related metadata. Use this mode when the instance should act as a source of complete EasyBlend configuration data. |
+| **LOAD_FROM_LOCAL_STORAGE** = 1 | The instance sends only a reference (typically the file path) to the *[EasyBlend](../../../../principles/render/output/multi_monitor/spidervision_plugin/displays_setup.md#easyblend)* configuration file. Receiving instances are expected to reload the required EasyBlend data from their own local storage. This reduces network traffic, since only the file path is transmitted instead of the full configuration data. |
 
 ### Members
 
@@ -36,7 +36,7 @@ Sets a new value indicating if the syncker's debug window is enabled.
 Returns the current value indicating if the syncker's debug window is enabled.
 ### Return value
 
-**true** if the Syncker's debug window is enabled; otherwise **false**.
+**true** if the Syncker's debug window is enabled ; otherwise **false**.
 ## Syncker * getSyncker () const
 
 Returns the current [Syncker interface](../../../../api/library/plugins/syncker/class.syncker_syncker_cpp.md).
@@ -117,7 +117,7 @@ Returns the current broadcast address of the Master set by the command line argu
 Current broadcast address of the Master.
 ## int getArgPeersCount () const
 
-Returns the current Returns the number of peers set by the command line argument "[-sync_count](../../../../code/plugins/syncker/options.md#sync_count)".
+Returns the current number of peers set by the command line argument "[-sync_count](../../../../code/plugins/syncker/options.md#sync_count)".
 ### Return value
 
 Current number of peers. The default value is 1. The number of peers includes all Slaves in the network + the Master.
@@ -169,6 +169,7 @@ Pointer to the [Master interface](../../../../api/library/plugins/syncker/class.
 ## Master * initMasterBroadcast ( int peers_count , const char * broadcast_address , unsigned short udp_port , Syncker::SWAP_SYNC_MODE swap_mode = Syncker.SWAP_SYNC_MODE.DEFAULT )
 
 Initializes the Syncker as the Master application with the [broadcast mode](../../../../code/plugins/syncker/index.md#addressing_broadcast) enabled.
+
 > **Notice:** Slaves must be [initialized with broadcast mode enabled](#initSlaveBroadcast_ushort_int_Slave) as well.
 
 ### Arguments
@@ -197,6 +198,7 @@ Pointer to the [Master interface](../../../../api/library/plugins/syncker/class.
 ## Master * initMasterUnicast ( int peers_count , unsigned short udp_port , Syncker::SWAP_SYNC_MODE swap_mode = Syncker.SWAP_SYNC_MODE.DEFAULT )
 
 Initializes the Syncker as the Master application with the [unicast mode](../../../../code/plugins/syncker/index.md#addressing_unicast) enabled.
+
 > **Notice:** Slaves must be [initialized with unicast mode enabled](#initSlaveUnicast_ushort_ushort_int_Slave) as well.
 
 ### Arguments
@@ -223,6 +225,7 @@ Performs shutdown and destroys the Syncker.
 ## Slave * initSlaveBroadcast ( unsigned short udp_port , Syncker::SWAP_SYNC_MODE swap_mode = Syncker.SWAP_SYNC_MODE.DEFAULT )
 
 Initializes the Syncker as the Slave application with the [broadcast mode](../../../../code/plugins/syncker/index.md#addressing_broadcast) enabled. Master's IP address will be detected automatically.
+
 > **Notice:** Master must be initialized with broadcast mode enabled as well.
 
 ### Arguments
@@ -236,6 +239,7 @@ Pointer to the [slave interface](../../../../api/library/plugins/syncker/class.s
 ## Slave * initSlaveBroadcast ( const char * master_address , unsigned short udp_port , Syncker::SWAP_SYNC_MODE swap_mode = Syncker.SWAP_SYNC_MODE.DEFAULT )
 
 Initializes the Syncker as the Slave application with the specified parameters and the [broadcast mode](../../../../code/plugins/syncker/index.md#addressing_broadcast) enabled. Master's IP address is specified explicitly.
+
 > **Notice:** Master must be initialized with broadcast mode enabled as well.
 
 ### Arguments
@@ -250,6 +254,7 @@ Pointer to the [slave interface](../../../../api/library/plugins/syncker/class.s
 ## Slave * initSlaveMulticast ( const char * multicast_address , unsigned short udp_port , Syncker::SWAP_SYNC_MODE swap_mode = Syncker.SWAP_SYNC_MODE.DEFAULT )
 
 Initializes the Syncker as the Slave application with the specified parameters and the [multicast mode](../../../../code/plugins/syncker/index.md#addressing_multicast) enabled. Master's IP address will be detected automatically.
+
 > **Notice:** Master must be initialized with broadcast mode enabled as well.
 
 ### Arguments
@@ -264,6 +269,7 @@ Pointer to the [slave interface](../../../../api/library/plugins/syncker/class.s
 ## Slave * initSlaveMulticast ( const char * master_address , const char * multicast_address , unsigned short udp_port , Syncker::SWAP_SYNC_MODE swap_mode = Syncker.SWAP_SYNC_MODE.DEFAULT )
 
 Initializes the Syncker as the Slave application with the specified parameters and the [multicast mode](../../../../code/plugins/syncker/index.md#addressing_multicast) enabled. Master's IP address is specified explicitly.
+
 > **Notice:** Master must be initialized with broadcast mode enabled as well.
 
 ### Arguments
@@ -279,6 +285,7 @@ Pointer to the [slave interface](../../../../api/library/plugins/syncker/class.s
 ## Slave * initSlaveUnicast ( unsigned short master_udp_port , unsigned short slave_udp_port = 0 , Syncker::SWAP_SYNC_MODE swap_mode = Syncker.SWAP_SYNC_MODE.DEFAULT )
 
 Initializes the Syncker as the Slave application with the specified parameters and the [unicast mode](../../../../code/plugins/syncker/index.md#addressing_unicast) enabled. Master's IP address will be detected automatically.
+
 > **Notice:** Master must be initialized with broadcast mode enabled as well.
 
 ### Arguments
@@ -293,6 +300,7 @@ Pointer to the [slave interface](../../../../api/library/plugins/syncker/class.s
 ## Slave * initSlaveUnicast ( const char * master_address , unsigned short master_udp_port , unsigned short slave_udp_port = 0 , Syncker::SWAP_SYNC_MODE swap_mode = Syncker.SWAP_SYNC_MODE.DEFAULT )
 
 Initializes the Syncker as the Slave application with the specified parameters and the [unicast mode](../../../../code/plugins/syncker/index.md#addressing_unicast) enabled. Master's IP address is specified explicitly.
+
 > **Notice:** Master must be initialized with broadcast mode enabled as well.
 
 ### Arguments

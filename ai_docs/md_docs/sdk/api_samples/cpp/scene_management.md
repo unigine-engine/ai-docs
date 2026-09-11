@@ -61,7 +61,7 @@ In this sample, we create and configure three types of objects with interactive 
 - Toggle the visualization of surfaces and physical shapes of the objects.
 
 
-For more complex objects, such as *[ObjectWaterGlobal](../../...md)* and *[ObjectLandscapeTerrain](../../...md)*, see the corresponding samples.
+For more complex objects, such as *[ObjectLandscapeTerrain](../../../sdk/api_samples/cpp/terrain_modification_usage.md)*, see the corresponding samples.
 
 
 **SDK Path:***<SAMPLES_PROJECT_PATH>/source/scene_management/create_and_modify_objects*
@@ -70,7 +70,7 @@ For more complex objects, such as *[ObjectWaterGlobal](../../...md)* and *[Objec
 This sample demonstrates how to create parametric 3D primitives at runtime in UNIGINE.
 
 
-It showcases the use of the **[Mesh](../../../api/library/rendering/class.mesh_cpp.md)** class and **[ObjectMeshDynamic](../../...md)** nodes to procedurally generate a variety of basic shapes (**Box, Sphere, Cylinder, Capsule, Prism with a custom number of sides** and **Plane**) via code.
+It showcases the use of the **[Mesh](../../../api/library/rendering/class.mesh_cpp.md)** class and **[ObjectMeshDynamic](../../../objects/objects/mesh_dynamic/index.md)** nodes to procedurally generate a variety of basic shapes (**Box, Sphere, Cylinder, Capsule, Prism with a custom number of sides** and **Plane**) via code.
 
 
 Each shape is constructed with a customizable size and resolution, added to a mesh surface, and placed in the world at a designated position.

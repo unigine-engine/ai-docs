@@ -87,5 +87,5 @@ You can check the following articles:
 
 
 - [Creating of Custom Shader for Post-Processing](../../code/uusl/create_post.md)
-- [Abstract material — Mesh](../../code/materials_shaders/abstract_materials/mesh.md)
-- [Abstract material — Decal](../../code/materials_shaders/abstract_materials/decal.md)
+- [Abstract material � Mesh](../../code/materials_shaders/abstract_materials/mesh.md)
+- [Abstract material � Decal](../../code/materials_shaders/abstract_materials/decal.md)

@@ -25,7 +25,7 @@ When you open the project in the UnigineEditor, you will see the default scene c
 The box is a dynamic object, so to be able to [collide](../../../principles/physics/collision/index.md) it needs a [body](../../../principles/physics/bodies/index.md) and a [collision shape](../../../principles/physics/shapes/index.md). Add a *Rigid body* and a shape via the *Physics* tab of the *Parameters* window.
 
 
-Collisions are available for static objects as well (like buildings or ground) — simply enable the *[Collision](../../../editor2/node_parameters/physics/index.md#surface_collision)* option for the corresponding surface.
+Collisions are available for static objects as well (like buildings or ground) � simply enable the *[Collision](../../../editor2/node_parameters/physics/index.md#surface_collision)* option for the corresponding surface.
 
 
 ### Enabling High Priority Contacts

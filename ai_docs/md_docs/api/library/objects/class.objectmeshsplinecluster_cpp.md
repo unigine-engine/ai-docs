@@ -9,6 +9,18 @@
 
 ### Members
 
+## int getNumMeshes () const
+
+Returns the current total number of meshes handled by the mesh spline cluster.
+### Return value
+
+Current total number of meshes handled by the mesh spline cluster
+## const char * getMeshPath () const
+
+Returns the current path to the source *.mesh*-file used for the object.
+### Return value
+
+Current path to the source .mesh-file used for the object
 ---
 
 ## static int type ( )
@@ -17,18 +29,6 @@ Returns the type of the node.
 ### Return value
 
 [Node](../../../api/library/nodes/class.node_cpp.md) type identifier.
-## const char * getMeshPath ( ) const
-
-Returns the path to the current source mesh file for the object.
-### Return value
-
-Path to the source mesh file.
-## int getNumMeshes ( ) const
-
-Returns the total number of meshes handled by the mesh spline cluster.
-### Return value
-
-Number of meshes.
 ## Math:: mat4 getMeshTransform ( int num ) const
 
 Returns the transformation of the given mesh instance.

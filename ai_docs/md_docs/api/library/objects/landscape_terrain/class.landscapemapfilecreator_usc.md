@@ -83,7 +83,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBegin () const
 
 The event handler signature is as follows: *myhandler()*
@@ -100,7 +100,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventProgress () const
 
 The event handler signature is as follows: *myhandler()*
@@ -117,7 +117,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventCreate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -134,7 +134,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## static LandscapeMapFileCreator ( )
@@ -160,7 +160,7 @@ Returns the current filtering type used for image downscaling performed for LODs
 Filter type used for image downscaling. See the [Unigine::Image Enumerations with FILTER_* prefixes](../../../../api/library/common/class.image_usc.md#FILTER_LINEAR).
 ## int run ( int is_empty = false , int is_safe = true )
 
-Runs the landscape map file creation process. You can [set callbacks](#example) to be fired in the beginning, upon completion and during the process to monitor progress and display statistics. Creates the landscape map file path if it doesn’t exist yet (including subdirectories).
+Runs the landscape map file creation process. You can [set callbacks](#example) to be fired in the beginning, upon completion and during the process to monitor progress and display statistics. Creates the landscape map file path if it doesn�t exist yet (including subdirectories).
 ### Arguments
 
 - *int* **is_empty** - **1** to create an empty `.lmap` file (e.g., when you create a layer map to be manually sculpted from scratch using [brushes](../../../../editor2/brush_editor/index.md)), **0** - to get necessary data from the sources and put them to the generated `.lmap` file.

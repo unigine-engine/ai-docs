@@ -21,7 +21,10 @@ You can also get the [list of all currently supported file extensions](#getSuppo
 Constructor. Creates an exporter with default settings.
 ## Exporter * CreateExporter ( String type_name )
 
+
 Creates a new [exporter](../../../../api/library/common/export/class.exporter_cs.md) of the specified type.
+
+
 > **Notice:** The exporter type name specified must be previously [registered](#registerExporter_const_char_ptr_const_Vectortmplargs_ref_void).
 
 
@@ -31,7 +34,7 @@ Creates a new [exporter](../../../../api/library/common/export/class.exporter_cs
 
 ### Return value
 
-Pointer to a new created [exporter](../../../../api/library/common/export/class.exporter_cs.md) of a given type, if it was created successfully; otherwise, **nullptr**.
+Pointer to a new created [exporter](../../../../api/library/common/export/class.exporter_cs.md) of a given type, if it was created successfully; otherwise, nullptr.
 ## Exporter CreateExporterByFileName ( String file_name )
 
 Creates an exporter for the output file with a given name by its extension, if such an exporter was previously registered.

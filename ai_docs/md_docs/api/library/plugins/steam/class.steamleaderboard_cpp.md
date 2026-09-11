@@ -35,26 +35,80 @@
 
 ### Members
 
+## int getNumEntries () const
+
+Returns the current existing number of entries.
+### Return value
+
+Current existing number of entries
+## SteamLeaderboard::DISPLAY_TYPE getDisplayType () const
+
+Returns the current type of data to be displayed with the leaderboard. One of the [DISPLAY_TYPE_*](#DISPLAY_TYPE_NONE) values.
+### Return value
+
+Current type of data to be displayed with the leaderboard
+## SteamLeaderboard::SORT_METHOD getSortMethod () const
+
+Returns the current order for the leaderboard sorting. One of the [SORT_METHOD_*](#SORT_METHOD_NONE) values.
+### Return value
+
+Current order for the leaderboard sorting
+## int getEntryCount () const
+
+Returns the current total number of entries in the leaderboard. Returns 0, if the leaderboard handle is invalid.
+### Return value
+
+Current total number of entries in the leaderboard
+## SteamLeaderboard::DATA_REQUEST getLastDataRequest () const
+
+Returns the current type of requested data in the most recent leaderboard download. One of the [DATA_REQUEST_*](#DATA_REQUEST_GLOBAL) values.
+### Return value
+
+Current type of requested data in the most recent leaderboard download
+## bool isLastDownloadFailed () const
+
+Returns the current value indicating if the last leaderboard download has failed.
+### Return value
+
+**true** if the last leaderboard download has failed; otherwise **false**.
+## bool isLastUploadFailed () const
+
+Returns the current value indicating if the last leaderboard upload has failed.
+### Return value
+
+**true** if the last leaderboard upload has failed; otherwise **false**.
+## bool isDownloading () const
+
+Returns the current value indicating if the leaderboard is downloading.
+### Return value
+
+**true** if the leaderboard is downloading; otherwise **false**.
+## bool isUploading () const
+
+Returns the current value indicating if the leaderboard is uploading.
+### Return value
+
+**true** if the leaderboard is uploading; otherwise **false**.
+## bool isFound () const
+
+Returns the current value indicating if the leaderboard was found.
+### Return value
+
+**true** if the leaderboard was found; otherwise **false**.
+## const char * getName () const
+
+Returns the current leaderboard name.
+### Return value
+
+Current leaderboard name
+## int getID () const
+
+Returns the current leaderboard ID.
+### Return value
+
+Current leaderboard ID
 ---
 
-## int getID ( ) const
-
-Returns the leaderboard ID.
-### Return value
-
-Leaderboard ID.
-## const char * getName ( ) const
-
-Returns the leaderboard name.
-### Return value
-
-Leaderboard name.
-## bool isFound ( ) const
-
-Returns the value stating if the leaderboard was found.
-### Return value
-
-true if the leaderboard is found, otherwise false.
 ## bool find ( )
 
 Returns the value stating if the leaderboard was created.
@@ -67,7 +121,7 @@ Checks if a leaderboard is created, it will create it if it's not yet created.
 ### Arguments
 
 - *[SteamLeaderboard::SORT_METHOD](../../../../api/library/plugins/steam/class.steamleaderboard_cpp.md#SORT_METHOD)* **sort_method** - The sort order of the new leaderboard if it's created.
-- *[SteamLeaderboard::DISPLAY_TYPE](../../../../api/library/plugins/steam/class.steamleaderboard_cpp.md#DISPLAY_TYPE)* **display_type** - The display type (used by the Steam Community web site) of the new leaderboard if it's created.
+- *[SteamLeaderboard::DISPLAY_TYPE](../../../../api/library/plugins/steam/class.steamleaderboard_cpp.md#DISPLAY_TYPE)* **display_type** - The display type (used by the *Steam Community* web site) of the new leaderboard if it's created.
 
 ### Return value
 
@@ -95,60 +149,6 @@ Downloads a set of entries from the current leaderboard.
 ### Return value
 
 false if a leaderboard has not been selected yet, otherwise true.
-## bool isUploading ( ) const
-
-Checks the leaderboard uploading status.
-### Return value
-
-true if the leaderboard is uploading, otherwise false.
-## bool isDownloading ( ) const
-
-Checks the leaderboard downloading status.
-### Return value
-
-true if the leaderboard is downloading, otherwise false.
-## bool isLastUploadFailed ( ) const
-
-Checks the leaderboard upload result.
-### Return value
-
-true if the leaderboard upload has failed, otherwise false.
-## bool isLastDownloadFailed ( ) const
-
-Checks the leaderboard download result.
-### Return value
-
-true if the leaderboard download has failed, otherwise false.
-## SteamLeaderboard::DATA_REQUEST getLastDataRequest ( ) const
-
-Returns the type of requested data in the most recent leaderbord download.
-### Return value
-
-Type of requested data, one of the [DATA_REQUEST](#DATA_REQUEST_GLOBAL) values.
-## int getEntryCount ( ) const
-
-Returns the total number of entries in the leaderboard.
-### Return value
-
-Number of entries in the leaderboard. Returns 0, if the leaderboard handle is invalid.
-## SteamLeaderboard::SORT_METHOD getSortMethod ( ) const
-
-Returns the order for the leaderboard sorting.
-### Return value
-
-Order for the leaderboard sorting, one of the values.
-## SteamLeaderboard::DISPLAY_TYPE getDisplayType ( ) const
-
-Returns the type of data to be displayed with the leaderboard.
-### Return value
-
-Type of data to be displayed with the leaderboard, one of the values.
-## int getNumEntries ( ) const
-
-Returns the existing number of entries.
-### Return value
-
-Number of entries.
 ## unsigned long long getEntryUserID ( int num ) const
 
 Returns the ID of the user who this entry belongs to.

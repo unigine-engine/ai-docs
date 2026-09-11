@@ -5,8 +5,6 @@
 
 ## EnginePlugins Class
 
-### Members
-
 ---
 
 ## int getNumPlugins ( )

@@ -17,7 +17,7 @@ The workflow is as follows:
 
 1. Implement your GPU-based terrain modification logic in a function.
 2. Set this handler function when subscribing for the *Texture Draw* event (when GPU-based terrain modification operation is performed) via *[EventTextureDraw](#EventTextureDraw)*.
-3. Commence a GPU drawing operation by calling the [*AsyncTextureDraw()*](#asyncTextureDraw_UGUID_ivec2_ivec2_int_void) method. Here you should specify the GUID of an `.lmap` file [landscape layer map](../../../../api/library/objects/landscape_terrain/class.landscapelayermap_cs.md) to be modified, the coordinates of the upper-left corner and the resolution of the segment of data to be modified, you should also define which data layers are to be affected (heights, albedo, masks) via a set of [flags](#FLAGS_FILE_DATA_HEIGHT) > **Notice:** In case your modification requires additional data beyond the specified area as well as the data of other landscape layer maps (e.g. a copy brush) you can enable force loading of required data, in this case you should use [this overload of the *AsyncTextureDraw()* method](#asyncTextureDraw_UGUID_ivec2_ivec2_int_VECWorldBoundBox_void).
+3. Commence a GPU drawing operation by calling the [*AsyncTextureDraw()*](#asyncTextureDraw_UGUID_ivec2_ivec2_int_void) method. Here you should specify the GUID of an `.lmap` file [landscape layer map](../../../../api/library/objects/landscape_terrain/class.landscapelayermap_cs.md) to be modified, the coordinates of the upper-left corner and the resolution of the segment of data to be modified, you should also define which data layers are to be affected (heights, albedo, masks) via a set of [flags](#FLAGS_FILE_DATA_HEIGHT). > **Notice:** In case your modification requires additional data beyond the specified area as well as the data of other landscape layer maps (e.g. a copy brush) you can enable force loading of required data, in this case you should use [this overload of the *AsyncTextureDraw()* method](#asyncTextureDraw_UGUID_ivec2_ivec2_int_VECWorldBoundBox_void).
 
 
 ```csharp
@@ -373,7 +373,7 @@ void savefile_handler(UGUID guid,  int operation_id,  string path_new_state,  st
 
 ```
 
- You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+ You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cs.md) article.
 
@@ -473,7 +473,7 @@ void applydiff_handler(UGUID guid,  int operation_id,  string lmap_file_path)
 
 ```
 
- You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+ You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cs.md) article.
 
@@ -573,7 +573,7 @@ void texturedraw_handler(UGUID guid,  int operation_id,  LandscapeTextures buffe
 
 ```
 
- You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+ You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cs.md) article.
 

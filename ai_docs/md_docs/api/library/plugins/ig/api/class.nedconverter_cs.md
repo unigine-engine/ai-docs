@@ -3,6 +3,7 @@
 
 This utility class is used to perform conversions between different coordinate systems for the IG (e.g. ENU <-> NED, Euler rotation <-> quaternion, etc.).
 
+
 > **Notice:** IG plugin must be loaded.
 
 
@@ -108,7 +109,10 @@ Converts the coordinates of a point specified in ENU (East-North-Up) system to t
 Coordinates of the point in the target coordinate system.
 ## quat EulerENUToRotation ( vec3 euler )
 
+
 Converts the specified Euler rotation vector in ENU (East-North-Up) coordinates to a rotation quaternion.
+
+
 > **Notice:** Unigine uses ENU orientation!
 >
 >
@@ -128,7 +132,10 @@ Converts the specified Euler rotation vector in ENU (East-North-Up) coordinates 
 Rotation quaternion.
 ## quat EulerNEDToRotation ( vec3 euler )
 
+
 Converts the specified Euler rotation vector in NED (North-East-Down) coordinates to a rotation quaternion.
+
+
 > **Notice:** Unigine uses ENU orientation!
 >
 >
@@ -158,7 +165,10 @@ Converts the specified Euler rotation vector in the target coordinate system (se
 Rotation quaternion.
 ## vec3 RotationToEulerENU ( quat rotation )
 
+
 Converts the specified rotation quaternion to Euler rotation vector in ENU (East-North-Up) coordinates.
+
+
 > **Notice:** Unigine uses ENU orientation!
 >
 >
@@ -175,7 +185,10 @@ Converts the specified rotation quaternion to Euler rotation vector in ENU (East
 
 ## vec3 RotationToEulerNED ( quat rotation )
 
+
 Converts the specified rotation quaternion to Euler rotation vector in NED (North-East-Down) coordinates.
+
+
 > **Notice:** Unigine uses ENU orientation!
 >
 >

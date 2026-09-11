@@ -355,7 +355,7 @@ static const TYPE NAME [SIZE] = {<your array members>};
 ## Blending Presets
 
 
-UUSL contains blending presets. When you specify the type of blending in material, the USSL wrapper automatically defines a new definition, that you can use in your shader:
+UUSL contains blending presets. When you specify the type of blending in material, the UUSL wrapper automatically defines a new definition, that you can use in your shader:
 
 
 | Blending type | UUSL |
@@ -420,7 +420,7 @@ See also the [article](https://msdn.microsoft.com/en-us/library/windows/desktop/
 ### Structs
 
 
-In USSL structs is the way to organize the bunch of input and output data.
+In UUSL structs is the way to organize the bunch of input and output data.
 
 
 To start using structs in your shader code, use the following instructions:

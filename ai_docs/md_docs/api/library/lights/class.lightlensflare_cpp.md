@@ -56,7 +56,7 @@ Sets a new value indicating if rotation of the lens flare billboard is enabled. 
 Returns the current value indicating if rotation of the lens flare billboard is enabled. when enabled the top of the billboard will always face the center of the screen.
 ### Return value
 
-**true** if rotation of the lens flare billboard is enabled; otherwise **false**.
+**true** if rotation of the lens flare billboard is enabled ; otherwise **false**.
 ## void setUVUpperRight ( const Math:: vec2 & right )
 
 Sets a new UV [texture](../../../api/library/lights/class.light_cpp.md#setLensFlaresTextureName_cstr_void) coordinates of the the upper right corner of the lens flare billboard.

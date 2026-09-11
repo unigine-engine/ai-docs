@@ -11,7 +11,7 @@ The functions below are used to control property loading and management within t
 You can also [subscribe for such events](#callbacks) to handle them.
 
 
-> **Notice:** To modify a single property, use functions of the [Property](../../../api/library/common/class.property_cpp.md) class.
+> **Notice:** To modify a single property, use functions of the *[Property](../../../api/library/common/class.property_cpp.md)* class.
 
 
 ### Handling Events
@@ -60,7 +60,7 @@ Returns the current total number of properties loaded for the project.
 Current total number of properties loaded for the project.
 ## static Event<const Ptr < Property > &> getEventRemoved () const
 
-event triggered when a property is removed. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a property is removed. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -196,10 +196,10 @@ Properties::getEventRemoved().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const Ptr < Property > &> getEventReparented () const
 
-event triggered when the parent of a property is changed. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when the parent of a property is changed. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -335,10 +335,10 @@ Properties::getEventReparented().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const Ptr < Property > &> getEventRenamed () const
 
-event triggered when the [name](../../../api/library/common/class.property_cpp.md#name_path) of a property is changed. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when the [name](../../../api/library/common/class.property_cpp.md#name_path) of a property is changed. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -474,10 +474,10 @@ Properties::getEventRenamed().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const Ptr < Property > &> getEventMoved () const
 
-event triggered when the [path](../../../api/library/common/class.property_cpp.md#name_path) of a property is changed. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when the [path](../../../api/library/common/class.property_cpp.md#name_path) of a property is changed. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -613,10 +613,10 @@ Properties::getEventMoved().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const Ptr < Property > &> getEventCreated () const
 
-event triggered when a new property is created. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a new property is created. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -752,7 +752,7 @@ Properties::getEventCreated().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## void setValidationEnabled ( bool enabled )
 
 Sets a new value indicating if validation for properties is enabled. Can be used to temporarily disable property validation to prevent various issues (e.g., during property generation).
@@ -765,12 +765,12 @@ Sets a new value indicating if validation for properties is enabled. Can be used
 Returns the current value indicating if validation for properties is enabled. Can be used to temporarily disable property validation to prevent various issues (e.g., during property generation).
 ### Return value
 
-**true** if validation for properties is enabled; otherwise **false**.
+**true** if validation for properties is enabled ; otherwise **false**.
 ---
 
 ## Ptr < Property > getProperty ( int num ) const
 
-Returns a property by its number. The returned property can be modified by using methods of the [Property](../../../api/library/common/class.property_cpp.md) class.
+Returns a property by its number. The returned property can be modified by using methods of the *[Property](../../../api/library/common/class.property_cpp.md)* class.
 ```cpp
 Vector<PropertyPtr> my_properties;
 for (int i = 0; i < Properties::getNumProperties(); i++) {
@@ -832,7 +832,10 @@ Name of the property.
 
 ## Ptr < Property > cloneProperty ( const UGUID & guid , const char * name = 0 , const char * path = 0 )
 
+
 Clones the property and assigns the specified name and path to the clone.
+
+
 > **Notice:** Without a name the cloned property won't be displayed in the properties hierarchy, without a path it won't be saved when *[saveProperties()](#saveProperties_int)* is called.
 
 
@@ -847,67 +850,70 @@ Clones the property and assigns the specified name and path to the clone.
 [Property](../../../api/library/common/class.property_cpp.md) smart pointer if the property with the specified GUID exists or nullptr.
 ## Ptr < Property > findProperty ( const char * name ) const
 
-Searches for a property with the given name. The returned property can be managed using the methods of the [Property](../../../api/library/common/class.property_cpp.md) class.
+Searches for a property with the given name. The returned property can be managed using the methods of the *[Property](../../../api/library/common/class.property_cpp.md)* class.
 ### Arguments
 
 - *const char ** **name** - Property name.
 
 ### Return value
 
-Property, if it is found (an instance of the [Property](../../../api/library/common/class.property_cpp.md) class); otherwise, nullptr.
+Property, if it is found (an instance of the *[Property](../../../api/library/common/class.property_cpp.md)* class); otherwise, nullptr.
 ## Ptr < Property > findManualProperty ( const char * name ) const
 
-Searches for a manual property with the given name. The returned property can be managed using the methods of the [Property](../../../api/library/common/class.property_cpp.md) class.
+Searches for a manual property with the given name. The returned property can be managed using the methods of the *[Property](../../../api/library/common/class.property_cpp.md)* class.
 ### Arguments
 
 - *const char ** **name** - Manual property name.
 
 ### Return value
 
-Manual property, if it is found (an instance of the [Property](../../../api/library/common/class.property_cpp.md) class); otherwise, nullptr.
+Manual property, if it is found (an instance of the *[Property](../../../api/library/common/class.property_cpp.md)* class); otherwise, nullptr.
 ## Ptr < Property > findPropertyByGUID ( const UGUID & guid ) const
 
-Searches for a property with the given GUID. The returned property can be managed using the methods of the [Property](../../../api/library/common/class.property_cpp.md) class.
+Searches for a property with the given GUID. The returned property can be managed using the methods of the *[Property](../../../api/library/common/class.property_cpp.md)* class.
 ### Arguments
 
 - *const [UGUID](../../../api/library/filesystem/class.uguid_cpp.md) &* **guid** - Property [GUID](../../../api/library/filesystem/class.uguid_cpp.md).
 
 ### Return value
 
-Property, if it is found (an instance of the [Property](../../../api/library/common/class.property_cpp.md) class); otherwise, nullptr.
+Property, if it is found (an instance of the *[Property](../../../api/library/common/class.property_cpp.md)* class); otherwise, nullptr.
 ## Ptr < Property > findPropertyByPath ( const char * path ) const
 
-Searches for a property with the given path. The returned property can be managed using the methods of the [Property](../../../api/library/common/class.property_cpp.md) class.
+Searches for a property with the given path. The returned property can be managed using the methods of the *[Property](../../../api/library/common/class.property_cpp.md)* class.
 ### Arguments
 
 - *const char ** **path** - Property [path](../../../api/library/common/class.property_cpp.md#name_path).
 
 ### Return value
 
-Property, if it is found (an instance of the [Property](../../../api/library/common/class.property_cpp.md) class); otherwise, nullptr.
+Property, if it is found (an instance of the *[Property](../../../api/library/common/class.property_cpp.md)* class); otherwise, nullptr.
 ## Ptr < Property > findPropertyByFileGUID ( const UGUID & guid ) const
 
-Searches for a property with the given `*.prop` file GUID. The returned property can be managed using the methods of the [Property](../../../api/library/common/class.property_cpp.md) class.
+Searches for a property with the given `*.prop` file GUID. The returned property can be managed using the methods of the *[Property](../../../api/library/common/class.property_cpp.md)* class.
 ### Arguments
 
 - *const [UGUID](../../../api/library/filesystem/class.uguid_cpp.md) &* **guid** - Property file [GUID](../../../api/library/filesystem/class.uguid_cpp.md).
 
 ### Return value
 
-Property, if it is found (an instance of the [Property](../../../api/library/common/class.property_cpp.md) class); otherwise, nullptr.
+Property, if it is found (an instance of the *[Property](../../../api/library/common/class.property_cpp.md)* class); otherwise, nullptr.
 ## Ptr < Property > loadProperty ( const char * path )
 
-Loads a property from the specified `*.prop` file. The returned property can be managed using the methods of the [Property](../../../api/library/common/class.property_cpp.md) class.
+Loads a property from the specified `*.prop` file. The returned property can be managed using the methods of the *[Property](../../../api/library/common/class.property_cpp.md)* class.
 ### Arguments
 
 - *const char ** **path** - Path to the `*.prop` file to load a property from.
 
 ### Return value
 
-Property, if it is loaded successfully (an instance of the [Property](../../../api/library/common/class.property_cpp.md) class); otherwise, nullptr.
+Property, if it is loaded successfully (an instance of the *[Property](../../../api/library/common/class.property_cpp.md)* class); otherwise, nullptr.
 ## Ptr < Property > inheritProperty ( const UGUID & guid , const char * name = 0 , const char * path = 0 )
 
+
 Inherits a property from the given property and assigns the specified name and path to the new property.
+
+
 > **Notice:** Without a name the inherited property won't be displayed in the properties hierarchy, without a path it won't be saved when *[saveProperties()](#saveProperties_int)* is called.
 
 
@@ -922,7 +928,10 @@ Inherits a property from the given property and assigns the specified name and p
 [Property](../../../api/library/common/class.property_cpp.md) smart pointer if the property with the specified GUID exists or nullptr.
 ## bool removeProperty ( const UGUID & guid , bool remove_file = 0 , bool remove_children = 1 )
 
+
 Removes the property with the specified GUID.
+
+
 > **Notice:** A root property (the property that has no parent) or a [non-editable](../../../api/library/common/class.property_cpp.md#isEditable_int) property cannot be removed using this function.
 
 
@@ -937,7 +946,10 @@ Removes the property with the specified GUID.
 true if the property is removed successfully; otherwise, false.
 ## bool renameProperty ( const UGUID & guid , const char * new_name )
 
+
 Changes the [name](../../../api/library/common/class.property_cpp.md#name_path) of the property with the specified GUID.
+
+
 > **Notice:** - The name of the `*.prop` file is not affected.
 > - This method is not available for the [manual](../../../api/library/common/class.property_cpp.md#isManual_int) and [non-editable](../../../api/library/common/class.property_cpp.md#isEditable_int) properties.
 
@@ -952,7 +964,7 @@ Changes the [name](../../../api/library/common/class.property_cpp.md#name_path) 
 true if the property is renamed successfully; otherwise, false.
 ## bool replaceProperty ( const Ptr < Property > & property , const Ptr < Property > & new_property )
 
- Replaces the specified property with a new one for all nodes and surfaces. The new property that replaces the specified one must exist. For example, if you have 3 nodes with the same property, calling this method will change this property to the specified one for all these nodes.
+Replaces the specified property with a new one for all nodes and surfaces. The new property that replaces the specified one must exist. For example, if you have 3 nodes with the same property, calling this method will change this property to the specified one for all these nodes.
 ### Arguments
 
 - *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Property](../../../api/library/common/class.property_cpp.md)> &* **property** - Property to be replaced.
@@ -963,7 +975,10 @@ true if the property is renamed successfully; otherwise, false.
 true if the property is replaced successfully; otherwise, false.
 ## bool reparentProperty ( const UGUID & guid , const UGUID & new_parent , bool save_all_values = 0 )
 
+
 Sets a new parent for the specified property. Both properties with given GUIDs must exist.
+
+
 > **Notice:** The method isn't available for the [manual](../../../api/library/common/class.property_cpp.md#isManual_int) and [non-editable](../../../api/library/common/class.property_cpp.md#isEditable_int) properties.
 
 
@@ -978,13 +993,19 @@ Sets a new parent for the specified property. Both properties with given GUIDs m
 true if the parent for the property is changed successfully; otherwise, false.
 ## void reloadProperties ( )
 
+
 Reloads all `*.prop` files from all data folders.
+
+
 > **Notice:** If new `*.prop` files are found, they will be loaded automatically. The hierarchy will be rebuilt if necessary, while keeping all overridden parameter values.
 
 
 ## int saveProperties ( ) const
 
+
 Saves all properties that can be saved to corresponding `*.prop` files.
+
+
 > **Notice:** This method will save only the properties that:
 > - are not [manual](../../../api/library/common/class.property_cpp.md#isManual_int)
 > - are [editable](../../../api/library/common/class.property_cpp.md#isEditable_int)

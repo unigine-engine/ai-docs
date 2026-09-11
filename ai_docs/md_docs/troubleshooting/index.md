@@ -8,6 +8,8 @@ This section provides information on typical errors displayed in SDK Browser and
 
 - [SDK Browser Issues](../troubleshooting/browser_issues.md)
 
+- [Licensing Server Issues](../troubleshooting/licensing_server.md)
+
 - [UnigineEditor Issues](../troubleshooting/editor_issues.md)
 
 - [Engine Issues](../troubleshooting/engine_issues.md)
@@ -21,5 +23,7 @@ This section provides information on typical errors displayed in SDK Browser and
 - [Antivirus Recommendations](../troubleshooting/antivirus/index.md)
 
 - [Operating System Issues](../troubleshooting/os_issues.md)
+
+- [Device Removed Issues](../troubleshooting/device_removed_issues/index.md)
 
 - [How to Make a DirectX Diagnostic (DxDiag) Report](../troubleshooting/dxdiag.md)

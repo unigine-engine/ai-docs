@@ -12,36 +12,45 @@ The *Sounds* class contains methods for handling the sound output source.
 
 ### Members
 
----
+## void setCurrentDeviceName ( string name )
 
-## void engine.sounds. setCurrentDeviceName ( string name )
-
-Changes the current device name thus changing the used current device. Only names got by the *[getDeviceName()](#getDeviceName_int_cstr)* method are supported.
+Sets a new current device name (changing the name changes the currently used device as well). Only names got by the *[getDeviceName()](#getDeviceName_int_cstr)* method are supported.
 ### Arguments
 
-- *string* **name** - The new name of the device.
+- *string* **name** - The name of the currently used device.
 
-## string engine.sounds. getCurrentDeviceName ( )
+## const char * getCurrentDeviceName () const
 
-Returns the name of the currently used device.
+Returns the current current device name (changing the name changes the currently used device as well). Only names got by the *[getDeviceName()](#getDeviceName_int_cstr)* method are supported.
 ### Return value
 
-Current device name.
-## string engine.sounds. getDefaultDeviceName ( )
+Current name of the currently used device.
+## const char * getDefaultDeviceName () const
 
-Returns the name of the device set in its system by default.
+Returns the current name of the device set in its system by default.
 ### Return value
 
-The default device name.
-## int engine.sounds. isDeviceConnected ( )
+Current default device name.
+## int getNumDevices () const
 
-Returns the value indicating if the device is currently connected.
+Returns the current total number of the available devices.
 ### Return value
 
-**1** if device is connected; otherwise **0**.
-## int engine.sounds. isDeviceEnumerationSupported ( )
+Current number of devices.
+## int isDeviceEnumerationSupported () const
 
-Returns the value indicating if the device enumeration is supported. If it is not, the further actions (for example, getting the device name) won't be possible.
+Returns the current The value indicating if the device enumeration is supported. if it is not, the further actions (for example, getting the device name) won't be possible.
+### Return value
+
+Current device enumeration is supported
+## int isDeviceConnected () const
+
+Returns the current value indicating if the device is currently connected.
+### Return value
+
+Current device is currently connected
+---
+
 ## string engine.sounds. getDeviceName ( int num )
 
 Returns the name of the device by its index.
@@ -52,12 +61,6 @@ Returns the name of the device by its index.
 ### Return value
 
 The name of the device.
-## int engine.sounds. getNumDevices ( )
-
-Returns the total number of the available devices.
-### Return value
-
-Number of devices.
 ## void engine.sounds. updateDeviceList ( )
 
 Updates the list of available devices each 5 seconds.

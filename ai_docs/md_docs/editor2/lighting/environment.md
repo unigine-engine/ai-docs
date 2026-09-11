@@ -23,9 +23,9 @@ Three *Environment Presets* enable you to interpolate between most of the parame
 Out of the box, the Environment Presets have the following configurations based on physical light scattering models:
 
 
-- **Preset 0** — sunny daylight with clear sky.
-- **Preset 1** — cloudy sky (slight or moderate overcast).
-- **Preset 2** — night/custom additional preset.
+- **Preset 0** � sunny daylight with clear sky.
+- **Preset 1** � cloudy sky (slight or moderate overcast).
+- **Preset 2** � night/custom additional preset.
 
   ![](env/environment_default_preset_001.png)
 *Default Preset 0*
@@ -89,9 +89,9 @@ The scattering simulation is affected by the current enabled *[World Light Sourc
 The [*Scattering*](../../objects/lights/world/index.md#light_settings) option of the *World Light* provides the following lighting types:
 
 
-- **None** — render the atmosphere as if there were no global lights: there will be no sky color gradient in any direction.
-- **Sun** — render the atmosphere in accordance with the sun's lighting.
-- **Moon** — render the atmosphere in accordance with the moon's lighting.
+- **None** � render the atmosphere as if there were no global lights: there will be no sky color gradient in any direction.
+- **Sun** � render the atmosphere in accordance with the sun's lighting.
+- **Moon** � render the atmosphere in accordance with the moon's lighting.
 
 
 ![](../../principles/render/scattering/types.png)

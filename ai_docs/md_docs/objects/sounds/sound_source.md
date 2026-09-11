@@ -86,7 +86,7 @@ This parameter simulates the directivity of high-frequency attenuation for both 
 On the other hand, approaching the source results in the sound getting louder: the volume doubles when the distance is halved. However, at some point the sound gets as clear, as it should be, and coming closer to the source does not increase the volume any more. This point past which the source is unattenuated is equivalent to the minimum distance.
 
 
-The minimum and maximum distances are very useful for compensating for the difference in absolute volume levels of the sounds. For example, the sounds of a jet plane and a bee are recorded with approximately the same absolute volume, though being of different intensity in the real life. If the minimum distance for the plane is set to 100 units and for the bee — to 0.2 units (if the scale is congruent to meters), the sounds is perceived as balanced in proportions.
+The minimum and maximum distances are very useful for compensating for the difference in absolute volume levels of the sounds. For example, the sounds of a jet plane and a bee are recorded with approximately the same absolute volume, though being of different intensity in the real life. If the minimum distance for the plane is set to 100 units and for the bee � to 0.2 units (if the scale is congruent to meters), the sounds is perceived as balanced in proportions.
 
 
 > **Notice:** Attenuation is available **only for mono** sound sources. For a stereo source, the sound won't be attenuated with a distance.
@@ -123,8 +123,8 @@ Simulating sound occlusion is substantial for true-to-life auditory experience. 
 Occlusion can be enabled and disabled for each sound source individually, selective occlusion adjustment is performed using the [*Occlusion* bit mask](../../principles/bit_masking/index.md#sound_occlusion_mask) that determines which sound sources are occluded by each particular surface of scene objects. Each surface also has an [*Occlusion* coefficient](../../editor2/node_parameters/physics/index.md#surface_sound) that determines how much it affects sounds in case of occlusion:
 
 
-- 0.0 — no occlusion, sound volume stays the same in case of occlusion by the surface.
-- 1.0 — maximum occlusion, sound is not heard at all in case of occlusion by the surface.
+- 0.0 � no occlusion, sound volume stays the same in case of occlusion by the surface.
+- 1.0 � maximum occlusion, sound is not heard at all in case of occlusion by the surface.
 
 
 ## Playback

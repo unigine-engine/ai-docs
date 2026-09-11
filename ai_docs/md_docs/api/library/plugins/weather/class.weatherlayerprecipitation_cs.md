@@ -15,7 +15,7 @@ This class is used to represent a precipitation layer within a [weather region](
 The size of particles used to visualize the precipitation effect (snowflakes, droplets, etc.).
 ## int PrecipitationType
 
-The a value defining the type of the weather precipitation layer.
+The value defining the type of the weather precipitation layer.
 ## 🔒︎ Node EffectNode
 
 The node used to visualize the precipitation effect.

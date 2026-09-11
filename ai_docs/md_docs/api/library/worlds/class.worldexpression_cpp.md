@@ -26,20 +26,48 @@ UnigineScript samples:
 
 ### Members
 
+## bool isCompiled () const
+
+Returns the current value indicating if the given expression has been compiled. it is automatically called on world load or after *[setExpression()](#setExpression_cstr_int)* is used.
+### Return value
+
+**true** if the given expression has been compiled is enabled ; otherwise **false**.
+## void setIFps ( float ifps )
+
+Sets a new constant frame duration used to execute the expression. It can be used to decrease the frame rate to get higher performance. 0 means that the expression is executed at the same frame rate as the main application window.
+### Arguments
+
+- *float* **ifps** - The Frame duration (inverse FPS) in seconds (*1/FPS*). If a too small value is provided, 1E-6 will be used instead.
+
+## float getIFps () const
+
+Returns the current constant frame duration used to execute the expression. It can be used to decrease the frame rate to get higher performance. 0 means that the expression is executed at the same frame rate as the main application window.
+### Return value
+
+Current Frame duration (inverse FPS) in seconds (*1/FPS*). If a too small value is provided, 1E-6 will be used instead.
+## void setUpdateDistanceLimit ( float limit )
+
+Sets a new distance from the camera within which the object should be updated.
+### Arguments
+
+- *float* **limit** - The distance from the camera within which the object should be updated.
+
+## float getUpdateDistanceLimit () const
+
+Returns the current distance from the camera within which the object should be updated.
+### Return value
+
+Current distance from the camera within which the object should be updated.
 ---
 
 ## static WorldExpressionPtr create ( )
 
 Constructor. Creates an arbitrary expression to be executed.
-## bool isCompiled ( ) const
-
-Returns a value indicating if the given expression has been compiled. It is automatically called on world load or after *[setExpression()](#setExpression_cstr_int)* is used.
-### Return value
-
-true if the expression has been compiled; otherwise, false.
 ## bool setExpression ( const char * src )
 
 Sets the arbitrary expression to be executed.
+
+
 > **Notice:** The expression passed as an argument must be wrapped with curly braces {} as they define the world expression scope.
 
 
@@ -67,19 +95,6 @@ Returns a value indicating if the given world expression has the function with s
 ### Return value
 
 true if the expression exists; otherwise, false.
-## void setIFps ( float ifps )
-
-Sets a constant frame duration used to execute the expression. It can be used to decrease the frame rate to get higher performance. 0 means that the expression is executed at the same frame rate as the main application window.
-### Arguments
-
-- *float* **ifps** - Frame duration (inverse FPS) in seconds (*1/FPS*). If a too small value is provided, 1E-6 will be used instead.
-
-## float getIFps ( ) const
-
-Returns the current constant frame duration used to execute the expression. 0 means that the expression is executed at the same frame rate as the main application window.
-### Return value
-
-Frame duration (inverse FPS) in seconds (*1/FPS*).
 ## static int type ( )
 
 Returns the type of the node.
@@ -102,16 +117,3 @@ Returns the name of the expression file.
 ### Return value
 
 Expression file name.
-## void setUpdateDistanceLimit ( float limit )
-
-Sets the distance from the camera within which the object should be updated.
-### Arguments
-
-- *float* **limit** - Distance from the camera within which the object should be updated.
-
-## float getUpdateDistanceLimit ( ) const
-
-Returns the distance from the camera within which the object should be updated.
-### Return value
-
-Distance from the camera within which the object should be updated.

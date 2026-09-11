@@ -59,7 +59,7 @@ This sample demonstrates how to render custom visual elements (lines) using the 
 The elements are drawn during the visualizer stage and properly sorted with respect to scene geometry using the depth buffer.
 
 
-The sample sets up a render callback via *[Render::getEventEndVisualizer()](../../../api/library/rendering/class.render_cpp.md#getEventEndVisualizer_Event)*, which is used to draw a simple line segment in camera space. Drawing is performed using *FFP*, with blending and depth-testing configured manually via *[RenderState](../../...md)* class.
+The sample sets up a render callback via *[Render::getEventEndVisualizer()](../../../api/library/rendering/class.render_cpp.md#getEventEndVisualizer_Event)*, which is used to draw a simple line segment in camera space. Drawing is performed using *FFP*, with blending and depth-testing configured manually via *[RenderState](../../../api/library/rendering/class.renderstate_cpp.md)* class.
 
 
 The scene features a red line intersecting the object. The projection matrix is modified to account for reverse depth and range remapping, ensuring correct visual sorting. The line vertices are transformed into camera space using the current modelview matrix, and rendered in screen space.
@@ -198,7 +198,7 @@ This sample demonstrates how to capture views from two different cameras into se
 Each camera renders its output to a texture using *[Viewport::renderTexture2D()](../../../api/library/rendering/class.viewport_cpp.md#renderTexture2D_Camera_Texture_void)*. These textures are displayed in a vertical split-screen layout using *[WidgetSprite](../../../api/library/gui/class.widgetsprite_cpp.md)* elements, and at the same time are applied to surfaces by assigning them to the albedo slot of static mesh materials. The layout adjusts dynamically to screen size changes.
 
 
-This setup can be used for multiplayer screen sharing, camera comparisons, or in-game monitors rendered from multiple viewpoints.
+This setup can be used for multiplayer screen sharing, camera comparisons, CCTV-like monitors, or in-game monitors rendered from multiple viewpoints.
 
 
 **SDK Path:***<SAMPLES_PROJECT_PATH>/source/rendering/split_screen_texture*

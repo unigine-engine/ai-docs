@@ -21,8 +21,11 @@ Linearly blends (lerp) between two animation poses. When the **Weight** is 0, th
 ## Properties
 
 
-| Blend Mask | Optional mask that controls blending intensity per joint. See [Blend Masks](../../../../../content/animations/blend_masks/index.md) article for details. |
+| Mask Mode | How the blend mask is defined: None (no mask), Skeleton Mask (a named mask from the skeleton asset with per-joint influence), Joint List (an explicit list of joints), or Joint Subtree (a joint and all its descendants). Depending on the mode, an additional field appears for the mask name, the joint list, or the subtree root. See the [Blend Masks](../../../../../content/animations/blend_masks/index.md) article for details. |
 |---|---|
+| Blend Mask | Name of the mask stored on the skeleton asset. Shown only when **Mask Mode** is set to Skeleton Mask; the drop-down lists the masks defined on the skeleton assigned to the graph. |
+| Joints | Explicit list of joint names taking part in the blend. Shown only when **Mask Mode** is set to Joint List. |
+| Subtree Root | Top joint of the region: it and all of its descendants take part in the blend. Shown only when **Mask Mode** is set to Joint Subtree. |
 
 
 ## See Also

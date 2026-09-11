@@ -38,6 +38,24 @@
 
 - [InputEventMouseWheel Class (CPP)](../../../api/library/controls/class.inputeventmousewheel_cpp.md)
 
+- [InputEventPadAccelerometerMotion Class (USC)](../../../api/library/controls/class.inputeventpadaccelerometermotion_usc.md)
+
+- [InputEventPadAccelerometerMotion Class (CS)](../../../api/library/controls/class.inputeventpadaccelerometermotion_cs.md)
+
+- [InputEventPadAccelerometerMotion Class (CPP)](../../../api/library/controls/class.inputeventpadaccelerometermotion_cpp.md)
+
+- [InputEventPadGyroscopeMotion Class (USC)](../../../api/library/controls/class.inputeventpadgyroscopemotion_usc.md)
+
+- [InputEventPadGyroscopeMotion Class (CS)](../../../api/library/controls/class.inputeventpadgyroscopemotion_cs.md)
+
+- [InputEventPadGyroscopeMotion Class (CPP)](../../../api/library/controls/class.inputeventpadgyroscopemotion_cpp.md)
+
+- [InputEventTextEditing Class (USC)](../../../api/library/controls/class.inputeventtextediting_usc.md)
+
+- [InputEventTextEditing Class (CS)](../../../api/library/controls/class.inputeventtextediting_cs.md)
+
+- [InputEventTextEditing Class (CPP)](../../../api/library/controls/class.inputeventtextediting_cpp.md)
+
 - [InputEventVRAxisMotion Class (USC)](../../../api/library/controls/class.inputeventvraxismotion_usc.md)
 
 - [InputEventVRAxisMotion Class (CS)](../../../api/library/controls/class.inputeventvraxismotion_cs.md)

@@ -36,7 +36,10 @@ The value indicating if the Field Spacer is of an ellipse or a cube shape.
 
 ## FieldSpacer ( vec3 size )
 
+
 Creates a new Field Spacer of the specified size:
+
+
 - If the Field Spacer is of an ellipse shape, its radius values along the axes must be specified.
 - Otherwise, dimensions of the cube must be specified.
 

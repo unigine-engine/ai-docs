@@ -6,13 +6,16 @@
 
 ## DataBridge
 
-This sample demonstrates how to set up the interaction of a UNIGINE application with a Python script via DataBridge Plugin.
+This sample demonstrates how to set up the interaction of a UNIGINE application with a Python script via [DataBridge Plugin](../../../code/plugins/databridge/index.md).
 
 
 When the Python script is running, DataBridge arranges the exchange of information between the application and the script, and the car drives along the route without driving through the walls.
 
 
 To run the script, follow the instructions in `csharp_sim_samples/source/databridge_python/readme.md`.
+
+
+> **Notice:** DataBridge Plugin requires **Python 3.12+** for correct operation and entity management.
 
 
 The Web Dash button opens the web page illustrating how to obtain and change the DataBridge parameters via HTTP requests.

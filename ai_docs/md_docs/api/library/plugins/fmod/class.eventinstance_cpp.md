@@ -25,7 +25,7 @@ Sets a new value indicating the pause state of the event.
 Returns the current value indicating the pause state of the event.
 ### Return value
 
-**true** if pause state of the event is enabled; otherwise **false**.
+**true** if pause state of the event is enabled ; otherwise **false**.
 ## void setPitch ( float pitch )
 
 Sets a new pitch value. Range: [0; inf]. Default: 1. The pitch multiplier can be set to any value greater than or equal to zero but the final combined pitch is clamped to the range [0; 100] before being applied.
@@ -231,3 +231,11 @@ Returns the path for the EventDescription of the current EventInstance.
 ### Return value
 
 EventDescription path.
+## void setParameterWithLabel ( const char * name , const char * label , bool ignore_seek = false )
+
+Sets a labeled event parameter to the value associated with the given text label, instead of passing a raw numeric value as **[setParameter()](../../../...md#setParameter_cstr_float_void)** does.
+### Arguments
+
+- *const char ** **name** - Name of the event parameter.
+- *const char ** **label** - Text label of the desired parameter value, as authored in *FMOD Studio*.
+- *bool* **ignore_seek** - Flag defining whether the value is set instantly, bypassing the parameter's authored seek speed.

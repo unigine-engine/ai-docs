@@ -8,6 +8,7 @@
 
 **Template Parameters:**
 
+
 - **Type** - A raw pointer type (e.g., *int**, *MyStruct**)
 - The pointer is stored internally as a 64-bit integer (long long).
 

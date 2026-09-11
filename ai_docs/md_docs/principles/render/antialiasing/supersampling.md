@@ -29,7 +29,7 @@ The resulting number of pixels after supersampling is calculated as follows:
 **Number of Pixels** = ( **Width** x **supersampling_ratio** ) x ( **Height** x **supersampling_ratio** )
 
 
-This gives us a quadratic dependence, which means that when you set supersampling ratio equal to **2** you'll have **x4** pixels (i.e. a **x4** FPS drop). Such ratio provides a significant reduction of artifacts inside the image – not only at boundaries but also in the textures.
+This gives us a quadratic dependence, which means that when you set supersampling ratio equal to **2** you'll have **x4** pixels (i.e. a **x4** FPS drop). Such ratio provides a significant reduction of artifacts inside the image � not only at boundaries but also in the textures.
 
 
 A fractional value can also be set, e.g. **1.2** ratio instead of **2**. In this case the image will be rendered **1.2** times larger on each axis, so not every pixel will be averaged. This is a compromise option providing a little more reduced aliasing for a slight FPS drop.

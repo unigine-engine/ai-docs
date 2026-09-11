@@ -17,8 +17,6 @@ This class creates a scaling manipulator along three axes in form of a triangle.
 
 ## WidgetManipulatorScaler Class
 
-### Members
-
 ---
 
 ## static WidgetManipulatorScaler ( Gui gui )

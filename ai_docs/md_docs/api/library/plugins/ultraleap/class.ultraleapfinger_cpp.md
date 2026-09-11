@@ -26,53 +26,51 @@ This structure represents a [finger](../../../../code/plugins/ultraleap/index_cp
 
 ### Members
 
----
+## UltraleapFinger::TYPE getType () const
 
-## UltraleapFinger::TYPE getType ( ) const
-
-Returns the type of the finger.
+Returns the current type of the finger. One of the [TYPE_*](#TYPE_THUMB) values.
 ### Return value
 
-The finger type. One of the [UltraleapFinger::TYPE_*](#TYPE_THUMB) values.
-## bool isExtended ( ) const
+Current type of the finger
+## bool isExtended () const
 
-Returns a value indicating if the finger is extended.
+Returns the current value indicating if the finger is extended.
 ### Return value
 
-true if the finger is extended; otherwise, false.
-## double getLength ( ) const
+**true** if the finger is extended; otherwise **false**.
+## double getLength () const
 
-Returns the length of the finger, in meters.
+Returns the current length of the finger, in meters.
 ### Return value
 
-The length of the finger, in meters.
-## UltraleapHand * getHand ( ) const
+Current length of the finger, in meters
+## UltraleapHand * getHand () const
 
-Returns the object for the hand.
+Returns the current object for the hand.
 ### Return value
 
-The object for the hand.
-## UltraleapBone * getBoneMetacarpal ( ) const
+Current object for the hand
+## UltraleapBone * getBoneMetacarpal () const
 
-Returns the object for the metacarpal bone.
+Returns the current object for the metacarpal bone.
 ### Return value
 
-The object for the metacarpal bone.
-## UltraleapBone * getBoneProximal ( ) const
+Current object for the metacarpal bone
+## UltraleapBone * getBoneProximal () const
 
-Returns the object for the proximal phalange bone.
+Returns the current object for the proximal phalange bone.
 ### Return value
 
-The object for the proximal phalange bone.
-## UltraleapBone * getBoneIntermediate ( ) const
+Current object for the proximal phalange bone
+## UltraleapBone * getBoneIntermediate () const
 
-Returns the object for the intermediate phalange bone.
+Returns the current object for the intermediate phalange bone.
 ### Return value
 
-The object for the intermediate phalange bone.
-## UltraleapBone * getBoneDistal ( ) const
+Current object for the intermediate phalange bone
+## UltraleapBone * getBoneDistal () const
 
-Returns the object for the distal phalange bone.
+Returns the current object for the distal phalange bone.
 ### Return value
 
-The object for the distal phalange bone.
+Current object for the distal phalange bone

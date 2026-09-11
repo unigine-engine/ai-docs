@@ -201,7 +201,7 @@ Sets a new value indicating if [IES texture](../../../api/library/lights/class.l
 Returns the current value indicating if [IES texture](../../../api/library/lights/class.light_cpp.md#setShadowColorTextureMode_int_void) is scaled to fit within the light source's Field of View. Works only when light's distibution is defined by an IES profile (color texture parameter is set to IES), a lighting industry standard of describing how the light is cast based on real-world measured light fixtures.
 ### Return value
 
-**true** if scaling of IES texture is enabled; otherwise **false**.
+**true** if scaling of IES texture is enabled ; otherwise **false**.
 ## Math:: mat4 getShadowProjection () const
 
 Returns the current shadow projection matrix with the shadow coordinates correctly mapped to screen space coordinates.
@@ -247,6 +247,19 @@ Returns the current distance from the light source shape within which the light 
 ### Return value
 
 Current distance from the light source shape, within which the light source doesn't illuminate anything.
+## void setUseEnvironmentColor ( bool color )
+
+Sets a new value indicating if the light color is modulated by the environment color. When enabled, the light color is multiplied by the color of the environment behind the light source (a blurred sample of the sky cubemap taken along the light direction), imitating a sky portal: a light source placed in a window follows the sky and the surroundings it faces. Takes effect only when the sky cubemap is available.
+### Arguments
+
+- *bool* **color** - Set **true** to enable taking the light color from the environment; **false** - to disable it.
+
+## bool isUseEnvironmentColor () const
+
+Returns the current value indicating if the light color is modulated by the environment color. When enabled, the light color is multiplied by the color of the environment behind the light source (a blurred sample of the sky cubemap taken along the light direction), imitating a sky portal: a light source placed in a window follows the sky and the surroundings it faces. Takes effect only when the sky cubemap is available.
+### Return value
+
+**true** if taking the light color from the environment is enabled ; otherwise **false**.
 ---
 
 ## static LightProjPtr create ( const Math:: vec4 & color , float attenuation_distance , float fov , const char * name = 0 )

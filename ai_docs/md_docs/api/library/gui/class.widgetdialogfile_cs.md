@@ -100,16 +100,16 @@ void Init()
 
 ## string Filter
 
-The currently used file name filter.
+The file name filter used in the dialog (a list of file extensions with leading dots and without additional separators, for example: .mesh.smesh).
 ## string Tabs
 
-The list of tabs in the file picker dialog. the tabs allow the user to interact several folders at once.
+The list of tabs in the file picker dialog. The tabs allow the user to interact with several folders at once. The value is a list of paths separated with semicolons, where each path corresponds to a tab.
 ## string File
 
-The currently selected file.
+The file selected in the dialog (an absolute or relative path to the file).
 ## string Path
 
-The current path to the folder, contents of which is displayed in the file picker.
+The path to the folder whose contents are displayed in the file picker (an absolute or relative path).
 ### Members
 
 ---

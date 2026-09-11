@@ -12,7 +12,7 @@ A **projected decal** is a [decal](../../../objects/decals/index.md) projected o
 > **Notice:** Changing of the projection pyramid location relatively to the projection surface changes the size of the decal in accordance with the laws of perspective.
 
 
-When the human eye views a scene, objects in the distance appear smaller than objects close by — this is known as perspective.
+When the human eye views a scene, objects in the distance appear smaller than objects close by � this is known as perspective.
 
 
 ![](projection.png)

@@ -7,6 +7,7 @@
 
 This class enables to create a navigation area above the surface of an arbitrary mesh. In fact, the navigation mesh is the area of the specified [height](#setHeight_float_void) above the mesh polygons, which is available for pathfinding.
 
+
 > **Notice:** A mesh used as a base for the navigation mesh should meet the requirements described [here](../../../objects/navigations/navigation/navigation_mesh/index.md#create).
 
 
@@ -32,6 +33,12 @@ This class enables to create a navigation area above the surface of an arbitrary
 
 ### Members
 
+## ExperimentalNavigationBakeSettings getBakeSettings () const
+
+Returns the current settings the walkable surface of this node is baked with. The mesh no longer has to be modeled by hand: [ExperimentalBakeNavigation](../../../api/library/pathfinding/class.experimentalbakenavigation_usc.md) builds the surface from scene geometry with the same pipeline the experimental navigation mesh uses, converts it into a triangle mesh, and writes it to the asset [MeshPath](#MeshPath) points at. The settings object is shared with [ExperimentalNavigationMesh](../../../api/library/pathfinding/class.experimentalnavigationmesh_usc.md), so both node types are configured the same way.
+### Return value
+
+Current bake settings of this node.
 ## const char * getMeshPath () const
 
 Returns the current path to the `*.mesh`-file used as the base for the navigation mesh.

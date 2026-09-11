@@ -301,7 +301,7 @@ Returns the current precision type.
 Current precision type.
 ## static Event getEventBeginUpdate () const
 
-event triggered before the update stage is started. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the update stage is started. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -437,10 +437,10 @@ Engine::getEventBeginUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginPropertiesUpdate () const
 
-event triggered before the properties update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the properties update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -576,10 +576,10 @@ Engine::getEventBeginPropertiesUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndPropertiesUpdate () const
 
-event triggered after the properties update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the properties update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -715,10 +715,10 @@ Engine::getEventEndPropertiesUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginInputUpdate () const
 
-event triggered before the input update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the input update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -854,10 +854,10 @@ Engine::getEventBeginInputUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndInputUpdate () const
 
-event triggered after the input update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the input update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -993,10 +993,10 @@ Engine::getEventEndInputUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginControlsUpdate () const
 
-event triggered before the controls update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the controls update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1132,10 +1132,10 @@ Engine::getEventBeginControlsUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndControlsUpdate () const
 
-event triggered after the controls update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the controls update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1271,10 +1271,10 @@ Engine::getEventEndControlsUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginWorldManagerUpdate () const
 
-event triggered before the world manager update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the world manager update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1410,10 +1410,10 @@ Engine::getEventBeginWorldManagerUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndWorldManagerUpdate () const
 
-event triggered after the world manager update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the world manager update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1549,10 +1549,10 @@ Engine::getEventEndWorldManagerUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginSoundManagerUpdate () const
 
-event triggered before the sound manager update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the sound manager update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1688,10 +1688,10 @@ Engine::getEventBeginSoundManagerUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndSoundManagerUpdate () const
 
-event triggered after the sound manager update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the sound manager update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1827,10 +1827,10 @@ Engine::getEventEndSoundManagerUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginGameUpdate () const
 
-event triggered before the game logic update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the game logic update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1966,10 +1966,10 @@ Engine::getEventBeginGameUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndGameUpdate () const
 
-event triggered after the game logic update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the game logic update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2105,10 +2105,10 @@ Engine::getEventEndGameUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginRenderUpdate () const
 
-event triggered before the render functions update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the render functions update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2244,10 +2244,10 @@ Engine::getEventBeginRenderUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndRenderUpdate () const
 
-event triggered after the render functions update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the render functions update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2383,10 +2383,10 @@ Engine::getEventEndRenderUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginExpressionUpdate () const
 
-event triggered before the expressions update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the expressions update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2522,10 +2522,10 @@ Engine::getEventBeginExpressionUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndExpressionUpdate () const
 
-event triggered after the expressions update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the expressions update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2661,10 +2661,10 @@ Engine::getEventEndExpressionUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginSoundsUpdate () const
 
-event triggered before the sounds update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the sounds update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2800,10 +2800,10 @@ Engine::getEventBeginSoundsUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndSoundsUpdate () const
 
-event triggered after the sounds update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the sounds update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2939,10 +2939,10 @@ Engine::getEventEndSoundsUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginPluginsUpdate () const
 
-event triggered before the plugins update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the plugins update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -3078,10 +3078,10 @@ Engine::getEventBeginPluginsUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndPluginsUpdate () const
 
-event triggered after the plugins update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the plugins update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -3217,10 +3217,10 @@ Engine::getEventEndPluginsUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginVRUpdate () const
 
-event triggered before the VR update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the VR update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -3356,10 +3356,10 @@ Engine::getEventBeginVRUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndVRUpdate () const
 
-event triggered after the VR update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the VR update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -3495,10 +3495,10 @@ Engine::getEventEndVRUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginEditorUpdate () const
 
-event triggered before the editor update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the editor update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -3634,10 +3634,10 @@ Engine::getEventBeginEditorUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndEditorUpdate () const
 
-event triggered after the editor update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the editor update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -3773,10 +3773,10 @@ Engine::getEventEndEditorUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginSystemScriptUpdate () const
 
-event triggered before the system script update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the system script update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -3912,10 +3912,10 @@ Engine::getEventBeginSystemScriptUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndSystemScriptUpdate () const
 
-event triggered after the system script update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the system script update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -4051,10 +4051,10 @@ Engine::getEventEndSystemScriptUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginSystemLogicUpdate () const
 
-event triggered before the system logic update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the system logic update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -4190,10 +4190,10 @@ Engine::getEventBeginSystemLogicUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndSystemLogicUpdate () const
 
-event triggered after the system logic update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the system logic update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -4329,10 +4329,10 @@ Engine::getEventEndSystemLogicUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginWorldUpdate () const
 
-event triggered before the world logic update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the world logic update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -4468,10 +4468,10 @@ Engine::getEventBeginWorldUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndWorldUpdate () const
 
-event triggered after the world logic update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the world logic update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -4607,10 +4607,10 @@ Engine::getEventEndWorldUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginAnimationManagerUpdate () const
 
-event triggered before the animation manager update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the animation manager update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -4746,10 +4746,10 @@ Engine::getEventBeginAnimationManagerUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndAnimationManagerUpdate () const
 
-event triggered after the animation manager update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the animation manager update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -4885,10 +4885,10 @@ Engine::getEventEndAnimationManagerUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginWorldPostUpdate () const
 
-event triggered before the world logic postupdate stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the world logic postupdate stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -5024,10 +5024,10 @@ Engine::getEventBeginWorldPostUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndWorldPostUpdate () const
 
-event triggered after the world logic postupdate stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the world logic postupdate stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -5163,10 +5163,10 @@ Engine::getEventEndWorldPostUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginSystemScriptPostUpdate () const
 
-event triggered before the system script postupdate stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the system script postupdate stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -5302,10 +5302,10 @@ Engine::getEventBeginSystemScriptPostUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndSystemScriptPostUpdate () const
 
-event triggered after the system script postupdate stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the system script postupdate stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -5441,10 +5441,10 @@ Engine::getEventEndSystemScriptPostUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginSystemLogicPostUpdate () const
 
-event triggered before the system logic postupdate stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the system logic postupdate stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -5580,10 +5580,10 @@ Engine::getEventBeginSystemLogicPostUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndSystemLogicPostUpdate () const
 
-event triggered after the system logic postupdate stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the system logic postupdate stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -5719,10 +5719,10 @@ Engine::getEventEndSystemLogicPostUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginEditorPostUpdate () const
 
-event triggered before the editor logic postupdate stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the editor logic postupdate stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -5858,10 +5858,10 @@ Engine::getEventBeginEditorPostUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndEditorPostUpdate () const
 
-event triggered after the editor logic postupdate stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the editor logic postupdate stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -5997,10 +5997,10 @@ Engine::getEventEndEditorPostUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginPluginsPostUpdate () const
 
-event triggered before the plugins postupdate stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the plugins postupdate stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -6136,10 +6136,10 @@ Engine::getEventBeginPluginsPostUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndPluginsPostUpdate () const
 
-event triggered after the plugins postupdate stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the plugins postupdate stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -6275,10 +6275,10 @@ Engine::getEventEndPluginsPostUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginSpatialUpdate () const
 
-event triggered before the spatial tree update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the spatial tree update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -6414,10 +6414,10 @@ Engine::getEventBeginSpatialUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndSpatialUpdate () const
 
-event triggered after the spatial tree update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the spatial tree update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -6553,10 +6553,10 @@ Engine::getEventEndSpatialUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginFilesystemUpdate () const
 
-event triggered before the filesystem update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the filesystem update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -6692,10 +6692,10 @@ Engine::getEventBeginFilesystemUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndFilesystemUpdate () const
 
-event triggered after the filesystem update stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the filesystem update stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -6831,10 +6831,10 @@ Engine::getEventEndFilesystemUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginPathfinding () const
 
-event triggered before the pathfinding module is updated. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the pathfinding module is updated. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -6970,10 +6970,10 @@ Engine::getEventBeginPathfinding().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndUpdate () const
 
-event triggered after the update stage is finished. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the update stage is finished. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -7109,10 +7109,10 @@ Engine::getEventEndUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventSyncBeginFramePhysics () const
 
-event triggered before the physics frame in the main thread. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the physics frame in the main thread. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -7248,10 +7248,10 @@ Engine::getEventSyncBeginFramePhysics().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventSyncEndFramePhysics () const
 
-event triggered after the physics frame in the main thread. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the physics frame in the main thread. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -7387,10 +7387,10 @@ Engine::getEventSyncEndFramePhysics().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventAsyncBeginFramePhysics () const
 
-event triggered before the physics frame in the physics thread. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the physics frame in the physics thread. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -7526,10 +7526,10 @@ Engine::getEventAsyncBeginFramePhysics().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventAsyncEndFramePhysics () const
 
-event triggered after the physics frame in the physics thread. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the physics frame in the physics thread. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -7665,10 +7665,10 @@ Engine::getEventAsyncEndFramePhysics().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginVRRender () const
 
-event triggered before the VR rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the VR rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -7804,10 +7804,10 @@ Engine::getEventBeginVRRender().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndVRRender () const
 
-event triggered after the VR rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the VR rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -7943,10 +7943,10 @@ Engine::getEventEndVRRender().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginRender () const
 
-event triggered before the rendering stage is started. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the rendering stage is started. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -8082,10 +8082,10 @@ Engine::getEventBeginRender().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginEditorRender () const
 
-event triggered before the editor rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the editor rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -8221,10 +8221,10 @@ Engine::getEventBeginEditorRender().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndEditorRender () const
 
-event triggered after the editor rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the editor rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -8360,10 +8360,10 @@ Engine::getEventEndEditorRender().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginPluginsRender () const
 
-event triggered before the plugins rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the plugins rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -8499,10 +8499,10 @@ Engine::getEventBeginPluginsRender().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndPluginsRender () const
 
-event triggered after the plugins rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the plugins rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -8638,10 +8638,10 @@ Engine::getEventEndPluginsRender().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginRenderWorld () const
 
-event triggered before the world rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the world rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -8777,10 +8777,10 @@ Engine::getEventBeginRenderWorld().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndRenderWorld () const
 
-event triggered after the world rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the world rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -8916,10 +8916,10 @@ Engine::getEventEndRenderWorld().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginPluginsGui () const
 
-event triggered before the gui() function of plugins is called. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the gui() function of plugins is called. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -9055,10 +9055,10 @@ Engine::getEventBeginPluginsGui().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndPluginsGui () const
 
-event triggered after the gui() function of plugins is called. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the gui() function of plugins is called. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -9194,10 +9194,10 @@ Engine::getEventEndPluginsGui().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginPostRender () const
 
-event triggered before the post-rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the post-rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -9333,10 +9333,10 @@ Engine::getEventBeginPostRender().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndPostRender () const
 
-event triggered after the post-rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the post-rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -9472,10 +9472,10 @@ Engine::getEventEndPostRender().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndRender () const
 
-event triggered after the rendering stage is finished. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the rendering stage is finished. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -9611,10 +9611,10 @@ Engine::getEventEndRender().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginSwap () const
 
-event triggered before the swap stage is started. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the swap stage is started. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -9750,10 +9750,10 @@ Engine::getEventBeginSwap().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndPathfinding () const
 
-event triggered after the pathfinding is updated. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the pathfinding is updated. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -9889,10 +9889,10 @@ Engine::getEventEndPathfinding().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginWorldSwap () const
 
-event triggered before the world logic swap() function is executed. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the world logic swap() function is executed. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -10028,10 +10028,10 @@ Engine::getEventBeginWorldSwap().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndWorldSwap () const
 
-event triggered after the world logic swap() function is executed. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the world logic swap() function is executed. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -10167,10 +10167,10 @@ Engine::getEventEndWorldSwap().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginPluginsSwap () const
 
-event triggered before the plugin swap() function is called, if it exists. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the plugin swap() function is called, if it exists. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -10306,10 +10306,10 @@ Engine::getEventBeginPluginsSwap().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndPluginsSwap () const
 
-event triggered after the plugin swap() function is called, if it exists. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the plugin swap() function is called, if it exists. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -10445,10 +10445,10 @@ Engine::getEventEndPluginsSwap().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginDeleteObjects () const
 
-event triggered before the objects are deleted. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the objects are deleted. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -10584,10 +10584,10 @@ Engine::getEventBeginDeleteObjects().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndDeleteObjects () const
 
-event triggered after the objects are deleted. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the objects are deleted. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -10723,10 +10723,10 @@ Engine::getEventEndDeleteObjects().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndSwap () const
 
-event triggered after the swap stage is finished. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the swap stage is finished. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -10862,10 +10862,10 @@ Engine::getEventEndSwap().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventFocusGained () const
 
-event triggered when any of the engine windows gained the focus. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when any of the engine windows gained the focus. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -11001,10 +11001,10 @@ Engine::getEventFocusGained().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventFocusLost () const
 
-event triggered when all engine windows lost the focus. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when all engine windows lost the focus. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -11140,10 +11140,10 @@ Engine::getEventFocusLost().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const char*> getEventPluginAdded () const
 
-event triggered before the update stage is started. You can subscribe to events via *connect()*  and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)*  classes for convenience (see examples below).
+event triggered before the update stage is started. You can subscribe to events via *connect()*ï¿½ and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)*ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -11279,10 +11279,10 @@ Engine::getEventPluginAdded().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const char*> getEventPluginRemoved () const
 
-event triggered before the update stage is started. You can subscribe to events via *connect()*  and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)*  classes for convenience (see examples below).
+event triggered before the update stage is started. You can subscribe to events via *connect()*ï¿½ and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)*ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -11418,7 +11418,7 @@ Engine::getEventPluginRemoved().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## static Engine * get ( )
@@ -11490,7 +11490,7 @@ Returns a value indicating if the editor script function exists.
 
 ### Return value
 
-**true** if the editor script function exists; otherwise, **false**.
+true if the editor script function exists; otherwise, false.
 ## virtual void * getEditorInterpreter ( ) const =0
 
 Returns a pointer to the editor interpreter.
@@ -11502,13 +11502,13 @@ Pointer to the editor interpreter.
 Returns a value indicating if the function is called from the editor script.
 ### Return value
 
-**true** if the function is called from the editor script; otherwise, **false**.
+true if the function is called from the editor script; otherwise, false.
 ## virtual bool isEditorLoaded ( ) const =0
 
 Returns a value indicating if the editor script is loaded.
 ### Return value
 
-**true** if the editor script is loaded; otherwise, **false**.
+true if the editor script is loaded; otherwise, false.
 ## virtual EditorLogic * getEditorLogic ( int num ) const =0
 
 Returns the registered [EditorLogic](../../../api/library/common/logic/class.editorlogic_cpp.md) instance by its number.
@@ -11546,7 +11546,7 @@ Returns a value indicating if the editor script variable exists.
 
 ### Return value
 
-**true** if the editor script variable exists; otherwise, **false**.
+true if the editor script variable exists; otherwise, false.
 ## virtual const char * getArg ( int num ) =0
 
 Returns the command-line argument by its index.
@@ -11650,7 +11650,7 @@ Checks whether the system script function exists.
 
 ### Return value
 
-**true** if the system script function exists; otherwise, **false**.
+true if the system script function exists; otherwise, false.
 ## virtual void * getSystemInterpreter ( ) const =0
 
 Returns a pointer to the system interpreter.
@@ -11662,7 +11662,7 @@ Pointer to the system interpreter.
 Checks if the function is called from the system script.
 ### Return value
 
-**true** when the function is called from the system script; otherwise, **false**.
+true when the function is called from the system script; otherwise, false.
 ## virtual SystemLogic * getSystemLogic ( int num ) const =0
 
 Returns the registered [SystemLogic](../../../api/library/common/logic/class.systemlogic_cpp.md) instance by the given number.
@@ -11700,7 +11700,7 @@ Checks whether a system script variable exists.
 
 ### Return value
 
-**true** if the system script variable exists; otherwise, **false**.
+true if the system script variable exists; otherwise, false.
 ## int getWorldFunction ( const char * name , int num_args ) const
 
 Returns the world script function identifier.
@@ -11722,7 +11722,7 @@ Returns value indicating if the world script function exists.
 
 ### Return value
 
-**true** if the world script function exists; otherwise, **false**.
+true if the world script function exists; otherwise, false.
 ## virtual void * getWorldInterpreter ( ) const =0
 
 Returns a pointer to the world interpreter.
@@ -11734,13 +11734,13 @@ Pointer to the world interpreter.
 Returns a value indicating if the function is called from the world script.
 ### Return value
 
-**true** if the function is called from the world script; otherwise, **false**.
+true if the function is called from the world script; otherwise, false.
 ## virtual bool isWorldLoaded ( ) const =0
 
 Returns a value indicating if the world script is loaded.
 ### Return value
 
-**true** if the world script is loaded; otherwise, **false**.
+true if the world script is loaded; otherwise, false.
 ## virtual WorldLogic * getWorldLogic ( int num ) const =0
 
 Returns the registered [WorldLogic](../../../api/library/common/logic/class.worldlogic_cpp.md) instance by its number.
@@ -11778,7 +11778,7 @@ Returns a value indicating if the world script variable exists.
 
 ### Return value
 
-**true** if the world script variable exists; otherwise, **false**.
+true if the world script variable exists; otherwise, false.
 ## bool addEditorLogic ( EditorLogic * logic )
 
 Adds an [EditorLogic](../../../api/library/common/logic/class.editorlogic_cpp.md) instance to the engine runtime.
@@ -11788,7 +11788,7 @@ Adds an [EditorLogic](../../../api/library/common/logic/class.editorlogic_cpp.md
 
 ### Return value
 
-**true** if the EditorLogic instance has been added successfully; otherwise, **false**.
+true if the EditorLogic instance has been added successfully; otherwise, false.
 ## virtual bool addPlugin ( Plugin * plugin ) =0
 
 Adds a plugin to engine runtime by using a pointer to this plugin.
@@ -11798,7 +11798,7 @@ Adds a plugin to engine runtime by using a pointer to this plugin.
 
 ### Return value
 
-**true** if the plugin ha been added successfully; otherwise, **false**.
+true if the plugin ha been added successfully; otherwise, false.
 ## bool addPlugin ( const char * name )
 
 Adds a plugin to engine runtime by its name.
@@ -11808,7 +11808,7 @@ Adds a plugin to engine runtime by its name.
 
 ### Return value
 
-**true** if the plugin has been added successfully; otherwise, **false**.
+true if the plugin has been added successfully; otherwise, false.
 ## bool addSystemLogic ( SystemLogic * logic )
 
 Adds a [SystemLogic](../../../api/library/common/logic/class.systemlogic_cpp.md) instance to Engine runtime.
@@ -11818,10 +11818,13 @@ Adds a [SystemLogic](../../../api/library/common/logic/class.systemlogic_cpp.md)
 
 ### Return value
 
-**true** if the SystemLogic instance has been added successfully; otherwise, **false**.
+true if the SystemLogic instance has been added successfully; otherwise, false.
 ## bool addWorldLogic ( WorldLogic * logic )
 
+
 Adds a [WorldLogic](../../../api/library/common/logic/class.worldlogic_cpp.md) instance to the engine runtime.
+
+
 > **Notice:** Instances of the *WorldLogic* class **should not be added while the world is loaded** and the world script is being executed (as you can't change a world script while the world is loaded). In such a case the ***init()*** method shall not be called if the WorldLogic is added before opening the world.
 
 
@@ -11831,7 +11834,7 @@ Adds a [WorldLogic](../../../api/library/common/logic/class.worldlogic_cpp.md) i
 
 ### Return value
 
-**true** if the WorldLogic instance has been added successfully; otherwise, **false**.
+true if the WorldLogic instance has been added successfully; otherwise, false.
 ## int findPlugin ( const char * name ) const
 
 Searches the index of the loaded plugin by its name.
@@ -11880,7 +11883,7 @@ Removes an [EditorLogic](../../../api/library/common/logic/class.editorlogic_cpp
 
 ### Return value
 
-**true** if the instance has been removed successfully; otherwise, **false**.
+true if the instance has been removed successfully; otherwise, false.
 ## virtual bool destroyPlugin ( Plugin * plugin ) =0
 
 Removes the specified plugin.
@@ -11890,7 +11893,7 @@ Removes the specified plugin.
 
 ### Return value
 
-**true** if the plugin has been removed successfully; otherwise, **false**.
+true if the plugin has been removed successfully; otherwise, false.
 ## bool removeSystemLogic ( SystemLogic * logic )
 
 Removes a [SystemLogic](../../../api/library/common/logic/class.systemlogic_cpp.md) instance from engine runtime.
@@ -11900,10 +11903,13 @@ Removes a [SystemLogic](../../../api/library/common/logic/class.systemlogic_cpp.
 
 ### Return value
 
-**true** if the instance has been removed successfully; otherwise, **false**.
+true if the instance has been removed successfully; otherwise, false.
 ## bool removeWorldLogic ( WorldLogic * logic )
 
+
 Removes a [WorldLogic](../../../api/library/common/logic/class.worldlogic_cpp.md) instance from engine runtime.
+
+
 > **Notice:** Instances of the *WorldLogic* class **should not be removed while the world is loaded** and the world script is being executed (as you can't change a world script while the world is loaded). In such a case the ***shutdown()*** method shall not be called if the WorldLogic is removed before closing the world.
 
 
@@ -11913,7 +11919,7 @@ Removes a [WorldLogic](../../../api/library/common/logic/class.worldlogic_cpp.md
 
 ### Return value
 
-**true** if the instance has been removed successfully; otherwise, **false**.
+true if the instance has been removed successfully; otherwise, false.
 ## virtual const Variable & runEditorFunction ( const Variable & name ) =0
 
 Runs the editor script function by its name. The target function can receive up to 8 arguments.

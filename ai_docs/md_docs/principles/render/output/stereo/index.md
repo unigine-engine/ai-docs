@@ -36,11 +36,11 @@ To launch Separate images stereo mode, load the [Separate plugin](../../../../pr
 Anaglyph stereo is viewed with red-cyan anaglyph glasses. See further details on rendering [below](#anaglyph_rendering).
 
 
-To launch Anaglyph stereo mode, run the [`render_viewport_mode`](../../../../code/console/index.md#render_viewport_mode) console command with the corresponding mode (9):
+To launch Anaglyph stereo mode, run the [`render_viewport_mode`](../../../../code/console/index.md#render_viewport_mode) console command with the corresponding mode (10):
 
 
 ```text
-render_viewport_mode 9
+render_viewport_mode 10
 ```
 
 
@@ -58,11 +58,11 @@ Interlaced stereo mode is used with interlaced stereo monitors and polarized 3D 
 > **Notice:** In this mode, the vertical resolution of the image is dropped in half.
 
 
-To launch the interlaced lines stereo mode, run the [`render_viewport_mode`](../../../../code/console/index.md#render_viewport_mode) console command with the corresponding mode (10):
+To launch the interlaced lines stereo mode, run the [`render_viewport_mode`](../../../../code/console/index.md#render_viewport_mode) console command with the corresponding mode (11):
 
 
 ```text
-render_viewport_mode 10
+render_viewport_mode 11
 ```
 
 
@@ -77,11 +77,11 @@ render_viewport_mode 10
 Horizontal and Vertical stereo modes are supported for glass-free MasterImage 3D displays. The same mode (a horizontal or a vertical one) is selected in the graphics chip driver settings. See further details on rendering [below](#mobile_rendering).
 
 
-To launch Horizontal stereo mode, run the [`render_viewport_mode`](../../../../code/console/index.md#render_viewport_mode) console command with the corresponding mode (11):
+To launch Horizontal stereo mode, run the [`render_viewport_mode`](../../../../code/console/index.md#render_viewport_mode) console command with the corresponding mode (12):
 
 
 ```text
-render_viewport_mode 11
+render_viewport_mode 12
 ```
 
 
@@ -90,11 +90,11 @@ render_viewport_mode 11
 *Horizontal stereo mode*
 
 
-To launch Vertical stereo mode, run the [`render_viewport_mode`](../../../../code/console/index.md#render_viewport_mode) console command with the corresponding mode (12):
+To launch Vertical stereo mode, run the [`render_viewport_mode`](../../../../code/console/index.md#render_viewport_mode) console command with the corresponding mode (13):
 
 
 ```text
-render_viewport_mode 12
+render_viewport_mode 13
 ```
 
 

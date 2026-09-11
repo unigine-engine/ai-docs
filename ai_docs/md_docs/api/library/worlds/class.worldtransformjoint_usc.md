@@ -5,7 +5,7 @@
 **Inherits from:** Node
 
 
-This class is used to create [joint transforms](../../../objects/worlds/world_transforms/transform_bone/index.md). It should have [ObjectMeshSkinned](../../../api/library/objects/class.objectmeshskinned_usc.md) or [ObjectMeshSkinnedLegacy](../../../api/library/objects/class.objectmeshskinnedlegacy_usc.md) as a parent. You should specify a [joint](#setJointName_cstr_void) that will be used for its transformations. For other nodes to move along with these transformations, they should be assigned as WorldTransformJoint children.
+This class is used to create [joint transforms](../../../objects/worlds/world_transforms/transform_bone/index.md). It should have *[ObjectMeshSkinned](../../../api/library/objects/class.objectmeshskinned_usc.md)* or *[ObjectMeshSkinnedLegacy](../../../api/library/objects/class.objectmeshskinnedlegacy_usc.md)* as a parent. You should specify a [joint](#setJointName_cstr_void) that will be used for its transformations. For other nodes to move along with these transformations, they should be assigned as *WorldTransformJoint* children.
 
 
 ### See Also
@@ -18,31 +18,31 @@ UnigineScript sample
 
 ### Members
 
----
-
-## static WorldTransformJoint ( string name = 0 )
-
-Constructor. Creates a WorldTransformJoint in the world coordinates with a specified joint name.
-### Arguments
-
-- *string* **name** - Name of the joint.
-
 ## void setJointName ( string name )
 
-Sets the name of the joint to be used for transformation.
+Sets a new name of the joint used for transformation.
 ### Arguments
 
 - *string* **name** - The name of the joint.
 
-## string getJointName ( )
+## const char * getJointName () const
 
-Returns the name of the joint used for transformation.
+Returns the current name of the joint used for transformation.
 ### Return value
 
-The name of the joint.
+Current name of the joint.
+---
+
+## static WorldTransformJoint ( string name = 0 )
+
+Constructor. Creates a *WorldTransformJoint* in the world coordinates with a specified joint name.
+### Arguments
+
+- *string* **name** - Name of the joint.
+
 ## static int type ( )
 
 Returns the type of the node.
 ### Return value
 
-[World](../../../api/library/engine/class.world_usc.md) type identifier.
+*[World](../../../api/library/engine/class.world_usc.md)* type identifier.

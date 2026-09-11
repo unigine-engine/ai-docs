@@ -82,14 +82,17 @@ public:
 
 ## static SignalPtr create ( )
 
+Default constructor that creates an empty signal.
 ## static SignalPtr create ( const Signal& )
 
+Copy constructor that creates a signal using the specified one.
 ### Arguments
 
 - *const Signal&*
 
 ## static SignalPtr create ( Signal&& )
 
+Copy constructor that creates a signal using the specified one.
 ### Arguments
 
 - *Signal&&*

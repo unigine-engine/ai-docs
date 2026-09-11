@@ -215,6 +215,87 @@ And more, providing you with flexible control over the grouping logic.
 
 ### Members
 
+## EngineWindowGroup::GROUP_TYPE getGroupType () const
+
+Returns the current type of the window group set in the constructor.
+### Return value
+
+Current type of the window group set in the constructor
+## void setFixed ( bool fixed )
+
+Sets a new value indicating if this group is protected from adding/removing windows.
+### Arguments
+
+- *bool* **fixed** - Set **true** to enable protection of the group from modification (adding or removing windows); **false** - to disable it.
+
+## bool isFixed () const
+
+Returns the current value indicating if this group is protected from adding/removing windows.
+### Return value
+
+**true** if protection of the group from modification (adding or removing windows) is enabled ; otherwise **false**.
+## void setAutoDeleteMode ( EngineWindowGroup::AUTO_DELETE_MODE mode )
+
+Sets a new automatic window deletion mode.
+### Arguments
+
+- *[EngineWindowGroup::AUTO_DELETE_MODE](../../../api/library/gui/class.enginewindowgroup_cpp.md#AUTO_DELETE_MODE)* **mode** - The automatic window deletion mode
+
+## EngineWindowGroup::AUTO_DELETE_MODE getAutoDeleteMode () const
+
+Returns the current automatic window deletion mode.
+### Return value
+
+Current automatic window deletion mode
+## int getNumNestedWindows () const
+
+Returns the current total number of nested windows in the group.
+### Return value
+
+Current total number of nested windows in the group
+## void setCurrentTab ( int tab )
+
+Sets a new index of the currently active tab in a tab group.
+### Arguments
+
+- *int* **tab** - The index of the currently active tab in a tab group
+
+## int getCurrentTab () const
+
+Returns the current index of the currently active tab in a tab group.
+### Return value
+
+Current index of the currently active tab in a tab group
+## int getSeparatorWidth () const
+
+Returns the current width of the vertical line separating a tab group from the rest of the area, in pixels.
+> **Notice:** You may need to call [*updateGuiHierarchy()*](../../../api/library/gui/class.enginewindow_cpp.md#updateGuiHierarchy_void) first, if you have added a new window to the group and want to access its separator immediately. Otherwise, you may get incorrect results.
+
+
+### Return value
+
+Current width of the vertical line separating a tab group from the rest of the area, in pixels
+## int getSeparatorHeight () const
+
+Returns the current height of the horizontal line separating a tab group from the rest of the area, in pixels.
+> **Notice:** You may need to call [*updateGuiHierarchy()*](../../../api/library/gui/class.enginewindow_cpp.md#updateGuiHierarchy_void) first, if you have added a new window to the group and want to access its separator immediately. Otherwise, you may get incorrect results.
+
+
+### Return value
+
+Current height of the horizontal line separating a tab group from the rest of the area, in pixels
+## Math:: ivec2 getIntersectedItemPosition () const
+
+Returns the current position of the left top corner of the intersected group item, in screen coordinates. In case of several displays, the position is relative to the main display.
+### Return value
+
+Current position of the left top corner of the intersected group item, in screen coordinates
+## Math:: ivec2 getIntersectedItemSize () const
+
+Returns the current size of the intersected group item, in pixels.
+### Return value
+
+Current size of the intersected group item, in pixels
 ---
 
 ## EngineWindowGroup ( EngineWindowGroup::GROUP_TYPE group_type , const Math:: ivec2 & size , int flags = 0 )
@@ -247,38 +328,6 @@ Constructor. Creates the window group of the specified type and size with the sp
 - *int* **height** - Window height.
 - *int* **flags** - Mask containing window [flags](../../../api/library/gui/class.enginewindow_cpp.md#FLAGS_MAIN).
 
-## EngineWindowGroup::GROUP_TYPE getGroupType ( ) const
-
-Returns the window group type set in the constructor — vertical, horizontal, tab arrangement of windows, or an independent window inside a group.
-### Return value
-
-The window group type.
-## void setFixed ( bool fixed )
-
-Sets a value specifying if windows can be added to this group or removed from it.
-### Arguments
-
-- *bool* **fixed** - true to disable adding or removing windows from this group, otherwise false.
-
-## bool isFixed ( ) const
-
-Returns a value specifying if windows can be added to this group or removed from it.
-### Return value
-
-true if adding or removing windows from this group is disabled, otherwise false.
-## void setAutoDeleteMode ( EngineWindowGroup::AUTO_DELETE_MODE mode )
-
-Sets the automatic window deletion mode.
-### Arguments
-
-- *[EngineWindowGroup::AUTO_DELETE_MODE](../../../api/library/gui/class.enginewindowgroup_cpp.md#AUTO_DELETE_MODE)* **mode** - The automatic window deletion mode.
-
-## EngineWindowGroup::AUTO_DELETE_MODE getAutoDeleteMode ( ) const
-
-Returns the automatic window deletion mode.
-### Return value
-
-The automatic window deletion mode.
 ## void add ( const Ptr < EngineWindow > & window , int target_index = -1 )
 
 Adds a window at a specified index. The window becomes nested (i.e. its borders, style, title bar, etc. are disabled).
@@ -310,12 +359,6 @@ Removes the window at a specified index from the group. The window's settings ar
 
 - *int* **index** - The index of the window to be removed.
 
-## int getNumNestedWindows ( ) const
-
-Returns the total number of nested windows in the group.
-### Return value
-
-The total number of nested windows in the group.
 ## Ptr < EngineWindow > getNestedWindow ( int index ) const
 
 Returns the nested engine window by its index.
@@ -372,18 +415,6 @@ Adds the image to the specified tab and the window itself.
 - *int* **index** - Index of the tab.
 - *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Image](../../../api/library/common/class.image_cpp.md)> &* **image** - Image to be added.
 
-## int setCurrentTab ( )
-
-Sets the index of the currently active tab in a tab group.
-### Return value
-
-The index of the tab to set as currently active.
-## int getCurrentTab ( ) const
-
-Returns the index of the currently active tab in a tab group.
-### Return value
-
-The index of the currently active tab.
 ## int getTabWidth ( int index ) const
 
 Returns the width of the tab. Available for [horizontal](#GROUP_TYPE_HORIZONTAL) groups only.
@@ -393,7 +424,7 @@ Returns the width of the tab. Available for [horizontal](#GROUP_TYPE_HORIZONTAL)
 
 ### Return value
 
-The width of the the tab.
+The width of the tab.
 ## int getTabHeight ( int index ) const
 
 Returns the height of the tab. Available for [vertical](#GROUP_TYPE_VERTICAL) groups only.
@@ -466,24 +497,6 @@ Sets the height of the tab in the group of tabs arranged vertically.
 - *int* **index** - The index of the tab.
 - *int* **height** - The height of the tab in the group of tabs arranged vertically.
 
-## int getSeparatorWidth ( ) const
-
-Returns the width of the vertical line separating a tab group from the rest of the area.
-> **Notice:** You may need to call [*updateGuiHierarchy()*](../../../api/library/gui/class.enginewindow_cpp.md#updateGuiHierarchy_void) first, if you have added a new window to the group and want to access its separator immediately. Otherwise, you may get incorrect results.
-
-
-### Return value
-
-The width of the separation line, in pixels.
-## int getSeparatorHeight ( ) const
-
-Returns the height of the horizontal line separating a tab group from the rest of the area.
-> **Notice:** You may need to call [*updateGuiHierarchy()*](../../../api/library/gui/class.enginewindow_cpp.md#updateGuiHierarchy_void) first, if you have added a new window to the group and want to access its separator immediately. Otherwise, you may get incorrect results.
-
-
-### Return value
-
-The height of the separation line, in pixels.
 ## void setSeparatorPosition ( int index , int pos )
 
 Sets the position of the line separating a tab group from the rest of the area. The separator line can be horizontal or vertical depending on the [group type](#getGroupType_int).
@@ -563,15 +576,3 @@ Returns the value indicating if the mouse is hovering over the window tab bar ar
 ### Return value
 
 1 if the mouse hovers over the window tab bar area, otherwise 0.
-## Math:: ivec2 getIntersectedItemPosition ( ) const
-
-Returns the position of the left top corner of the intersected group item in the screen coordinates. In case of several displays, the position is relative to the main display.
-### Return value
-
-The screen position of the intersected item — coordinates of the left top corner.
-## Math:: ivec2 getIntersectedItemSize ( ) const
-
-Returns the size of the intersected item.
-### Return value
-
-The size of the intersected item, in pixels.

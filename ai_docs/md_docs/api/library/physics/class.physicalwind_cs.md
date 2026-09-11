@@ -31,19 +31,19 @@ A *PhysicalWind* class is used to simulate a box-shaped area inside of which the
 
 ## vec3 Velocity
 
-The current velocity of the physical wind flow along the axes.
+The velocity of the physical wind flow along the axes.
 ## vec3 Threshold
 
-The current threshold distance values along the coordinates axes relative to the wind node [size](#setSize_vec3_void) (that is, inside of it). It determines the area of gradual change from zero to full wind [velocity](#setVelocity_vec3_void). See also [*setThreshold()*](#setThreshold_vec3_void).
+The threshold distance values along the coordinates axes relative to the wind node size (that is, inside of it). It determines the area of gradual change from zero to full wind velocity. See also [setThreshold()](#setThreshold_vec3_void).
 ## vec3 Size
 
-The current size of the physical wind node.
+The size of the physical wind node.
 ## float LinearDamping
 
-The current value indicating how much the linear velocity of the objects decreases when they get inside the wind node.
+The value indicating how much the linear velocity of the objects decreases when they get inside the wind node.
 ## float AngularDamping
 
-The current value indicating how much the angular velocity of the objects decreases when they get inside the physical wind node.
+The value indicating how much the angular velocity of the objects decreases when they get inside the physical wind node.
 ### Members
 
 ---

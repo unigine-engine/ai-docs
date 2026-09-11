@@ -15,6 +15,45 @@ This class creates a dialog with clickable color field, RGB value sliders, color
 
 ### Members
 
+## void setPaletteColors ( string colors )
+
+Sets a new palette colors of the dialog, as a list of colors in the web format separated with semicolons.
+### Arguments
+
+- *string* **colors** - The palette colors of the dialog, as a list of colors in the web format separated with semicolons
+
+## const char * getPaletteColors () const
+
+Returns the current palette colors of the dialog, as a list of colors in the web format separated with semicolons.
+### Return value
+
+Current palette colors of the dialog, as a list of colors in the web format separated with semicolons
+## void setWebColor ( string color )
+
+Sets a new color selected in the dialog, in the web (hexadecimal) format.
+### Arguments
+
+- *string* **color** - The color selected in the dialog, in the web (hexadecimal) format
+
+## const char * getWebColor () const
+
+Returns the current color selected in the dialog, in the web (hexadecimal) format.
+### Return value
+
+Current color selected in the dialog, in the web (hexadecimal) format
+## void setColor ( vec4 color )
+
+Sets a new color selected in the dialog.
+### Arguments
+
+- *vec4* **color** - The color selected in the dialog
+
+## vec4 getColor () const
+
+Returns the current color selected in the dialog.
+### Return value
+
+Current color selected in the dialog
 ---
 
 ## static WidgetDialogColor ( Gui gui , string str = 0 )
@@ -31,43 +70,3 @@ Constructor. Creates a color picker dialog with given parameters and adds it to 
 ### Arguments
 
 - *string* **str** - Dialog title. This is an optional parameter.
-
-## void setColor ( vec4 color )
-
-Selects a given color.
-### Arguments
-
-- *vec4* **color** - Color.
-
-## vec4 getColor ( )
-
-Returns the currently selected color.
-### Return value
-
-Current color.
-## void setPaletteColors ( string colors )
-
-Fills the palette with given colors.
-### Arguments
-
-- *string* **colors** - List of colors in the Web format separated with semicolons.
-
-## string getPaletteColors ( )
-
-Returns the current palette colors.
-### Return value
-
-List of colors in the Web format separated with semicolons.
-## void setWebColor ( string color )
-
-Selects a color in the Web format.
-### Arguments
-
-- *string* **color** - Color in the Web format.
-
-## string getWebColor ( )
-
-Returns the currently selected color in the Web format.
-### Return value
-
-Current color.

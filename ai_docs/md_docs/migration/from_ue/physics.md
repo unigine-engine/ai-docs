@@ -39,7 +39,7 @@ In UNIGINE, the concepts for physics-driven object and visible geometry are sepa
 | Box Simplified Collision | [Box](../../principles/physics/shapes/index.md#box) |
 | Sphere Simplified Collision | [Sphere](../../principles/physics/shapes/index.md#sphere) |
 | Capsule Simplified Collision | [Capsule](../../principles/physics/shapes/index.md#capsule) |
-| — | [Cylinder](../../principles/physics/shapes/index.md#cylinder) |
+| � | [Cylinder](../../principles/physics/shapes/index.md#cylinder) |
 | Auto Convex Collision | [Convex Hull](../../principles/physics/shapes/index.md#convex) |
 
 
@@ -58,14 +58,14 @@ You can combine several shapes to define a more complex collision shape in UNIGI
 UNIGINE features two [types of collisions](../../principles/physics/collision/index.md), you can apply any option to make an object to be static collider:
 
 
-- ***Shape-Shape* collision** — between two objects with physical properties assigned (i.e. between their shapes). ![](shape_shape_icon.png) To create a static collider perform the following:
+- ***Shape-Shape* collision** � between two objects with physical properties assigned (i.e. between their shapes). ![](shape_shape_icon.png) To create a static collider perform the following:
 
   1. Assign a *[Dummy Body](../../principles/physics/bodies/dummy/index.md)* to the node.
   2. Add collision shapes.
-- ***Shape-Surface* collision** — between an object with physical properties assigned and a non-physical object (i.e. between a shape and a mesh surface). ![](shape_surface_icon.png) To make a mesh surface (e.g. of *Static Mesh*) provide static collisions, just enable the **Collision** flag for it: ![](unigine_surface_collision.png) Thus, you can really quickly enable collisions with the scene geometry, however, this method may be more performance consuming than the other one, especially if the world contains a large number of polygons.
+- ***Shape-Surface* collision** � between an object with physical properties assigned and a non-physical object (i.e. between a shape and a mesh surface). ![](shape_surface_icon.png) To make a mesh surface (e.g. of *Static Mesh*) provide static collisions, just enable the **Collision** flag for it: ![](unigine_surface_collision.png) Thus, you can really quickly enable collisions with the scene geometry, however, this method may be more performance consuming than the other one, especially if the world contains a large number of polygons.
 
 
-> **Warning:** Don't scale meshes that are going to participate in collision detection — physics doesn't work properly with scaled objects. To avoid scaling, reimport the mesh with the required [scale](../../editor2/fbx/index.md#fbx_scale).
+> **Warning:** Don't scale meshes that are going to participate in collision detection � physics doesn't work properly with scaled objects. To avoid scaling, reimport the mesh with the required [scale](../../editor2/fbx/index.md#fbx_scale).
 
 
 ### Dynamic (Rigidbody) Collider

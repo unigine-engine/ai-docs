@@ -204,7 +204,7 @@ To delete a node you can use the following two methods:
 | **NODE_TRIGGER** = 2 | Dummy node that can fire callbacks on its enabling/disabling or repositioning. See the [NodeTrigger](../../../api/library/nodes/class.nodetrigger_cs.md) class. |
 | **NODE_REFERENCE** = 3 | Node reference that refers to an external NODE file. See the [NodeReference](../../../api/library/nodes/class.nodereference_cs.md) class. |
 | **NODE_EXTERN** = 4 | Extern node. See the [NodeExtern](../../../api/library/nodes/class.nodeextern_cs.md) class. |
-| **NODE_ANIMATION_PLAYBACK** = 5 | Animation playback node. See the [NodeAnimationPlayback](../../../api/library/nodes/class.nodeanimationplayback_cs.md) class. |
+| **NODE_SEQUENCE_PLAYER** = 5 | Sequence player node. See the [NodeSequencePlayer](../../../api/library/nodes/class.nodesequenceplayer_cs.md) class. |
 | **NODE_SKELETON_POSE** = 6 | Skeleton pose node. See the [NodeSkeletonPose](../../../api/library/nodes/class.nodeskeletonpose_cs.md) class. |
 | **NODE_END** = 6 | End of the nodes range. |
 | **WORLD_BEGIN** = 7 | Begin of the world nodes range. |
@@ -294,16 +294,21 @@ To delete a node you can use the following two methods:
 | **NAVIGATION_SECTOR** = 70 | Sector within which pathfinding is performed. See the [NavigationSector](../../../api/library/pathfinding/class.navigationsector_cs.md) class. |
 | **NAVIGATION_MESH** = 71 | Mesh-based navigation area across which pathfinding is performed. See the [NavigationMesh](../../../api/library/pathfinding/class.navigationmesh_cs.md) class. |
 | **NAVIGATION_END** = 71 | End of the navigation nodes range. |
-| **OBSTACLE_BEGIN** = 72 | Begin of the obstacle nodes range. |
-| **OBSTACLE_BOX** = 72 | Obstacle in the shape of a box avoided by pathfinding. See the [ObstacleBox](../../../api/library/pathfinding/class.obstaclebox_cs.md) class. |
-| **OBSTACLE_SPHERE** = 73 | Obstacle in the shape of a sphere avoided by pathfinding. See the [ObstacleSphere](../../../api/library/pathfinding/class.obstaclesphere_cs.md) class. |
-| **OBSTACLE_CAPSULE** = 74 | Obstacle in the shape of a capsule avoided by pathfinding. See the [ObstacleCapsule](../../../api/library/pathfinding/class.obstaclecapsule_cs.md) class. |
-| **OBSTACLE_END** = 74 | End of the obstacle nodes range. |
-| **SOUND_BEGIN** = 75 | Begin of the sound nodes range. |
-| **SOUND_SOURCE** = 75 | Sound source. See the [SoundSource](../../../api/library/sounds/class.soundsource_cs.md) class. |
-| **SOUND_REVERB** = 76 | Sound reverberation zone. See the [SoundReverb](../../../api/library/sounds/class.soundreverb_cs.md) class. |
-| **SOUND_END** = 76 | End of the sound nodes range. |
-| **NUM_NODES** = 77 | Counter of node types. |
+| **EXPERIMENTAL_NAVIGATION_BEGIN** = 72 | Begin of the experimental navigation nodes range. |
+| **EXPERIMENTAL_NAVIGATION_MESH** = 72 | Navigation mesh baked from the scene geometry, across which pathfinding is performed. See the [ExperimentalNavigationMesh](../../../api/library/pathfinding/class.experimentalnavigationmesh_cs.md) class. |
+| **EXPERIMENTAL_NAVIGATION_MESH_INVOKER** = 73 | Node that keeps the tiles of a baked navigation mesh resident around itself. See the [ExperimentalNavigationMeshInvoker](../../../api/library/pathfinding/class.experimentalnavigationmeshinvoker_cs.md) class. |
+| **EXPERIMENTAL_NAVIGATION_MESH_AREA_VOLUME** = 74 | Volume that stamps an area onto the polygons of a baked navigation mesh. See the [ExperimentalNavigationMeshAreaVolume](../../../api/library/pathfinding/class.experimentalnavigationmeshareavolume_cs.md) class. |
+| **EXPERIMENTAL_NAVIGATION_END** = 74 | End of the experimental navigation nodes range. |
+| **OBSTACLE_BEGIN** = 75 | Begin of the obstacle nodes range. |
+| **OBSTACLE_BOX** = 75 | Obstacle in the shape of a box avoided by pathfinding. See the [ObstacleBox](../../../api/library/pathfinding/class.obstaclebox_cs.md) class. |
+| **OBSTACLE_SPHERE** = 76 | Obstacle in the shape of a sphere avoided by pathfinding. See the [ObstacleSphere](../../../api/library/pathfinding/class.obstaclesphere_cs.md) class. |
+| **OBSTACLE_CAPSULE** = 77 | Obstacle in the shape of a capsule avoided by pathfinding. See the [ObstacleCapsule](../../../api/library/pathfinding/class.obstaclecapsule_cs.md) class. |
+| **OBSTACLE_END** = 77 | End of the obstacle nodes range. |
+| **SOUND_BEGIN** = 78 | Begin of the sound nodes range. |
+| **SOUND_SOURCE** = 78 | Sound source. See the [SoundSource](../../../api/library/sounds/class.soundsource_cs.md) class. |
+| **SOUND_REVERB** = 79 | Sound reverberation zone. See the [SoundReverb](../../../api/library/sounds/class.soundreverb_cs.md) class. |
+| **SOUND_END** = 79 | End of the sound nodes range. |
+| **NUM_NODES** = 80 | Counter of node types. |
 | **NUM_WORLDS** = WORLD_END - WORLD_BEGIN + 1 | Counter of world node types. |
 | **NUM_GEODETICS** = GEODETIC_END - GEODETIC_BEGIN + 1 | Counter of geodetic node types. |
 | **NUM_FIELDS** = FIELD_END - FIELD_BEGIN + 1 | Counter of field node types. |
@@ -470,9 +475,12 @@ The value indicating if the node is a sound node (its type is *[SOUND_*](#SOUND_
 ## 🔒︎ bool IsObstacle
 
 The value indicating if the node is an obstacle node (its type is *[OBSTACLE_*](#OBSTACLE_BEGIN)*).
+## 🔒︎ bool IsExperimentalNavigation
+
+The value indicating if a given node belongs to the experimental navigation system, that is, if its type falls within the [EXPERIMENTAL_NAVIGATION_BEGIN](#EXPERIMENTAL_NAVIGATION_BEGIN) .. [EXPERIMENTAL_NAVIGATION_END](#EXPERIMENTAL_NAVIGATION_END) range.
 ## 🔒︎ bool IsNavigation
 
-The value indicating if a given node is a navigation node.
+The value indicating if a given node is a navigation node, that is, if its type falls within the [NAVIGATION_BEGIN](#NAVIGATION_BEGIN) .. [NAVIGATION_END](#NAVIGATION_END) range. The range covers the navigation areas only. Nodes of the experimental navigation system occupy a range of their own and are reported by [IsExperimentalNavigation](#IsExperimentalNavigation).
 ## 🔒︎ bool IsPhysical
 
 The value indicating if the node is a physical node (its type is *[PHYSICAL_*](#PHYSICAL_BEGIN)*).
@@ -559,7 +567,7 @@ The lifetime management type for the root (either [parent](#getParent_Node) or [
 
 ## 🔒︎ Event< Node > EventTransformChanged
 
-The event triggered when the node's transformation has changed. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when the node's transformation has changed. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -653,7 +661,7 @@ publisher.EventTransformChanged.Enabled = true;
 
 ## 🔒︎ Event< Node , int> EventPropertyNodeSlotsChanged
 
-The event triggered when the number of the node's property slots is changed. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when the number of the node's property slots is changed. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -747,7 +755,7 @@ Node.EventPropertyNodeSlotsChanged.Enabled = true;
 
 ## 🔒︎ Event< Node , Property , int> EventPropertyNodeAdd
 
-The event triggered when a new property is assigned to the node. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a new property is assigned to the node. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -841,7 +849,7 @@ Node.EventPropertyNodeAdd.Enabled = true;
 
 ## 🔒︎ Event< Node , Property , int> EventPropertyNodeRemove
 
-The event triggered when a property is removed from the list of the node's properties. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a property is removed from the list of the node's properties. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -935,7 +943,7 @@ Node.EventPropertyNodeRemove.Enabled = true;
 
 ## 🔒︎ Event< Node , Property , int> EventPropertyChangeEnabled
 
-The event triggered when the node's property *enabled* state is changed. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when the node's property *enabled* state is changed. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1029,7 +1037,7 @@ Node.EventPropertyChangeEnabled.Enabled = true;
 
 ## 🔒︎ Event< Node , int, int> EventPropertyNodeSwap
 
-The event triggered when two properties swap their positions in the list of the node's properties. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when two properties swap their positions in the list of the node's properties. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1123,7 +1131,7 @@ Node.EventPropertyNodeSwap.Enabled = true;
 
 ## 🔒︎ Event< Node , Property > EventPropertySurfaceAdd
 
-The event triggered when a property is assigned to the object's surface. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a property is assigned to the object's surface. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1217,7 +1225,7 @@ Node.EventPropertySurfaceAdd.Enabled = true;
 
 ## 🔒︎ Event< Node , Property > EventPropertySurfaceRemove
 
-The event triggered when a property is removed from the object's surface. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a property is removed from the object's surface. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1311,7 +1319,7 @@ Node.EventPropertySurfaceRemove.Enabled = true;
 
 ## 🔒︎ Event< Node > EventCacheNodeAdd
 
-The event triggered when a node is added to cache. Occurs once upon calling [NodeReference.create()](../../../api/library/nodes/class.nodereference_cs.md#NodeReference_constchar) or [*World.LoadNode()*](../../../api/library/engine/class.world_cs.md#loadNode_cstr_int_Node). You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a node is added to cache. Occurs once upon calling [NodeReference.create()](../../../api/library/nodes/class.nodereference_cs.md#NodeReference_constchar) or [*World.LoadNode()*](../../../api/library/engine/class.world_cs.md#loadNode_cstr_int_Node). You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1405,7 +1413,7 @@ Node.EventCacheNodeAdd.Enabled = true;
 
 ## 🔒︎ Event< Node > EventNodeLoad
 
-The event triggered when a node is loaded from a file. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a node is loaded from a file. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1499,7 +1507,7 @@ Node.EventNodeLoad.Enabled = true;
 
 ## 🔒︎ Event< Node > EventNodeRemove
 
-The event triggered when the node is deleted. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when the node is deleted. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1593,7 +1601,7 @@ Node.EventNodeRemove.Enabled = true;
 
 ## 🔒︎ Event< Node > EventNodeChangeEnabled
 
-The event triggered when the node's *enabled* state is changed. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when the node's *enabled* state is changed. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1687,7 +1695,7 @@ Node.EventNodeChangeEnabled.Enabled = true;
 
 ## 🔒︎ Event< Node , Node > EventNodeClone
 
-The event triggered when copying a node via [Node.Clone()](../../../api/library/nodes/class.node_cs.md#clone_Node). You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when copying a node via [Node.Clone()](../../../api/library/nodes/class.node_cs.md#clone_Node). You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1781,7 +1789,7 @@ Node.EventNodeClone.Enabled = true;
 
 ## 🔒︎ Event< Node , Node > EventNodeSwap
 
-The event triggered when swapping a node via [Node.Swap()](../../../api/library/nodes/class.node_cs.md#swap_Node_void). You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when swapping a node via [Node.Swap()](../../../api/library/nodes/class.node_cs.md#swap_Node_void). You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 

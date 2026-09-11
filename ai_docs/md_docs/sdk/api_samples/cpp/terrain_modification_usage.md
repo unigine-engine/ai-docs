@@ -201,7 +201,7 @@ This sample is ideal for developing terrain deformation mechanics in simulators,
 ## Real-Time Terrain Rut Deformation
 
 This sample demonstrates non-destructive runtime modification of the **[Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md)** by dynamically spawning multiple **[Landscape Layer Map](../../../objects/objects/terrain/landscape_terrain/landscape_layer_map.md)** beneath moving objects (such as vehicles or characters) to create realistic track imprints on the terrain.
- Each track is rendered using a dedicated **[Landscape Layer Map](../../../objects/objects/terrain/landscape_terrain/landscape_layer_map.md)** that blends additively with the terrain’s height data and alpha blends with the albedo, producing visually convincing trails without altering the original terrain layers.
+ Each track is rendered using a dedicated **[Landscape Layer Map](../../../objects/objects/terrain/landscape_terrain/landscape_layer_map.md)** that blends additively with the terrain�s height data and alpha blends with the albedo, producing visually convincing trails without altering the original terrain layers.
 
 
 **Key Features**

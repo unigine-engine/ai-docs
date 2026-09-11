@@ -1,6 +1,16 @@
 # World Trigger
 
 
+Trigger types available in UNIGINE:
+
+
+| [Node Trigger](../../../objects/nodes/trigger/index.md) | World Trigger | [Physical Trigger](../../../objects/effects/physicals/physical_trigger/index.md) |
+|---|---|---|
+| **Catches changes in the parent node state** (enabled/disabled, transforms changed) ![](../../triggers_images/node_trigger.png) | **Catches nodes with bounds** entering/leaving the trigger area ![](../../triggers_images/world_trigger.png) | **Catches physical objects** (with [body](../../../principles/physics/bodies/index.md) and [shape](../../../principles/physics/shapes/index.md)) entering/leaving the trigger area (detected by physical contact) ![](../../triggers_images/physical_trigger.png) |
+| ![](../../../vr_development/yes.png) **Used with:** Any node except [Dummy Node](../../../objects/nodes/dummy/index.md) | ![](../../../vr_development/yes.png) **Used with:** - All nodes having bounds (such nodes have the **[Triggers Interaction](../../../editor2/node_parameters/transformation_common/index.md#common_params)** option in the Editor interface which should be enabled, **by default it is disabled**) - [Dummy Object](../../../objects/objects/dummy/index.md) with [body](../../../principles/physics/bodies/index.md) | ![](../../../vr_development/yes.png) **Used with:** Physical objects (with [body](../../../principles/physics/bodies/index.md) and [shape](../../../principles/physics/shapes/index.md) assigned), such as: *[Dummy Object](../../../objects/objects/dummy/index.md), [Static Mesh](../../../objects/objects/mesh/index.md), [Skinned Mesh](../../../objects/objects/mesh_skinned/index.md), [Dynamic Mesh](../../../objects/objects/mesh_dynamic/index.md), [Billboards](../../../objects/objects/billboards/index.md)* |
+| ![](../../../vr_development/no.png) **Doesn't work with:** - [Dummy Node](../../../objects/nodes/dummy/index.md) | ![](../../../vr_development/no.png) **Doesn't work with:** [Dummy Node](../../../objects/nodes/dummy/index.md), [Node Reference](../../../objects/nodes/reference/index.md), [Node Layer](../../../objects/nodes/layer/index.md), [World Switcher](../../../objects/worlds/world_switcher/index.md), [World Transform Path](../../../objects/worlds/world_transforms/transform_path/index.md), [World Transform Joint](../../../objects/worlds/world_transforms/transform_bone/index.md), [World Expression](../../../objects/worlds/world_expression/index.md) [Dummy Object](../../../objects/objects/dummy/index.md) with no [body](../../../principles/physics/bodies/index.md) assigned | ![](../../../vr_development/no.png) **Doesn't work with:** - Non-physical [objects](../../../objects/objects/index.md) (no [physical body](../../../principles/physics/bodies/index.md) and [shape](../../../principles/physics/shapes/index.md)) - Nodes that are not [objects](../../../objects/objects/index.md) |
+
+
 **World Trigger** is a cuboid shaped node that triggers events when any node (physical or not) gets inside or outside it. *World Trigger* can detect a node of any type by its [bound](../../../api/library/math/bounds/index.md) and can be used to access node's components and parameters.
 
 

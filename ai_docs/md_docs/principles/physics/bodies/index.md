@@ -4,19 +4,19 @@
 **Bodies** can be considered physical approximations of objects. They describe the object's behavior and represent a set of its physical parameters, such as mass, velocity, etc. It is the body that enables interaction of an object with other objects and external physical forces. Each type of body is used for simulation of a specific type of object:
 
 
-- [Rigid body](../../../principles/physics/bodies/rigid/index.md) (also requires a [shape](../../../principles/physics/shapes/index.md) to be assigned) — enables simulation of objects in accordance with the [rigid body dynamics](#rigid_bodies_dynamics).
-- [Ragdoll body](../../../principles/physics/bodies/ragdoll/index.md) (also requires a [shape](../../../principles/physics/shapes/index.md) to be assigned for each bone) — provides [bone-animated](../../../objects/objects/mesh_skinned_legacy/index.md) characters with procedural animation of a death sequence.
-- [Fracture body](../../../principles/physics/bodies/fracture/index.md) — enables real-time simulation of destructible objects.
-- [Rope body](../../../principles/physics/bodies/rope/index.md) — enables physical simulation of various types of ropes and wires.
-- [Cloth body](../../../principles/physics/bodies/cloth/index.md) — enables physical simulation of various types of cloth.
-- [Water body](../../../principles/physics/bodies/water/index.md) — enables physical simulation of liquids of different density and viscous behavior including buoyancy effect and wave dynamics.
+- [Rigid body](../../../principles/physics/bodies/rigid/index.md) (also requires a [shape](../../../principles/physics/shapes/index.md) to be assigned) � enables simulation of objects in accordance with the [rigid body dynamics](#rigid_bodies_dynamics).
+- [Ragdoll body](../../../principles/physics/bodies/ragdoll/index.md) (also requires a [shape](../../../principles/physics/shapes/index.md) to be assigned for each bone) � provides [bone-animated](../../../objects/objects/mesh_skinned_legacy/index.md) characters with procedural animation of a death sequence.
+- [Fracture body](../../../principles/physics/bodies/fracture/index.md) � enables real-time simulation of destructible objects.
+- [Rope body](../../../principles/physics/bodies/rope/index.md) � enables physical simulation of various types of ropes and wires.
+- [Cloth body](../../../principles/physics/bodies/cloth/index.md) � enables physical simulation of various types of cloth.
+- [Water body](../../../principles/physics/bodies/water/index.md) � enables physical simulation of liquids of different density and viscous behavior including buoyancy effect and wave dynamics.
 
 
 There are also two types of **auxiliary bodies**:
 
 
-- [Dummy body](../../../principles/physics/bodies/dummy/index.md) — a static type of body without physical properties. It is used to attach other bodies via [joints](../../../principles/physics/joints/index.md).
-- [Path body](../../../principles/physics/bodies/path/index.md) — a static type of body without physical properties. It is a spline, along which an arbitrary rigid body can be moved.
+- [Dummy body](../../../principles/physics/bodies/dummy/index.md) � a static type of body without physical properties. It is used to attach other bodies via [joints](../../../principles/physics/joints/index.md).
+- [Path body](../../../principles/physics/bodies/path/index.md) � a static type of body without physical properties. It is a spline, along which an arbitrary rigid body can be moved.
 
 
 For quick visualization of all types of bodies, watch a fragment of our [video tutorial on physics](https://youtu.be/w_GJrE-6HtI?t=209s).
@@ -47,10 +47,10 @@ Watch a fragment of our [video tutorial on physics](https://youtu.be/w_GJrE-6HtI
 ### Basic Concepts
 
 
-A state of a rigid body at any moment is specified with its *position*, *orientation* in space (with respect to some reference point — [center of mass](#mass)), and *velocity*. There are two types of body motion and, therefore, two velocity components:
+A state of a rigid body at any moment is specified with its *position*, *orientation* in space (with respect to some reference point � [center of mass](#mass)), and *velocity*. There are two types of body motion and, therefore, two velocity components:
 
 
-- **Linear motion**. If we imagine that the orientation of the body is fixed, then the only movement the body can undergo is translation motion — change in linear position. This change is performed with **linear velocity**.
+- **Linear motion**. If we imagine that the orientation of the body is fixed, then the only movement the body can undergo is translation motion � change in linear position. This change is performed with **linear velocity**.
 - **Angular motion**. On the other hand, if we freeze the center of mass of our body in space, the only movement the body will be able to perform is rotation, which is described by **angular velocity.**
 
 
@@ -72,7 +72,7 @@ The body will keep on moving forever, unless affected by an external force or im
 By causing the body to undergo acceleration (i.e., to change its velocity over time), force controls its velocity and position indirectly.
 
 
-> **Notice:** Forces acting on a body do not affect it immediately — they are accumulated before each [physics simulation frame](../../../code/fundamentals/execution_sequence/index.md#framerates), and during simulation the resulting force, if unbalanced, is applied. Then forces are reset to zero to be calculated anew for the next frame. The same is true for torques.
+> **Notice:** Forces acting on a body do not affect it immediately � they are accumulated before each [physics simulation frame](../../../code/fundamentals/execution_sequence/index.md#framerates), and during simulation the resulting force, if unbalanced, is applied. Then forces are reset to zero to be calculated anew for the next frame. The same is true for torques.
 
 
 **Impulse** is the integral of force over time. It may be regarded as a change in momentum of an object to which a resultant force is applied. For example, when two bodies collide, they exchange impulses that are equal and opposite, as Newton's third law applies, and result in moving apart.
@@ -121,7 +121,7 @@ Mass parameters of the body can be set up manually or determined automatically u
 **Density** of the objects is defined as its mass per unit volume:
 
  **ρ** = **m** / **V**
-Density value evidently depends on the mass value and vice versa — the higher the values are, the heavier and more dense the object is.
+Density value evidently depends on the mass value and vice versa � the higher the values are, the heavier and more dense the object is.
 
 
 [![Boxes of different mass and density](mass_sm.jpg)](mass.jpg)
@@ -195,7 +195,7 @@ When a body does not move and stays in the equilibrium for some time, it will mo
 > - [Fracture body](../../../principles/physics/bodies/fracture/index.md)
 
 
-| ![Frozen boxes](freezing0.jpg) | ![Simulation starts again as the impulse unfreezes boxes](freezing1.jpg) |
+| ![Frozen boxes](freezing0.jpg) � � | ![Simulation starts again as the impulse unfreezes boxes](freezing1.jpg) |
 |---|---|
 | *Frozen blue and unfrozen red boxes. The impulse applied to the pyramid of boxes unfroze all but one* |  |
 

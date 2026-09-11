@@ -15,7 +15,7 @@
 The total number of billboards contained in and managed by billboards object.
 ## int DepthSort
 
-The A value indicating whether depth sorting (in the back-to-front order) is enabled for billboards. this option should be enabled, if [alpha blending](../../../principles/render/blending/index.md) is used for the billboard material (except for the additive blending).
+The value indicating whether depth sorting (in the back-to-front order) is enabled for billboards. this option should be enabled, if [alpha blending](../../../principles/render/blending/index.md) is used for the billboard material (except for the additive blending).
 ### Members
 
 ---

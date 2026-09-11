@@ -59,6 +59,383 @@ The default *[Step](#setStep_float_void)* and *[Density](#setDensity_float_void)
 
 ### Members
 
+## void setCutoutInverse ( int inverse )
+
+Sets a new value indicating if the clutter objects is rendered inside or outside the areas determined by the [cutout intersection mask](#setCutoutIntersectionMask_int_void).
+### Arguments
+
+- *int* **inverse** - The value indicating if the clutter objects is rendered inside or outside the areas determined by the cutout intersection mask
+
+## int getCutoutInverse () const
+
+Returns the current value indicating if the clutter objects is rendered inside or outside the areas determined by the [cutout intersection mask](#setCutoutIntersectionMask_int_void).
+### Return value
+
+Current value indicating if the clutter objects is rendered inside or outside the areas determined by the cutout intersection mask
+## void setCutoutIntersectionMask ( int mask )
+
+Sets a new cutout intersection mask. this mask allows you to cut out clutter objects in the areas of intersection with other objects and decals (e.g. can be used to remove vegetation under houses or from the surface of roads projected using decals). clutter objects will be cut out by objects and decals that have their intersection mask matching this one (one bit at least).
+> **Notice:** To set intersection masks the following methods can be used:
+> - **for decals** use *[getIntersectionMask()](../../../api/library/decals/class.decal_cpp.md#getIntersectionMask_int)*
+> - **for objects** use *[getIntersectionMask()](../../../api/library/objects/class.object_cpp.md#getIntersectionMask_int_int)*
+
+### Arguments
+
+- *int* **mask** - The cutout intersection mask
+
+## int getCutoutIntersectionMask () const
+
+Returns the current cutout intersection mask. this mask allows you to cut out clutter objects in the areas of intersection with other objects and decals (e.g. can be used to remove vegetation under houses or from the surface of roads projected using decals). clutter objects will be cut out by objects and decals that have their intersection mask matching this one (one bit at least).
+> **Notice:** To set intersection masks the following methods can be used:
+> - **for decals** use *[getIntersectionMask()](../../../api/library/decals/class.decal_cpp.md#getIntersectionMask_int)*
+> - **for objects** use *[getIntersectionMask()](../../../api/library/objects/class.object_cpp.md#getIntersectionMask_int_int)*
+
+### Return value
+
+Current cutout intersection mask
+## void setMaskInverse ( int inverse )
+
+Sets a new flag indicating if clutter meshes are rendered inside or outside the mask mesh contour.
+### Arguments
+
+- *int* **inverse** - The flag indicating if clutter meshes are rendered inside or outside the mask mesh contour
+
+## int getMaskInverse () const
+
+Returns the current flag indicating if clutter meshes are rendered inside or outside the mask mesh contour.
+### Return value
+
+Current flag indicating if clutter meshes are rendered inside or outside the mask mesh contour
+## void setMaskMeshName ( const char * name )
+
+Sets a new name (path) of the current mesh used as a mask for the mesh clutter. this mesh should be plane.
+### Arguments
+
+- *const char ** **name** - The name (path) of the current mesh used as a mask for the mesh clutter
+
+## const char * getMaskMeshName () const
+
+Returns the current name (path) of the current mesh used as a mask for the mesh clutter. this mesh should be plane.
+### Return value
+
+Current name (path) of the current mesh used as a mask for the mesh clutter
+## void setMaskMaxValue ( int value )
+
+Sets a new maximum value of the mask application range, **[0;255]**.
+### Arguments
+
+- *int* **value** - The maximum value of the mask application range
+
+## int getMaskMaxValue () const
+
+Returns the current maximum value of the mask application range, **[0;255]**.
+### Return value
+
+Current maximum value of the mask application range
+## void setMaskMinValue ( int value )
+
+Sets a new minimum value of the mask application range.
+### Arguments
+
+- *int* **value** - The minimum value of the mask application range
+
+## int getMaskMinValue () const
+
+Returns the current minimum value of the mask application range.
+### Return value
+
+Current minimum value of the mask application range
+## void setMaskFlipY ( int y )
+
+Sets a new flag indicating if a mask is flipped by y axis.
+### Arguments
+
+- *int* **y** - The flag indicating if a mask is flipped by y axis
+
+## int getMaskFlipY () const
+
+Returns the current flag indicating if a mask is flipped by y axis.
+### Return value
+
+Current flag indicating if a mask is flipped by y axis
+## void setMaskFlipX ( int x )
+
+Sets a new flag indicating if a mask is flipped by x axis.
+### Arguments
+
+- *int* **x** - The flag indicating if a mask is flipped by x axis
+
+## int getMaskFlipX () const
+
+Returns the current flag indicating if a mask is flipped by x axis.
+### Return value
+
+Current flag indicating if a mask is flipped by x axis
+## void setMaskImageName ( const char * name )
+
+Sets a new name of a mask image (in *R8* format) that defines the placement of meshes.
+### Arguments
+
+- *const char ** **name** - The name of a mask image (in R8 format) that defines the placement of meshes
+
+## const char * getMaskImageName () const
+
+Returns the current name of a mask image (in *R8* format) that defines the placement of meshes.
+### Return value
+
+Current name of a mask image (in R8 format) that defines the placement of meshes
+## void setAngle ( float angle )
+
+Sets a new angle cosine that defines the slope steepness appropriate for positioning meshes. The provided value will be clipped in range **[0;1]**.
+### Arguments
+
+- *float* **angle** - The angle cosine that defines the slope steepness appropriate for positioning meshes
+
+## float getAngle () const
+
+Returns the current angle cosine that defines the slope steepness appropriate for positioning meshes. The provided value will be clipped in range **[0;1]**.
+### Return value
+
+Current angle cosine that defines the slope steepness appropriate for positioning meshes
+## void setThreshold ( float threshold )
+
+Sets a new density threshold (for a mask) starting from which meshes are rendered if placed dense enough.
+### Arguments
+
+- *float* **threshold** - The density threshold (for a mask) starting from which meshes are rendered if placed dense enough
+
+## float getThreshold () const
+
+Returns the current density threshold (for a mask) starting from which meshes are rendered if placed dense enough.
+### Return value
+
+Current density threshold (for a mask) starting from which meshes are rendered if placed dense enough
+## void setDensity ( float density )
+
+Sets a new density factor that defines the number of meshes per square unit.
+> **Notice:** The number of clutter elements in each cell is determined by the clutter *Size* along X and Y axes, as well as by *[Density](#setDensity_float_void)* and *[Step](#setStep_float_void)* values. Relationship between these values in internal calculations **may result in an invisible clutter**. When setting these values, please consider [this information](#important_notes).
+
+### Arguments
+
+- *float* **density** - The density factor that defines the number of meshes per square unit
+
+## float getDensity () const
+
+Returns the current density factor that defines the number of meshes per square unit.
+> **Notice:** The number of clutter elements in each cell is determined by the clutter *Size* along X and Y axes, as well as by *[Density](#setDensity_float_void)* and *[Step](#setStep_float_void)* values. Relationship between these values in internal calculations **may result in an invisible clutter**. When setting these values, please consider [this information](#important_notes).
+
+### Return value
+
+Current density factor that defines the number of meshes per square unit
+## void setStep ( float step )
+
+Sets a new step for cells used to render meshes scattered by the mesh clutter.
+> **Notice:** The number of clutter elements in each cell is determined by the clutter *Size* along X and Y axes, as well as by *[Density](#setDensity_float_void)* and *[Step](#setStep_float_void)* values. Relationship between these values in internal calculations **may result in an invisible clutter**. When setting these values, please consider [this information](#important_notes).
+
+### Arguments
+
+- *float* **step** - The step for cells used to render meshes scattered by the mesh clutter
+
+## float getStep () const
+
+Returns the current step for cells used to render meshes scattered by the mesh clutter.
+> **Notice:** The number of clutter elements in each cell is determined by the clutter *Size* along X and Y axes, as well as by *[Density](#setDensity_float_void)* and *[Step](#setStep_float_void)* values. Relationship between these values in internal calculations **may result in an invisible clutter**. When setting these values, please consider [this information](#important_notes).
+
+### Return value
+
+Current step for cells used to render meshes scattered by the mesh clutter
+## void setSizeX ( float x )
+
+Sets a new width of the mesh clutter along the X-axis, in units. If a negative value is provided, **0** will be used instead.
+> **Notice:** The number of clutter elements in each cell is determined by the clutter *Size* along X and Y axes, as well as by *[Density](#setDensity_float_void)* and *[Step](#setStep_float_void)* values. Relationship between these values in internal calculations **may result in an invisible clutter**. When setting these values, please consider [this information](#important_notes).
+
+### Arguments
+
+- *float* **x** - The width of the mesh clutter along the X-axis
+
+## float getSizeX () const
+
+Returns the current width of the mesh clutter along the X-axis, in units. If a negative value is provided, **0** will be used instead.
+> **Notice:** The number of clutter elements in each cell is determined by the clutter *Size* along X and Y axes, as well as by *[Density](#setDensity_float_void)* and *[Step](#setStep_float_void)* values. Relationship between these values in internal calculations **may result in an invisible clutter**. When setting these values, please consider [this information](#important_notes).
+
+### Return value
+
+Current width of the mesh clutter along the X-axis
+## void setSizeY ( float y )
+
+Sets a new length of the mesh clutter along the Y-axis, in units. If a negative value is provided, **0** will be used instead.
+> **Notice:** The number of clutter elements in each cell is determined by the clutter *Size* along X and Y axes, as well as by *[Density](#setDensity_float_void)* and *[Step](#setStep_float_void)* values. Relationship between these values in internal calculations **may result in an invisible clutter**. When setting these values, please consider [this information](#important_notes).
+
+### Arguments
+
+- *float* **y** - The length of the mesh clutter along the Y-axis
+
+## float getSizeY () const
+
+Returns the current length of the mesh clutter along the Y-axis, in units. If a negative value is provided, **0** will be used instead.
+> **Notice:** The number of clutter elements in each cell is determined by the clutter *Size* along X and Y axes, as well as by *[Density](#setDensity_float_void)* and *[Step](#setStep_float_void)* values. Relationship between these values in internal calculations **may result in an invisible clutter**. When setting these values, please consider [this information](#important_notes).
+
+### Return value
+
+Current length of the mesh clutter along the Y-axis
+## void setSeed ( int seed )
+
+Sets a new seed used for pseudo-random positioning of meshes. If a negative value is provided, **0** will be used instead.
+### Arguments
+
+- *int* **seed** - The seed used for pseudo-random positioning of meshes
+
+## int getSeed () const
+
+Returns the current seed used for pseudo-random positioning of meshes. If a negative value is provided, **0** will be used instead.
+### Return value
+
+Current seed used for pseudo-random positioning of meshes
+## void setFadeDistance ( float distance )
+
+Sets a new distance up to which meshes scattered by the mesh clutter are fading out (that is, fewer meshes will be rendered instead of all). the distance is measured starting from the [visible distance](#setVisibleDistance_float_void). If a negative value is provided, **0** will be used instead.
+> **Notice:** In order for a fade distance to be applied, [visibility distance](#getVisibleDistance_float) should not be infinite.
+
+### Arguments
+
+- *float* **distance** - The distance up to which meshes scattered by the mesh clutter are fading out
+
+## float getFadeDistance () const
+
+Returns the current distance up to which meshes scattered by the mesh clutter are fading out (that is, fewer meshes will be rendered instead of all). the distance is measured starting from the [visible distance](#setVisibleDistance_float_void). If a negative value is provided, **0** will be used instead.
+> **Notice:** In order for a fade distance to be applied, [visibility distance](#getVisibleDistance_float) should not be infinite.
+
+### Return value
+
+Current distance up to which meshes scattered by the mesh clutter are fading out
+## void setVisibleDistance ( float distance )
+
+Sets a new distance up to which meshes scattered by the mesh clutter are rendered. If a negative value is provided, **0** will be used instead.
+### Arguments
+
+- *float* **distance** - The distance up to which meshes scattered by the mesh clutter are rendered
+
+## float getVisibleDistance () const
+
+Returns the current distance up to which meshes scattered by the mesh clutter are rendered. If a negative value is provided, **0** will be used instead.
+### Return value
+
+Current distance up to which meshes scattered by the mesh clutter are rendered
+## void setIntersection ( bool intersection )
+
+Sets a new value indicating whether meshes are scattered upon the ground (along its relief): either the terrain or a mesh set as a parent node.
+### Arguments
+
+- *bool* **intersection** - value indicating whether meshes are scattered upon the ground (along its relief): either the terrain or a mesh set as a parent node
+
+## bool getIntersection () const
+
+Returns the current value indicating whether meshes are scattered upon the ground (along its relief): either the terrain or a mesh set as a parent node.
+### Return value
+
+value indicating whether meshes are scattered upon the ground (along its relief): either the terrain or a mesh set as a parent node
+## void setOrientation ( bool orientation )
+
+Sets a new value indicating whether meshes are oriented along the normals of the ground (either the terrain or a mesh set as a parent node).
+### Arguments
+
+- *bool* **orientation** - value indicating whether meshes are oriented along the normals of the ground (either the terrain or a mesh set as a parent node)
+
+## bool getOrientation () const
+
+Returns the current value indicating whether meshes are oriented along the normals of the ground (either the terrain or a mesh set as a parent node).
+### Return value
+
+value indicating whether meshes are oriented along the normals of the ground (either the terrain or a mesh set as a parent node)
+## void setCollision ( bool collision )
+
+Sets a new value indicating if collisions with the object should be taken into account.
+> **Notice:** If the return value is **0** the new geometry will never be generated by collision detection request.
+
+### Arguments
+
+- *bool* **collision** - value indicating if collisions with the object should be taken into account
+
+## bool getCollision () const
+
+Returns the current value indicating if collisions with the object should be taken into account.
+> **Notice:** If the return value is **0** the new geometry will never be generated by collision detection request.
+
+### Return value
+
+value indicating if collisions with the object should be taken into account
+## void setTerrainMask ( int mask )
+
+Sets a new index of the [Landscape Terrain mask](../../../api/library/objects/landscape_terrain/class.objectlandscapeterrain_cpp.md#getDetailMask_int_TerrainDetailMask) currently used to define placement of meshes, in the [0; 19] range.
+### Arguments
+
+- *int* **mask** - The index of the Landscape Terrain mask currently used to define placement of meshes
+
+## int getTerrainMask () const
+
+Returns the current index of the [Landscape Terrain mask](../../../api/library/objects/landscape_terrain/class.objectlandscapeterrain_cpp.md#getDetailMask_int_TerrainDetailMask) currently used to define placement of meshes, in the [0; 19] range.
+### Return value
+
+Current index of the Landscape Terrain mask currently used to define placement of meshes
+## void setMeshPath ( const char * path )
+
+Sets a new path to the source *.mesh*-file of the mesh scattered by mesh clutter.
+> **Notice:** Setting a new path does not update the mesh immediately. If the mesh is in the procedural mode, it will be reset.
+
+### Arguments
+
+- *const char ** **path** - The path to the source .mesh-file of the mesh scattered by mesh clutter
+
+## const char * getMeshPath () const
+
+Returns the current path to the source *.mesh*-file of the mesh scattered by mesh clutter.
+> **Notice:** Setting a new path does not update the mesh immediately. If the mesh is in the procedural mode, it will be reset.
+
+### Return value
+
+Current path to the source .mesh-file of the mesh scattered by mesh clutter
+## bool isMeshLoadedVRAM () const
+
+Returns the current value indicating if the source mesh used for the object is loaded to video memory (VRAM).
+### Return value
+
+**true** if the source mesh used for the object is loaded to video memory (VRAM); otherwise **false**.
+## bool isMeshLoadedRAM () const
+
+Returns the current value indicating if the source mesh used for the object is loaded to memory (RAM).
+### Return value
+
+**true** if the source mesh used for the object is loaded to memory (RAM); otherwise **false**.
+## bool isMeshNull () const
+
+Returns the current value indicating if the source mesh used for the object is null (does not exist, unassigned, not loaded, etc.).
+### Return value
+
+**true** if the source mesh used for the object is null (does not exist, unassigned, not loaded, etc.); otherwise **false**.
+## ObjectMeshStatic::PROCEDURAL_MODE getMeshProceduralMode () const
+
+Returns the current value indicating if the source mesh used for the object is [procedural](../../../api/library/objects/class.objectmeshstatic_cpp.md#PROCEDURAL_MODE). A procedural mesh is a [mesh](../../../api/library/rendering/class.mesh_cpp.md) created via code, such meshes have a specific streaming mode - they are always kept in memory after creation and never unloaded until the object is destroyed via code or the mesh returns to its normal mode (streaming from a source file). Changing of the static mesh is possible only if it is in the procedural mode.
+### Return value
+
+Current procedural mode of the source mesh used for the object
+## bool isMeshProceduralDynamic () const
+
+Returns the current value indicating if the current procedural mode is *[PROCEDURAL_MODE_DYNAMIC](../../../api/library/objects/class.objectmeshstatic_cpp.md#PROCEDURAL_MODE_DYNAMIC)*.
+### Return value
+
+**true** if the current procedural mode is PROCEDURAL_MODE_DYNAMIC; otherwise **false**.
+## bool isMeshProceduralActive () const
+
+Returns the current value indicating if an asynchronous operation on the procedural mesh is currently in progress.
+### Return value
+
+**true** if an asynchronous operation on the procedural mesh is currently in progress; otherwise **false**.
+## bool isMeshProceduralDone () const
+
+Returns the current value indicating if all asynchronous operations on the procedural mesh have completed.
+### Return value
+
+**true** if all asynchronous operations on the procedural mesh have completed; otherwise **false**.
 ---
 
 ## static ObjectMeshClutterPtr create ( const char * path )
@@ -71,112 +448,6 @@ ObjectMeshClutter constructor. Creates a clutter using the path to the source me
 ## static ObjectMeshClutterPtr create ( )
 
 Default ObjectMeshClutter constructor. Creates an empty clutter.
-## void setAngle ( float angle )
-
-Sets the angle cosine that defines the slope steepness appropriate for positioning meshes.
-### Arguments
-
-- *float* **angle** - Slope angle cosine. The provided value will be clipped in range **[0;1]**.
-
-## float getAngle ( ) const
-
-Returns the current angle cosine that defines the slope steepness appropriate for positioning meshes.
-### Return value
-
-Slope angle cosine.
-## void setCollision ( bool collision )
-
-Sets a value indicating if collisions with the object should be taken into account.
-> **Notice:** If the collision parameter is set to **0**, the new geometry will never be generated by collision detection request.
-
-
-### Arguments
-
-- *bool* **collision** - true to take collisions into account and make the object important for physics; false to allow collisions only with already generated geometry.
-
-## bool getCollision ( ) const
-
-Returns a value indicating if collisions with the object should be taken into account.
-> **Notice:** If the return value is **false** the new geometry will never be generated by collision detection request.
-
-
-### Return value
-
-**1** if collisions are taken into account; **0** if collisions are allowed only with already generated geometry.
-## void setDensity ( float density )
-
-Sets the density factor that defines the number of meshes per square unit.
-> **Notice:** The number of clutter elements in each cell is determined by the clutter *Size* along X and Y axes, as well as by *[Density](#setDensity_float_void)* and *[Step](#setStep_float_void)* values. Relationship between these values in internal calculations **may result in an invisible clutter**. When setting these values, please consider [this information](#important_notes).
-
-
-### Arguments
-
-- *float* **density** - Density factor. If a negative value is provided, **0** will be used instead.
-
-## float getDensity ( ) const
-
-Returns the current density factor that defines the number of meshes per square unit.
-### Return value
-
-Density factor.
-## void setFadeDistance ( float distance )
-
-Sets the distance up to which meshes scattered by the mesh clutter will be fading out (that is, fewer meshes will be rendered instead of all). The distance is measured starting from the [visible distance](#setVisibleDistance_float_void).
-> **Notice:** In order for a fade distance to be applied, [visibility distance](#getVisibleDistance_float) should not be infinite.
-
-
-### Arguments
-
-- *float* **distance** - Distance of fading for meshes in units. If a negative value is provided, **0** will be used instead.
-
-## float getFadeDistance ( ) const
-
-Returns the current distance up to which meshes scattered by the mesh clutter are fading out (that is, fewer meshes will be rendered instead of all). The distance is measured starting from the [visible distance](#setVisibleDistance_float_void).
-> **Notice:** In order for a fade distance to be applied, [visibility distance](#getVisibleDistance_float) should not be infinite.
-
-
-### Return value
-
-Distance of nodes fading in units.
-## void setIntersection ( bool intersection )
-
-Sets a value indicating whether meshes should be scattered upon the ground (along its relief): either the terrain or a mesh set as a parent node.
-### Arguments
-
-- *bool* **intersection** - Positive number to enable intersection; **0** to disable.
-
-## bool getIntersection ( ) const
-
-Returns a value indicating whether meshes are scattered upon the ground (along its relief): either the terrain or a mesh set as a parent node.
-### Return value
-
-**1** if intersection is enabled; otherwise, **0**.
-## void setMaskFlipX ( int value )
-
-Flip the mask by X axis.
-### Arguments
-
-- *int* **value** - Positive value to flip the mask; otherwise, **0**.
-
-## int getMaskFlipX ( ) const
-
-Returns a flag indicating if a mask is flipped by X axis.
-### Return value
-
-Positive value if the mask is flipped; otherwise, **0**.
-## void setMaskFlipY ( int value )
-
-Flip the mask by Y axis.
-### Arguments
-
-- *int* **value** - Positive value to flip the mask; otherwise, **0**.
-
-## int getMaskFlipY ( ) const
-
-Returns a flag indicating if a mask is flipped by Y axis.
-### Return value
-
-Positive value if the mask is flipped; otherwise, **0**.
 ## int setMaskImage ( const Ptr < Image > & image , bool invalidate = 1 )
 
 Sets an image (in *R8* format) as a mask, that defines placement of meshes.
@@ -206,45 +477,6 @@ Sets the path to a mask image (in *R8* format) that defines the placement of mes
 - *const char ** **image_name** - Path to the mask image.
 - *bool* **invalidate** - Invalidate flag. Set true to invalidate all mesh clutter cells; otherwise, set false. All invalidated cells will be regenerated.
 
-## void setMaskImageName ( const char * name )
-
-Sets the path to a mask image (in *R8* format) that defines the placement of meshes.
-### Arguments
-
-- *const char ** **name** - Path to the mask image (in *R8* format).
-
-## const char * getMaskImageName ( ) const
-
-Returns the path to a mask image (in *R8* format) that defines the placement of meshes.
-### Return value
-
-Path to the mask image.
-## void setMaskInverse ( int inverse )
-
-Specifies if clutter meshes should be rendered inside or outside the mask mesh contour.
-### Arguments
-
-- *int* **inverse** - **0** to render clutter meshes inside the mask mesh contour; **1** to render them outside.
-
-## int getMaskInverse ( ) const
-
-Returns a flag indicating if clutter meshes are rendered inside or outside the mask mesh contour.
-### Return value
-
-**0** if clutter meshes are rendered inside the mask mesh contour; **1** if outside.
-## void setMaskMaxValue ( int value )
-
-Sets the maximum value of the mask application range.
-### Arguments
-
-- *int* **value** - Maximum mask value, **[0;255]**.
-
-## int getMaskMaxValue ( ) const
-
-Returns the maximum value of the mask application range.
-### Return value
-
-Maximum mask value.
 ## int setMaskMesh ( const Ptr<ConstMesh> & mesh , bool invalidate = true )
 
 Sets a mesh to be used as a mask on-the-fly. Limitations:
@@ -279,48 +511,9 @@ Sets a mesh to be used as a mask for the mesh clutter. This mesh should be plane
 - *const char ** **mesh_name** - Path to the **.mesh* file.
 - *bool* **invalidate** - Invalidate flag. Set true to invalidate all mesh clutter cells; otherwise, set false. All invalidated cells will be regenerated.
 
-## void setMaskMeshName ( const char * name )
-
-Sets a mesh to be used as a mask for the mesh clutter. This mesh should be plane.
-### Arguments
-
-- *const char ** **name** - Path to the **.mesh* file.
-
 ## void createClutterTransforms ( )
 
 Creates transformations for all clutter meshes.
-## const char * getMaskMeshName ( ) const
-
-Returns the name (path) of the current mesh used as a mask for the mesh clutter. This mesh should be plane.
-### Return value
-
-Path to the **.mesh* file.
-## void setMaskMinValue ( int value )
-
-Sets the minimum value of the mask application range.
-### Arguments
-
-- *int* **value** - Minimum mask value, **[0;255]**.
-
-## int getMaskMinValue ( ) const
-
-Returns the minimum value of the mask application range.
-### Return value
-
-Minimum mask value.
-## void setTerrainMask ( int mask )
-
-Sets a new [Landscape Terrain mask](../../../api/library/objects/landscape_terrain/class.objectlandscapeterrain_cpp.md#getDetailMask_int_TerrainDetailMask) to be used to define placement of meshes.
-### Arguments
-
-- *int* **mask** - Index of Landscape Terrain mask to be used to define placement of meshes, in the [0; 19] range.
-
-## int getTerrainMask ( ) const
-
-Returns the index of the [Landscape Terrain mask](../../../api/library/objects/landscape_terrain/class.objectlandscapeterrain_cpp.md#getDetailMask_int_TerrainDetailMask) currently used to define placement of meshes.
-### Return value
-
-Index of the Landscape Terrain mask currently used to define placement of meshes, in the [0; 19] range.
 ## void setMaxScale ( float mean , float spread )
 
 Sets the scale for meshes in the areas with high density (according to the mask). With the minimum scale it is possible to automatically render, for example, big trees in the center of the forest. A spread value allows you to control the range of scales relative to the mean value.
@@ -361,19 +554,6 @@ Returns the vector of spread values of meshes rotation along X, Y and Z axes.
 ### Return value
 
 Maximum spread values of meshes rotation angles, in degrees.
-## void setMeshPath ( const char * path )
-
-Sets a path to the mesh scattered by the mesh clutter. Does not update mesh immediately using the new path. If the mesh is in the procedural mode, it will be reset.
-### Arguments
-
-- *const char ** **path** - New path to the source *.mesh*-file to be set.
-
-## const char * getMeshPath ( ) const
-
-Returns the path to the source *.mesh*-file of the mesh scattered by mesh clutter.
-### Return value
-
-Path to the source *.mesh*-file.
 ## void setMinScale ( float mean , float spread )
 
 Sets the scale for meshes in the areas with low density (according to the mask). With the minimum scale it is possible to automatically render, for example, small trees at the forest border. A spread value allows you to control the range of scales relative to the mean value.
@@ -414,112 +594,6 @@ Returns the current spread value of the vertical offset that determines the plac
 ### Return value
 
 Spread value of the offset in units.
-## void setOrientation ( bool orientation )
-
-Sets a value indicating whether meshes should be oriented along the normals of the ground (either the terrain or a mesh set as a parent node).
-### Arguments
-
-- *bool* **orientation** - Positive number to enable orientation; **0** to disable.
-
-## bool getOrientation ( ) const
-
-Returns a value indicating whether meshes are oriented along the normals of the ground (either the terrain or a mesh set as a parent node).
-### Return value
-
-**1** if orientation is enabled; otherwise, **0**.
-## void setSeed ( int seed )
-
-Sets the seed for pseudo-random positioning of meshes.
-### Arguments
-
-- *int* **seed** - Number used to initialize a pseudo-random sequence. If a negative value is provided, **0** will be used instead.
-
-## int getSeed ( ) const
-
-Returns the seed used for pseudo-random positioning of meshes.
-### Return value
-
-Number used to initialize a pseudo-random sequence.
-## void setSizeX ( float sizex )
-
-Sets the width of the mesh clutter along the X-coordinate.
-> **Notice:** The number of clutter elements in each cell is determined by the clutter *Size* along X and Y axes, as well as by *[Density](#setDensity_float_void)* and *[Step](#setStep_float_void)* values. Relationship between these values in internal calculations **may result in an invisible clutter**. When setting these values, please consider [this information](#important_notes).
-
-
-### Arguments
-
-- *float* **sizex** - X-coordinate width in units. If a negative value is provided, **0** will be used instead.
-
-## float getSizeX ( ) const
-
-Returns the current width of the mesh clutter along the X-coordinate.
-### Return value
-
-X-coordinate width in units.
-## void setSizeY ( float sizey )
-
-Sets the length of the mesh clutter along the Y-coordinate.
-> **Notice:** The number of clutter elements in each cell is determined by the clutter *Size* along X and Y axes, as well as by *[Density](#setDensity_float_void)* and *[Step](#setStep_float_void)* values. Relationship between these values in internal calculations **may result in an invisible clutter**. When setting these values, please consider [this information](#important_notes).
-
-
-### Arguments
-
-- *float* **sizey** - Y-coordinate length in units. If a negative value is provided, **0** will be used instead.
-
-## float getSizeY ( ) const
-
-Returns the current length of the mesh clutter along the Y-coordinate.
-### Return value
-
-Y-coordinate length in units.
-## int getSpawnCount ( ) const
-
-Returns the number of cells to be generated.
-### Return value
-
-Number of cells to be generated if the scene generation is not completed; otherwise, 0.
-## void setStep ( float step )
-
-Sets the step for cells used to render mesh clutter.
-> **Notice:** The number of clutter elements in each cell is determined by the clutter *Size* along X and Y axes, as well as by *[Density](#setDensity_float_void)* and *[Step](#setStep_float_void)* values. Relationship between these values in internal calculations **may result in an invisible clutter**. When setting these values, please consider [this information](#important_notes).
-
-
-### Arguments
-
-- *float* **step** - Step for clutter cells in units.
-
-## float getStep ( ) const
-
-Returns the step for cells used to render meshes scattered by the mesh clutter.
-### Return value
-
-Step for clutter cells in units.
-## void setThreshold ( float threshold )
-
-Sets the density threshold (for a mask) starting from which meshes are rendered if placed dense enough.
-### Arguments
-
-- *float* **threshold** - Density threshold. The provided value will be clipped in range [0;1].
-
-## float getThreshold ( ) const
-
-Returns the current density threshold (for a mask) starting from which meshes are rendered if placed dense enough.
-### Return value
-
-Density threshold.
-## void setVisibleDistance ( float distance )
-
-Sets the distance up to which meshes scattered by the mesh clutter will be rendered.
-### Arguments
-
-- *float* **distance** - Distance of visibility for meshes in units. If a negative value is provided, **0** will be used instead.
-
-## float getVisibleDistance ( ) const
-
-Returns the current distance up to which meshes scattered by the mesh clutter are rendered.
-### Return value
-
-Distance of visibility for meshes in units.
 ## void invalidate ( )
 
 Invalidates all mesh clutter cells. All invalidated cells will be regenerated.
@@ -639,42 +713,6 @@ Collects transformations (in local coordinates) for all clutter meshes within th
 ### Return value
 
 true, if there are transformations of clutter meshes; or false, if there are no transformations of clutter meshes found.
-## void setCutoutIntersectionMask ( int mask )
-
-Sets a new cutout intersection mask. This mask allows you to cut out clutter objects in the areas of intersection with other objects and decals (e.g. can be used to remove vegetation under houses or from the surface of roads projected using decals). Clutter objects will be cut out by objects and decals that have their intersection mask matching this one (one bit at least).
-> **Notice:** To set intersection masks the following methods can be used:
-> - **for decals** use *[getIntersectionMask()](../../../api/library/decals/class.decal_cpp.md#getIntersectionMask_int)*
-> - **for objects** use *[getIntersectionMask()](../../../api/library/objects/class.object_cpp.md#getIntersectionMask_int_int)*
-
-
-### Arguments
-
-- *int* **mask** - Integer, each bit of which is a mask.
-
-## int getCutoutIntersectionMask ( ) const
-
-Returns the current cutout intersection mask. This mask allows you to cut out clutter objects in the areas of intersection with other objects and decals (e.g. can be used to remove vegetation under houses or from the surface of roads projected using decals). Clutter objects will be cut out by objects and decals that have their intersection mask matching this one (one bit at least).
-> **Notice:** To set intersection masks the following methods can be used:
-> - **for decals** use *[getIntersectionMask()](../../../api/library/decals/class.decal_cpp.md#getIntersectionMask_int)*
-> - **for objects** use *[getIntersectionMask()](../../../api/library/objects/class.object_cpp.md#getIntersectionMask_int_int)*
-
-
-### Return value
-
-Integer, each bit of which is a mask.
-## void setCutoutInverse ( int inverse )
-
-Sets a value indicating whether the clutter objects should be rendered inside or outside the areas determined by the [cutout intersection mask](#setCutoutIntersectionMask_int_void).
-### Arguments
-
-- *int* **inverse** - **0** to render clutter objects outside the areas determined by the cutout intersection mask; **1** to render the clutter objects inside these areas.
-
-## int getCutoutInverse ( ) const
-
-Returns a value indicating if the clutter objects is rendered inside or outside the areas determined by the [cutout intersection mask](#setCutoutIntersectionMask_int_void).
-### Return value
-
-**0** if clutter objects are rendered outside the areas determined by the cutout intersection mask; **1** if inside.
 ## Ptr<ConstMesh> getMeshCurrentRAM ( ) const
 
  Returns the current source mesh used for the object and loaded to memory (RAM).
@@ -773,32 +811,6 @@ Sets the procedural mode for the mesh. The specified mode defines how procedural
 - *[ObjectMeshStatic::PROCEDURAL_MODE](../../../api/library/objects/class.objectmeshstatic_cpp.md#PROCEDURAL_MODE)* **mode** - One of the *[PROCEDURAL_MODE](../../../api/library/objects/class.objectmeshstatic_cpp.md#PROCEDURAL_MODE)* to apply to the mesh.
 - *int* **mesh_render_flags** - Optional [usage flags](../../../api/library/rendering/class.meshrender_cpp.md#USAGE_DYNAMIC_VERTEX) that control how vertex and index data are stored for the mesh render.
 
-## ObjectMeshStatic::PROCEDURAL_MODE getMeshProceduralMode ( ) const
-
-Returns a value indicating which procedural mode assigned to the mesh. The value corresponds to one of the available *[PROCEDURAL_MODE](../../../api/library/objects/class.objectmeshstatic_cpp.md#PROCEDURAL_MODE)* types, determining how procedural data is stored, updated, and unloaded.
-> **Notice:** Please note that procedural mesh modification **directly affects streaming and memory usage (RAM, VRAM, and disk)** depending on the selected procedural mode. For details, see the [Procedural Mesh Workflow](#procedural_workflow) section.
-
-### Return value
-
-Current procedural mode of the mesh.
-## bool isMeshNull ( ) const
-
-Returns a value indicating if the source mesh used for the object is null (does not exist, unassigned, not loaded, etc.).
-### Return value
-
-true if the source mesh used for the object is null; otherwise, false.
-## bool isMeshLoadedRAM ( ) const
-
-Returns a value indicating if the source mesh used for the object is loaded to memory (RAM).
-### Return value
-
-true if the source mesh used for the object is loaded to RAM; otherwise, false.
-## bool isMeshLoadedVRAM ( ) const
-
-Returns a value indicating if the source mesh used for the object is loaded to video memory (VRAM).
-### Return value
-
-true if the source mesh used for the object is loaded to VRAM; otherwise, false.
 ## Ptr < Mesh > createCopyMeshRAM ( ) const
 
 Creates and returns a copy of the source mesh used by the object, loading it directly from disk if it is not present in cache. This method does not stream the copied mesh into memory cache, resulting in lower RAM usage.
@@ -815,30 +827,6 @@ Retrieves a copy of the source mesh used by the object and writes it to the prov
 ### Return value
 
 true if the mesh was copied successfully, false if source mesh is not present in RAM or its file path is invalid.
-## bool isMeshProceduralDone ( ) const
-
-Returns a value indicating if all asynchronous operations on the procedural mesh have completed.
-> **Notice:** Please note that procedural mesh modification **directly affects streaming and memory usage (RAM, VRAM, and disk)** depending on the selected procedural mode. For details, see the [Procedural Mesh Workflow](#procedural_workflow) section.
-
-### Return value
-
-true if no asynchronous geometry operation is active, otherwise false.
-## bool isMeshProceduralActive ( ) const
-
-Returns a value indicating if an asynchronous operation on the procedural mesh is currently in progress.
-> **Notice:** Please note that procedural mesh modification **directly affects streaming and memory usage (RAM, VRAM, and disk)** depending on the selected procedural mode. For details, see the [Procedural Mesh Workflow](#procedural_workflow) section.
-
-### Return value
-
-true if an asynchronous geometry operation is active, otherwise false.
-## bool isMeshProceduralDynamic ( ) const
-
-Returns a value indicating if the current procedural mode is *[PROCEDURAL_MODE_DYNAMIC](../../../api/library/objects/class.objectmeshstatic_cpp.md#PROCEDURAL_MODE_DYNAMIC)*.
-> **Notice:** Please note that procedural mesh modification **directly affects streaming and memory usage (RAM, VRAM, and disk)** depending on the selected procedural mode. For details, see the [Procedural Mesh Workflow](#procedural_workflow) section.
-
-### Return value
-
-true if *[PROCEDURAL_MODE_DYNAMIC](../../../api/library/objects/class.objectmeshstatic_cpp.md#PROCEDURAL_MODE_DYNAMIC)* is active, otherwise false.
 ## bool applyCopyMeshProceduralForce ( const Ptr<ConstMesh> & mesh , int mesh_render_flags = 0 )
 
 **[ Main Thread ]**

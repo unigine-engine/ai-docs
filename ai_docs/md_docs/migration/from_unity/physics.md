@@ -39,7 +39,7 @@ In UNIGINE, some Object types are capable of being physics-driven. In the **Phys
 | Box Collider | [Box](../../principles/physics/shapes/index.md#box) |
 | Sphere Collider | [Sphere](../../principles/physics/shapes/index.md#sphere) |
 | Capsule Collider | [Capsule](../../principles/physics/shapes/index.md#capsule) |
-| — | [Cylinder](../../principles/physics/shapes/index.md#cylinder) |
+| � | [Cylinder](../../principles/physics/shapes/index.md#cylinder) |
 | Mesh Collider | [Convex](../../principles/physics/shapes/index.md#convex) |
 | Wheel Collider | implemented as the *[Wheel Joint](../../principles/physics/joints/index.md#wheel)* |
 | Terrain Collider | not provided, collisions are handled by the *[Terrain](../../objects/objects/terrain/landscape_terrain/landscape_layer_map.md#landscape_asset_parameters)* object itself |
@@ -73,7 +73,7 @@ UNIGINE features two [types of collisions](../../principles/physics/collision/in
 - ***Shape-Surface* collision**: between an object with physical properties assigned and a non-physical object (i.e. between a shape and a mesh surface). ![](shape_surface_icon.png) To make a mesh surface (e.g. of an *ObjectMeshStatic*) provide static collisions, just enable the **Collision** flag for it: ![](unigine_surface_collision.png) Thus, you can really quickly enable collisions with the scene geometry, however, this method may be more performance consuming than the other one, especially if the world contains a large number of polygons.
 
 
-> **Warning:** Don't scale meshes that are going to participate in collision detection — physics doesn't work properly with scaled objects. To avoid scaling, reimport the mesh with the required [scale](../../editor2/fbx/index.md#fbx_scale).
+> **Warning:** Don't scale meshes that are going to participate in collision detection � physics doesn't work properly with scaled objects. To avoid scaling, reimport the mesh with the required [scale](../../editor2/fbx/index.md#fbx_scale).
 
 
 ### Dynamic (Rigidbody) Collider
@@ -132,12 +132,12 @@ As well as *Unity* software, UNIGINE provides support for **[Joints](../../princ
 | *Unity* software | UNIGINE |
 |---|---|
 | Character Joint | [Ball Joint](../../principles/physics/joints/index.md#ball) |
-| Configurable Joint | — |
+| Configurable Joint | � |
 | Fixed Joint | [Fixed Joint](../../principles/physics/joints/index.md#fixed) |
 | Hinge Joint | [Hinge Joint](../../principles/physics/joints/index.md#hinge) |
 | Spring Joint | [Prismatic Joint](../../principles/physics/joints/index.md#prismatic), [Cylindrical Joint](../../principles/physics/joints/index.md#cylindrical) |
 | implemented as *Wheel Collider* | [Wheel Joint](../../principles/physics/joints/index.md#wheel), [Suspension Joint](../../principles/physics/joints/index.md#suspension) |
-| — | [Path Joint](../../principles/physics/joints/index.md#path) |
+| � | [Path Joint](../../principles/physics/joints/index.md#path) |
 | implemented as *Cloth Constraints* in the *Cloth* component | [Particles Joint](../../principles/physics/joints/index.md#particles) |
 
 

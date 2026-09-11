@@ -113,8 +113,8 @@
 
 - [Shapes-Related Classes](../../../api/library/physics/shapes.md)
 
-  - [Shape Class (CS)](../../../api/library/physics/class.shape_cs.md)
   - [Shape Class (USC)](../../../api/library/physics/class.shape_usc.md)
+  - [Shape Class (CS)](../../../api/library/physics/class.shape_cs.md)
   - [Shape Class (CPP)](../../../api/library/physics/class.shape_cpp.md)
   - [ShapeBox Class (USC)](../../../api/library/physics/class.shapebox_usc.md)
   - [ShapeBox Class (CS)](../../../api/library/physics/class.shapebox_cs.md)

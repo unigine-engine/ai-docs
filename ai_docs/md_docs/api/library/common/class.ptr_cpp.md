@@ -204,7 +204,10 @@ true if the object is deleted; otherwise, false.
 Returns an internal object pointed to by the pointer.
 ## void deleteLater ( )
 
- Performs delayed deletion of the object. The pointed object shall be deleted at the next *[swap()](../../../code/fundamentals/execution_sequence/main_loop.md)* stage of the execution sequence.
+
+Performs delayed deletion of the object. The pointed object shall be deleted at the next *[swap()](../../../code/fundamentals/execution_sequence/main_loop.md)* stage of the execution sequence.
+
+
 > **Notice:** This method can be called **only for [non-ownership objects](../../../code/fundamentals/smartpointers.md#non_ownership_object).**
 
 
@@ -223,7 +226,10 @@ node.deleteLater();
 
 ## void deleteForce ( )
 
- Performs forced deletion of the object. The pointed object shall be deleted immediately. Calling this method for main-loop-dependent objects (e.g., nodes) is **safe only when performed from the main thread**.
+
+Performs forced deletion of the object. The pointed object shall be deleted immediately. Calling this method for main-loop-dependent objects (e.g., nodes) is **safe only when performed from the main thread**.
+
+
 > **Notice:** This method can be called **only for [non-ownership objects](../../../code/fundamentals/smartpointers.md#non_ownership_object).**
 
 

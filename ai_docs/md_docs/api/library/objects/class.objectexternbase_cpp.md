@@ -10,8 +10,6 @@ The base class, from which the [custom user-defined objects](../../../api/librar
 
 ## ObjectExternBase Class
 
-### Members
-
 ---
 
 ## template < class Type >
@@ -193,30 +191,30 @@ Returns the number of the object surface by its name.
 ### Return value
 
 Surface number.
-## int hasCreate ( )
+## bool hasCreate ( )
 
 Returns a value indicating that the object has a create function.
 ### Return value
 
-Returns **1** if the object has a create function.
-## int hasLods ( )
+true if the object has a create function; otherwise, false.
+## bool hasLods ( )
 
 Returns a value indicating if the object has LODs.
 ### Return value
 
-Returns **1** if the object has surface LODs.
-## int hasRender ( )
+true if the object has surface LODs; otherwise, false.
+## bool hasRender ( )
 
 Returns a value indicating that the object has a render function.
 ### Return value
 
-Returns **1** if the object has a render function.
-## int hasShadow ( )
+true if the object has a render function; otherwise, false.
+## bool hasShadow ( )
 
 Returns a value indicating that the object has a shadow function.
 ### Return value
 
-Returns **1** if the object has a shadow function.
+true if the object has a shadow function; otherwise, false.
 ## int loadWorld ( const Ptr < Xml > & xml )
 
 Loads an object state from the Xml.
@@ -262,7 +260,7 @@ Renders the visualizer.
 ## void resizeSurfaces ( ) const
 
 Resizes all of the object surfaces.
-## bool saveState ( const Ptr < Stream > & stream )
+## int saveState ( const Ptr < Stream > & stream )
 
 Saves an object state into the stream.
 Saving into the stream requires creating a blob to save into. To restore the saved state the [restoreState()](#restoreState_Stream_int) method is used:
@@ -292,8 +290,8 @@ object->restoreState(blob_state);
 
 ### Return value
 
-true on success; otherwise, false.
-## bool restoreState ( const Ptr < Stream > & stream )
+Returns **1** if the object state was successfully saved into the stream; otherwise, **0** is returned.
+## int restoreState ( const Ptr < Stream > & stream )
 
 Restores an object state from the stream.
 Restoring from the stream requires creating a blob to save into and saving the state using the [saveState()](#saveState_Stream_int) method:
@@ -323,7 +321,7 @@ object->restoreState(blob_state);
 
 ### Return value
 
-true on success; otherwise, false.
+Returns **1** if the object state was successfully restored from the stream; otherwise, **0** is returned.
 ## int saveWorld ( const Ptr < Xml > & xml )
 
 Saves an object state into the Xml.

@@ -1,7 +1,7 @@
 # Unigine.TileSetFile Class (CS)
 
 
-This class is used to create a tileset file — the file that keeps data that is based on X and Y indices. The values of X and Y are limited to the integer and can be both positive and negative. The maximum size of the tile is limited to 2Gb. The maximum size of a tileset is limited to the unsigned integer value. Tileset files are stored using the .UTS and .UTSH formats.
+This class is used to create a tileset file � the file that keeps data that is based on X and Y indices. The values of X and Y are limited to the integer and can be both positive and negative. The maximum size of the tile is limited to 2Gb. The maximum size of a tileset is limited to the unsigned integer value. Tileset files are stored using the .UTS and .UTSH formats.
 
 
 ## TilesetFile Class

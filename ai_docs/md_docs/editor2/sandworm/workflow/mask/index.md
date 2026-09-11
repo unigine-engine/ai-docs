@@ -1,12 +1,6 @@
 # Adding a Mask
 
 
-### See Also
-
-
-Check this video from the series of [video tutorials on the terrain generation](../../../../videotutorials/essentials/sandworm.md) using Sandworm:
-
-
 A Mask can be useful in two ways:
 
 
@@ -21,6 +15,12 @@ You can already click *Create Mask*, and this mask will be added to *Terrain Lay
 
 
 ![](mask_added.jpg)
+
+
+### See Also
+
+
+Check this video from the series of [video tutorials on the terrain generation](../../../../videotutorials/essentials/sandworm.md) using Sandworm:
 
 
 ## Specifying Mask Filters
@@ -45,7 +45,7 @@ Let's add one more source from the assets to this mask and set a color filter.
 
 
 1. In the same mask (meaning that you don't create a new mask), click the *Add Source(s)* button and select *Assets*.
-2. Select the `UnigineGeoreferencedTerrainGeneration/img/sw_1mpx_img_6.tif` file and click *OK*. The preview will be updated. Let's zoom in to this source in the *Map*. ![](mask2_added.jpg)
+2. Select the `UnigineGeoreferencedTerrainGeneration/img/sw_1mpx_img_6.tif` file and click *OK*. The preview will be updated. Let's zoom in to this source in the *Map* panel. ![](mask2_added.jpg)
 3. Set the filter type to *Color* and click on the white color to open the color settings.
 4. Click the *Pick Screen Color* button and click on the dark-green color on the preview. ![](pick_screen_color.jpg) Click *Apply* to apply the picked color and *OK* to close the color settings window.
 5. Set *Range* to some value to allow for some color variation along the color palette. ![](color_filter.png)

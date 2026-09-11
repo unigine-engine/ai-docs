@@ -1,7 +1,7 @@
 # Unigine.EventConnection Class (CS)
 
 
-This class stores the information on the link between the event and the callback (UnigineCallback.h).
+This class stores the information on the link between the event and the callback (`UnigineCallback.h`).
 
 
 ## EventConnection Class

@@ -16,7 +16,7 @@ The **[Thread](../../../../api/library/common/mt/class.thread_cpp.md)** class is
 The **[ThreadsPool](../../../../api/library/common/mt/class.threadspool_cpp.md)** class is the engine CPU work scheduler that distributes **[CPUTask](../../../../api/library/common/mt/class.cputask_cpp.md)** and **[CPUShader](../../../../api/library/common/mt/class.cpushader_cpp.md)** jobs across dedicated worker pools (sync, async, critical, common, background, render-flush, file-stream, GPU-stream) and the main thread.
 
 
-**[ProcessTask](../../../../api/library/common/mt/class.processtask_cpp.md)** is a convenience base class for recurring tasks — it wraps **CPUTask** with a loop and a mutex guard, so you only need to implement a work step and a continuation check.
+**[ProcessTask](../../../../api/library/common/mt/class.processtask_cpp.md)** is a convenience base class for recurring tasks � it wraps **CPUTask** with a loop and a mutex guard, so you only need to implement a work step and a continuation check.
 
 
 ### Mutexes and Locks

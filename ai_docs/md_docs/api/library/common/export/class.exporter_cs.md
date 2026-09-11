@@ -1,7 +1,7 @@
 # Unigine::Exporter Class (CS)
 
 
-This class is used to manage a node exporter. Node exporters are used by the Engine's [export system](../../../../principles/export_system/index.md) to export UNIGINE’s nodes to files of different formats. A single exporter can be used to export multiple nodes, but **there shouldn't be two or more exporters [registered](../../../../api/library/common/export/class.export_cs.md#registerExporter_const_char_ptr_const_Vectortmplargs_ref_void) for a single node type**.
+This class is used to manage a node exporter. Node exporters are used by the Engine's [export system](../../../../principles/export_system/index.md) to export UNIGINE�s nodes to files of different formats. A single exporter can be used to export multiple nodes, but **there shouldn't be two or more exporters [registered](../../../../api/library/common/export/class.export_cs.md#registerExporter_const_char_ptr_const_Vectortmplargs_ref_void) for a single node type**.
 
 
 Each exporter has a set of parameters that control the whole export process (e.g., whether to export lights, cameras, and material normal maps, reset root node transformation, etc.). The exporter should be [initialized](../../../../api/library/common/export/class.exporter_cs.md#init_int) before the use.

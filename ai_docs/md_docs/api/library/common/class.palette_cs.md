@@ -76,7 +76,7 @@ Check if two palettes are the same.
 
 ### Return value
 
-Returns true if the palettes are the same; otherwise, false.
+true if the palettes are the same; otherwise, false.
 ## bool Equals ( float value )
 
 Check if all values of the palette are equal to the given value.
@@ -86,7 +86,7 @@ Check if all values of the palette are equal to the given value.
 
 ### Return value
 
-Returns true if all values of the palette are equal to the given value; otherwise, false.
+true if all values of the palette are equal to the given value; otherwise, false.
 ## bool NotEquals ( Palette palette )
 
 Check if two palettes are not the same.
@@ -96,7 +96,7 @@ Check if two palettes are not the same.
 
 ### Return value
 
-Returns true if the palettes are not the same; otherwise, false.
+true if the palettes are not the same; otherwise, false.
 ## bool NotEquals ( float value )
 
 Check if all values of the palette are not equal to the given value.
@@ -106,7 +106,7 @@ Check if all values of the palette are not equal to the given value.
 
 ### Return value
 
-Returns true if any value of the palette is not equal to the given value; otherwise, false.
+true if any value of the palette is not equal to the given value; otherwise, false.
 ## void Clear ( float value = 0.0f )
 
 Sets all color values to the given value.

@@ -86,7 +86,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEnabled () const
 
 The event handler signature is as follows: *myhandler()*
@@ -103,7 +103,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## static NodeTrigger ( )

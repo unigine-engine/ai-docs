@@ -10,8 +10,6 @@ This class controls the DataBridge plugin and provides access to variables.
 
 ## Manager Class
 
-### Members
-
 ---
 
 ## NetworkManager getNetworkManager ( )

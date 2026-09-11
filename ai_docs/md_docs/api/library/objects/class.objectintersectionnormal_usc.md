@@ -12,21 +12,21 @@ This class is used to store the normal of the object intersection point.
 
 ### Members
 
+## void setNormal ( vec3 normal )
+
+Sets a new normal of the intersection point.
+### Arguments
+
+- *vec3* **normal** - The normal of the intersection point
+
+## vec3 getNormal () const
+
+Returns the current normal of the intersection point.
+### Return value
+
+Current normal of the intersection point
 ---
 
 ## static ObjectIntersectionNormal ( )
 
 The ObjectIntersectionNormal constructor.
-## void setNormal ( vec3 normal )
-
-Sets the new normal of the intersection point.
-### Arguments
-
-- *vec3* **normal** - Normal of the intersection point.
-
-## vec3 getNormal ( )
-
-Returns the normal of the intersection point.
-### Return value
-
-Normal of the intersection point.

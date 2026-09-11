@@ -4,7 +4,7 @@
 This article focuses on details of the UNIGINE execution sequence. Here you will find what is happening under the hood of the UNIGINE Engine. For a high-level overview of UNIGINE workflow, see the [Engine Architecture](../../../code/fundamentals/engine_architecture/index.md) article.
 
 
-The internal code of the UNIGINE engine and the [logic of your application](../../../code/fundamentals/execution_sequence/app_logic_system.md) that can be extended using plugins written in *[C++](../../../code/cpp/plugin.md)* or *[C#](../../../code/csharp/usage/plugins.md#usage)*, are executed in the pre-defined order:
+The internal code of the UNIGINE engine and the [logic of your application](../../../code/fundamentals/execution_sequence/app_logic_system.md) that can be extended using plugins written in *[C++](../../../code/cpp/plugin.md)* or *C#*, are executed in the pre-defined order:
 
 
 1. [**Initialization**](../../../code/fundamentals/execution_sequence/init.md). During this stage, the required resources are prepared and initialized. As soon as these resources are ready for use, the Engine enters the main loop.

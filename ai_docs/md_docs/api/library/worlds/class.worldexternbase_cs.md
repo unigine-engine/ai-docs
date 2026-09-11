@@ -52,14 +52,17 @@ Pre-render function, i.e. after the *update()* and before the *render()* functio
 Renders the handler for the external world.
 ## void RenderVisualizer ( )
 
+
 Renders the visualizer.
+
+
 > **Notice:** You should enable the engine visualizer by the **show_visualizer 1** console command.
 
 
 ## bool SaveState ( Stream stream )
 
-Saves a world state into the stream.
-Saving into the stream requires creating a blob to save into. To restore the saved state the [RestoreState()](#restoreState_Stream_int) method is used:
+
+Saves a world state into the stream. Saving into the stream requires creating a blob to save into. To restore the saved state the *[RestoreState()](#restoreState_Stream_int)* method is used:
 
 
 ```csharp
@@ -89,8 +92,8 @@ worldExtern1.RestoreState(blob_state);
 true on success; otherwise, false.
 ## bool RestoreState ( Stream stream )
 
-Restores a world state from the stream.
-Restoring from the stream requires creating a blob to save into and saving the state using the [SaveState()](#saveState_Stream_int) method:
+
+Restores a world state from the stream. Restoring from the stream requires creating a blob to save into and saving the state using the *[SaveState()](#saveState_Stream_int)* method:
 
 
 ```csharp

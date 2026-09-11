@@ -139,6 +139,17 @@ Sets the shape of a [polygon](#REGION_TYPE_POLYGON) weather region as a set of w
 ### Return value
 
 true if the shape of the region is set successfully; otherwise, false.
+## Region.REGION_TYPE GetRegionType ( )
+
+Sets the type of the weather region's shape.
+### Return value
+
+Weather region type, one of the following:
+- **GLOBAL** - global (atmospheric layers, which have no distinct horizontal boundaries)
+- **RECTANGLE** - local (regional weather with atmospheric effects restricted to a certain area defined by a rectangle)
+- **POLYGON** - local (regional weather with atmospheric effects restricted to a certain area defined by a polygon)
+
+
 ## void SetGeodeticPosition ( dvec2 geo_pos )
 
 Sets new geocoordinates for the weather region's position.

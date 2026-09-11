@@ -179,7 +179,7 @@ int AppWorldLogic::update()
 
 ## Event<const Ptr < NodeTrigger > &> getEventPosition () const
 
-Event triggered when the trigger node position has changed. The event handler must receive a *NodeTrigger* as its first argument. In addition, it can also take **2** arguments of any type. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+Event triggered when the trigger node position has changed. The event handler must receive a *NodeTrigger* as its first argument. In addition, it can also take **2** arguments of any type. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -315,10 +315,10 @@ publisher->getEventPosition().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < NodeTrigger > &> getEventEnabled () const
 
-Event triggered when the trigger node is enabled or disabled. The event handler must receive a *NodeTrigger* as its first argument. In addition, it can also take **2** arguments of any type. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+Event triggered when the trigger node is enabled or disabled. The event handler must receive a *NodeTrigger* as its first argument. In addition, it can also take **2** arguments of any type. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -454,7 +454,7 @@ publisher->getEventEnabled().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## static NodeTriggerPtr create ( )

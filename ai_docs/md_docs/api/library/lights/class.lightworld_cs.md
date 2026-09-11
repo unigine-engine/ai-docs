@@ -190,6 +190,22 @@ void Init()
 | **DYNAMIC** = 0 | Dynamic shadow cascade generation mode. In this mode shadow cascades are built dynamically relative to the camera's position. All shadows are calculated dynamically making it possible to change the time of day (day-night cycle). |
 | **STATIC** = 1 | Static shadow cascade generation mode. In this mode shadow cascades are built and baked relative to the light source's position. This mode is suitable as a performance optimization technique for small-area ArchViz projects where shadow cascades can be divided into 2 sections: walkable area with high-resolution shadows (as they're observed closely) and non-walkable area with low-resolution shadows (as they're observed from a distance). > **Notice:** Changing the time of day is not available in this mode, as shadow cascades are baked. |
 
+## SHADOW_CASCADE_ORIGIN_MODE
+
+Mode defining what position is used as the origin around which the shadow cascades of the world light are built.
+| Name | Description |
+|---|---|
+| **AUTO** = 0 | The cascades follow the camera position (default). |
+| **MANUAL** = 1 | The cascades are anchored at a user-provided world point set via the **[ShadowCascadeOriginPosition](../../...md#getShadowCascadeOriginPosition_Vec3)** property. |
+
+## SHADOW_CASCADE_PLACEMENT_MODE
+
+Mode defining how the shadow cascades of the world light are sized and placed.
+| Name | Description |
+|---|---|
+| **UNIFORM** = 0 | The cascades are fixed-size boxes around the origin, independent of the view direction (default). |
+| **VIEW_FITTED** = 1 | The cascades are sized and positioned along the view ray to fit the camera frustum slices, giving better shadow resolution in front of the camera. |
+
 ### Properties
 
 ## int Mode
@@ -234,6 +250,18 @@ The value indicating if the One Cascade Per Frame mode is enabled. This mode dis
 > **Notice:** Shadows cast by transparent surfaces cannot be baked. To make such shadows visible when any light-baking mode is enabled, configure the transparent surfaces: toggle the [dynamic lighting mode](../../../api/library/objects/class.object_cs.md#SURFACE_LIGHTING_MODE_DYNAMIC) for them.
 
 
+## LightWorld.SHADOW_CASCADE_ORIGIN_MODE ShadowCascadeOriginMode
+
+The mode defining what position is used as the origin of the shadow cascades, one of the *SHADOW_CASCADE_ORIGIN_MODE_** values: following the camera (default) or anchored at a manually set world point.
+## vec3 ShadowCascadeOriginPosition
+
+The world-space anchor point for the shadow cascades, used when the cascade origin mode is set to manual. Ignored in the automatic mode.
+## LightWorld.SHADOW_CASCADE_PLACEMENT_MODE ShadowCascadePlacementMode
+
+The mode defining how the shadow cascades of the light are sized and placed, one of the *SHADOW_CASCADE_PLACEMENT_MODE_** values. The default is the uniform mode.
+## float ShadowFilterFar
+
+The intensity of shadow filtering (blurring) for the far shadow cascades of the light, complementing the base shadow filter that acts on the near cascades. The higher the value, the less noticeable the stair-step effect at the edges of distant shadows. The effective filter width is interpolated per cascade between the near and far values. The default value is 1.
 ### Members
 
 ---

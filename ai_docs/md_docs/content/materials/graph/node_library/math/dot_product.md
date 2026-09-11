@@ -30,7 +30,7 @@ This operation is essential in shading, determining light intensity based on the
 The example demonstrates a view-dependent shading effect, where color transitions are based on the alignment between the view direction and the surface normal.
 
 
-The outputs of the **[View Direction](../../../../../content/materials/graph/node_library/input/view_direction.md)** and **[Vertex Normal](../../../../../content/materials/graph/node_library/input/vertex_normal.md)** nodes in *Tangent* space are connected to the **Dot Product** node that calculates the dot product of these vectors. The result is inverted by subtracting it from 1 using **input adapter** and passed to the **[Lerp](../../../../../content/materials/graph/node_library/math/lerp.md)** node as a linear interpolation coefficient. The **Lerp** node blends between two colors — red and green — based on this coefficient. The result of linear interpolation provides *Albedo* values for the **Material**.
+The outputs of the **[View Direction](../../../../../content/materials/graph/node_library/input/view_direction.md)** and **[Vertex Normal](../../../../../content/materials/graph/node_library/input/vertex_normal.md)** nodes in *Tangent* space are connected to the **Dot Product** node that calculates the dot product of these vectors. The result is inverted by subtracting it from 1 using **input adapter** and passed to the **[Lerp](../../../../../content/materials/graph/node_library/math/lerp.md)** node as a linear interpolation coefficient. The **Lerp** node blends between two colors � red and green � based on this coefficient. The result of linear interpolation provides *Albedo* values for the **Material**.
 
 
 | [**View Fullscreen**](https://matgraph.unigine.com/DocsDotProduct_2.21/fullView) |

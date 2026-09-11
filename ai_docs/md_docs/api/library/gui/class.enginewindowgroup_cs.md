@@ -206,8 +206,8 @@ And more, providing you with flexible control over the grouping logic.
 
 ## 🔒︎ EngineWindowGroup.GROUP_TYPE GroupType
 
-The window group type.
-## 🔒︎ bool Fixed
+The type of the window group set in the constructor.
+## bool Fixed
 
 The value indicating if this group is protected from adding/removing windows.
 ## EngineWindowGroup.AUTO_DELETE_MODE AutoDeleteMode
@@ -216,21 +216,27 @@ The automatic window deletion mode.
 ## 🔒︎ int NumNestedWindows
 
 The total number of nested windows in the group.
-## 🔒︎ int CurrentTab
+## int CurrentTab
 
-The index of the currently active tab.
+The index of the currently active tab in a tab group.
 ## 🔒︎ int SeparatorWidth
 
-The width of the separation line, in pixels.
+The width of the vertical line separating a tab group from the rest of the area, in pixels.
+> **Notice:** You may need to call [*updateGuiHierarchy()*](../../../api/library/gui/class.enginewindow_cs.md#updateGuiHierarchy_void) first, if you have added a new window to the group and want to access its separator immediately. Otherwise, you may get incorrect results.
+
+
 ## 🔒︎ int SeparatorHeight
 
-The height of the separation line, in pixels.
+The height of the horizontal line separating a tab group from the rest of the area, in pixels.
+> **Notice:** You may need to call [*updateGuiHierarchy()*](../../../api/library/gui/class.enginewindow_cs.md#updateGuiHierarchy_void) first, if you have added a new window to the group and want to access its separator immediately. Otherwise, you may get incorrect results.
+
+
 ## 🔒︎ ivec2 IntersectedItemPosition
 
-The screen position of the intersected item — coordinates of the left top corner.
+The position of the left top corner of the intersected group item, in screen coordinates. In case of several displays, the position is relative to the main display.
 ## 🔒︎ ivec2 IntersectedItemSize
 
-The size of the intersected item, in pixels.
+The size of the intersected group item, in pixels.
 ### Members
 
 ---
@@ -361,7 +367,7 @@ Returns the width of the tab. Available for [horizontal](#GROUP_TYPE_HORIZONTAL)
 
 ### Return value
 
-The width of the the tab.
+The width of the tab.
 ## int GetTabHeight ( int index )
 
 Returns the height of the tab. Available for [vertical](#GROUP_TYPE_VERTICAL) groups only.

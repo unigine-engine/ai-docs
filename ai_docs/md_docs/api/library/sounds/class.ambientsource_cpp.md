@@ -232,6 +232,19 @@ Returns the current volume of the sound.
 ### Return value
 
 Current volume in range [0, 1] where **0** means muted, **1** means maximum volume.
+## void setPitchShift ( float shift )
+
+Sets a new pitch shift of the played sample in semitones, clamped to the [-12; 12] range (one octave down to one octave up), with the default of 0 (no shift). Unlike the **[getPitch()](../../...md#getPitch_float)** property, it changes the tone without changing the playback speed. The effect requires pitch-shifter support in the sound device; otherwise the value has no audible effect.
+### Arguments
+
+- *float* **shift** - The pitch shift of the played sample, in semitones
+
+## float getPitchShift () const
+
+Returns the current pitch shift of the played sample in semitones, clamped to the [-12; 12] range (one octave down to one octave up), with the default of 0 (no shift). Unlike the **[getPitch()](../../...md#getPitch_float)** property, it changes the tone without changing the playback speed. The effect requires pitch-shifter support in the sound device; otherwise the value has no audible effect.
+### Return value
+
+Current pitch shift of the played sample, in semitones
 ---
 
 ## static AmbientSourcePtr create ( const char * name , int stream = 0 )

@@ -1,9 +1,6 @@
 # Upscaling with DLSS and FSR
 
 
-> **Warning:** The feature is still **EXPERIMENTAL**.
-
-
 UNIGINE provides support for two advanced upscaling technologies: *[NVIDIA DLSS](https://www.nvidia.com/en-gb/geforce/technologies/dlss/)* (*Deep Learning Super Sampling*) and *[AMD FSR 3](https://gpuopen.com/fidelityfx-super-resolution-3/)* (*FidelityFX Super Resolution 3*). These technologies enable upscaling on a wide range of devices from different manufacturers.
 
 
@@ -212,10 +209,16 @@ Depending on the current upscale mode, the set of settings differs. Please refer
 ## When to Apply Upscaling
 
 
-By default, upscaling is applied **before** all post-processing effects are rendered. However, you can choose to apply upscaling **after** rendering the post-process effects.
+By default, upscaling is applied **before** any post-processing effects are rendered, so the effects are rendered at the output resolution. Upscaling can be moved to a later stage of the rendering pipeline, leaving the effects that precede it to be rendered at the lower render resolution.
 
 
-It can be done via the console using the `render_upscale_post` command or in UnigineEditor by toggling the *Upscale After Post Effects* parameter.
+The stage is selected via the `render_upscale_order` console variable, or in UnigineEditor via the *Upscale Order* parameter. The following stages are available:
+
+
+- 0 - upscale before post-processing effects (by default)
+- 1 - upscale after color adaptation
+- 2 - upscale before TAA
+- 3 - upscale after post-processing effects, but before the *Sharpen* effect
 
 
 [![](rendering_sequence_modified_sm.png)](rendering_sequence_modified.png)

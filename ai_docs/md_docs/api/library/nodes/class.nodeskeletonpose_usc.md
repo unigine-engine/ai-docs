@@ -76,6 +76,12 @@ Returns the current number of controlled ObjectMeshSkinned objects.
 ### Return value
 
 Current number of controlled ObjectMeshSkinned objects.
+## AnimScript getAnimScript () const
+
+Returns the current [AnimScript](../../../api/library/animations/skeletal/class.animscript_usc.md) instance used by this node in [MODE_ANIM_SCRIPT](#MODE_ANIM_SCRIPT) mode, or null if the node is in another mode or has no AnimScript assigned.
+### Return value
+
+Current AnimScript instance used by this node.
 ## void setAnimScriptFileGUID ( UGUID guid )
 
 Sets a new GUID of the AnimGraph asset file (`.agraph`) used in MODE_ANIM_SCRIPT mode.
@@ -485,7 +491,7 @@ Returns the scale of the specified joint in the given animation layer.
 Joint scale.
 ## void setLayerFrameUsesEnabled ( int layer , int enabled )
 
-Enables or disables per-joint frame component masking for the specified layer. When enabled, you can control which transform components (position, rotation, scale) are used per joint via [setLayerJointFrameUses()](#setLayerJointFrameUses_int_int_int_void).
+Enables or disables per-joint frame component masking for the specified layer. When enabled, you can control which transform components (position, rotation, scale) are used per joint via *[setLayerJointFrameUses()()](../../...md#setLayerJointFrameUses_int_int_int_void)*.
 ### Arguments
 
 - *int* **layer** - Animation layer index.
@@ -764,3 +770,41 @@ Returns the [AnimScript](../../../api/library/animations/skeletal/class.animscri
 ### Return value
 
 AnimScript instance, or null if not in MODE_ANIM_SCRIPT mode or no AnimGraph is assigned to this node.
+## int isLayerAnimationStreaming ( int layer )
+
+Returns a value indicating if the animation on the specified layer is currently being loaded by the [data streaming](../../../principles/data_streaming/index.md) system. While the animation is streaming, the layer holds the first frame of this animation.
+### Arguments
+
+- *int* **layer** - Layer number.
+
+### Return value
+
+true if the animation assigned to the specified layer is still being streamed in; otherwise, false.
+## mat4 getLayerJointObjectTransform ( int layer , int joint )
+
+Returns the object-space transformation matrix of the specified joint on the specified layer.
+### Arguments
+
+- *int* **layer** - Layer number.
+- *int* **joint** - Joint index.
+
+### Return value
+
+Object-space transformation matrix of the joint on the specified layer.
+## void setLayerJointObjectTransform ( int layer , int joint , mat4 transform )
+
+Sets the object-space transformation matrix of the specified joint on the specified layer.
+### Arguments
+
+- *int* **layer** - Layer number.
+- *int* **joint** - Joint index.
+- *mat4* **transform** - Object-space transformation matrix.
+
+## void setLayerJointObjectTransformPreserveChildren ( int layer , int joint , mat4 transform )
+
+Sets the object-space transformation matrix of the specified joint on the specified layer, preserving the object-space transformations of its child joints.
+### Arguments
+
+- *int* **layer** - Layer number.
+- *int* **joint** - Joint index.
+- *mat4* **transform** - Object-space transformation matrix.

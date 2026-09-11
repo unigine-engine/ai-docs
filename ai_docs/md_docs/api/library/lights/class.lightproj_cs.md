@@ -64,6 +64,9 @@ The length of the gradient area smoothering the attenuation border near the ligh
 ## float NearAttenuationDistance
 
 The distance from the light source shape within which the light intensity is equal to 0. If an object is located within this distance from the light source, it won't be illuminated.
+## bool UseEnvironmentColor
+
+The value indicating if the light color is modulated by the environment color. When enabled, the light color is multiplied by the color of the environment behind the light source (a blurred sample of the sky cubemap taken along the light direction), imitating a sky portal: a light source placed in a window follows the sky and the surroundings it faces. Takes effect only when the sky cubemap is available.
 ### Members
 
 ---

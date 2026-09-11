@@ -22,6 +22,32 @@ This class is used to handle an event of dragging and dropping a text or file in
 
 ### Members
 
+## void setAction ( WindowEventDrop::ACTION action )
+
+Sets a new type of the drop action performed with the window during the event.
+### Arguments
+
+- *[WindowEventDrop::ACTION](../../../api/library/gui/class.windoweventdrop_cpp.md#ACTION)* **action** - The type of the drop action performed with the window during the event
+
+## WindowEventDrop::ACTION getAction () const
+
+Returns the current type of the drop action performed with the window during the event.
+### Return value
+
+Current type of the drop action performed with the window during the event
+## void setPath ( const char * path )
+
+Sets a new absolute path to the dropped file.
+### Arguments
+
+- *const char ** **path** - The absolute path to the dropped file
+
+## const char * getPath () const
+
+Returns the current absolute path to the dropped file.
+### Return value
+
+Current absolute path to the dropped file
 ---
 
 ## WindowEventDrop ( )
@@ -67,30 +93,3 @@ Window drop event constructor.
 - *const  Math::[ivec2](../../../api/library/math/class.ivec2_cpp.md) &* **size** - Size of the window.
 - *[WindowEventDrop::ACTION](../../../api/library/gui/class.windoweventdrop_cpp.md#ACTION)* **action** - Type of the drop action performed with the window during the event.
 - *const char ** **item_path**
-
-## void setAction ( WindowEventDrop::ACTION action )
-
-Sets the type of the drop action performed with the window during the event.
-### Arguments
-
-- *[WindowEventDrop::ACTION](../../../api/library/gui/class.windoweventdrop_cpp.md#ACTION)* **action** - Type of the drop action performed with the window during the event.
-
-## WindowEventDrop::ACTION getAction ( ) const
-
-Returns the type of the drop action performed with the window during the event.
-### Return value
-
-The type of the drop action performed with the window during the event.
-## void setPath ( const char * path )
-
-Sets the absolute path to the dropped file.
-### Arguments
-
-- *const char ** **path** - Absolute path to the dropped file.
-
-## const char * getPath ( ) const
-
-Returns the absolute path to the dropped file.
-### Return value
-
-The absolute path to the dropped file.

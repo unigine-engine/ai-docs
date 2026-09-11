@@ -34,6 +34,9 @@ The meteo interface.
 ## 🔒︎ Water Water
 
 The water control interface.
+## 🔒︎ Planet Planet
+
+The interface of the round-planet subsystem of the Weather plugin, providing read access to the round-planet state configured in the weather configuration file (see the *[Planet](../../../../api/library/plugins/weather/class.planet_cs.md)* class).
 ### Members
 
 ---

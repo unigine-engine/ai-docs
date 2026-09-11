@@ -27,10 +27,10 @@ To start working with the Unigine engine on the Linux platform you should instal
 ### Additional Software
 
 
-- **GCC 8.3.0+** — a С++ compiler.
-- **CMake 3.21+** — a tool that simplifies project building for different platforms.
-- **.NET SDK** — required to develop projects using [C# Component System](../../principles/component_system/component_system_cs/index.md). See [here](../../troubleshooting/dotnet_issues.md#install_dotnet_sdk_linux) how to install **.NET SDK** and check its version.
-- **ccache** (optional) — a tool that caches files compiled from C++ sources to avoid recompilation of previously compiled files.
+- **GCC 8.3.0+** � a С++ compiler.
+- **CMake 3.21+** � a tool that simplifies project building for different platforms.
+- **.NET SDK** � required to develop projects using [C# Component System](../../principles/component_system/component_system_cs/index.md). See [here](../../troubleshooting/dotnet_issues.md#install_dotnet_sdk_linux) how to install **.NET SDK** and check its version.
+- **ccache** (optional) � a tool that caches files compiled from C++ sources to avoid recompilation of previously compiled files.
 
 
 To install all required Debian/Ubuntu packages, use the following:
@@ -44,5 +44,5 @@ sudo apt-get install linux-headers-3.16.0-4-all gcc g++ make ccache libgl1-mesa-
 ### Recommended IDEs
 
 
-- For C# development — [Visual Studio Code](https://code.visualstudio.com/download), [Rider](https://www.jetbrains.com/rider/)
-- For C++ development — [Visual Studio Code](https://code.visualstudio.com/download), [Qt Creator](https://www.qt.io/product/development-tools) (mostly used for Qt framework development, but also suitable for regular C++ projects)
+- For C# development � [Visual Studio Code](https://code.visualstudio.com/download), [Rider](https://www.jetbrains.com/rider/)
+- For C++ development � [Visual Studio Code](https://code.visualstudio.com/download), [Qt Creator](https://www.qt.io/product/development-tools) (mostly used for Qt framework development, but also suitable for regular C++ projects)

@@ -320,7 +320,10 @@ Converts metadata stored in an instance of the *[ImportNode](../../../../api/lib
 Resulting [UNIGINE's node instance](../../../../api/library/nodes/class.node_cs.md) that stores the specified imported node (node hierarchy).
 ## bool ImportTexture ( ImportProcessor processor , ImportTexture import_texture )
 
+
 Imports the specified texture and uses the specified [processor](../../../../api/library/common/import/class.importprocessor_cs.md) to process and save the generated texture to a corresponding file in the output directory specified in the **[Import()](../../../...md#import_cstr_bool)** method.
+
+
 > **Notice:** To customize actions to be performed on importing textures, when implementing a custom importer, you can override the **[OnImportTexture()](../../../...md#onImportTexture_ImportProcessor_ImportTexture_bool)** method.
 
 ### Arguments
@@ -333,7 +336,10 @@ Imports the specified texture and uses the specified [processor](../../../../api
 true if the specified texture was successfully imported; otherwise, false.
 ## bool ImportMaterial ( ImportProcessor processor , Material material , ImportMaterial import_material )
 
+
 Imports the specified material and uses the specified [processor](../../../../api/library/common/import/class.importprocessor_cs.md) to process and save the generated material to a corresponding file in the output directory specified in the **[Import()](../../../...md#import_cstr_bool)** method.
+
+
 > **Notice:** To customize actions to be performed on importing materials, when implementing a custom importer, you can override the **[OnImportMaterial()](../../../...md#onImportMaterial_ImportProcessor_Material_ImportMaterial_bool)** method.
 
 
@@ -348,7 +354,10 @@ Imports the specified material and uses the specified [processor](../../../../ap
 true if the specified material was successfully imported; otherwise, false.
 ## bool ImportMesh ( ImportProcessor processor , Mesh mesh , ImportMesh import_mesh )
 
+
 Imports the specified mesh and uses the specified [processor](../../../../api/library/common/import/class.importprocessor_cs.md) to process and save the generated mesh to a corresponding file in the output directory specified in the **[Import()](../../../...md#import_cstr_bool)** method.
+
+
 > **Notice:** To customize actions to be performed on importing meshes, when implementing a custom importer, you can override the **[OnImportMesh()](../../../...md#onImportMesh_ImportProcessor_Mesh_ImportMesh_bool)** method.
 
 
@@ -363,7 +372,10 @@ Imports the specified mesh and uses the specified [processor](../../../../api/li
 true if the specified mesh was successfully imported; otherwise, false.
 ## bool ImportMeshSkinned ( ImportProcessor processor , MeshSkinned mesh_skinned , ImportMeshSkinned import_mesh_skinned )
 
+
 Imports the specified skinned mesh and uses the specified [processor](../../../../api/library/common/import/class.importprocessor_cs.md) to process and save the generated skinned mesh to a corresponding file in the output directory specified in the **[Import()](../../../...md#import_cstr_bool)** method.
+
+
 > **Notice:** To customize actions to be performed on importing skinned meshes, when implementing a custom importer, you can override the **[OnImportMeshSkinned()](../../../...md#onImportMeshSkinned_ImportProcessor_MeshSkinned_ImportMeshSkinned_bool)** method.
 
 
@@ -406,7 +418,10 @@ true if the specified skinned mesh was successfully imported; otherwise, false.
 [UNIGINE's player instance](../../../../api/library/players/class.player_cs.md) that stores the specified imported camera.
 ## bool ImportAnimation ( ImportProcessor processor , MeshSkinnedAnimation animation , ImportAnimation import_animation )
 
+
 Imports the specified mesh animation and uses the specified [processor](../../../../api/library/common/import/class.importprocessor_cs.md) to process and save the generated mesh animation to a corresponding file in the output directory specified in the **[Import()](../../../...md#import_cstr_bool)** method.
+
+
 > **Notice:** To customize actions to be performed on importing mesh animations, when implementing a custom importer, you can override the **[OnImportAnimation()](../../../...md#onImportAnimation_ImportProcessor_MeshSkinnedAnimation_ImportAnimation_bool)** method.
 
 ### Arguments
@@ -420,7 +435,10 @@ Imports the specified mesh animation and uses the specified [processor](../../..
 true if the specified animation was successfully imported; otherwise, false.
 ## bool ImportAnimation ( ImportProcessor processor , MeshSkinnedAnimation animation , ImportMeshSkinned import_mesh_skinned , ImportAnimation import_animation )
 
+
 Imports the specified mesh animation and uses the specified [processor](../../../../api/library/common/import/class.importprocessor_cs.md) to process and save the generated mesh animation to a corresponding file in the output directory specified in the **[Import()](../../../...md#import_cstr_bool)** method.
+
+
 > **Notice:** To customize actions to be performed on importing mesh animations, when implementing a custom importer, you can override the **[OnImportAnimation()](../../../...md#onImportAnimation_ImportProcessor_MeshSkinnedAnimation_ImportMeshSkinned_ImportAnimation_bool)** method.
 
 ### Arguments
@@ -435,7 +453,10 @@ Imports the specified mesh animation and uses the specified [processor](../../..
 true if the specified animation was successfully imported; otherwise, false.
 ## bool ImportSkeleton ( ImportProcessor processor , Skeleton skeleton , ImportSkeleton import_skeleton )
 
+
 Imports the specified skeleton and uses the specified [processor](../../../../api/library/common/import/class.importprocessor_cs.md) to process and save the generated skeleton to a corresponding file in the output directory specified in the **[Import()](../../../...md#import_cstr_bool)** method.
+
+
 > **Notice:** To customize actions to be performed on importing skeletons, when implementing a custom importer, you can override the **[OnImportSkeleton()](../../../...md#onImportSkeleton_ImportProcessor_Skeleton_ImportSkeleton_bool)** method.
 
 ### Arguments
@@ -471,7 +492,10 @@ Returns a value indicating if the specified animation is the default one for the
 true if the specified animation is the default one for the specified imported mesh; otherwise, false.
 ## Node ImportNode ( ImportProcessor processor , ImportNode import_node )
 
+
 Imports the specified node and uses the specified [processor](../../../../api/library/common/import/class.importprocessor_cs.md) to process and save the generated node to a corresponding file in the output directory specified in the **[Import()](../../../...md#import_cstr_bool)** method.
+
+
 > **Notice:** To customize actions to be performed on importing nodes, when implementing a custom importer, you can override the **[OnImportNode()](../../../...md#onImportNode_ImportProcessor_ImportNode_Node)** method.
 
 
@@ -485,7 +509,10 @@ Imports the specified node and uses the specified [processor](../../../../api/li
 Target [UNIGINE's node instance](../../../../api/library/nodes/class.node_cs.md) to store the specified imported node.
 ## bool ImportNodeChild ( ImportProcessor processor , Node node_parent , ImportNode import_node_parent , Node node_child , ImportNode import_node_child )
 
+
 Imports the specified parent node with the specified child node and uses the specified [processor](../../../../api/library/common/import/class.importprocessor_cs.md) to process and save generated nodes to a corresponding file in the output directory specified in the **[Import()](../../../...md#import_cstr_bool)** method.
+
+
 > **Notice:** To customize actions to be performed on importing nodes, when implementing a custom importer, you can override the **[OnImportNodeChild()](../../../...md#onImportNodeChild_ImportProcessor_Node_ImportNode_Node_ImportNode_bool)** method.
 
 
@@ -541,7 +568,10 @@ Builds and initializes the imported [scene](../../../../api/library/common/impor
 true if the scene is successfully initialized using the data from the specified input file; otherwise, false.
 ## bool OnImport ( string output_path )
 
+
 Import event handler function. This function is called each time when the *[Import()](../../../...md#import_cstr_bool)* function is called. You can specify your custom actions to be performed on scene import.
+
+
 ```cpp
 class MyCustomImporter : public Unigine::Importer
 {
@@ -582,7 +612,10 @@ bool MyCustomImporter::onImport(const char *output_path)
 true if import operation for the specified output path was successful; otherwise, false.
 ## bool OnImportTexture ( ImportProcessor processor , ImportTexture import_texture )
 
+
 Texture import event handler function. This function is called each time when the *[ImportTexture()](../../../...md#importTexture_ImportProcessor_ImportTexture_bool)* function is called. You can specify your custom actions to be performed on texture import.
+
+
 ```cpp
 class MyCustomImporter : public Unigine::Importer
 {
@@ -624,7 +657,10 @@ bool MyCustomImporter::onImportTexture(const ImportProcessorPtr &processor, cons
 true if the specified texture was successfully imported; otherwise, false.
 ## bool OnImportMaterial ( ImportProcessor processor , Material material , ImportMaterial import_material )
 
+
 Material import event handler function. This function is called each time when the **[ImportMaterial()](../../../...md#importMaterial_ImportProcessor_Material_ImportMaterial_bool)** function is called. You can specify your custom actions to be performed on material import.
+
+
 ```cpp
 class MyCustomImporter : public Unigine::Importer
 {
@@ -667,7 +703,10 @@ bool MyCustomImporter::onImportMaterial(const ImportProcessorPtr &processor, con
 true if the specified material was successfully imported; otherwise, false.
 ## Light OnImportLight ( ImportProcessor processor , ImportLight import_light )
 
+
 Light import event handler function. This function is called each time when the **[ImportLight()](../../../...md#importLight_ImportProcessor_ImportLight_Light)** function is called. You can specify your custom actions to be performed on light import.
+
+
 ```cpp
 class MyCustomImporter : public Unigine::Importer
 {
@@ -709,7 +748,10 @@ Unigine::LightPtr MyCustomImporter::onImportLight(const ImportProcessorPtr &proc
 [UNIGINE's light instance](../../../../api/library/lights/class.light_cs.md) that stores the specified imported light.
 ## Player OnImportCamera ( ImportProcessor processor , ImportCamera import_camera )
 
+
 Camera import event handler function. This function is called each time when the **[ImportCamera()](../../../...md#importCamera_ImportProcessor_ImportCamera_Player)** function is called. You can specify your custom actions to be performed on camera import.
+
+
 ```cpp
 class MyCustomImporter : public Unigine::Importer
 {
@@ -751,7 +793,10 @@ Unigine::PlayerPtr MyCustomImporter::onImportCamera(const ImportProcessorPtr &pr
 [UNIGINE's player instance](../../../../api/library/players/class.player_cs.md) that stores the specified imported camera.
 ## bool OnImportMesh ( ImportProcessor processor , Mesh mesh , ImportMesh import_mesh )
 
+
 Mesh import event handler function. This function is called each time when the **[ImportMesh()](../../../...md#importMesh_ImportProcessor_Mesh_ImportMesh_bool)** function is called. You can specify your custom actions to be performed on mesh import.
+
+
 ```cpp
 class MyCustomImporter : public Unigine::Importer
 {
@@ -794,7 +839,10 @@ bool MyCustomImporter::onImportMesh(const ImportProcessorPtr &, const Unigine::M
 true if the specified mesh was successfully imported; otherwise, false.
 ## bool OnImportMeshSkinned ( ImportProcessor processor , MeshSkinned mesh_skinned , ImportMeshSkinned import_mesh_skinned )
 
+
 Skinned mesh import event handler function. This function is called each time when the **[ImportMeshSkinned()](../../../...md#importMeshSkinned_ImportProcessor_MeshSkinned_ImportMeshSkinned_bool)** function is called. You can specify your custom actions to be performed on skinned mesh import.
+
+
 ```cpp
 class MyCustomImporter : public Unigine::Importer
 {
@@ -837,7 +885,10 @@ bool MyCustomImporter::onImportMeshSkinned(const ImportProcessorPtr &processor, 
 true if the specified skinned mesh was successfully imported; otherwise, false.
 ## Node OnImportNode ( ImportProcessor processor , ImportNode import_node )
 
+
 Node import event handler function. This function is called each time when the **[ImportNode()](../../../...md#importNode_ImportProcessor_ImportNode_Node)** function is called. You can specify your custom actions to be performed on node import.
+
+
 ```cpp
 class MyCustomImporter : public Unigine::Importer
 {
@@ -879,7 +930,10 @@ Unigine::NodePtr MyCustomImporter::onImportNode(const ImportProcessorPtr &proces
 [UNIGINE's node instance](../../../../api/library/nodes/class.node_cs.md) that stores the specified imported node.
 ## bool OnImportNodeChild ( ImportProcessor processor , Node node_parent , ImportNode import_node_parent , Node node_child , ImportNode import_node_child )
 
+
 Node import event handler function. This function is called each time when the **[ImportNodeChild()](../../../...md#importNodeChild_ImportProcessor_Node_ImportNode_Node_ImportNode_bool)** function is called. You can specify your custom actions to be performed on importing and processing node hierarchies (e.g. assigning properties to node children).
+
+
 ```cpp
 class MyCustomImporter : public Unigine::Importer
 {
@@ -949,7 +1003,10 @@ Animation import event handler function. This function is called each time when 
 true if the specified mesh animation was successfully imported; otherwise, false.
 ## bool OnImportSkeleton ( ImportProcessor processor , Skeleton skeleton , ImportSkeleton import_skeleton )
 
+
 Skeleton import event handler function. This function is called each time when the **[ImportSkeleton()](../../../...md#importSkeleton_ImportProcessor_Skeleton_ImportSkeleton_bool)** function is called. You can specify your custom actions to be performed on skeleton import.
+
+
 ```cpp
 class MyCustomImporter : public Unigine::Importer
 {

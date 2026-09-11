@@ -22,7 +22,7 @@ In UNIGINE, asynchronous data streaming is enabled by default. You can **disable
 - In the console, run the [corresponding commands](../../code/console/index.md#render_resources) that switch the streaming mode for textures and/or meshes.
 
 
-There are two main streaming modes — asynchronous (Async) and forced (Force). The **Force** mode ensures force-loading of all resources required for each frame simultaneously (e.g., grabbing frame sequences, rendering node previews, warmup, etc.).
+There are two main streaming modes � asynchronous (Async) and forced (Force). The **Force** mode ensures force-loading of all resources required for each frame simultaneously (e.g., grabbing frame sequences, rendering node previews, warmup, etc.).
 
 
 > **Notice:** The *Force* mode may cause freezes, so use it only if you are sure that the resources in your world fit into the available memory.
@@ -60,7 +60,7 @@ It is also possible to print the list of loaded resources and detailed informati
 In addition to the asynchronous loading of meshes and textures, the streaming system provides **asynchronous shader compilation and loading**.
 
 
-There are also 2 modes — asynchronous (Async) and forced (Force). In the Force mode, all shaders required for the current frame are compiled and loaded to RAM simultaneously in the current thread. By default, the asynchronous mode is used.
+There are also 2 modes � asynchronous (Async) and forced (Force). In the Force mode, all shaders required for the current frame are compiled and loaded to RAM simultaneously in the current thread. By default, the asynchronous mode is used.
 
 
 > **Notice:** You can switch the compilation mode in [UnigineEditor](../../editor2/settings/render_settings/streaming/index.md#shaders) or by using the `render_shaders_compile_mode` console command.
@@ -87,6 +87,8 @@ You can limit the memory available to the application to avoid crashes and find 
 
 
 > **Notice:** You can disable VRAM limits if necessary by toggling on the *[VRAM Overcommit](../../code/console/index.md#render_streaming_vram_overcommit)* option. It may lead to spikes and freezes of the application but will ensure continuous loading of graphic resources. This option is unavailable for RAM, as exceeding available RAM will result in the application crash.
+>
+>
 > The *[Committed Memory Overcommit](../../code/console/index.md#render_streaming_committed_memory_overcommit)* option controls how aggressively the engine uses system memory. When enabled (default), the engine can exceed 80% of total committed memory usage, which may improve performance during heavy streaming or memory-intensive scenarios. When disabled, memory usage is limited to 80% of system-committed memory, which can help maintain stability - especially on systems without a pagefile or with constrained disk space.
 
 
@@ -180,4 +182,41 @@ First of all, we highly recommend you to use [shapes](../../principles/physics/c
 > **Notice:** It is highly recommended to use [shapes](../../principles/physics/collision/index.md) for collision and intersection detection.
 
 
-Asynchronously streamed meshes shouldn't be modified. The only way to change such mesh is to make it procedural. A *procedural mesh* is a mesh created via code, such meshes have a specific streaming mode — they are always kept in memory after creation and never unloaded until the object is destroyed via code or the mesh returns to its normal mode (streaming from a source file). The mesh-based objects API allows switching a mesh to the [procedural mode](../../api/library/objects/class.objectmeshstatic_cpp.md#setMeshProceduralMode_int_int_void) and apply changes.
+Asynchronously streamed meshes shouldn't be modified. The only way to change such mesh is to make it procedural. A *procedural mesh* is a mesh created via code, such meshes have a specific streaming mode � they are always kept in memory after creation and never unloaded until the object is destroyed via code or the mesh returns to its normal mode (streaming from a source file). The mesh-based objects API allows switching a mesh to the [procedural mode](../../api/library/objects/class.objectmeshstatic_cpp.md#setMeshProceduralMode_int_int_void) and apply changes.
+
+
+## Animation Streaming
+
+
+Skeletal animations of *[ObjectMeshSkinned](../../api/library/objects/class.objectmeshskinned_cpp.md)* and *[ObjectMeshSkinnedLegacy](../../api/library/objects/class.objectmeshskinnedlegacy_cpp.md)* objects are streamed as well. Unlike geometry and textures, an animation only provides bone transforms computed on the CPU side, so it is streamed to **RAM only** and never occupies video memory.
+
+
+There are two modes of animation streaming:
+
+
+- *Asynchronous* mode that loads an animation in a **background thread**. Until the animation is loaded, the skeleton holds the **first frame** of this animation.
+- *Forced* mode that loads the animation required for the current frame **immediately**, blocking until it is available.
+
+
+By default, animations use the **forced** mode, so a newly requested animation is available right away. You can switch the mode in *[UnigineEditor Streaming Settings](../../editor2/settings/render_settings/streaming/index.md#animations_streaming_mode)* or via the `render_streaming_animations_mode` console command.
+
+
+> **Notice:** Because an animation provides bone transforms rather than geometry, a streaming miss does not make an object disappear. The object is rendered in the **first frame** of the animation being loaded, so no bind-pose flash occurs.
+>
+>
+> You can check whether a layer's animation is still **streaming** both on *[ObjectMeshSkinnedLegacy](../../api/library/objects/class.objectmeshskinnedlegacy_cpp.md#isLayerAnimationStreaming_int_int)* and on *[NodeSkeletonPose](../../api/library/nodes/class.nodeskeletonpose_cpp.md#isLayerAnimationStreaming_int_int)*.
+
+
+### Keeping Animations in Memory
+
+
+Once an animation is no longer used, it is **not unloaded immediately**. Instead, it stays in the **RAM cache** for a while so that it can be reused without reloading. How long an unused animation remains in the cache is defined, **in frames**, by the `render_streaming_animations_life_time` console command. The default value of -1 keeps animations in memory **permanently** - they are never unloaded. Values below 6 are clamped to 6 frames.
+
+
+You can also limit the total amount of RAM used by the animation cache with the `render_streaming_animation_cache_ram` console command.
+
+
+When you need a specific animation to stay loaded **regardless of the lifetime setting**, you can [**hold**](../../api/library/rendering/class.render_cpp.md#holdStreamingAnimation_cstr_int) it explicitly via the *[Render](../../api/library/rendering/class.render_cpp.md)* class API. A held animation remains in memory and is **never unloaded until it is released**. The same class also lets you **preload** animations [in the background](../../api/library/rendering/class.render_cpp.md#loadStreamingAnimationAsync_cstr_MeshSkinnedAnimation) or [immediately](../../api/library/rendering/class.render_cpp.md#loadStreamingAnimationForce_cstr_MeshSkinnedAnimation), and query whether an animation currently [**exists**](../../api/library/rendering/class.render_cpp.md#isStreamingAnimationExist_cstr_int) or is [**loaded**](../../api/library/rendering/class.render_cpp.md#isStreamingAnimationLoaded_cstr_int) in the streaming system.
+
+
+You can obtain general information on streamed animations and the list of loaded animations with the `render_streaming_animations_info` and `render_streaming_animations_list` console commands.

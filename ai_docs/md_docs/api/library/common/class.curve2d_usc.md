@@ -64,7 +64,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## Curve2d ( )
@@ -179,8 +179,11 @@ Returns the current coordinates for the right tangent at the specified key point
 Current coordinates of the right tangent at the specified key point.
 ## int saveState ( Stream stream )
 
+
 Saves data of the curve to a binary stream.
-**Example** using saveState() and [restoreState()](#restoreState_Stream_int) methods:
+
+
+**Example** using *saveState()* and *[restoreState()](#restoreState_Stream_int)* methods:
 
 
 ```cpp
@@ -213,8 +216,11 @@ curve.restoreState(blob_state);
 **1** if the curve data is saved successfully; otherwise, **0**.
 ## int restoreState ( Stream stream )
 
+
 Restores curve data from a binary stream.
-**Example** using [saveState()](#saveState_Stream_int) and restoreState() methods:
+
+
+**Example** using *[saveState()](#saveState_Stream_int)* and *restoreState()* methods:
 
 
 ```cpp

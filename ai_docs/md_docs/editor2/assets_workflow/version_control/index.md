@@ -20,7 +20,7 @@ The following files and folders in you project's root can be ignored, as they ar
 
 
 - ![](../folder.png) `.thumbnails`
-- ![](../folder.png) `bin` > **Notice:** Add this folder to version control before updating the engine’s version or reconfiguring the project in SDK Browser to provide the updated `bin` to all developers.
+- ![](../folder.png) `bin` > **Notice:** Add this folder to version control before updating the engine�s version or reconfiguring the project in SDK Browser to provide the updated `bin` to all developers.
 - ![](../folder.png) `data/.thumbnails`
 - ![](../folder.png) `data/microprofile_dump_html`
 - ![](../folder.png) `.svn`
@@ -153,7 +153,7 @@ The following files and folders should be subject to version control:
 
 - ![](../folder.png) [`data`](../../../editor2/assets_workflow/project_files.md#data_folder) folder with all its contents > **Notice:** If you do not want to share the editor and application settings with other team members, add the following configuration files to `.gitignore`: > > > - `data/configs/unigine.user` > - `data/configs/default.user` > - `data/.editor2/*` This folder also contains runtime files (`data/.runtimes`) that should be committed. However, if you occasionally fail to commit runtimes, the runtimes validation process will run when UNIGINE Editor is started, and the missing/outdated runtimes are added/updated. The runtime validation is also performed on adding a new mount.
 - ![](../folder.png) [`source`](../../../editor2/assets_workflow/project_files.md#data_folder) folder contents except for the elements mentioned above > **Notice:** This folder is created only for projects that use C++ or C# API.
-- ![](../file.png) `*.cache` files containing compiled shader cache > **Notice:** When team members develop a project using different GPUs or/and driver’s version for their machine configuration, it is better to add the shader cache files to `.gitignore` since these file will be recompiled by an end developer’s computer.
+- ![](../file.png) `*.cache` files containing compiled shader cache > **Notice:** When team members develop a project using different GPUs or/and driver�s version for their machine configuration, it is better to add the shader cache files to `.gitignore` since these file will be recompiled by an end developer�s computer.
 - ![](../file.png) `*.project` file (and `*.csproj` for C# projects)
 
 

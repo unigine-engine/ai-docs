@@ -11,7 +11,7 @@ The base class for managing virtual reality in UNIGINE.
 ### VR Initialization
 
 
-By default, VR is not initialized. To run the engine with VR, you need to specify the [*-vr_app*](../../../vr_development/index.md#vr_init) command-line option on the application start-up.
+By default, VR is not initialized. To run the engine with VR, you need to specify the [*-vr_app*](../../../vr_development/index.md#which_backend) command-line option on the application start-up.
 
 
 ### Supported Graphics APIs
@@ -41,32 +41,32 @@ The following graphics APIs are supported out of the box:
 ### Return value
 
 Current rendering into the HMD The default value is **false**.
-## void setPeripheralRenderingModeEnabled ( int enabled = 1 )
+## void setPeripheralRenderingModeEnabled ( int enabled = 0 )
 
-***Console*:**`vr_peripheral_rendering_mode_enabled`Sets a new value indicating if the peripheral rendering mode is enabled. In this mode, the HMD has two context (peripheral) and two focus viewports. You can disable two additional viewports to improve peformance. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+***Console*:**`vr_peripheral_rendering_mode_enabled`Sets a new value indicating if the peripheral rendering mode is enabled. In this mode, the HMD has two context (peripheral) and two focus viewports. You can disable two additional viewports to improve performance. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
 ### Arguments
 
-- *int* **enabled** - The the peripheral rendering mode The default value is **true**.
+- *int* **enabled** - The the peripheral rendering mode The default value is **false**.
 
 ## int isPeripheralRenderingModeEnabled () const
 
-***Console*:**`vr_peripheral_rendering_mode_enabled`Returns the current value indicating if the peripheral rendering mode is enabled. In this mode, the HMD has two context (peripheral) and two focus viewports. You can disable two additional viewports to improve peformance. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+***Console*:**`vr_peripheral_rendering_mode_enabled`Returns the current value indicating if the peripheral rendering mode is enabled. In this mode, the HMD has two context (peripheral) and two focus viewports. You can disable two additional viewports to improve performance. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
 ### Return value
 
-Current the peripheral rendering mode The default value is **true**.
-## void setPeripheralRenderingDebugEnabled ( bool enabled = 1 )
+Current the peripheral rendering mode The default value is **false**.
+## void setPeripheralRenderingDebugEnabled ( bool enabled = 0 )
 
 ***Console*:**`vr_peripheral_rendering_debug_enabled`Sets a new value indicating if debug visualization for peripheral rendering is enabled. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
 ### Arguments
 
-- *bool* **enabled** - Set **true** to enable debug visualization for peripheral rendering; **false** - to disable it. The default value is **true**.
+- *bool* **enabled** - Set **true** to enable debug visualization for peripheral rendering; **false** - to disable it. The default value is **false**.
 
 ## bool isPeripheralRenderingDebugEnabled () const
 
 ***Console*:**`vr_peripheral_rendering_debug_enabled`Returns the current value indicating if debug visualization for peripheral rendering is enabled. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
 ### Return value
 
-**true** if debug visualization for peripheral rendering is enabled; otherwise **false**. The default value is **true**.
+**true** if debug visualization for peripheral rendering is enabled ; otherwise **false**. The default value is **false**.
 ## void setPeripheralRenderingBorderWidth ( float width = 0.2f )
 
 ***Console*:**`vr_peripheral_rendering_border_width`Sets a new width of the transition border between foveal (focus) and context rendering zones. A value of 1.0 means the entire viewport has a wide, smooth transition. A very small value (close to epsilon) means the transition will be extremely narrow and almost invisible. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
@@ -194,79 +194,55 @@ Current zero pose of the tracking origin. One of the following values:
 
 ## void setMotionPrediction ( int prediction = 0 )
 
-***Console*:**`vr_motion_prediction`Sets a new value indicating if motion prediction in the Varjo headsets is enabled. When enabled, the engine submits the velocity value from the GBuffer to the Varjo Composer.
-> **Notice:** This feature is available for the *Varjo devices only*.
-
- This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+***Console*:**`vr_motion_prediction`Sets a new value indicating if motion prediction is enabled. When enabled, the engine submits the velocity value from the GBuffer to the VR compositor. Check [hasFeatureMotionPrediction()](#hasFeatureMotionPrediction_int) to verify availability. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
 ### Arguments
 
 - *int* **prediction** - The motion prediction The default value is **false**.
 
 ## int isMotionPrediction () const
 
-***Console*:**`vr_motion_prediction`Returns the current value indicating if motion prediction in the Varjo headsets is enabled. When enabled, the engine submits the velocity value from the GBuffer to the Varjo Composer.
-> **Notice:** This feature is available for the *Varjo devices only*.
-
- This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+***Console*:**`vr_motion_prediction`Returns the current value indicating if motion prediction is enabled. When enabled, the engine submits the velocity value from the GBuffer to the VR compositor. Check [hasFeatureMotionPrediction()](#hasFeatureMotionPrediction_int) to verify availability. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
 ### Return value
 
 Current motion prediction The default value is **false**.
 ## void setMotionPredictionVelocityPrecision ( float precision = 32.0f )
 
-***Console*:**`vr_motion_prediction_velocity_precision`Sets a new factor of velocity scale before packing a floating point value into a 2x8 bit unsigned integer (uint).
-> **Notice:** This feature is available for the *Varjo devices only*.
-
- This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+***Console*:**`vr_motion_prediction_velocity_precision`Sets a new factor of velocity scale before packing a floating point value into a 2x8 bit unsigned integer (uint). Requires [motion prediction support](#hasFeatureMotionPrediction_int). This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
 ### Arguments
 
 - *float* **precision** - The factor of velocity scale before packing a floating point value into a 2x8 bit unsigned integer (uint). Range of values: **[eps, inf]**. The default value is : **32.0f**.
 
 ## float getMotionPredictionVelocityPrecision () const
 
-***Console*:**`vr_motion_prediction_velocity_precision`Returns the current factor of velocity scale before packing a floating point value into a 2x8 bit unsigned integer (uint).
-> **Notice:** This feature is available for the *Varjo devices only*.
-
- This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+***Console*:**`vr_motion_prediction_velocity_precision`Returns the current factor of velocity scale before packing a floating point value into a 2x8 bit unsigned integer (uint). Requires [motion prediction support](#hasFeatureMotionPrediction_int). This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
 ### Return value
 
 Current factor of velocity scale before packing a floating point value into a 2x8 bit unsigned integer (uint).
 Range of values: **[eps, inf]**. The default value is : **32.0f**.
 ## void setMotionPredictionVelocityTimeDelta ( float delta = 1.0f / 60.0f )
 
-***Console*:**`vr_motion_prediction_velocity_time_delta`Sets a new factor for optimizing between fast and slow-moving objects. A smaller number works better for fast-moving objects, and vice versa.
-> **Notice:** This feature is available for the *Varjo devices only*.
-
- This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+***Console*:**`vr_motion_prediction_velocity_time_delta`Sets a new factor for optimizing between fast and slow-moving objects. A smaller number works better for fast-moving objects, and vice versa. Requires [motion prediction support](#hasFeatureMotionPrediction_int). This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
 ### Arguments
 
 - *float* **delta** - The factor for optimizing between fast and slow-moving objects. A smaller number works better for fast-moving objects, and vice versa. Range of values: **[eps, inf]**. The default value is : **1.0f / 60.0f**.
 
 ## float getMotionPredictionVelocityTimeDelta () const
 
-***Console*:**`vr_motion_prediction_velocity_time_delta`Returns the current factor for optimizing between fast and slow-moving objects. A smaller number works better for fast-moving objects, and vice versa.
-> **Notice:** This feature is available for the *Varjo devices only*.
-
- This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+***Console*:**`vr_motion_prediction_velocity_time_delta`Returns the current factor for optimizing between fast and slow-moving objects. A smaller number works better for fast-moving objects, and vice versa. Requires [motion prediction support](#hasFeatureMotionPrediction_int). This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
 ### Return value
 
 Current factor for optimizing between fast and slow-moving objects. A smaller number works better for fast-moving objects, and vice versa.
 Range of values: **[eps, inf]**. The default value is : **1.0f / 60.0f**.
 ## void setFoveatedRenderingEnabled ( int enabled = 1 )
 
-***Console*:**`vr_foveated_rendering_enabled`Sets a new value indicating if foveated rendering is enabled. Foveated rendering makes use of the eye tracking functionality in the Varjo headsets to improve performance by reducing the image quality in peripheral areas where the user is not looking. Foveation allows applications to render fewer pixels and achieve a better VR experience.
-> **Notice:** This feature is available for the *Varjo devices only*.
-
- This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+***Console*:**`vr_foveated_rendering_enabled`Sets a new value indicating if foveated rendering is enabled. Foveated rendering uses eye tracking to improve performance by reducing the image quality in peripheral areas where the user is not looking, allowing applications to render fewer pixels. Check [hasFeatureFoveatedRendering()](#hasFeatureFoveatedRendering_int) to verify availability. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
 ### Arguments
 
 - *int* **enabled** - The foveated rendering The default value is **true**.
 
 ## int isFoveatedRenderingEnabled () const
 
-***Console*:**`vr_foveated_rendering_enabled`Returns the current value indicating if foveated rendering is enabled. Foveated rendering makes use of the eye tracking functionality in the Varjo headsets to improve performance by reducing the image quality in peripheral areas where the user is not looking. Foveation allows applications to render fewer pixels and achieve a better VR experience.
-> **Notice:** This feature is available for the *Varjo devices only*.
-
- This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+***Console*:**`vr_foveated_rendering_enabled`Returns the current value indicating if foveated rendering is enabled. Foveated rendering uses eye tracking to improve performance by reducing the image quality in peripheral areas where the user is not looking, allowing applications to render fewer pixels. Check [hasFeatureFoveatedRendering()](#hasFeatureFoveatedRendering_int) to verify availability. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
 ### Return value
 
 Current foveated rendering The default value is **true**.
@@ -384,7 +360,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventAudioSettingsChanged () const
 
 The event handler signature is as follows: *myhandler()*
@@ -401,7 +377,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int> getEventDeviceRenderModelChanged () const
 
 The event handler signature is as follows: *myhandler()*
@@ -418,13 +394,13 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## bool isSteamVRDashboardActive () const
 
-Returns the current value indicating if the SteamVR controllers are rendered. When you access the SteamVR menu during the application runtime, the SteamVR controllers start to be rendered along with the application controllers. You can use this function to check the state of the SteamVR controllers and disable the application controllers to avoid performance drops caused by the simultaneous rendering of both controllers.
+Returns the current value indicating if the SteamVR dashboard is active. When the SteamVR dashboard is open, SteamVR renders its own controllers on top of the scene. You can use this to hide your application's controller models and avoid rendering both simultaneously.
 ### Return value
 
-**true** if the SteamVR controllers are rendered is enabled; otherwise **false**.
+**true** if the SteamVR dashboard is active and SteamVR is drawing its own controllers is enabled ; otherwise **false**.
 ## getInputRuntimeType () const
 
 Returns the current type of the VR input runtime.
@@ -468,7 +444,7 @@ Current debug mode for VR.
 ***Console*:**`vr_render_while_hmd_idle`Returns the current value indicating if rendering is enabled while HMD is not worn. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
 ### Return value
 
-**true** if rendering while HMD is not worn is enabled; otherwise **false**. The default value is **true**.
+**true** if rendering while HMD is not worn is enabled ; otherwise **false**. The default value is **true**.
 ## float getEyeNativeFOV () const
 
 Returns the current device-native vertical field of view in radians (measured from the left eye).
@@ -494,6 +470,191 @@ Returns the current value indicating if the native vertical field of view value 
 ### Return value
 
 **true** if the native vertical field of view value has been overridden (i.e., differs from the native field of view); otherwise **false**.
+## void setEmulationMirrorCrop ( float crop = 1.0f )
+
+***Console*:**`vr_emulation_mirror_crop`Sets a new crop factor defining how the image is zoomed in the target window when running in VR emulation. The value 1.0 means no crop (default), and 5.0 is the maximum. Used instead of the **[getMirrorCrop()()](../../...md#getMirrorCrop_float)** property when not rendering to an HMD. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+### Arguments
+
+- *float* **crop** - The crop (zoom) factor of the mirror image in VR emulation Range of values: **[1.0f, 5.0f]**. The default value is : **1.0f**.
+
+## float getEmulationMirrorCrop () const
+
+***Console*:**`vr_emulation_mirror_crop`Returns the current crop factor defining how the image is zoomed in the target window when running in VR emulation. The value 1.0 means no crop (default), and 5.0 is the maximum. Used instead of the **[getMirrorCrop()()](../../...md#getMirrorCrop_float)** property when not rendering to an HMD. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+### Return value
+
+Current crop (zoom) factor of the mirror image in VR emulation
+Range of values: **[1.0f, 5.0f]**. The default value is : **1.0f**.
+## void setEmulationMirrorCropOffset ( vec2 offset = vec2(0.5f, 0.5f) )
+
+***Console*:**`vr_emulation_mirror_crop_offset`Sets a new offset of the cropped mirror image within the target window when running in VR emulation, as normalized coordinates. The value (0, 0) corresponds to the top-left corner, (0.5, 0.5) means no offset (default), (1, 1) is the bottom-right corner. Used instead of the **[getMirrorCropOffset()()](../../...md#getMirrorCropOffset_vec2)** property when not rendering to an HMD. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+### Arguments
+
+- *vec2* **offset** - The offset of the cropped mirror image in VR emulation
+
+## vec2 getEmulationMirrorCropOffset () const
+
+***Console*:**`vr_emulation_mirror_crop_offset`Returns the current offset of the cropped mirror image within the target window when running in VR emulation, as normalized coordinates. The value (0, 0) corresponds to the top-left corner, (0.5, 0.5) means no offset (default), (1, 1) is the bottom-right corner. Used instead of the **[getMirrorCropOffset()()](../../...md#getMirrorCropOffset_vec2)** property when not rendering to an HMD. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+### Return value
+
+Current offset of the cropped mirror image in VR emulation
+
+## void setEmulationMirrorMode ( int mode = 3 )
+
+***Console*:**`vr_emulation_mirror_mode`Sets a new mirror mode used when running in VR emulation (without rendering to an HMD), one of the *MIRROR_MODE_** values: black screen, left eye, right eye, or stereo (default). This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+### Arguments
+
+- *int* **mode** - The mirror mode used in VR emulation One of the following values:
+
+## int getEmulationMirrorMode () const
+
+***Console*:**`vr_emulation_mirror_mode`Returns the current mirror mode used when running in VR emulation (without rendering to an HMD), one of the *MIRROR_MODE_** values: black screen, left eye, right eye, or stereo (default). This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+### Return value
+
+Current mirror mode used in VR emulation One of the following values:
+
+## int getFoveatedMode () const
+
+Returns the current effective foveated-rendering mode: *[DISABLED](#FOVEATED_MODE_DISABLED)* when foveated rendering is not used, *[FIXED](#FOVEATED_MODE_FIXED)* when the focus region is pinned, *[DYNAMIC](#FOVEATED_MODE_DYNAMIC)* when it follows the tracked gaze.
+### Return value
+
+Current effective foveated-rendering mode
+## void setMirrorCrop ( float crop = 2.0f )
+
+***Console*:**`vr_mirror_crop`Sets a new crop factor defining how the VR image is zoomed when mirrored to the target window. The value 1.0 means no crop, 2.0 means 2x zoom (default), and 5.0 is the maximum. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+### Arguments
+
+- *float* **crop** - The crop (zoom) factor of the VR mirror image Range of values: **[1.0f, 5.0f]**. The default value is : **2.0f**.
+
+## float getMirrorCrop () const
+
+***Console*:**`vr_mirror_crop`Returns the current crop factor defining how the VR image is zoomed when mirrored to the target window. The value 1.0 means no crop, 2.0 means 2x zoom (default), and 5.0 is the maximum. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+### Return value
+
+Current crop (zoom) factor of the VR mirror image
+Range of values: **[1.0f, 5.0f]**. The default value is : **2.0f**.
+## void setMirrorCropOffset ( vec2 offset = vec2(0.5f, 0.5f) )
+
+***Console*:**`vr_mirror_crop_offset`Sets a new offset of the cropped VR mirror image within the target window, as normalized coordinates. The value (0, 0) corresponds to the top-left corner, (0.5, 0.5) means no offset (default), (1, 1) is the bottom-right corner. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+### Arguments
+
+- *vec2* **offset** - The offset of the cropped VR mirror image
+
+## vec2 getMirrorCropOffset () const
+
+***Console*:**`vr_mirror_crop_offset`Returns the current offset of the cropped VR mirror image within the target window, as normalized coordinates. The value (0, 0) corresponds to the top-left corner, (0.5, 0.5) means no offset (default), (1, 1) is the bottom-right corner. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+### Return value
+
+Current offset of the cropped VR mirror image
+
+## void setPeripheralRenderingDebugGazeOverrideCoord ( vec2 coord = vec2(0.5f, 0.5f) )
+
+***Console*:**`vr_peripheral_rendering_debug_gaze_override_coord`Sets a new gaze position used when the debug override mode is set to *[COORD](#PERIPHERAL_RENDERING_DEBUG_GAZE_OVERRIDE_MODE_COORD)*, as normalized UV coordinates in texture space. The value (0, 0) is the top-left corner, (0.5, 0.5) is the center (default), (1, 1) is the bottom-right corner. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+### Arguments
+
+- *vec2* **coord** - The gaze position for the coordinate-based debug override
+
+## vec2 getPeripheralRenderingDebugGazeOverrideCoord () const
+
+***Console*:**`vr_peripheral_rendering_debug_gaze_override_coord`Returns the current gaze position used when the debug override mode is set to *[COORD](#PERIPHERAL_RENDERING_DEBUG_GAZE_OVERRIDE_MODE_COORD)*, as normalized UV coordinates in texture space. The value (0, 0) is the top-left corner, (0.5, 0.5) is the center (default), (1, 1) is the bottom-right corner. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+### Return value
+
+Current gaze position for the coordinate-based debug override
+
+## void setPeripheralRenderingDebugGazeOverrideMode ( int mode = 0 )
+
+***Console*:**`vr_peripheral_rendering_debug_gaze_override_mode`Sets a new debug override mode for the gaze position used by peripheral (foveated) rendering, one of the *PERIPHERAL_RENDERING_DEBUG_GAZE_OVERRIDE_MODE_** values. Disabled by default. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+### Arguments
+
+- *int* **mode** - The debug gaze override mode for peripheral rendering One of the following values:
+
+## int getPeripheralRenderingDebugGazeOverrideMode () const
+
+***Console*:**`vr_peripheral_rendering_debug_gaze_override_mode`Returns the current debug override mode for the gaze position used by peripheral (foveated) rendering, one of the *PERIPHERAL_RENDERING_DEBUG_GAZE_OVERRIDE_MODE_** values. Disabled by default. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+### Return value
+
+Current debug gaze override mode for peripheral rendering One of the following values:
+
+## void setProfilerBackgroundAlpha ( int alpha = 0.8f )
+
+***Console*:**`vr_profiler_background_alpha`Sets a new opacity of the VR profiler overlay background. The value is in the [0.0; 1.0] range, 0.8 by default. Effective only when the **[getShowProfiler()()](../../...md#getShowProfiler_int)** property is not set to disabled. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+### Arguments
+
+- *int* **alpha** - The opacity of the VR profiler background Range of values: **[0.0f, 1.0f]**. The default value is : **0.8f**.
+
+## int getProfilerBackgroundAlpha () const
+
+***Console*:**`vr_profiler_background_alpha`Returns the current opacity of the VR profiler overlay background. The value is in the [0.0; 1.0] range, 0.8 by default. Effective only when the **[getShowProfiler()()](../../...md#getShowProfiler_int)** property is not set to disabled. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+### Return value
+
+Current opacity of the VR profiler background
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.8f**.
+## void setProfilerPosition ( int position = 5 )
+
+***Console*:**`vr_profiler_position`Sets a new position of the VR profiler overlay within the HMD view, one of the *PROFILER_POSITION_** values aligned with the numeric keypad layout. The default is the center of the view. Effective only when the **[getShowProfiler()()](../../...md#getShowProfiler_int)** property is not set to disabled. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+### Arguments
+
+- *int* **position** - The position of the VR profiler overlay One of the following values:
+
+## int getProfilerPosition () const
+
+***Console*:**`vr_profiler_position`Returns the current position of the VR profiler overlay within the HMD view, one of the *PROFILER_POSITION_** values aligned with the numeric keypad layout. The default is the center of the view. Effective only when the **[getShowProfiler()()](../../...md#getShowProfiler_int)** property is not set to disabled. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+### Return value
+
+Current position of the VR profiler overlay One of the following values:
+
+## void setShowProfiler ( int profiler = 0 )
+
+***Console*:**`vr_show_profiler`Sets a new display mode of the profiler overlay rendered inside the HMD view, one of the *SHOW_PROFILER_** values (disabled, basic, or advanced). Disabled by default. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+### Arguments
+
+- *int* **profiler** - The display mode of the VR profiler overlay One of the following values:
+
+## int getShowProfiler () const
+
+***Console*:**`vr_show_profiler`Returns the current display mode of the profiler overlay rendered inside the HMD view, one of the *SHOW_PROFILER_** values (disabled, basic, or advanced). Disabled by default. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+### Return value
+
+Current display mode of the VR profiler overlay One of the following values:
+
+## void setShowProfilerMemory ( int memory = 1 )
+
+***Console*:**`vr_show_profiler_memory`Sets a new value indicating if the memory info panel of the VR profiler overlay is displayed. Effective only when the **[getShowProfiler()()](../../...md#getShowProfiler_int)** property is not set to disabled. Enabled by default. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+### Arguments
+
+- *int* **memory** - The the memory info panel of the VR profiler The default value is **true**.
+
+## int isShowProfilerMemory () const
+
+***Console*:**`vr_show_profiler_memory`Returns the current value indicating if the memory info panel of the VR profiler overlay is displayed. Effective only when the **[getShowProfiler()()](../../...md#getShowProfiler_int)** property is not set to disabled. Enabled by default. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+### Return value
+
+Current the memory info panel of the VR profiler The default value is **true**.
+## void setShowProfilerMisc ( int misc = 1 )
+
+***Console*:**`vr_show_profiler_misc`Sets a new value indicating if the miscellaneous info panel of the VR profiler overlay is displayed. Effective only when the **[getShowProfiler()()](../../...md#getShowProfiler_int)** property is not set to disabled. Enabled by default. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+### Arguments
+
+- *int* **misc** - The the miscellaneous info panel of the VR profiler The default value is **true**.
+
+## int isShowProfilerMisc () const
+
+***Console*:**`vr_show_profiler_misc`Returns the current value indicating if the miscellaneous info panel of the VR profiler overlay is displayed. Effective only when the **[getShowProfiler()()](../../...md#getShowProfiler_int)** property is not set to disabled. Enabled by default. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+### Return value
+
+Current the miscellaneous info panel of the VR profiler The default value is **true**.
+## void setShowProfilerPerformance ( int performance = 1 )
+
+***Console*:**`vr_show_profiler_performance`Sets a new value indicating if the performance info panel of the VR profiler overlay is displayed. Effective only when the **[getShowProfiler()()](../../...md#getShowProfiler_int)** property is not set to disabled. Enabled by default. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+### Arguments
+
+- *int* **performance** - The the performance info panel of the VR profiler The default value is **true**.
+
+## int isShowProfilerPerformance () const
+
+***Console*:**`vr_show_profiler_performance`Returns the current value indicating if the performance info panel of the VR profiler overlay is displayed. Effective only when the **[getShowProfiler()()](../../...md#getShowProfiler_int)** property is not set to disabled. Enabled by default. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+### Return value
+
+Current the performance info panel of the VR profiler The default value is **true**.
 ---
 
 ## ivec2 engine.vr. getHMDResolution ( int viewport_type = Enum.VR.VIEWPORT_TYPE.CONTEXT )
@@ -508,7 +669,7 @@ Returns the current resolution of the head-mounted display. For HMDs having cont
 HMD resolution.
 ## int engine.vr. hasFeatureMixedReality ( )
 
-Returns a value indicating if the mixed reality mode is available. Mixed reality enables you to combine real-world view from front-facing cameras mounted on the headset with the VR image rendered. This feature is available for the *Varjo devices only*.
+Returns a value indicating if the mixed reality mode is available on the current device and VR backend. Mixed reality enables you to combine real-world view from front-facing cameras mounted on the headset with the VR image rendered.
 > **Notice:** If VR is not initialized, the function will return false.
 
 
@@ -517,7 +678,7 @@ Returns a value indicating if the mixed reality mode is available. Mixed reality
 true if the feature is available; otherwise, false.
 ## int engine.vr. hasFeatureEyeTracking ( )
 
-Returns a value indicating if eye tracking is available. This feature is available for the *Varjo devices only*.
+Returns a value indicating if eye tracking is available on the current device and VR backend.
 > **Notice:** If VR is not initialized, the function will return false.
 
 
@@ -526,7 +687,10 @@ Returns a value indicating if eye tracking is available. This feature is availab
 true if the feature is available; otherwise, false.
 ## int engine.vr. hasFeatureHandTracking ( )
 
-Returns a value indicating if hand tracking is available. This feature is available for the *Varjo devices only*.
+Returns a value indicating if hand tracking is available. This feature is natively supported when using the **OpenXR** backend (via the *XR_EXT_hand_tracking* extension).
+When using the **Varjo** backend, hand tracking is available via the **[Ultraleap plugin](../../../code/plugins/ultraleap/index_usc.md)**, but this method will return false � use the plugin's API to check the hand tracking status.
+
+
 > **Notice:** If VR is not initialized, the function will return false.
 
 
@@ -535,7 +699,7 @@ Returns a value indicating if hand tracking is available. This feature is availa
 true if the feature is available; otherwise, false.
 ## int engine.vr. hasFeatureMotionPrediction ( )
 
-Returns a value indicating if motion prediction is available. This feature is available for the *Varjo devices only*. It allows the engine to submit the velocity from the GBuffer to the Varjo Composer.
+Returns a value indicating if motion prediction is available on the current device and VR backend. When enabled, the engine submits the velocity from the GBuffer to the VR compositor.
 > **Notice:** If VR is not initialized, the function will return false.
 
 
@@ -544,7 +708,7 @@ Returns a value indicating if motion prediction is available. This feature is av
 true if the feature is available; otherwise, false.
 ## int engine.vr. hasFeatureFoveatedRendering ( )
 
-Returns a value indicating if foveated rendering is available. This feature is available for the *Varjo devices only*. Foveated rendering enhances performance by using the eye tracking functionality in Varjo headsets: it decreases the image quality in the peripheral areas where the user is not looking. Foveation allows applications to render fewer pixels and achieve a better VR experience.
+Returns a value indicating if foveated rendering is available on the current device and VR backend. Foveated rendering enhances performance by using eye tracking to decrease the image quality in peripheral areas where the user is not looking, allowing applications to render fewer pixels and achieve a better VR experience.
 > **Notice:** If VR is not initialized, the function will return false.
 
 
@@ -723,7 +887,7 @@ Returns the number of the specified [scriptable material](../../../content/mater
 The number of the specified scriptable material for the target eye.
 ## void engine.vr. addScriptableMaterial ( int eye , Material material )
 
-Adds the specified [scriptable material](../../../content/materials/scriptable.md) to the target eye's material list. The material's number determines the order in which the expressions assigned to it are executed. To apply a scriptable material globally, use the **[addScriptableMaterial()()](../../../api/library/rendering/class.render_usc.md#addScriptableMaterial_int_Material_void)** method of the Render class.
+Adds the specified [scriptable material](../../../content/materials/scriptable.md) to the target eye's material list. The material's number determines the order in which the expressions assigned to it are executed. To apply a scriptable material globally, use the **[addScriptableMaterial()()](../../../api/library/rendering/class.render_usc.md#addScriptableMaterial_Material_void)** method of the Render class.
 > **Notice:** Scriptable materials [applied globally](../../../api/library/rendering/class.render_usc.md#addScriptableMaterial_Material_void) have their expressions executed before the ones that are applied per-eye.
 
 

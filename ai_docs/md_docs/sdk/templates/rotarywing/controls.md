@@ -59,7 +59,7 @@ By default, one default context is available; additional contexts can be created
 To simplify input setup and management, the template runtime provides the **Input Configurator** window.
 
 
-![Switching modes](../modules/controls/switch_mode.gif)
+![Switching modes](../modules/controls/img/switch_mode.gif)
 
 
 It offers two working modes:
@@ -84,14 +84,14 @@ It offers two working modes:
 **Creating a Context**
 
 
-1. Click ![Plus button](../modules/controls/plus_button.jpg) next to the *Context* dropdown, type in the new context name, and click *Add*.
+1. Click ![Plus button](../modules/controls/img/plus_button.jpg) next to the *Context* dropdown, type in the new context name, and click *Add*.
 2. Select the newly created context in the *Context* dropdown to configure its actions.
 
 
 **Creating an Action**
 
 
-1. Click ![Plus button](../modules/controls/plus_button.jpg) in the Action area.
+1. Click ![Plus button](../modules/controls/img/plus_button.jpg) in the Action area.
 2. Specify the Action name.
 3. Select the Action type (Key or Axis).
 
@@ -99,10 +99,10 @@ It offers two working modes:
 **Adding Bindings**
 
 
-Each action provides a ![Plus button](../modules/controls/plus_button.jpg) button for every supported input device type.
+Each action provides a ![Plus button](../modules/controls/img/plus_button.jpg) button for every supported input device type.
 
 
-1. Click the corresponding ![Plus button](../modules/controls/plus_button.jpg) button.
+1. Click the corresponding ![Plus button](../modules/controls/img/plus_button.jpg) button.
 2. Select binding settings.
 3. Click *Detect*.
 4. Press the desired key, button, move the axis, or POV to assign it. (Currently only one button can be bound).
@@ -140,7 +140,7 @@ The following settings are available for the binding depending on its type.
 | Setting | Description |
 |---|---|
 | axis | Index of the physical input axis. |
-| axis_clamp | Defines how axis values are remapped: - **FULL** — full range as-is - **POSITIVE_RANGE** — only positive values, negative values return 0 - **NEGATIVE_RANGE** — only negative values, positive values return 0 - **FULL_TO_POSITIVE** — remaps [-1, 1] -> [0, 1] - **FULL_TO_NEGATIVE** — remaps [-1, 1] -> [-1, 0] |
+| axis_clamp | Defines how axis values are remapped: - **FULL** � full range as-is - **POSITIVE_RANGE** � only positive values, negative values return 0 - **NEGATIVE_RANGE** � only negative values, positive values return 0 - **FULL_TO_POSITIVE** � remaps [-1, 1] -> [0, 1] - **FULL_TO_NEGATIVE** � remaps [-1, 1] -> [-1, 0] |
 | axis_inverse | Inverts the axis direction. |
 | dead_zone | Defines a neutral zone around zero where axis input is ignored. |
 | use_fake_axis | Uses two buttons instead of a physical axis to emulate axis input. |
@@ -206,3 +206,29 @@ The runtime **Input Configurator** may simplify this process:
 1. Create a new context, new actions, and bindings via the Input Configurator and save the created configuration by clicking the Save button.
 2. Load the created input settings in code: ```cpp InputManager::get()->loadSettings("mysettings.input"); Context *context = InputManager::get()->getDefaultContext(); //and create a variable for the action input.restart = context->getKeyAction("Restart"); ```
 3. Use the action in the project logic: ```cpp if (input.restart->isDown()) start(); ```
+
+
+## Profile Configurator
+
+
+**Profile Configurator** lets you manage input profiles for different devices when you need to add support for multiple specific controller models.
+
+
+This is especially useful in professional simulation setups where standard configuration through the *Input Configurator* may not be sufficient, requiring users to re-bind controllers for each device when switching between them. Three profile types are available:
+
+
+- **Default** - base profiles per device type (keyboard, mouse, gamepad, joystick)
+- **Preset** - predefined profiles for specific device models
+- **Custom** - user-defined profiles with modified settings.
+
+
+To create or modify a profile, switch to *Setup* mode and define the required controls.
+
+
+![](../modules/controls/img/profile_mode.png)
+
+
+On application startup, profiles are resolved in the following priority order: *Custom > Preset > Default*. The first matching profile is applied and its mappings are loaded into the *Input Configurator*.
+
+
+![](../modules/controls/img/profile.png)

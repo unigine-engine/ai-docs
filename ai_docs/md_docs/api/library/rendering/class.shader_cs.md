@@ -125,12 +125,17 @@ The value indicating if shader [export to a file](../../../code/uusl/index.md#uu
 The value indicating if the shader compile error output is disabled.
 ## Shader.WARNING_MODE WarningMode
 
-The warning mode for the shader compiler. You can choose modes from the lowest (all shader compilation warnings are ignored) up to the highest level, when warnings are treated as errors. By default the *highest* level is used, setting *lower* levels may result in driver and OS crashes, so you use them at your own risk. The *[soft](#WARNING_MODE_SOFT)* level can be used if you have checked and you're absolutely sure that the warnings do not cause crashes.
+The warning mode for the shader compiler.
+You can choose modes from the lowest (all shader compilation warnings are ignored) up to the highest level, when warnings are treated as errors. By default the *highest* level is used, setting *lower* levels may result in driver and OS crashes, so you use them at your own risk. The *[soft](#WARNING_MODE_SOFT)* level can be used if you have checked and you're absolutely sure that the warnings do not cause crashes.
+
 > **Notice:** Available for DirectX only.
 
 ## int OptimizationLevel
 
-The optimization level for the shader compiler. One of the following values:
+The optimization level for the shader compiler.
+One of the following values:
+
+
 - 0 - Directs the compiler to skip optimization steps during code generation.
 - 1 - Directs the compiler to use the lowest optimization level. At this level the compiler might produce slower code but produces the code quicker.
 - 2 - Directs the compiler to use the second lowest optimization level.
@@ -894,7 +899,7 @@ Compiles the shader with the specified vertex, geometry, and fragment subshaders
 - *string* **vertex** - Vertex subshader path.
 - *string* **geometry** - Geometry subshader path.
 - *string* **fragment** - Fragment subshader path.
-- *string* **defines** - User defines (for example, "OPENGL", "DIRECT3D11", or any other).
+- *string* **defines** - User defines (for example, "DIRECT3D12", or any other).
 - *ulong* **key_cache** - Key cache.
 
 ### Return value
@@ -906,7 +911,7 @@ Compiles the shader that includes subshaders. Depending on the types of the subs
 ### Arguments
 
 - *string* **shader** - Shader path.
-- *string* **defines** - User defines (for example, "OPENGL", "DIRECT3D11", or any other).
+- *string* **defines** - User defines (for example, "DIRECT3D12", or any other).
 - *ulong* **key_cache** - Key cache.
 
 ### Return value
@@ -919,7 +924,7 @@ Validates the shader (whether it can be compiled or not).
 
 - *[Shader.SUB_SHADER](../../../api/library/rendering/class.shader_cs.md#SUB_SHADER)* **type** - Subshader type.
 - *string* **shader** - Shader path.
-- *string* **defines** - User defines (for example, "OPENGL", "DIRECT3D11", or any other).
+- *string* **defines** - User defines (for example, "DIRECT3D12", or any other).
 
 ### Return value
 

@@ -3,10 +3,10 @@
 > **Warning:** The scope of applications for UnigineScript is limited to implementing materials-related logic (material expressions, scriptable materials, brush materials). Do not use UnigineScript as a language for application logic, please consider C#/C++ instead, as these APIs are the preferred ones. Availability of new Engine features in UnigineScript (beyond its scope of applications) is not guaranteed, as the current level of support assumes only fixing critical issues.
 
 
-StructuredBuffer is a buffer for structures: it represents a uniform array of structures.
+*StructuredBuffer* is a buffer for structures: it represents a uniform array of structures.
 
 
-StructuredBuffer resource can be specified [via the following flags](../../../api/library/rendering/class.structuredbuffer_usc.md#USAGE_RENDER).
+*StructuredBuffer* resource can be specified [via the following flags](../../../api/library/rendering/class.structuredbuffer_usc.md#USAGE_RENDER).
 
 
 ### See Also
@@ -43,19 +43,19 @@ Current number of elements in the structured buffer.
 Returns the current value indicating if the resource has the [USAGE_SHARED](#USAGE_SHARED) flag enabled.
 ### Return value
 
-**true** if the [USAGE_SHARED](#USAGE_SHARED) flag is enabled; otherwise **false**.
+**true** if the [USAGE_SHARED](#USAGE_SHARED) flag is enabled ; otherwise **false**.
 ## bool isUsageStaging () const
 
 Returns the current value indicating if the resource has the [USAGE_STAGING](#USAGE_STAGING) flag enabled.
 ### Return value
 
-**true** if the [USAGE_STAGING](#USAGE_STAGING) flag is enabled; otherwise **false**.
+**true** if the [USAGE_STAGING](#USAGE_STAGING) flag is enabled ; otherwise **false**.
 ## bool isUsageImmutable () const
 
 Returns the current value indicating if the resource has the [USAGE_IMMUTABLE](#USAGE_IMMUTABLE) flag enabled.
 ### Return value
 
-**true** if the [USAGE_IMMUTABLE](#USAGE_IMMUTABLE) flag is enabled; otherwise **false**.
+**true** if the [USAGE_IMMUTABLE](#USAGE_IMMUTABLE) flag is enabled ; otherwise **false**.
 ## isUsageRender () const
 
 Returns the current value indicating if the resource has the [USAGE_RENDER](#USAGE_RENDER) flag enabled.
@@ -67,6 +67,8 @@ Current the [USAGE_RENDER](#USAGE_RENDER) flag
 ## static StructuredBuffer ( )
 
 Constructor. Creates a new structured buffer.
+
+
 ```cpp
 StructuredBufferPtr input_buffer = StructuredBuffer::create();
 ```

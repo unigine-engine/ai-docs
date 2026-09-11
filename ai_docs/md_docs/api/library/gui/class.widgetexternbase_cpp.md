@@ -16,8 +16,6 @@ The base class, from which [custom user-defined widgets](../../../api/library/gu
 
 ## WidgetExternBase Class
 
-### Members
-
 ---
 
 ## template < class Type >

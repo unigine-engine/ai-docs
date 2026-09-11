@@ -106,8 +106,6 @@ int AppWorldLogic::init()
 
 ## NodeDummy Class
 
-### Members
-
 ---
 
 ## static NodeDummyPtr create ( )

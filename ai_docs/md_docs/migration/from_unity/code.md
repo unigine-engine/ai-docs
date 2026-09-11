@@ -4,7 +4,7 @@
 Game logic in a *Unity* project is implemented via *Script components*. You got used to determine GameObject's behavior by writing event functions like ***Start(), Update()***, etc.
 
 
-UNIGINE has quite a similar concept, which can be easily adopted — [C# Component System](../../principles/component_system/component_system_cs/index.md), which is safe and secure and ensures high performance. Logic is written in C# components that can be assigned to any node in the scene. Each component has a set of functions (***Init(), Update()***, etc.), that are called by the corresponding functions of the engine [main loop](../../code/fundamentals/execution_sequence/code_update.md).
+UNIGINE has quite a similar concept, which can be easily adopted � [C# Component System](../../principles/component_system/component_system_cs/index.md), which is safe and secure and ensures high performance. Logic is written in C# components that can be assigned to any node in the scene. Each component has a set of functions (***Init(), Update()***, etc.), that are called by the corresponding functions of the engine [main loop](../../code/fundamentals/execution_sequence/code_update.md).
 
 
 **Programming in UNIGINE using C# is not much different from programming in *Unity* software.** For example, let's compare how rotation is performed in *Unity* software:
@@ -433,8 +433,8 @@ Then, you should specify the *prefab* to be instantiated in the script component
 In UNIGINE, you can access any node via a [component parameter](../../api/library/common/logic/component_system/cs/class.component.md#parameters) as well, and clone it via *[Node.Clone()](../../api/library/nodes/class.node_cpp.md#clone_Node)*. However, assets are not nodes, they belong to the file system. To access assets from components use the following parameters types:
 
 
-- *[AssetLink](../../api/library/common/logic/component_system/cs/class.assetlink.md)* — for assets of any type,
-- *[AssetLinkNode](../../api/library/common/logic/component_system/cs/class.assetlinknode.md)* — for hierarchies saved as *[NodeReference](../../migration/from_unity/index.md#prefabs)* (`*.node` assets) exclusively.
+- *[AssetLink](../../api/library/common/logic/component_system/cs/class.assetlink.md)* � for assets of any type,
+- *[AssetLinkNode](../../api/library/common/logic/component_system/cs/class.assetlinknode.md)* � for hierarchies saved as *[NodeReference](../../migration/from_unity/index.md#prefabs)* (`*.node` assets) exclusively.
 
 
 The same way you will need to specify the asset in UnigineEditor:
@@ -511,8 +511,8 @@ In UNIGINE, nodes have an intrinsic [Lifetime](../../api/library/nodes/class.nod
 You are likely to be accustomed that *Unity* software enables you to extend the Editor using C# scripts. For this purpose you can use special attributes in your scripts:
 
 
-- ***[ExecuteInEditMode]*** — to execute the script logic during **Edit** mode, while your application is not running.
-- ***[ExecuteAlways]*** — to execute the script logic both as part of **Play** mode and when editing.
+- ***[ExecuteInEditMode]*** � to execute the script logic during **Edit** mode, while your application is not running.
+- ***[ExecuteAlways]*** � to execute the script logic both as part of **Play** mode and when editing.
 
 
 For example, this is how you write a component that makes *GameObject* orient towards the certain point in the scene:

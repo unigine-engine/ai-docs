@@ -1,7 +1,7 @@
 # Mesh Transparent
 
 
-Implements the basic render functionality for a transparent mesh. Can be used for the following objects (inherited from parent abstract material — *[Mesh](../../../code/materials_shaders/abstract_materials/mesh.md)*):
+Implements the basic render functionality for a transparent mesh. Can be used for the following objects (inherited from parent abstract material � *[Mesh](../../../code/materials_shaders/abstract_materials/mesh.md)*):
 
 
 - [ObjectMeshStatic](../../../api/library/objects/class.objectmeshstatic_cpp.md)
@@ -28,7 +28,7 @@ The *Mesh Transparent* abstract material has features implemented as internal st
 |---|---|---|---|
 | transparent_blur | false | (none) | Enables rendering of transparent blur effect. |
 | refraction | false | (none) | Enables rendering of post-processing refraction. |
-| refraction_information_lost_fix | false | refraction | Enables correction of refraction for “information lost” areas using information from areas beyond the object's internal volume. |
+| refraction_information_lost_fix | false | refraction | Enables correction of refraction for �information lost� areas using information from areas beyond the object's internal volume. |
 | refraction_front_side | false | refraction && refraction_information_lost_fix | Renders refraction only for front faces. This option can be used for glass objects with no cavities inside. When enabled, the surface shall overlap all transparent objects located behind it. |
 | planar_reflection | false | (none) | Enables rendering of dynamic reflections. Using this option you can create realistic flat mirrors and flat reflective surfaces (parquet, flat varnished surfaces, etc.) |
 | reflection_size | 7 | planar_reflection | Reflection map size, in pixels. Possible values: [128, 256, 512, 1024, 2048, 4096, quart_height, half_height, height] |
@@ -86,7 +86,7 @@ Fragment shader has the following output values:
 #### Textures
 
 
-Here’s the list of available textures that are pre-defined and used in fragment shader:
+Here�s the list of available textures that are pre-defined and used in fragment shader:
 
 
 | Texture name | Texture type | State | Pass | Description |

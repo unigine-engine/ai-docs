@@ -33,27 +33,95 @@ Global meteo conditions are managed via the [Meteo](../../../../api/library/plug
 
 ### Members
 
----
+## void setRotation ( float rotation )
 
-## void setEnabled ( bool v )
-
-Enables or disables the weather region.
+Sets a new angle of rotation of the weather region around the Z axis.
 ### Arguments
 
-- *bool* **v** - true to enable the weather region; false - to disable it.
+- *float* **rotation** - The current rotation angle, in degrees within the [-360; 360] range.
 
-## bool isEnabled ( ) const
+## float getRotation () const
 
-Returns a value indicating if the weather region is currently enabled.
+Returns the current angle of rotation of the weather region around the Z axis.
 ### Return value
 
-true if the weather region is currently enabled; otherwise, false.
-## long long getID ( ) const
+Current current rotation angle, in degrees within the [-360; 360] range.
+## void setWorldPosition ( const Math:: dvec2 & position )
 
-Returns the ID of the region.
+Sets a new world coordinates of the weather region's position.
+### Arguments
+
+- *const  Math::[dvec2](../../../../api/library/math/class.dvec2_cpp.md)&* **position** - The Cartesian coordinates of the weather region's position (X, Y).
+
+## Math:: dvec2 getWorldPosition () const
+
+Returns the current world coordinates of the weather region's position.
 ### Return value
 
-Region ID.
+Current Cartesian coordinates of the weather region's position (X, Y).
+## void setTransitionSize ( double size )
+
+Sets a new width of the transition area around the borders of the weather region. The effects of the region fade out gradually within this area.
+### Arguments
+
+- *double* **size** - The width of the transition area around the borders of the weather region, in meters.
+
+## double getTransitionSize () const
+
+Returns the current width of the transition area around the borders of the weather region. The effects of the region fade out gradually within this area.
+### Return value
+
+Current width of the transition area around the borders of the weather region, in meters.
+## double getShapeRectangleRadius () const
+
+Returns the current corner radius of the rectangle. This parameter defines the shape of a rounded rectangle.
+### Return value
+
+Current corner radius of the rectangle, in units.
+## Math:: dvec2 getShapeSize () const
+
+Returns the current size of the rectangle that defines or encloses the shape of the weather region as a two-component vector.
+### Return value
+
+Current Two-component vector (W, L) containing width and length of the rectangle (in meters) that defines or encloses the shape of the weather region depending on its type:
+- **Global** - *(inf, inf)*
+- **Rectangle** - *(rectangle_width, rectangle_length)*
+- **Polygon** - *(boundbox_width, boundbox_length)*
+
+
+## int getNumLayers () const
+
+Returns the current total number of layers of the region.
+### Return value
+
+Current number of layers.
+## WeatherLayer * getMainLayer () const
+
+Returns the current main weather layer of the region. It is a base layer, that is used to define weather parameters, such as [visibility range](../../../../api/library/plugins/weather/class.weatherlayer_cpp.md#setVisibility_float_void), [temperature](../../../../api/library/plugins/weather/class.weatherlayer_cpp.md#setTemperature_float_void), [humidity](../../../../api/library/plugins/weather/class.weatherlayer_cpp.md#setHumidity_float_void), etc. The main layer always exists in the region and cannot be deleted.
+### Return value
+
+Current main weather layer of the region.
+## void setEnabled ( bool enabled )
+
+Sets a new value indicating if the weather region is currently enabled.
+### Arguments
+
+- *bool* **enabled** - Set **true** to enable the weather region is currently; **false** - to disable it.
+
+## bool isEnabled () const
+
+Returns the current value indicating if the weather region is currently enabled.
+### Return value
+
+**true** if the weather region is currently is enabled ; otherwise **false**.
+## long long getID () const
+
+Returns the current ID of the region.
+### Return value
+
+Current Region ID.
+---
+
 ## WeatherLayer * createLayer ( long long layer_id , WeatherLayerType type )
 
 Creates a new weather layer for the region. In case a layer with the specified ID exists and has a different type, it will be replaced with the new one.
@@ -89,12 +157,6 @@ Removes a weather layer with the specified ID.
 ### Return value
 
 true if the weather layer is created successfully; otherwise, false.
-## WeatherLayer * getMainLayer ( ) const
-
-Returns the main weather layer of the region. It is a base layer, that is used to define weather parameters, such as [visibility range](../../../../api/library/plugins/weather/class.weatherlayer_cpp.md#setVisibility_float_void), [temperature](../../../../api/library/plugins/weather/class.weatherlayer_cpp.md#setTemperature_float_void), [humidity](../../../../api/library/plugins/weather/class.weatherlayer_cpp.md#setHumidity_float_void), etc. The main layer always exists in the region and cannot be deleted.
-### Return value
-
-Main weather layer of the region.
 ## void getLayers ( Vector <WeatherLayer*>& vec ) const
 
 Returns the list of all [layers](../../../../api/library/plugins/weather/class.weatherlayer_cpp.md) (base, clouds, precipitation) contained in the weather region.
@@ -171,49 +233,6 @@ Weather region type, one of the following:
 - **POLYGON** - local (regional weather with atmospheric effects restricted to a certain area defined by a polygon)
 
 
-## Math:: dvec2 getShapeSize ( ) const
-
-Returns the size of the rectangle that defines or encloses the shape of the weather region as a two-component vector.
-### Return value
-
-Two-component vector (W, L) containing width and length of the rectangle (in meters) that defines or encloses the shape of the weather region depending on its type:
-- **Global** - *(inf, inf)*
-- **Rectangle** - *(rectangle_width, rectangle_length)*
-- **Polygon** - *(boundbox_width, boundbox_length)*
-
-
-## double getShapeRectangleRadius ( ) const
-
-Returns the current corner radius of the rectangle. This parameter defines the shape of a rounded rectangle.
-### Return value
-
-Current corner radius of the rectangle, in units.
-## void setTransitionSize ( double width )
-
-Sets the width of the transition area around the borders of the weather region. The effects of the region fade out gradually within this area.
-### Arguments
-
-- *double* **width** - New width of the transition area around the borders of the weather region to be set, in meters.
-
-## double getTransitionSize ( ) const
-
-Returns the current width of the transition area around the borders of the weather region. The effects of the region fade out gradually within this area.
-### Return value
-
-Current width of the transition area around the borders of the weather region, in meters.
-## void setWorldPosition ( const Math::dvec2& world_pos )
-
-Sets new world coordinates for the weather region's position.
-### Arguments
-
-- *const  Math::dvec2&* **world_pos** - New Cartesian coordinates to be set for the weather region's position (X, Y).
-
-## const Math::dvec2& getWorldPosition ( ) const
-
-Returns the current world coordinates of the weather region's position.
-### Return value
-
-Current Cartesian coordinates of the weather region's position (X, Y).
 ## void setGeodeticPosition ( const Math::dvec2& geo_pos )
 
 Sets new geocoordinates for the weather region's position.
@@ -221,19 +240,6 @@ Sets new geocoordinates for the weather region's position.
 
 - *const  Math::dvec2&* **geo_pos** - Geocoordinates of the weather region's position (Lat, Lon).
 
-## void setRotation ( float angle_deg )
-
-Rotates the weather region around the Z axis by the specified angle.
-### Arguments
-
-- *float* **angle_deg** - Rotation angle to be set, in degrees within the [-360; 360] range.
-
-## float getRotation ( ) const
-
-Returns the current angle of rotation of the weather region around the Z axis.
-### Return value
-
-Current rotation angle, in degrees within the [-360; 360] range.
 ## float getImpact ( const Math::dvec2& world_pos ) const
 
 Returns a value indicating the degree of impact of the region at the specified point depending on whether it is completely inside, outside, or somewhere within the [transition area](#setTransitionSize_double_void).
@@ -287,9 +293,3 @@ Removes a callback on changing region parameters for the specified subscriber.
 ### Return value
 
 true if the callback for the specified subscriber is removed successfully; otherwise, false.
-## int getNumLayers ( ) const
-
-Returns the total number of layers of the region.
-### Return value
-
-Total number of layers.

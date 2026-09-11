@@ -38,7 +38,7 @@ Also, *Voxel Probe* is great solution for [shading dynamic objects within static
 The texture should have an appropriate resolution which is calculated the following way:
 
 
-***Resolution = Width × Height × (Depth × 6)***
+***Resolution = Width � Height � (Depth � 6)***
 
 
 Each pixel of a texture defines the illuminance of a certain voxel face.
@@ -58,8 +58,8 @@ The inner space of *Voxel Probe* is visualized using spheres. These spheres are 
 *Voxel Probe* Visualizer settings:
 
 
-- *Grid Size* — number of spheres in every row/column, the value from 7 to 40.
-- *Sphere Scale* — size of the visualizing sphere.
+- *Grid Size* � number of spheres in every row/column, the value from 7 to 40.
+- *Sphere Scale* � size of the visualizing sphere.
 
 
 *Voxel Probe* is a required object for the [Voxel-Based GI](../../../editor2/lighting/gi/voxel_probes.md) feature, which enables you to generate a lighting texture for *Voxel Probe* and simulate global illumination with indirect lighting for both, interiors and outdoor scenes.

@@ -25,6 +25,19 @@ The object of this class may look as follows:
 
 ### Members
 
+## void setOrientation ( int orientation )
+
+Sets a new orientation of the spacer: horizontal or vertical.
+### Arguments
+
+- *int* **orientation** - The orientation of the spacer (horizontal or vertical)
+
+## int getOrientation () const
+
+Returns the current orientation of the spacer: horizontal or vertical.
+### Return value
+
+Current orientation of the spacer (horizontal or vertical)
 ---
 
 ## static WidgetSpacer ( Gui gui )
@@ -37,16 +50,3 @@ Constructor. Creates a spacer and adds it to the specified GUI.
 ## static WidgetSpacer ( )
 
 Constructor. Creates a spacer and adds it to the Engine GUI.
-## void setOrientation ( int orientation )
-
-Sets orientation of the spacer: horizontal (by default) or vertical one.
-### Arguments
-
-- *int* **orientation** - Positive value to set horizontal orientation; 0 to set vertical one.
-
-## int getOrientation ( )
-
-Returns the current orientation of the spacer: horizontal or vertical one.
-### Return value
-
-Positive number if the orientation is vertical; 0 if it is horizontal.

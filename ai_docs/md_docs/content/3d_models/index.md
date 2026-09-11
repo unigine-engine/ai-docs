@@ -62,10 +62,10 @@ UNIGINE supports the most popular bitmap texture formats: `*.png, *.jpg, *.tiff,
 You can [import texture](../../editor2/assets_workflow/texture_import.md) of any type listed above: the runtime `*.texture` file will be generated automatically, if necessary.
 
 
-Texture resolution should be power of two, for example: **128×128, 256×256, 512×512, 1024×1024, 2048×2048**, etc. Both square and rectangular textures are supported (for example, **256×1024** pixels).
+Texture resolution should be power of two, for example: **128�128, 256�256, 512�512, 1024�1024, 2048�2048**, etc. Both square and rectangular textures are supported (for example, **256�1024** pixels).
 
 
-Texture resolution should not exceed **16384×16384**.
+Texture resolution should not exceed **16384�16384**.
 
 
 The texture postfix is important as it defines the compression algorithms and used color channels. For example, the postfix **_alb** is for [albedo](../../content/materials/library/mesh_base/index.md#texture_albedo) textures, **_n** and **_nrgb** for [normal](../../content/materials/library/mesh_base/index.md#texture_normal) textures, etc. The full list of postfixes is available [here](../../editor2/assets_workflow/texture_import.md#postfix).

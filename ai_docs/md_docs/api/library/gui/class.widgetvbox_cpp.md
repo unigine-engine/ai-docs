@@ -23,27 +23,27 @@ The object of this class looks as follows:
 Sets a new value indicating if the border is displayed.
 ### Arguments
 
-- *bool* **border** - Set **true** to enable the border is displayed, otherwise, false.; **false** - to disable it.
+- *bool* **border** - Set **true** to enable display of the border; **false** - to disable it.
 
 ## bool isBorder () const
 
 Returns the current value indicating if the border is displayed.
 ### Return value
 
-**true** if the border is displayed, otherwise, false. is enabled; otherwise **false**.
+**true** if display of the border is enabled ; otherwise **false**.
 ## void setBackground ( int background )
 
 Sets a new value indicating if a background texture is rendered for the box.
 ### Arguments
 
-- *int* **background** - The **1** if a background texture is rendered; otherwise, **0**.
+- *int* **background** - The value indicating if a background texture is rendered for the box
 
 ## int getBackground () const
 
 Returns the current value indicating if a background texture is rendered for the box.
 ### Return value
 
-Current **1** if a background texture is rendered; otherwise, **0**.
+Current value indicating if a background texture is rendered for the box
 ## void setBackgroundColor ( const Math:: vec4 & color )
 
 Sets a new background color used for the widget.
@@ -75,14 +75,14 @@ Current Multiplier color.
 Sets a new value indicating if a widget cuts off its children along its set [bounds](../../../api/library/gui/class.widget_cpp.md#setWidth_int_void). Everything that lies outside of them, is not rendered. This option works only if children have [ALIGN_OVERLAP](../../../api/library/gui/class.gui_cpp.md#ALIGN_OVERLAP) flag set (otherwise, they will expand the box widget bounds and no cutting will be done).
 ### Arguments
 
-- *int* **stencil** - The **1** if cutting is enabled; otherwise, **0**.
+- *int* **stencil** - The value indicating if a widget cuts off its children along its set bounds
 
 ## int getStencil () const
 
 Returns the current value indicating if a widget cuts off its children along its set [bounds](../../../api/library/gui/class.widget_cpp.md#setWidth_int_void). Everything that lies outside of them, is not rendered. This option works only if children have [ALIGN_OVERLAP](../../../api/library/gui/class.gui_cpp.md#ALIGN_OVERLAP) flag set (otherwise, they will expand the box widget bounds and no cutting will be done).
 ### Return value
 
-Current **1** if cutting is enabled; otherwise, **0**.
+Current value indicating if a widget cuts off its children along its set bounds
 ## int getPaddingBottom () const
 
 Returns the current bottom padding for the widget content.
@@ -144,7 +144,7 @@ Sets a new value indicating whether a custom filtering mode for the background t
 Returns the current value indicating whether a custom filtering mode for the background texture is enabled.
 ### Return value
 
-**true** if a custom filtering mode for the background texture is enabled; otherwise **false**.
+**true** if a custom filtering mode for the background texture is enabled ; otherwise **false**.
 ## void setBackground9SliceScale ( float scale )
 
 Sets a new value that controls scaling for corners of a background texture when 9-sliced mode is enabled.
@@ -163,14 +163,14 @@ Current value to control scaling for corners of the background texture; the defa
 Sets a new value indicating whether 9-sliced mode is enabled.
 ### Arguments
 
-- *bool* **sliced** - Set **true** to enable the 9-sliced mode; **false** - to disable it.
+- *bool* **sliced** - Set **true** to enable the 9-sliced mode for the widget background; **false** - to disable it.
 
 ## bool isBackground9Sliced () const
 
 Returns the current value indicating whether 9-sliced mode is enabled.
 ### Return value
 
-**true** if the 9-sliced mode is enabled; otherwise **false**.
+**true** if the 9-sliced mode for the widget background is enabled ; otherwise **false**.
 ## void setBackgroundTexture ( const char * texture )
 
 Sets a new texture path for the widget background.

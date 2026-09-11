@@ -29,7 +29,7 @@ Finalizes the checksum value by inverting all bits.
 ### Arguments
 
 - *unsigned int** **value** - 128-bit MD5 checksum (array of 4 unsigned int elements).
-- *bool* **big_endian** - Byte ordering flag. Set **true** to use the big-endian order; **false** — to use the little-endian order.
+- *bool* **big_endian** - Byte ordering flag. Set true to use the big-endian order; false � to use the little-endian order.
 
 ## void endD3D ( unsigned int* value )
 
@@ -45,7 +45,7 @@ Calculates a 128-bit MD5 checksum.
 
 - *const void** **data** - Input data pointer.
 - *int* **size** - Input data size, in bytes.
-- *bool* **big_endian** - Byte ordering flag. Set **true** to use the big-endian order; **false** — to use the little-endian order.
+- *bool* **big_endian** - Byte ordering flag. Set true to use the big-endian order; false � to use the little-endian order.
 
 ### Return value
 
@@ -58,7 +58,7 @@ Calculates a 128-bit MD5 checksum.
 - *unsigned int** **value** - 128-bit MD5 checksum (array of 4 unsigned int elements).
 - *const void** **data** - Input data pointer.
 - *int* **size** - Input data size, in bytes.
-- *bool* **big_endian** - Byte ordering flag. Set **true** to use the big-endian order; **false** — to use the little-endian order.
+- *bool* **big_endian** - Byte ordering flag. Set true to use the big-endian order; false � to use the little-endian order.
 
 ## void calculateD3D ( unsigned int* value , const void* data , int size )
 

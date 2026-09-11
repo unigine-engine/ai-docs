@@ -5,6 +5,7 @@
 
 This structure serves to construct the bounding frustum in single precision coordinates.
 
+
 > **Notice:** Instances of this structure are deleted automatically, when necessary.
 
 
@@ -371,7 +372,10 @@ Performs a fast check if the set of points is inside the bounding frustum.
 **true** if the point is inside the bounding frustum; otherwise, **false**.
 ## bool insideValid ( const BoundSphere & bs ) const
 
+
 Checks if the given bounding sphere is inside the bounding frustum (assuming that the current bound coordinates are valid).
+
+
 > **Notice:** The method doesn't check the [status](#isValid_bool) of the current bounding frustum.
 
 
@@ -384,7 +388,10 @@ Checks if the given bounding sphere is inside the bounding frustum (assuming tha
 **true** if the given bounding sphere is inside the bounding frustum; otherwise, **false**.
 ## bool insideValid ( const BoundBox & bb ) const
 
+
 Checks if the given bounding box is inside the bounding frustum (assuming that the current bound coordinates are valid).
+
+
 > **Notice:** The method doesn't check the [status](#isValid_bool) of the current bounding frustum.
 
 
@@ -397,7 +404,10 @@ Checks if the given bounding box is inside the bounding frustum (assuming that t
 **true** if the given bounding box is inside the bounding frustum; otherwise, **false**.
 ## bool insideValid ( const BoundFrustum & bf ) const
 
+
 Checks if the given bounding frustum is inside the current bounding frustum (assuming that the current bound coordinates are valid).
+
+
 > **Notice:** The method doesn't check the [status](#isValid_bool) of the current bounding frustum.
 
 
@@ -410,7 +420,10 @@ Checks if the given bounding frustum is inside the current bounding frustum (ass
 **true** if the given bounding frustum is inside the bounding frustum; otherwise, **false**.
 ## bool insideValidFast ( const BoundSphere & bs ) const
 
+
 Performs a fast check if the given bounding sphere is inside the current bounding frustum (assuming that the current bound coordinates are valid).
+
+
 > **Notice:** The method doesn't check the [status](#isValid_bool) of the current bounding frustum.
 
 
@@ -423,7 +436,10 @@ Performs a fast check if the given bounding sphere is inside the current boundin
 **true** if the given bounding sphere is inside the bounding frustum; otherwise, **false**.
 ## bool insideValidFast ( const BoundBox & bb ) const
 
+
 Performs a fast check if the given bounding box is inside the current bounding frustum (assuming that the current bound coordinates are valid).
+
+
 > **Notice:** The method doesn't check the [status](#isValid_bool) of the current bounding frustum.
 
 
@@ -436,7 +452,10 @@ Performs a fast check if the given bounding box is inside the current bounding f
 **true** if the given bounding box is inside the bounding frustum; otherwise, **false**.
 ## bool insideValidFast ( const BoundFrustum & bf ) const
 
+
 Performs a fast check if the given bounding frustum is inside the current bounding frustum (assuming that the current bound coordinates are valid).
+
+
 > **Notice:** The method doesn't check the [status](#isValid_bool) of the current bounding frustum.
 
 
@@ -479,7 +498,10 @@ Checks if the whole specified bounding frustum is inside the current bounding fr
 **true** if the whole specified bounding frustum is inside the current bounding frustum; otherwise, **false**.
 ## bool insideAllValid ( const BoundSphere & bs ) const
 
+
 Checks if the whole given bounding sphere is inside the current bounding frustum (assuming that the current bound coordinates are valid).
+
+
 > **Notice:** The method doesn't check the [status](#isValid_bool) of the current bounding frustum.
 
 
@@ -492,7 +514,10 @@ Checks if the whole given bounding sphere is inside the current bounding frustum
 **true** if the given bounding sphere is inside the bounding frustum; otherwise, **false**.
 ## bool insideAllValid ( const BoundBox & bb ) const
 
+
 Checks if the whole given bounding box is inside the current bounding frustum (assuming that the current bound coordinates are valid).
+
+
 > **Notice:** The method doesn't check the [status](#isValid_bool) of the current bounding frustum.
 
 
@@ -505,7 +530,10 @@ Checks if the whole given bounding box is inside the current bounding frustum (a
 **true** if the given bounding box is inside the bounding frustum; otherwise, **false**.
 ## bool insideAllValid ( const BoundFrustum & bf ) const
 
+
 Checks if the whole given bounding frustum is inside the current bounding frustum (assuming that the current bound coordinates are valid).
+
+
 > **Notice:** The method doesn't check the [status](#isValid_bool) of the current bounding frustum.
 
 
@@ -518,7 +546,10 @@ Checks if the whole given bounding frustum is inside the current bounding frustu
 **true** if the given bounding frustum is inside the bounding frustum; otherwise, **false**.
 ## bool insideAllValidFast ( const BoundSphere & bs ) const
 
+
 Performs a fast check if the whole given bounding sphere is inside the current bounding frustum (assuming that the current bound coordinates are valid).
+
+
 > **Notice:** The method doesn't check the [status](#isValid_bool) of the current bounding frustum.
 
 
@@ -531,7 +562,10 @@ Performs a fast check if the whole given bounding sphere is inside the current b
 **true** if the given bounding sphere is inside the bounding frustum; otherwise, **false**.
 ## bool insideAllValidFast ( const BoundBox & bb ) const
 
+
 Performs a fast check if the whole given bounding box is inside the current bounding frustum (assuming that the current bound coordinates are valid).
+
+
 > **Notice:** The method doesn't check the [status](#isValid_bool) of the current bounding frustum.
 
 
@@ -544,7 +578,10 @@ Performs a fast check if the whole given bounding box is inside the current boun
 **true** if the given bounding box is inside the bounding frustum; otherwise, **false**.
 ## bool insideAllValidFast ( const BoundFrustum & bf ) const
 
+
 Performs a fast check if the whole given bounding frustum is inside the current bounding frustum (assuming that the current bound coordinates are valid).
+
+
 > **Notice:** The method doesn't check the [status](#isValid_bool) of the current bounding frustum.
 
 
@@ -587,7 +624,10 @@ Checks if the given bounding frustum is inside the volume defined by the planes 
 **true** if the given bounding frustum is inside the volume; otherwise, **false**.
 ## bool insidePlanesValid ( const BoundSphere & bs ) const
 
+
 Checks if the given bounding sphere is inside the volume defined by the planes of the current bounding frustum (assuming that the current bound coordinates are valid).
+
+
 > **Notice:** The method doesn't check the [status](#isValid_bool) of the current bounding frustum.
 
 
@@ -600,7 +640,10 @@ Checks if the given bounding sphere is inside the volume defined by the planes o
 **true** if the given bounding sphere is inside the volume; otherwise, **false**.
 ## bool insidePlanesValid ( const BoundBox & bb ) const
 
+
 Checks if the given bounding box is inside the volume defined by the planes of the current bounding frustum (assuming that the current bound coordinates are valid).
+
+
 > **Notice:** The method doesn't check the [status](#isValid_bool) of the current bounding frustum.
 
 
@@ -613,7 +656,10 @@ Checks if the given bounding box is inside the volume defined by the planes of t
 **true** if the given bounding box is inside the volume; otherwise, **false**.
 ## bool insidePlanesValid ( const BoundFrustum & bf ) const
 
+
 Checks if the given bounding frustum is inside the volume defined by the planes of the current bounding frustum (assuming that the current bound coordinates are valid).
+
+
 > **Notice:** The method doesn't check the [status](#isValid_bool) of the current bounding frustum.
 
 
@@ -626,7 +672,10 @@ Checks if the given bounding frustum is inside the volume defined by the planes 
 **true** if the given bounding frustum is inside the volume; otherwise, **false**.
 ## bool insidePlanesValidFast ( const BoundSphere & bs ) const
 
+
 Performs a fast check if the given bounding sphere is inside the volume defined by the planes of the current bounding frustum (assuming that the current bound coordinates are valid).
+
+
 > **Notice:** The method doesn't check the [status](#isValid_bool) of the current bounding frustum.
 
 
@@ -639,7 +688,10 @@ Performs a fast check if the given bounding sphere is inside the volume defined 
 **true** if the given bounding sphere is inside the volume; otherwise, **false**.
 ## bool insidePlanesValidFast ( const BoundBox & bb ) const
 
+
 Performs a fast check if the given bounding box is inside the volume defined by the planes of the current bounding frustum (assuming that the current bound coordinates are valid).
+
+
 > **Notice:** The method doesn't check the [status](#isValid_bool) of the current bounding frustum.
 
 
@@ -652,7 +704,10 @@ Performs a fast check if the given bounding box is inside the volume defined by 
 **true** if the given bounding box is inside the volume; otherwise, **false**.
 ## bool insidePlanesValidFast ( const BoundFrustum & bf ) const
 
+
 Performs a fast check if the given bounding frustum is inside the volume defined by the planes of the current bounding frustum (assuming that the current bound coordinates are valid).
+
+
 > **Notice:** The method doesn't check the [status](#isValid_bool) of the current bounding frustum.
 
 
@@ -665,7 +720,10 @@ Performs a fast check if the given bounding frustum is inside the volume defined
 **true** if the given bounding frustum is inside the volume; otherwise, **false**.
 ## bool insideShadowValid ( const BoundSphere & object , const Math:: vec3 & direction ) const
 
+
 Checks if the given bounding sphere is inside the shadow of the current bounding frustum.
+
+
 > **Notice:** The method doesn't check the [status](#isValid_bool) of the current bounding frustum.
 
 
@@ -679,7 +737,10 @@ Checks if the given bounding sphere is inside the shadow of the current bounding
 **true** if the given bounding sphere is inside the shadow; otherwise, **false**.
 ## bool insideShadowValid ( const BoundSphere & object , const BoundSphere & light , const Math:: vec3 & offset ) const
 
+
 Checks if the given bounding sphere is inside the shadow of the current bounding frustum and outside the bounding sphere of a light source.
+
+
 > **Notice:** The method doesn't check the [status](#isValid_bool) of the current bounding frustum.
 
 

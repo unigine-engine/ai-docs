@@ -15,24 +15,331 @@ You can use [a mask](#setCutoutIntersectionMask_int_void) to cut out grass in th
 
 ### Members
 
+## void setCutoutInverse ( bool inverse )
+
+Sets a new value indicating if the grass is rendered inside or outside the areas determined by the [cutout intersection mask](#setCutoutIntersectionMask_int_void).
+### Arguments
+
+- *bool* **inverse** - value indicating if the grass is rendered inside or outside the areas determined by the cutout intersection mask
+
+## bool getCutoutInverse () const
+
+Returns the current value indicating if the grass is rendered inside or outside the areas determined by the [cutout intersection mask](#setCutoutIntersectionMask_int_void).
+### Return value
+
+value indicating if the grass is rendered inside or outside the areas determined by the cutout intersection mask
+## void setCutoutIntersectionMask ( int mask )
+
+Sets a new cutout intersection mask. this mask allows you to cut out the grass in the areas of intersection with objects and decals (e.g. can be used to remove grass under houses or from the surface of roads projected using decals). the grass will be cut out by objects and decals that have their intersection mask matching this one (one bit at least).
+> **Notice:** To set intersection masks the following methods can be used:
+> - **for decals** use *[getIntersectionMask()](../../../api/library/decals/class.decal_cpp.md#getIntersectionMask_int)*
+> - **for objects** use *[getIntersectionMask()](../../../api/library/objects/class.object_cpp.md#getIntersectionMask_int_int)*
+
+### Arguments
+
+- *int* **mask** - The cutout intersection mask
+
+## int getCutoutIntersectionMask () const
+
+Returns the current cutout intersection mask. this mask allows you to cut out the grass in the areas of intersection with objects and decals (e.g. can be used to remove grass under houses or from the surface of roads projected using decals). the grass will be cut out by objects and decals that have their intersection mask matching this one (one bit at least).
+> **Notice:** To set intersection masks the following methods can be used:
+> - **for decals** use *[getIntersectionMask()](../../../api/library/decals/class.decal_cpp.md#getIntersectionMask_int)*
+> - **for objects** use *[getIntersectionMask()](../../../api/library/objects/class.object_cpp.md#getIntersectionMask_int_int)*
+
+### Return value
+
+Current cutout intersection mask
+## void setMaskInverse ( bool inverse )
+
+Sets a new flag indicating if the grass is rendered inside or outside the mask mesh contour.
+### Arguments
+
+- *bool* **inverse** - flag indicating if the grass is rendered inside or outside the mask mesh contour
+
+## bool getMaskInverse () const
+
+Returns the current flag indicating if the grass is rendered inside or outside the mask mesh contour.
+### Return value
+
+flag indicating if the grass is rendered inside or outside the mask mesh contour
+## void setMaskMaxValue ( int value )
+
+Sets a new maximum value of the mask application range (a color range from **0** to **255**, indicating that only that part of mask, which contains this color range, will be applied to the image).
+### Arguments
+
+- *int* **value** - The maximum value of the mask application range
+
+## int getMaskMaxValue () const
+
+Returns the current maximum value of the mask application range (a color range from **0** to **255**, indicating that only that part of mask, which contains this color range, will be applied to the image).
+### Return value
+
+Current maximum value of the mask application range
+## void setMaskMinValue ( int value )
+
+Sets a new minimum value of the mask application range.
+### Arguments
+
+- *int* **value** - The minimum value of the mask application range
+
+## int getMaskMinValue () const
+
+Returns the current minimum value of the mask application range.
+### Return value
+
+Current minimum value of the mask application range
+## void setMaskFlipY ( int y )
+
+Sets a new flag indicating if a mask is flipped by y axis.
+### Arguments
+
+- *int* **y** - The flag indicating if a mask is flipped by y axis
+
+## int getMaskFlipY () const
+
+Returns the current flag indicating if a mask is flipped by y axis.
+### Return value
+
+Current flag indicating if a mask is flipped by y axis
+## void setMaskFlipX ( int x )
+
+Sets a new flag indicating if a mask is flipped by x axis.
+### Arguments
+
+- *int* **x** - The flag indicating if a mask is flipped by x axis
+
+## int getMaskFlipX () const
+
+Returns the current flag indicating if a mask is flipped by x axis.
+### Return value
+
+Current flag indicating if a mask is flipped by x axis
+## void setProbability ( const Math:: vec4 & probability )
+
+Sets a new grass rendering probability per column (in the diffuse texture). the higher the value for some column, the more frequently it will be rendered. Any values can be set, since they are normalized.
+### Arguments
+
+- *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md)&* **probability** - The grass rendering probability per column (in the diffuse texture)
+
+## Math:: vec4 getProbability () const
+
+Returns the current grass rendering probability per column (in the diffuse texture). the higher the value for some column, the more frequently it will be rendered. Any values can be set, since they are normalized.
+### Return value
+
+Current grass rendering probability per column (in the diffuse texture)
+## void setAngle ( float angle )
+
+Sets a new angle cosine defining the slope steepness appropriate for grass growing, in range from **0** to **1**.
+### Arguments
+
+- *float* **angle** - The angle cosine defining the slope steepness appropriate for grass growing
+
+## float getAngle () const
+
+Returns the current angle cosine defining the slope steepness appropriate for grass growing, in range from **0** to **1**.
+### Return value
+
+Current angle cosine defining the slope steepness appropriate for grass growing
+## void setThreshold ( float threshold )
+
+Sets a new threshold for density, starting from which the grass is rendered.
+### Arguments
+
+- *float* **threshold** - The threshold for density, starting from which the grass is rendered
+
+## float getThreshold () const
+
+Returns the current threshold for density, starting from which the grass is rendered.
+### Return value
+
+Current threshold for density, starting from which the grass is rendered
+## void setDensity ( float density )
+
+Sets a new density factor for the grass per square unit.
+### Arguments
+
+- *float* **density** - The density factor for the grass per square unit
+
+## float getDensity () const
+
+Returns the current density factor for the grass per square unit.
+### Return value
+
+Current density factor for the grass per square unit
+## void setSubdivision ( int subdivision )
+
+Sets a new divisor used to subdivide grass rendering cells into smaller sub-cells. The value is clamped to a range **[1;32]**. subdividing is used if a grass node is used as a distant lod for [WorldClutter](../../../api/library/worlds/class.worldclutter_cpp.md) or [ObjectMeshClutter](../../../api/library/objects/class.objectmeshclutter_cpp.md) with smaller cells. This way, positions of randomly scattered objects will coincide with those of grass-based impostors.
+### Arguments
+
+- *int* **subdivision** - The divisor used to subdivide grass rendering cells into smaller sub-cells
+
+## int getSubdivision () const
+
+Returns the current divisor used to subdivide grass rendering cells into smaller sub-cells. The value is clamped to a range **[1;32]**. subdividing is used if a grass node is used as a distant lod for [WorldClutter](../../../api/library/worlds/class.worldclutter_cpp.md) or [ObjectMeshClutter](../../../api/library/objects/class.objectmeshclutter_cpp.md) with smaller cells. This way, positions of randomly scattered objects will coincide with those of grass-based impostors.
+### Return value
+
+Current divisor used to subdivide grass rendering cells into smaller sub-cells
+## void setStep ( float step )
+
+Sets a new step for cells used to render grass.
+### Arguments
+
+- *float* **step** - The step for cells used to render grass
+
+## float getStep () const
+
+Returns the current step for cells used to render grass.
+### Return value
+
+Current step for cells used to render grass
+## void setSizeY ( float y )
+
+Sets a new length of the grass object along the y-coordinate, in units. If a negative value is provided, **0** will be used instead.
+### Arguments
+
+- *float* **y** - The length of the grass object along the y-coordinate
+
+## float getSizeY () const
+
+Returns the current length of the grass object along the y-coordinate, in units. If a negative value is provided, **0** will be used instead.
+### Return value
+
+Current length of the grass object along the y-coordinate
+## void setSizeX ( float x )
+
+Sets a new width of the grass object along the x-coordinate, in units. If a negative value is provided, **0** will be used instead.
+### Arguments
+
+- *float* **x** - The width of the grass object along the x-coordinate
+
+## float getSizeX () const
+
+Returns the current width of the grass object along the x-coordinate, in units. If a negative value is provided, **0** will be used instead.
+### Return value
+
+Current width of the grass object along the x-coordinate
+## void setSeed ( int seed )
+
+Sets a new seed used for pseudo-random positioning of grass. If a negative value is provided, **0** will be used instead.
+### Arguments
+
+- *int* **seed** - The seed used for pseudo-random positioning of grass
+
+## int getSeed () const
+
+Returns the current seed used for pseudo-random positioning of grass. If a negative value is provided, **0** will be used instead.
+### Return value
+
+Current seed used for pseudo-random positioning of grass
+## void setNumTextures ( int textures )
+
+Sets a new number of rows contained in the [grass diffuse texture](../../../content/materials/library/grass_base/index.md#texture_diffuse), in the **[1; 4]** range.
+### Arguments
+
+- *int* **textures** - The number of rows contained in the grass diffuse texture
+
+## int getNumTextures () const
+
+Returns the current number of rows contained in the [grass diffuse texture](../../../content/materials/library/grass_base/index.md#texture_diffuse), in the **[1; 4]** range.
+### Return value
+
+Current number of rows contained in the grass diffuse texture
+## void setIntersection ( bool intersection )
+
+Sets a new value indicating whether grass grow upon the ground: either the terrain or a mesh set as a parent node.
+### Arguments
+
+- *bool* **intersection** - value indicating whether grass grow upon the ground: either the terrain or a mesh set as a parent node
+
+## bool getIntersection () const
+
+Returns the current value indicating whether grass grow upon the ground: either the terrain or a mesh set as a parent node.
+### Return value
+
+value indicating whether grass grow upon the ground: either the terrain or a mesh set as a parent node
+## void setIntersectionMask ( int mask )
+
+Sets a new intersection mask for the object.
+### Arguments
+
+- *int* **mask** - The intersection mask for the object
+
+## int getIntersectionMask () const
+
+Returns the current intersection mask for the object.
+### Return value
+
+Current intersection mask for the object
+## void setOrientation ( bool orientation )
+
+Sets a new flag indicating if grass polygons are oriented along the normal of its parent (for example, a terrain).
+### Arguments
+
+- *bool* **orientation** - flag indicating if grass polygons are oriented along the normal of its parent (for example, a terrain)
+
+## bool getOrientation () const
+
+Returns the current flag indicating if grass polygons are oriented along the normal of its parent (for example, a terrain).
+### Return value
+
+flag indicating if grass polygons are oriented along the normal of its parent (for example, a terrain)
+## void setVariation ( bool variation )
+
+Sets a new value indicating if the random horizontal flip for grass polygons is set.
+### Arguments
+
+- *bool* **variation** - value indicating if the random horizontal flip for grass polygons is set
+
+## bool getVariation () const
+
+Returns the current value indicating if the random horizontal flip for grass polygons is set.
+### Return value
+
+value indicating if the random horizontal flip for grass polygons is set
+## void setThinning ( bool thinning )
+
+Sets a new flag indicating if the grass is thinned out with a distance (random grass polygons are not rendered across the grass fade distance).
+### Arguments
+
+- *bool* **thinning** - flag indicating if the grass is thinned out with a distance
+
+## bool getThinning () const
+
+Returns the current flag indicating if the grass is thinned out with a distance (random grass polygons are not rendered across the grass fade distance).
+### Return value
+
+flag indicating if the grass is thinned out with a distance
+## void setFieldMask ( int mask )
+
+Sets a new mask specifying the area of the field node to be applied to the grass. The integer is treated as a bit mask, where each bit is a separate mask.
+### Arguments
+
+- *int* **mask** - The mask specifying the area of the field node to be applied to the grass
+
+## int getFieldMask () const
+
+Returns the current mask specifying the area of the field node to be applied to the grass. The integer is treated as a bit mask, where each bit is a separate mask.
+### Return value
+
+Current mask specifying the area of the field node to be applied to the grass
+## void setTerrainMasks ( const Math:: ivec4 & masks )
+
+Sets a new set of [Landscape Terrain masks](../../../api/library/objects/landscape_terrain/class.objectlandscapeterrain_cpp.md#getDetailMask_int_TerrainDetailMask) used for grass placement (a four-component vector combining mask indices, each component in the [0; 19] range, to be used for the corresponding diffuse texture column).
+### Arguments
+
+- *const  Math::[ivec4](../../../api/library/math/class.ivec4_cpp.md)&* **masks** - The set of Landscape Terrain masks used for grass placement
+
+## Math:: ivec4 getTerrainMasks () const
+
+Returns the current set of [Landscape Terrain masks](../../../api/library/objects/landscape_terrain/class.objectlandscapeterrain_cpp.md#getDetailMask_int_TerrainDetailMask) used for grass placement (a four-component vector combining mask indices, each component in the [0; 19] range, to be used for the corresponding diffuse texture column).
+### Return value
+
+Current set of Landscape Terrain masks used for grass placement
 ---
 
 ## static ObjectGrassPtr create ( )
 
 Constructor. Creates a new grass object.
-## void setAngle ( float angle )
-
-Sets the angle cosine defining the slope steepness appropriate for grass growing.
-### Arguments
-
-- *float* **angle** - Slope angle cosine in range from **0** to **1**.
-
-## float getAngle ( ) const
-
-Returns the current angle cosine defining the slope steepness appropriate for grass growing.
-### Return value
-
-Slope angle cosine.
 ## void setAspect ( const Math:: vec4 & mean , const Math:: vec4 & spread )
 
 Sets the aspect of the grass polygons (width to height ratio).
@@ -53,71 +360,6 @@ Returns the current spread value of the grass aspect (width to height ratio), de
 ### Return value
 
 Spread value of grass aspect.
-## void setDensity ( float density )
-
-Sets the density factor for the grass per square unit.
-### Arguments
-
-- *float* **density** - Density factor. If a negative value is provided, **0** will be used instead.
-
-## float getDensity ( ) const
-
-Returns the current density factor for the grass per square unit.
-### Return value
-
-Density factor.
-## void setFieldMask ( int mask )
-
-Sets a mask specifying the area of the Field node to be applied to the grass.
-### Arguments
-
-- *int* **mask** - Integer, each bit of which is a mask.
-
-## int getFieldMask ( ) const
-
-Returns a mask specifying the area of the Field node to be applied to the grass.
-### Return value
-
-Integer, each bit of which is a mask.
-## void setIntersection ( int intersection )
-
-Sets a value indicating whether grass should grow upon the ground: either the terrain or a mesh set as a parent node.
-### Arguments
-
-- *int* **intersection** - Positive number to enable intersection; **0** to disable.
-
-## int getIntersection ( ) const
-
-Returns a value indicating whether grass grow upon the ground: either the terrain or a mesh set as a parent node.
-### Return value
-
-Positive number if intersection is enabled; otherwise, **0**.
-## void setMaskFlipX ( int maskflipx )
-
-Flip the mask by X axis.
-### Arguments
-
-- *int* **maskflipx** - Positive value to flip the mask; otherwise, **0**.
-
-## int getMaskFlipX ( ) const
-
-Returns a flag indicating if a mask is flipped by X axis.
-### Return value
-
-Positive value if the mask is flipped; otherwise, **0**.
-## void setMaskFlipY ( int maskflipy )
-
-Flip the mask by Y axis.
-### Arguments
-
-- *int* **maskflipy** - Positive value to flip the mask; otherwise, **0**.
-
-## int getMaskFlipY ( ) const
-
-Returns a flag indicating if a mask is flipped by Y axis.
-### Return value
-
-Positive value if the mask is flipped; otherwise, **0**.
 ## int setMaskImage ( const Ptr < Image > & image , int invalidate = 1 )
 
 Sets an image that defines the areas of growing grass. Possible mask formats are *R8*, *RG8*, *RGB8* and *RGBA8*.
@@ -153,32 +395,6 @@ Returns a name of the current mask image that defines the areas of grass growing
 ### Return value
 
 Name (path) of the mask image.
-## void setMaskInverse ( int inverse )
-
-Specifies if the grass should be rendered inside or outside the mask mesh contour.
-### Arguments
-
-- *int* **inverse** - **0** to render the grass inside the mesh contour; **1** to render it outside.
-
-## int getMaskInverse ( ) const
-
-Returns a flag indicating if the grass is rendered inside or outside the mask mesh contour.
-### Return value
-
-**0** if the grass is rendered inside the mesh contour; **1** if outside.
-## void setMaskMaxValue ( int value )
-
-Sets the maximum value of the mask application range.
-### Arguments
-
-- *int* **value** - Maximum mask value, **[0;255]**.
-
-## int getMaskMaxValue ( ) const
-
-Returns the maximum value of the mask application range.
-### Return value
-
-Maximum mask value.
 ## int setMaskMesh ( const Ptr < Mesh > & mesh , int invalidate = 1 )
 
 Sets a mesh to be used as a mask on-the-fly. Limitations:
@@ -219,32 +435,6 @@ Returns the name (path) of the current mesh used as a mask for the grass. This m
 ### Return value
 
 Path to the **.mesh* file.
-## void setMaskMinValue ( int value )
-
-Sets the minimum value of the mask application range.
-### Arguments
-
-- *int* **value** - Minimum mask value, **[0;255]**.
-
-## int getMaskMinValue ( ) const
-
-Returns the minimum value of the mask application range.
-### Return value
-
-Minimum mask value.
-## void setTerrainMasks ( const Math:: ivec4 & masks )
-
-Sets a new set of [Landscape Terrain masks](../../../api/library/objects/landscape_terrain/class.objectlandscapeterrain_cpp.md#getDetailMask_int_TerrainDetailMask) to be used for grass placement.
-### Arguments
-
-- *const  Math::[ivec4](../../../api/library/math/class.ivec4_cpp.md) &* **masks** - Four-component vector combining Landscape Terrain mask indices (each component in the [0; 19] range) to be used for the corresponding diffuse texture column.
-
-## Math:: ivec4 getTerrainMasks ( ) const
-
-Returns the current set of [Landscape Terrain masks](../../../api/library/objects/landscape_terrain/class.objectlandscapeterrain_cpp.md#getDetailMask_int_TerrainDetailMask) used for grass placement.
-### Return value
-
-Four-component vector combining Landscape Terrain mask indices (each component in the [0; 19] range) to be used for the corresponding diffuse texture column.
 ## void setMaxBend ( const Math:: vec4 & mean , const Math:: vec4 & spread )
 
 Sets the maximum grass bending parameters (rendered in areas with the highest density according to the mask). Bend angles (mean and spread) are defined for four diffuse texture columns. The resulting value is determined as follows: `Result = Mean + Random * Spread`, where `Random` is a random value in range from -1 to 1.
@@ -325,19 +515,6 @@ Returns the spread value for the minimum grass height (rendered in areas with th
 ### Return value
 
 Spread value for the minimum grass height in units.
-## void setNumTextures ( int textures )
-
-Sets the number of rows contained in the [grass diffuse texture](../../../content/materials/library/grass_base/index.md#texture_diffuse).
-### Arguments
-
-- *int* **textures** - Number of rows in the grass diffuse texture in the [**1; 4**] range.
-
-## int getNumTextures ( ) const
-
-Returns the number of rows contained in the [grass diffuse texture](../../../content/materials/library/grass_base/index.md#texture_diffuse).
-### Return value
-
-The number of rows in the grass diffuse texture in the [**1; 4**] range.
 ## void setOffset ( const Math:: vec4 & mean , const Math:: vec4 & spread )
 
 Sets the grass offset from the surface along the surface normal, defined for four diffuse texture columns. If a negative mean value is provided, **vec4_eps** will be used instead.
@@ -358,32 +535,6 @@ Returns the current spread value for the grass offset from the surface along the
 ### Return value
 
 Spread value for grass polygons offset in units.
-## void setOrientation ( int orientation )
-
-Sets a flag to orient grass polygons along the normal of its parent (for example, a terrain).
-### Arguments
-
-- *int* **orientation** - **1** to orient the grass along the normals of the ground; **0** to render it always pointing upwards.
-
-## int getOrientation ( ) const
-
-Returns a flag indicating if grass polygons are oriented along the normal of its parent (for example, a terrain).
-### Return value
-
-**1** if the grass is oriented along the normals of the ground; **0** if it always points upwards.
-## void setProbability ( const Math:: vec4 & probability )
-
-Sets the grass rendering probability per column (in the diffuse texture). The higher the value for some column, the more frequently it will be rendered.
-### Arguments
-
-- *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md) &* **probability** - Per-column probability. Any values can be set, since they are normalized.
-
-## Math:: vec4 getProbability ( ) const
-
-Returns the current grass rendering probability per column (in the diffuse texture). The higher the value for some column, the more frequently it will be rendered.
-### Return value
-
-Per-column probability.
 ## void setRotation ( const Math:: vec4 & mean , const Math:: vec4 & spread )
 
 Sets the grass rotation. Rotation is defined for four diffuse texture columns, as mean and spread values ( `Result = Mean + Random * Spread`, where `Random` is a random value in range from -1 to 1).
@@ -404,116 +555,6 @@ Returns the current spread value for the grass rotation, defined for four diffus
 ### Return value
 
 Spread value of grass polygons rotation, in degrees.
-## void setSeed ( int seed )
-
-Sets the seed for pseudo-random positioning of grass.
-### Arguments
-
-- *int* **seed** - Number used to initialize a pseudo-random sequence. If a negative value is provided, **0** will be used instead.
-
-## int getSeed ( ) const
-
-Returns the seed used for pseudo-random positioning of grass.
-### Return value
-
-Number used to initialize a pseudo-random sequence.
-## void setSizeX ( float sizex )
-
-Sets the width of the grass object along the X-coordinate.
-### Arguments
-
-- *float* **sizex** - X-coordinate width in units. If a negative value is provided, **0** will be used instead.
-
-## float getSizeX ( ) const
-
-Returns the current width of the grass object along the X-coordinate.
-### Return value
-
-X-coordinate width in units.
-## void setSizeY ( float sizey )
-
-Sets the length of the grass object along the Y-coordinate.
-### Arguments
-
-- *float* **sizey** - Y-coordinate length in units. If a negative value is provided, **0** will be used instead.
-
-## float getSizeY ( ) const
-
-Returns the current length of the grass object along the Y-coordinate.
-### Return value
-
-Y-coordinate length in units.
-## int getSpawnCount ( ) const
-
-Returns the number of cells to be generated.
-### Return value
-
-Number of cells to be generated if the scene generation is not completed; otherwise, 0.
-## void setStep ( float step )
-
-Sets the step for cells used to render grass.
-### Arguments
-
-- *float* **step** - Step for grass cells.
-
-## float getStep ( ) const
-
-Returns the current step for cells used to render grass.
-### Return value
-
-Step for grass cells.
-## void setSubdivision ( int subdivision )
-
-Subdivide grass rendering cells into smaller sub-cells. It is used if a grass node is used as a distant LOD for [WorldClutter](../../../api/library/worlds/class.worldclutter_cpp.md) or [ObjectMeshClutter](../../../api/library/objects/class.objectmeshclutter_cpp.md) with smaller cells. This way, positions of randomly scattered objects will coincide with those of grass-based impostors.
-### Arguments
-
-- *int* **subdivision** - Divisor for cells. The value is clamped to a range [1;32].
-
-## int getSubdivision ( ) const
-
-Returns the current divisor used to subdivide grass rendering cells into smaller sub-cells. Subdividing is used if a grass node is used as a distant LOD for [WorldClutter](../../../api/library/worlds/class.worldclutter_cpp.md) or [ObjectMeshClutter](../../../api/library/objects/class.objectmeshclutter_cpp.md) with smaller cells. This way, positions of randomly scattered objects will coincide with those of grass-based impostors.
-### Return value
-
-Divisor for cells.
-## void setThinning ( int thinning )
-
-Sets a flag to thin out grass with a distance (random grass polygons are not rendered across the grass Fade distance).
-### Arguments
-
-- *int* **thinning** - **1** to thin out the grass; **0** to render all grass polygons at the distance.
-
-## int getThinning ( ) const
-
-Returns a flag indicating if the grass is thinned out with a distance (random grass polygons are not rendered across the grass Fade distance).
-### Return value
-
-**1** if the grass is thinned out; **0** if all grass polygons are rendered at the distance.
-## void setThreshold ( float threshold )
-
-Sets the threshold for density, starting from which the grass will be rendered.
-### Arguments
-
-- *float* **threshold** - Threshold value in range from **0** to **1**.
-
-## float getThreshold ( ) const
-
-Returns the current threshold for density, starting from which the grass is rendered.
-### Return value
-
-Threshold value.
-## void setVariation ( int variation )
-
-Sets the random horizontal flip for grass polygons.
-### Arguments
-
-- *int* **variation** - **1** to enable grass flipping, **0** to disable it.
-
-## int getVariation ( ) const
-
-Returns a value indicating if the random horizontal flip for grass polygons is set.
-### Return value
-
-**1** if grass flipping is enabled; otherwise, **0**.
 ## static int type ( )
 
 Returns the type of the node.
@@ -529,40 +570,3 @@ Invalidates all grass cells within the area specified by the given bounding box.
 ### Arguments
 
 - *const  Math::[WorldBoundBox](../../../api/library/math/bounds/class.worldboundbox_cpp.md) &* **bounds** - Bounding box, defining the area, where grass cells will be regenerated.
-
-## void setCutoutIntersectionMask ( int mask )
-
-Sets a new cutout intersection mask. This mask allows you to cut out the grass in the areas of intersection with objects and decals (e.g. can be used to remove grass under houses or from the surface of roads projected using decals). The grass will be cut out by objects and decals that have their intersection mask matching this one (one bit at least).
-> **Notice:** To set intersection masks the following methods can be used:
-> - **for decals** use *[getIntersectionMask()](../../../api/library/decals/class.decal_cpp.md#getIntersectionMask_int)*
-> - **for objects** use *[getIntersectionMask()](../../../api/library/objects/class.object_cpp.md#getIntersectionMask_int_int)*
-
-
-### Arguments
-
-- *int* **mask** - Integer, each bit of which is a mask.
-
-## int getCutoutIntersectionMask ( ) const
-
-Returns the current cutout intersection mask. This mask allows you to cut out the grass in the areas of intersection with objects and decals (e.g. can be used to remove grass under houses or from the surface of roads projected using decals). The grass will be cut out by objects and decals that have their intersection mask matching this one (one bit at least).
-> **Notice:** To set intersection masks the following methods can be used:
-> - **for decals** use *[getIntersectionMask()](../../../api/library/decals/class.decal_cpp.md#getIntersectionMask_int)*
-> - **for objects** use *[getIntersectionMask()](../../../api/library/objects/class.object_cpp.md#getIntersectionMask_int_int)*
-
-
-### Return value
-
-Integer, each bit of which is a mask.
-## void setCutoutInverse ( int inverse )
-
-Sets a value indicating whether the grass should be rendered inside or outside the areas determined by the [cutout intersection mask](#setCutoutIntersectionMask_int_void).
-### Arguments
-
-- *int* **inverse** - **0** to render the grass outside the areas determined by the cutout intersection mask; **1** to render the grass inside these areas.
-
-## int getCutoutInverse ( ) const
-
-Returns a value indicating if the grass is rendered inside or outside the areas determined by the [cutout intersection mask](#setCutoutIntersectionMask_int_void).
-### Return value
-
-**0** if the grass is rendered outside the areas determined by the cutout intersection mask; **1** if inside.

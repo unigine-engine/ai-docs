@@ -483,7 +483,7 @@ using System.Threading;
 using Unigine;
 
 // A simple component that loads a node in a user thread
-public class NodeLoader : Component
+public partial class NodeLoader : Component
 {
 	// A thread that loads a node from file in the background
 	Thread separateNodeCreation;

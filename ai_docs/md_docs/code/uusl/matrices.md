@@ -172,7 +172,7 @@ Returns the matrix created using the arguments.
 Return matrix.
 ## float4x4 matrix4Col ( float3 coll_0 , float3 coll_1 , float3 coll_2 , float3 coll_3 )
 
-Returns the matrix created using the arguments and filling the extra cells with 0 and the element on the main diagonal — with 1.
+Returns the matrix created using the arguments and filling the extra cells with 0 and the element on the main diagonal � with 1.
 ### Arguments
 
 - *float3* **coll_0** - Values for the first column.
@@ -185,7 +185,7 @@ Returns the matrix created using the arguments and filling the extra cells with 
 Return matrix.
 ## float4x4 matrix4Col ( float3 coll_0 , float3 coll_1 , float3 coll_2 )
 
-Returns the matrix created using the arguments and filling the extra cells with 0 and the element on the main diagonal — with 1.
+Returns the matrix created using the arguments and filling the extra cells with 0 and the element on the main diagonal � with 1.
 ### Arguments
 
 - *float3* **coll_0** - Values for the first column.
@@ -210,10 +210,8 @@ Returns the matrix created using the arguments.
 Return matrix.
 ## float3 col ( float3x3 mat , int column )
 
-Returns the elements located in the specified column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the elements located in the specified column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -224,10 +222,8 @@ Returns the elements located in the specified column of the matrix.
 Elements of the column.
 ## float4 col ( float4x4 mat , int column )
 
-Returns the elements located in the specified column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the elements located in the specified column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -238,10 +234,8 @@ Returns the elements located in the specified column of the matrix.
 Elements of the column.
 ## void col ( float4x4 mat , int column , float4 value )
 
-Adds the value elements to the specified column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value elements to the specified column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -251,10 +245,8 @@ Adds the value elements to the specified column of the matrix.
 
 ## void col ( float4x4 mat , int column , float3 value )
 
-Adds the value as the first three elements to the specified column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first three elements to the specified column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -264,10 +256,8 @@ Adds the value as the first three elements to the specified column of the matrix
 
 ## void col ( float4x4 mat , int column , float2 value )
 
-Adds the value as the first two elements to the specified column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first two elements to the specified column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -277,10 +267,8 @@ Adds the value as the first two elements to the specified column of the matrix.
 
 ## void col ( float4x4 mat , int column , float value )
 
-Adds the value as the first element to the specified column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first element to the specified column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -290,10 +278,8 @@ Adds the value as the first element to the specified column of the matrix.
 
 ## void col ( float3x3 mat , int column , float3 value )
 
-Adds the value elements to the specified column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value elements to the specified column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -303,10 +289,8 @@ Adds the value elements to the specified column of the matrix.
 
 ## void col ( float3x3 mat , int column , float2 value )
 
-Adds the value as the first two elements to the specified column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first two elements to the specified column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -316,10 +300,8 @@ Adds the value as the first two elements to the specified column of the matrix.
 
 ## void col ( float3x3 mat , int column , float value )
 
-Adds the value as the first element to the specified column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first element to the specified column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -329,10 +311,8 @@ Adds the value as the first element to the specified column of the matrix.
 
 ## float3 colX ( float3x3 mat )
 
-Returns the elements located in the first column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the elements located in the first column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -342,10 +322,8 @@ Returns the elements located in the first column of the matrix.
 Elements of the column.
 ## void colX ( float3x3 mat , float3 column )
 
-Adds the value elements to the first column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value elements to the first column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -354,10 +332,8 @@ Adds the value elements to the first column of the matrix.
 
 ## void colX ( float3x3 mat , float2 column )
 
-Adds the value as the first two elements to the first column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first two elements to the first column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -366,10 +342,8 @@ Adds the value as the first two elements to the first column of the matrix.
 
 ## void colX ( float3x3 mat , float column )
 
-Adds the value as the first element to the first column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first element to the first column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -378,10 +352,8 @@ Adds the value as the first element to the first column of the matrix.
 
 ## float4 colX ( float4x4 mat )
 
-Returns the elements located in the first column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the elements located in the first column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -391,10 +363,8 @@ Returns the elements located in the first column of the matrix.
 Elements of the column.
 ## void colX ( float4x4 mat , float4 value )
 
-Adds the value elements to the first column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value elements to the first column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -403,10 +373,8 @@ Adds the value elements to the first column of the matrix.
 
 ## void colX ( float4x4 mat , float3 value )
 
-Adds the value as the first three elements to the first column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first three elements to the first column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -415,10 +383,8 @@ Adds the value as the first three elements to the first column of the matrix.
 
 ## void colX ( float4x4 mat , float2 value )
 
-Adds the value as the first two elements to the first column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first two elements to the first column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -427,10 +393,8 @@ Adds the value as the first two elements to the first column of the matrix.
 
 ## void colX ( float4x4 mat , float value )
 
-Adds the value as the first element to the first column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first element to the first column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -439,10 +403,8 @@ Adds the value as the first element to the first column of the matrix.
 
 ## float3 colY ( float3x3 mat )
 
-Returns the elements located in the second column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the elements located in the second column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -452,10 +414,8 @@ Returns the elements located in the second column of the matrix.
 Elements of the column.
 ## void colY ( float3x3 mat , float3 column )
 
-Adds the value elements to the second column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value elements to the second column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -464,10 +424,8 @@ Adds the value elements to the second column of the matrix.
 
 ## void colY ( float3x3 mat , float2 column )
 
-Adds the value as the first two elements to the second column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first two elements to the second column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -476,10 +434,8 @@ Adds the value as the first two elements to the second column of the matrix.
 
 ## void colY ( float3x3 mat , float column )
 
-Adds the value as the first element to the second column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first element to the second column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -488,10 +444,8 @@ Adds the value as the first element to the second column of the matrix.
 
 ## float4 colY ( float4x4 mat )
 
-Returns the elements located in the second column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the elements located in the second column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -501,10 +455,8 @@ Returns the elements located in the second column of the matrix.
 Elements of the column.
 ## void colY ( float4x4 mat , float4 value )
 
-Adds the value elements to the second column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value elements to the second column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -513,10 +465,8 @@ Adds the value elements to the second column of the matrix.
 
 ## void colY ( float4x4 mat , float3 value )
 
-Adds the value as the first three elements to the second column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first three elements to the second column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -525,10 +475,8 @@ Adds the value as the first three elements to the second column of the matrix.
 
 ## void colY ( float4x4 mat , float2 value )
 
-Adds the value as the first two elements to the second column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first two elements to the second column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -537,10 +485,8 @@ Adds the value as the first two elements to the second column of the matrix.
 
 ## void colY ( float4x4 mat , float value )
 
-Adds the value as the first element to the second column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first element to the second column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -549,10 +495,8 @@ Adds the value as the first element to the second column of the matrix.
 
 ## float3 colZ ( float3x3 mat )
 
-Returns the elements located in the third column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the elements located in the third column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -562,10 +506,8 @@ Returns the elements located in the third column of the matrix.
 Elements of the column.
 ## void colZ ( float3x3 mat , float3 column )
 
-Adds the value elements to the third column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value elements to the third column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -574,10 +516,8 @@ Adds the value elements to the third column of the matrix.
 
 ## void colZ ( float3x3 mat , float2 column )
 
-Adds the value as the first two elements to the third column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first two elements to the third column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -586,10 +526,8 @@ Adds the value as the first two elements to the third column of the matrix.
 
 ## void colZ ( float3x3 mat , float column )
 
-Adds the value as the first element to the third column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first element to the third column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -598,10 +536,8 @@ Adds the value as the first element to the third column of the matrix.
 
 ## float4 colZ ( float4x4 mat )
 
-Returns the elements located in the third column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the elements located in the third column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -611,10 +547,8 @@ Returns the elements located in the third column of the matrix.
 Elements of the column.
 ## void colZ ( float4x4 mat , float4 value )
 
-Adds the value elements to the third column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value elements to the third column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -623,10 +557,8 @@ Adds the value elements to the third column of the matrix.
 
 ## void colZ ( float4x4 mat , float3 value )
 
-Adds the value as the first three elements to the third column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first three elements to the third column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -635,10 +567,8 @@ Adds the value as the first three elements to the third column of the matrix.
 
 ## void colZ ( float4x4 mat , float2 value )
 
-Adds the value as the first two elements to the third column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first two elements to the third column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -647,10 +577,8 @@ Adds the value as the first two elements to the third column of the matrix.
 
 ## void colZ ( float4x4 mat , float value )
 
-Adds the value as the first element to the third column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first element to the third column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -659,10 +587,8 @@ Adds the value as the first element to the third column of the matrix.
 
 ## float4 colW ( float4x4 mat )
 
-Returns the elements located in the fourth column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the elements located in the fourth column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -672,10 +598,8 @@ Returns the elements located in the fourth column of the matrix.
 Elements of the column.
 ## void colW ( float4x4 mat , float4 value )
 
-Adds the value elements to the fourth column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value elements to the fourth column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -684,10 +608,8 @@ Adds the value elements to the fourth column of the matrix.
 
 ## void colW ( float4x4 mat , float3 value )
 
-Adds the value as the first three elements to the fourth column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first three elements to the fourth column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -696,10 +618,8 @@ Adds the value as the first three elements to the fourth column of the matrix.
 
 ## void colW ( float4x4 mat , float2 value )
 
-Adds the value as the first two elements to the fourth column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first two elements to the fourth column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -708,10 +628,8 @@ Adds the value as the first two elements to the fourth column of the matrix.
 
 ## void colW ( float4x4 mat , float value )
 
-Adds the value as the first element to the fourth column of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first element to the fourth column of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -745,7 +663,7 @@ Returns the matrix created using the arguments.
 Return matrix.
 ## float4x4 matrix4Row ( float4 row_0 , float4 row_1 , float4 row_2 )
 
-Returns the matrix created using the arguments and filling the extra cells with 0 and the element on the main diagonal — with 1.
+Returns the matrix created using the arguments and filling the extra cells with 0 and the element on the main diagonal � with 1.
 ### Arguments
 
 - *float4* **row_0** - Values for the first row.
@@ -757,7 +675,7 @@ Returns the matrix created using the arguments and filling the extra cells with 
 Return matrix.
 ## float4x4 matrix4Row ( float3 row_0 , float3 row_1 , float3 row_2 )
 
-Returns the matrix created using the arguments and filling the extra cells with 0 and the element on the main diagonal — with 1.
+Returns the matrix created using the arguments and filling the extra cells with 0 and the element on the main diagonal � with 1.
 ### Arguments
 
 - *float3* **row_0** - Values for the first row.
@@ -769,7 +687,7 @@ Returns the matrix created using the arguments and filling the extra cells with 
 Return matrix.
 ## float4x4 matrix4Row ( float3 row_0 , float3 row_1 , float3 row_2 , float3 row_3 )
 
-Returns the matrix created using the arguments and filling the extra cells with 0 and the element on the main diagonal — with 1.
+Returns the matrix created using the arguments and filling the extra cells with 0 and the element on the main diagonal � with 1.
 ### Arguments
 
 - *float3* **row_0** - Values for the first row.
@@ -782,10 +700,8 @@ Returns the matrix created using the arguments and filling the extra cells with 
 Return matrix.
 ## float3 row ( float3x3 mat , int row )
 
-Returns the elements located in the specified row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the elements located in the specified row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -796,10 +712,8 @@ Returns the elements located in the specified row of the matrix.
 Elements of the row.
 ## void row ( float3x3 mat , int row , float3 value )
 
-Adds the value elements to the specified row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value elements to the specified row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -809,10 +723,8 @@ Adds the value elements to the specified row of the matrix.
 
 ## void row ( float3x3 mat , int row , float2 value )
 
-Adds the value as the first two elements to the specified row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first two elements to the specified row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -822,10 +734,8 @@ Adds the value as the first two elements to the specified row of the matrix.
 
 ## void row ( float3x3 mat , int row , float value )
 
-Adds the value as the first element to the specified row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first element to the specified row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -835,10 +745,8 @@ Adds the value as the first element to the specified row of the matrix.
 
 ## float4 row ( float4x4 mat , int row )
 
-Returns the elements located in the specified row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the elements located in the specified row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -849,10 +757,8 @@ Returns the elements located in the specified row of the matrix.
 Elements of the row.
 ## void row ( float4x4 mat , int row , float4 value )
 
-Adds the value elements to the specified row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value elements to the specified row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -862,10 +768,8 @@ Adds the value elements to the specified row of the matrix.
 
 ## void row ( float4x4 mat , int row , float3 value )
 
-Adds the value as the first three elements to the specified row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first three elements to the specified row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -875,10 +779,8 @@ Adds the value as the first three elements to the specified row of the matrix.
 
 ## void row ( float4x4 mat , int row , float2 value )
 
-Adds the value as the first two elements to the specified row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first two elements to the specified row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -888,10 +790,8 @@ Adds the value as the first two elements to the specified row of the matrix.
 
 ## void row ( float4x4 mat , int row , float value )
 
-Adds the value as the first element to the specified row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first element to the specified row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -901,10 +801,8 @@ Adds the value as the first element to the specified row of the matrix.
 
 ## float3 rowX ( float3x3 mat )
 
-Returns the first row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the first row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -914,10 +812,8 @@ Returns the first row of the matrix.
 Elements of the row.
 ## void rowX ( float3x3 mat , float3 value )
 
-Adds the value elements to the first row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value elements to the first row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -926,10 +822,8 @@ Adds the value elements to the first row of the matrix.
 
 ## void rowX ( float3x3 mat , float2 value )
 
-Adds the value as the first two elements to the first row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first two elements to the first row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -938,10 +832,8 @@ Adds the value as the first two elements to the first row of the matrix.
 
 ## void rowX ( float3x3 mat , float value )
 
-Adds the value as the first element to the first row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first element to the first row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -950,10 +842,8 @@ Adds the value as the first element to the first row of the matrix.
 
 ## float4 rowX ( float4x4 mat )
 
-Returns the first row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the first row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -963,10 +853,8 @@ Returns the first row of the matrix.
 Elements of the row.
 ## void rowX ( float4x4 mat , float4 value )
 
-Adds the value elements to the first row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value elements to the first row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -975,10 +863,8 @@ Adds the value elements to the first row of the matrix.
 
 ## void rowX ( float4x4 mat , float3 value )
 
-Adds the value as the first three elements to the first row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first three elements to the first row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -987,10 +873,8 @@ Adds the value as the first three elements to the first row of the matrix.
 
 ## void rowX ( float4x4 mat , float2 value )
 
-Adds the value as the first two elements to the first row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first two elements to the first row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -999,10 +883,8 @@ Adds the value as the first two elements to the first row of the matrix.
 
 ## void rowX ( float4x4 mat , float value )
 
-Adds the value as the first element to the first row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first element to the first row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1011,10 +893,8 @@ Adds the value as the first element to the first row of the matrix.
 
 ## float3 rowY ( float3x3 mat )
 
-Returns the second row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the second row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -1024,10 +904,8 @@ Returns the second row of the matrix.
 Elements of the row.
 ## void rowY ( float3x3 mat , float3 value )
 
-Adds the value elements to the second row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value elements to the second row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -1036,10 +914,8 @@ Adds the value elements to the second row of the matrix.
 
 ## void rowY ( float3x3 mat , float2 value )
 
-Adds the value as the first two elements to the second row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first two elements to the second row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -1048,10 +924,8 @@ Adds the value as the first two elements to the second row of the matrix.
 
 ## void rowY ( float3x3 mat , float value )
 
-Adds the value as the first element to the second row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first element to the second row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -1060,10 +934,8 @@ Adds the value as the first element to the second row of the matrix.
 
 ## float4 rowY ( float4x4 mat )
 
-Returns the second row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the second row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1073,10 +945,8 @@ Returns the second row of the matrix.
 Elements of the row.
 ## void rowY ( float4x4 mat , float4 value )
 
-Adds the value elements to the second row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value elements to the second row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1085,10 +955,8 @@ Adds the value elements to the second row of the matrix.
 
 ## void rowY ( float4x4 mat , float3 value )
 
-Adds the value as the first three elements to the second row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first three elements to the second row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1097,10 +965,8 @@ Adds the value as the first three elements to the second row of the matrix.
 
 ## void rowY ( float4x4 mat , float2 value )
 
-Adds the value as the first two elements to the second row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first two elements to the second row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1109,10 +975,8 @@ Adds the value as the first two elements to the second row of the matrix.
 
 ## void rowY ( float4x4 mat , float value )
 
-Adds the value as the first element to the second row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first element to the second row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1121,10 +985,8 @@ Adds the value as the first element to the second row of the matrix.
 
 ## float3 rowZ ( float3x3 mat )
 
-Returns the third row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the third row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -1134,10 +996,8 @@ Returns the third row of the matrix.
 Elements of the row.
 ## void rowZ ( float3x3 mat , float3 value )
 
-Adds the value elements to the third row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value elements to the third row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -1146,10 +1006,8 @@ Adds the value elements to the third row of the matrix.
 
 ## void rowZ ( float3x3 mat , float2 value )
 
-Adds the value as the first two elements to the third row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first two elements to the third row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -1158,10 +1016,8 @@ Adds the value as the first two elements to the third row of the matrix.
 
 ## void rowZ ( float3x3 mat , float value )
 
-Adds the value as the first element to the third row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first element to the third row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -1170,10 +1026,8 @@ Adds the value as the first element to the third row of the matrix.
 
 ## float4 rowZ ( float4x4 mat )
 
-Returns the third row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the third row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1183,10 +1037,8 @@ Returns the third row of the matrix.
 Elements of the row.
 ## void rowZ ( float4x4 mat , float4 value )
 
-Adds the value elements to the third row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value elements to the third row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1195,10 +1047,8 @@ Adds the value elements to the third row of the matrix.
 
 ## void rowZ ( float4x4 mat , float3 value )
 
-Adds the value as the first three elements to the third row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first three elements to the third row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1207,10 +1057,8 @@ Adds the value as the first three elements to the third row of the matrix.
 
 ## void rowZ ( float4x4 mat , float2 value )
 
-Adds the value as the first two elements to the third row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first two elements to the third row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1219,10 +1067,8 @@ Adds the value as the first two elements to the third row of the matrix.
 
 ## void rowZ ( float4x4 mat , float value )
 
-Adds the value as the first element to the third row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first element to the third row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1231,10 +1077,8 @@ Adds the value as the first element to the third row of the matrix.
 
 ## float4 rowW ( float4x4 mat )
 
-Returns the fourth row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the fourth row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1244,10 +1088,8 @@ Returns the fourth row of the matrix.
 Elements of the row.
 ## void rowW ( float4x4 mat , float4 value )
 
-Adds the value elements to the fourth row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value elements to the fourth row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1256,10 +1098,8 @@ Adds the value elements to the fourth row of the matrix.
 
 ## void rowW ( float4x4 mat , float3 value )
 
-Adds the value as the first three elements to the fourth row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first three elements to the fourth row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1268,10 +1108,8 @@ Adds the value as the first three elements to the fourth row of the matrix.
 
 ## void rowW ( float4x4 mat , float2 value )
 
-Adds the value as the first two elements to the fourth row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first two elements to the fourth row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1280,10 +1118,8 @@ Adds the value as the first two elements to the fourth row of the matrix.
 
 ## void rowW ( float4x4 mat , float value )
 
-Adds the value as the first element to the fourth row of the matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Adds the value as the first element to the fourth row of the matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1292,10 +1128,8 @@ Adds the value as the first element to the fourth row of the matrix.
 
 ## float get ( float3x3 mat , int x , int y )
 
-Returns the value from the matrix using its index.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the value from the matrix using its index.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -1307,10 +1141,8 @@ Returns the value from the matrix using its index.
 Value.
 ## float get ( float4x4 mat , int x , int y )
 
-Returns the value from the matrix using its index.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the value from the matrix using its index.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1322,10 +1154,8 @@ Returns the value from the matrix using its index.
 Value.
 ## float set ( float3x3 mat , int x , int y , float value )
 
-Sets the matrix value using its index.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Sets the matrix value using its index.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -1336,10 +1166,8 @@ Sets the matrix value using its index.
 
 ## float set ( float4x4 mat , int x , int y , float value )
 
-Sets the matrix value using its index.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Sets the matrix value using its index.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1350,10 +1178,8 @@ Sets the matrix value using its index.
 
 ## float m00 ( float3x3 mat )
 
-Returns the corresponding matrix value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the corresponding matrix value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -1363,10 +1189,8 @@ Returns the corresponding matrix value.
 Value.
 ## float m00 ( float4x4 mat )
 
-Returns the corresponding matrix value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the corresponding matrix value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1374,10 +1198,8 @@ Returns the corresponding matrix value.
 
 ## void m00 ( float3x3 mat , float value )
 
-Sets the argument value as the corresponding matrix element.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Sets the argument value as the corresponding matrix element.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -1386,10 +1208,8 @@ Sets the argument value as the corresponding matrix element.
 
 ## void m00 ( float4x4 mat , float value )
 
-Sets the argument value as the corresponding matrix element.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Sets the argument value as the corresponding matrix element.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1398,10 +1218,8 @@ Sets the argument value as the corresponding matrix element.
 
 ## float m01 ( float3x3 mat )
 
-Returns the corresponding matrix value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the corresponding matrix value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -1411,10 +1229,8 @@ Returns the corresponding matrix value.
 Value.
 ## float m01 ( float4x4 mat )
 
-Returns the corresponding matrix value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the corresponding matrix value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1424,10 +1240,8 @@ Returns the corresponding matrix value.
 Value.
 ## void m01 ( float3x3 mat , float value )
 
-Sets the argument value as the corresponding matrix element.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Sets the argument value as the corresponding matrix element.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -1436,10 +1250,8 @@ Sets the argument value as the corresponding matrix element.
 
 ## void m01 ( float4x4 mat , float value )
 
-Sets the argument value as the corresponding matrix element.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Sets the argument value as the corresponding matrix element.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1448,10 +1260,8 @@ Sets the argument value as the corresponding matrix element.
 
 ## float m02 ( float3x3 mat )
 
-Returns the corresponding matrix value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the corresponding matrix value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -1461,10 +1271,8 @@ Returns the corresponding matrix value.
 Value.
 ## float m02 ( float4x4 mat )
 
-Returns the corresponding matrix value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the corresponding matrix value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1474,10 +1282,8 @@ Returns the corresponding matrix value.
 Value.
 ## void m02 ( float3x3 mat , float value )
 
-Sets the argument value as the corresponding matrix element.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Sets the argument value as the corresponding matrix element.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -1486,10 +1292,8 @@ Sets the argument value as the corresponding matrix element.
 
 ## void m02 ( float4x4 mat , float value )
 
-Sets the argument value as the corresponding matrix element.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Sets the argument value as the corresponding matrix element.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1498,10 +1302,8 @@ Sets the argument value as the corresponding matrix element.
 
 ## float m03 ( float4x4 mat )
 
-Returns the corresponding matrix value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the corresponding matrix value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1511,10 +1313,8 @@ Returns the corresponding matrix value.
 Value.
 ## void m03 ( float4x4 mat , float value )
 
-Sets the argument value as the corresponding matrix element.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Sets the argument value as the corresponding matrix element.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1523,10 +1323,8 @@ Sets the argument value as the corresponding matrix element.
 
 ## float m10 ( float3x3 mat )
 
-Returns the corresponding matrix value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the corresponding matrix value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -1536,10 +1334,8 @@ Returns the corresponding matrix value.
 Value.
 ## float m10 ( float4x4 mat )
 
-Returns the corresponding matrix value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the corresponding matrix value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1549,10 +1345,8 @@ Returns the corresponding matrix value.
 Value.
 ## void m10 ( float3x3 mat , float value )
 
-Sets the argument value as the corresponding matrix element.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Sets the argument value as the corresponding matrix element.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -1561,10 +1355,8 @@ Sets the argument value as the corresponding matrix element.
 
 ## void m10 ( float4x4 mat , float value )
 
-Sets the argument value as the corresponding matrix element.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Sets the argument value as the corresponding matrix element.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1573,10 +1365,8 @@ Sets the argument value as the corresponding matrix element.
 
 ## float m11 ( float3x3 mat )
 
-Returns the corresponding matrix value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the corresponding matrix value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -1586,10 +1376,8 @@ Returns the corresponding matrix value.
 Value.
 ## float m11 ( float4x4 mat )
 
-Returns the corresponding matrix value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the corresponding matrix value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1599,10 +1387,8 @@ Returns the corresponding matrix value.
 Value.
 ## void m11 ( float3x3 mat , float value )
 
-Sets the argument value as the corresponding matrix element.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Sets the argument value as the corresponding matrix element.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -1611,10 +1397,8 @@ Sets the argument value as the corresponding matrix element.
 
 ## void m11 ( float4x4 mat , float value )
 
-Sets the argument value as the corresponding matrix element.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Sets the argument value as the corresponding matrix element.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1623,10 +1407,8 @@ Sets the argument value as the corresponding matrix element.
 
 ## float m12 ( float3x3 mat )
 
-Returns the corresponding matrix value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the corresponding matrix value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -1636,10 +1418,8 @@ Returns the corresponding matrix value.
 Value.
 ## float m12 ( float4x4 mat )
 
-Returns the corresponding matrix value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the corresponding matrix value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1649,10 +1429,8 @@ Returns the corresponding matrix value.
 Value.
 ## void m12 ( float3x3 mat , float value )
 
-Sets the argument value as the corresponding matrix element.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Sets the argument value as the corresponding matrix element.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -1661,10 +1439,8 @@ Sets the argument value as the corresponding matrix element.
 
 ## void m12 ( float4x4 mat , float value )
 
-Sets the argument value as the corresponding matrix element.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Sets the argument value as the corresponding matrix element.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1673,10 +1449,8 @@ Sets the argument value as the corresponding matrix element.
 
 ## float m13 ( float4x4 mat )
 
-Returns the corresponding matrix value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the corresponding matrix value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1686,10 +1460,8 @@ Returns the corresponding matrix value.
 Value.
 ## void m13 ( float4x4 mat , float value )
 
-Sets the argument value as the corresponding matrix element.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Sets the argument value as the corresponding matrix element.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1698,10 +1470,8 @@ Sets the argument value as the corresponding matrix element.
 
 ## float m20 ( float3x3 mat )
 
-Returns the corresponding matrix value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the corresponding matrix value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -1711,10 +1481,8 @@ Returns the corresponding matrix value.
 Value.
 ## float m20 ( float4x4 mat )
 
-Returns the corresponding matrix value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the corresponding matrix value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1724,10 +1492,8 @@ Returns the corresponding matrix value.
 Value.
 ## void m20 ( float3x3 mat , float value )
 
-Sets the argument value as the corresponding matrix element.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Sets the argument value as the corresponding matrix element.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -1736,10 +1502,8 @@ Sets the argument value as the corresponding matrix element.
 
 ## void m20 ( float4x4 mat , float value )
 
-Sets the argument value as the corresponding matrix element.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Sets the argument value as the corresponding matrix element.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1748,10 +1512,8 @@ Sets the argument value as the corresponding matrix element.
 
 ## float m21 ( float3x3 mat )
 
-Returns the corresponding matrix value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the corresponding matrix value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -1761,10 +1523,8 @@ Returns the corresponding matrix value.
 Value.
 ## float m21 ( float4x4 mat )
 
-Returns the corresponding matrix value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the corresponding matrix value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1774,10 +1534,8 @@ Returns the corresponding matrix value.
 Value.
 ## void m21 ( float3x3 mat , float value )
 
-Sets the argument value as the corresponding matrix element.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Sets the argument value as the corresponding matrix element.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -1786,10 +1544,8 @@ Sets the argument value as the corresponding matrix element.
 
 ## void m21 ( float4x4 mat , float value )
 
-Sets the argument value as the corresponding matrix element.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Sets the argument value as the corresponding matrix element.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1798,10 +1554,8 @@ Sets the argument value as the corresponding matrix element.
 
 ## float m22 ( float3x3 mat )
 
-Returns the corresponding matrix value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the corresponding matrix value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -1811,10 +1565,8 @@ Returns the corresponding matrix value.
 Value.
 ## float m22 ( float4x4 mat )
 
-Returns the corresponding matrix value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the corresponding matrix value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1824,10 +1576,8 @@ Returns the corresponding matrix value.
 Value.
 ## void m22 ( float3x3 mat , float value )
 
-Sets the argument value as the corresponding matrix element.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Sets the argument value as the corresponding matrix element.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **mat** - 3x3 matrix.
@@ -1836,10 +1586,8 @@ Sets the argument value as the corresponding matrix element.
 
 ## void m22 ( float4x4 mat , float value )
 
-Sets the argument value as the corresponding matrix element.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Sets the argument value as the corresponding matrix element.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1848,10 +1596,8 @@ Sets the argument value as the corresponding matrix element.
 
 ## float m23 ( float4x4 mat )
 
-Returns the corresponding matrix value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the corresponding matrix value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1861,10 +1607,8 @@ Returns the corresponding matrix value.
 Value.
 ## void m23 ( float4x4 mat , float value )
 
-Sets the argument value as the corresponding matrix element.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Sets the argument value as the corresponding matrix element.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1873,10 +1617,8 @@ Sets the argument value as the corresponding matrix element.
 
 ## float m30 ( float4x4 mat )
 
-Returns the corresponding matrix value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the corresponding matrix value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1886,10 +1628,8 @@ Returns the corresponding matrix value.
 Value.
 ## void m30 ( float4x4 mat , float value )
 
-Sets the argument value as the corresponding matrix element.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Sets the argument value as the corresponding matrix element.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1898,10 +1638,8 @@ Sets the argument value as the corresponding matrix element.
 
 ## float m31 ( float4x4 mat )
 
-Returns the corresponding matrix value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the corresponding matrix value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1911,10 +1649,8 @@ Returns the corresponding matrix value.
 Value.
 ## void m31 ( float4x4 mat , float value )
 
-Sets the argument value as the corresponding matrix element.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Sets the argument value as the corresponding matrix element.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1923,10 +1659,8 @@ Sets the argument value as the corresponding matrix element.
 
 ## float m32 ( float4x4 mat )
 
-Returns the corresponding matrix value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the corresponding matrix value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1936,10 +1670,8 @@ Returns the corresponding matrix value.
 Value.
 ## void m32 ( float4x4 mat , float value )
 
-Sets the argument value as the corresponding matrix element.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Sets the argument value as the corresponding matrix element.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1948,10 +1680,8 @@ Sets the argument value as the corresponding matrix element.
 
 ## float m33 ( float4x4 mat )
 
-Returns the corresponding matrix value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the corresponding matrix value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1961,10 +1691,8 @@ Returns the corresponding matrix value.
 Value.
 ## void m33 ( float4x4 mat , float value )
 
-Sets the argument value as the corresponding matrix element.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Sets the argument value as the corresponding matrix element.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -1973,10 +1701,8 @@ Sets the argument value as the corresponding matrix element.
 
 ## float3x3 matrix3 ( float m00 , float m10 , float m20 , float m01 , float m11 , float m21 , float m02 , float m12 , float m22 )
 
-Returns the matrix with the argument values set as its elements.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the matrix with the argument values set as its elements.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float* **m00** - Value to be set.
@@ -1994,10 +1720,8 @@ Returns the matrix with the argument values set as its elements.
 3x3 matrix.
 ## float4x4 matrix4 ( float m00 , float m10 , float m20 , float m30 , float m01 , float m11 , float m21 , float m31 , float m02 , float m12 , float m22 , float m32 , float m03 , float m13 , float m23 , float m33 )
 
-Returns the matrix with the argument values set as its elements.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the matrix with the argument values set as its elements.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float* **m00** - Value to be set.
@@ -2022,10 +1746,8 @@ Returns the matrix with the argument values set as its elements.
 4x4 matrix.
 ## float4x4 inverse ( float4x4 mat )
 
-Returns the inverse matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the inverse matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -2035,10 +1757,8 @@ Returns the inverse matrix.
 4x4 matrix.
 ## float4x4 inverseTransform ( float4x4 mat )
 
-Returns the inverse of the transformation matrix part (with the translation part filled with zeroes).
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the inverse of the transformation matrix part (with the translation part filled with zeroes).
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -2058,7 +1778,10 @@ Checks if the projection matrix is for orthogonal projection.
 True is the projection matrix is orthogonal projection matrix; otherwise, false.
 ## float3 basisX ( float3x3 m )
 
+
 Returns the X basis of the 3x3 matrix.
+
+
 **Equivalent**
 
 
@@ -2076,7 +1799,10 @@ m._m00_m10_m20;
 Matrix basis.
 ## float3 basisX ( float4x4 m )
 
+
 Returns the X basis of the 4x4 matrix.
+
+
 **Equivalent**
 
 
@@ -2094,7 +1820,10 @@ m._m00_m10_m20;
 Matrix basis.
 ## float3 basisY ( float3x3 m )
 
+
 Returns the Y basis of the 3x3 matrix.
+
+
 **Equivalent**
 
 
@@ -2112,7 +1841,10 @@ m._m01_m11_m21;
 Matrix basis.
 ## float3 basisY ( float4x4 m )
 
+
 Returns the Y basis of the 4x4 matrix.
+
+
 **Equivalent**
 
 
@@ -2130,7 +1862,10 @@ m._m01_m11_m21;
 Matrix basis.
 ## float3 basisZ ( float3x3 m )
 
+
 Returns the Z basis of the 3x3 matrix.
+
+
 **Equivalent**
 
 
@@ -2148,7 +1883,10 @@ m._m02_m12_m22;
 Matrix basis.
 ## float3 basisZ ( float4x4 m )
 
+
 Returns the Z basis of the given 4x4 matrix.
+
+
 **Equivalent**
 
 
@@ -2185,7 +1923,10 @@ Orthonormal matrix.
 
 ## float3x3 scale ( float3 value )
 
+
 Returns scaling matrix for the specified scaling vector (X, Y, Z):
+
+
 | X | 0.0 | 0.0 | 0.0 |
 |---|---|---|---|
 | 0.0 | Y | 0.0 | 0.0 |
@@ -2202,7 +1943,10 @@ Returns scaling matrix for the specified scaling vector (X, Y, Z):
 Scaling matrix.
 ## float3x3 scale ( float x , float y , float z )
 
+
 Returns scaling matrix for the specified scaling vector (X, Y, Z):
+
+
 | X | 0.0 | 0.0 | 0.0 |
 |---|---|---|---|
 | 0.0 | Y | 0.0 | 0.0 |
@@ -2221,7 +1965,10 @@ Returns scaling matrix for the specified scaling vector (X, Y, Z):
 Scaling matrix.
 ## float4x4 translate ( float3 position )
 
+
 Returns the translation matrix for the specified translation vector (X, Y, Z):
+
+
 | 1.0 | 0.0 | 0.0 | X |
 |---|---|---|---|
 | 0.0 | 1.0 | 0.0 | Y |
@@ -2238,7 +1985,10 @@ Returns the translation matrix for the specified translation vector (X, Y, Z):
 Translation matrix.
 ## float4x4 translate ( float x , float y , float z )
 
+
 Returns the translation matrix for the specified translation vector (X, Y, Z):
+
+
 | 1.0 | 0.0 | 0.0 | X |
 |---|---|---|---|
 | 0.0 | 1.0 | 0.0 | Y |
@@ -2462,12 +2212,12 @@ Outputs the cube viewing matrix for the specified cube face.
 
 - *int* **face** - Cube face from 0 to 5:
 
-  - 0 — positive X face (right)
-  - 1 — negative X face (left)
-  - 2 — positive Y face (front)
-  - 3 — negative Y face (back)
-  - 4 — positive Z face (top)
-  - 5 — negative Z face (bottom)
+  - 0 � positive X face (right)
+  - 1 � negative X face (left)
+  - 2 � positive Y face (front)
+  - 3 � negative Y face (back)
+  - 4 � positive Z face (top)
+  - 5 � negative Z face (bottom)
 
 ### Return value
 

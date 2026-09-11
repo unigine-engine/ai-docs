@@ -5,6 +5,7 @@
 
 You can work with UnigineScript [containers](../../../../code/uniginescript/language/containers/index.md) from C++ side via Unigine API, that is, with:
 
+
 - [Vectors](../../../../code/uniginescript/language/containers/index.md#vector)
 - [Maps](../../../../code/uniginescript/language/containers/index.md#maps)
 
@@ -20,8 +21,9 @@ An example can be found in `<UnigineSDK>/source/samples/Api/Scripts/Arrays/` dir
 
 Unigine vectors and maps can be accessed via:
 
-- *[ArrayVector](../../../../api/library/containers/class.arrayvector_cpp.md)* class and the*[ArrayVector::get()](../../../../api/library/containers/class.arrayvector_cpp.md#get_void_ptr_const_Variable_ref_ArrayVector)* function for vectors.
-- *[ArrayMap](../../../../api/library/containers/arraymap/class.arraymap_cpp.md)* and the*[ArrayMap::get()](../../../../api/library/containers/arraymap/class.arraymap_cpp.md#get_void_ptr_const_Variable_ref_ArrayMap)* function for maps.
+
+- *[ArrayVector](../../../../api/library/containers/class.arrayvector_cpp.md)* class and the *[ArrayVector::get()](../../../../api/library/containers/class.arrayvector_cpp.md#get_void_ptr_const_Variable_ref_ArrayVector)* function for vectors.
+- *[ArrayMap](../../../../api/library/containers/arraymap/class.arraymap_cpp.md)* and the *[ArrayMap::get()](../../../../api/library/containers/arraymap/class.arraymap_cpp.md#get_void_ptr_const_Variable_ref_ArrayMap)* function for maps.
 
 
 > **Notice:** To enumerate all of the *ArrayMap* elements, use the special *[ArrayMap::Iterator](../../../../api/library/containers/arraymap/class.arraymap.iterator_cpp.md)* class.
@@ -31,6 +33,7 @@ Unigine vectors and maps can be accessed via:
 
 
 Create setter and getter functions that receive Unigine containers and handle their elements. Then, export the created functions in order to use them in the script.
+
 
 > **Notice:** You should specify the array declaration as the last argument of the *MakeExternFunction()* if your array functions receive an array as an argument.
 > ```cpp

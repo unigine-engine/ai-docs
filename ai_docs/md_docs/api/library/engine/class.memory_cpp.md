@@ -54,7 +54,7 @@ Current amount of memory.
 Returns the current value indicating whether gathering memory statistics required for pool configuration is enabled.
 ### Return value
 
-**true** if is enabled; otherwise **false**.
+**true** if gathering memory statistics required for pool configuration is enabled ; otherwise **false**.
 ## size_t getMemoryUsage () const
 
 Returns the current overall amount of used memory in bytes.

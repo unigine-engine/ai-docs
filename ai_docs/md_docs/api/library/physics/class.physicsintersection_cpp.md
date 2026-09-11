@@ -107,65 +107,63 @@ int AppWorldLogic::update()
 |---|---|
 | **PHYSICS_INTERSECTION** = 0 | PhysicsIntersection object, which stores basic information on the intersection point (coordinates of the intersection, the shape of the object, the index of the surface). |
 | **PHYSICS_INTERSECTION_NORMAL** = 1 | [PhysicsIntersectionNormal](../../../api/library/physics/class.physicsintersectionnormal_cpp.md) object, which stores the same information as the PhysicsIntersection object plus additional information on the normal at the intersection point. |
-| **NUM_PHYSICS_INTERSECTIONS** = 2 |  |
+| **NUM_PHYSICS_INTERSECTIONS** = 2 | Number of physics intersection types. |
 
 ### Members
 
+## void setSurface ( int surface )
+
+Sets a new intersected surface number.
+### Arguments
+
+- *int* **surface** - The intersected surface number
+
+## int getSurface () const
+
+Returns the current intersected surface number.
+### Return value
+
+Current intersected surface number
+## void setPoint ( const Math:: Vec3 & point )
+
+Sets a new coordinates of the intersection point.
+### Arguments
+
+- *const  Math::[Vec3](../../../api/library/math/class.vec3_cpp.md)&* **point** - The coordinates of the intersection point
+
+## Math:: Vec3 getPoint () const
+
+Returns the current coordinates of the intersection point.
+### Return value
+
+Current coordinates of the intersection point
+## void setShape ( const Ptr < Shape >& shape )
+
+Sets a new intersected shape.
+### Arguments
+
+- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Shape](../../../api/library/physics/class.shape_cpp.md)>&* **shape** - The intersected shape
+
+## Ptr < Shape > getShape () const
+
+Returns the current intersected shape.
+### Return value
+
+Current intersected shape
+## const char * getTypeName () const
+
+Returns the current name of the intersection object type.
+### Return value
+
+Current name of the intersection object type
+## PhysicsIntersection::TYPE getType () const
+
+Returns the current intersection object type, one of the [PHYSICS_INTERSECTION*](#PHYSICS_INTERSECTION) values.
+### Return value
+
+Current intersection object type
 ---
 
 ## static PhysicsIntersectionPtr create ( )
 
 The PhysicsIntersection constructor.
-## void setPoint ( const Math:: Vec3 & point )
-
-Sets new coordinates of the intersection point.
-### Arguments
-
-- *const  Math::[Vec3](../../../api/library/math/class.vec3_cpp.md) &* **point** - Coordinates of the intersection point.
-
-## Math:: Vec3 getPoint ( )
-
-Returns coordinates of the intersection point.
-### Return value
-
-Coordinates of the intersection point.
-## void setShape ( const Ptr < Shape > & shape )
-
-Sets the new intersection shape.
-### Arguments
-
-- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Shape](../../../api/library/physics/class.shape_cpp.md)> &* **shape** - Intersection shape.
-
-## Ptr < Shape > getShape ( )
-
-Returns the intersection shape.
-### Return value
-
-Intersection shape.
-## void setSurface ( int surface )
-
-Sets the new intersection surface number.
-### Arguments
-
-- *int* **surface** - Intersection surface number.
-
-## int getSurface ( )
-
-Returns the intersected surface number.
-### Return value
-
-Intersected surface number.
-## PhysicsIntersection::TYPE getType ( )
-
-Returns the type of physics intersection. The type defines information stored by the object (if the data on the normal at the intersection point is included or not).
-### Return value
-
-Physics intersection type, one of the [TYPE](#PHYSICS_INTERSECTION) values.
-## const char * getTypeName ( )
-
-Returns the name of the physics intersection type. The type defines information stored by the object (if the data on the normal at the intersection point is included or not).
-### Return value
-
-Name of the physics intersection type. One of the following values:
-- PhysicsIntersection
-- PhysicsIntersectionNormal

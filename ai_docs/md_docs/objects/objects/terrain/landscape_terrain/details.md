@@ -43,11 +43,11 @@ By combining multiple details under a single mask you can diversify the look of 
 The list of detail masks displays the hierarchy of details for each of 20 detail masks. Using the buttons at the top you can control details and rearrange masks or details depending on what is selected:
 
 
-- ![](detail_button_create.png) — **create** details for the selected masks.
-- ![](detail_button_clone.png) — **clone** the selected details.
-- ![](detail_button_moveup.png) — **move up** the selected masks/details.
-- ![](detail_button_movedown.png) — **move down** the selected masks/details.
-- ![](detail_button_delete.png) — **delete** the selected details.
+- ![](detail_button_create.png) � **create** details for the selected masks.
+- ![](detail_button_clone.png) � **clone** the selected details.
+- ![](detail_button_moveup.png) � **move up** the selected masks/details.
+- ![](detail_button_movedown.png) � **move down** the selected masks/details.
+- ![](detail_button_delete.png) � **delete** the selected details.
 
 
 Drag details using the mouse to set up the hierarchy, Double-click on a detail or a detail mask to rename it.
@@ -60,8 +60,8 @@ Detail parameters allow applying additional masking:
 |---|---|
 | Mask Contrast | Contrast of the mask. For each mask you can set a Dither amount enabling you to reduce graphical artefacts in case of increased *Mask Contrast* value set per-detail. This Dither amount is multiplied by the [global dithering amount](../../../../editor2/settings/render_settings/landscape/index.md#detail_mask_dither). |
 | Mask by Albedo | Select an albedo color of *Landscape Layer Masks* in the world to be used as a mask. In this case, all areas on the terrain having selected color will be covered by the detail. > **Notice:** Control opacity by using the Alpha channel of the **Mask by Albedo** color. |
-| Mask by Height | This group of parameters is used for mask modulation. For the areas specified by the mask, you can set up the range of heights in which the detail is visible. - **Min Visibility** — minimum height value starting from which the detail mask begins to fade in until it becomes completely visible. The default value is -inf. - **Max Visibility** — maximum height value starting from which the detail mask begins to fade out until it becomes completely invisible. The default value is inf. - **Min Fade** — over this height range below the minimum height value the detail mask will fade in until it is completely visible. The default value is 0. - **Max Fade** — over this height range above the maximum height value the detail mask will fade out until it is completely invisible. The default value is 0. |
-| Mask by Texel Size | This group of parameters just like the previous one is used for mask modulation. For the areas specified by the mask, you can set up the range of texel sizes in which the detail is visible. - **Min Visibility** — minimum texel size value starting from which the detail mask begins to fade in until it becomes completely visible. The default value is -inf. - **Max Visibility** — maximum texel size value starting from which the detail mask begins to fade out until it becomes completely invisible. The default value is inf. - **Min Fade** — over this range below the minimum texel size value the detail mask will fade in until it is completely visible. The default value is 0. - **Max Fade** — over this range above the maximum texel size value the detail mask will fade out until it is completely invisible. The default value is 0. |
+| Mask by Height | This group of parameters is used for mask modulation. For the areas specified by the mask, you can set up the range of heights in which the detail is visible. - **Min Visibility** � minimum height value starting from which the detail mask begins to fade in until it becomes completely visible. The default value is -inf. - **Max Visibility** � maximum height value starting from which the detail mask begins to fade out until it becomes completely invisible. The default value is inf. - **Min Fade** � over this height range below the minimum height value the detail mask will fade in until it is completely visible. The default value is 0. - **Max Fade** � over this height range above the maximum height value the detail mask will fade out until it is completely invisible. The default value is 0. |
+| Mask by Texel Size | This group of parameters just like the previous one is used for mask modulation. For the areas specified by the mask, you can set up the range of texel sizes in which the detail is visible. - **Min Visibility** � minimum texel size value starting from which the detail mask begins to fade in until it becomes completely visible. The default value is -inf. - **Max Visibility** � maximum texel size value starting from which the detail mask begins to fade out until it becomes completely invisible. The default value is inf. - **Min Fade** � over this range below the minimum texel size value the detail mask will fade in until it is completely visible. The default value is 0. - **Max Fade** � over this range above the maximum texel size value the detail mask will fade out until it is completely invisible. The default value is 0. |
 
 
 The **Detail Material** section contains settings of the *[landscape_terrain_detail_base](../../../../content/materials/library/landscape_terrain_detail_base/index.md)* material defining visual features of the current detail.

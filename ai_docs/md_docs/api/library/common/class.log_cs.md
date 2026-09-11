@@ -51,11 +51,15 @@ Log.Fatal("FATAL ERROR reading \"{0}\" file!\n", file_name);
 
 You can [subscribe for events](#getEventMessage_Event) to define custom actions on various types of messages printed to the Log. The signature of the handler function must be as follows:
 
+
 ```csharp
 void handler_function_name(string message_text);
 ```
 
- Here is an example of tracking error messages via event handlers:
+
+Here is an example of tracking error messages via event handlers:
+
+
 ```csharp
 public void error_handler(string message_text)
 {
@@ -80,12 +84,15 @@ Log.Error("An ERROR has occurred!");
 
 ## bool DialogFatalEnabled
 
-The value indicating if displaying *Fatal* dialog messages is enabled (when disabled, the corresponding message will be printed to the log). Can be used, for example, to disable when running console tools like *[Runtimes Generator](../../../tools/runtimes_generator/index.md)* or *[Build Tool](../../../editor2/projects/build_project.md#console_build)* (use the `-dialog_fatal_enabled` command).
+The value indicating if displaying *Fatal* dialog messages is enabled (when disabled, the corresponding message will be printed to the log).
+Can be used, for example, to disable when running console tools like *[Runtimes Generator](../../../tools/runtimes_generator/index.md)* or *[Build Tool](../../../editor2/projects/build_project.md#console_build)* (use the `-dialog_fatal_enabled` command).
+
+
 > **Notice:** Available for Windows OS only.
 
 ## 🔒︎ Event<string> EventMessage
 
-The event triggered when a message has been printed to the log. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a message has been printed to the log. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 <details>
 <summary>See Example | Close</summary>
@@ -180,7 +187,7 @@ Log.EventMessage.Enabled = true;
  The event handler signature is as follows: *myhandler(string **text**)*
 ## 🔒︎ Event<string> EventWarning
 
-The event triggered when a warning has been printed to the log. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a warning has been printed to the log. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 <details>
 <summary>See Example | Close</summary>
@@ -275,7 +282,7 @@ Log.EventWarning.Enabled = true;
  The event handler signature is as follows: *myhandler(string **text**)*
 ## 🔒︎ Event<const char *> EventError
 
-The event triggered when an error message has been printed to the log. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when an error message has been printed to the log. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 <details>
 <summary>See Example | Close</summary>
@@ -370,7 +377,7 @@ Log.EventError.Enabled = true;
  The event handler signature is as follows: *myhandler(string **text**)*
 ## 🔒︎ Event<const char *> EventFatal
 
-The event triggered when a fatal error message has been printed to the log. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a fatal error message has been printed to the log. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 <details>
 <summary>See Example | Close</summary>
@@ -489,6 +496,7 @@ Prints an error message followed by the line terminator to the console and the l
 ## void Fatal ( string format , ... )
 
 Prints a fatal error message to the log file and quits the engine.
+
 > **Notice:** Available for Windows OS only.
 
 ### Arguments
@@ -499,6 +507,7 @@ Prints a fatal error message to the log file and quits the engine.
 ## void FatalLine ( string format , ... )
 
 Prints a fatal error message followed by the line terminator to the log file and quits the engine.
+
 > **Notice:** Available for Windows OS only.
 
 ### Arguments

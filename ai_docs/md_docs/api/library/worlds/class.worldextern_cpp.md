@@ -10,8 +10,6 @@ WorldExtern is a custom user-defined world created via API.
 
 ## WorldExtern Class
 
-### Members
-
 ---
 
 ## static WorldExternPtr create ( const Ptr < Node > & node )

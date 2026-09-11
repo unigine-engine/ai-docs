@@ -16,7 +16,7 @@ In reality, float precision limitations are noticeable even on scenes larger tha
 In computing, **floating point** is a method of representing a real number by means of a mantissa and an exponent:
 
 
-mantissa × base ^ exponent ,
+mantissa�� �base �^ �exponent ,
 
 
 where *base* is equal to **2**.

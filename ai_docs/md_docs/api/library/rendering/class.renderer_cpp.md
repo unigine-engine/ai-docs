@@ -35,7 +35,7 @@ A structure that represents a buffer for storing camera parameters.
 
 - *Math::[mat4](../../../api/library/math/class.mat4_cpp.md)* **camera_projection** - Camera projection matrix.
 - *Math::[mat4](../../../api/library/math/class.mat4_cpp.md)* **camera_iprojection** - Camera inverse projection matrix.
-- *Math::[mat4](../../../api/library/math/class.mat4_cpp.md)* **oblique_frustum_plane** - World coordinates of the oblique frustum culling plane in the format *(Nx, Ny, Nz, D)*, where *Nx*, *Ny*, *Nz* are the coordinates of the plane normal, and D is the distance from the origin to the plane.
+- *Math::[mat4](../../../api/library/math/class.mat4_cpp.md)* **oblique_frustum_plane** - World coordinates of the oblique frustum culling plane in the format *(Nx, Ny, Nz, D)*, where *Nx, Ny, Nz* are the coordinates of the plane normal, and *D* is the distance from the origin to the plane.
 - *int* **is_oblique_frustum** - Flag indicating if the viewing frustum is oblique.
 - *Math::[mat4](../../../api/library/math/class.mat4_cpp.md)* **projection** - Projection matrix.
 - *Math::[mat4](../../../api/library/math/class.mat4_cpp.md)* **iprojection** - Inverse projection matrix.
@@ -129,12 +129,6 @@ Returns the current texture that stores intensity of the [screen-space bevel eff
 ### Return value
 
 Current texture storing intensity of the bevels. The texture is **RGBA8**, the intensity value is written to the **R** channel.
-## Ptr < Texture > getTextureGBufferMaterialMask () const
-
-Returns the current [Gbuffer material mask texture](../../../principles/render/sequence/index.md#material_mask).
-### Return value
-
-Current Gbuffer material mask texture.
 ## Ptr < Texture > getTextureGBufferNormal () const
 
 Returns the current [Gbuffer normal texture](../../../principles/render/sequence/index.md#normal).
@@ -269,7 +263,7 @@ Returns the current [depth texture](../../../principles/render/sequence/index.md
 Current depth texture.
 ## Ptr < Texture > getTextureNormalUnpack () const
 
-Returns the current texture that stores unpacked normals. Available for the following post-effects: SSR, SSGI, SSRTGI, Shadows screen space.
+Returns the current texture that stores unpacked normals. Available for the following post-effects: SSR, SSGI, SSRTGI, Screen-Space Shadows.
 ### Return value
 
 Current texture that stores unpacked normals.
@@ -323,14 +317,14 @@ Returns the current screen width.
 Current screen width.
 ## Ptr < Light > getCurrentLight () const
 
-Returns the current rendered light source. This method can be used to obtain shadow maps for a certain light source in an [event handler](../../../api/library/rendering/class.render_cpp.md#getEventBegin_Event) (see [BeginShadows](../../../api/library/rendering/class.render_cpp.md#getEventBeginShadows_Event) event).
+Returns the current rendered light source. This method can be used to obtain shadow maps for a certain light source in an [event handler](../../../api/library/rendering/class.render_cpp.md#getEventBegin_Event) (see *[BeginShadows](../../../api/library/rendering/class.render_cpp.md#getEventBeginShadows_Event)* event).
 ### Return value
 
 Current rendered light source.
 ## void setObliqueFrustum ( bool frustum )
 
 Sets a new value indicating if the viewing frustum is oblique.
-> **Notice:** It is recommended to set oblique viewing frustum using this method, as it doesn't affect the projection matrix. To specify the near clipping plane use the [setObliqueFrustumPlane()](#setObliqueFrustumPlane_Vec4_void) method.
+> **Notice:** It is recommended to set oblique viewing frustum using this method, as it doesn't affect the projection matrix. To specify the near clipping plane use the *[setObliqueFrustumPlane()](#setObliqueFrustumPlane_Vec4_void)* method.
 
 ### Arguments
 
@@ -339,7 +333,7 @@ Sets a new value indicating if the viewing frustum is oblique.
 ## bool isObliqueFrustum () const
 
 Returns the current value indicating if the viewing frustum is oblique.
-> **Notice:** It is recommended to set oblique viewing frustum using this method, as it doesn't affect the projection matrix. To specify the near clipping plane use the [setObliqueFrustumPlane()](#setObliqueFrustumPlane_Vec4_void) method.
+> **Notice:** It is recommended to set oblique viewing frustum using this method, as it doesn't affect the projection matrix. To specify the near clipping plane use the *[setObliqueFrustumPlane()](#setObliqueFrustumPlane_Vec4_void)* method.
 
 ### Return value
 
@@ -422,13 +416,13 @@ Current viewport mask.
 Returns the current value indicating if stereo rendering is enabled.
 ### Return value
 
-**true** if stereo rendering is enabled; otherwise **false**.
+**true** if stereo rendering is enabled ; otherwise **false**.
 ## bool isShadow () const
 
 Returns the current value indicating if shadows are rendered.
 ### Return value
 
-**true** if shadows rendering is enabled; otherwise **false**.
+**true** if shadows rendering is enabled ; otherwise **false**.
 ## bool isReflection () const
 
 Returns the current value indicating if reflection rendering is in progress.
@@ -458,7 +452,7 @@ Current buffer containing camera parameters to be passed to a custom shader.
 Returns the current value indicating if peripheral stereo rendering is enabled.
 ### Return value
 
-**true** if peripheral stereo rendering is enabled; otherwise **false**.
+**true** if peripheral stereo rendering is enabled ; otherwise **false**.
 ## Renderer::CBufferTonemapper getShaderCBufferTonemapper () const
 
 Returns the current buffer containing tone mapping parameters to be passed to a custom shader. This method can be used in a [event handler](../../../api/library/rendering/class.render_cpp.md#getEventBegin_Event) to obtain tone mapping parameters at a certain stage of the rendering sequence and pass them to a custom shader.
@@ -477,12 +471,75 @@ Sets a new value indicating if the VR rendering mode is enabled.
 Returns the current value indicating if the VR rendering mode is enabled.
 ### Return value
 
-**true** if the VR rendering mode is enabled; otherwise **false**.
+**true** if the VR rendering mode is enabled ; otherwise **false**.
+## Math:: ivec2 getOutputResolution () const
+
+Returns the current resolution, in pixels, of the final output (target) image of the current frame: the resolution the image is presented or upscaled to.
+### Return value
+
+Current resolution of the final output image
+## Math:: ivec2 getRenderResolution () const
+
+Returns the current actual internal resolution, in pixels, at which the current frame is rendered. It differs from the output resolution when dynamic resolution or an upscaler is active: in that case it is the per-frame varying input resolution of the upscaler.
+### Return value
+
+Current actual internal render resolution of the current frame
+## Math:: ivec2 getRenderResolutionMax () const
+
+Returns the current upper bound of the internal render resolution for the current configuration. With dynamic resolution enabled, the per-frame render resolution moves between the minimum and this bound; otherwise it matches the render resolution.
+### Return value
+
+Current upper bound of the internal render resolution
+## Math:: ivec2 getRenderResolutionMin () const
+
+Returns the current lower bound of the internal render resolution for the current configuration. With dynamic resolution enabled, the per-frame render resolution moves between this bound and the maximum; otherwise it matches the render resolution.
+### Return value
+
+Current lower bound of the internal render resolution
+## Ptr < Texture > getTextureGBufferReactiveMask () const
+
+Returns the current reactive mask texture of the G-buffer of the current frame: a single-channel screen texture into which transparent materials with reactivity enabled write their reactivity factor. It is consumed by the temporal upscalers to reduce ghosting on surfaces whose color changes cannot be explained by motion vectors (transparency, particles). The texture exists only while an upscaler is enabled.
+### Return value
+
+Current reactive mask texture of the G-buffer
+## Ptr < Texture > getTextureGBufferSurfaceID () const
+
+Returns the current surface ID texture of the opaque G-buffer (*R32U*, one surface ID per pixel). The buffer is cleared to the sky ID each frame, so pixels not covered by any opaque surface are marked as sky.
+### Return value
+
+Current surface ID texture of the opaque G-buffer
+## Ptr < Texture > getTextureSurfaceIDDecal () const
+
+Returns the current surface ID texture of the decal stage (*R32U*). A separate per-stage buffer exists only when *[SurfaceIDMultilayered](../../../api/library/rendering/class.render_cpp.md#isSurfaceIDMultilayered_int)* is enabled; otherwise, the composite scene surface ID texture is returned.
+### Return value
+
+Current surface ID texture of the decal stage
+## Ptr < Texture > getTextureSurfaceIDScene () const
+
+Returns the current composite scene surface ID texture: the opaque surface IDs with the decal, transparency, and water surface IDs composited on top (*R32U*). When *[SurfaceIDMultilayered](../../../api/library/rendering/class.render_cpp.md#isSurfaceIDMultilayered_int)* is disabled, this is the same texture as the G-buffer surface ID texture.
+### Return value
+
+Current composite scene surface ID texture
+## Ptr < Texture > getTextureSurfaceIDTransparent () const
+
+Returns the current surface ID texture of the transparent stage (*R32U*). A separate per-stage buffer exists only when *[SurfaceIDMultilayered](../../../api/library/rendering/class.render_cpp.md#isSurfaceIDMultilayered_int)* is enabled; otherwise, the composite scene surface ID texture is returned.
+### Return value
+
+Current surface ID texture of the transparent stage
+## Ptr < Texture > getTextureSurfaceIDWater () const
+
+Returns the current surface ID texture of the water stage (*R32U*). A separate per-stage buffer exists only when *[SurfaceIDMultilayered](../../../api/library/rendering/class.render_cpp.md#isSurfaceIDMultilayered_int)* is enabled; otherwise, the composite scene surface ID texture is returned.
+### Return value
+
+Current surface ID texture of the water stage
 ---
 
 ## void clearStates ( )
 
+
 Clears rendering states and textures.
+
+
 > **Notice:** The shader will also be cleared.
 
 
@@ -497,15 +554,15 @@ Sets the light blending function for a given rendering pass and material.
 - *[Render::PASS](../../../api/library/rendering/class.render_cpp.md#PASS)* **pass** - Rendering pass. One of the following values:
 
   - [PASS_AMBIENT](../../../api/library/rendering/class.render_cpp.md#PASS_AMBIENT)
-  - [PASS_LIGHT_OMNI](../../../api/library/rendering/class.render_cpp.md#PASS_LIGHT_OMNI)
-  - [PASS_LIGHT_PROJ](../../../api/library/rendering/class.render_cpp.md#PASS_LIGHT_PROJ)
-  - [PASS_LIGHT_WORLD](../../../api/library/rendering/class.render_cpp.md#PASS_LIGHT_WORLD)
   - [PASS_EMISSION](../../../api/library/rendering/class.render_cpp.md#PASS_EMISSION)
 - *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Material](../../../api/library/rendering/class.material_cpp.md)> &* **material** - Material smart pointer.
 
 ## void setBufferMask ( Render::PASS pass , const Ptr < Material > & material ) const
 
+
 Sets the buffer mask for a given rendering pass and material.
+
+
 > **Notice:** If the material does not use a depth mask and [ambient pass](../../../api/library/rendering/class.render_cpp.md#PASS_AMBIENT) is specified, the [BUFFER_COLOR](../../../api/library/rendering/class.renderstate_cpp.md#BUFFER_COLOR) mask will be set; otherwise, the [BUFFER_ALL](../../../api/library/rendering/class.renderstate_cpp.md#BUFFER_ALL) mask will be set.
 
 
@@ -532,21 +589,24 @@ Returns current camera position.
 Current camera position.
 ## void setDepthFunc ( Render::PASS pass , const Ptr < Material > & material ) const
 
+
 Sets depth function for a given rendering pass and material.
-> **Notice:** If the *depth_test* option of the material is enabled, the [DEPTH_GEQUAL](../../../api/library/rendering/class.renderstate_cpp.md#DEPTH_GEQUAL) function will be used; otherwise the depth comparison function will be disabled.
+
+
+> **Notice:** If the *depth_test* option of the material is enabled, the *[DEPTH_GEQUAL](../../../api/library/rendering/class.renderstate_cpp.md#DEPTH_GEQUAL)* function will be used; otherwise the depth comparison function will be disabled.
 
 
 ### Arguments
 
-- *[Render::PASS](../../../api/library/rendering/class.render_cpp.md#PASS)* **pass** - Rendering pass. One of the [PASS_*](../../../api/library/rendering/class.render_cpp.md#PASS_WIREFRAME) variables, except the following: PASS_DEFERRED, PASS_SHADOW, PASS_DEPTH_PRE_PASS, PASS_EMISSION.
+- *[Render::PASS](../../../api/library/rendering/class.render_cpp.md#PASS)* **pass** - Rendering pass. One of the [PASS_*](../../../api/library/rendering/class.render_cpp.md#PASS_WIREFRAME) variables, except the following: *PASS_DEFERRED, PASS_SHADOW, PASS_DEPTH_PRE_PASS, PASS_EMISSION*.
 - *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Material](../../../api/library/rendering/class.material_cpp.md)> &* **material** - Material smart pointer.
 
 ## bool hasGeodeticPivot ( )
 
-Returns a value indicating if the rendering scene has a GeodeticPivot.
+Returns a value indicating if the rendering scene has a *GeodeticPivot*.
 ### Return value
 
-true if the rendering scene has a GeodeticPivot; otherwise, false.
+true if the rendering scene has a *GeodeticPivot*; otherwise, false.
 ## Math:: Mat4 getIModelview ( ) const
 
 Returns current inverse view matrix.
@@ -588,20 +648,23 @@ Retrieves the list of all rendering scene objects and puts it to the buffer.
 Buffer containing all scene objects.
 ## void setObliqueFrustumPlane ( const Math:: Vec4 & plane )
 
+
 Sets the oblique near clipping plane of the viewing frustum.
-> **Notice:** This method does not affect the projection matrix. To enable the oblique frustum use the [setObliqueFrustum()](#setObliqueFrustum_int_void) method.
+
+
+> **Notice:** This method does not affect the projection matrix. To enable the oblique frustum use the *[setObliqueFrustum()](#setObliqueFrustum_int_void)* method.
 
 
 ### Arguments
 
-- *const  Math::[Vec4](../../../api/library/math/class.vec4_cpp.md) &* **plane** - World coordinates of the oblique near clipping plane to set (Nx, Ny, Nz, D), where Nx, Ny, Nz - coordinates of the plane normal, D - distance from the origin to the plane.
+- *const  Math::[Vec4](../../../api/library/math/class.vec4_cpp.md) &* **plane** - World coordinates of the oblique near clipping plane to set *(Nx, Ny, Nz, D)*, where *Nx, Ny, Nz* - coordinates of the plane normal, *D* - distance from the origin to the plane.
 
 ## Math:: Vec4 getObliqueFrustumPlane ( ) const
 
 Returns the oblique near clipping plane of the viewing frustum.
 ### Return value
 
-World coordinates of the oblique near clipping plane to set (Nx, Ny, Nz, D), where Nx, Ny, Nz - coordinates of the plane normal, D - distance from the origin to the plane.
+World coordinates of the oblique near clipping plane to set *(Nx, Ny, Nz, D)*, where *Nx, Ny, Nz* - coordinates of the plane normal, *D* - distance from the origin to the plane.
 ## void setOldModelview ( const Math:: Mat4 & modelview )
 
 Updates the old view matrix.
@@ -630,7 +693,10 @@ Returns the old projection matrix.
 Old projection matrix.
 ## void setPolygonCull ( Render::PASS pass , const Ptr < Material > & material ) const
 
+
 Sets the polygon culling mode for a given rendering pass and material.
+
+
 > **Notice:** If the material is one-sided, the back-facing polygons will be culled; otherwise, polygon culling for the material will be disabled.
 
 
@@ -647,8 +713,11 @@ Returns current projection matrix without TAA.
 Projection matrix without TAA.
 ## void setProjection ( const Math:: mat4 & projection )
 
+
 Updates the current projection matrix.
-> **Notice:** It is not recommended to use this method for setting obliqueness of the near clipping plane of the frustum, as in this case a number of features (such as clouds, shadows, TAA, a number of engine optimizations, etc.) will not function properly. Please, use the [setObliqueFrustum()](#setObliqueFrustum_int_void) method instead.
+
+
+> **Notice:** It is not recommended to use this method for setting obliqueness of the near clipping plane of the frustum, as in this case a number of features (such as clouds, shadows, TAA, a number of engine optimizations, etc.) will not function properly. Please, use the *[setObliqueFrustum()](#setObliqueFrustum_int_void)* method instead.
 
 
 ### Arguments
@@ -835,12 +904,6 @@ Returns the [Gbuffer albedo texture](../../../principles/render/sequence/index.m
 ### Return value
 
 Gbuffer albedo texture.
-## Ptr < Texture > getTextureGBufferMaterialMask ( ) const
-
-Returns the [Gbuffer material mask texture](../../../principles/render/sequence/index.md#material_mask).
-### Return value
-
-Gbuffer material mask texture.
 ## Ptr < Texture > getTextureGBufferNormal ( ) const
 
 Returns the [Gbuffer normal texture](../../../principles/render/sequence/index.md#normal).
@@ -1030,8 +1093,12 @@ Returns the [refraction](../../../principles/render/sequence/index.md#refraction
 Refraction mask texture.
 ## Ptr < Texture > createCustomTexture3D ( const char * name , int width , int height , int depth , int format , int flags = 0 )
 
+
 Creates a custom 3D texture. Such textures can be used in your materials.
+
+
 In your [base material](../../../content/materials/index.md#base_materials):
+
 
 ```xml
 <!-- ... -->
@@ -1042,6 +1109,7 @@ In your [base material](../../../content/materials/index.md#base_materials):
 
 
 Create a corresponding custom texture via code:
+
 
 ```cpp
 // ...
@@ -1065,8 +1133,12 @@ Create a corresponding custom texture via code:
 New created custom 3D texture.
 ## Ptr < Texture > createCustomTexture2D ( const char * name , int width , int height , int format , int flags = 0 )
 
+
 Creates a custom 2D texture array. Such texture can be used in your materials.
+
+
 In your [base material](../../../content/materials/index.md#base_materials):
+
 
 ```xml
 <!-- ... -->
@@ -1077,6 +1149,7 @@ In your [base material](../../../content/materials/index.md#base_materials):
 
 
 Create a corresponding custom texture via code:
+
 
 ```cpp
 // ...
@@ -1099,7 +1172,10 @@ Create a corresponding custom texture via code:
 New created custom 2D texture.
 ## Ptr < Texture > createCustomTexture2DArray ( const char * name , int width , int height , int depth , int format , int flags = 0 )
 
+
 Creates a custom 2D texture array. Such texture can be used in your materials.
+
+
 ```xml
 <!-- ... -->
 <texture type="texture_name"/>
@@ -1109,6 +1185,7 @@ Creates a custom 2D texture array. Such texture can be used in your materials.
 
 
 Create a corresponding custom texture via code:
+
 
 ```cpp
 // ...
@@ -1154,7 +1231,7 @@ Returns a buffer containing scattering parameters to be passed to a custom shade
 Buffer containing scattering parameters to be passed to a custom shader.
 ## Ptr < Light > getCurrentLight ( ) const
 
-Returns the currently rendered light source. This method can be used to obtain shadow maps for a certain light source in a [event handler](../../../api/library/rendering/class.render_cpp.md#getEventBegin_Event) (see [BeginShadows](../../../api/library/rendering/class.render_cpp.md#getEventBeginShadows_Event) event).
+Returns the currently rendered light source. This method can be used to obtain shadow maps for a certain light source in a [event handler](../../../api/library/rendering/class.render_cpp.md#getEventBegin_Event) (see *[BeginShadows](../../../api/library/rendering/class.render_cpp.md#getEventBeginShadows_Event)* event).
 ### Return value
 
 Currently rendered light source.
@@ -1176,7 +1253,7 @@ Currently used environment cubemap texture.
 Resets the environment cubemap texture to default (no environment texture is used).
 ## Ptr < Texture > getTextureNormalUnpack ( ) const
 
-Returns the texture that stores unpacked normals. Available for the following post-effects: SSR, SSGI, SSRTGI, Shadows screen space.
+Returns the texture that stores unpacked normals. Available for the following post-effects: SSR, SSGI, SSRTGI, Screen-Space Shadows.
 ### Return value
 
 The texture that stores unpacked normals.
@@ -1215,3 +1292,9 @@ Returns a value indicating if *[depth pre-pass](../../../principles/render/seque
 ### Return value
 
 true if depth pre-pass is used; otherwise false.
+## bool useReactiveMask ( ) const
+
+Returns a value indicating if the reactive mask of the G-buffer is used in the current rendering, which is the case when a temporal upscaler is enabled.
+### Return value
+
+true if the reactive mask is used in the current rendering; otherwise, false.

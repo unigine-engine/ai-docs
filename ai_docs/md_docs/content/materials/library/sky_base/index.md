@@ -21,9 +21,9 @@ Enables a [cube map](../../../../editor2/assets_workflow/texture_import.md#image
 
 The following values are available:
 
-- **None** — a background texture is not used.
-- **Single** — one background texture is used.
-- **Double** — two background textures are used.
+- **None** � a background texture is not used.
+- **Single** � one background texture is used.
+- **Double** � two background textures are used.
 
 
 #### Clouds
@@ -73,18 +73,18 @@ Noise texture for the 2nd lower cloud layer. The texture is 4-channelled (RGBA).
 
 The color of the textured sky sphere is calculated in three steps:
 
-1. The upper layer of the clouds, **[Clouds 01](#texture_clouds_01)**, is computed:
+1. The upper layer of the clouds, **[Clouds�01](#texture_clouds_01)**, is computed:
 
   1. For the first layer, two texture transformations ([**Clouds 0**](#parameter_clouds_0) and [**Clouds 1**](#parameter_clouds_1)) are summed.
   2. [**Mask 0**](#parameter_mask_0) is multiplied by the [**Threshold 01**](#parameter_threshold_01), modulating the strength of masking.
   3. The mask is subtracted from the textures transformation sum.
-  4. The color intensity of the resulting **Clouds 01** layer is computed by multiplying it by the [**Clouds 01**](#parameter_clouds_01) parameter value.
-2. The lower layer of the clouds, **[**Clouds 23**](#texture_clouds_23)**, is computed in the same way:
+  4. The color intensity of the resulting **Clouds�01** layer is computed by multiplying it by the [**Clouds�01**](#parameter_clouds_01) parameter value.
+2. The lower layer of the clouds, **[**Clouds�23**](#texture_clouds_23)**, is computed in the same way:
 
   1. For the second layer, two texture transformations ([**Clouds 2**](#parameter_clouds_2) and [**Clouds 3**](#parameter_clouds_3)) are summed.
   2. [**Mask 1**](#parameter_mask_1) is multiplied by the [**Threshold 23**](#parameter_threshold_23), modulating the strength of masking.
   3. The mask is subtracted from the textures transformation sum.
-  4. The color intensity of the resulting **Clouds 23** layer is computed by multiplying it by the [Clouds 23](#parameter_clouds_23) parameter value.
+  4. The color intensity of the resulting **Clouds�23** layer is computed by multiplying it by the [Clouds�23](#parameter_clouds_23) parameter value.
 3. The rendered clouds are adjusted by the [**Sphere**](#parameter_sphere) value that controls the influence of atmospheric scattering on the clouds.
 
 

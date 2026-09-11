@@ -1,7 +1,7 @@
 # Layer
 
 
-A ![](../node_layer.png)   **layer** is a zero-sized node that has no visual representation and enables to save all its child nodes into a separate `.node` file. Layer nodes should be used as containers for editing the other nodes in the world: you can split the world into several logical parts and save each of them in a `.node` file. It will enable to facilitate collaborative work on one project by eliminating conflicts arising from simultaneous editing of this world by several people.
+A ![](../node_layer.png) � **layer** is a zero-sized node that has no visual representation and enables to save all its child nodes into a separate `.node` file. Layer nodes should be used as containers for editing the other nodes in the world: you can split the world into several logical parts and save each of them in a `.node` file. It will enable to facilitate collaborative work on one project by eliminating conflicts arising from simultaneous editing of this world by several people.
 
 
 > **Warning:** DO NOT use multiple layer nodes referring to the same `.node` file! This leads to conflicts when saving changes. If you want to have several instances of `.node` file contents, please use *[Node References](../../../objects/nodes/reference/index.md)*.

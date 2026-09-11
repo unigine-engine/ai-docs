@@ -103,7 +103,7 @@ The type of lighting of the render node.
 The virtual camera offset (an offset after the perspective projection).
 ## float StereoRadius
 
-The radius for stereo — the half of the separation distance between the cameras (i.e. between eyes).
+The radius for stereo � the half of the separation distance between the cameras (i.e. between eyes).
 ## float StereoDistance
 
 The focal distance for stereo rendering (distance in the world space to the point where two views line up, i.e. to the zero parallax plane).
@@ -139,13 +139,15 @@ The field of view angle used for the panorama rendering mode.
 The cubemap defining the environment color.
 ## bool UseTAAOffset
 
-The  value indicating if skipping render mode check is enabled for using TAA. Can be used to ensure proper TAA calculation when rendering mode for the *Viewport* is set to *[RENDER_DEPTH](../../...md#RENDER_DEPTH)*.
+The  value indicating if skipping render mode check is enabled for using TAA.
+Can be used to ensure proper TAA calculation when rendering mode for the *Viewport* is set to *[RENDER_DEPTH](../../...md#RENDER_DEPTH)*.
+
 ## int Lifetime
 
 The value indicating how many frames temporary viewport resources are available after the viewport stops rendering.
 ## 🔒︎ Event EventBegin
 
-The event triggered when rendering of the frame begins. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when rendering of the frame begins. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -239,7 +241,7 @@ publisher.EventBegin.Enabled = true;
 
 ## 🔒︎ Event EventBeginEnvironment
 
-The event triggered before the Environment rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the Environment rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -333,7 +335,7 @@ publisher.EventBeginEnvironment.Enabled = true;
 
 ## 🔒︎ Event EventEndEnvironment
 
-The event triggered after the Environment rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the Environment rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -427,7 +429,7 @@ publisher.EventEndEnvironment.Enabled = true;
 
 ## 🔒︎ Event EventBeginShadows
 
-The event triggered before the shadows rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the shadows rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -521,7 +523,7 @@ publisher.EventBeginShadows.Enabled = true;
 
 ## 🔒︎ Event EventBeginWorldShadow
 
-The event triggered before the stage of rendering shadows from World light sources. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the stage of rendering shadows from World light sources. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -615,7 +617,7 @@ publisher.EventBeginWorldShadow.Enabled = true;
 
 ## 🔒︎ Event EventEndWorldShadow
 
-The event triggered after the stage of rendering shadows from World light sources. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the stage of rendering shadows from World light sources. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -709,7 +711,7 @@ publisher.EventEndWorldShadow.Enabled = true;
 
 ## 🔒︎ Event EventBeginProjShadow
 
-The event triggered before the stage of rendering shadows from Projected light sources. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the stage of rendering shadows from Projected light sources. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -803,7 +805,7 @@ publisher.EventBeginProjShadow.Enabled = true;
 
 ## 🔒︎ Event EventEndProjShadow
 
-The event triggered after the stage of rendering shadows from Projected light sources. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the stage of rendering shadows from Projected light sources. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -897,7 +899,7 @@ publisher.EventEndProjShadow.Enabled = true;
 
 ## 🔒︎ Event EventBeginOmniShadow
 
-The event triggered before the stage of rendering shadows from Omni light sources. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the stage of rendering shadows from Omni light sources. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -991,7 +993,7 @@ publisher.EventBeginOmniShadow.Enabled = true;
 
 ## 🔒︎ Event EventEndOmniShadow
 
-The event triggered after the stage of rendering shadows from Omni light sources. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the stage of rendering shadows from Omni light sources. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1085,7 +1087,7 @@ publisher.EventEndOmniShadow.Enabled = true;
 
 ## 🔒︎ Event EventEndShadows
 
-The event triggered after the shadows rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the shadows rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1179,7 +1181,7 @@ publisher.EventEndShadows.Enabled = true;
 
 ## 🔒︎ Event EventBeginScreen
 
-The event triggered before the stage of rendering each screen (a stereo image has 2 screens, while a cubemap will have 6). You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the stage of rendering each screen (a stereo image has 2 screens, while a cubemap will have 6). You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1273,7 +1275,7 @@ publisher.EventBeginScreen.Enabled = true;
 
 ## 🔒︎ Event EventBeginMixedRealityBlendMaskColor
 
-The event triggered before the mask for Mixed Reality is rendered (after Common Camera for clouds and before Opacity GBuffer). You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the mask for Mixed Reality is rendered (after Common Camera for clouds and before Opacity GBuffer). You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1367,7 +1369,7 @@ publisher.EventBeginMixedRealityBlendMaskColor.Enabled = true;
 
 ## 🔒︎ Event EventEndMixedRealityBlendMaskColor
 
-The event triggered after the mask for Mixed Reality is rendered (after Common Camera for clouds and before Opacity GBuffer). You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the mask for Mixed Reality is rendered (after Common Camera for clouds and before Opacity GBuffer). You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1461,7 +1463,7 @@ publisher.EventEndMixedRealityBlendMaskColor.Enabled = true;
 
 ## 🔒︎ Event EventBeginOpacityGBuffer
 
-The event triggered before filling the Gbuffer. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before filling the Gbuffer. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1555,7 +1557,7 @@ publisher.EventBeginOpacityGBuffer.Enabled = true;
 
 ## 🔒︎ Event EventBeginAuxiliarySurfaces
 
-The event triggered before auxiliary surfaces rendering. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before auxiliary surfaces rendering. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1649,7 +1651,7 @@ Viewport.EventBeginAuxiliarySurfaces.Enabled = true;
 
 ## 🔒︎ Event EventEndAuxiliarySurfaces
 
-The event triggered after auxiliary surfaces rendering. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after auxiliary surfaces rendering. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1743,7 +1745,7 @@ Viewport.EventEndAuxiliarySurfaces.Enabled = true;
 
 ## 🔒︎ Event EventEndOpacityGBuffer
 
-The event triggered after filling the Gbuffer. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after filling the Gbuffer. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1837,7 +1839,7 @@ publisher.EventEndOpacityGBuffer.Enabled = true;
 
 ## 🔒︎ Event EventBeginOpacityDecals
 
-The event triggered before the opacity decals rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the opacity decals rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1931,7 +1933,7 @@ publisher.EventBeginOpacityDecals.Enabled = true;
 
 ## 🔒︎ Event EventEndOpacityDecals
 
-The event triggered after the opacity decals rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the opacity decals rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -2025,7 +2027,7 @@ publisher.EventEndOpacityDecals.Enabled = true;
 
 ## 🔒︎ Event EventBeginAuxiliaryDecals
 
-The event triggered before the auxiliary decals rendering. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the auxiliary decals rendering. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -2119,7 +2121,7 @@ Viewport.EventBeginAuxiliaryDecals.Enabled = true;
 
 ## 🔒︎ Event EventEndAuxiliaryDecals
 
-The event triggered after the auxiliary decals rendering. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the auxiliary decals rendering. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -2213,7 +2215,7 @@ Viewport.EventEndAuxiliaryDecals.Enabled = true;
 
 ## 🔒︎ Event EventBeginCurvature
 
-The event triggered before the [SSBevel](../../../editor2/settings/render_settings/ssbevel/index.md) effect rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the [SSBevel](../../../editor2/settings/render_settings/ssbevel/index.md) effect rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -2307,7 +2309,7 @@ publisher.EventBeginCurvature.Enabled = true;
 
 ## 🔒︎ Event EventEndCurvature
 
-The event triggered after the [SSBevel](../../../editor2/settings/render_settings/ssbevel/index.md) effect rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the [SSBevel](../../../editor2/settings/render_settings/ssbevel/index.md) effect rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -2401,7 +2403,7 @@ publisher.EventEndCurvature.Enabled = true;
 
 ## 🔒︎ Event EventBeginCurvatureComposite
 
-The event triggered before the curvature rendering stage for the [SSDirt](../../../editor2/settings/render_settings/ssdirt/index.md) effect. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the curvature rendering stage for the [SSDirt](../../../editor2/settings/render_settings/ssdirt/index.md) effect. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -2495,7 +2497,7 @@ publisher.EventBeginCurvatureComposite.Enabled = true;
 
 ## 🔒︎ Event EventEndCurvatureComposite
 
-The event triggered after the curvature rendering stage for the [SSDirt](../../../editor2/settings/render_settings/ssdirt/index.md) effect. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the curvature rendering stage for the [SSDirt](../../../editor2/settings/render_settings/ssdirt/index.md) effect. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -2589,7 +2591,7 @@ publisher.EventEndCurvatureComposite.Enabled = true;
 
 ## 🔒︎ Event EventBeginSSRTGI
 
-The event triggered before the SSRTGI rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the SSRTGI rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -2683,7 +2685,7 @@ publisher.EventBeginSSRTGI.Enabled = true;
 
 ## 🔒︎ Event EventEndSSRTGI
 
-The event triggered after the SSRTGI rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the SSRTGI rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -2777,7 +2779,7 @@ publisher.EventEndSSRTGI.Enabled = true;
 
 ## 🔒︎ Event EventBeginOpacityLights
 
-The event triggered before the opacity lightgs rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the opacity lightgs rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -2871,7 +2873,7 @@ publisher.EventBeginOpacityLights.Enabled = true;
 
 ## 🔒︎ Event EventEndOpacityLights
 
-The event triggered after the opacity lightgs rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the opacity lightgs rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -2965,7 +2967,7 @@ publisher.EventEndOpacityLights.Enabled = true;
 
 ## 🔒︎ Event EventBeginOpacityVoxelProbes
 
-The event triggered before the opacity voxel probes rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the opacity voxel probes rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -3059,7 +3061,7 @@ publisher.EventBeginOpacityVoxelProbes.Enabled = true;
 
 ## 🔒︎ Event EventEndOpacityVoxelProbes
 
-The event triggered after the opacity voxel probes rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the opacity voxel probes rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -3153,7 +3155,7 @@ publisher.EventEndOpacityVoxelProbes.Enabled = true;
 
 ## 🔒︎ Event EventBeginOpacityEnvironmentProbes
 
-The event triggered before the opacity environment probes rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the opacity environment probes rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -3247,7 +3249,7 @@ publisher.EventBeginOpacityEnvironmentProbes.Enabled = true;
 
 ## 🔒︎ Event EventEndOpacityEnvironmentProbes
 
-The event triggered after the opacity environment probes rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the opacity environment probes rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -3341,7 +3343,7 @@ publisher.EventEndOpacityEnvironmentProbes.Enabled = true;
 
 ## 🔒︎ Event EventBeginOpacityPlanarProbes
 
-The event triggered before the opacity planar probes rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the opacity planar probes rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -3435,7 +3437,7 @@ publisher.EventBeginOpacityPlanarProbes.Enabled = true;
 
 ## 🔒︎ Event EventEndOpacityPlanarProbes
 
-The event triggered after the opacity planar probes rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the opacity planar probes rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -3529,7 +3531,7 @@ publisher.EventEndOpacityPlanarProbes.Enabled = true;
 
 ## 🔒︎ Event EventBeginRefractionBuffer
 
-The event triggered before filling the refraction buffer. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before filling the refraction buffer. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -3623,7 +3625,7 @@ publisher.EventBeginRefractionBuffer.Enabled = true;
 
 ## 🔒︎ Event EventEndRefractionBuffer
 
-The event triggered after filling the refraction buffer. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after filling the refraction buffer. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -3717,7 +3719,7 @@ publisher.EventEndRefractionBuffer.Enabled = true;
 
 ## 🔒︎ Event EventBeginTransparentBlurBuffer
 
-The event triggered before filling the transparent blur buffer. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before filling the transparent blur buffer. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -3811,7 +3813,7 @@ publisher.EventBeginTransparentBlurBuffer.Enabled = true;
 
 ## 🔒︎ Event EventEndTransparentBlurBuffer
 
-The event triggered after filling the transparent blur buffer. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after filling the transparent blur buffer. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -3905,7 +3907,7 @@ publisher.EventEndTransparentBlurBuffer.Enabled = true;
 
 ## 🔒︎ Event EventBeginSSSS
 
-The event triggered before the Screen-Space Shadow Shafts rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the Screen-Space Shadow Shafts rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -3999,7 +4001,7 @@ publisher.EventBeginSSSS.Enabled = true;
 
 ## 🔒︎ Event EventEndSSSS
 
-The event triggered after the Screen-Space Shadow Shafts rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the Screen-Space Shadow Shafts rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -4093,7 +4095,7 @@ publisher.EventEndSSSS.Enabled = true;
 
 ## 🔒︎ Event EventBeginSSR
 
-The event triggered before the SSR rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the SSR rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -4187,7 +4189,7 @@ publisher.EventBeginSSR.Enabled = true;
 
 ## 🔒︎ Event EventEndSSR
 
-The event triggered after the SSR rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the SSR rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -4281,7 +4283,7 @@ publisher.EventEndSSR.Enabled = true;
 
 ## 🔒︎ Event EventBeginSSAO
 
-The event triggered before the SSAO rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the SSAO rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -4375,7 +4377,7 @@ publisher.EventBeginSSAO.Enabled = true;
 
 ## 🔒︎ Event EventEndSSAO
 
-The event triggered after the SSAO rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the SSAO rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -4469,7 +4471,7 @@ publisher.EventEndSSAO.Enabled = true;
 
 ## 🔒︎ Event EventBeginSSGI
 
-The event triggered before the SSGI rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the SSGI rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -4563,7 +4565,7 @@ publisher.EventBeginSSGI.Enabled = true;
 
 ## 🔒︎ Event EventEndSSGI
 
-The event triggered after the SSGI rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the SSGI rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -4657,7 +4659,7 @@ publisher.EventEndSSGI.Enabled = true;
 
 ## 🔒︎ Event EventBeginSky
 
-The event triggered before the sky rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the sky rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -4751,7 +4753,7 @@ publisher.EventBeginSky.Enabled = true;
 
 ## 🔒︎ Event EventEndSky
 
-The event triggered after the sky rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the sky rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -4845,7 +4847,7 @@ publisher.EventEndSky.Enabled = true;
 
 ## 🔒︎ Event EventBeginCompositeDeferred
 
-The event triggered before the clouds deferred composite stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the clouds deferred composite stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -4939,7 +4941,7 @@ publisher.EventBeginCompositeDeferred.Enabled = true;
 
 ## 🔒︎ Event EventEndCompositeDeferred
 
-The event triggered after the clouds deferred composite stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the clouds deferred composite stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -5033,7 +5035,7 @@ publisher.EventEndCompositeDeferred.Enabled = true;
 
 ## 🔒︎ Event EventBeginTransparent
 
-The event triggered before the transparent objects rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the transparent objects rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -5127,7 +5129,7 @@ publisher.EventBeginTransparent.Enabled = true;
 
 ## 🔒︎ Event EventBeginClouds
 
-The event triggered before the clouds rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the clouds rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -5221,7 +5223,7 @@ publisher.EventBeginClouds.Enabled = true;
 
 ## 🔒︎ Event EventEndClouds
 
-The event triggered after the clouds rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the clouds rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -5315,7 +5317,7 @@ publisher.EventEndClouds.Enabled = true;
 
 ## 🔒︎ Event EventBeginWater
 
-The event triggered before the water rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the water rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -5409,7 +5411,7 @@ publisher.EventBeginWater.Enabled = true;
 
 ## 🔒︎ Event EventBeginWaterGBuffer
 
-The event triggered before the Water G-Buffer rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the Water G-Buffer rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -5503,7 +5505,7 @@ publisher.EventBeginWaterGBuffer.Enabled = true;
 
 ## 🔒︎ Event EventEndWaterGBuffer
 
-The event triggered after the Water G-Buffer rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the Water G-Buffer rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -5597,7 +5599,7 @@ publisher.EventEndWaterGBuffer.Enabled = true;
 
 ## 🔒︎ Event EventBeginWaterDecals
 
-The event triggered before the water decals rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the water decals rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -5691,7 +5693,7 @@ publisher.EventBeginWaterDecals.Enabled = true;
 
 ## 🔒︎ Event EventEndWaterDecals
 
-The event triggered after the water decals rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the water decals rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -5785,7 +5787,7 @@ publisher.EventEndWaterDecals.Enabled = true;
 
 ## 🔒︎ Event EventBeginWaterLights
 
-The event triggered before the water lights rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the water lights rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -5879,7 +5881,7 @@ publisher.EventBeginWaterLights.Enabled = true;
 
 ## 🔒︎ Event EventEndWaterLights
 
-The event triggered after the water lights rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the water lights rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -5973,7 +5975,7 @@ publisher.EventEndWaterLights.Enabled = true;
 
 ## 🔒︎ Event EventBeginWaterVoxelProbes
 
-The event triggered before the water voxel probes rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the water voxel probes rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -6067,7 +6069,7 @@ publisher.EventBeginWaterVoxelProbes.Enabled = true;
 
 ## 🔒︎ Event EventEndWaterVoxelProbes
 
-The event triggered after the water voxel probes rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the water voxel probes rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -6161,7 +6163,7 @@ publisher.EventEndWaterVoxelProbes.Enabled = true;
 
 ## 🔒︎ Event EventBeginWaterEnvironmentProbes
 
-The event triggered before the water environment probes rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the water environment probes rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -6255,7 +6257,7 @@ publisher.EventBeginWaterEnvironmentProbes.Enabled = true;
 
 ## 🔒︎ Event EventEndWaterEnvironmentProbes
 
-The event triggered after the water environment probes rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the water environment probes rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -6349,7 +6351,7 @@ publisher.EventEndWaterEnvironmentProbes.Enabled = true;
 
 ## 🔒︎ Event EventBeginWaterPlanarProbes
 
-The event triggered before the water planar probes rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the water planar probes rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -6443,7 +6445,7 @@ publisher.EventBeginWaterPlanarProbes.Enabled = true;
 
 ## 🔒︎ Event EventEndWaterPlanarProbes
 
-The event triggered after the water planar probes rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the water planar probes rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -6537,7 +6539,7 @@ publisher.EventEndWaterPlanarProbes.Enabled = true;
 
 ## 🔒︎ Event EventEndWater
 
-The event triggered after the water rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the water rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -6631,7 +6633,7 @@ publisher.EventEndWater.Enabled = true;
 
 ## 🔒︎ Event EventEndTransparent
 
-The event triggered after the transparent objects rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the transparent objects rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -6725,7 +6727,7 @@ publisher.EventEndTransparent.Enabled = true;
 
 ## 🔒︎ Event EventBeginSrgbCorrection
 
-The event triggered before the sRGB correction stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the sRGB correction stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -6819,7 +6821,7 @@ publisher.EventBeginSrgbCorrection.Enabled = true;
 
 ## 🔒︎ Event EventEndSrgbCorrection
 
-The event triggered after the sRGB correction stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the sRGB correction stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -6913,7 +6915,7 @@ publisher.EventEndSrgbCorrection.Enabled = true;
 
 ## 🔒︎ Event EventBeginAdaptationColorAverage
 
-The event triggered before the calculation of automatic exposure and white balance correction. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the calculation of automatic exposure and white balance correction. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -7007,7 +7009,7 @@ publisher.EventBeginAdaptationColorAverage.Enabled = true;
 
 ## 🔒︎ Event EventEndAdaptationColorAverage
 
-The event triggered after the calculation of automatic exposure and white balance correction. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the calculation of automatic exposure and white balance correction. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -7101,7 +7103,7 @@ publisher.EventEndAdaptationColorAverage.Enabled = true;
 
 ## 🔒︎ Event EventBeginAdaptationColor
 
-The event triggered before the color adaptation rendering stage (automatic exposure and white balance correction). You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the color adaptation rendering stage (automatic exposure and white balance correction). You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -7195,7 +7197,7 @@ publisher.EventBeginAdaptationColor.Enabled = true;
 
 ## 🔒︎ Event EventEndAdaptationColor
 
-The event triggered after the color adaptation rendering stage (automatic exposure and white balance correction). You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the color adaptation rendering stage (automatic exposure and white balance correction). You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -7289,7 +7291,7 @@ publisher.EventEndAdaptationColor.Enabled = true;
 
 ## 🔒︎ Event EventBeginTAA
 
-The event triggered before the Temporal Anti-Aliasing (TAA) pass. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the Temporal Anti-Aliasing (TAA) pass. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -7383,7 +7385,7 @@ publisher.EventBeginTAA.Enabled = true;
 
 ## 🔒︎ Event EventEndTAA
 
-The event triggered after the Temporal Anti-Aliasing (TAA) pass. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the Temporal Anti-Aliasing (TAA) pass. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -7477,7 +7479,7 @@ publisher.EventEndTAA.Enabled = true;
 
 ## 🔒︎ Event EventBeginCameraEffects
 
-The event triggered before the camera effects stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the camera effects stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -7571,7 +7573,7 @@ publisher.EventBeginCameraEffects.Enabled = true;
 
 ## 🔒︎ Event EventEndCameraEffects
 
-The event triggered after the camera effects stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the camera effects stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -7665,7 +7667,7 @@ publisher.EventEndCameraEffects.Enabled = true;
 
 ## 🔒︎ Event EventBeginPostMaterials
 
-The event triggered before the post materials rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the post materials rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -7759,7 +7761,7 @@ publisher.EventBeginPostMaterials.Enabled = true;
 
 ## 🔒︎ Event EventEndPostMaterials
 
-The event triggered after the post materials rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the post materials rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -7853,7 +7855,7 @@ publisher.EventEndPostMaterials.Enabled = true;
 
 ## 🔒︎ Event EventBeginDebugMaterials
 
-The event triggered before the debug materials stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the debug materials stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -7947,7 +7949,7 @@ publisher.EventBeginDebugMaterials.Enabled = true;
 
 ## 🔒︎ Event EventEndDebugMaterials
 
-The event triggered after the debug materials stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the debug materials stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -8041,7 +8043,7 @@ publisher.EventEndDebugMaterials.Enabled = true;
 
 ## 🔒︎ Event EventBeginVisualizer
 
-The event triggered before the visualizer rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the visualizer rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -8135,7 +8137,7 @@ publisher.EventBeginVisualizer.Enabled = true;
 
 ## 🔒︎ Event EventEndVisualizer
 
-The event triggered after the visualizer rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the visualizer rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -8229,7 +8231,7 @@ publisher.EventEndVisualizer.Enabled = true;
 
 ## 🔒︎ Event EventEndScreen
 
-The event triggered after the stage of rendering each screen (a stereo image has 2 screens, while a cubemap will have 6). You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the stage of rendering each screen (a stereo image has 2 screens, while a cubemap will have 6). You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -8323,7 +8325,7 @@ publisher.EventEndScreen.Enabled = true;
 
 ## 🔒︎ Event EventEnd
 
-The event triggered when rendering of the frame ends. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when rendering of the frame ends. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -8417,7 +8419,7 @@ publisher.EventEnd.Enabled = true;
 
 ## 🔒︎ Event EventEndVRQuadComposeEyeSwapchains
 
-The Event triggered after composing VR viewports, enabling you to subscribe and perform certain actions (e.g. implement a binoculars effect using post-materials). You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The Event triggered after composing VR viewports, enabling you to subscribe and perform certain actions (e.g. implement a binoculars effect using post-materials). You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -8509,13 +8511,49 @@ publisher.EventEndVRQuadComposeEyeSwapchains.Enabled = true;
 
 </details>
 
+## vec4 PanoramaFisheyeKannalaBrandtCoefficients
+
+The four radial distortion coefficients (k1, k2, k3, k4) of the Kannala-Brandt fisheye camera model used by the corresponding panorama mode. They define the polynomial mapping the angle between the incoming ray and the optical axis to the normalized image radius. The default value (1, 0, 0, 0) corresponds to the pure equidistant projection. This mode reproduces the image geometry of a real calibrated fisheye camera, with the coefficients taken from the camera calibration data.
+## vec2 PanoramaFisheyeKannalaBrandtFocalLength
+
+The focal length intrinsics (fx, fy) of the calibrated fisheye camera, in pixels, used by the Kannala-Brandt panorama mode to convert pixel coordinates to normalized camera coordinates.
+## float PanoramaFisheyeKannalaBrandtImageCircleRadius
+
+The radius of the valid image circle of the fisheye lens in normalized radial coordinates, used by the Kannala-Brandt panorama mode: pixels outside this radius are masked out, reproducing the image circle of the real lens.
+## vec2 PanoramaFisheyeKannalaBrandtImageDimensions
+
+The dimensions (width, height), in pixels, of the calibrated camera image the Kannala-Brandt intrinsics refer to. The viewport coordinates are mapped to this pixel space before the intrinsics are applied.
+## vec2 PanoramaFisheyeKannalaBrandtPrincipalPoint
+
+The principal point intrinsics (cx, cy) of the calibrated fisheye camera, in pixels: the image position of the optical axis used by the Kannala-Brandt panorama mode.
+## float PanoramaFisheyeKannalaBrandtSkew
+
+The skew (axis non-orthogonality) coefficient of the calibration matrix used by the Kannala-Brandt panorama mode. The value of 0 (default) corresponds to orthogonal pixel axes.
+## vec2 PanoramaFisheyeKannalaBrandtTangentialDistortion
+
+The tangential (decentering) distortion coefficients (p1, p2) of the calibrated fisheye camera used by the Kannala-Brandt panorama mode. The value (0, 0) means no tangential distortion.
+## bool PanoramaForceDisableScreenSpaceEffects
+
+The value indicating if screen-space and screen-dependent camera effects (such as SSR, SSAO, SSGI, motion blur, DOF, bloom, lens flares, local tonemapper) are forcibly disabled while the viewport renders a panorama. These effects are computed per panorama face and would produce visible seams between the faces. Enabled by default; when disabled, the effects stay as configured at the cost of per-face artifacts.
+## float PanoramaFisheyeKannalaBrandtChromaticAberration
+
+The chromatic aberration intensity of the fisheye lens, used by the Kannala-Brandt panorama mode: the red channel is sampled at the radial distance scaled by (1 - value), the blue channel at (1 + value), reproducing lateral chromatic aberration of a real lens. 0 means no chromatic aberration.
+## float PanoramaFisheyeKannalaBrandtVignettingCoefficient5
+
+The fifth coefficient of the fisheye vignetting polynomial, used by the Kannala-Brandt panorama mode: the coefficient at the 10th power of the normalized radial distance, kept separate because the coefficients vector holds only four components.
+## vec4 PanoramaFisheyeKannalaBrandtVignettingCoefficients
+
+The first four coefficients of the fisheye vignetting polynomial, used by the Kannala-Brandt panorama mode: the vignetting intensity is an even-order polynomial of the radial distance normalized by the image circle radius, with these values as the coefficients at the 2nd, 4th, 6th, and 8th powers.
 ### Members
 
 ---
 
 ## Viewport ( )
 
+
 Creates a new viewport with default settings.
+
+
 > **Notice:** We don't recommend creating a viewport every frame, as such approach is unoptimal and exhaust GPU resources. Create viewports in **Init()** instead, to have them cached for further use.
 
 
@@ -8601,7 +8639,7 @@ Renders an image of the specified size from the camera to a 2D texture.
 - *[Texture](../../../api/library/rendering/class.texture_cs.md)* **texture** - Target 2D [texture](../../../api/library/rendering/class.texture_cs.md) to save the result to.
 - *int* **width** - Texture width, in pixels.
 - *int* **height** - Texture height, in pixels.
-- *bool* **hdr** - HDR flag. > **Notice:** This parameter determines the format of the 2D texture: > - **1** - texture format will be set to [**RGBA16F**](../../../api/library/rendering/class.texture_cs.md#FORMAT_RGBA16F) > - **0** - texture format will be set to [**RGBA8**](../../../api/library/rendering/class.texture_cs.md#FORMAT_RGBA8)
+- *bool* **hdr** - HDR flag. > **Notice:** This parameter determines the format of the 2D texture: > > > - **1** - texture format will be set to [**RGBA16F**](../../../api/library/rendering/class.texture_cs.md#FORMAT_RGBA16F) > - **0** - texture format will be set to [**RGBA8**](../../../api/library/rendering/class.texture_cs.md#FORMAT_RGBA8)
 
 ## void RenderTextureCube ( Camera camera , Texture texture , bool local_space = false )
 
@@ -8620,7 +8658,7 @@ Renders the image from the camera to the cube map of the specified size.
 - *[Camera](../../../api/library/rendering/class.camera_cs.md)* **camera** - Camera, an image from which should be rendered.
 - *[Texture](../../../api/library/rendering/class.texture_cs.md)* **texture** - Target cube map to save the result to.
 - *int* **size** - Cube map edge size.
-- *bool* **hdr** - HDR flag. > **Notice:** This parameter determines the format of the 2D texture: > - **1** - texture format will be set to [**RGBA16F**](../../../api/library/rendering/class.texture_cs.md#FORMAT_RGBA16F) > - **0** - texture format will be set to [**RGBA8**](../../../api/library/rendering/class.texture_cs.md#FORMAT_RGBA8)
+- *bool* **hdr** - HDR flag. > **Notice:** This parameter determines the format of the 2D texture: > > > - **1** - texture format will be set to [**RGBA16F**](../../../api/library/rendering/class.texture_cs.md#FORMAT_RGBA16F) > - **0** - texture format will be set to [**RGBA8**](../../../api/library/rendering/class.texture_cs.md#FORMAT_RGBA8)
 - *bool* **local_space** - A flag indicating if the camera angle should be used for the cube map rendering.
 
 ## void RenderNode ( Camera camera , Node node )
@@ -8651,7 +8689,7 @@ Renders the given node with all children to the 2D texture of the specified size
 - *[Texture](../../../api/library/rendering/class.texture_cs.md)* **texture** - Target 2D [texture](../../../api/library/rendering/class.texture_cs.md) to save the result to.
 - *int* **width** - Texture width, in pixels.
 - *int* **height** - Texture height, in pixels.
-- *bool* **hdr** - HDR flag. > **Notice:** This parameter determines the format of the 2D texture: > - **1** - texture format will be set to [**RGBA16F**](../../../api/library/rendering/class.texture_cs.md#FORMAT_RGBA16F) > - **0** - texture format will be set to [**RGBA8**](../../../api/library/rendering/class.texture_cs.md#FORMAT_RGBA8)
+- *bool* **hdr** - HDR flag. > **Notice:** This parameter determines the format of the 2D texture: > > > - **1** - texture format will be set to [**RGBA16F**](../../../api/library/rendering/class.texture_cs.md#FORMAT_RGBA16F) > - **0** - texture format will be set to [**RGBA8**](../../../api/library/rendering/class.texture_cs.md#FORMAT_RGBA8)
 
 ## void RenderNodeTexture2D ( Camera camera , Node node , Texture texture )
 
@@ -8690,7 +8728,7 @@ Renders given nodes with all their children to the 2D texture of the specified s
 - *[Texture](../../../api/library/rendering/class.texture_cs.md)* **texture** - Target 2D [texture](../../../api/library/rendering/class.texture_cs.md) to save the result to.
 - *int* **width** - Texture width, in pixels.
 - *int* **height** - Texture height, in pixels.
-- *int* **hdr** - HDR flag. > **Notice:** This parameter determines the format of the 2D image: > - **1** - texture format will be set to [**RGBA16F**](../../../api/library/rendering/class.texture_cs.md#FORMAT_RGBA16F) > - **0** - texture format will be set to [**RGBA8**](../../../api/library/rendering/class.texture_cs.md#FORMAT_RGBA8)
+- *int* **hdr** - HDR flag. > **Notice:** This parameter determines the format of the 2D image: > > > - **1** - texture format will be set to [**RGBA16F**](../../../api/library/rendering/class.texture_cs.md#FORMAT_RGBA16F) > - **0** - texture format will be set to [**RGBA8**](../../../api/library/rendering/class.texture_cs.md#FORMAT_RGBA8)
 
 ## void RenderNodesTexture2D ( Camera camera , Node [] nodes , Texture texture )
 
@@ -8727,7 +8765,10 @@ Renders a stereo image for HMDs having context (peripheral) and focus displays. 
 
 ## void SetStereoHiddenAreaMesh ( Mesh hidden_area_mesh_left , Mesh hidden_area_mesh_right )
 
+
 Sets custom meshes to be used for culling pixels, that are not visible in VR.
+
+
 > **Notice:** Requires [render_stereo_hidden_area](../../../code/console/index.md#render_stereo_hidden_area) = 2
 
 

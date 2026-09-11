@@ -100,6 +100,76 @@ int update() {
 
 ### Members
 
+## void setNumIndices ( int indices )
+
+Sets a new number of vertex indices used by the object.
+### Arguments
+
+- *int* **indices** - The number of vertex indices used by the object
+
+## int getNumIndices () const
+
+Returns the current number of vertex indices used by the object.
+### Return value
+
+Current number of vertex indices used by the object
+## void setNumVertex ( int vertex )
+
+Sets a new number of vertices composing the object.
+### Arguments
+
+- *int* **vertex** - The number of vertices composing the object
+
+## int getNumVertex () const
+
+Returns the current number of vertices composing the object.
+### Return value
+
+Current number of vertices composing the object
+## int getNumAttributes () const
+
+Returns the current number of vertex attributes.
+### Return value
+
+Current number of vertex attributes
+## int getVertexSize () const
+
+Returns the current size of the current vertex, bytes.
+### Return value
+
+Current size of the current vertex, in bytes
+## void setInstancing ( int instancing )
+
+Sets a new value indicating if the hardware [instancing](../../../editor2/instancing_nodes/index.md) flag is enabled.
+### Arguments
+
+- *int* **instancing** - The hardware instancing
+
+## int getInstancing () const
+
+Returns the current value indicating if the hardware [instancing](../../../editor2/instancing_nodes/index.md) flag is enabled.
+### Return value
+
+Current hardware instancing
+## void setMaterialNodeType ( int type )
+
+Sets a new [node type](../../../api/library/nodes/class.node_usc.md) to be used by the renderer to determine which materials can be applied to the object. One of the [node type identifiers](../../../api/library/nodes/class.node_usc.md#DECAL_BEGIN).
+> **Notice:** As ObjectDynamic is a custom user-defined object, so the user should determine the node type for the renderer to treat this object properly. Setting inappropriate node type may lead to system crashes.
+
+
+### Arguments
+
+- *int* **type** - The node type to be used by the renderer to determine which materials can be applied to the object
+
+## int getMaterialNodeType () const
+
+Returns the current [node type](../../../api/library/nodes/class.node_usc.md) to be used by the renderer to determine which materials can be applied to the object. One of the [node type identifiers](../../../api/library/nodes/class.node_usc.md#DECAL_BEGIN).
+> **Notice:** As ObjectDynamic is a custom user-defined object, so the user should determine the node type for the renderer to treat this object properly. Setting inappropriate node type may lead to system crashes.
+
+
+### Return value
+
+Current node type to be used by the renderer to determine which materials can be applied to the object
 ---
 
 ## static ObjectDynamic ( int flags = 0 )
@@ -148,70 +218,6 @@ Returns the index of the vertex by the index number.
 ### Return value
 
 Vertex index in the index buffer.
-## void setInstancing ( bool instancing )
-
-Activates the hardware [instancing technique](../../../editor2/instancing_nodes/index.md).
-### Arguments
-
-- *bool* **instancing** - Instancing flag. **1** to enable hardware [instancing](../../../editor2/instancing_nodes/index.md), **0** to disable it.
-
-## bool getInstancing ( )
-
-Returns a value indicating if the hardware [instancing](../../../editor2/instancing_nodes/index.md) flag is enabled.
-### Return value
-
-**1** if the hardware [instancing flag](#setInstancing_int_void) is enabled; otherwise, **0**.
-## int getNumAttributes ( )
-
-Returns the number of vertex attributes.
-### Return value
-
-Number of vertex attributes.
-## void setNumIndices ( int indices )
-
-Sets the number of vertex indices.
-### Arguments
-
-- *int* **indices** - Number of indices.
-
-## int getNumIndices ( )
-
-Returns the number of vertex indices used by the object.
-### Return value
-
-Number of indices.
-## void setNumVertex ( int vertex )
-
-Sets the number of mesh vertices.
-### Arguments
-
-- *int* **vertex** - Number of mesh vertices.
-
-## int getNumVertex ( )
-
-Returns the number of vertices composing the object.
-### Return value
-
-Number of vertices.
-## void setMaterialNodeType ( int type )
-
-Sets the node type to be used by the renderer to determine which materials can be applied to the object.
-> **Notice:** As ObjectDynamic is a custom user-defined object, so the user should determine the node type for the renderer to treat this object properly. Setting inappropriate node type may lead to system crashes.
-
-
-### Arguments
-
-- *int* **type** - Node type ID. One of the [node type identifiers](../../../api/library/nodes/class.node_usc.md#DECAL_BEGIN).
-
-## int getMaterialNodeType ( )
-
-Returns the node type to be used by the renderer to determine which materials can be applied to the object.
-> **Notice:** As ObjectDynamic is a custom user-defined object, so the user should determine the node type for the renderer to treat this object properly. Setting inappropriate node type may lead to system crashes.
-
-
-### Return value
-
-Node type ID. One of the [node type identifiers](../../../api/library/nodes/class.node_usc.md#DECAL_BEGIN).
 ## void setParameterBool ( string name , int value )
 
 Sets boolean shader parameter of the specified value.
@@ -358,12 +364,6 @@ Updates the last added vertex to the vertex of the half-float type with the give
 - *int* **vertex** - Vertex index.
 - *int* **attribute** - The number of the attribute, set in the [setVertexFormat()](#setVertexFormat_Attribute_int_void) method.
 
-## int getVertexSize ( )
-
-Returns the size of the current vertex, bytes.
-### Return value
-
-Vertex size.
 ## void addIndex ( int index )
 
 Adds an index to the index buffer.

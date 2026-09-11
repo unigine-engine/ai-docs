@@ -10,45 +10,57 @@ This class is used to manage a group of [LODs](../../../objects/objects/terrain/
 
 ### Members
 
----
+## int getNumLods () const
 
-## int getDataFormat ( )
-
-Returns a value indicating current image format for the tile data.
+Returns the current total number of lods in the group.
 ### Return value
 
-Tile data image format. One of the [IMAGE_FORMAT_*](../../../api/library/common/class.image_usc.md#FORMAT_ATI1) values.
-## int getDataType ( )
-
-Returns a value indicating current image format for the tile data.
-### Return value
-
-Tile data image type. One of the [IMAGE_*](../../../api/library/common/class.image_usc.md#IMAGE_2D) values.
-## int getMaskFormat ( )
-
-Returns a value indicating current image format for the tile mask.
-### Return value
-
-Tile mask image format. One of the [IMAGE_FORMAT_*](../../../api/library/common/class.image_usc.md#FORMAT_ATI1) values.
+Current total number of lods in the group
 ## void setNumLayers ( int layers )
 
-Sets the number of layers of the LOD group.
+Sets a new number of layers of the lod group.
 ### Arguments
 
-- *int* **layers** - Number of layers.
+- *int* **layers** - The number of layers of the lod group
 
-## int getNumLayers ( )
+## int getNumLayers () const
 
-Returns the number of layers of the LOD group.
+Returns the current number of layers of the lod group.
 ### Return value
 
-Number of layers.
-## int getNumLods ( )
+Current number of layers of the lod group
+## int getMaskFormat () const
 
-Returns the total number of LODs in the group.
+Returns the current value indicating current image format for the tile mask. One of the [Image::FORMAT_*](../../../api/library/common/class.image_usc.md) values.
 ### Return value
 
-Total number of LODs.
+Current value indicating current image format for the tile mask
+## int getDataFormat () const
+
+Returns the current value indicating current image format for the tile data. One of the [Image::FORMAT_*](../../../api/library/common/class.image_usc.md#FORMAT_ATI1) values.
+### Return value
+
+Current value indicating current image format for the tile data
+## int getDataType () const
+
+Returns the current value indicating current image type for the tile data. One of the [Image::IMAGE_*](../../../api/library/common/class.image_usc.md#IMAGE_2D) values.
+### Return value
+
+Current value indicating current image format for the tile data
+## int getType () const
+
+Returns the current type of lods.
+### Return value
+
+Current type of lods
+## const char * getName () const
+
+Returns the current name of the lod group.
+### Return value
+
+Current name of the lod group
+---
+
 ## int addLod ( )
 
 Adds a new LOD.
@@ -84,15 +96,6 @@ Loads the data of all LODs for the tiles within a given bounding box and a bound
 ### Return value
 
 **1** if the data of all LODs was fetched successfully; otherwise, 0.
-## int getType ( )
-
-Returns the type of LODs.
-## string getName ( )
-
-Returns the name of the LOD group.
-### Return value
-
-LOD group name.
 ## TerrainGlobalLod getLod ( int num )
 
 Returns the LOD with a given number.

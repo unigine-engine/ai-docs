@@ -237,14 +237,14 @@ true if the specified force feedback effect is supported, otherwise false.
 Applies the constant force-feedback effect with the specified parameters to the joystick. Force is applied at a constant level for the duration of the effect.
 ### Arguments
 
-- *float* **force** - Amount of force being applied by a force-feedback effect. The value in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values — to the right.
+- *float* **force** - Amount of force being applied by a force-feedback effect. The value in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values � to the right.
 
 ## void playForceFeedbackEffectRamp ( float force , long duration_us )
 
 Applies the ramp force-feedback effect with the specified parameters to the joystick. Force is applied gradually by being increased or decreased over the duration of the effect.
 ### Arguments
 
-- *float* **force** - Amount of force being applied by a force-feedback effect. The value in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values — to the right.
+- *float* **force** - Amount of force being applied by a force-feedback effect. The value in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values � to the right.
 - *long* **duration_us** - Force-feedback effect duration, in microseconds.
 
 ## void playForceFeedbackEffectSineWave ( float force , unsigned int period_ms )
@@ -252,7 +252,7 @@ Applies the ramp force-feedback effect with the specified parameters to the joys
 Applies the sine-wave force-feedback effect with the specified parameters to the joystick. Force is applied in a sine-wave pattern.
 ### Arguments
 
-- *float* **force** - Amount of force being applied by a force-feedback effect. The value in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values — to the right.
+- *float* **force** - Amount of force being applied by a force-feedback effect. The value in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values � to the right.
 - *unsigned int* **period_ms** - Force-feedback effect duration, in microseconds.
 
 ## void playForceFeedbackEffectSineWave ( float force , float attack_force , float fade_force , int phase , unsigned int period_ms )
@@ -260,7 +260,7 @@ Applies the sine-wave force-feedback effect with the specified parameters to the
 Applies the sine-wave force-feedback effect with the specified parameters to the joystick. Force is applied in a sine-wave pattern.
 ### Arguments
 
-- *float* **force** - Sustain value — the force value in the middle of the force-feedback effect in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values — to the right.
+- *float* **force** - Sustain value � the force value in the middle of the force-feedback effect in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values � to the right.
 - *float* **attack_force** - Value at the start of the attack, in range [0, 1].
 - *float* **fade_force** - Value at the end of the fade, in range [0, 1].
 - *int* **phase** - Positive phase shift, in degrees in range [0, 360].
@@ -271,7 +271,7 @@ Applies the sine-wave force-feedback effect with the specified parameters to the
 Applies the square-wave force-feedback effect with the specified parameters to the joystick. Force is applied in a square-wave pattern.
 ### Arguments
 
-- *float* **force** - Amount of force being applied by a force-feedback effect. The value in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values — to the right.
+- *float* **force** - Amount of force being applied by a force-feedback effect. The value in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values � to the right.
 - *unsigned int* **period_ms** - Period of the wave, in ms.
 
 ## void playForceFeedbackEffectSquareWave ( float force , float attack_force , float fade_force , int phase , unsigned int period_ms )
@@ -279,7 +279,7 @@ Applies the square-wave force-feedback effect with the specified parameters to t
 Applies the square-wave force-feedback effect with the specified parameters to the joystick. Force is applied in a square-wave pattern.
 ### Arguments
 
-- *float* **force** - Sustain value — the force value in the middle of the force-feedback effect in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values — to the right.
+- *float* **force** - Sustain value � the force value in the middle of the force-feedback effect in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values � to the right.
 - *float* **attack_force** - Value at the start of the attack, in range [0, 1].
 - *float* **fade_force** - Value at the end of the fade, in range [0, 1].
 - *int* **phase** - Positive phase shift, in degrees in range [0, 360].
@@ -290,7 +290,7 @@ Applies the square-wave force-feedback effect with the specified parameters to t
 Applies the triangle-wave force-feedback effect with the specified parameters to the joystick. Force is applied in a triangle-wave pattern.
 ### Arguments
 
-- *float* **force** - Amount of force being applied by a force-feedback effect. The value in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values — to the right.
+- *float* **force** - Amount of force being applied by a force-feedback effect. The value in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values � to the right.
 - *unsigned int* **period_ms** - Period of the wave, in ms.
 
 ## void playForceFeedbackEffectTriangleWave ( float force , float attack_force , float fade_force , int phase , unsigned int period_ms )
@@ -298,7 +298,7 @@ Applies the triangle-wave force-feedback effect with the specified parameters to
 Applies the triangle-wave force-feedback effect with the specified parameters to the joystick. Force is applied in a triangle-wave pattern.
 ### Arguments
 
-- *float* **force** - Sustain value — the force value in the middle of the force-feedback effect in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values — to the right.
+- *float* **force** - Sustain value � the force value in the middle of the force-feedback effect in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values � to the right.
 - *float* **attack_force** - Value at the start of the attack. Value in range [0, 1].
 - *float* **fade_force** - Value at the end of the fade. Value in range [0, 1].
 - *int* **phase** - Positive phase shift, in degrees in range [0, 360].
@@ -309,7 +309,7 @@ Applies the triangle-wave force-feedback effect with the specified parameters to
 Applies the upward-sawtooth-wave force-feedback effect with the specified parameters to the joystick. Force is applied in a upward-sawtooth-wave pattern.
 ### Arguments
 
-- *float* **force** - Amount of force being applied by a force-feedback effect. The value in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values — to the right.
+- *float* **force** - Amount of force being applied by a force-feedback effect. The value in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values � to the right.
 - *unsigned int* **period_ms** - Period of the wave, in ms.
 
 ## void playForceFeedbackEffectSawtoothUpWave ( float force , float attack_force , float fade_force , int phase )
@@ -317,7 +317,7 @@ Applies the upward-sawtooth-wave force-feedback effect with the specified parame
 Applies the upward-sawtooth-wave force-feedback effect with the specified parameters to the joystick. Force is applied in a upward-sawtooth-wave pattern.
 ### Arguments
 
-- *float* **force** - Sustain value — the force value in the middle of the force-feedback effect in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values — to the right.
+- *float* **force** - Sustain value � the force value in the middle of the force-feedback effect in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values � to the right.
 - *float* **attack_force** - Value at the start of the attack. Value in range [0, 1].
 - *float* **fade_force** - Value at the end of the fade. Value in range [0, 1].
 - *int* **phase** - Positive phase shift, in degrees in range [0, 360].
@@ -327,7 +327,7 @@ Applies the upward-sawtooth-wave force-feedback effect with the specified parame
 Applies the downward-sawtooth-wave force-feedback effect with the specified parameters to the joystick. Force is applied in a downward-sawtooth-wave pattern.
 ### Arguments
 
-- *float* **force** - Amount of force being applied by a force-feedback effect. The value in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values — to the right.
+- *float* **force** - Amount of force being applied by a force-feedback effect. The value in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values � to the right.
 - *unsigned int* **period_ms** - Force-feedback effect duration, in microseconds.
 
 ## void playForceFeedbackEffectSawtoothDownWave ( float force , float attack_force , float fade_force , int phase )
@@ -335,7 +335,7 @@ Applies the downward-sawtooth-wave force-feedback effect with the specified para
 Applies the downward-sawtooth-wave force-feedback effect with the specified parameters to the joystick. Force is applied in a downward-sawtooth-wave pattern.
 ### Arguments
 
-- *float* **force** - Sustain value — the force value in the middle of the force-feedback effect in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values — to the right.
+- *float* **force** - Sustain value � the force value in the middle of the force-feedback effect in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values � to the right.
 - *float* **attack_force** - Value at the start of the attack. Value in range [0, 1].
 - *float* **fade_force** - Value at the end of the fade. Value in range [0, 1].
 - *int* **phase** - Positive phase shift, in degrees in range [0, 360].
@@ -345,7 +345,7 @@ Applies the downward-sawtooth-wave force-feedback effect with the specified para
 Applies the spring force-feedback effect with the specified force to the joystick. Force is applied in opposition to a set state.
 ### Arguments
 
-- *float* **force** - Amount of force being applied by a force-feedback effect. The value in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values — to the right.
+- *float* **force** - Amount of force being applied by a force-feedback effect. The value in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values � to the right.
 
 ## void playForceFeedbackEffectSpring ( float left_force , float left_saturation , float right_force , float right_saturation , float offset , float deadband )
 
@@ -364,7 +364,7 @@ Applies the spring force-feedback effect with the specified parameters to the jo
 Applies the friction force-feedback effect with the specified force to the joystick. Force is applied to mimic friction.
 ### Arguments
 
-- *float* **force** - Amount of force being applied by a force-feedback effect. The value in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values — to the right.
+- *float* **force** - Amount of force being applied by a force-feedback effect. The value in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values � to the right.
 
 ## void playForceFeedbackEffectFriction ( float left_force , float left_saturation , float right_force , float right_saturation )
 
@@ -381,7 +381,7 @@ Applies the friction force-feedback effect with the specified parameters to the 
 Applies the damper force-feedback effect with the specified force to the joystick. Force is applied to mimic a damper effect.
 ### Arguments
 
-- *float* **force** - Amount of force being applied by a force-feedback effect. The value in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values — to the right.
+- *float* **force** - Amount of force being applied by a force-feedback effect. The value in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values � to the right.
 
 ## void playForceFeedbackEffectDamper ( float left_force , float left_saturation , float right_force , float right_saturation )
 
@@ -398,7 +398,7 @@ Applies the damper force-feedback effect with the specified parameters to the jo
 Applies the inertia force-feedback effect with the specified force to the joystick. Force is applied to mimic an inertia effect.
 ### Arguments
 
-- *float* **force** - Amount of force being applied by a force-feedback effect. The value in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values — to the right.
+- *float* **force** - Amount of force being applied by a force-feedback effect. The value in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values � to the right.
 
 ## void stopForceFeedbackEffect ( int effect )
 

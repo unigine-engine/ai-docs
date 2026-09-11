@@ -24,8 +24,8 @@ A **Mesh Decal** is a [decal](../../../objects/decals/index.md) based on the arb
 The mesh used for projection onto a decal comply with the following requirements:
 
 
-- The mesh shouldn't be two-sided or have any overlapping parts — this causes sorting artifacts. The mesh, however, may be curved in order to be applied to the sides of the object onto which it is projected by enabling the *[Screen Projection](../../../content/materials/library/decal_base/index.md#option_screen_proj)* option. | ![](incorrect_mesh_projected.jpg) | ![](correct_mesh_projected.jpg) | |---|---| | *Mesh used for projection has overlapping parts of surface that cause artifacts* | *Any unnecessary surfaces are cut off the mesh to have it projected correctly* |
-- The mesh triangles should be as close to regular as possible — don't use triangles with one side significantly less than the other two sides.
+- The mesh shouldn't be two-sided or have any overlapping parts � this causes sorting artifacts. The mesh, however, may be curved in order to be applied to the sides of the object onto which it is projected by enabling the *[Screen Projection](../../../content/materials/library/decal_base/index.md#option_screen_proj)* option. | ![](incorrect_mesh_projected.jpg) | ![](correct_mesh_projected.jpg) | |---|---| | *Mesh used for projection has overlapping parts of surface that cause artifacts* | *Any unnecessary surfaces are cut off the mesh to have it projected correctly* |
+- The mesh triangles should be as close to regular as possible � don't use triangles with one side significantly less than the other two sides.
 - A source mesh should have less than 10,000 polygons.
 - The mesh that is used for projection should contain a single surface. If the mesh contains several surfaces, only the one with the 0 index will be used. Thus, the area of the decal will differ from the initial mesh.
 

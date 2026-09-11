@@ -17,7 +17,7 @@ When exporting a heightmap from **Instant Terra**, pay attention to the followin
 
 
 - *Width* and *Height* define the texture size in pixels.
-- *Quad size* — physical size in meters set for the quad, i.e. pixel, of the height map texture. Practically, this is a multiplier for the width and height that defines the physical size of the height map. The output size of the map in meters is provided below. For example, the 1024x1024 texture with the quad size of 0.5 will result in a terrain with a physical size of 511.5 x 511.5 meters.
+- *Quad size* � physical size in meters set for the quad, i.e. pixel, of the height map texture. Practically, this is a multiplier for the width and height that defines the physical size of the height map. The output size of the map in meters is provided below. For example, the 1024x1024 texture with the quad size of 0.5 will result in a terrain with a physical size of 511.5 x 511.5 meters.
 
 
 The height values are not identified at export by default, and the texture is imported to UNIGINE as unnormalized. To control the height, create the *Elevation info* node to generate a normalized texture with the min and max height values. Connect these values to the min and max height of the *Export terrain* node. As a result, the export file format switches to 16 bit and the height range values become available.
@@ -60,9 +60,9 @@ The exported heightmap is imported to UNIGINE as follows. In the **Landscape Lay
 
   - For the **normalized** heightmap, indicate the minimum and maximum heights obtained using the *Elevation info* node.
   - The **unnormalized** map does not require setting the height values.
-- In the *Landscape Asset* section, set the actual size of your terrain in meters, the same as in *Size in meters* in Instant Terra.
-- Check the *Current Data Density* value. It shows the meter-to-pixel ratio, the same as *Quad size* in Instant Terra.
-- In the *Import settings* section, check the *Resolution* values. They define the resolution of the heightmap and correspond to *Width* and *Height* in Instant Terra. They are set automatically in most cases, but can also be adjusted, if required.
+- In the *Landscape Asset* section, set the actual size of your terrain in meters, the same as in *Size in meters* in *Instant Terra*.
+- Check the *Current Data Density* value. It shows the meter-to-pixel ratio, the same as *Quad size* in *Instant Terra*.
+- In the *Import settings* section, check the *Resolution* values. They define the resolution of the heightmap and correspond to *Width* and *Height* in *Instant Terra*. They are set automatically in most cases, but can also be adjusted, if required.
 
 
 If the heightmap is represented by a **[tileset](#tiles)**, set the corresponding [data-filling](../../../../../objects/objects/terrain/landscape_terrain/landscape_layer_map.md#data_filling) pattern.

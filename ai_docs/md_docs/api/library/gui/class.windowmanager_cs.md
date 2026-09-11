@@ -181,13 +181,13 @@ The DPI awareness mode, the value indicating how the application processes the D
 
 ## 🔒︎ WindowManager.DPI_AWARENESS CurrentDpiAwareness
 
-The current actual DPI awareness mode, the value indicating how the application processes the DPI scaling. The value is set to [PER_MONITOR_AWARE](#DPI_AWARENESS_PER_MONITOR_AWARE) by default. On Windows, if a specified mode cannot be set, it will switch to a possible lower value with a corresponding warning. On Linux, [PER_MONITOR_AWARE](#DPI_AWARENESS_PER_MONITOR_AWARE) is currently not supported, setting this value will switch the mode to the [SYSTEM_AWARE](#DPI_AWARENESS_SYSTEM_AWARE) mode with the corresponding warning in the console.
+The actual DPI awareness mode, the value indicating how the application processes the DPI scaling. The value is set to [PER_MONITOR_AWARE](#DPI_AWARENESS_PER_MONITOR_AWARE) by default. On Windows, if a specified mode cannot be set, it will switch to a possible lower value with a corresponding warning. On Linux, [PER_MONITOR_AWARE](#DPI_AWARENESS_PER_MONITOR_AWARE) is currently not supported, setting this value will switch the mode to the [SYSTEM_AWARE](#DPI_AWARENESS_SYSTEM_AWARE) mode with the corresponding warning in the console.
 > **Notice:** This is an actual value, it may differ from the mode stored in the boot config file (in case the system cannot set the specified mode it will try to use the one that is suitable instead).
 
 
 ## 🔒︎ Event< WindowEvent > EventImmediateWindowEvent
 
-The event triggered immediately as event from the window is received from proxy before being processed by the engine. This event can be triggered in different threads depending on the proxy implementation. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered immediately as event from the window is received from proxy before being processed by the engine. This event can be triggered in different threads depending on the proxy implementation. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -281,7 +281,7 @@ WindowManager.EventImmediateWindowEvent.Enabled = true;
 
 ## 🔒︎ Event< EngineWindow > EventWindowUnstacked
 
-The event triggered after the window has been unstacked. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the window has been unstacked. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -375,7 +375,7 @@ WindowManager.EventWindowUnstacked.Enabled = true;
 
 ## 🔒︎ Event< EngineWindow > EventWindowStacked
 
-The event triggered after the window has been stacked. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the window has been stacked. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -469,7 +469,7 @@ WindowManager.EventWindowStacked.Enabled = true;
 
 ## 🔒︎ Event< EngineWindow > EventWindowRemoved
 
-The event triggered after the window has been removed. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the window has been removed. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -563,7 +563,7 @@ WindowManager.EventWindowRemoved.Enabled = true;
 
 ## 🔒︎ Event< EngineWindow > EventWindowCreated
 
-The event triggered after the window has been created. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the window has been created. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -766,7 +766,7 @@ EngineWindow group_1 = WindowManager.StackWindows(window_3, window_1, EngineWind
 Group of windows.
 ## EngineWindowGroup StackWithWindow ( EngineWindowViewport window_viewport , EngineWindow window , EngineWindowGroup.GROUP_TYPE group_type , bool decompose_second = false )
 
-Returns a newly created group of the engine window viewport and any other engine window — another viewport or a window group.
+Returns a newly created group of the engine window viewport and any other engine window � another viewport or a window group.
 ### Arguments
 
 - *[EngineWindowViewport](../../../api/library/gui/class.enginewindowviewport_cs.md)* **window_viewport** - The window viewport to be stacked.

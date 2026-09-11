@@ -449,7 +449,7 @@ Sets a new color calculation mode of the light source. Light source color can be
 - *int* **mode** - The color calculation mode, one of the following values:
 
   - [LIGHT_COLOR_MODE_CLASSIC](#COLOR_MODE_CLASSIC) - classic mode
-  - [LIGHT_COLOR_MODE_CLASSIC](#COLOR_MODE_TEMPERATURE) - physically based mode
+  - [LIGHT_COLOR_MODE_TEMPERATURE](#COLOR_MODE_TEMPERATURE) - physically based mode
 
 ## int getColorMode () const
 
@@ -458,7 +458,7 @@ Returns the current color calculation mode of the light source. Light source col
 
 Current color calculation mode, one of the following values:
 - [LIGHT_COLOR_MODE_CLASSIC](#COLOR_MODE_CLASSIC) - classic mode
-- [LIGHT_COLOR_MODE_CLASSIC](#COLOR_MODE_TEMPERATURE) - physically based mode
+- [LIGHT_COLOR_MODE_TEMPERATURE](#COLOR_MODE_TEMPERATURE) - physically based mode
 
 
 ## void setViewportMask ( int mask )
@@ -895,6 +895,19 @@ Returns the current light's [priority](../../../objects/lights/parameters/index.
 ### Return value
 
 Current light's priority value for affecting transparent objects.
+## void setSpecularRoughnessOffset ( float offset )
+
+Sets a new offset applied to the surface roughness when computing this light's specular contribution, in the [0; 1] range: the value acts as the minimum effective roughness for this light, making very glossy surfaces respond as if they were rougher. Raising it softens and spreads the light's specular highlights, which suppresses specular aliasing (bright specular flickering) caused by the light on glossy materials. The default value is 0.
+### Arguments
+
+- *float* **offset** - The roughness offset for the specular contribution of the light
+
+## float getSpecularRoughnessOffset () const
+
+Returns the current offset applied to the surface roughness when computing this light's specular contribution, in the [0; 1] range: the value acts as the minimum effective roughness for this light, making very glossy surfaces respond as if they were rougher. Raising it softens and spreads the light's specular highlights, which suppresses specular aliasing (bright specular flickering) caused by the light on glossy materials. The default value is 0.
+### Return value
+
+Current roughness offset for the specular contribution of the light
 ---
 
 ## void allocateLensFlares ( int num )

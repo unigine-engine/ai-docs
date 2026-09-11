@@ -131,7 +131,7 @@ The multi-thread methods create *[CPUShader](../../../api/library/common/mt/clas
 Returns the current total number of currently loaded resources.
 ### Return value
 
-Current total number of currently loaded resources — the sum of currently loaded data, files, images and meshes.
+Current total number of currently loaded resources � the sum of currently loaded data, files, images and meshes.
 ## int getNumLoadedNodes () const
 
 Returns the current total number of loaded nodes.
@@ -167,7 +167,7 @@ Current total number of loaded data segments.
 Returns the current total number of queued resources waiting for background loading.
 ### Return value
 
-Current total number of queued resources waiting for background loading — the sum of queued and currently processed data, files, images and meshes.
+Current total number of queued resources waiting for background loading � the sum of queued and currently processed data, files, images and meshes.
 ## int getNumQueuedNodes () const
 
 Returns the current total number of queued nodes waiting for the background loading.
@@ -220,7 +220,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventMeshLoaded () const
 
 The event handler signature is as follows: *myhandler()*
@@ -237,7 +237,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventImageLoaded () const
 
 The event handler signature is as follows: *myhandler()*
@@ -254,7 +254,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventFileLoaded () const
 
 The event handler signature is as follows: *myhandler()*
@@ -271,7 +271,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## Image getImage ( int id )

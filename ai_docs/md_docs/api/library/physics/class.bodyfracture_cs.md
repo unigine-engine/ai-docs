@@ -189,61 +189,61 @@ public partial class Cracking : Component
 
 ## bool Broken
 
-The A value indicating if the object is broken or remains its solid state.
+The value indicating if the object is broken or remains its solid state.
 ## int CollisionMask
 
 The collision bit mask for the body. two objects collide, if they both have matching masks. see also details on additional [collision exclusion mask](#getExclusionMask_int).
 ## float Density
 
-The current density of the body.
+The density of the body.
 ## float Error
 
-The current approximation error permissible by creating convex shape for the mesh.
+The approximation error permissible by creating convex shape for the mesh.
 ## int ExclusionMask
 
 The bit mask that prevents collisions of the body with other ones. this mask is independent of the [collision mask](#getCollisionMask_int). For bodies with matching collision masks not to collide, at least one bit of their exclusion mask should match.
 ## float Friction
 
-The current friction of the body against other surfaces.
+The friction of the body against other surfaces.
 ## float Threshold
 
-The current minimum volume threshold for breaking. if the piece volume is less than the threshold value, it cannot be fractured further.
+The minimum volume threshold for breaking. if the piece volume is less than the threshold value, it cannot be fractured further.
 ## float Restitution
 
-The current restitution that determines body bouncing off the surfaces.
+The restitution that determines body bouncing off the surfaces.
 ## int PhysicsIntersectionMask
 
-The A [physics intersection mask](../../../principles/bit_masking/index.md#physics_intersection_mask) for the body.
+The [physics intersection mask](../../../principles/bit_masking/index.md#physics_intersection_mask) for the body.
 ## float MaxAngularVelocity
 
-The current maximum possible angular velocity for the body. if the value is lower than the [engine.physics.setMaxAngularVelocity](../../../api/library/physics/class.physics_cs.md#setMaxAngularVelocity_float_void) one, it is overridden.
+The maximum possible angular velocity for the body. if the value is lower than the [engine.physics.setMaxAngularVelocity](../../../api/library/physics/class.physics_cs.md#setMaxAngularVelocity_float_void) one, it is overridden.
 ## float MaxLinearVelocity
 
-The current maximum possible linear velocity for the body. if the value is lower than the [engine.physics.setMaxLinearVelocity](../../../api/library/physics/class.physics_cs.md#setMaxLinearVelocity_float_void) one, it is overridden.
+The maximum possible linear velocity for the body. if the value is lower than the [engine.physics.setMaxLinearVelocity](../../../api/library/physics/class.physics_cs.md#setMaxLinearVelocity_float_void) one, it is overridden.
 ## float FrozenAngularVelocity
 
-The current angular velocity threshold for freezing body simulation. if body angular velocity remains lower than this threshold during the number of [Frozen frames](../../../api/library/physics/class.physics_cs.md#setNumFrozenFrames_int_void) (together with linear one), it stops to be updated.
+The angular velocity threshold for freezing body simulation. if body angular velocity remains lower than this threshold during the number of [Frozen frames](../../../api/library/physics/class.physics_cs.md#setNumFrozenFrames_int_void) (together with linear one), it stops to be updated.
 ## float FrozenLinearVelocity
 
-The current linear velocity threshold for freezing body simulation. if body linear velocity remains lower than this threshold during the number of [Frozen frames](../../../api/library/physics/class.physics_cs.md#setNumFrozenFrames_int_void) (together with angular one), it stops to be updated.
+The linear velocity threshold for freezing body simulation. if body linear velocity remains lower than this threshold during the number of [Frozen frames](../../../api/library/physics/class.physics_cs.md#setNumFrozenFrames_int_void) (together with angular one), it stops to be updated.
 ## float Mass
 
-The current mass of the body.
+The mass of the body.
 ## 🔒︎ BodyRigid BodyRigid
 
-The An internal [body rigid](../../../api/library/physics/class.bodyrigid_cs.md) body that represents fracture body until it is broken.
+The internal [body rigid](../../../api/library/physics/class.bodyrigid_cs.md) body that represents fracture body until it is broken.
 ## float LinearDamping
 
-The current damping of the body linear velocity.
+The damping of the body linear velocity.
 ## float AngularDamping
 
-The current damping of the body angular velocity.
+The damping of the body angular velocity.
 ## Material Material
 
-The Material for fractured verge surfaces appearing after breaking the body.
+The material for fractured verge surfaces appearing after breaking the body.
 ## string SurfaceProperty
 
-The Property for cracked verge surfaces appearing after breaking the body.
+The property for cracked verge surfaces appearing after breaking the body.
 ## UGUID MaterialGUID
 
 The [GUID](../../../api/library/filesystem/class.uguid_cs.md) of the material used for fractured verge surfaces.

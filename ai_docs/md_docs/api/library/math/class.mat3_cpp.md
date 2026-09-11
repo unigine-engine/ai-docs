@@ -17,7 +17,10 @@ This class represents a matrix of nine (3x3) float components.
 Default constructor. Produces an identity matrix.
 ## mat3 ( float v )
 
+
 Constructor. Initializes the matrix using a given scalar value.
+
+
 ```cpp
 mat3(2.0);
 
@@ -43,7 +46,10 @@ Constructor. Initializes the matrix by copying a given source matrix.
 
 ## mat3 ( const mat2& m )
 
+
 Constructor. Initializes the matrix using a given [mat2](../../../api/library/math/class.mat2_cpp.md) source matrix (2x2). The matrix elements are filled using corresponding elements of the source matrix.
+
+
 ```text
 Resulting matrix:
     | m00  	 m01	  0.0f |
@@ -73,7 +79,10 @@ Constructor. Initializes the matrix using a given [dmat4](../../../api/library/m
 
 ## mat3 ( const vec3& c0 , const vec3& c1 , const vec3& c2 )
 
+
 Constructor. Initializes the matrix using given three [vec3](../../../api/library/math/class.vec3_cpp.md) vectors.
+
+
 ```text
 Resulting matrix:
     | col0.x  	 col1.x	  	col2.x |
@@ -91,12 +100,15 @@ M=  | col0.y   	 col1.y     col2.y |
 
 ## mat3 ( const quat& q )
 
+
 Constructor. Initializes the matrix using a given source [quaternion](../../../api/library/math/class.quat_cpp.md).
+
+
 ```text
 For the quaternion (x, y, z, w) the corresponding rotation matrix M is defined as follows:
-    | 1 - 2y² - 2z²    2xy + 2wz      	2xz - 2wy     |
-M=  | 2xy - 2wz        1 - 2x² - 2z²    2yz + 2wx     |
-    | 2xz + 2wy        2yz - 2wx        1 - 2x² - 2y² |
+    | 1 - 2y� - 2z�    2xy + 2wz      	2xz - 2wy     |
+M=  | 2xy - 2wz        1 - 2x� - 2z�    2yz + 2wx     |
+    | 2xz + 2wy        2yz - 2wx        1 - 2x� - 2y� |
 
 ```
 
@@ -107,7 +119,10 @@ M=  | 2xy - 2wz        1 - 2x² - 2z²    2yz + 2wx     |
 
 ## mat3 ( float v , ConstexprTag )
 
+
 Constructor. Initializes the matrix using a given constant float value.
+
+
 ```text
 Resulting matrix:
     | v   v   v |
@@ -124,7 +139,10 @@ M=  | v   v   v |
 
 ## mat3 ( float m00_ , float m10_ , float m20_ , float m01_ , float m11_ , float m21_ , float m02_ , float m12_ , float m22_ , ConstexprTag )
 
+
 Constructor. Initializes the matrix with given constant float values.
+
+
 ```text
 Resulting matrix:
     | m00_	 m01_	m02_ |
@@ -186,12 +204,15 @@ Sets the matrix using the argument float values.
 
 ## void set ( const quat& q )
 
+
 Sets the matrix using a given source [quaternion](../../../api/library/math/class.quat_cpp.md).
+
+
 ```text
 For the quaternion (x, y, z, w) the corresponding rotation matrix M is defined as follows:
-    | 1 - 2y² - 2z²    2xy + 2wz      	2xz - 2wy     |
-M=  | 2xy - 2wz        1 - 2x² - 2z²    2yz + 2wx     |
-    | 2xz + 2wy        2yz - 2wx        1 - 2x² - 2y² |
+    | 1 - 2y� - 2z�    2xy + 2wz      	2xz - 2wy     |
+M=  | 2xy - 2wz        1 - 2x� - 2z�    2yz + 2wx     |
+    | 2xz + 2wy        2yz - 2wx        1 - 2x� - 2y� |
 
 ```
 
@@ -209,7 +230,10 @@ Sets the matrix equal to the specified source matrix.
 
 ## void set ( const mat2& m )
 
+
 Sets new matrix values using a given [mat2](../../../api/library/math/class.mat2_cpp.md) source matrix (2x2). The matrix elements are filled using corresponding elements of the source matrix.
+
+
 ```text
 Resulting matrix:
     | m00  	 m01	  0.0f |
@@ -353,7 +377,10 @@ Returns the specified matrix row.
 The [vec3](../../../api/library/math/class.vec3_cpp.md) vector with column values.
 ## void setScale ( const vec3& v )
 
+
 Fills the scaling matrix using a given [vec3](../../../api/library/math/class.vec3_cpp.md) source vector.
+
+
 ```text
 Scaling matrix:
     | v.x   	0.0f	  0.0f |
@@ -369,7 +396,10 @@ S=  | 0.0f      v.y    	  0.0f |
 
 ## void setSkewSymmetric ( const vec3& v )
 
+
 Fills the skew-symmetric matrix using a given [vec3](../../../api/library/math/class.vec3_cpp.md) source vector.
+
+
 ```text
 Skew-symmetric matrix:
     | 0.0f   	-v.z	   v.y |
@@ -476,7 +506,10 @@ Performs array access to the matrix item reference using given item index.
 Matrix item reference.
 ## vec3 getAxisX ( ) const
 
+
 Returns the normalized vector representing the X axis. Call this method to get the right or left vector of the matrix:
+
+
 ```cpp
 matrix.getAxisX(); // the left vector
 -matrix.getAxisX(); // the right vector
@@ -489,7 +522,10 @@ matrix.getAxisX(); // the left vector
 Vector representing the X axis.
 ## vec3 getAxisY ( ) const
 
+
 Returns the normalized vector representing the Y axis. Call this method to get the back or forward vector of the matrix:
+
+
 ```cpp
 matrix.getAxisY(); // the back vector
 -matrix.getAxisY(); // the forward vector
@@ -502,7 +538,10 @@ matrix.getAxisY(); // the back vector
 Vector representing the Y axis.
 ## vec3 getAxisZ ( ) const
 
+
 Returns the normalized vector representing the Z axis. Call this method to get the up or down vector of the matrix:
+
+
 ```cpp
 matrix.getAxisZ(); // the up vector
 -matrix.getAxisZ(); // the down vector

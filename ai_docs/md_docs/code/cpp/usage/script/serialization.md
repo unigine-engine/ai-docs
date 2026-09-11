@@ -20,14 +20,15 @@ Saving and restoring of the object state is done by using a binary serialization
 
 These methods can be grouped as follows:
 
+
 - Methods for saving/restoring of **states**. The states are used for objects created and handled purely in UnigineScript.  It means, such object implemented on the C++ side is created in script via *new* operator and deleted via *delete*.  It is not passed between UnigineScript and any other system.
 
   - *saveState()* - saves a state of an object created on the UnigineScript side.
-  - *restoreState()* — restores a state of an object created on the UnigineScript side. This function implies that a class has a default constructor that creates an empty object.
+  - *restoreState()* � restores a state of an object created on the UnigineScript side. This function implies that a class has a default constructor that creates an empty object.
 - Methods for saving/restoring of **pointers**. The pointers are used for objects that are created in a C++ part of the application and will be deleted there as well.  The script receives it, but is not responsible for managing them. For example, this is the case when a C++ function that creates an object is called from the script.
 
-  - *savePointer()* — a static method which is used to save a state of an object created on C++ side and handled by a script.
-  - *restorePointer()* — a static method which is used to restore a state of an object created on C++ side and handled by a script.
+  - *savePointer()* � a static method which is used to save a state of an object created on C++ side and handled by a script.
+  - *restorePointer()* � a static method which is used to restore a state of an object created on C++ side and handled by a script.
 
 
 If an object is going to be created in script, as well as created on C++ side, all four functions should be implemented.
@@ -77,6 +78,7 @@ Class *ExternClassRestorePointer(const StreamPtr &stream) {
 
 You need to export classes whose instances are going to be serialized. One of the following functions can be used for that:
 
+
 - *MakeExternClass()* function. Instances of classes [exported](../../../../code/cpp/usage/script/classes.md) by using this function are non-restorable, that is, they should be manually re-created. If you try to restore an instance of such the class, this instance will be restored to **null**.
 - *MakeExternClassSaveRestoreState()* function, which allows you to save and restore instances created within UnigineScript.
 - *MakeExternClassSaveRestorePointer()* function, which allows you to save and restore objects that were created in C++ code and exported into UnigineScript.
@@ -87,6 +89,7 @@ You need to export classes whose instances are going to be serialized. One of th
 
 
 After exporting, it is still possible to change serialization behavior in run-time. For that you can use two UnigineScript functions.
+
 
 > **Notice:** It is completely safe only if both state and pointer saving/restoring is implemented.
 

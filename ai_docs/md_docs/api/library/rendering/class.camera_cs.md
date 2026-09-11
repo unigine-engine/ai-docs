@@ -3,6 +3,7 @@
 
 The **Camera** class is used to create a new camera, set it up (set all the required matrices, field of view, masks and so on) and then pass it to an instance of the [Viewport](../../../api/library/rendering/class.viewport_cs.md) class to render an image from this camera.
 
+
 > **Notice:** An instance of this class is **not a node**.
 
 
@@ -21,7 +22,7 @@ Camera settings can be set up in the [Camera Settings in UnigineEditor](../../..
 ### Usage Example
 
 
-In this example Camera and [PlayerSpectator](../../../api/library/players/class.playerspectator_cs.md) (which inherited from Player class) instances created and added to the current scene. Here is a code from the `AppWorldLogic.cs` file.
+In this example Camera and *[PlayerSpectator](../../../api/library/players/class.playerspectator_cs.md)* (which inherited from *Player* class) instances created and added to the current scene. Here is a code from the `AppWorldLogic.cs` file.
 
 
 ```csharp
@@ -109,13 +110,13 @@ The bit mask for rendering into the viewport. Object surfaces, materials, decals
 ## bool ObliqueFrustum
 
 The value indicating if the viewing frustum is oblique.
-> **Notice:** It is recommended to set oblique viewing frustum using this method, as it doesn't affect the projection matrix. To specify the near clipping plane use the [setObliqueFrustumPlane()](#setObliqueFrustumPlane_Vec4_void) method.
+> **Notice:** It is recommended to set oblique viewing frustum using this method, as it doesn't affect the projection matrix. To specify the near clipping plane use the *[setObliqueFrustumPlane()](#setObliqueFrustumPlane_Vec4_void)* method.
 
 
 ## vec4 ObliqueFrustumPlane
 
 The oblique near clipping plane of the viewing frustum.
-> **Notice:** This method does not affect the projection matrix. To enable the oblique frustum use the [setObliqueFrustum()](#setObliqueFrustum_int_void) method.
+> **Notice:** This method does not affect the projection matrix. To enable the oblique frustum use the *[setObliqueFrustum()](#setObliqueFrustum_int_void)* method.
 
 
 ```csharp
@@ -183,7 +184,7 @@ The vertical field of view of the camera.
 > **Notice:** Horizontal FOV cannot be used since it varies depending on the viewport's aspect ratio. Setting FOV recalculates projection matrix with **aspect ratio = 1**.
 
 
-You can use the following formula to calculate horizontal FOV from the vertical one for the given aspect ratio (width/height): **FOV_h = 2 × atan ( (width / height) × tan(FOV_v / 2))**.
+You can use the following formula to calculate horizontal FOV from the vertical one for the given aspect ratio (width/height): **FOV_h = 2 � atan ( (width / height) � tan(FOV_v / 2))**.
 
 
 ## 🔒︎ Camera.FOV_FIXED FovFixed
@@ -279,7 +280,7 @@ The projection mode: orthographic or perspective.
 ## Camera ( )
 
 Constructor. Creates a new camera with default settings:
-- [Modelview](#setModelview_Mat4_void), [inverse modelview](#getIModelview_Mat4) and [offset matrices](#setOffset_mat4_void) are 4×4 identity matrices.
+- [Modelview](#setModelview_Mat4_void), [inverse modelview](#getIModelview_Mat4) and [offset matrices](#setOffset_mat4_void) are 4�4 identity matrices.
 - FOV is 60 degrees.
 - [Distance to the near clipping plane](#setZNear_float_void) is 0.1 unit.
 - [Distance to the far clipping plane](#setZFar_float_void) is 10000 units.
@@ -355,7 +356,10 @@ Returns projection matrix after correction for the specified aspect ratio. [Curr
 Projection matrix after correction for the specified aspect ratio.
 ## void AddScriptableMaterial ( Material material )
 
-Attaches a new [scriptable material](../../../content/materials/scriptable.md) to the camera. To apply a scriptable material globally, use the *[AddScriptableMaterial()](../../../api/library/rendering/class.render_cs.md#addScriptableMaterial_Material_void)* method of the Render class. The order of execution for scripts assigned to scriptable materials is defined by material's number in the list of the camera.
+Attaches a new [scriptable material](../../../content/materials/scriptable.md) to the camera.
+To apply a scriptable material globally, use the *[AddScriptableMaterial()](../../../api/library/rendering/class.render_cs.md#addScriptableMaterial_Material_void)* method of the *Render* class. The order of execution for scripts assigned to scriptable materials is defined by material's number in the list of the camera.
+
+
 > **Notice:** Scriptable materials [applied globally](../../../api/library/rendering/class.render_cs.md#addScriptableMaterial_Material_void) have their expressions executed before the ones that are applied per-camera.
 
 
@@ -365,7 +369,10 @@ Attaches a new [scriptable material](../../../content/materials/scriptable.md) t
 
 ## void InsertScriptableMaterial ( int num , Material material )
 
-Inserts a new [scriptable material](../../../content/materials/scriptable.md) into the list of the ones assigned to the camera. To apply a scriptable material globally, use the [*insertScriptableMaterial()*](../../../api/library/rendering/class.render_cs.md#insertScriptableMaterial_int_Material_void) method of the Render class. The order of execution for scripts assigned to scriptable materials is defined by material's number in the camera's list.
+Inserts a new [scriptable material](../../../content/materials/scriptable.md) into the list of the ones assigned to the camera.
+To apply a scriptable material globally, use the [*insertScriptableMaterial()*](../../../api/library/rendering/class.render_cs.md#insertScriptableMaterial_int_Material_void) method of the *Render* class. The order of execution for scripts assigned to scriptable materials is defined by material's number in the camera's list.
+
+
 > **Notice:** Scriptable materials [applied globally](../../../api/library/rendering/class.render_cs.md#addScriptableMaterial_Material_void) have their expressions executed before the ones that are applied per-camera.
 
 
@@ -383,7 +390,10 @@ Removes the [scriptable material](../../../content/materials/scriptable.md) with
 
 ## int FindScriptableMaterial ( Material material )
 
-Returns the number of the specified [scriptable material](../../../content/materials/scriptable.md) for the camera. This number is camera-specific (valid for this camera only) and determines the order in which the assigned expressions are executed.
+ Returns the number of the specified [scriptable material](../../../content/materials/scriptable.md) for the camera.
+This number is camera-specific (valid for this camera only) and determines the order in which the assigned expressions are executed.
+
+
 > **Notice:** Scriptable materials [applied globally](../../../api/library/rendering/class.render_cs.md#addScriptableMaterial_Material_void) have their expressions executed before the ones that are applied per-camera.
 
 
@@ -396,7 +406,10 @@ Returns the number of the specified [scriptable material](../../../content/mater
 Scriptable material number in the range from 0 to the [total number of scriptable materials](#getNumScriptableMaterials_int), or -1 if the specified material was not found.
 ## void SetScriptableMaterial ( int num , Material material )
 
-Replaces the [scriptable material](../../../content/materials/scriptable.md) with the specified number with the new scriptable material specified. The number of material determines the order in which the expressions assigned to it are executed. This number is camera-specific (valid for this camera only).
+Replaces the [scriptable material](../../../content/materials/scriptable.md) with the specified number with the new scriptable material specified.
+The number of material determines the order in which the expressions assigned to it are executed. This number is camera-specific (valid for this camera only).
+
+
 > **Notice:** Scriptable materials [applied globally](../../../api/library/rendering/class.render_cs.md#addScriptableMaterial_Material_void) have their expressions executed before the ones that are applied per-camera.
 
 
@@ -435,7 +448,10 @@ Returns a value indicating if the [scriptable material](../../../content/materia
 true if the scriptable material with the specified number is enabled; otherwise, false.
 ## void SwapScriptableMaterials ( int num_0 , int num_1 )
 
-Swaps two [scriptable materials](../../../content/materials/scriptable.md) with specified numbers. The number of material determines the order in which the expressions assigned to it are executed.
+Swaps two [scriptable materials](../../../content/materials/scriptable.md) with specified numbers.
+The number of material determines the order in which the expressions assigned to it are executed.
+
+
 > **Notice:** The number is camera-specific (valid for this camera only).
 
 

@@ -57,9 +57,9 @@ As soon as you have at least one *Mesh Cluster* with the **Spawn When Drawing** 
 Available tools:
 
 
-- ![](brush_replace.png) **Replace Density** — replace meshes within the *Brush Radius* with new ones spawned in accordance with the current density values.
-- ![](brush_single.png) **Single Object** — place a single mesh at the desired point.
-- ![](brush_erase.png) **Erase** — remove meshes.
+- ![](brush_replace.png) **Replace Density** � replace meshes within the *Brush Radius* with new ones spawned in accordance with the current density values.
+- ![](brush_single.png) **Single Object** � place a single mesh at the desired point.
+- ![](brush_erase.png) **Erase** � remove meshes.
 
 
 ### Brush Settings
@@ -98,7 +98,7 @@ The following settings are saved for each *Mesh Cluster* in the scene:
 | World Offset | Minimum and maximum offset for new meshes in world coordinates. |
 | Local Rotation | Minimum and maximum rotation values for new meshes with regard to normal orientation. |
 | World Rotation | Minimum and maximum rotation values for new meshes in world coordinates. |
-| Scale | Minimum and maximum scale values for new meshes. Click the ![](scale_gear.png) gear icon to choose the scale mode: - **Uniform** — meshes are scaled uniformly along all axes. - **Nonuniform** — scale is random along each axis. |
+| Scale | Minimum and maximum scale values for new meshes. Click the ![](scale_gear.png) gear icon to choose the scale mode: - **Uniform** � meshes are scaled uniformly along all axes. - **Nonuniform** � scale is random along each axis. |
 
 
 ## Video Tutorial

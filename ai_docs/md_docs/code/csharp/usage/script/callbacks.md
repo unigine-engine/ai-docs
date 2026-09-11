@@ -8,6 +8,7 @@ Any function from system, world or editor scripts can be called in a C# code. Un
 
 The callback functions can receive optional arguments of the *int* or *IntPtr* type that are used to store user data. *IntPtr* values can be wrapped in classes, for example:
 
+
 ```csharp
 IntPtr ptr;
 // create a node and then create a Unigine object
@@ -15,7 +16,10 @@ Unigine.Object.create(new Node(ptr));
 
 ```
 
- See the article on [Widget Dialog usage example](../../../../code/csharp/usage/widgetdialog.md) for more details.
+
+See the article on [Widget Dialog usage example](../../../../code/csharp/usage/widgetdialog.md) for more details.
+
+
 ### See also
 
 
@@ -189,6 +193,7 @@ int update() {
 
 
 The sequence of function call will be as follows:
+
 
 1. The interpreter exports the *RunWorldFunction()* function to make it available from the script.
 2. The engine is initialized, and the *Init()* function of the script is called. This function calls the exported *RunWorldFunction()* function.

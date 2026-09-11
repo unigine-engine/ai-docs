@@ -319,8 +319,8 @@ Visualizes the inner space of *Voxel Probe* using spheres. The spheres help to s
 Available settings:
 
 
-- *Grid Size* — number of spheres in every row/column, the value from 7 to 40.
-- *Sphere Scale* — size of the visualizing sphere.
+- *Grid Size* � number of spheres in every row/column, the value from 7 to 40.
+- *Sphere Scale* � size of the visualizing sphere.
 
 
 ![Voxel Probe Visualizer](../../objects/lights/voxelprobe/voxel_probe_v.gif)
@@ -350,7 +350,7 @@ This group of visualizers can be used to view the elements of the physical repre
 To show or hide the [shapes](../../principles/physics/shapes/index.md) of the [physical bodies](../../principles/physics/bodies/index.md) assigned to objects, choose *Helpers -> Physics - > Shapes*.
 
 
-You can also define how to visualize shapes — as wireframes or as solid objects, and specify the distance from the camera whithin which the shapes are highlighted.
+You can also define how to visualize shapes � as wireframes or as solid objects, and specify the distance from the camera whithin which the shapes are highlighted.
 
 
 ![](physics_shapes.png)

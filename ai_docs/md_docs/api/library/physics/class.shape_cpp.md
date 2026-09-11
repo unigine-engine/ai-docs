@@ -31,46 +31,263 @@ Types of collision shapes.
 
 ### Members
 
----
+## bool isIdentity () const
 
-## Math:: vec3 getArea ( ) const
-
-Returns areas of shape projections on three axes: *x*, *y*, and *z*.
+Returns the current value indicating if the shape has an identity transformation matrix (scale equal to 1 and no rotation).
 ### Return value
 
-A triple of projection areas.
-## void setBody ( const Ptr < Body > & body )
-
-Sets a body, to which the shape belongs.
-### Arguments
-
-- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Body](../../../api/library/physics/class.body_cpp.md)> &* **body** - Body, to which the shape belongs.
-
-## Ptr < Body > getBody ( ) const
-
-Returns the body, to which the shape belongs.
-### Return value
-
-Body, to which the shape belongs.
+**true** if the shape has an identity transformation matrix (a scale equal to 1 and no rotation); otherwise **false**.
 ## void setBodyShapeTransform ( const Math:: mat4 & transform )
 
-Sets a transformation matrix for the shape (in the coordinates of the body). This matrix describes position and orientation of the shape. This method is identical to [setShapeTransform()](../../../api/library/physics/class.body_cpp.md#setShapeTransform_int_mat4_void).
+Sets a new transformation matrix of the shape (in the coordinates of the body). This matrix describes position and orientation of the shape. It is identical to *[Body.getShapeTransform()](../../../api/library/physics/class.body_cpp.md#getShapeTransform_int_mat4)*.
 ### Arguments
 
-- *const  Math::[mat4](../../../api/library/math/class.mat4_cpp.md) &* **transform** - Transformation matrix
+- *const  Math::[mat4](../../../api/library/math/class.mat4_cpp.md)&* **transform** - The transformation matrix of the shape, in the coordinates of the body
 
-## Math:: mat4 getBodyShapeTransform ( ) const
+## Math:: mat4 getBodyShapeTransform () const
 
-Returns the transformation matrix of the shape (in the coordinates of the body). This matrix describes position and orientation of the shape. This method is identical to [getShapeTransform()](../../../api/library/physics/class.body_cpp.md#getShapeTransform_int_mat4).
+Returns the current transformation matrix of the shape (in the coordinates of the body). This matrix describes position and orientation of the shape. It is identical to *[Body.getShapeTransform()](../../../api/library/physics/class.body_cpp.md#getShapeTransform_int_mat4)*.
 ### Return value
 
-Transformation matrix
-## Math:: vec3 getCenterOfMass ( ) const
+Current transformation matrix of the shape, in the coordinates of the body
+## void setTransform ( const Math:: Mat4 & transform )
 
-Returns local coordinates of the center of mass of the shape.
+Sets a new transformation matrix of the shape (in world coordinates). This matrix describes position and orientation of the shape.
+### Arguments
+
+- *const  Math::[Mat4](../../../api/library/math/class.mat4_cpp.md)&* **transform** - The transformation matrix of the shape, in world coordinates
+
+## Math:: Mat4 getTransform () const
+
+Returns the current transformation matrix of the shape (in world coordinates). This matrix describes position and orientation of the shape.
 ### Return value
 
-Coordinates of the center of mass.
+Current transformation matrix of the shape, in world coordinates
+## Math:: vec3 getCenterOfMass () const
+
+Returns the current local coordinates of the center of mass of the shape.
+### Return value
+
+Current local coordinates of the center of mass of the shape
+## Math:: mat3 getInertia () const
+
+Returns the current matrix that represents inertia tensor describing the resistance of the body to rotation in different directions. It is determined by the distribution of mass throughout the body volume.
+### Return value
+
+Current matrix that represents inertia tensor describing the resistance of the body to rotation in different directions
+## float getVolume () const
+
+Returns the current volume of the shape.
+### Return value
+
+Current volume of the shape
+## Math:: vec3 getArea () const
+
+Returns the current areas of shape projections on three axes: *x*, *y*, and *z*.
+### Return value
+
+Current areas of shape projections on three axes: x, y, and z
+## void setRestitution ( float restitution )
+
+Sets a new restitution coefficient of the shape surface.
+### Arguments
+
+- *float* **restitution** - The restitution coefficient of the shape surface
+
+## float getRestitution () const
+
+Returns the current restitution coefficient of the shape surface.
+### Return value
+
+Current restitution coefficient of the shape surface
+## void setFriction ( float friction )
+
+Sets a new friction coefficient for the shape surface.
+### Arguments
+
+- *float* **friction** - The friction coefficient for the shape surface
+
+## float getFriction () const
+
+Returns the current friction coefficient for the shape surface.
+### Return value
+
+Current friction coefficient for the shape surface
+## void setDensity ( float density )
+
+Sets a new density of the shape.
+### Arguments
+
+- *float* **density** - The density of the shape
+
+## float getDensity () const
+
+Returns the current density of the shape.
+### Return value
+
+Current density of the shape
+## void setMass ( float mass )
+
+Sets a new mass of the shape. If *g* (Earth's gravity) equals to 9.8 m/s2, and 1 unit equals to 1 m, the mass is measured in kilograms.
+### Arguments
+
+- *float* **mass** - The mass of the shape
+
+## float getMass () const
+
+Returns the current mass of the shape. If *g* (Earth's gravity) equals to 9.8 m/s2, and 1 unit equals to 1 m, the mass is measured in kilograms.
+### Return value
+
+Current mass of the shape
+## void setExclusionMask ( int mask )
+
+Sets a new bit mask that prevents collisions of the shape with other ones. This mask is independent of the [collision mask](#getCollisionMask_int). For shape with matching collision masks not to collide, at least one bit of their exclusion mask should match.
+### Arguments
+
+- *int* **mask** - The bit mask that prevents collisions of the shape with other ones
+
+## int getExclusionMask () const
+
+Returns the current bit mask that prevents collisions of the shape with other ones. This mask is independent of the [collision mask](#getCollisionMask_int). For shape with matching collision masks not to collide, at least one bit of their exclusion mask should match.
+### Return value
+
+Current bit mask that prevents collisions of the shape with other ones
+## void setCollisionMask ( int mask )
+
+Sets a new collision mask of the shape. Two objects collide if they both have matching masks. See also details on additional [collision exclusion mask](#getExclusionMask_int).
+### Arguments
+
+- *int* **mask** - The collision mask of the shape
+
+## int getCollisionMask () const
+
+Returns the current collision mask of the shape. Two objects collide if they both have matching masks. See also details on additional [collision exclusion mask](#getExclusionMask_int).
+### Return value
+
+Current collision mask of the shape
+## void setPhysicsIntersectionMask ( int mask )
+
+Sets a new [physics intersection mask](../../../principles/bit_masking/index.md#physics_intersection_mask) of the shape.
+### Arguments
+
+- *int* **mask** - The physics intersection mask of the shape
+
+## int getPhysicsIntersectionMask () const
+
+Returns the current [physics intersection mask](../../../principles/bit_masking/index.md#physics_intersection_mask) of the shape.
+### Return value
+
+Current physics intersection mask of the shape
+## void setName ( const char * name )
+
+Sets a new name of the shape.
+### Arguments
+
+- *const char ** **name** - The name of the shape
+
+## const char * getName () const
+
+Returns the current name of the shape.
+### Return value
+
+Current name of the shape
+## void setContinuous ( bool continuous )
+
+Sets a new value indicating if continuous collision detection is enabled. Enabled CCD incurs almost no performance penalty. Disabling CCD allows to avoid physics artifacts, if there are any. Is enabled for [spheres](../../../api/library/physics/class.shapesphere_cpp.md) or [capsules](../../../api/library/physics/class.shapecapsule_cpp.md) by default. For other shape types, it must be enabled manually.
+### Arguments
+
+- *bool* **continuous** - Set **true** to enable continuous collision detection; **false** - to disable it.
+
+## bool isContinuous () const
+
+Returns the current value indicating if continuous collision detection is enabled. Enabled CCD incurs almost no performance penalty. Disabling CCD allows to avoid physics artifacts, if there are any. Is enabled for [spheres](../../../api/library/physics/class.shapesphere_cpp.md) or [capsules](../../../api/library/physics/class.shapecapsule_cpp.md) by default. For other shape types, it must be enabled manually.
+### Return value
+
+**true** if continuous collision detection is enabled ; otherwise **false**.
+## bool isEnabledSelf () const
+
+Returns the current value indicating if physical interactions with the shape itself are enabled, regardless of the state of the body the shape belongs to.
+### Return value
+
+**true** if physical interactions with the shape itself are enabled, regardless of the state of the body the shape belongs to; otherwise **false**.
+## void setEnabled ( bool enabled )
+
+Sets a new value indicating if physical interactions with the shape are enabled.
+### Arguments
+
+- *bool* **enabled** - Set **true** to enable physical interaction with the shape; **false** - to disable it.
+
+## bool isEnabled () const
+
+Returns the current value indicating if physical interactions with the shape are enabled.
+### Return value
+
+**true** if physical interaction with the shape is enabled ; otherwise **false**.
+## void setBody ( const Ptr < Body >& body )
+
+Sets a new body, to which the shape belongs.
+### Arguments
+
+- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Body](../../../api/library/physics/class.body_cpp.md)>&* **body** - The body, to which the shape belongs
+
+## Ptr < Body > getBody () const
+
+Returns the current body, to which the shape belongs.
+### Return value
+
+Current body, to which the shape belongs
+## int getNumber () const
+
+Returns the current number of shape instances.
+### Return value
+
+Current number of shape instances
+## const char * getTypeName () const
+
+Returns the current name of the shape type.
+### Return value
+
+Current name of the shape type
+## Shape::TYPE getType () const
+
+Returns the current type of the shape.
+### Return value
+
+Current type of the shape
+## void setID ( int id )
+
+Sets a new unique id of the shape.
+### Arguments
+
+- *int* **id** - The unique id of the shape
+
+## int getID () const
+
+Returns the current unique id of the shape.
+### Return value
+
+Current unique id of the shape
+## Math:: vec3 getVelocity () const
+
+Returns the current velocity vector of the shape.
+### Return value
+
+Current velocity vector of the shape
+## void setPosition ( const Math:: Vec3 & position )
+
+Sets a new shape position, in world coordinates.
+### Arguments
+
+- *const  Math::[Vec3](../../../api/library/math/class.vec3_cpp.md)&* **position** - The shape position, in world coordinates
+
+## Math:: Vec3 getPosition () const
+
+Returns the current shape position, in world coordinates.
+### Return value
+
+Current shape position, in world coordinates
+---
+
 ## int getCollision ( Vector < Ptr < ShapeContact >> & OUT_contacts , float ifps ) const
 
 Performs collision check for the shape and puts information on all contacts to the output buffer.
@@ -116,109 +333,6 @@ Collisions with the surface can be found only if the following conditions are fu
 ### Return value
 
 1 if collisions are found; otherwise, 0.
-## void setCollisionMask ( int mask )
-
-Sets a collision mask for the shape. Two objects collide if they both have matching masks. See also details on additional [collision exclusion mask](#setExclusionMask_int_void).
-### Arguments
-
-- *int* **mask** - Integer, each bit of which is a mask.
-
-## int getCollisionMask ( ) const
-
-Returns the collision mask of the actor. Two objects collide if they both have matching masks.See also details on additional [collision exclusion mask](#getExclusionMask_int).
-### Return value
-
-Integer, each bit of which is a mask.
-## void setContinuous ( bool continuous )
-
-Enables or disables continuous collision detection for [spheres](../../../api/library/physics/class.shapesphere_cpp.md) or [capsules](../../../api/library/physics/class.shapecapsule_cpp.md). Enabled CDD incurs almost no performance penalty. Disabling CCD allows to avoid physics artifacts, if there are any.
-### Arguments
-
-- *bool* **continuous** - Positive value to enable CCD; **0** to disable.
-
-## bool isContinuous ( ) const
-
-Returns a value indicating if continuous collision detection for [spheres](../../../api/library/physics/class.shapesphere_cpp.md) or [capsules](../../../api/library/physics/class.shapecapsule_cpp.md) is enabled. Enabled CCD incurs almost no performance penalty. Disabling CCD allows to avoid physics artifacts, if there are any.
-### Return value
-
-**1** if CCD is enabled; otherwise, **0**.
-## void setDensity ( float density )
-
-Sets density of a shape. Changing the density influences the mass, that is computed by multiplying shape volume by density.
-### Arguments
-
-- *float* **density** - Density value. If a negative value is provided, **0** will be used instead.
-
-## float getDensity ( ) const
-
-Returns the current density of a shape.
-### Return value
-
-Density value.
-## void setEnabled ( bool enable )
-
-Enables or disables physical interactions with the shape.
-### Arguments
-
-- *bool* **enable** - Positive number to enable physical interactions, **0** to disable them.
-
-## bool isEnabled ( ) const
-
-Returns a value indicating if physical interactions with the shape are enabled.
-### Return value
-
-true if physical interactions with the shape are enabled; otherwise, false.
-## bool isEnabledSelf ( ) const
-
-Returns a value indicating if the shape is enabled.
-### Return value
-
-true if the shape is enabled; otherwise, false.
-## void setExclusionMask ( int mask )
-
-Sets an bit mask to prevent collisions of the shape with other ones. This mask is independent of the [collision mask](#setCollisionMask_int_void). For shapes with matching collision masks not to collide, at least one bit of their exclusion mask should match.
-### Arguments
-
-- *int* **mask** - Integer, each bit of which is a mask.
-
-## int getExclusionMask ( ) const
-
-Returns the bit mask that prevents collisions of the shape with other ones. This mask is independent of the [collision mask](#getCollisionMask_int). For shape with matching collision masks not to collide, at least one bit of their exclusion mask should match.
-### Return value
-
-Integer, each bit of which is a mask.
-## void setFriction ( float friction )
-
-Sets a friction coefficient for the shape surface.
-### Arguments
-
-- *float* **friction** - Friction coefficient for the shape surface. If a negative value is provided, **0** will be used instead.
-
-## float getFriction ( ) const
-
-Returns the friction coefficient for the shape surface.
-### Return value
-
-Friction coefficient for the shape surface.
-## void setID ( int id )
-
-Sets the unique ID for the shape.
-### Arguments
-
-- *int* **id** - Unique ID.
-
-## int getID ( ) const
-
-Returns the unique ID of the shape.
-### Return value
-
-Unique ID.
-## Math:: mat3 getInertia ( ) const
-
-Returns a matrix that represents inertia tensor describing the resistance of the body to rotation in different directions. It is determined by the distribution of mass throughout the body volume.
-### Return value
-
-Inertia tensor.
 ## int getIntersection ( const Math:: Vec3 & p0 , const Math:: Vec3 & p1 , const Ptr < PhysicsIntersectionNormal > & intersection ) const
 
 
@@ -325,120 +439,6 @@ Performs tracing from the p0 point to the p1 point to find a shape intersected b
 ### Return value
 
 1 if an intersection was detected; otherwise - 0.
-## void setPhysicsIntersectionMask ( int mask )
-
-Sets a [physics intersection mask](../../../principles/bit_masking/index.md#physics_intersection_mask) for the shape.
-### Arguments
-
-- *int* **mask** - Integer, each bit of which is a mask.
-
-## int getPhysicsIntersectionMask ( ) const
-
-Returns a [physics intersection mask](../../../principles/bit_masking/index.md#physics_intersection_mask) of the shape.
-### Return value
-
-Integer, each bit of which is a mask.
-## void setMass ( float mass )
-
-Sets a mass of the shape. Changing the mass influences the density, that is computed by dividing the mass by shape volume.
-> **Notice:** If *g* (Earth's gravity) equals to 9.8 m/s 2, and 1 unit equals to 1 m, a shape with mass value of **1** weighs 1 kg.
-
-
-### Arguments
-
-- *float* **mass** - Mass of the shape. If a negative value is provided, **0** will be used instead.
-
-## float getMass ( ) const
-
-Returns the mass of the shape.
-> **Notice:** If *g* (Earth's gravity) equals to 9.8 m/s 2, and 1 unit equals to 1 m, the mass is measured in kilograms.
-
-
-### Return value
-
-Mass of the shape.
-## void setName ( const char * name )
-
-Sets the name of the shape.
-### Arguments
-
-- *const char ** **name** - Name of the shape.
-
-## const char * getName ( ) const
-
-Returns the name of the shape.
-### Return value
-
-Name of the shape.
-## int getNumber ( ) const
-
-Returns the number of shape instances.
-### Return value
-
-Number of shape instances.
-## void setRestitution ( float restitution )
-
-Sets a restitution of the shape surface.
-### Arguments
-
-- *float* **restitution** - Restitution of the shape surface. The provided value will be saturated in the range **[0; 1]**.
-
-## float getRestitution ( ) const
-
-Returns the restitution of the shape surface.
-### Return value
-
-Restitution of the shape surface.
-## void setPosition ( const Math:: Vec3 & position )
-
-Sets shape position. This method resets shape's [velocity](#setVelocity_vec3_float_void) to 0.
-> **Notice:** This method should be called only from the object owning this shape. If the shape is owned by the body, it is highly recommended to use the [setShapeTransform()](../../../api/library/physics/class.body_cpp.md#setShapeTransform_int_mat4_void) method of the owning body.
-
-
-### Arguments
-
-- *const  Math::[Vec3](../../../api/library/math/class.vec3_cpp.md) &* **position** - New shape's position, in world coordinates.
-
-## Math:: Vec3 getPosition ( ) const
-
-Returns the current shape position of the object, in world coordinates.
-### Return value
-
-Current shape's position, in world coordinates.
-## bool isIdentity ( ) const
-
-Returns a value indicating if the shape has a scale equal to 1 and no rotation.
-### Return value
-
-**1** if the shape has a scale equal to 1 and no rotation; otherwise, **0**.
-## void setTransform ( const Math:: Mat4 & transform )
-
-Sets a transformation matrix for the shape of the object (in world coordinates). This matrix describes position and orientation of the shape. This method resets shape's linear velocity to **0**.
-> **Notice:** This method should be called only from the object owning this shape. If the shape is owned by the body, it is highly recommended to use the [setShapeTransform()](../../../api/library/physics/class.body_cpp.md#setShapeTransform_int_mat4_void) method of the owning body.
-
-
-### Arguments
-
-- *const  Math::[Mat4](../../../api/library/math/class.mat4_cpp.md) &* **transform** - Transformation matrix
-
-## Math:: Mat4 getTransform ( ) const
-
-Returns the transformation matrix of the shape of the object (in world coordinates). This matrix describes position and orientation of the shape.
-### Return value
-
-Transformation matrix
-## Shape::TYPE getType ( ) const
-
-Returns the type of the shape.
-### Return value
-
-One of the *SHAPE_** pre-defined variables.
-## const char * getTypeName ( ) const
-
-Returns the name of the shape type.
-### Return value
-
-Shape type name.
 ## const char * getTypeName ( int type )
 
 Returns the name of a shape type with a given ID.
@@ -457,18 +457,6 @@ Sets a new velocity vector for the shape.
 - *const  Math::[vec3](../../../api/library/math/class.vec3_cpp.md) &* **velocity** - Velocity vector, each component represents shape's velocity along the corresponding axis, in units per second.
 - *float* **ifps** - Inverse FPS value.
 
-## Math:: vec3 getVelocity ( ) const
-
-Returns the current velocity vector of the shape.
-### Return value
-
-Current velocity vector, each component represents shape's velocity along the corresponding axis, in units per second.
-## float getVolume ( ) const
-
-Returns the volume of the shape.
-### Return value
-
-Volume of the shape in cubic units.
 ## Ptr < Shape > clone ( ) const
 
 Clones the shape.
@@ -586,10 +574,23 @@ Creates a new shape of the specified type.
 New created shape smart pointer.
 ## Shape::TYPE getTypeID ( const char * type )
 
+Returns the identifier of a shape type with a given name.
 ### Arguments
 
-- *const char ** **type**
+- *const char ** **type** - Shape type name.
 
+### Return value
+
+Shape type identifier: one of the *[SHAPE_*](#SHAPE_BOX)* values, or -1 if the type name is not recognized.
 ## Math:: WorldBoundBox getBoundBox ( ) const
 
+Returns the bounding box of the shape, in world coordinates.
+### Return value
+
+[Bounding box](../../../api/library/math/bounds/class.worldboundbox_cpp.md) of the shape, in world coordinates.
 ## Math:: WorldBoundSphere getBoundSphere ( ) const
+
+Returns the bounding sphere of the shape, in world coordinates.
+### Return value
+
+[Bounding sphere](../../../api/library/math/bounds/class.worldboundsphere_cpp.md) of the shape, in world coordinates.

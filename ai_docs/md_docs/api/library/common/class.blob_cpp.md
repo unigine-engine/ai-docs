@@ -13,6 +13,7 @@ This class is used to store data in the memory (unlike *[File](../../../api/libr
 
 The code below illustrates the following process:
 
+
 - Packing data to a blob and saving compressed data to a [file](../../../api/library/filesystem/class.file_cpp.md)
 - Reading and uncompressing data from the file to the destination blob
 - Reading data from the destination blob
@@ -74,8 +75,6 @@ blob2.clear();
 
 ## Blob Class
 
-### Members
-
 ---
 
 ## static BlobPtr create ( size_t size = 0 )
@@ -105,7 +104,7 @@ Returns the value of the specified byte in the blob.
 The byte value.
 ## int getc ( )
 
-Gets a next symbol from the blob.
+Returns the next symbol from the blob.
 ### Return value
 
 Character read from the blob.
@@ -117,7 +116,10 @@ Returns the 32-bit CRC checksum.
 The 32-bit CRC checksum.
 ## void setData ( unsigned char * OUT_data , size_t size )
 
+
 Sets new data to the Blob instance.
+
+
 > **Notice:** You should manage the previously stored data manually.
 
 
@@ -152,44 +154,50 @@ Returns a 256-bit SHA256 checksum.
 256-bit SHA256 checksum.
 ## size_t getSize ( )
 
-Returns the current blob size.
+Returns the current size of the blob.
 ### Return value
 
 Blob size.
 ## void allocate ( size_t size )
 
+
 Allocates the required memory without resizing the blob.
+
+
 > **Notice:** The blob will be resized dynamically when the allocated memory is filled.
 
 
 ### Arguments
 
-- *size_t* **size** - Size of the allocated memory in bytes.
+- *size_t* **size** - Size of the allocated memory, in bytes.
 
 ## void clear ( )
 
-Clears the blob size to 0.
+Clears the size of the blob to **0**.
 ## int compress ( const Ptr < Stream > & dest , int quality )
 
+
 Compresses the blob and writes it into the given stream.
-> **Notice:** This method uses zlib compression which is better than Lz4 (see the [compressLz4()](#compressLz4_Stream_int_int) method), but significantly slower.
+
+
+> **Notice:** This method uses zlib compression which is better than Lz4 (see the *[compressLz4()](#compressLz4_Stream_int_int)* method), but significantly slower.
 
 
 ### Arguments
 
 - *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Stream](../../../api/library/common/class.stream_cpp.md)> &* **dest** - Destination stream.
-- *int* **quality** - Compression quality (0 is for fast compression, 1 is for a small size).
+- *int* **quality** - Compression quality (**0** is for a fast compression, **1** is for a small size).
 
 ### Return value
 
-**1** if the data is compressed successfully; otherwise, 0.
+**1** if the data is compressed successfully; otherwise, **0**.
 ## int compressLz4 ( const Ptr < Stream > & dest , int quality )
 
 Compresses the blob with Lz4 algorithm and writes it into the given stream.
 ### Arguments
 
 - *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Stream](../../../api/library/common/class.stream_cpp.md)> &* **dest** - Destination stream.
-- *int* **quality** - Compression quality (0 is for fast compression, 1 is for a small size).
+- *int* **quality** - Compression quality (**0** is for a fast compression, **1** is for a small size).
 
 ### Return value
 
@@ -203,7 +211,7 @@ Decodes a base64 encoded string into the blob.
 
 ### Return value
 
-Returns **1** if the data is decoded successfully; otherwise, **0**.
+**1** if the data is decoded successfully; otherwise, **0**.
 ## int decodeZBase32 ( const char * src )
 
 Decodes a Zbase32 encoded string into the blob.
@@ -216,7 +224,7 @@ Decodes a Zbase32 encoded string into the blob.
 Returns **1** if the data is decoded successfully; otherwise, **0**.
 ## int decompress ( const Ptr < Stream > & src )
 
-Reads the compressed blob from a stream and decompresses it.
+Reads and decompresses a previously [compressed](#compress_Stream_int_int) blob from a given stream.
 ### Arguments
 
 - *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Stream](../../../api/library/common/class.stream_cpp.md)> &* **src** - Source stream to read data from.
@@ -248,63 +256,66 @@ Encodes the blob into the ZBase32 encoded string.
 ZBase32 encoded string.
 ## int eof ( )
 
-Tests if the end of the blob has been reached.
+Checks if the end of the blob has been reached.
 ### Return value
 
-Returns **1** if the end of the blob is reached; otherwise, 0.
+**1** if the end of blob is reached; otherwise, **0**.
 ## int flush ( )
 
-Flushes the blob.
+Flushes the blob. This function has an empty body; it is created for *Blob* class to have the same number of methods as the *[File](../../../api/library/filesystem/class.file_cpp.md)* class has.
 ### Return value
 
-Returns **1** if the blob is flushed successfully; otherwise, 0.
+**1** if the blob is successfully flushed; otherwise, **0**.
 ## void reserve ( size_t size )
 
-Reserves the blob, i.e. allocates (size * 1.5) bytes without resizing the blob. It will be resized dynamically when the allocated memory is filled.
+Reserves the blob, i.e. allocates *(size * 1.5)* bytes without resizing the blob.
+> **Notice:** The blob will be resized dynamically when the allocated memory is filled.
+
+
 ### Arguments
 
-- *size_t* **size** - Size of the allocated memory.
+- *size_t* **size** - Size of the allocated memory, in bytes.
 
 ## void resize ( size_t size )
 
 Allocates the required memory and resizes the blob.
 ### Arguments
 
-- *size_t* **size** - Size of the blob in bytes.
+- *size_t* **size** - Size of the blob, in bytes.
 
 ## int seekCur ( size_t offset )
 
-Seeks to position relative to the current offset.
+Seeks the position relative to the current offset.
 ### Arguments
 
-- *size_t* **offset** - Offset in bytes from the current position of indicator.
+- *size_t* **offset** - Offset from the current position of the indicator, in bytes.
 
 ### Return value
 
-Returns **1** if the blob position indicator is set successfully; otherwise, 0.
+**1** if the blob position indicator is set successfully; otherwise, 0.
 ## int seekEnd ( size_t offset )
 
 Seeks to position relative to the end of the blob.
 ### Arguments
 
-- *size_t* **offset** - Offset in bytes from the end of the blob.
+- *size_t* **offset** - Offset from the end of the blob, in bytes.
 
 ### Return value
 
-Returns **1** if the blob position indicator is set successfully; otherwise, 0.
+**1** if the blob position indicator is set successfully; otherwise, **0**.
 ## int seekSet ( size_t offset )
 
 Seeks to position relative to the start of the blob.
 ### Arguments
 
-- *size_t* **offset** - Offset in bytes from the beginning of the blob.
+- *size_t* **offset** - Offset from the beginning of the blob, in bytes.
 
 ### Return value
 
-Returns **1** if the blob position indicator is set successfully; otherwise, 0.
+**1** if the blob position indicator is successfully set; otherwise, **0**.
 ## size_t tell ( )
 
-Gets the current blob offset position indicator.
+Returns the current blob offset position indicator.
 ### Return value
 
-Returns the current blob offset.
+Current blob offset.

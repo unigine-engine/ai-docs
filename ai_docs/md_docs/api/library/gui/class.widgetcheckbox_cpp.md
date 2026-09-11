@@ -95,6 +95,58 @@ int AppWorldLogic::shutdown()
 
 ### Members
 
+## void setText ( const char * text )
+
+Sets a new checkbox text label.
+### Arguments
+
+- *const char ** **text** - The checkbox text label
+
+## const char * getText () const
+
+Returns the current checkbox text label.
+### Return value
+
+Current checkbox text label
+## void setChecked ( bool checked )
+
+Sets a new value indicating if the checkbox is selected.
+### Arguments
+
+- *bool* **checked** - true if the checkbox is selected, false otherwise
+
+## bool isChecked () const
+
+Returns the current value indicating if the checkbox is selected.
+### Return value
+
+true if the checkbox is selected, false otherwise
+## void setUncheckedColor ( const Math:: vec4 & color )
+
+Sets a new color of the checkbox flag in the unchecked state.
+### Arguments
+
+- *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md)&* **color** - The color of the checkbox flag in the unchecked state
+
+## Math:: vec4 getUncheckedColor () const
+
+Returns the current color of the checkbox flag in the unchecked state.
+### Return value
+
+Current color of the checkbox flag in the unchecked state
+## void setCheckedColor ( const Math:: vec4 & color )
+
+Sets a new color of the checkbox flag in the checked state.
+### Arguments
+
+- *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md)&* **color** - The color of the checkbox flag in the checked state
+
+## Math:: vec4 getCheckedColor () const
+
+Returns the current color of the checkbox flag in the checked state.
+### Return value
+
+Current color of the checkbox flag in the checked state
 ---
 
 ## static WidgetCheckBoxPtr create ( const Ptr < Gui > & gui , const char * str = 0 )
@@ -111,56 +163,3 @@ Constructor. Creates a checkbox with a given text label and adds it to the Engin
 ### Arguments
 
 - *const char ** **str** - Checkbox label. This is an optional parameter.
-
-## void setChecked ( bool checked )
-
-Sets a value indicating if the checkbox is selected.
-### Arguments
-
-- *bool* **checked** - 1 to check (select) the checkbox, 0 to uncheck it.
-
-## bool isChecked ( ) const
-
-Returns a value indicating if the checkbox is selected.
-### Return value
-
-1 if the checkbox is checked (selected); otherwise, 0.
-## void setText ( const char * text )
-
-Sets a checkbox text label.
-### Arguments
-
-- *const char ** **text** - Checkbox label.
-
-## const char * getText ( ) const
-
-Returns the checkbox text label.
-### Return value
-
-Checkbox label.
-## void setCheckedColor ( const Math:: vec4 & color )
-
-Sets the color to be used for the checked widget's state.
-### Arguments
-
-- *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md) &* **color** - The four-component vector specifying the color in the RGBA format.
-
-## Math:: vec4 getCheckedColor ( ) const
-
-Returns the current color used for the checked widget's state.
-### Return value
-
-The four-component vector specifying the color in the RGBA format.
-## void setUncheckedColor ( const Math:: vec4 & color )
-
-Sets the color to be used for the unchecked widget's state.
-### Arguments
-
-- *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md) &* **color** - The four-component vector specifying the color in the RGBA format.
-
-## Math:: vec4 getUncheckedColor ( ) const
-
-Returns the current color used for the unchecked widget's state.
-### Return value
-
-The four-component vector specifying the color in the RGBA format.

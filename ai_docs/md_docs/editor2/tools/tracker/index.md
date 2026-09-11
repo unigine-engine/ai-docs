@@ -1,4 +1,7 @@
-# Making Cutscenes: Animations & Camera Control
+# Tracker: Legacy Animation Tool
+
+
+> **Warning:** *Tracker* is a legacy tool, kept for projects that already use it. New animation is authored in the [Sequencer](../../../editor2/tools/sequencer/index.md), which can also [convert existing `*.track` files](../../../editor2/tools/sequencer/track_import/index.md) into sequences.
 
 
 *Tracker* is a keyframe-based tool for creating sequences animated over time, which allows for adding dynamic gameplay elements or making in-game cinematic cutscenes. It gives developers the ability to:

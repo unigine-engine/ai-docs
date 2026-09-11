@@ -145,10 +145,10 @@ If a mesh representing a physical obstacle has several [levels of detail](../../
 Approximating collision shapes by using primitives is also a good practice. You can apply the following approach:
 
 
-1. Ensure that the original node is not a [Collider](../../../principles/physics/collision/index.md#collider) — check that *Collision* flag is disabled for its surfaces, bodies, and shapes. Since now it is not taken into account by collision detection.
+1. Ensure that the original node is not a [Collider](../../../principles/physics/collision/index.md#collider) � check that *Collision* flag is disabled for its surfaces, bodies, and shapes. Since now it is not taken into account by collision detection.
 2. Add a cylinder object to the scene by choosing *Create -> Primitive -> Cylinder* in the Menu Bar and cover the original mesh with the primitive. ![](primitive_cover.png)
 3. Make sure that the *[**Collision**](../../../editor2/node_parameters/physics/index.md#surface_collision)* option of the surface is enabled for the primitive node.
-4. Hide the visual representation of the primitive's surface. You can do it either by clearing its *[Viewport](../../../principles/bit_masking/index.md#viewport)* and *[Shadow](../../../principles/bit_masking/index.md#shadow_mask)* masks or simply by setting its *[**Max Visibility**](../../../editor2/node_parameters/visual_representation/index.md#max_visibility)* parameter to the negative infinity (**-inf**) — this ensures that the surface is not visible at any distance. ![](max_visibility.png) Now the detailed mesh provides only visual representation, while physical interactions are calculated for the primitive cylinder. ![](primitive_collision.png)
+4. Hide the visual representation of the primitive's surface. You can do it either by clearing its *[Viewport](../../../principles/bit_masking/index.md#viewport)* and *[Shadow](../../../principles/bit_masking/index.md#shadow_mask)* masks or simply by setting its *[**Max Visibility**](../../../editor2/node_parameters/visual_representation/index.md#max_visibility)* parameter to the negative infinity (**-inf**) � this ensures that the surface is not visible at any distance. ![](max_visibility.png) Now the detailed mesh provides only visual representation, while physical interactions are calculated for the primitive cylinder. ![](primitive_collision.png)
 
 
 ### Collision Detection Approach

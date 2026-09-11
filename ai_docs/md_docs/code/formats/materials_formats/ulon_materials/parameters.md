@@ -19,14 +19,14 @@ The parameters are passed to shaders with the specified variable [prefix](../../
 ## Types of Parameters
 
 
-- float / float2 / float3 / float4 — a float vector of N components in *[UUSL](../../../../code/uusl/types.md#wrapper_types)*
-- Int / Int2 / Int3 / Int4 — an integer (int) vector of N components in *[UUSL](../../../../code/uusl/types.md#wrapper_types)*
-- ArrayFloat / ArrayFloat2 / ArrayFloat4 — an array of float vectors with N components in *[UUSL](../../../../code/uusl/types.md#wrapper_types)*
-- ArrayInt / ArrayInt2 / ArrayInt4 — an array of integer (int) vectors with N components in *[UUSL](../../../../code/uusl/types.md#wrapper_types)*
-- Color — a float vector with 4 components representing a color in *[UUSL](../../../../code/uusl/types.md#wrapper_types)*
-- Mask24 / Mask32 — an integer representing the mask in *[UUSL](../../../../code/uusl/types.md#wrapper_types)*
-- UV — a float vector of 4 components representing a UV transformation
-- Slider — a float variable with the default range of [0, 1]
+- float / float2 / float3 / float4 � a float vector of N components in *[UUSL](../../../../code/uusl/types.md#wrapper_types)*
+- Int / Int2 / Int3 / Int4 � an integer (int) vector of N components in *[UUSL](../../../../code/uusl/types.md#wrapper_types)*
+- ArrayFloat / ArrayFloat2 / ArrayFloat4 � an array of float vectors with N components in *[UUSL](../../../../code/uusl/types.md#wrapper_types)*
+- ArrayInt / ArrayInt2 / ArrayInt4 � an array of integer (int) vectors with N components in *[UUSL](../../../../code/uusl/types.md#wrapper_types)*
+- Color � a float vector with 4 components representing a color in *[UUSL](../../../../code/uusl/types.md#wrapper_types)*
+- Mask24 / Mask32 � an integer representing the mask in *[UUSL](../../../../code/uusl/types.md#wrapper_types)*
+- UV � a float vector of 4 components representing a UV transformation
+- Slider � a float variable with the default range of [0, 1]
 
 
 | [ULON](../../../../code/formats/materials_formats/ulon_base_material_format.md) | What to use for initialization in ULON? | [UUSL](../../../../code/uusl/types.md#wrapper_types) |
@@ -110,8 +110,8 @@ The minimum limit for a parameter range (not applicable for *[Color](#color)* an
 *Default values:*
 
 
-- 0.0 — for the *[Slider](#slider)* parameter
-- -inf — for all the others parameters
+- 0.0 � for the *[Slider](#slider)* parameter
+- -inf � for all the others parameters
 
 
 ### max
@@ -126,8 +126,8 @@ The maximum limit for a parameter range (not applicable for *[Color](#color)* an
 *Default values:*
 
 
-- 1.0 — for the *[Slider](#slider)* parameter
-- +inf — for all the others parameters
+- 1.0 � for the *[Slider](#slider)* parameter
+- +inf � for all the others parameters
 
 
 ### title
@@ -180,15 +180,15 @@ A flag that enables the ability to specify values outside the minimum range limi
 Available values:
 
 
-- false — fix the minimum range limit
-- true — expand the minimum range limit
+- false � fix the minimum range limit
+- true � expand the minimum range limit
 
 
 *Default values:*
 
 
-- false — for the *[Slider](#slider)* parameter
-- true — for all the others parameters
+- false � for the *[Slider](#slider)* parameter
+- true � for all the others parameters
 
 
 ### max_expand
@@ -203,15 +203,15 @@ A flag that enables the ability to specify values outside the maximum range limi
 Available values:
 
 
-- false — fix the maximum range limit
-- true — expand the maximum range limit
+- false � fix the maximum range limit
+- true � expand the maximum range limit
 
 
 *Default values:*
 
 
-- false — for the *[Slider](#slider)* parameter
-- true — for all the others parameters
+- false � for the *[Slider](#slider)* parameter
+- true � for all the others parameters
 
 
 ### expand
@@ -226,15 +226,15 @@ A flag that enables the ability to specify values outside the minimum and maximu
 Available values:
 
 
-- false — fix the range limit
-- true — expand the range limit
+- false � fix the range limit
+- true � expand the range limit
 
 
 *Default values:*
 
 
-- false — for the *[Slider](#slider)* parameter
-- true — for all the others parameters
+- false � for the *[Slider](#slider)* parameter
+- true � for all the others parameters
 
 
 ### shared
@@ -249,8 +249,8 @@ A flag that disables the passing of the parameter to shaders.
 Available values:
 
 
-- false — do not pass the parameter to the shader as a variable
-- true — pass the parameter to the shader as a variable (*by default*)
+- false � do not pass the parameter to the shader as a variable
+- true � pass the parameter to the shader as a variable (*by default*)
 
 
 ### internal
@@ -262,8 +262,8 @@ Available values:
 A flag that hides the parameter in the Editor and its values are not saved for the inherited materials.
 
 
-- false — do not hide the parameter and save its values for the inherited materials (*by default*)
-- true — hide the parameter and do not save its values for the inherited materials
+- false � do not hide the parameter and save its values for the inherited materials (*by default*)
+- true � hide the parameter and do not save its values for the inherited materials
 
 
 ### hidden
@@ -275,8 +275,8 @@ A flag that hides the parameter in the Editor and its values are not saved for t
 A flag that hides the parameter in the Editor. The default value depends on the state of the *internal* argument. Enabled by default, except for *[Slider](#slider)*.
 
 
-- false — do not hide the parameter
-- true — hide the parameter
+- false � do not hide the parameter
+- true � hide the parameter
 
 
 ### auto_init
@@ -288,8 +288,8 @@ A flag that hides the parameter in the Editor. The default value depends on the 
 A flag that determines whether the parameter should be automatically declared in the shader.
 
 
-- false — auto initialized
-- true — not auto initialized (*by default*)
+- false � auto initialized
+- true � not auto initialized (*by default*)
 
 
 ### size
@@ -313,32 +313,32 @@ The set of passes during which the parameter will be used. If not specified the 
 Available values:
 
 
-- custom_pass_name — name of a custom rendering pass (up to 32 custom passes are supported)
-- wireframe — the wireframe pass
-- visualizer_solid — the visualizer solid pass
+- custom_pass_name � name of a custom rendering pass (up to 32 custom passes are supported)
+- wireframe � the wireframe pass
+- visualizer_solid � the visualizer solid pass
 - lightmap_data - the lightmap baking pass
-- deferred — the deferred pass
-- auxiliary — the auxiliary pass
-- emission — the emission pass
-- refraction — the refraction pass
-- transparent_blur — the transparent blur pass
-- ambient — the ambient pass
-- light_voxel_probe — the *Voxel Probe* light pass
-- light_environment_probe — the *Environment Probe* pass
-- light_planar_probe — the *Planar Probe* pass
-- light_omni — the *Omni Light* pass
-- light_proj — the *Proj Light* pass
-- light_world — the *World Light* pass
-- depth_pre_pass — the native depth pre-pass
+- deferred � the deferred pass
+- auxiliary � the auxiliary pass
+- emission � the emission pass
+- refraction � the refraction pass
+- transparent_blur � the transparent blur pass
+- ambient � the ambient pass
+- light_voxel_probe � the *Voxel Probe* light pass
+- light_environment_probe � the *Environment Probe* pass
+- light_planar_probe � the *Planar Probe* pass
+- light_omni � the *Omni Light* pass
+- light_proj � the *Proj Light* pass
+- light_world � the *World Light* pass
+- depth_pre_pass � the native depth pre-pass
 - ms_depth - the *SRAA* pass
-- shadow — the shadows pass
-- post — the post-process pass
+- shadow � the shadows pass
+- post � the post-process pass
 - procedural_decals - the procedural decal pass
 - procedural_fields - the procedural field pass
-- light_all — the *[Voxel Probe](#texture_pass_light_voxel_probe), [Environment Probe](#texture_pass_light_environment_probe), [Planar Probe](#texture_pass_light_planar_probe), [Omni Light](#texture_pass_light_omni), [Projected Light](#texture_pass_light_proj), [World Light](#texture_pass_light_world)* passes
-- forward — the *[Voxel Probe](#texture_pass_light_voxel_probe), [Environment Probe](#texture_pass_light_environment_probe), [Planar Probe](#texture_pass_light_planar_probe), [Omni Light](#texture_pass_light_omni), [Projected Light](#texture_pass_light_proj), [World Light](#texture_pass_light_world)* and [ambient](#texture_pass_ambient) passes
-- transparent — the [forward](#texture_pass_forward), [refraction](#texture_pass_refraction), [transparent blur](#texture_pass_transparent_blur) passes
-- object — [deferred](#texture_pass_deferred), [auxiliary](#texture_pass_auxiliary), [emission](#texture_pass_emission), [refraction](#texture_pass_refraction), [transparent blur](#texture_pass_transparent_blur), [ambient](#texture_pass_ambient), *[Voxel Probe](#texture_pass_light_voxel_probe), [Environment Probe](#texture_pass_light_environment_probe), [Planar Probe](#texture_pass_light_planar_probe), [Omni Light](#texture_pass_light_omni), [Projected Light](#texture_pass_light_proj), [World Light](#texture_pass_light_world)*, [shadow](#texture_pass_shadow) and [native depth passes](#texture_pass_depth_pre_pass)
+- light_all � the *[Voxel Probe](#texture_pass_light_voxel_probe), [Environment Probe](#texture_pass_light_environment_probe), [Planar Probe](#texture_pass_light_planar_probe), [Omni Light](#texture_pass_light_omni), [Projected Light](#texture_pass_light_proj), [World Light](#texture_pass_light_world)* passes
+- forward � the *[Voxel Probe](#texture_pass_light_voxel_probe), [Environment Probe](#texture_pass_light_environment_probe), [Planar Probe](#texture_pass_light_planar_probe), [Omni Light](#texture_pass_light_omni), [Projected Light](#texture_pass_light_proj), [World Light](#texture_pass_light_world)* and [ambient](#texture_pass_ambient) passes
+- transparent � the [forward](#texture_pass_forward), [refraction](#texture_pass_refraction), [transparent blur](#texture_pass_transparent_blur) passes
+- object � [deferred](#texture_pass_deferred), [auxiliary](#texture_pass_auxiliary), [emission](#texture_pass_emission), [refraction](#texture_pass_refraction), [transparent blur](#texture_pass_transparent_blur), [ambient](#texture_pass_ambient), *[Voxel Probe](#texture_pass_light_voxel_probe), [Environment Probe](#texture_pass_light_environment_probe), [Planar Probe](#texture_pass_light_planar_probe), [Omni Light](#texture_pass_light_omni), [Projected Light](#texture_pass_light_proj), [World Light](#texture_pass_light_world)*, [shadow](#texture_pass_shadow) and [native depth passes](#texture_pass_depth_pre_pass)
 
 
 ### expression
@@ -353,5 +353,5 @@ A flag indicating if the parameter is controlled via an [expression](../../../..
 Available values:
 
 
-- false — requires the user to assign specific values to the parameter (*by default*)
-- true — use expression to calculate the parameter's values
+- false � requires the user to assign specific values to the parameter (*by default*)
+- true � use expression to calculate the parameter's values

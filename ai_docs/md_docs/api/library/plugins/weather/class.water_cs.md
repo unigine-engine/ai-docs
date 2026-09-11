@@ -35,27 +35,14 @@ The height of the sea level in world coordinates.
 The type of transition between the current and target Beaufort wind force levels.
 ## ObjectWaterGlobal WaterNode
 
-The currently used [Water Global](../../../../api/library/objects/class.objectwaterglobal_cs.md) object.
+The *[Water Global](../../../../api/library/objects/class.objectwaterglobal_cs.md)* object to be used.
+> **Notice:** The Water Global object is automatically found at the start of the project. Use this method only for dynamically created Water Global object.
+
+
 ### Members
 
 ---
 
-## void SetWaterNode ( ObjectWaterGlobal value )
-
-Sets the [Water Global](../../../../api/library/objects/class.objectwaterglobal_cs.md) object to be used.
-> **Notice:** The Water Global object is automatically found at the start of the project. Use this method only for dynamically created Water Global object.
-
-
-### Arguments
-
-- *[ObjectWaterGlobal](../../../../api/library/objects/class.objectwaterglobal_cs.md)* **value** - Water Global object.
-
-## ObjectWaterGlobal GetWaterNode ( )
-
-Returns the currently used [Water Global](../../../../api/library/objects/class.objectwaterglobal_cs.md) object.
-### Return value
-
-Water Global object.
 ## void SetSeaLevelSmoothBySpeed ( double unit_per_sec )
 
 Sets the mode of smooth gradual change of the [height of the sea level](#setSeaLevel_double_void) by the specified rate (in meters per second). The height of the sea level changes gradually from the current to target value by the specified value during each second, such smoothing is performed to make changes more realistic. Moreover, each value can be changed with its own rate (the rain starting fast with a slowly changing cloud coverage). This method fits best when the difference between the target and current value is either too big (e.g. visibility distance change from 10m to 1km) or too small (e.g. from 1m to 1.05m), avoiding too fast or too slow changes. For other cases you can also choose another mode "by time" to change the value from the current to target during the specified time interval via the *[setSeaLevelSmoothByTime()](#setSeaLevelSmoothByTime_float_void)*.

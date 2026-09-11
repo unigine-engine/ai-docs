@@ -15,13 +15,13 @@ This class manages operations with SQL databases.
 Returns the current value indicating if the database connection is currently open.
 ### Return value
 
-**true** if the database connection is currently open is enabled; otherwise **false**.
+**true** if the database connection is currently open is enabled ; otherwise **false**.
 ## bool isOpenError () const
 
 Returns the current value indicating if there was an error opening the database connection. Error information can be retrieved using [*getLastError()*](#getLastError_String).
 ### Return value
 
-**true** if there was an error opening the database connection is enabled; otherwise **false**.
+**true** if there was an error opening the database connection is enabled ; otherwise **false**.
 ## String getLastError () const
 
 Returns the current information about the last error that occurred on the database.
@@ -33,7 +33,7 @@ Current information about the last error that occurred on the database.
 Returns the current value indicating if the database has a valid driver.
 ### Return value
 
-**true** if the database has a valid driver is enabled; otherwise **false**.
+**true** if the database has a valid driver is enabled ; otherwise **false**.
 ## void setDatabaseName ( const char * name )
 
 Sets a new connection's database name. To have effect, the value must be set before the connection is opened. Alternatively, you can [close](#close_void) the connection, set the value, and call [open](#open_int) again.

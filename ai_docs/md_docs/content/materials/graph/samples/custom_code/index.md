@@ -27,7 +27,7 @@ float function_1(in float a, in float b, out float c)
 **A** and **B** values for the custom function node are provided by **[Slider](../../../../../content/materials/graph/index.md#params)** parameter nodes (adjustable via the *Parameters* panel in UnigineEditor) connected to it.
 
 
-The result of linear interpolation between **A** and **B** values is connected to the *Roughness* input port of the master material node, while the sum of **A** and **B** — to *Metalness*.
+The result of linear interpolation between **A** and **B** values is connected to the *Roughness* input port of the master material node, while the sum of **A** and **B** � to *Metalness*.
 
 
 Finally, the data output is passed to the **[Final](../../../../../content/materials/graph/node_library/misc/final.md)** node.

@@ -31,12 +31,51 @@ Returns the current
 ### Return value
 
 Current number of selected items.
+## void setCurrentItem ( int item )
+
+Sets a new number of the item, which is currently in focus.
+### Arguments
+
+- *int* **item** - The item number.
+
+## int getCurrentItem () const
+
+Returns the current number of the item, which is currently in focus.
+### Return value
+
+Current item number.
 ## int getNumItems () const
 
 Returns the current total number of items in the list box.
 ### Return value
 
 Current number of items.
+## void setIconsResolution ( int resolution )
+
+Sets a new resolution of the icons.
+### Arguments
+
+- *int* **resolution** - The icon resolution.
+
+## int getIconsResolution () const
+
+Returns the current resolution of the icons.
+### Return value
+
+Current icon resolution.
+## void setIconsAlphaEnabled ( bool enabled )
+
+Sets a new value indicating if the alpha channel of the icons is enabled.
+### Arguments
+
+- *bool* **enabled** - Set **true** to enable use of the alpha channel of the icons; **false** - to disable it.
+
+## bool isIconsAlphaEnabled () const
+
+Returns the current value indicating if the alpha channel of the icons is enabled.
+### Return value
+
+**true** if use of the alpha channel of the icons is enabled ; otherwise **false**.
 ## void setIconsEnabled ( bool enabled )
 
 Sets a new value indicating if the icons display is enabled.
@@ -49,7 +88,7 @@ Sets a new value indicating if the icons display is enabled.
 Returns the current value indicating if the icons display is enabled.
 ### Return value
 
-**true** if is enabled; otherwise **false**.
+**true** if is enabled ; otherwise **false**.
 ## void setSelectionColor ( )
 
 Sets a new color used to highlight the current selection for the widget.
@@ -63,6 +102,19 @@ Returns the current color used to highlight the current selection for the widget
 ### Return value
 
 Current four-component vector specifying the color in the RGBA format.
+## void setTexture ( )
+
+Sets a new path to the texture with mini-icons, which are used with the list items.
+### Arguments
+
+- **texture** - The path to the texture file.
+
+## const char * getTexture () const
+
+Returns the current path to the texture with mini-icons, which are used with the list items.
+### Return value
+
+Current path to the texture file.
 ## void setMultiSelection ( bool selection )
 
 Sets a new
@@ -75,7 +127,7 @@ Sets a new
 Returns the current
 ### Return value
 
-**true** if is enabled; otherwise **false**.
+**true** if is enabled ; otherwise **false**.
 ---
 
 ## static WidgetListBox ( Gui gui )
@@ -88,19 +140,6 @@ Constructor. Creates an empty list box and adds it to the specified GUI.
 ## static WidgetListBox ( )
 
 Constructor. Creates an empty list box and adds it to the Engine GUI.
-## void setCurrentItem ( int item )
-
-Places focus on a given item.
-### Arguments
-
-- *int* **item** - Item number.
-
-## int getCurrentItem ( )
-
-Returns the number of the item, which is currently in focus.
-### Return value
-
-Item number.
 ## string getCurrentItemData ( )
 
 Returns the [text data](#setItemData_int_cstr_void) of item, which is currently in focus. The data can be used as a text identifier of the item (instead of using the item number).
@@ -234,18 +273,6 @@ Returns the icon of a given item.
 ### Return value
 
 Zero-based ID of the icon (i.e. number of the icon in the icon texture).
-## int getNumItems ( )
-
-Returns the total number of items in the list box.
-### Return value
-
-Number of items.
-## int getNumSelectedItems ( )
-
-Returns number of selected items in the box.
-### Return value
-
-Number of selected items.
 ## int getSelectedItem ( int num )
 
 Returns ID of a selected item (multi-selection mode).
@@ -256,19 +283,6 @@ Returns ID of a selected item (multi-selection mode).
 ### Return value
 
 ID of a selected item.
-## void setTexture ( string texture )
-
-Sets a path to a texture with mini-icons to be used with items. The texture is a vertical strip of square icons.
-### Arguments
-
-- *string* **texture** - Path to a texture file.
-
-## string getTexture ( )
-
-Returns the path to the texture with mini-icons, which are used with the list items.
-### Return value
-
-Path to the texture file.
 ## int addItem ( string str , int texture = -1 )
 
 Adds a new item with a given text and an icon.
@@ -300,32 +314,6 @@ Scrolls a list box so that a given item is visible.
 
 - *int* **item** - Item number.
 
-## void setIconsAlphaEnabled ( int enabled )
-
-Enables the alpha channel of the icons.
-### Arguments
-
-- *int* **enabled** - **1** to enable the alpha channel, otherwise, **0**.
-
-## int isIconsAlphaEnabled ( )
-
-Returns a value indicating if the alpha channel of the icons is enabled.
-### Return value
-
-**1** if the alpha channel is enabled, otherwise, **0**.
-## void setIconsResolution ( int resolution )
-
-Sets the resolution of the icons.
-### Arguments
-
-- *int* **resolution** - Desired resolution.
-
-## int getIconsResolution ( )
-
-Returns the current resolution of the icons.
-### Return value
-
-Icon resolution.
 ## void setItemIcon ( int item , Texture texture )
 
 Sets the icon for a given list item.

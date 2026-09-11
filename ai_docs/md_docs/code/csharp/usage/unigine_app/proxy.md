@@ -1,7 +1,7 @@
 # Integrating with Frameworks
 
 
-To integrate UNIGINE Engine with another system (for example Qt, SDL, WPF, WinForms, etc.), you can use the *[Unigine.CustomSystemProxy](../../../../api/library/engine/class.customsystemproxy_cpp.md)* class. Its concept incorporates the definition of available functions (window creation and management, input management, additional functionality such as dialogs, clipboard, etc.) along with all necessary overrides.
+To integrate UNIGINE Engine with another system (for example *Qt, SDL, WPF, WinForms*, etc.), you can use the *[Unigine.CustomSystemProxy](../../../../api/library/engine/class.customsystemproxy_cpp.md)* class. Its concept incorporates the definition of available functions (window creation and management, input management, additional functionality such as dialogs, clipboard, etc.) along with all necessary overrides.
 
 
 The functionality of some engine subsystems is defined depending on the set of functions made available by the user. This class forms the basis for the operation of *[WindowManager](../../../../api/library/gui/class.windowmanager_cpp.md), [Input](../../../../api/library/controls/class.input_cpp.md), [GUI](../../../../api/library/gui/class.gui_cpp.md), [Displays](../../../../api/library/gui/class.displays_cpp.md)*, etc.
@@ -24,6 +24,7 @@ The *CustomSystemProxy*-based workflow allows the following:
 
 
 To correctly use the *CustomSystemProxy* class, you should do the following:
+
 
 1. Create a custom class and inherit it from the *[Unigine.CustomSystemProxy](../../../../api/library/engine/class.customsystemproxy_cpp.md)* class.
 2. Define the supported features via the proxy constructor (*SYSTEM_PROXY_FEATURES.**).
@@ -265,7 +266,7 @@ UNIGINE allows **registering** and then using any external window for rendering 
 
 
 - *[needRenderExternalWindow()](../../../../api/library/engine/class.customsystemproxy_cpp.md#needRenderExternalWindow_WIN_HANDLE_bool)* checks rendering of the external window. If the window is minimized, occluded by other windows and so on, you can pass this information to the engine (for example, to stop rendering).
-- *[onExternalWindowRender()](../../../../api/library/engine/class.customsystemproxy_cpp.md#onExternalWindowRender_WIN_HANDLE_void)* — a callback function, which is called on rendering of the external window. It receives the window handle, and you can render to the window at this point.
+- *[onExternalWindowRender()](../../../../api/library/engine/class.customsystemproxy_cpp.md#onExternalWindowRender_WIN_HANDLE_void)* � a callback function, which is called on rendering of the external window. It receives the window handle, and you can render to the window at this point.
 
 
 > **Notice:** As these methods are virtual, you will need to override them.

@@ -95,7 +95,7 @@ Sets a new value indicating if the boot screen is enabled.
 Returns the current value indicating if the boot screen is enabled.
 ### Return value
 
-**true** if the boot screen is enabled; otherwise **false**.
+**true** if the boot screen is enabled ; otherwise **false**.
 ## void setScreenMessageShadersCompilation ( const char * compilation )
 
 Sets a new message displayed on shaders compilation. The message is set the same way as the [screen text](#setScreenText_cstr_void).
@@ -194,9 +194,9 @@ Sets a new text of the boot screen.
 
 - *const char ** **text** - The text of the boot screen. Can be either a plain or [rich text](../../../code/gui/ui/index.md#rich_text). A number of aliases is provided:
 
-  - UNIGINE_COPYRIGHT — the UNIGINE copyright text.
-  - UNIGINE_VERSION — the current UNIGINE version.
-  - LOADING_PROGRESS — the loading progress going from 0 to 100.
+  - UNIGINE_COPYRIGHT � the UNIGINE copyright text.
+  - UNIGINE_VERSION � the current UNIGINE version.
+  - LOADING_PROGRESS � the loading progress going from 0 to 100.
 
 ## const char * getScreenText () const
 
@@ -204,9 +204,9 @@ Returns the current text of the boot screen.
 ### Return value
 
 Current text of the boot screen. Can be either a plain or [rich text](../../../code/gui/ui/index.md#rich_text). A number of aliases is provided:
-- UNIGINE_COPYRIGHT — the UNIGINE copyright text.
-- UNIGINE_VERSION — the current UNIGINE version.
-- LOADING_PROGRESS — the loading progress going from 0 to 100.
+- UNIGINE_COPYRIGHT � the UNIGINE copyright text.
+- UNIGINE_VERSION � the current UNIGINE version.
+- LOADING_PROGRESS � the loading progress going from 0 to 100.
 
 
 ## void setScreenFont ( const char * font )
@@ -499,7 +499,7 @@ Sets a new value indicating if the startup configuration settings are automatica
 Returns the current value indicating if the startup configuration settings are automatically saved to the corresponding config file on loading, closing, and saving the world, as well as on the Engine shutdown.
 ### Return value
 
-**true** if automatic saving of current startup configuration settings is enabled; otherwise **false**.
+**true** if automatic saving of current startup configuration settings is enabled ; otherwise **false**.
 ## void setPath ( const char * path )
 
 Sets a new path to the startup configuration file (default: `configs/default.boot`). The path can be specified as an absolute path or relative to the *[-data_path](../../../code/command_line.md#data_path)* or *<project_name>* folder if the *[-project_name](../../../code/command_line.md#project_name)* is set. To run the application with another boot configuration file, specify the path to it using the [`-boot_config`](../../../code/command_line.md#boot_config) command-line option.
@@ -551,7 +551,7 @@ Current path to the custom icon for the final application's window.
 ***Console*:**`video_quadro_sync`Returns the current value indicating whether NVIDIA Quadro Sync feature is enabled, providing support for synchronization of frame rendering across multiple displays. Enabling this option automatically sets the view to fullscreen, enables [VSYNC](../../../api/library/rendering/class.render_cpp.md#VSync) and sets the [MaxFPS](../../../api/library/rendering/class.render_cpp.md#MaxFPS) value to 0.
 ### Return value
 
-**true** if NVIDIA Quadro Sync feature is enabled; otherwise **false**. The default value is **false**.
+**true** if NVIDIA Quadro Sync feature is enabled ; otherwise **false**. The default value is **false**.
 ## void setVideoOffscreen ( bool offscreen )
 
 ***Console*:**`video_offscreen`Sets a new value indicating if the offscreen mode is enabled for the application. Offscreen mode makes it possible to run UNIGINE Engine in a cloud and use powerful servers (e.g., to generate photorealistic datasets for deep learning and verification of AI algorithms).
@@ -570,7 +570,7 @@ Current path to the custom icon for the final application's window.
 
 ### Return value
 
-**true** if usage of the offscreen mode for the application is enabled; otherwise **false**. The default value is **false**.
+**true** if usage of the offscreen mode for the application is enabled ; otherwise **false**. The default value is **false**.
 ## void setVideoAdapter ( int adapter )
 
 ***Console*:**`video_adapter`Sets a new hardware video adapter [ID](../../../api/library/engine/class.systeminfo_cpp.md#getGPUID_int_int) to be used for rendering.
@@ -603,7 +603,7 @@ Range of values: **[0, 32]**. The default value is : **0**.
 ***Console*:**`video_debug_shaders`Returns the current the value indicating if the debug shader shall be used for the application regardless of its binary type (debug or release). This option should be enabled in case you use graphics debugging tools (e.g., the [RenderDoc](https://renderdoc.org/) debugger).
 ### Return value
 
-**true** if debug shader for the application is enabled; otherwise **false**.
+**true** if debug shader for the application is enabled ; otherwise **false**.
 ## void setVideoDebug ( int debug )
 
 ***Console*:**`video_debug`Sets a new video debug mode for graphical API.
@@ -633,6 +633,18 @@ Current video debug mode for graphical API. One of the following values:
 - **2** - debug rendering context with break on error (only on debug binaries)
 - **3** - GPU side validation (dx12-only, only on debug binaries)
 
+## int getNumFallbackFonts () const
+
+Returns the current number of per-font fallback entries in the boot configuration (fonts for which an individual list of fallback fonts is defined). Fallback fonts are used by the GUI when the primary font lacks a glyph.
+### Return value
+
+Current number of per-font fallback entries
+## int getNumGlobalFontFallbacks () const
+
+Returns the current number of global fallback fonts in the boot configuration. Global fallbacks apply to every font and are checked after the font's own fallback list.
+### Return value
+
+Current number of global fallback fonts
 ---
 
 ## bool load ( )
@@ -715,3 +727,101 @@ Sets a new name of the plugin with the given number specified in the `.boot` con
 
 - *int* **num** - Number of the plugin to be set in the list of the specified plugins, in the range from 0 to the [total number of plugins specified](#getNumExternPlugins_int).
 - *const char ** **value** - Name of the plugin with the given number specified in the `.boot` configuration file. Plugin library name goes without any prefixes and postfixes (e.g., `libNetwork_x64d.so` is listed as "**Network**").
+
+## int addFallbackFont ( const char * font )
+
+Appends a new per-font fallback entry for the specified font, with an initially empty fallback list (populate it via **[addFontFallback()](../../...md#addFontFallback_int_cstr_void)**).
+### Arguments
+
+- *const char ** **font** - Path to the font file the new entry is created for.
+
+### Return value
+
+Index of the new entry.
+## void addFontFallback ( int font , const char * fallback_font )
+
+Appends a fallback font to the list of the per-font entry with the specified index.
+### Arguments
+
+- *int* **font** - Index of the per-font fallback entry.
+- *const char ** **fallback_font** - Path to the fallback font file to append.
+
+## void addGlobalFontFallback ( const char * fallback_font )
+
+Appends a font to the global fallback list applied to every font.
+### Arguments
+
+- *const char ** **fallback_font** - Path to the fallback font file to append.
+
+## const char * getFallbackFontName ( int num )
+
+Returns the font path of the per-font fallback entry with the specified index.
+### Arguments
+
+- *int* **num** - Index of the per-font fallback entry, in the [0; **[getNumFallbackFonts()](../../...md#getNumFallbackFonts_int)**) range.
+
+### Return value
+
+Path to the font file the entry is defined for.
+## const char * getFontFallback ( int font , int fallback )
+
+Returns the path of the fallback font with the specified index in the given per-font entry.
+### Arguments
+
+- *int* **font** - Index of the per-font fallback entry.
+- *int* **fallback** - Index of the fallback font within the entry.
+
+### Return value
+
+Path to the fallback font file.
+## const char * getGlobalFontFallback ( int num )
+
+Returns the path of the global fallback font with the specified index.
+### Arguments
+
+- *int* **num** - Index of the global fallback font, in the [0; **[getNumGlobalFontFallbacks()](../../...md#getNumGlobalFontFallbacks_int)**) range.
+
+### Return value
+
+Path to the global fallback font file.
+## int getNumFontFallbacks ( int font )
+
+Returns the number of fallback fonts registered for the per-font entry with the specified index.
+### Arguments
+
+- *int* **font** - Index of the per-font fallback entry.
+
+### Return value
+
+Number of fallback fonts in the entry.
+## void removeFontFallback ( int font , int fallback )
+
+Removes the fallback font with the specified index from the given per-font entry.
+### Arguments
+
+- *int* **font** - Index of the per-font fallback entry.
+- *int* **fallback** - Index of the fallback font within the entry.
+
+## void removeGlobalFontFallback ( int num )
+
+Removes the global fallback font with the specified index.
+### Arguments
+
+- *int* **num** - Index of the global fallback font.
+
+## void setFontFallback ( int font , int fallback , const char * fallback_font )
+
+Replaces the fallback font with the specified index in the given per-font entry.
+### Arguments
+
+- *int* **font** - Index of the per-font fallback entry.
+- *int* **fallback** - Index of the fallback font within the entry.
+- *const char ** **fallback_font** - Path to the new fallback font file.
+
+## void setGlobalFontFallback ( int num , const char * fallback_font )
+
+Replaces the global fallback font with the specified index.
+### Arguments
+
+- *int* **num** - Index of the global fallback font.
+- *const char ** **fallback_font** - Path to the new fallback font file.

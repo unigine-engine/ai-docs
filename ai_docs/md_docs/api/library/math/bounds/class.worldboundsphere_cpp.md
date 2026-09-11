@@ -237,7 +237,10 @@ Expands the current bounding sphere for including given bounding box.
 
 ## void expandRadius ( const Math:: Vec3 & point )
 
-Expands the radius of the bounding sphere.Expands the radius of the bounding sphere.
+Expands the radius of the bounding sphere.
+Expands the radius of the bounding sphere.
+
+
 ```cpp
 float r = length(center - point);
 if (center.w < r)
@@ -260,7 +263,10 @@ Expands the radius of the current bounding sphere for including all points in th
 
 ## void expandRadius ( const WorldBoundSphere & bs )
 
+
 Expands the radius of the bounding sphere by using the radius of the given bounding sphere.
+
+
 ```cpp
 double r = length(bs.center - center) + bs.radius;
 if (radius < r)
@@ -334,7 +340,10 @@ Checks if the bounding box is inside the bounding sphere.
 **1** if the bounding box is inside the bounding sphere; otherwise, **0**.
 ## int insideValid ( const Math:: Vec3 & point ) const
 
+
 Checks if the given point is inside the current bounding sphere.
+
+
 > **Notice:** The method doesn't check if the bounding sphere is valid (has a positive radius).
 
 
@@ -347,7 +356,10 @@ Checks if the given point is inside the current bounding sphere.
 **1** if the given point is inside the bounding sphere; otherwise, **0**.
 ## int insideValid ( const Math:: Vec3 & point , Math::Scalar radius ) const
 
+
 Checks if the given sphere is inside the current bounding sphere.
+
+
 > **Notice:** The method doesn't check if the bounding sphere is valid (has a positive radius).
 
 
@@ -361,7 +373,10 @@ Checks if the given sphere is inside the current bounding sphere.
 **1** if the sphere is inside the bounding sphere; otherwise, **0**.
 ## int insideValid ( const Math:: Vec3 & min , const Math:: Vec3 & max ) const
 
+
 Checks if the box is inside the bounding sphere.
+
+
 > **Notice:** The method doesn't check if the bounding sphere is valid (has a positive radius).
 
 
@@ -375,7 +390,10 @@ Checks if the box is inside the bounding sphere.
 **1** if the box is inside the bounding sphere; otherwise, **0**.
 ## int insideValid ( const WorldBoundSphere & bs ) const
 
+
 Checks if the bounding sphere is inside the bounding sphere.
+
+
 > **Notice:** The method doesn't check if the bounding sphere is valid (has a positive radius).
 
 
@@ -388,7 +406,10 @@ Checks if the bounding sphere is inside the bounding sphere.
 **1** if the bounding sphere is inside the bounding sphere; otherwise, **0**.
 ## int insideValid ( const WorldBoundBox & bb ) const
 
+
 Checks if the bounding box is inside the bounding sphere.
+
+
 > **Notice:** The method doesn't check if the bounding sphere is valid (has a positive radius).
 
 
@@ -421,7 +442,10 @@ Checks if the whole bounding box is inside the bounding sphere.
 **1** if the whole box is inside the bounding sphere; otherwise, **0**.
 ## int insideAllValid ( const WorldBoundSphere & bs ) const
 
+
 Checks if the whole given bounding sphere is inside the current bounding sphere.
+
+
 > **Notice:** The method doesn't check if the bounding sphere is valid (has a positive radius).
 
 
@@ -434,7 +458,10 @@ Checks if the whole given bounding sphere is inside the current bounding sphere.
 **1** if the whole bounding sphere is inside the bounding sphere; otherwise, **0**.
 ## int insideAllValid ( const WorldBoundBox & bb ) const
 
+
 Checks if the whole given bounding box is inside the current bounding sphere.
+
+
 > **Notice:** The method doesn't check if the bounding sphere is valid (has a positive radius).
 
 
@@ -469,7 +496,10 @@ Checks for an intersection of a line with the current bounding sphere.
 **true** if an intersection has occurred; otherwise, **false**.
 ## bool rayIntersectionValid ( const Math:: Vec3 & point , const Math:: Vec3 & direction ) const
 
+
 Checks for an intersection of a ray with the current bounding sphere.
+
+
 > **Notice:** This method doesn't check if the current bounding sphere is valid (has a positive radius).
 
 
@@ -483,7 +513,10 @@ Checks for an intersection of a ray with the current bounding sphere.
 **true** if an intersection has occurred; otherwise, **false**.
 ## bool getIntersectionValid ( const Math:: Vec3 & p0 , const Math:: Vec3 & p1 ) const
 
+
 Checks for an intersection of a line with the current bounding sphere.
+
+
 > **Notice:** This method doesn't check if the current bounding sphere is valid (has a positive radius).
 
 

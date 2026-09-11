@@ -69,6 +69,272 @@ Fracture body is, per se, a [rigid body](#getBodyRigid_BodyRigid) and moves acco
 
 ### Members
 
+## void setBroken ( int broken )
+
+Sets a new value indicating if the object is broken or remains its solid state.
+### Arguments
+
+- *int* **broken** - The true if the object is broken; false if it remains solid
+
+## int isBroken () const
+
+Returns the current value indicating if the object is broken or remains its solid state.
+### Return value
+
+Current true if the object is broken; false if it remains solid
+## void setCollisionMask ( int mask )
+
+Sets a new collision bit mask for the body. two objects collide, if they both have matching masks. see also details on additional [collision exclusion mask](#getExclusionMask_int).
+### Arguments
+
+- *int* **mask** - The collision bit mask for the body
+
+## int getCollisionMask () const
+
+Returns the current collision bit mask for the body. two objects collide, if they both have matching masks. see also details on additional [collision exclusion mask](#getExclusionMask_int).
+### Return value
+
+Current collision bit mask for the body
+## void setDensity ( float density )
+
+Sets a new density of the body.
+### Arguments
+
+- *float* **density** - The density of the body
+
+## float getDensity () const
+
+Returns the current density of the body.
+### Return value
+
+Current density of the body
+## void setError ( float error )
+
+Sets a new approximation error permissible by creating convex shape for the mesh.
+### Arguments
+
+- *float* **error** - The approximation error permissible when creating a convex shape
+
+## float getError () const
+
+Returns the current approximation error permissible by creating convex shape for the mesh.
+### Return value
+
+Current approximation error permissible when creating a convex shape
+## void setExclusionMask ( int mask )
+
+Sets a new bit mask that prevents collisions of the body with other ones. this mask is independent of the [collision mask](#getCollisionMask_int). For bodies with matching collision masks not to collide, at least one bit of their exclusion mask should match.
+### Arguments
+
+- *int* **mask** - The collision exclusion bit mask for the body
+
+## int getExclusionMask () const
+
+Returns the current bit mask that prevents collisions of the body with other ones. this mask is independent of the [collision mask](#getCollisionMask_int). For bodies with matching collision masks not to collide, at least one bit of their exclusion mask should match.
+### Return value
+
+Current collision exclusion bit mask for the body
+## void setFriction ( float friction )
+
+Sets a new friction of the body against other surfaces.
+### Arguments
+
+- *float* **friction** - The friction of the body against other surfaces
+
+## float getFriction () const
+
+Returns the current friction of the body against other surfaces.
+### Return value
+
+Current friction of the body against other surfaces
+## void setThreshold ( float threshold )
+
+Sets a new minimum volume threshold for breaking. if the piece volume is less than the threshold value, it cannot be fractured further.
+### Arguments
+
+- *float* **threshold** - The minimum volume threshold for breaking
+
+## float getThreshold () const
+
+Returns the current minimum volume threshold for breaking. if the piece volume is less than the threshold value, it cannot be fractured further.
+### Return value
+
+Current minimum volume threshold for breaking
+## void setRestitution ( float restitution )
+
+Sets a new restitution that determines body bouncing off the surfaces.
+### Arguments
+
+- *float* **restitution** - The restitution that determines body bouncing off surfaces
+
+## float getRestitution () const
+
+Returns the current restitution that determines body bouncing off the surfaces.
+### Return value
+
+Current restitution that determines body bouncing off surfaces
+## void setPhysicsIntersectionMask ( int mask )
+
+Sets a new [physics intersection mask](../../../principles/bit_masking/index.md#physics_intersection_mask) for the body.
+### Arguments
+
+- *int* **mask** - The physics intersection mask for the body
+
+## int getPhysicsIntersectionMask () const
+
+Returns the current [physics intersection mask](../../../principles/bit_masking/index.md#physics_intersection_mask) for the body.
+### Return value
+
+Current physics intersection mask for the body
+## void setMaxAngularVelocity ( float velocity )
+
+Sets a new maximum possible angular velocity for the body. if the value is lower than the [engine.physics.setMaxAngularVelocity](../../../api/library/physics/class.physics_usc.md#setMaxAngularVelocity_float_void) one, it is overridden.
+### Arguments
+
+- *float* **velocity** - The maximum possible angular velocity for the body
+
+## float getMaxAngularVelocity () const
+
+Returns the current maximum possible angular velocity for the body. if the value is lower than the [engine.physics.setMaxAngularVelocity](../../../api/library/physics/class.physics_usc.md#setMaxAngularVelocity_float_void) one, it is overridden.
+### Return value
+
+Current maximum possible angular velocity for the body
+## void setMaxLinearVelocity ( float velocity )
+
+Sets a new maximum possible linear velocity for the body. if the value is lower than the [engine.physics.setMaxLinearVelocity](../../../api/library/physics/class.physics_usc.md#setMaxLinearVelocity_float_void) one, it is overridden.
+### Arguments
+
+- *float* **velocity** - The maximum possible linear velocity for the body
+
+## float getMaxLinearVelocity () const
+
+Returns the current maximum possible linear velocity for the body. if the value is lower than the [engine.physics.setMaxLinearVelocity](../../../api/library/physics/class.physics_usc.md#setMaxLinearVelocity_float_void) one, it is overridden.
+### Return value
+
+Current maximum possible linear velocity for the body
+## void setFrozenAngularVelocity ( float velocity )
+
+Sets a new angular velocity threshold for freezing body simulation. if body angular velocity remains lower than this threshold during the number of [Frozen frames](../../../api/library/physics/class.physics_usc.md#setNumFrozenFrames_int_void) (together with linear one), it stops to be updated.
+### Arguments
+
+- *float* **velocity** - The angular velocity threshold for freezing body simulation
+
+## float getFrozenAngularVelocity () const
+
+Returns the current angular velocity threshold for freezing body simulation. if body angular velocity remains lower than this threshold during the number of [Frozen frames](../../../api/library/physics/class.physics_usc.md#setNumFrozenFrames_int_void) (together with linear one), it stops to be updated.
+### Return value
+
+Current angular velocity threshold for freezing body simulation
+## void setFrozenLinearVelocity ( float velocity )
+
+Sets a new linear velocity threshold for freezing body simulation. if body linear velocity remains lower than this threshold during the number of [Frozen frames](../../../api/library/physics/class.physics_usc.md#setNumFrozenFrames_int_void) (together with angular one), it stops to be updated.
+### Arguments
+
+- *float* **velocity** - The linear velocity threshold for freezing body simulation
+
+## float getFrozenLinearVelocity () const
+
+Returns the current linear velocity threshold for freezing body simulation. if body linear velocity remains lower than this threshold during the number of [Frozen frames](../../../api/library/physics/class.physics_usc.md#setNumFrozenFrames_int_void) (together with angular one), it stops to be updated.
+### Return value
+
+Current linear velocity threshold for freezing body simulation
+## void setMass ( float mass )
+
+Sets a new mass of the body.
+### Arguments
+
+- *float* **mass** - The mass of the body
+
+## float getMass () const
+
+Returns the current mass of the body.
+### Return value
+
+Current mass of the body
+## BodyRigid getBodyRigid () const
+
+Returns the current internal [body rigid](../../../api/library/physics/class.bodyrigid_usc.md) body that represents fracture body until it is broken.
+### Return value
+
+Current internal rigid body representing the fracture body
+## void setLinearDamping ( float damping )
+
+Sets a new damping of the body linear velocity.
+### Arguments
+
+- *float* **damping** - The damping of the body linear velocity
+
+## float getLinearDamping () const
+
+Returns the current damping of the body linear velocity.
+### Return value
+
+Current damping of the body linear velocity
+## void setAngularDamping ( float damping )
+
+Sets a new damping of the body angular velocity.
+### Arguments
+
+- *float* **damping** - The damping of the body angular velocity
+
+## float getAngularDamping () const
+
+Returns the current damping of the body angular velocity.
+### Return value
+
+Current damping of the body angular velocity
+## void setMaterial ( Material material )
+
+Sets a new material for fractured verge surfaces appearing after breaking the body.
+### Arguments
+
+- *[Material](../../../api/library/rendering/class.material_usc.md)* **material** - The material for fractured verge surfaces
+
+## Material getMaterial () const
+
+Returns the current material for fractured verge surfaces appearing after breaking the body.
+### Return value
+
+Current material for fractured verge surfaces
+## void setSurfaceProperty ( string property )
+
+Sets a new property for cracked verge surfaces appearing after breaking the body.
+### Arguments
+
+- *string* **property** - The property for cracked verge surfaces
+
+## const char * getSurfaceProperty () const
+
+Returns the current property for cracked verge surfaces appearing after breaking the body.
+### Return value
+
+Current property for cracked verge surfaces
+## void setMaterialGUID ( UGUID guid )
+
+Sets a new [GUID](../../../api/library/filesystem/class.uguid_usc.md) of the material used for fractured verge surfaces.
+### Arguments
+
+- *[UGUID](../../../api/library/filesystem/class.uguid_usc.md)* **guid** - The Material [GUID](../../../api/library/filesystem/class.uguid_usc.md).
+
+## UGUID getMaterialGUID () const
+
+Returns the current [GUID](../../../api/library/filesystem/class.uguid_usc.md) of the material used for fractured verge surfaces.
+### Return value
+
+Current Material [GUID](../../../api/library/filesystem/class.uguid_usc.md).
+## void setMaterialFilePath ( )
+
+Sets a new path of the material file used for fractured verge surfaces.
+### Arguments
+
+- **path** - The Material file path.
+
+## String getMaterialFilePath () const
+
+Returns the current path of the material file used for fractured verge surfaces.
+### Return value
+
+Current Material file path.
 ---
 
 ## static BodyFracture ( )
@@ -81,246 +347,6 @@ Constructor. Creates a fracture body with default properties for a given object.
 
 - *[Object](../../../api/library/objects/class.object_usc.md)* **object** - Object represented with the new fracture body.
 
-## void setAngularDamping ( float damping )
-
-Sets the damping of the body angular velocity.
-### Arguments
-
-- *float* **damping** - Angular damping value.
-
-## float getAngularDamping ( )
-
-Returns the current damping of the body angular velocity.
-### Return value
-
-Angular damping value.
-## BodyRigid getBodyRigid ( )
-
-Returns an internal [body rigid](../../../api/library/physics/class.bodyrigid_usc.md) body that represents fracture body until it is broken.
-### Return value
-
-Internal body rigid.
-## void setBroken ( int broken )
-
-Sets a value indicating if the object is broken or remains its solid state.
-### Arguments
-
-- *int* **broken** - **1** to indicate the object as [broken](../../../principles/physics/bodies/fracture/index.md#broken); **0** for it to remain solid.
-
-## int isBroken ( )
-
-Returns a value indicating if the object is broken or remains its solid state.
-### Return value
-
-**1** if the object is already [broken](../../../principles/physics/bodies/fracture/index.md#broken); **0** if it is still solid.
-## void setCollisionMask ( int mask )
-
-Sets a collision bit mask for the body. Two objects collide, if they both have matching masks. See also details on additional [collision exclusion mask](#setExclusionMask_int_void).
-### Arguments
-
-- *int* **mask** - Integer, each bit of which is a mask.
-
-## int getCollisionMask ( )
-
-Returns the collision bit mask for the body. Two objects collide, if they both have matching masks. See also details on additional [collision exclusion mask](#getExclusionMask_int).
-### Return value
-
-Integer, each bit of which is a mask.
-## void setDensity ( float density )
-
-Sets density of a body. Changing the density influences the mass, that is computed by multiplying body volume by density.
-### Arguments
-
-- *float* **density** - Density of the body.
-
-## float getDensity ( )
-
-Returns the current density of the body.
-### Return value
-
-Density of the body.
-## void setError ( float error )
-
-Sets approximation error permissible by creating convex shape for the mesh.
-### Arguments
-
-- *float* **error** - Approximation error. If a negative value is provided, **0** will be used instead.
-
-## float getError ( )
-
-Returns the current approximation error permissible by creating convex shape for the mesh.
-### Return value
-
-Approximation error.
-## void setExclusionMask ( int mask )
-
-Sets a bit mask to prevent collisions of the body with other ones. This mask is independent of the [collision mask](#setCollisionMask_int_void). For bodies with matching collision masks not to collide, at least one bit of their exclusion mask should match. **0** is to collide with all bodies with a matching collision mask.
-### Arguments
-
-- *int* **mask** - Integer, each bit of which is a mask.
-
-## int getExclusionMask ( )
-
-Returns the bit mask that prevents collisions of the body with other ones. This mask is independent of the [collision mask](#getCollisionMask_int). For bodies with matching collision masks not to collide, at least one bit of their exclusion mask should match.
-### Return value
-
-Integer, each bit of which is a mask.
-## void setFriction ( float friction )
-
-Sets friction of the body against other surfaces.
-### Arguments
-
-- *float* **friction** - Friction value.
-
-## float getFriction ( )
-
-Returns the current friction of the body against other surfaces.
-### Return value
-
-Friction value.
-## void setFrozenAngularVelocity ( float velocity )
-
-Sets angular velocity threshold for freezing body simulation. If body angular velocity remains lower than this threshold during the number of [Frozen frames](../../../api/library/physics/class.physics_usc.md#setNumFrozenFrames_int_void) (together with linear one), it stops to be updated.
-### Arguments
-
-- *float* **velocity** - "Freeze" angular velocity. If the value is lower than the [engine.physics.setFrozenAngularVelocity](../../../api/library/physics/class.physics_usc.md#setFrozenAngularVelocity_float_void) one, it is overridden.
-
-## float getFrozenAngularVelocity ( )
-
-Returns the current angular velocity threshold for freezing body simulation. If body angular velocity remains lower than this threshold during the number of [Frozen frames](../../../api/library/physics/class.physics_usc.md#setNumFrozenFrames_int_void) (together with linear one), it stops to be updated.
-### Return value
-
-"Freeze" angular velocity.
-## void setFrozenLinearVelocity ( float velocity )
-
-Sets linear velocity threshold for freezing body simulation. If body linear velocity remains lower than this threshold during the number of [Frozen frames](../../../api/library/physics/class.physics_usc.md#setNumFrozenFrames_int_void) (together with angular one), it stops to be updated.
-### Arguments
-
-- *float* **velocity** - "Freeze" linear velocity. If the value is lower than the [engine.physics.setFrozenLinearVelocity](../../../api/library/physics/class.physics_usc.md#setFrozenLinearVelocity_float_void) one, it is overridden.
-
-## float getFrozenLinearVelocity ( )
-
-Returns the current linear velocity threshold for freezing body simulation. If body linear velocity remains lower than this threshold during the number of [Frozen frames](../../../api/library/physics/class.physics_usc.md#setNumFrozenFrames_int_void) (together with angular one), it stops to be updated.
-### Return value
-
-"Freeze" linear velocity.
-## void setPhysicsIntersectionMask ( int mask )
-
-Sets a [physics intersection mask](../../../principles/bit_masking/index.md#physics_intersection_mask) for the body.
-### Arguments
-
-- *int* **mask** - Integer, each bit of which is a mask.
-
-## int getPhysicsIntersectionMask ( )
-
-Returns the current [physics intersection mask](../../../principles/bit_masking/index.md#physics_intersection_mask) for the body.
-### Return value
-
-Integer, each bit of which is a mask.
-## void setLinearDamping ( float damping )
-
-Sets the damping of the body linear velocity.
-### Arguments
-
-- *float* **damping** - Linear damping value.
-
-## float getLinearDamping ( )
-
-Returns the current damping of the body linear velocity.
-### Return value
-
-Linear damping value.
-## void setMass ( float mass )
-
-Sets a mass of the body. Changing the mass influences the density, that is computed by dividing the mass by body volume.
-### Arguments
-
-- *float* **mass** - Mass of the body.
-
-## float getMass ( )
-
-Returns the current mass of the body.
-### Return value
-
-Mass of the body.
-## void setMaterial ( Material material )
-
-Sets the material for fractured verge surfaces appearing after breaking the body.
-### Arguments
-
-- *[Material](../../../api/library/rendering/class.material_usc.md)* **material** - Material instance.
-
-## Material getMaterial ( )
-
-Returns the material for fractured verge surfaces appearing after breaking the body.
-### Return value
-
-Material instance for the fractured verges.
-## void setMaxAngularVelocity ( float velocity )
-
-Sets the maximum possible linear velocity for the body. If the value is lower than the [engine.physics.setMaxAngularVelocity](../../../api/library/physics/class.physics_usc.md#setMaxAngularVelocity_float_void) one, it is overridden.
-### Arguments
-
-- *float* **velocity** - Maximum possible angular velocity.
-
-## float getMaxAngularVelocity ( )
-
-Returns the current maximum possible angular velocity for the body. If the value is lower than the [engine.physics.setMaxAngularVelocity](../../../api/library/physics/class.physics_usc.md#setMaxAngularVelocity_float_void) one, it is overridden.
-### Return value
-
-Maximum possible angular velocity.
-## void setMaxLinearVelocity ( float velocity )
-
-Sets the maximum possible linear velocity for the body. If the value is lower than the [engine.physics.setMaxLinearVelocity](../../../api/library/physics/class.physics_usc.md#setMaxLinearVelocity_float_void) one, it is overridden.
-### Arguments
-
-- *float* **velocity** - Maximum possible linear velocity.
-
-## float getMaxLinearVelocity ( )
-
-Returns the current maximum possible linear velocity for the body. If the value is lower than the [engine.physics.setMaxLinearVelocity](../../../api/library/physics/class.physics_usc.md#setMaxLinearVelocity_float_void) one, it is overridden.
-### Return value
-
-Maximum possible linear velocity.
-## void setSurfaceProperty ( string property )
-
-Sets the property for cracked verge surfaces appearing after breaking the body.
-### Arguments
-
-- *string* **property** - Property name for the fractured verges.
-
-## string getSurfaceProperty ( )
-
-Returns the property for fractured verge surfaces appearing after breaking the body.
-### Return value
-
-Property name for the fractured verges.
-## void setRestitution ( float restitution )
-
-Sets the restitution that determines body bouncing off the surfaces.
-### Arguments
-
-- *float* **restitution** - Restitution value.
-
-## float getRestitution ( )
-
-Returns the current restitution that determines body bouncing off the surfaces.
-### Return value
-
-Restitution value.
-## void setThreshold ( float threshold )
-
-Sets the minimum volume threshold for breaking. If the piece volume is less than the threshold value, it cannot be fractured further.
-### Arguments
-
-- *float* **threshold** - Volume threshold. If a negative value is provided, **0** will be used instead.
-
-## float getThreshold ( )
-
-Returns the current minimum volume threshold for breaking. If the piece volume is less than the threshold value, it cannot be fractured further.
-### Return value
-
-Volume threshold.
 ## vec3 getVelocity ( vec3 radius )
 
 Returns the total linear velocity in the point determined by a given radius vector, specified in the local coordinates.
@@ -504,29 +530,3 @@ Breaks the object into two slices, slitting the body according to the normal of 
 ### Return value
 
 Positive number if the object was successfully broken; otherwise, **0**.
-## void setMaterialFilePath ( string path )
-
-Sets the material to be used for fractured verge surfaces by file path.
-### Arguments
-
-- *string* **path** - Material file path.
-
-## string getMaterialFilePath ( )
-
-Returns the path of the material file used for fractured verge surfaces.
-### Return value
-
-Material path.
-## void setMaterialGUID ( UGUID materialguid )
-
-Sets the material for fractured verge surfaces by [GUID](../../../api/library/filesystem/class.uguid_usc.md).
-### Arguments
-
-- *[UGUID](../../../api/library/filesystem/class.uguid_usc.md)* **materialguid** - Material [GUID](../../../api/library/filesystem/class.uguid_usc.md).
-
-## UGUID getMaterialGUID ( )
-
-Returns the [GUID](../../../api/library/filesystem/class.uguid_usc.md) of the material for fractured verge surfaces.
-### Return value
-
-Material [GUID](../../../api/library/filesystem/class.uguid_usc.md).

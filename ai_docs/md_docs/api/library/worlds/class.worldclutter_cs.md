@@ -3,10 +3,11 @@
 **Inherits from:** Node
 
 
-[WorldClutter](../../../objects/worlds/world_clutter/index.md) class allows to randomly position [reference nodes](../../../api/library/nodes/class.nodereference_cs.md) according to the [mask](#setMaskImageName_cstr_int_void) and using the specified [seed](#setSeed_int_void). For each node a [probability of appearing](#setReferenceProbability_int_float_void) is set. All nodes in the world clutter are rendered visible only within a specified [distance](#setVisibleDistance_float_void) and then [fade out](#setFadeDistance_float_void). Just like the [ObjectGrass](../../../api/library/objects/class.objectgrass_cs.md), world clutter is rendered in cells.
+[WorldClutter](../../../objects/worlds/world_clutter/index.md) class allows to randomly position [reference nodes](../../../api/library/nodes/class.nodereference_cs.md) according to the [mask](#setMaskImageName_cstr_int_void) and using the specified [seed](#setSeed_int_void). For each node a [probability of appearing](#setReferenceProbability_int_float_void) is set. All nodes in the *World Clutter* are rendered visible only within a specified [distance](#setVisibleDistance_float_void) and then [fade out](#setFadeDistance_float_void). Just like the [ObjectGrass](../../../api/library/objects/class.objectgrass_cs.md), *World Clutter* is rendered in cells.
 
 
 There are two benefits of using WorldClutter:
+
 
 - Instances of nodes that are currently outside the view frustum are not stored in the memory, which provides much more efficient memory usage.
 - Less cluttered spatial tree, which allows, for example, faster collision detection.
@@ -27,11 +28,16 @@ UnigineScript sample
 
 ## int CutoutInverse
 
-The value indicating if the clutter objects is rendered inside or outside the areas determined by the [cutout intersection mask](#setCutoutIntersectionMask_int_void).
+The value indicating if the clutter objects is rendered inside or outside the areas determined by the [*Cutout Intersection* mask](#setCutoutIntersectionMask_int_void).
 ## int CutoutIntersectionMask
 
-The cutout intersection mask. this mask allows you to cut out clutter objects in the areas of intersection with other objects and decals (e.g. can be used to remove vegetation under houses or from the surface of roads projected using decals). clutter objects will be cut out by objects and decals that have their intersection mask matching this one (one bit at least).
+The *Cutout Intersection* mask. This mask allows you to cut out clutter objects in the areas of intersection with other Objects and Decals (e.g. can be used to remove vegetation under houses or from the surface of roads projected using Decals).
+Clutter objects will be cut out by objects and decals that have their *Intersection* mask matching this one (one bit at least).
+
+
 > **Notice:** To set intersection masks the following methods can be used:
+>
+>
 > - **for decals** use *[getIntersectionMask()](../../../api/library/decals/class.decal_cs.md#getIntersectionMask_int)*
 > - **for objects** use *[getIntersectionMask()](../../../api/library/objects/class.object_cs.md#getIntersectionMask_int_int)*
 
@@ -62,13 +68,13 @@ The density threshold (for a mask) starting from which reference nodes are rende
 The density factor that defines the number of reference nodes per square unit.
 ## float Step
 
-The step for cells used to render node references contained in the world clutter.
+The step for cells used to render node references contained in the *World Clutter*.
 ## float SizeY
 
-The length of the world clutter along the Y-coordinate.
+The length of the *World Clutter* along the Y-coordinate.
 ## float SizeX
 
-The width of the world clutter along the X-coordinate.
+The width of the *World Clutter* along the X-coordinate.
 ## int Seed
 
 The seed used for pseudo-random positioning of reference nodes.
@@ -77,7 +83,10 @@ The seed used for pseudo-random positioning of reference nodes.
 The number of cells updated each frame. High number of updated cells may lead to a performance spike.
 ## float FadeDistance
 
-The distance up to which reference nodes are fading out (that is, fewer nodes will be rendered instead of all). The distance is measured starting from the [visible distance](#setVisibleDistance_float_void).
+The distance up to which reference nodes are fading out (that is, fewer nodes will be rendered instead of all).
+The distance is measured starting from the [visibility distance](#setVisibleDistance_float_void).
+
+
 > **Notice:** In order for a fade distance to be applied, [visibility distance](#getVisibleDistance_float) should not be infinite.
 
 
@@ -92,11 +101,14 @@ The value indicating whether reference nodes are scattered upon the ground (alon
 The value indicating whether reference nodes are oriented along the normals of the ground (either the terrain or a mesh set as a parent node).
 ## 🔒︎ int NumReferences
 
-The total number of reference nodes contained in the world clutter.
+The total number of reference nodes contained in the *World Clutter*.
 ## int IntersectionMask
 
-The intersection mask for the world clutter. This mask can be used to cut out areas intersected by the world clutter from [grass](../../../api/library/objects/class.objectgrass_cs.md#setCutoutIntersectionMask_int_void), [mesh clutter](../../../api/library/objects/class.objectmeshclutter_cs.md#setCutoutIntersectionMask_int_void) and another [world clutter](#setCutoutIntersectionMask_int_void) (e.g. to remove grass or forest from the surface of roads projected using decals).
-> **Notice:** The areas will be cut out only if intersection masks of grass and clutter objects matches this mask (one bit at least).
+The *Intersection* mask for the *World Clutter*.
+This mask can be used to cut out areas intersected by the *World Clutter* from *[Grass](../../../api/library/objects/class.objectgrass_cs.md#setCutoutIntersectionMask_int_void), [Mesh Clutter](../../../api/library/objects/class.objectmeshclutter_cs.md#setCutoutIntersectionMask_int_void)* and another *[World Clutter](#setCutoutIntersectionMask_int_void)* (e.g. to remove grass or forest from the surface of roads projected using decals).
+
+
+> **Notice:** The areas will be cut out only if *Intersection* masks of grass and clutter objects matches this mask (one bit at least).
 
 
 ### Members
@@ -105,16 +117,16 @@ The intersection mask for the world clutter. This mask can be used to cut out ar
 
 ## WorldClutter ( )
 
-Constructor. Creates a world clutter with default properties.
+Constructor. Creates a *World Clutter* with default properties.
 ## void Invalidate ( )
 
-Invalidates all world clutter cells. All invalidated cells will be regenerated.
+Invalidates all cells of the *World Clutter*. All invalidated cells will be regenerated.
 ## void Invalidate ( WorldBoundBox bounds )
 
-Invalidates all world clutter cells within the area specified by the given bounding box. All invalidated cells will be regenerated.
+Invalidates all cells of the *World Clutter* within the area specified by the given bounding box. All invalidated cells will be regenerated.
 ### Arguments
 
-- *[WorldBoundBox](../../../api/library/math/cs/bounds/worldboundbox_cs.md)* **bounds** - Bounding box, defining the area, where world clutter cells will be regenerated.
+- *[WorldBoundBox](../../../api/library/math/cs/bounds/worldboundbox_cs.md)* **bounds** - Bounding box, defining the area, where *World Clutter* cells will be regenerated.
 
 ## int SetMaskImage ( Image image , bool invalidate = 1 )
 
@@ -122,7 +134,7 @@ Sets an image (in *R8* format) that defines the placement of meshes.
 ### Arguments
 
 - *[Image](../../../api/library/common/class.image_cs.md)* **image** - Pointer to the image.
-- *bool* **invalidate** - Invalidate flag. Set **true** to invalidate all world clutter cells; otherwise, set **false**. All invalidated cells will be regenerated.
+- *bool* **invalidate** - Invalidate flag. Set true to invalidate all *World Clutter* cells; otherwise, set false. All invalidated cells will be regenerated.
 
 ### Return value
 
@@ -143,7 +155,7 @@ Sets the name of a new mask image (in *R8* format) that defines the placement of
 ### Arguments
 
 - *string* **image_name** - Name (path) of the mask image.
-- *bool* **invalidate** - Invalidate flag. Set **true** to invalidate all world clutter cells; otherwise, set **false**. All invalidated cells will be regenerated.
+- *bool* **invalidate** - Invalidate flag. Set true to invalidate all cells of the *World Clutter*; otherwise, set false. All invalidated cells will be regenerated.
 
 ## string GetMaskImageName ( )
 
@@ -153,7 +165,10 @@ Returns the name of a mask image (in *R8* format) that defines the placement of 
 Name (path) of the mask image.
 ## int SetMaskMesh ( Mesh mesh , bool invalidate = 1 )
 
+
 Sets a mesh to be used as a mask on-the-fly. Limitations:
+
+
 - Before the method is called, another mesh must be set via [setMaskMeshName()](#setMaskMeshName_cstr_int_void) first.
 - If the world is reloaded, the mesh set via [setMaskMeshName()](#setMaskMeshName_cstr_int_void) will be loaded.
 - If the memory limit is exceeded, the new mesh might be replaced with the mesh set via [setMaskMeshName()](#setMaskMeshName_cstr_int_void).
@@ -162,7 +177,7 @@ Sets a mesh to be used as a mask on-the-fly. Limitations:
 ### Arguments
 
 - *[Mesh](../../../api/library/rendering/class.mesh_cs.md)* **mesh** - Mesh instance.
-- *bool* **invalidate** - Invalidate flag. Set **true** to invalidate all world clutter cells; otherwise, set **false**. All invalidated cells will be regenerated.
+- *bool* **invalidate** - Invalidate flag. Set true to invalidate all cells of the *World Clutter*; otherwise, set false. All invalidated cells will be regenerated.
 
 ### Return value
 
@@ -179,15 +194,15 @@ Copies the current mask mesh (if it exists) to the specified target mesh.
 **1** if mesh mask exists; otherwise - **0**.
 ## void SetMaskMeshName ( string mesh_name , bool invalidate = 1 )
 
-Sets a mesh to be used as a mask for the world clutter. This mesh should be plane.
+Sets a mesh to be used as a mask for the *World Clutter*. This mesh should be plane.
 ### Arguments
 
 - *string* **mesh_name** - Path to the **.mesh* file.
-- *bool* **invalidate** - Invalidate flag. Set **true** to invalidate all world clutter cells; otherwise, set **false**. All invalidated cells will be regenerated.
+- *bool* **invalidate** - Invalidate flag. Set true to invalidate all cells of the *World Clutter*; otherwise, set false. All invalidated cells will be regenerated.
 
 ## string GetMaskMeshName ( )
 
-Returns the name (path) of the current mesh used as a mask for the world clutter. This mesh should be plane.
+Returns the name (path) of the current mesh used as a mask for the *World Clutter*. This mesh should be plane.
 ### Return value
 
 Path to the **.mesh* file.
@@ -273,7 +288,7 @@ Returns the current spread value of the vertical offset that determines the plac
 Spread value of the offset in units.
 ## void SetReferenceName ( int num , string name )
 
-Sets the name of the specified reference node contained in the world clutter.
+Sets the name of the specified reference node contained in the *World Clutter*.
 ### Arguments
 
 - *int* **num** - The number of the reference node.
@@ -281,10 +296,10 @@ Sets the name of the specified reference node contained in the world clutter.
 
 ## string GetReferenceName ( int num )
 
-Returns the name of the reference node contained in the world clutter.
+Returns the name of the reference node contained in the *World Clutter*.
 ### Arguments
 
-- *int* **num** - The number of the reference node among contained in the world clutter.
+- *int* **num** - The number of the reference node among contained in the *World Clutter*.
 
 ### Return value
 
@@ -295,7 +310,7 @@ Sets the probability of the occurrence of the specified node reference.
 ### Arguments
 
 - *int* **num** - The number of the reference node.
-- *float* **probability** - Probability factor. The provided value is saturated in range **[0;1]**.
+- *float* **probability** - Probability factor. The provided value is saturated in range [0.0f, 1.0f].
 
 ## float GetReferenceProbability ( int num )
 
@@ -309,7 +324,7 @@ Returns the probability of the occurrence of the specified node reference.
 Probability factor.
 ## int AddReference ( string name )
 
-Adds a new reference node to the world clutter.
+Adds a new reference node to the *World Clutter*.
 ### Arguments
 
 - *string* **name** - Name of the reference node.
@@ -319,7 +334,7 @@ Adds a new reference node to the world clutter.
 The number of added reference node.
 ## void RemoveReference ( int num )
 
-Removes the specified reference node from the world clutter.
+Removes the specified reference node from the *World Clutter*.
 ### Arguments
 
 - *int* **num** - The number of the reference node.
@@ -332,11 +347,13 @@ Returns the type of the node.
 [World](../../../api/library/engine/class.world_cs.md) type identifier.
 ## void ClearReferences ( )
 
-Deletes all reference nodes from the world clutter.
+Deletes all reference nodes from the *World Clutter*.
 ## bool SaveStateReferences ( Stream stream )
 
-Saves the state of all reference nodes from the world clutter to the specified stream.
-**Example** using saveStateReferences() and [restoreStateReferences()](#restoreStateReferences_Stream_int) methods:
+Saves the state of all reference nodes from the *World Clutter* to the specified stream.
+
+
+**Example** using *saveStateReferences()* and *[restoreStateReferences()](#restoreStateReferences_Stream_int)* methods:
 
 
 ```csharp
@@ -365,11 +382,14 @@ worldClutter.RestoreStateReferences(blob_state);
 
 ### Return value
 
-true if the states of all reference nodes from the world clutter were successfully saved to the specified stream; otherwise, false.
+true if the states of all reference nodes from the *World Clutter* were successfully saved to the specified stream; otherwise, false.
 ## bool RestoreStateReferences ( Stream stream )
 
-Restores the state of all reference nodes from the world clutter from the specified stream.
-**Example** using [saveStateReferences()](#saveStateReferences_Stream_int) and restoreStateReferences() methods:
+
+Restores the state of all reference nodes from the *World Clutter* from the specified stream.
+
+
+**Example** using *[saveStateReferences()](#saveStateReferences_Stream_int)* and *restoreStateReferences()* methods:
 
 
 ```csharp
@@ -398,4 +418,4 @@ worldClutter.RestoreStateReferences(blob_state);
 
 ### Return value
 
-true if the states of all reference nodes from the world clutter were successfully restored from the specified stream; otherwise, false.
+true if the states of all reference nodes from the *World Clutter* were successfully restored from the specified stream; otherwise, false.

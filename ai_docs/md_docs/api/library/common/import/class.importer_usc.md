@@ -377,7 +377,10 @@ Builds and initializes the imported [scene](../../../../api/library/common/impor
 true if the scene is successfully initialized using the data from the specified input file; otherwise, false.
 ## bool onImport ( string output_path )
 
+
 Import event handler function. This function is called each time when the *[import()()](../../../...md#import_cstr_bool)* function is called. You can specify your custom actions to be performed on scene import.
+
+
 ```cpp
 class MyCustomImporter : public Unigine::Importer
 {
@@ -418,7 +421,10 @@ bool MyCustomImporter::onImport(const char *output_path)
 true if import operation for the specified output path was successful; otherwise, false.
 ## bool onImportTexture ( ImportProcessor processor , ImportTexture import_texture )
 
+
 Texture import event handler function. This function is called each time when the *[importTexture()()](../../../...md#importTexture_ImportProcessor_ImportTexture_bool)* function is called. You can specify your custom actions to be performed on texture import.
+
+
 ```cpp
 class MyCustomImporter : public Unigine::Importer
 {
@@ -460,7 +466,10 @@ bool MyCustomImporter::onImportTexture(const ImportProcessorPtr &processor, cons
 true if the specified texture was successfully imported; otherwise, false.
 ## bool onImportMaterial ( ImportProcessor processor , Material material , ImportMaterial import_material )
 
+
 Material import event handler function. This function is called each time when the **[importMaterial()()](../../../...md#importMaterial_ImportProcessor_Material_ImportMaterial_bool)** function is called. You can specify your custom actions to be performed on material import.
+
+
 ```cpp
 class MyCustomImporter : public Unigine::Importer
 {
@@ -503,7 +512,10 @@ bool MyCustomImporter::onImportMaterial(const ImportProcessorPtr &processor, con
 true if the specified material was successfully imported; otherwise, false.
 ## Light onImportLight ( ImportProcessor processor , ImportLight import_light )
 
+
 Light import event handler function. This function is called each time when the **[importLight()()](../../../...md#importLight_ImportProcessor_ImportLight_Light)** function is called. You can specify your custom actions to be performed on light import.
+
+
 ```cpp
 class MyCustomImporter : public Unigine::Importer
 {
@@ -545,7 +557,10 @@ Unigine::LightPtr MyCustomImporter::onImportLight(const ImportProcessorPtr &proc
 [UNIGINE's light instance](../../../../api/library/lights/class.light_usc.md) that stores the specified imported light.
 ## Player onImportCamera ( ImportProcessor processor , ImportCamera import_camera )
 
+
 Camera import event handler function. This function is called each time when the **[importCamera()()](../../../...md#importCamera_ImportProcessor_ImportCamera_Player)** function is called. You can specify your custom actions to be performed on camera import.
+
+
 ```cpp
 class MyCustomImporter : public Unigine::Importer
 {
@@ -587,7 +602,10 @@ Unigine::PlayerPtr MyCustomImporter::onImportCamera(const ImportProcessorPtr &pr
 [UNIGINE's player instance](../../../../api/library/players/class.player_usc.md) that stores the specified imported camera.
 ## bool onImportMesh ( ImportProcessor processor , Mesh mesh , ImportMesh import_mesh )
 
+
 Mesh import event handler function. This function is called each time when the **[importMesh()()](../../../...md#importMesh_ImportProcessor_Mesh_ImportMesh_bool)** function is called. You can specify your custom actions to be performed on mesh import.
+
+
 ```cpp
 class MyCustomImporter : public Unigine::Importer
 {
@@ -630,7 +648,10 @@ bool MyCustomImporter::onImportMesh(const ImportProcessorPtr &, const Unigine::M
 true if the specified mesh was successfully imported; otherwise, false.
 ## bool onImportMeshSkinned ( ImportProcessor processor , MeshSkinned mesh_skinned , ImportMeshSkinned import_mesh_skinned )
 
+
 Skinned mesh import event handler function. This function is called each time when the **[importMeshSkinned()()](../../../...md#importMeshSkinned_ImportProcessor_MeshSkinned_ImportMeshSkinned_bool)** function is called. You can specify your custom actions to be performed on skinned mesh import.
+
+
 ```cpp
 class MyCustomImporter : public Unigine::Importer
 {
@@ -673,7 +694,10 @@ bool MyCustomImporter::onImportMeshSkinned(const ImportProcessorPtr &processor, 
 true if the specified skinned mesh was successfully imported; otherwise, false.
 ## Node onImportNode ( ImportProcessor processor , ImportNode import_node )
 
+
 Node import event handler function. This function is called each time when the **[importNode()()](../../../...md#importNode_ImportProcessor_ImportNode_Node)** function is called. You can specify your custom actions to be performed on node import.
+
+
 ```cpp
 class MyCustomImporter : public Unigine::Importer
 {
@@ -715,7 +739,10 @@ Unigine::NodePtr MyCustomImporter::onImportNode(const ImportProcessorPtr &proces
 [UNIGINE's node instance](../../../../api/library/nodes/class.node_usc.md) that stores the specified imported node.
 ## bool onImportNodeChild ( ImportProcessor processor , Node node_parent , ImportNode import_node_parent , Node node_child , ImportNode import_node_child )
 
+
 Node import event handler function. This function is called each time when the **[importNodeChild()()](../../../...md#importNodeChild_ImportProcessor_Node_ImportNode_Node_ImportNode_bool)** function is called. You can specify your custom actions to be performed on importing and processing node hierarchies (e.g. assigning properties to node children).
+
+
 ```cpp
 class MyCustomImporter : public Unigine::Importer
 {
@@ -785,7 +812,10 @@ Animation import event handler function. This function is called each time when 
 true if the specified mesh animation was successfully imported; otherwise, false.
 ## bool onImportSkeleton ( ImportProcessor processor , Skeleton skeleton , ImportSkeleton import_skeleton )
 
+
 Skeleton import event handler function. This function is called each time when the **[importSkeleton()()](../../../...md#importSkeleton_ImportProcessor_Skeleton_ImportSkeleton_bool)** function is called. You can specify your custom actions to be performed on skeleton import.
+
+
 ```cpp
 class MyCustomImporter : public Unigine::Importer
 {

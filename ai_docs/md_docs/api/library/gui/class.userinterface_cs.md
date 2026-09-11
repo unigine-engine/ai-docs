@@ -373,10 +373,12 @@ private void Update()
 The number of associated widgets.
 ## Gui Gui
 
-The *[Gui](../../../api/library/gui/class.gui_cs.md)* instance currently used for the UserInterface.
+The *[Gui](../../../api/library/gui/class.gui_cs.md)* instance used for the UserInterface.
 ## Widget.LIFETIME Lifetime
 
-The
+The lifetime management type for the UserInterface. By default, the [LIFETIME_ENGINE](../../../api/library/gui/class.widget_cs.md#LIFETIME) type is used.
+> **Notice:** Lifetime of each UserInterface in the hierarchy is defined by its root. Thus, a lifetime management type set for a child UserInterface that differs from the one set for the root is ignored.
+
 ### Members
 
 ---
@@ -529,16 +531,3 @@ Returns the number of the widget if exists; otherwise, -1.
 ## void UpdateWidgets ( )
 
 Updates all widgets belonging to the user interface. This function should be called, for example, after change of the interface language.
-## void SetGui ( Gui gui )
-
-Sets a new *[Gui](../../../api/library/gui/class.gui_cs.md)* instance to be used for the UserInterface.
-### Arguments
-
-- *[Gui](../../../api/library/gui/class.gui_cs.md)* **gui** - *[Gui](../../../api/library/gui/class.gui_cs.md)* instance to be used for the UserInterface.
-
-## Gui GetGui ( )
-
-Returns a *[Gui](../../../api/library/gui/class.gui_cs.md)* instance for the UserInterface.
-### Return value
-
-*[Gui](../../../api/library/gui/class.gui_cs.md)* instance currently used for the UserInterface.

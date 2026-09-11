@@ -86,7 +86,7 @@ The path to the button skin texture.
 The button text label.
 ## int TextAlign
 
-The alignment of the button label.
+The alignment of the button label. One of the [GUI_ALIGN_*](../../../api/library/gui/class.gui_cs.md) variables.
 ## string Texture
 
 The path to the button image texture.

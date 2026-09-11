@@ -4,7 +4,7 @@
 ## General Information
 
 
-All textures must be power of two in size, rectangular textures are supported, for example, 16×16, 128×32, 8×64, etc. All files are in the RGBA format.
+All textures must be power of two in size, rectangular textures are supported, for example, 16�16, 128�32, 8�64, etc. All files are in the RGBA format.
 
 
 ## Icons
@@ -19,6 +19,7 @@ All textures must be power of two in size, rectangular textures are supported, f
 
 
 There are four states of an icon:
+
 
 1. Not pressed, not in focus.
 2. Not pressed, in focus.
@@ -91,13 +92,14 @@ The texture is resized to fit a widget.
 
 All four corners are copied 1:1 from corresponding corners of the texture:
 
+
 1. The top-left corner
 2. The top-right corner
 3. The bottom-left corner
 4. The bottom-right corner
 
 
-Vertical and horizontal strips (2 pixels in width), which are located at the center of the corresponding half of the texture are used to fill in space between corners.  The strips are stretched, and the resulting color bar is constructed using interpolation between colors of the pixels in the strips.
+Vertical and horizontal strips (2 pixels in width), which are located at the center of the corresponding half of the texture are used to fill in space between corners. The strips are stretched, and the resulting color bar is constructed using interpolation between colors of the pixels in the strips.
 
 
 ### gui_button.png
@@ -261,6 +263,7 @@ The texture is stretched to the given width.
 
 There is a number of slots for different pointer states:
 
+
 1. Base pointer
 2. Operation is not permitted
 3. Drag-and-drop mode
@@ -312,6 +315,7 @@ The left half of the texture is used to highlight the text and the right one is 
 
 
 The texture is divided into two parts: the left part is for an upper arrow, the right part is for a lower arrow. The layout of each part is the same as the icon layout and contains four states:
+
 
 1. Not pressed, not in focus.
 2. Not pressed, in focus.
@@ -380,6 +384,7 @@ The assembly is the same as for [borders](#gui_border.png).
 
 
 The texture is divided into three parts:
+
 
 1. The upper left part is for folded non-leaf nodes.
 2. The lower left part is for folded non-leaf nodes.
@@ -499,6 +504,7 @@ All four corners are copied 1:1 from the corresponding corners of the texture. V
 
 Two files are used to create a base dialog. These files correspond to two buttons of the dialog. Images are copied 1:1.
 
+
 - ![](./dialog_ok.png) - dialog_ok.png
 - ![](./dialog_cancel.png) - dialog_cancel.png
 
@@ -513,6 +519,7 @@ Two files are used to create a base dialog. These files correspond to two button
 
 This dialog requires four images that use the [icon layout](#icon).
 
+
 - Go to the upper directory: ![](./dialog_file_path.png) *dialog_file_path.png*
 - Add a tab ![](./dialog_file_add.png) *dialog_file_add.png*
 - Remove the tab ![](./dialog_file_remove.png) *dialog_file_remove.png*
@@ -526,6 +533,7 @@ This dialog requires four images that use the [icon layout](#icon).
 
 
 This dialog requires four images that use the [icon layout](#icon).
+
 
 - Red channel toggle: ![](./dialog_image_r.png) *dialog_image_r.png*
 - Green channel toggle: ![](./dialog_image_g.png) *dialog_image_g.png*

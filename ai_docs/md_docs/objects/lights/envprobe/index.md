@@ -4,9 +4,9 @@
 *Environment Probe* is a light source which also provides reflections on an object inside the probe by using a cubemap (pre-baked or dynamically changing each frame). In UNIGINE, *Environment Probe* has three types of projections:
 
 
-- **Box Projection** — works better for indoor scenes (when the room has a 3D box shape) or box-shaped outdoor scenes (back alley between buildings).
-- **Spherical Projection** — works better for spherical-shape cases.
-- **Raymarching** — works for all other cases, the probe renders reflections taking various shapes of surrounding surfaces into account. Lighting is calculated using physically-correct formulas ensuring that reflections as well as diffuse lighting become more realistic in comparison with Box and Sphere projections, and consequently more resource-consuming.
+- **Box Projection** � works better for indoor scenes (when the room has a 3D box shape) or box-shaped outdoor scenes (back alley between buildings).
+- **Spherical Projection** � works better for spherical-shape cases.
+- **Raymarching** � works for all other cases, the probe renders reflections taking various shapes of surrounding surfaces into account. Lighting is calculated using physically-correct formulas ensuring that reflections as well as diffuse lighting become more realistic in comparison with Box and Sphere projections, and consequently more resource-consuming.
 
 
 With *Environment Probe* you can create reflections instead of creating reflection materials.
@@ -128,7 +128,7 @@ The *Environment Probe* settings can be found in the *Node* tab of the *[Paramet
 ![](common_params.png)
 
 
-| Projection Type used by *Environment Probe*: | - **Box Projection** — works better for indoor scenes (when the room has a 3D box shape) or box-shaped outdoor scenes (back alley between buildings). - **Sphere Projection** — works better for spherical-shape cases. - **Raymarching** — works for all other cases, the probe renders reflections taking various shapes of surrounding surfaces into account. Lighting is calculated using physically-correct formulas ensuring that reflections as well as diffuse lighting become more realistic in comparison with Box and Sphere projections, and consequently more resource-consuming. |
+| Projection Type used by *Environment Probe*: | - **Box Projection** � works better for indoor scenes (when the room has a 3D box shape) or box-shaped outdoor scenes (back alley between buildings). - **Sphere Projection** � works better for spherical-shape cases. - **Raymarching** � works for all other cases, the probe renders reflections taking various shapes of surrounding surfaces into account. Lighting is calculated using physically-correct formulas ensuring that reflections as well as diffuse lighting become more realistic in comparison with Box and Sphere projections, and consequently more resource-consuming. |
 |---|---|
 | Box Projection Size | Specifies the size of the box projection. |
 | Attenuation Distance | Sets the [attenuation distance](../../../objects/lights/parameters/index.md#attenuation_distance) for *Environment Probe*. |
@@ -156,7 +156,7 @@ The *Environment Probe* settings can be found in the *Node* tab of the *[Paramet
 | Render Above Voxel Probes | Toggles rendering of the Environment Probe above Voxel Probes (or other Environment Probes) to imitate the GI bounce from the sun. If enabled, the *Environment Probe* is additively blended with Voxel Probes (or other Environment Probes). In case of several Environment Probes having this setting enabled, they are rendered according to the specified [Rendering Order](#rendering_order). |
 | Noise Frames Number | The number of variations of the noise pattern, which is changed every frame. Higher values result in a more dynamic noise effect, but a significant temporal accumulation of frames will make the image look like more rays are used. Smaller values result in a more static noise pattern. |
 | Secondary Bounce Projection | Specifies the type of the secondary bounce projection used for dynamic reflections. It determines how secondary light bounces are calculated and projected, impacting the quality of dynamic reflections. The following projection types are available: - **Sphere Projection** - this type uses a spherical approximation to calculate secondary light bounces. It offers significantly higher performance than **Raymarching** and allows you to avoid noise in the secondary bounce. - **Raymarching** - this type calculates secondary light bounces by tracing rays through the scene. While this method is more physically correct, it has low performance and introduces noise into the secondary bounce. |
-| Last Step Cubemap | Allows selecting the cubemap to be used for the last raymarching step: - **Environment Probe** — the cubemap used for the last step is the same as for all previous steps. - **Only Sky** — the cubemap contains the sky and clouds only. This option is designed to fix the incorrect parallax that may occur in reflections due to the infinite length of the last step. |
+| Last Step Cubemap | Allows selecting the cubemap to be used for the last raymarching step: - **Environment Probe** � the cubemap used for the last step is the same as for all previous steps. - **Only Sky** � the cubemap contains the sky and clouds only. This option is designed to fix the incorrect parallax that may occur in reflections due to the infinite length of the last step. |
 
 
 ### Indirect Diffuse and Specular Parameters
@@ -165,7 +165,7 @@ The *Environment Probe* settings can be found in the *Node* tab of the *[Paramet
 In general there are two groups of parameters:
 
 
-| Indirect Diffuse | Enables indirect diffuse (ambient) lighting for *Environment Probe*. By default, *Environment Probe* is used for reflections only; as for lighting, it is recommended to simulate it using *[Voxel Probe](../../../objects/lights/voxelprobe/index.md)* and [Lightmaps](../../../editor2/lighting/gi/lightmaps.md) — this approach ensures the best result. However, you can still use *Environment Probe* for indirect diffuse lighting by enabling this option. |
+| Indirect Diffuse | Enables indirect diffuse (ambient) lighting for *Environment Probe*. By default, *Environment Probe* is used for reflections only; as for lighting, it is recommended to simulate it using *[Voxel Probe](../../../objects/lights/voxelprobe/index.md)* and [Lightmaps](../../../editor2/lighting/gi/lightmaps.md) � this approach ensures the best result. However, you can still use *Environment Probe* for indirect diffuse lighting by enabling this option. |
 |---|---|
 | Indirect Specular | Toggles specular lighting for *Environment Probe*. |
 
@@ -181,7 +181,7 @@ The parameters differ depending on the *Environment Probe* type.
 
 | Contrast | Sets the contrast of indirect diffuse lighting. |
 |---|---|
-| Parallax | Enables rendering of reflections taking into account the camera's position. When this option is disabled, reflection cubemaps are simply projected onto objects, and do not follow the viewer's perspective. - 0 (minimum) — parallax correction is disabled (reflections will look like objects are infinitely distant). - 1 (maximum) — parallax correction is enabled (reflections will look like objects are at the distance close to the radius of *Environment Probe*). - Values in-between represent a linear interpolation factor for parallax correction and are to be set when *Environment Probe* is used to fit a medium or small object into the environment for additional correction, if necessary. > **Notice:** Parallax correction does not affect reflections on transparent objects. ![](parallax_0.jpg) ![](parallax_1.jpg) |
+| Parallax | Enables rendering of reflections taking into account the camera's position. When this option is disabled, reflection cubemaps are simply projected onto objects, and do not follow the viewer's perspective. - 0 (minimum) � parallax correction is disabled (reflections will look like objects are infinitely distant). - 1 (maximum) � parallax correction is enabled (reflections will look like objects are at the distance close to the radius of *Environment Probe*). - Values in-between represent a linear interpolation factor for parallax correction and are to be set when *Environment Probe* is used to fit a medium or small object into the environment for additional correction, if necessary. > **Notice:** Parallax correction does not affect reflections on transparent objects. ![](parallax_0.jpg) ![](parallax_1.jpg) |
 | **Cubic Filtering** | Enables bicubic interpolation for the Enviropment Probe cubemap instead of the standard bilinear interpolation. This effect is only applicable to reflected lighting and calculated if a pixel has a low *[Roughness](../../../content/materials/library/mesh_base/index.md#parameter_roughness)* value. Modifications are applied only to the first mip of the cubemap. The effect visually represents slight blurring of neighboring pixels. However, this is not antialiasing and might affect the visual quality of high-resolution probes. This option may be combined with *[sRGB Filtering Correction](#srgb_filtering_correction)* to achieve a better gradient between pixels. > **Notice:** - Enabling this option affects performance, thus it is recommended to enable it only for Environment Probes affecting a big number of reflective/mirror pixels, especially if it is a realtime low-resolution Probe. > - For this option to have an effect on a **transparent** sufrace, the *[Reflection Cubic Filtering](../../../content/materials/library/mesh_base/index.md#option_reflection_cubic_filtering)* state should be enabled for the material (for non-transparent materials the option is applied automatically). > - The option does not affect [Impostors](../../../editor2/tools/impostors_creator/index.md). |
 
 
@@ -220,7 +220,7 @@ The parameters differ depending on the *Environment Probe* type.
 | Non Linear Step Size | Raymarching step size adjustment value. The value of 0 means that the step size is the same for each step, and at the value of 1 each subsequent raymarching step is twice wider than the previous one. |
 | AO Intensity | Ambient occlusion intensity. Keep in mind that ambient occlusion doesn't exist in the real world, this is a method to imitate shadows between objects. For photorealistic visualization, we recommend keeping this value equal to 0. |
 | AO Radius | Radius of sample pixels used in the Ambient Occlusion effect, controlling the extent of the darkened area. |
-| Translucent Anisotropy | The value defining the extent of the light penetration through transparent surfaces. - 0 — light does not penetrate through surfaces. - 0.5 — light is distributed equally on both sides of the surface (along the ray direction and towards the light source) - 1.0 — all light passes through the surface along the ray direction. |
+| Translucent Anisotropy | The value defining the extent of the light penetration through transparent surfaces. - 0 � light does not penetrate through surfaces. - 0.5 � light is distributed equally on both sides of the surface (along the ray direction and towards the light source) - 1.0 � all light passes through the surface along the ray direction. |
 | Replace With Diffuse Roughness Threshold | The rougness value starting from which *Indirect Specular* stops being calculated and is replaced with *Indirect Diffuse*. This setting is used to optimize matte reflections. |
 | BRDF | The light distribution model for matte surfaces. GGX is more realistic, though increases noise and slightly reduces performance. |
 | Cubic Filtering | See [above](#cubic_filtering). |
@@ -238,7 +238,7 @@ The parameters differ depending on the *Environment Probe* type.
 
 | Mode | Specifies if the reflection is updated in realtime or baked into a [texture](#texture). > **Notice:** For the Realtime Update mode, the *Dynamic Reflections* option should be enabled: ***Rendering -> Features -> Dynamic Reflections***. |
 |---|---|
-| Faces Per Frame | Cubemap update interval: - 1 — Refresh only one face every frame. - 2 — Refresh two faces every frame. - 3 — Refresh three faces every frame. - 4 — Refresh four faces every frame. - 5 — Refresh five faces every frame. - 6 — Refresh all six faces every frame. > **Notice:** Available for the [Realtime Update mode](#mode) or Raymarching environment probes. |
+| Faces Per Frame | Cubemap update interval: - 1 � Refresh only one face every frame. - 2 � Refresh two faces every frame. - 3 � Refresh three faces every frame. - 4 � Refresh four faces every frame. - 5 � Refresh five faces every frame. - 6 � Refresh all six faces every frame. > **Notice:** Available for the [Realtime Update mode](#mode) or Raymarching environment probes. |
 | Grab by Bake Lighting | Specifies if the cubemap texture is to be modified by the *[Bake Lighting](../../../editor2/lighting/gi/bake_lighting/index.md)* Tool. |
 | Reflection Viewport Mask | The [mask](../../../principles/bit_masking/index.md#reflection_mask) that controls rendering of the *Environment Probe*'s reflections into the reflection camera viewport. |
 | Resolution | Resolution of the reflection texture, in pixels. > **Notice:** Setting too high resolution on a low-performance GPU with low memory capacity may cause engine crash. |

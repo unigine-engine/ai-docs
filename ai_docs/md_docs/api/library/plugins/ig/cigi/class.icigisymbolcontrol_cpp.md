@@ -48,7 +48,7 @@ Returns the value of the **Attach State** parameter specified in the packet. Det
 Attach State parameter value: 1 if the symbol is to be attached to a parent; otherwise, 0.
 ## int getFlashControl ( ) const
 
-Returns the value of the **Flash Control** parameter specified in the packet. Determines whether the IG shall continue the symbol’s flash cycle from its present state or restart it from the beginning.
+Returns the value of the **Flash Control** parameter specified in the packet. Determines whether the IG shall continue the symbol�s flash cycle from its present state or restart it from the beginning.
 ### Return value
 
 Flash Control parameter value. One of the following values:
@@ -92,10 +92,10 @@ Returns the UV position of the symbol as a three-component vector combining **Po
 ### Return value
 
 UV position of the symbol. The first two components specify the coordinates position of the symbol along U and V axes. The third component shall be ignored.
-> **Notice:** For top-level (non-child) symbols, the IG defines position of the symbol with respect to the symbol surface’s 2D coordinate system.
+> **Notice:** For top-level (non-child) symbols, the IG defines position of the symbol with respect to the symbol surface�s 2D coordinate system.
 >
 >
-> For child symbols - with respect to the parent symbol’s local coordinate system.
+> For child symbols - with respect to the parent symbol�s local coordinate system.
 
 
 ## Math:: vec3 getScale ( ) const

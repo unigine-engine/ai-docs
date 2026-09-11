@@ -27,7 +27,10 @@ The number of analog sticks that have received data.
 
 ## void setAnalogCallback ( string name )
 
+
 Sets the world script callback function that receives data about input device sticks.
+
+
 > **Notice:** The callback function should be defined in the world script and receive **1** argument - an instance of the *VrpnAnalogDevice* class.
 > ```cpp
 > void callback_func(VrpnAnalogDevice device) {
@@ -77,6 +80,8 @@ void analog_callback(VrpnAnalogDevice device) {
 ## string getAnalogCallback ( )
 
 Returns a name of the world script callback function that receives data about input device sticks. The callback function should be defined in the world script and receive **1** argument - an instance of the *VrpnAnalogDevice* class.
+
+
 ```cpp
 void callback_func(VrpnAnalogDevice device) {
     // function logic
@@ -90,7 +95,10 @@ void callback_func(VrpnAnalogDevice device) {
 Callback function name.
 ## double getChannel ( int channel )
 
+
 Returns data received by the analog stick with the given number.
+
+
 > **Notice:** If the given stick haven't received data, the engine assertion will occur.
 
 
@@ -109,7 +117,10 @@ Returns the number of analog sticks that have received data.
 The number of analog sticks that have received data. If no sticks have received data, 0 will be returned.
 ## void update ( )
 
+
 Updates the internal state of the device and receives input data.
+
+
 > **Notice:** This function should be called each frame.
 
 

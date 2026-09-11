@@ -38,40 +38,40 @@ A sprite has a background layer which is used to calculate a bounding box of the
 
 ## string Texture
 
-The texture from a file that is currently set for the first (bottom) layer of the sprite.
+The texture from a file set for the first (bottom) layer of the sprite.
 ## mat4 Transform
 
-The current transformation matrix set for the first (bottom) layer of the sprite.
+The transformation matrix set for the first (bottom) layer of the sprite.
 ## vec4 TexCoord
 
-The current coordinates of the texture set for the first (bottom) layer of the sprite.
+The coordinates of the texture set for the first (bottom) layer of the sprite.
 ## 🔒︎ int BlendDestFunc
 
-The blending mode of the destination widget colour set for the first (bottom) layer of the sprite.
+The blending mode of the destination widget colour set for the first (bottom) layer of the sprite. One of the [BLEND_*](../../../api/library/gui/class.gui_cs.md) values.
 ## 🔒︎ int BlendSrcFunc
 
-The blending mode of the source screen buffer colour set for the first (bottom) layer of the sprite.
+The blending mode of the source screen buffer colour set for the first (bottom) layer of the sprite. One of the [BLEND_*](../../../api/library/gui/class.gui_cs.md) values.
 ## int BufferMask
 
-The current channel mask for the whole sprite.
+The channel mask for the whole sprite. One of the [GUI_BUFFER_*](../../../api/library/gui/class.gui_cs.md) values.
 ## int WrapRepeat
 
-The value indicating if texture tiling is enabled for the first (bottom) layer of the sprite.
+The value indicating if texture tiling is enabled for the first (bottom) layer of the sprite. This layer always exists in the sprite. The default is 0 (no tiling). To see tiling in effect, you need to transform sprite texture coordinates via [setTexCoord()](#setTexCoord_vec4_void).
 ## vec4 Color
 
-The current color set for the first (bottom) layer of the sprite.
+The color set for the first (bottom) layer of the sprite.
 ## 🔒︎ int NumLayers
 
 The total number of layers in the sprite.
 ## float IntersectionImageThreshold
 
-The threshold value for the pixel. If the pixel value in the intersection mask is higher that the threshold, the intersection is detected.
+The threshold value for the pixel. If the pixel value in the intersection mask is higher than the threshold, the intersection is detected.
 ## mat4 IntersectionImageTransform
 
 The transformation for the image used as a mask for defining intersections with the mouse.
 ## bool IntersectionImageEnabled
 
-The value showing if the intersection image is used as a mask for detecting intersections with the mouse.
+The value indicating if the intersection image is used as a mask for detecting intersections with the mouse.
 ### Members
 
 ---

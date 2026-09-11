@@ -24,13 +24,13 @@ Current camera velocity as a three-component vector, each component representing
 Returns the current value indicating if automatic adjustment of [transparency rendering order for clouds](../../../../editor2/settings/render_settings/clouds/index.md#accurate_transparent_order) is enabled.
 ### Return value
 
-**true** if automatic adjustment of transparency rendering order for clouds is enabled; otherwise **false**.
+**true** if automatic adjustment of transparency rendering order for clouds is enabled ; otherwise **false**.
 ## bool isRenderCloudsInterleaveOptimization () const
 
 Returns the current value indicating if [interleaved rendering optimization for clouds](../../../../editor2/settings/render_settings/clouds/index.md#interleaved_rendering) is enabled.
 ### Return value
 
-**true** if interleaved rendering optimization for clouds is enabled; otherwise **false**.
+**true** if interleaved rendering optimization for clouds is enabled ; otherwise **false**.
 ## bool isRenderAnimationEnabled () const
 
 Returns the current value indicating if wind animation is enabled (vegetation and water are affected by the wind).

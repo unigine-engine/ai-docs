@@ -30,8 +30,8 @@ This section contains functions available when the *[Syncker](../../../../code/p
 
 - [Master Class (CPP)](../../../../api/library/plugins/syncker/class.syncker_master_cpp.md)
 
-- [Slave Class (CS)](../../../../api/library/plugins/syncker/class.syncker_slave_cs.md)
-
 - [Slave Class (USC)](../../../../api/library/plugins/syncker/class.syncker_slave_usc.md)
+
+- [Slave Class (CS)](../../../../api/library/plugins/syncker/class.syncker_slave_cs.md)
 
 - [Slave Class (CPP)](../../../../api/library/plugins/syncker/class.syncker_slave_cpp.md)

@@ -256,8 +256,13 @@ Sets texture data using the data of the specified source image.
 true if the data was set successfully; otherwise, false.
 ## bool SetImage2D ( Image image , int offset_x , int offset_y , int texture_format = -1 )
 
+
 Sets texture data using the data of the specified 2D or 2D array image.
+
+
 > **Notice:** The following conditions must be satisfied:
+>
+>
 > - Both texture and image types must be either **2D** or **2D_ARRAY**.
 > - Texture resolution must be greater or equal to the image resolution.
 > - Image and texture mipmap counts must be equal (the same is for layer counts of 2D arrays).
@@ -275,8 +280,13 @@ Sets texture data using the data of the specified 2D or 2D array image.
 true if the data was set successfully; otherwise, false.
 ## bool SetImageLayer ( Image image , int layer , int texture_format = -1 )
 
+
 Sets the data of the specified layer of the 2D texture array using the data of the specified 2D image.
+
+
 > **Notice:** The following conditions must be satisfied:
+>
+>
 > - Texture and image must have the same resolution.
 > - Image and texture mipmap counts must be equal (the same is for layer counts of 2D arrays).
 

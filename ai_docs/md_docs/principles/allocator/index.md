@@ -82,7 +82,7 @@ The **dynamic pools** also can optimize performance, but they cannot optimize me
 #### Configuring Dynamic Pools
 
 
-Each dynamic pool stores allocations of a certain type — 16, 32, 48 bytes allocations, etc. So, you can always check how much memory of each type is allocated in the dynamic pools. These values are always a multiple of 16. For example, in the picture below, there are 16 pools of different sizes:
+Each dynamic pool stores allocations of a certain type � 16, 32, 48 bytes allocations, etc. So, you can always check how much memory of each type is allocated in the dynamic pools. These values are always a multiple of 16. For example, in the picture below, there are 16 pools of different sizes:
 
 
 ![](dynamic_allocs.png)
@@ -206,7 +206,7 @@ There is also a separate statistics block that tracks allocations for [*skinned 
 | **GPU Allocator decals** | The amount of video memory allocated for Decals. |
 
 
-Each skinned mesh in the scene allocates memory independently. The VRAM for a skinned mesh is allocated in chunks within a separate pool. UNIGINE allows for configuring the size of the chunks via the [`skinned_mesh_pool_chunk_size`](../../code/console/index.md#skinned_mesh_pool_chunk_size) console command. By default, it is 64 Mb.
+Each skinned mesh in the scene allocates memory independently. The VRAM for a skinned mesh is allocated in chunks within a separate pool. UNIGINE allows for configuring the size of the chunks via the [`skinned_pool_chunk_size`](../../code/console/index.md#skinned_pool_chunk_size) console command. By default, it is 64 Mb.
 
 
 > **Notice:** The larger the chunk size, the higher the performance of the skinned meshes.

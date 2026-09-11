@@ -22,6 +22,7 @@ This article contains the list of available TCP/UDP Port Numbers:
 
 - 33333 (localhost) - [configurable](../troubleshooting/browser_issues.md#licensing) (-licensing_host address: port)
 - 33334 (localhost)
+- 33333 (TCP, LAN) and 33334 (UDP broadcast, LAN) - used by the [Licensing Server](../sdk/licenses/licensing_server.md) to serve licenses over the local network (TCP port configurable via --licensing-host)
 
 
 **(Optional) *Sandworm* tool, distributed terrain generation:**

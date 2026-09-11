@@ -166,7 +166,7 @@ To manage this, the ***Bound Mode*** option becomes available in the material's 
 ![](bound_mode.png)
 
 
-| Bound Mode | - **Custom** — bound box around the object. The box size is defined by its minimum (*Bound Minimum*) and maximum (*Bound Maximum*) coordinates. The default values are taken from the source mesh. - **Default** — bound box around the object with the default values taken from the source mesh. This type of bound box can only be scaled (*Bound Scale*). |
+| Bound Mode | - **Custom** � bound box around the object. The box size is defined by its minimum (*Bound Minimum*) and maximum (*Bound Maximum*) coordinates. The default values are taken from the source mesh. - **Default** � bound box around the object with the default values taken from the source mesh. This type of bound box can only be scaled (*Bound Scale*). |
 |---|---|
 | Bound Minimum | Coordinates of the bound box minimum. Available for *Custom* mode. |
 | Bound Maximum | Coordinates of the bound box maximum. Available for *Custom* mode. |
@@ -389,7 +389,7 @@ Asynchronous update of nodes in the world depends on their type and hierarchy. I
 There are three modes for different types of nodes:
 
 
-- **no update** - for nodes that do not change and don’t have to be updated ([Mesh Static](../../objects/objects/mesh/index.md), [NodeDummy](../../objects/nodes/dummy/index.md), [Decals](../../objects/decals/index.md), [PlayerDummy](../../objects/players/dummy/index.md), etc.), these nodes are skipped.
+- **no update** - for nodes that do not change and don�t have to be updated ([Mesh Static](../../objects/objects/mesh/index.md), [NodeDummy](../../objects/nodes/dummy/index.md), [Decals](../../objects/decals/index.md), [PlayerDummy](../../objects/players/dummy/index.md), etc.), these nodes are skipped.
 - **independent update** - for nodes that are guaranteed not to have any hierarchy-based logic, such nodes are put to separate threads automatically, when needed:
 
   - [ObjectLandscapeTerrain](../../objects/objects/terrain/landscape_terrain/index.md)
@@ -426,5 +426,5 @@ Extended use of multithreading in combination with an internal task system ensur
 When the node is cached and you try to access it, take into account the following:
 
 
-- If the node is loaded by the name — the node gets stored in the cache by its **name**.
-- If the node is loaded from the parent *Node Reference* — the node is stored in the cache by its **GUID.**
+- If the node is loaded by the name � the node gets stored in the cache by its **name**.
+- If the node is loaded from the parent *Node Reference* � the node is stored in the cache by its **GUID.**

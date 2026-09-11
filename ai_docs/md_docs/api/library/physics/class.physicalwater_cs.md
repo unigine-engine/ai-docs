@@ -25,22 +25,22 @@ A *PhysicalWater* class is used to simulate water interaction effects.
 
 ## vec3 Velocity
 
-The current velocity of the flow in physical water.
+The velocity of the flow in physical water.
 ## vec3 Size
 
-The current size of the physical water node.
+The size of the physical water node.
 ## 🔒︎ int NumContacts
 
 The number of contacts between the physical water and the objects.
 ## float LinearDamping
 
-The current value indicating how much the linear velocity of the objects decreases when they get into the physical water.
+The value indicating how much the linear velocity of the objects decreases when they get into the physical water.
 ## float Density
 
-The current density of the physical water that determines objects buoyancy.
+The density of the physical water that determines objects buoyancy.
 ## float AngularDamping
 
-The current value indicating how much the angular velocity of the objects decreases when they get into the physical water.
+The value indicating how much the angular velocity of the objects decreases when they get into the physical water.
 ### Members
 
 ---

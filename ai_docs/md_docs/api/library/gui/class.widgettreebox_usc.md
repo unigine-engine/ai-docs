@@ -102,6 +102,19 @@ Returns the current file name of the image with mini-icons. the texture is a ver
 ### Return value
 
 Current path to the texture file.
+## void setMultiSelection ( int selection )
+
+Sets a new value indicating if multiple selection of items is enabled. The default is 0.
+### Arguments
+
+- *int* **selection** - The multiple selection of items
+
+## int isMultiSelection () const
+
+Returns the current value indicating if multiple selection of items is enabled. The default is 0.
+### Return value
+
+Current multiple selection of items
 ## void setEditable ( int editable )
 
 Sets a new value indicating if item hierarchy can be edited. The default is 0.
@@ -371,19 +384,6 @@ Returns the icon of a given item.
 ### Return value
 
 Zero-based ID of the icon (i.e. number of the icon in the icon texture).
-## void setMultiSelection ( int selection )
-
-Enables or disables multiple selection of items.
-### Arguments
-
-- *int* **selection** - **1** to enable multiple selection, **0** to disable it.
-
-## int isMultiSelection ( )
-
-Returns a value indicating if multiple selection of items is enabled. The default is 0.
-### Return value
-
-**1** if several items can be selected at once; otherwise, **0**.
 ## int getNumItemChildren ( int item )
 
 Returns the number of child items of a given item.
@@ -406,7 +406,7 @@ Returns ID of a selected item (multi-selection mode).
 ID of the selected item.
 ## int addItem ( string str , int texture = -1 )
 
-Adds a new item with a given text and and an icon.
+Adds a new item with a given text and an icon.
 ### Arguments
 
 - *string* **str** - Item text.
@@ -451,12 +451,6 @@ Scrolls a tree box so that a given item is visible.
 
 - *int* **item** - Item ID in range from 0 to the total number of items.
 
-## int getItemUnderCursor ( )
-
-Returns the ID of the item, over which the cursor is currently hovering.
-### Return value
-
-Item ID in range from 0 to the total number of items.
 ## void setImage ( Image image )
 
 Sets an image with mini-icons to be used with list items. The image is a vertical strip of square icons.
@@ -470,3 +464,17 @@ Returns the image with mini-icons, which are used with the list items.
 ### Return value
 
 Image with mini-icons (the vertical strip of square icons).
+## void clearIcons ( )
+
+Removes all per-slot icon overrides set via **[setIcon()()](../../...md#setIcon_int_cstr_int)** and recalculates the icon cell size, so the items fall back to the icon atlas texture.
+## int setIcon ( int index , string path )
+
+Assigns a standalone image as the icon for the specified icon slot, overriding the corresponding slot of the treebox's icon atlas (items reference icons via the texture number set for the item). The image may have its own size: the overall icon cell grows to the maximum icon dimensions.
+### Arguments
+
+- *int* **index** - Icon slot number (0 or greater) referenced by items via their texture number.
+- *string* **path** - Path to the image file.
+
+### Return value
+
+true if the icon is set successfully; otherwise, false (a negative index or the image cannot be loaded).

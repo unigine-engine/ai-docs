@@ -9,6 +9,18 @@
 
 ### Members
 
+## bool isAvailable () const
+
+Returns the current value indicating if the socket is available (has been established, but not opened).
+### Return value
+
+**true** if the socket is available is enabled ; otherwise **false**.
+## bool isCertificateVerified () const
+
+Returns the current value indicating if SSL certificate for the socket is successfully verified.
+### Return value
+
+**true** if SSL certificate for the socket is successfully verified is enabled ; otherwise **false**.
 ---
 
 ## SSLSocket ( )
@@ -69,18 +81,6 @@ Starts a handshake and returns the result.
 ### Return value
 
 Handshake status.
-## int isAvailable ( )
-
-Checks if the socket has been established, but not opened.
-### Return value
-
-**1** if the socket is available; otherwise, **0**.
-## int isCertificateVerified ( )
-
-Returns a value indicating if SSL certificate for the socket is successfully verified.
-### Return value
-
-**1** if SSL certificate for the socket is successfully verified; otherwise, **0**.
 ## int pending ( )
 
 Returns the number of bytes available for immediate retrieval without reading from the socket object. This function is essential if you work with event loops.

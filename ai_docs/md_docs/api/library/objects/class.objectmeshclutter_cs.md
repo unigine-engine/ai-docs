@@ -59,99 +59,91 @@ The default *[Step](#setStep_float_void)* and *[Density](#setDensity_float_void)
 
 ## int CutoutInverse
 
-The A value indicating if the clutter objects is rendered inside or outside the areas determined by the [cutout intersection mask](#setCutoutIntersectionMask_int_void).
+The value indicating if the clutter objects is rendered inside or outside the areas determined by the [cutout intersection mask](#setCutoutIntersectionMask_int_void).
 ## int CutoutIntersectionMask
 
-The current cutout intersection mask. this mask allows you to cut out clutter objects in the areas of intersection with other objects and decals (e.g. can be used to remove vegetation under houses or from the surface of roads projected using decals). clutter objects will be cut out by objects and decals that have their intersection mask matching this one (one bit at least).
+The cutout intersection mask. this mask allows you to cut out clutter objects in the areas of intersection with other objects and decals (e.g. can be used to remove vegetation under houses or from the surface of roads projected using decals). clutter objects will be cut out by objects and decals that have their intersection mask matching this one (one bit at least).
 > **Notice:** To set intersection masks the following methods can be used:
 > - **for decals** use *[getIntersectionMask()](../../../api/library/decals/class.decal_cs.md#getIntersectionMask_int)*
 > - **for objects** use *[getIntersectionMask()](../../../api/library/objects/class.object_cs.md#getIntersectionMask_int_int)*
 
-
 ## int MaskInverse
 
-The A flag indicating if clutter meshes are rendered inside or outside the mask mesh contour.
+The flag indicating if clutter meshes are rendered inside or outside the mask mesh contour.
 ## string MaskMeshName
 
 The name (path) of the current mesh used as a mask for the mesh clutter. this mesh should be plane.
 ## int MaskMaxValue
 
-The maximum value of the mask application range.
+The maximum value of the mask application range, **[0;255]**.
 ## int MaskMinValue
 
 The minimum value of the mask application range.
 ## int MaskFlipY
 
-The A flag indicating if a mask is flipped by y axis.
+The flag indicating if a mask is flipped by y axis.
 ## int MaskFlipX
 
-The A flag indicating if a mask is flipped by x axis.
+The flag indicating if a mask is flipped by x axis.
 ## string MaskImageName
 
 The name of a mask image (in *R8* format) that defines the placement of meshes.
 ## float Angle
 
-The current angle cosine that defines the slope steepness appropriate for positioning meshes.
+The angle cosine that defines the slope steepness appropriate for positioning meshes. The provided value will be clipped in range **[0;1]**.
 ## float Threshold
 
-The current density threshold (for a mask) starting from which meshes are rendered if placed dense enough.
+The density threshold (for a mask) starting from which meshes are rendered if placed dense enough.
 ## float Density
 
-The current density factor that defines the number of meshes per square unit.
+The density factor that defines the number of meshes per square unit.
 > **Notice:** The number of clutter elements in each cell is determined by the clutter *Size* along X and Y axes, as well as by *[Density](#setDensity_float_void)* and *[Step](#setStep_float_void)* values. Relationship between these values in internal calculations **may result in an invisible clutter**. When setting these values, please consider [this information](#important_notes).
-
 
 ## float Step
 
 The step for cells used to render meshes scattered by the mesh clutter.
 > **Notice:** The number of clutter elements in each cell is determined by the clutter *Size* along X and Y axes, as well as by *[Density](#setDensity_float_void)* and *[Step](#setStep_float_void)* values. Relationship between these values in internal calculations **may result in an invisible clutter**. When setting these values, please consider [this information](#important_notes).
 
-
 ## float SizeX
 
-The current width of the mesh clutter along the X-axis.
+The width of the mesh clutter along the X-axis, in units. If a negative value is provided, **0** will be used instead.
 > **Notice:** The number of clutter elements in each cell is determined by the clutter *Size* along X and Y axes, as well as by *[Density](#setDensity_float_void)* and *[Step](#setStep_float_void)* values. Relationship between these values in internal calculations **may result in an invisible clutter**. When setting these values, please consider [this information](#important_notes).
-
 
 ## float SizeY
 
-The current length of the mesh clutter along the Y-axis.
+The length of the mesh clutter along the Y-axis, in units. If a negative value is provided, **0** will be used instead.
 > **Notice:** The number of clutter elements in each cell is determined by the clutter *Size* along X and Y axes, as well as by *[Density](#setDensity_float_void)* and *[Step](#setStep_float_void)* values. Relationship between these values in internal calculations **may result in an invisible clutter**. When setting these values, please consider [this information](#important_notes).
-
 
 ## int Seed
 
-The seed used for pseudo-random positioning of meshes.
-## 🔒︎ int SpawnCount
-
-The number of cells to be generated.
+The seed used for pseudo-random positioning of meshes. If a negative value is provided, **0** will be used instead.
 ## float FadeDistance
 
-The current distance up to which meshes scattered by the mesh clutter are fading out (that is, fewer meshes will be rendered instead of all). the distance is measured starting from the [visible distance](#setVisibleDistance_float_void).
+The distance up to which meshes scattered by the mesh clutter are fading out (that is, fewer meshes will be rendered instead of all). the distance is measured starting from the [visible distance](#setVisibleDistance_float_void). If a negative value is provided, **0** will be used instead.
 > **Notice:** In order for a fade distance to be applied, [visibility distance](#getVisibleDistance_float) should not be infinite.
-
 
 ## float VisibleDistance
 
-The current distance up to which meshes scattered by the mesh clutter are rendered.
+The distance up to which meshes scattered by the mesh clutter are rendered. If a negative value is provided, **0** will be used instead.
 ## bool Intersection
 
-The A value indicating whether meshes are scattered upon the ground (along its relief): either the terrain or a mesh set as a parent node.
+The value indicating whether meshes are scattered upon the ground (along its relief): either the terrain or a mesh set as a parent node.
 ## bool Orientation
 
-The A value indicating whether meshes are oriented along the normals of the ground (either the terrain or a mesh set as a parent node).
+The value indicating whether meshes are oriented along the normals of the ground (either the terrain or a mesh set as a parent node).
 ## bool Collision
 
 The value indicating if collisions with the object should be taken into account.
 > **Notice:** If the return value is **0** the new geometry will never be generated by collision detection request.
 
-
 ## int TerrainMask
 
-The index of the [Landscape Terrain mask](../../../api/library/objects/landscape_terrain/class.objectlandscapeterrain_cs.md#getDetailMask_int_TerrainDetailMask) currently used to define placement of meshes.
+The index of the [Landscape Terrain mask](../../../api/library/objects/landscape_terrain/class.objectlandscapeterrain_cs.md#getDetailMask_int_TerrainDetailMask) currently used to define placement of meshes, in the [0; 19] range.
 ## string MeshPath
 
 The path to the source *.mesh*-file of the mesh scattered by mesh clutter.
+> **Notice:** Setting a new path does not update the mesh immediately. If the mesh is in the procedural mode, it will be reset.
+
 ## 🔒︎ bool IsMeshLoadedVRAM
 
 The value indicating if the source mesh used for the object is loaded to video memory (VRAM).
@@ -163,12 +155,11 @@ The value indicating if the source mesh used for the object is loaded to memory 
 The value indicating if the source mesh used for the object is null (does not exist, unassigned, not loaded, etc.).
 ## 🔒︎ ObjectMeshStatic.PROCEDURAL_MODE MeshProceduralMode
 
-The value indicating if the source mesh used for the object is procedural. A procedural mesh is a [mesh](../../../api/library/rendering/class.mesh_cs.md) created via code, such meshes have a specific streaming mode - they are always kept in memory after creation and never unloaded until the object is destroyed via code or the mesh returns to its normal mode (streaming from a source file). Changing of the static mesh is possible only if it is in the procedural mode.
+The value indicating if the source mesh used for the object is [procedural](../../../api/library/objects/class.objectmeshstatic_cs.md#PROCEDURAL_MODE). A procedural mesh is a [mesh](../../../api/library/rendering/class.mesh_cs.md) created via code, such meshes have a specific streaming mode - they are always kept in memory after creation and never unloaded until the object is destroyed via code or the mesh returns to its normal mode (streaming from a source file). Changing of the static mesh is possible only if it is in the procedural mode.
 ## int IntersectionMask
 
-The  intersection mask for the world clutter. This mask can be used to cut out areas intersected by the world clutter from [grass](../../../api/library/objects/class.objectgrass_cs.md#setCutoutIntersectionMask_int_void), [mesh clutter](../../../api/library/objects/class.objectmeshclutter_cs.md#setCutoutIntersectionMask_int_void) and another [world clutter](#setCutoutIntersectionMask_int_void) (e.g. to remove grass or forest from the surface of roads projected using decals).
+The intersection mask for the world clutter. This mask can be used to cut out areas intersected by the world clutter from [grass](../../../api/library/objects/class.objectgrass_cs.md#setCutoutIntersectionMask_int_void), [mesh clutter](../../../api/library/objects/class.objectmeshclutter_cs.md#setCutoutIntersectionMask_int_void) and another [world clutter](#setCutoutIntersectionMask_int_void) (e.g. to remove grass or forest from the surface of roads projected using decals).
 > **Notice:** The areas will be cut out only if intersection masks of grass and clutter objects matches this mask (one bit at least).
-
 
 ## 🔒︎ bool IsMeshProceduralDynamic
 

@@ -18,7 +18,7 @@ A variable can hold the following Fundamental Data Types:
 | Name | Description | Size | Range |
 |---|---|---|---|
 | [int](#int) | Integer | 4 bytes | signed: -2147483648 to 2147483647 |
-| [long](#long) | Long Integer | 8 bytes | signed: –9223372036854775808 to 9223372036854775807 |
+| [long](#long) | Long Integer | 8 bytes | signed: �9223372036854775808 to 9223372036854775807 |
 | [float](#float) | Floating Point Number | 4 bytes | +/- 3.4e +/- 38 (~7 digits) |
 | [double](#double) | Double Precision Floating Point Number | 8 bytes | +/- 1.7e +/- 308 (~15 digits) |
 | [string](#string) | A String of Characters |  |  |
@@ -394,7 +394,7 @@ ivec4: 2 -3 1 6
 ### mat4
 
 
-A matrix of sixteen (4×4) [*float*](#float) components. The initial value is the identity matrix:
+A matrix of sixteen (4�4) [*float*](#float) components. The initial value is the identity matrix:
 
 
 | 1 | 0 | 0 | 0 |
@@ -431,7 +431,7 @@ You can set a matrix the following ways:
 ### dmat4
 
 
-A matrix of twelve [*double*](#double) components. This is a 4×4 affine transformation matrix with the last row not stored. Instead, the last row is always of the form "**0 0 0 1** " and its values cannot be written, only read. The initial value is the identity matrix:
+A matrix of twelve [*double*](#double) components. This is a 4�4 affine transformation matrix with the last row not stored. Instead, the last row is always of the form "**0 0 0 1** " and its values cannot be written, only read. The initial value is the identity matrix:
 
 
 | 1 | 0 | 0 | 0 |

@@ -109,6 +109,8 @@ Mode defining the source of surface custom texture to be used.
 ## string MeshPath
 
 The path to the source *.mesh*-file used for the object.
+> **Notice:** Setting a new path does not update the mesh immediately. If the mesh is in the procedural mode, it will be reset.
+
 ## 🔒︎ bool IsMeshLoadedVRAM
 
 The value indicating if the source mesh used for the object is loaded to video memory (VRAM).

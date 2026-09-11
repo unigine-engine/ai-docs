@@ -137,8 +137,8 @@ To **deselect a curve**, click anywhere except for this curve and its keys.
 For the curve, the following parameters are available:
 
 
-- **Pre Infinity** — the behaviour of the curve prior to the first (leftmost) key.
-- **Post Infinity** — the behaviour of the curve after the first (rightmost) key.
+- **Pre Infinity** � the behaviour of the curve prior to the first (leftmost) key.
+- **Post Infinity** � the behaviour of the curve after the first (rightmost) key.
 
 
 These parameters can be used to create loops, i.e. repeat the effect that you created before and after the explicit range defined by the keys.

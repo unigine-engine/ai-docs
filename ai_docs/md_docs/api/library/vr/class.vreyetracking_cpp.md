@@ -187,7 +187,7 @@ Sets a new value indicating if the visualizer is enabled.
 Returns the current value indicating if the visualizer is enabled.
 ### Return value
 
-**true** if the visualizer is enabled; otherwise **false**.
+**true** if the visualizer is enabled ; otherwise **false**.
 ---
 
 ## bool hasFeatureRequestCalibration ( ) const

@@ -3,7 +3,8 @@
 **Header:** #include <plugins/Unigine/IG/UnigineIG.h>
 
 
-This class represents the IG Symbols Plane interface. A symbol surface (plane) is a rectangular, two-dimensional drawing region on a virtual plane on which [symbols](../../../../../api/library/plugins/ig/api/class.symbol_cpp.md) may be drawn. Such plane is placed in 3D space relative to a particular entity or coincident with the near clipping plane of a particular view.
+This class represents the *IG Symbols Plane* interface. A symbol surface (plane) is a rectangular, two-dimensional drawing region on a virtual plane on which [symbols](../../../../../api/library/plugins/ig/api/class.symbol_cpp.md) may be drawn. Such plane is placed in 3D space relative to a particular entity or coincident with the near clipping plane of a particular view.
+
 
 > **Notice:** IG plugin must be loaded.
 
@@ -42,7 +43,7 @@ Toggles on and off the plane orientation to the viewer and fixing the plane size
 ### Arguments
 
 - *bool* **enable** - true to make the plane a billboard (always oriented to the viewer), false to disable orientation to the viewer.
-- *bool* **fixed_scale** - true to make the billboard size unchanged regardless of its distance from the viewer, false — to disable.
+- *bool* **fixed_scale** - true to make the billboard size unchanged regardless of its distance from the viewer, false � to disable.
 
 ## bool isBillboard ( ) const
 

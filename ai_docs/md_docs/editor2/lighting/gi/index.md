@@ -95,7 +95,7 @@ Use the [**Lighting Mode**](../../../editor2/node_parameters/visual_representati
 ### Combining Lightmaps with Probes
 
 
-Voxel probes and lightmaps serve for the same purpose — static baked global illumination. Each technique has its pros and cons:
+Voxel probes and lightmaps serve for the same purpose � static baked global illumination. Each technique has its pros and cons:
 
 
 - Lightmaps provide the best available lighting quality and applicable only to static meshes.

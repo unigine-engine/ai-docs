@@ -239,7 +239,7 @@ The multi-thread methods create *[CPUShader](../../../api/library/common/mt/clas
 Returns the current total number of currently loaded resources.
 ### Return value
 
-Current total number of currently loaded resources — the sum of currently loaded data, files, images and meshes.
+Current total number of currently loaded resources � the sum of currently loaded data, files, images and meshes.
 ## int getNumLoadedNodes () const
 
 Returns the current total number of loaded nodes.
@@ -275,7 +275,7 @@ Current total number of loaded data segments.
 Returns the current total number of queued resources waiting for background loading.
 ### Return value
 
-Current total number of queued resources waiting for background loading — the sum of queued and currently processed data, files, images and meshes.
+Current total number of queued resources waiting for background loading � the sum of queued and currently processed data, files, images and meshes.
 ## int getNumQueuedNodes () const
 
 Returns the current total number of queued nodes waiting for the background loading.
@@ -314,7 +314,7 @@ Returns the current total time it took to process the loading queue.
 Current total time it took to process the loading queue.
 ## static Event<const char *, int> getEventNodeLoaded () const
 
-event triggered when the node is loaded. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when the node is loaded. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -450,10 +450,10 @@ AsyncQueue::getEventNodeLoaded().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const char *, int> getEventMeshLoaded () const
 
-event triggered when the mesh is loaded. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when the mesh is loaded. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -589,10 +589,10 @@ AsyncQueue::getEventMeshLoaded().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const char *, int> getEventImageLoaded () const
 
-event triggered when the image is loaded. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when the image is loaded. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -728,10 +728,10 @@ AsyncQueue::getEventImageLoaded().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const char *, int> getEventFileLoaded () const
 
-event triggered when the file is loaded. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when the file is loaded. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -867,7 +867,7 @@ AsyncQueue::getEventFileLoaded().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## Ptr < Image > getImage ( int id )

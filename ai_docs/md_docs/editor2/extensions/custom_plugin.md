@@ -141,9 +141,9 @@ To start developing your plugin for UnigineEditor perform the following actions:
 After clicking the *Create New Project / Update Configuration* button, a set of projects for the Editor plugins will be added to your UNIGINE project's `source` folder and all necessary files will be added to these folders depending on your operating system and *API + IDE* selection in project settings:
 
 
-- **Windows OS: C++ (Qt-based / CMake) or UnigineScript** — *CMake* will be used to build your plugin.
-- **Windows OS: C# (.NET) or C++ (Visual Studio)** — a `.vcxproj` project will be created and *Visual Studio 2022* will be used to build your plugin.
-- **Linux** — *CMake* will be used to build your plugin regardless of project configuration.
+- **Windows OS: C++ (Qt-based / CMake) or UnigineScript** � *CMake* will be used to build your plugin.
+- **Windows OS: C# (.NET) or C++ (Visual Studio)** � a `.vcxproj` project will be created and *Visual Studio 2022* will be used to build your plugin.
+- **Linux** � *CMake* will be used to build your plugin regardless of project configuration.
 
 
 You can open this project in your IDE, build it, and give it a test drive right in the Editor as the project is pre-configured to launch with the UnigineEditor.

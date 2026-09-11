@@ -97,7 +97,7 @@ int AppWorldLogic::update()
 ```
 
 
-The following code illustrates receiving the immediate input — the user receives the event notification immediately after filtering:
+The following code illustrates receiving the immediate input � the user receives the event notification immediately after filtering:
 
 
 ```cpp
@@ -588,7 +588,7 @@ POV (Point-of-View) switch or DPad states.
 | **VR_BUTTON_DPAD_RIGHT** = 35 | Sensor panel right button. |
 | **VR_BUTTON_DPAD_CENTER** = 36 | Sensor panel center button. |
 | **VR_BUTTON_THUMBREST** = 37 | Thumb rest, a place for the user to rest their thumb. |
-| **VR_BUTTON_THUMB_RESTING_SURFACES** = 38 | Thumb resting surfaces — any surfaces that a thumb may naturally rest on. This may include, but is not limited to, face buttons, thumbstick, and thumbrest. |
+| **VR_BUTTON_THUMB_RESTING_SURFACES** = 38 | Thumb resting surfaces � any surfaces that a thumb may naturally rest on. This may include, but is not limited to, face buttons, thumbstick, and thumbrest. |
 | **VR_BUTTON_PROXIMITY_SENSOR** = 39 | Proximity sensor. |
 | **VR_BUTTON_APPLICATION** = 40 | Application menu button. |
 | **NUM_VR_BUTTONS** = 41 | Total number of VR buttons and axes. |
@@ -612,6 +612,19 @@ POV (Point-of-View) switch or DPad states.
 
 ### Members
 
+## void setIMEEnabled ( bool imeenabled )
+
+Sets a new value indicating if the system IME (Input Method Editor, used for composed text input such as CJK) is enabled. When enabled, the OS can open its composition and candidate window, and the engine receives *[text editing](../../../api/library/controls/class.inputeventtextediting_cpp.md)* (preedit) events while the user composes text. Disabled by default.
+### Arguments
+
+- *bool* **imeenabled** - Set **true** to enable IME text composition; **false** - to disable it.
+
+## bool isIMEEnabled () const
+
+Returns the current value indicating if the system IME (Input Method Editor, used for composed text input such as CJK) is enabled. When enabled, the OS can open its composition and candidate window, and the engine receives *[text editing](../../../api/library/controls/class.inputeventtextediting_cpp.md)* (preedit) events while the user composes text. Disabled by default.
+### Return value
+
+**true** if IME text composition is enabled ; otherwise **false**.
 ## int getNumJoysticks () const
 
 Returns the current number of joysticks.
@@ -641,7 +654,7 @@ Current mouse scroll value. Negative values correspond to scrolling downwards; p
 Returns the current vector containing delta values of the mouse cursor position.
 ### Return value
 
-Current vector containing screen position change of the mouse pointer along the X and Y axes — the difference between the values in the previous and the current frames.
+Current vector containing screen position change of the mouse pointer along the X and Y axes � the difference between the values in the previous and the current frames.
 ## void setMousePosition ( const Math:: ivec2 & position )
 
 Sets a new vector containing integer values of the mouse cursor position.
@@ -777,7 +790,7 @@ Returns the current number of all VR devices.
 Current number of all VR devices.
 ## static Event<const Ptr < InputEvent > &> getEventImmediateInput () const
 
-event triggered immediately at input as received from proxy before being processed by the engine. This event can be triggered in different threads depending on the proxy implementation. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered immediately at input as received from proxy before being processed by the engine. This event can be triggered in different threads depending on the proxy implementation. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -913,10 +926,10 @@ Input::getEventImmediateInput().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int, int> getEventJoyPovMotion () const
 
-event triggered when a joystick POV state value is changed. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a joystick POV state value is changed. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1052,10 +1065,10 @@ Input::getEventJoyPovMotion().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int, int> getEventJoyAxisMotion () const
 
-event triggered when a joystick axis state value is changed. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a joystick axis state value is changed. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1191,10 +1204,10 @@ Input::getEventJoyAxisMotion().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int, int> getEventJoyButtonUp () const
 
-event triggered when a joystick button is released. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a joystick button is released. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1330,10 +1343,10 @@ Input::getEventJoyButtonUp().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int, int> getEventJoyButtonDown () const
 
-event triggered when a joystick button is pressed. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a joystick button is pressed. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1469,10 +1482,10 @@ Input::getEventJoyButtonDown().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int> getEventJoyDisconnected () const
 
-event triggered when a joystick is disconnected. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a joystick is disconnected. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1608,10 +1621,10 @@ Input::getEventJoyDisconnected().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int> getEventJoyConnected () const
 
-event triggered when a joystick is connected. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a joystick is connected. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1747,10 +1760,10 @@ Input::getEventJoyConnected().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int, int> getEventVrDeviceAxisMotion () const
 
-event triggered when a VR device axis state value is changed. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a VR device axis state value is changed. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1886,10 +1899,10 @@ Input::getEventVrDeviceAxisMotion().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int, Input::VR_BUTTON > getEventVrDeviceButtonTouchUp () const
 
-event triggered when a finger is withdrawn from a VR device button. If the finger is releasing a button that has been pressed, this event is triggered along with [EventVrDeviceButtonUp](#EventVrDeviceButtonUp). You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a finger is withdrawn from a VR device button. If the finger is releasing a button that has been pressed, this event is triggered along with [EventVrDeviceButtonUp](#EventVrDeviceButtonUp). You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2025,10 +2038,10 @@ Input::getEventVrDeviceButtonTouchUp().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int, Input::VR_BUTTON > getEventVrDeviceButtonTouchDown () const
 
-event triggered when a VR device button is touched. If the button has been touched and pressed, [EventVrDeviceButtonDown](#EventVrDeviceButtonDown) is triggered along with this event. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a VR device button is touched. If the button has been touched and pressed, [EventVrDeviceButtonDown](#EventVrDeviceButtonDown) is triggered along with this event. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2164,10 +2177,10 @@ Input::getEventVrDeviceButtonTouchDown().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int, Input::VR_BUTTON > getEventVrDeviceButtonUp () const
 
-event triggered when a VR device button is released. If the finger is withdrawn from the button that has been pressed, [EventVrDeviceButtonTouchUp](#EventVrDeviceButtonTouchUp) is triggered along with this event. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a VR device button is released. If the finger is withdrawn from the button that has been pressed, [EventVrDeviceButtonTouchUp](#EventVrDeviceButtonTouchUp) is triggered along with this event. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2303,10 +2316,10 @@ Input::getEventVrDeviceButtonUp().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int, Input::VR_BUTTON > getEventVrDeviceButtonDown () const
 
-event triggered when a VR device button is pressed. If the button has not previously been touched, [EventVrDeviceButtonTouchDown](#EventVrDeviceButtonTouchDown) is triggered along with this event. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a VR device button is pressed. If the button has not previously been touched, [EventVrDeviceButtonTouchDown](#EventVrDeviceButtonTouchDown) is triggered along with this event. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2442,10 +2455,10 @@ Input::getEventVrDeviceButtonDown().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int> getEventVrDeviceDisconnected () const
 
-event triggered when a VR device is disconnected. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a VR device is disconnected. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2581,10 +2594,10 @@ Input::getEventVrDeviceDisconnected().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int> getEventVrDeviceConnected () const
 
-event triggered when a VR device is connected. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a VR device is connected. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2720,10 +2733,10 @@ Input::getEventVrDeviceConnected().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int, int, int> getEventGamepadTouchMotion () const
 
-event triggered when the finger touching the gamepad touch panel moves across it. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when the finger touching the gamepad touch panel moves across it. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2859,10 +2872,10 @@ Input::getEventGamepadTouchMotion().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int, int, int> getEventGamepadTouchUp () const
 
-event triggered when the touch is withdrawn from the gamepad touch panel. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when the touch is withdrawn from the gamepad touch panel. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2998,10 +3011,10 @@ Input::getEventGamepadTouchUp().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int, int, int> getEventGamepadTouchDown () const
 
-event triggered when the gamepad touch panel is touched. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when the gamepad touch panel is touched. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -3137,10 +3150,10 @@ Input::getEventGamepadTouchDown().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int, Input::GAMEPAD_AXIS > getEventGamepadAxisMotion () const
 
-event triggered when a gamepad axis state value is changed. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a gamepad axis state value is changed. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -3276,10 +3289,10 @@ Input::getEventGamepadAxisMotion().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int, Input::GAMEPAD_BUTTON > getEventGamepadButtonUp () const
 
-event triggered when a gamepad button is released. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a gamepad button is released. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -3415,10 +3428,10 @@ Input::getEventGamepadButtonUp().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int, Input::GAMEPAD_BUTTON > getEventGamepadButtonDown () const
 
-event triggered when a gamepad button is pressed. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a gamepad button is pressed. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -3554,10 +3567,10 @@ Input::getEventGamepadButtonDown().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int> getEventGamepadDisconnected () const
 
-event triggered when a gamepad is disconnected. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a gamepad is disconnected. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -3693,10 +3706,10 @@ Input::getEventGamepadDisconnected().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int> getEventGamepadConnected () const
 
-event triggered when a gamepad is connected. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a gamepad is connected. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -3832,10 +3845,10 @@ Input::getEventGamepadConnected().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int> getEventTouchMotion () const
 
-event triggered when the touch is moved. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when the touch is moved. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -3971,10 +3984,10 @@ Input::getEventTouchMotion().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int> getEventTouchUp () const
 
-event triggered when the touch is released. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when the touch is released. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -4110,10 +4123,10 @@ Input::getEventTouchUp().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int> getEventTouchDown () const
 
-event triggered when the touch is pressed. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when the touch is pressed. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -4249,10 +4262,10 @@ Input::getEventTouchDown().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<unsigned int> getEventTextPress () const
 
-event triggered when the key that has a corresponding printable symbol is pressed. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when the key that has a corresponding printable symbol is pressed. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -4388,10 +4401,10 @@ Input::getEventTextPress().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<unsigned int> getEventKeyRepeat () const
 
-event triggered when the key is pressed repeatedly. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when the key is pressed repeatedly. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -4527,10 +4540,10 @@ Input::getEventKeyRepeat().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event< Input::KEY > getEventKeyUp () const
 
-event triggered when the key is released. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when the key is released. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -4666,10 +4679,10 @@ Input::getEventKeyUp().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event< Input::KEY > getEventKeyDown () const
 
-event triggered when the key is pressed and held. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when the key is pressed and held. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -4805,10 +4818,10 @@ Input::getEventKeyDown().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int, int> getEventMouseMotion () const
 
-event triggered when the mouse is moved. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when the mouse is moved. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -4944,10 +4957,10 @@ Input::getEventMouseMotion().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int> getEventMouseWheelHorizontal () const
 
-event triggered when the mouse wheel is moved horizontally. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when the mouse wheel is moved horizontally. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -5083,10 +5096,10 @@ Input::getEventMouseWheelHorizontal().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int> getEventMouseWheel () const
 
-event triggered when the mouse scroll wheel is moved. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when the mouse scroll wheel is moved. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -5222,10 +5235,10 @@ Input::getEventMouseWheel().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event< Input::MOUSE_BUTTON > getEventMouseUp () const
 
-event triggered when the mouse button is released. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when the mouse button is released. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -5361,10 +5374,10 @@ Input::getEventMouseUp().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event< Input::MOUSE_BUTTON > getEventMouseDown () const
 
-event triggered when the mouse button is pressed. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when the mouse button is pressed. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -5500,7 +5513,146 @@ Input::getEventMouseDown().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
+## static Event<const char *, int, int> getEventTextEditing () const
+
+event triggered while the user is composing text via an IME (Input Method Editor). The handler receives the current UTF-8 composition (preedit) text, the cursor position within it, and the length of the selected portion (both in codepoints). You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience.
+
+> **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
+
+ The event handler signature is as follows: *myhandler(const char * **text**, int **cursor**, int **length**)*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+// implement the TextEditing event handler
+void textediting_event_handler(const char * text, int cursor, int length)
+{
+	Log::message("\Handling TextEditing event\n");
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//  1. Multiple subscriptions can be linked to an instance of the EventConnections
+//  class that you can use later to remove all these subscriptions at once
+//////////////////////////////////////////////////////////////////////////////
+
+// create an instance of the EventConnections class
+EventConnections textediting_event_connections;
+
+// link to this instance when subscribing to an event (subscription to various events can be linked)
+Input::getEventTextEditing().connect(textediting_event_connections, textediting_event_handler);
+
+// other subscriptions are also linked to this EventConnections instance
+// (e.g. you can subscribe using lambdas)
+Input::getEventTextEditing().connect(textediting_event_connections, [](const char * text, int cursor, int length) {
+		Log::message("\Handling TextEditing event (lambda).\n");
+	}
+);
+
+// ...
+
+// later all of these linked subscriptions can be removed with a single line
+textediting_event_connections.disconnectAll();
+
+//////////////////////////////////////////////////////////////////////////////
+//  2. You can subscribe and unsubscribe via an instance of the EventConnection
+//  class. And toggle this particular connection off and on, when necessary.
+//////////////////////////////////////////////////////////////////////////////
+
+// create an instance of the EventConnection class
+EventConnection textediting_event_connection;
+
+// subscribe to the TextEditing event with a handler function keeping the connection
+Input::getEventTextEditing().connect(textediting_event_connection, textediting_event_handler);
+
+// ...
+
+// you can temporarily disable a particular event connection to perform certain actions
+textediting_event_connection.setEnabled(false);
+
+// ... actions to be performed
+
+// and enable it back when necessary
+textediting_event_connection.setEnabled(true);
+
+// ...
+
+// remove subscription to the TextEditing event via the connection
+textediting_event_connection.disconnect();
+
+//////////////////////////////////////////////////////////////////////////////
+//  3. You can add EventConnection/EventConnections instance as a member of the
+//  class that handles the event. In this case all linked subscriptions will be
+//  automatically removed when class destructor is called
+//////////////////////////////////////////////////////////////////////////////
+
+// Class handling the event
+class SomeClass
+{
+public:
+	// instance of the EventConnections class as a class member
+	EventConnections e_connections;
+
+	// A TextEditing event handler implemented as a class member
+	void event_handler(const char * text, int cursor, int length)
+	{
+		Log::message("\Handling TextEditing event\n");
+		// ...
+	}
+};
+
+SomeClass *sc = new SomeClass();
+
+// ...
+
+// specify a class instance in case a handler method belongs to some class
+Input::getEventTextEditing().connect(sc->e_connections, sc, &SomeClass::event_handler);
+
+// ...
+
+// handler class instance is deleted with all its subscriptions removed automatically
+delete sc;
+
+//////////////////////////////////////////////////////////////////////////////
+//   4. Subscribe to an event saving a particular connection ID
+//   and unsubscribe later by this ID
+//////////////////////////////////////////////////////////////////////////////
+// instance of the EventConnections class to manage event connections
+EventConnections e_connections;
+
+// define a particular connection ID to be used to unsubscribe later
+EventConnectionId textediting_handler_id;
+
+// subscribe to the TextEditing event with a lambda handler function and keeping connection ID
+textediting_handler_id = Input::getEventTextEditing().connect(e_connections, [](const char * text, int cursor, int length) {
+		Log::message("\Handling TextEditing event (lambda).\n");
+	}
+);
+
+// remove the subscription later using the ID
+Input::getEventTextEditing().disconnect(textediting_handler_id);
+
+//////////////////////////////////////////////////////////////////////////////
+//   5. Ignoring all TextEditing events when necessary
+//////////////////////////////////////////////////////////////////////////////
+
+// you can temporarily disable the event to perform certain actions without triggering it
+Input::getEventTextEditing().setEnabled(false);
+
+// ... actions to be performed
+
+// and enable it back when necessary
+Input::getEventTextEditing().setEnabled(true);
+
+```
+
+</details>
+
+### Return value
+
+Event instance.
 ---
 
 ## Ptr < InputGamePad > getGamePad ( int num ) const
@@ -5673,7 +5825,7 @@ Returns a vector containing integer values of touch position.
 The touch position.
 ## Math:: ivec2 getTouchDelta ( int index ) const
 
-Returns a vector containing screen position change of the touch along the X and Y axes — the difference between the values in the previous and the current frames.
+Returns a vector containing screen position change of the touch along the X and Y axes � the difference between the values in the previous and the current frames.
 ### Arguments
 
 - *int* **index** - Touch input index.
@@ -5931,3 +6083,12 @@ Returns the VR device by its number.
 ### Return value
 
 VR device.
+## void setIMETextInputRect ( int position_x , int position_y , int width , int height )
+
+Tells the operating system where the text caret or edit area is located, so that the IME composition and candidate window can be positioned next to it. Has no effect if text input is not currently active.
+### Arguments
+
+- *int* **position_x** - Horizontal position of the top-left corner of the text input rectangle, in render pixels relative to the engine window.
+- *int* **position_y** - Vertical position of the top-left corner of the text input rectangle, in render pixels relative to the engine window.
+- *int* **width** - Width of the text input rectangle, in pixels.
+- *int* **height** - Height of the text input rectangle, in pixels.

@@ -14,7 +14,10 @@ This class represents a vector of 2 double components.
 
 ## dvec2 ( const __m128d& v )
 
+
 Constructor. Initializes the vector using a given 128-bit variable as a source.
+
+
 > **Notice:** We do not recommend to use this method unless you have a clear understanding of SSE2.
 
 

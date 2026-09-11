@@ -30,7 +30,7 @@ The Content Profiler window will open.
 ![Content Profiler window](content_profiler_window.jpg)
 
 
-It has two tabs: one allows [managing textures](../../../editor2/assets_optimize/content_profiler/texture_profiler.md), the other  — [surfaces](../../../editor2/assets_optimize/content_profiler/surface_profiler.md).
+It has two tabs: one allows [managing textures](../../../editor2/assets_optimize/content_profiler/texture_profiler.md), the other� � [surfaces](../../../editor2/assets_optimize/content_profiler/surface_profiler.md).
 
 
 The info is displayed upon clicking the *Refresh* button. The content visible in the viewport and available in video memory will be analyzed.

@@ -36,7 +36,7 @@ The caption of the OK button. The default is OK.
 The value indicating if the OK button is clicked.
 ## 🔒︎ int Result
 
-The value indicating which button has been clicked.
+The value indicating which button has been clicked: 1 if the OK button is clicked; -1 if the Cancel button is clicked; 0 if the Close button is clicked.
 ## 🔒︎ bool IsDone
 
 The value indicating if the dialog window is closed.

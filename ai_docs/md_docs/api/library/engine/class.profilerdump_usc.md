@@ -3,7 +3,7 @@
 > **Warning:** The scope of applications for UnigineScript is limited to implementing materials-related logic (material expressions, scriptable materials, brush materials). Do not use UnigineScript as a language for application logic, please consider C#/C++ instead, as these APIs are the preferred ones. Availability of new Engine features in UnigineScript (beyond its scope of applications) is not guaranteed, as the current level of support assumes only fixing critical issues.
 
 
-The **ProfilerDump** class provides access to performance data stored in [profiler dump files](../../../tools/profiling/profiler_dump/index.md) (`*.profiler_dump`). Profiler dumps are saved in a binary format to reduce file size and speed up recording. Because of that, the file cannot be viewed directly in a text editor - it must be opened using this class or the [Profiler Reader](../../../tools/profiling/profiler_reader_tool/index.md) tool.
+The **ProfilerDump** class provides access to performance data stored in [profiler dump files](../../../tools/profiling/profiler_dump/index.md) (`*.profiler_dump`). Profiler dumps are saved in a binary format to reduce file size and speed up recording. Because of that, the file cannot be viewed directly in a text editor - it must be opened using this class or the *[Profiler Reader](../../../tools/profiling/profiler_reader_tool/index.md)* tool.
 
 
 It is important to understand how to correctly retrieve information from the dump to avoid data corruption or invalid results.
@@ -88,8 +88,12 @@ The total number of frames recorded in the profiler dump.
 Total number of frames recorded in the profiler dump.
 ## getNumDumpParameters () const
 
+
 The total number of profiler metrics (parameters) recorded in the profiler dump.
+
+
 > **Notice:** The set of metrics included in the dump depends on the runtime configuration, for example, certain metrics (such as *VRAM Terrain Cache* or *Upscaler*) are recorded only when the corresponding systems or features are active during profiling.
+
 
 ### Return value
 
@@ -231,8 +235,12 @@ Returns the type of the console variable recorded in the profiler dump at the sp
 The type of the console variable stored in the profiler dump.
 ## string getConsoleVariableValueString ( int num )
 
+
 Returns the value of the console variable recorded in the profiler dump at the specified index as a *string*. The value is automatically converted to a *string* type. If the conversion fails, an empty string is returned.
+
+
 > **Notice:** This method converts the value automatically. To properly retrieve information, check the variable type using *[getConsoleVariableType()()](../../...md#getConsoleVariableType_int_int)*
+
 
 ### Arguments
 
@@ -243,8 +251,12 @@ Returns the value of the console variable recorded in the profiler dump at the s
 The value of the console variable as a string, or an empty string if the conversion failed.
 ## int getConsoleVariableValueInt ( int num )
 
+
 Returns the value of the console variable recorded in the profiler dump at the specified index as an *int*. The value is automatically converted to an *int* type. If the conversion fails, 0 is returned.
+
+
 > **Notice:** This method converts the value automatically. To properly retrieve information, check the variable type using *[getConsoleVariableType()()](../../...md#getConsoleVariableType_int_int)*
+
 
 ### Arguments
 
@@ -255,7 +267,10 @@ Returns the value of the console variable recorded in the profiler dump at the s
 The value of the console variable converted to an *int*, or 0 if the conversion failed.
 ## float getConsoleVariableValueFloat ( int num )
 
+
 Returns the value of the console variable recorded in the profiler dump at the specified index as a *float*. The value is automatically converted to a *float* type. If the conversion fails, 0.0f is returned.
+
+
 > **Notice:** This method converts the value automatically. To properly retrieve information, check the variable type using *[getConsoleVariableType()()](../../...md#getConsoleVariableType_int_int)*
 
 ### Arguments
@@ -291,7 +306,10 @@ The value of the console variable converted to a *float*, or 0.0f if the convers
 
 ## Palette getConsoleVariableValuePalette ( int num )
 
+
 Returns the value of the console variable recorded in the profiler dump at the specified index as a [*Palette*](../../../api/library/common/class.palette_usc.md). The value is automatically converted to a [*Palette*](../../../api/library/common/class.palette_usc.md) type. If the conversion fails, a zero palette is returned.
+
+
 > **Notice:** This method converts the value automatically. To properly retrieve information, check the variable type using *[getConsoleVariableType()()](../../...md#getConsoleVariableType_int_int)*
 
 ### Arguments
@@ -324,7 +342,10 @@ Returns the frame index at which the specified console variable changed its valu
 The frame number when the console variable changed for the specified time. For example, if a variable changed 10 times and you want to know the frame of the 5th change, specify h=5.
 ## string getConsoleVariableHistoryValueString ( int num , int h )
 
+
 Returns the value of the console variable recorded in the profiler dump at the specified index and history position, converted to *string*. If the conversion fails, an empty string is returned.
+
+
 > **Notice:** This method converts the value automatically. To properly retrieve information, check the variable type using *[getConsoleVariableType()()](../../...md#getConsoleVariableType_int_int)*
 
 ### Arguments
@@ -337,7 +358,10 @@ Returns the value of the console variable recorded in the profiler dump at the s
 The historical value of the console variable as *string*, or an empty string if conversion failed.
 ## int getConsoleVariableHistoryValueInt ( int num , int h )
 
+
 Returns the value of the console variable recorded in the profiler dump at the specified index and history position, converted to *int*. If the conversion fails, a 0 is returned.
+
+
 > **Notice:** This method converts the value automatically. To properly retrieve information, check the variable type using *[getConsoleVariableType()()](../../...md#getConsoleVariableType_int_int)*
 
 ### Arguments
@@ -350,7 +374,10 @@ Returns the value of the console variable recorded in the profiler dump at the s
 The historical value of the console variable as *int*, or 0 if conversion failed.
 ## float getConsoleVariableHistoryValueFloat ( int num , int h )
 
+
 Returns the value of the console variable recorded in the profiler dump at the specified index and history position, converted to *float*. If the conversion fails, a 0.0f is returned.
+
+
 > **Notice:** This method converts the value automatically. To properly retrieve information, check the variable type using *[getConsoleVariableType()()](../../...md#getConsoleVariableType_int_int)*
 
 ### Arguments
@@ -390,7 +417,10 @@ The historical value of the console variable as *float*, or 0.0f if conversion f
 
 ## Palette getConsoleVariableHistoryValuePalette ( int num , int h )
 
+
 Returns the value of the console variable recorded in the profiler dump at the specified index and history position, converted to a [*Palette*](../../../api/library/common/class.palette_usc.md). If the conversion fails, a zero palette is returned.
+
+
 > **Notice:** This method converts the value automatically. To properly retrieve information, check the variable type using *[getConsoleVariableType()()](../../...md#getConsoleVariableType_int_int)*
 
 ### Arguments
@@ -533,7 +563,10 @@ Returns the storage type of the specified profiler parameter. The type indicates
 The type used to store the profiler parameter at the specified index.
 ## int getDumpParameterIntMin ( int num )
 
+
 Returns the minimum observed value (as *int*) for the specified profiler parameter identified by the given index.
+
+
 > **Notice:** This method converts the value automatically. To properly retrieve information, check the parameter type using *[getDumpParameterType()()](../../...md#getDumpParameterType_int_int)*.
 
 ### Arguments
@@ -545,7 +578,10 @@ Returns the minimum observed value (as *int*) for the specified profiler paramet
 Minimum value as integer.
 ## int getDumpParameterIntMax ( int num )
 
+
 Returns the maximum observed value (as *int*) for the specified profiler parameter identified by the given index.
+
+
 > **Notice:** This method converts the value automatically. To properly retrieve information, check the parameter type using *[getDumpParameterType()()](../../...md#getDumpParameterType_int_int)*.
 
 ### Arguments
@@ -557,7 +593,10 @@ Returns the maximum observed value (as *int*) for the specified profiler paramet
 Maximum value as integer.
 ## int getDumpParameterIntAvg ( int num )
 
+
 Returns the average value (as *int*) for the specified profiler parameter identified by the given index.
+
+
 > **Notice:** This method converts the value automatically. To properly retrieve information, check the parameter type using *[getDumpParameterType()()](../../...md#getDumpParameterType_int_int)*.
 
 ### Arguments
@@ -569,7 +608,10 @@ Returns the average value (as *int*) for the specified profiler parameter identi
 Average value as integer.
 ## float getDumpParameterFloatMin ( int num )
 
+
 Returns the minimum observed value (as *float*) for the specified profiler parameter identified by the given index.
+
+
 > **Notice:** This method converts the value automatically. To properly retrieve information, check the parameter type using *[getDumpParameterType()()](../../...md#getDumpParameterType_int_int)*.
 
 ### Arguments
@@ -581,7 +623,10 @@ Returns the minimum observed value (as *float*) for the specified profiler param
 Minimum value as float.
 ## float getDumpParameterFloatMax ( int num )
 
+
 Returns the maximum observed value (as *float*) for the specified profiler parameter identified by the given index.
+
+
 > **Notice:** This method converts the value automatically. To properly retrieve information, check the parameter type using *[getDumpParameterType()()](../../...md#getDumpParameterType_int_int)*.
 
 ### Arguments
@@ -593,7 +638,10 @@ Returns the maximum observed value (as *float*) for the specified profiler param
 Maximum value as float.
 ## float getDumpParameterFloatAvg ( int num )
 
+
 Returns the average value (as *float*) for the specified profiler parameter identified by the given index.
+
+
 > **Notice:** This method converts the value automatically. To properly retrieve information, check the parameter type using *[getDumpParameterType()()](../../...md#getDumpParameterType_int_int)*.
 
 ### Arguments

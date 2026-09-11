@@ -16,13 +16,13 @@ The total number of lods in the group.
 The number of layers of the lod group.
 ## 🔒︎ int MaskFormat
 
-The A value indicating current image format for the tile mask.
+The value indicating current image format for the tile mask. One of the [Image::FORMAT_*](../../../api/library/common/class.image_cs.md) values.
 ## 🔒︎ int DataFormat
 
-The A value indicating current image format for the tile data.
+The value indicating current image format for the tile data. One of the [Image::FORMAT_*](../../../api/library/common/class.image_cs.md#FORMAT_ATI1) values.
 ## 🔒︎ int DataType
 
-The A value indicating current image format for the tile data.
+The value indicating current image type for the tile data. One of the [Image::IMAGE_*](../../../api/library/common/class.image_cs.md#IMAGE_2D) values.
 ## 🔒︎ int Type
 
 The type of lods.
@@ -68,6 +68,23 @@ Loads the data of all LODs for the tiles within a given bounding box and a bound
 ### Return value
 
 **1** if the data of all LODs was fetched successfully; otherwise, 0.
+## int FetchData ( double x , double y , Image.Pixel ret_pixel , int layer , bool force )
+
+Fetches the data for the point on the terrain with given coordinates and puts it to the specified output structure.
+### Arguments
+
+- *double* **x** - X coordinate of the point on the terrain.
+- *double* **y** - Y coordinate of the point on the terrain.
+- *[Image.Pixel](../../../api/library/common/class.image_cs.md#Pixel)* **ret_pixel** - Output [Pixel structure](../../../api/library/common/class.image_cs.md#pixel) to store the pixel color.
+- *int* **layer** - Layer number.
+- *bool* **force** - Force flag. > **Notice:** It is recommended to set this flag to 0 when possible to avoid spikes. .
+
+  - If 1 is specified, the data will be fetched immediately.
+  - If 0 is specified, the operation will be queued to a separate thread.
+
+### Return value
+
+**1** if the data for the specified pixel was fetched successfully; otherwise, 0.
 ## TerrainGlobalLod GetLod ( int num )
 
 Returns the LOD with a given number.

@@ -22,28 +22,25 @@ The class to process window events. It allows getting the type, time of creation
 
 ## 🔒︎ WindowEvent.TYPE Type
 
-The type of the window event, one of the [TYPE](#TYPE) values.
+The type of the window event. One of the [WINDOW_EVENT_*](#WINDOW_EVENT) values.
 ## 🔒︎ string TypeName
 
 The name of the window event.
-## ulong Timestamp
+## ullong Timestamp
 
 The timestamp of the event, in milliseconds.
-## ulong WinID
+## ullong WinID
 
 The identifier of the window.
 ## ivec2 MousePosition
 
-The position of the mouse at the event creation.
+The mouse position at the event creation.
 ## ivec2 Position
 
-The position of the window at the event creation.
+The window position at the event creation.
 ## ivec2 Size
 
-The size of the window at the event creation.
+The window size at the event creation.
 ## EngineWindow Window
 
 The window for which the event has been created.
-### Members
-
----

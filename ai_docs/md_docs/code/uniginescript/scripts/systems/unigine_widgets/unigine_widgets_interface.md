@@ -11,6 +11,7 @@ You can use [user interface files](../../../../../code/gui/ui/index.md) (*.ui) t
 
 To load a Unigine-native user interface file, take the following steps:
 
+
 1. Include the UserInterface header. All other Unigine::Widgets headers are already included in it. ```cpp #include <core/systems/widgets/widget_interface.h> ```
 2. Declare UserInterface and the root widgets from the UI file in the global scope. ```cpp #include <core/systems/widgets/widget_interface.h> Unigine::Widgets::UserInterface ui; Unigine::Widgets::Window window; ```
 3. Load the user interface file. You also need to add root widgets to the rendered GUI for them to become visible. ```cpp int init() { // You can declare the namespace for convenience using Unigine::Widgets; // Load UI file in Unigine syntax ui = new UserInterface("samples/systems/widgets/widgets_01.ui"); // Render the root widget addChild(window,ALIGN_OVERLAP | ALIGN_CENTER); return 1; } int shutdown() { // Delete UserInterface with all widgets loaded from it delete ui; return 1; } ```

@@ -12,7 +12,7 @@ This class creates dialog window with an image preview of adjustable scale.
 
 ## string Texture
 
-The name of the image, preview and properties of which should be displayed in the dialog.
+The name of the image whose preview and properties are displayed in the dialog.
 ### Members
 
 ---

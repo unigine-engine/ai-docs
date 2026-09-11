@@ -110,7 +110,7 @@ The maximum torque of the attached angular motor. **0** means that the motor is 
 The angular damping of the joint (wheel rotation damping).
 ## float CurrentLinearDistance
 
-The current suspension compression (i.e. the length of the suspension).
+The suspension compression (i.e. the length of the suspension).
 ## float LinearSpring
 
 The rigidity coefficient of the suspension. **0** means that the suspension is not attached.
@@ -128,7 +128,7 @@ The target height of the suspension.
 The linear damping of the suspension.
 ## int PhysicsIntersectionMask
 
-The [physics intersection mask](../../../principles/bit_masking/index.md#physics_intersection_mask) for the joint.integer, each bit of which is a mask.
+The [physics intersection mask](../../../principles/bit_masking/index.md#physics_intersection_mask) of the joint.
 ## vec3 WorldAxis0
 
 The suspension axis in the world coordinates.

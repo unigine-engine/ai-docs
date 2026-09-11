@@ -28,9 +28,10 @@ In general, the process is as follows:
 To use the *WebStream* plugin with your project, do the following:
 
 
-1. Add it via UNIGINE SDK Browser on the project creation: click *[Plugins](../../../sdk/projects/index_cpp.md#general_settings)*, check the *WebStream plugin* option, and click **Add**. > **Notice:** For the existing project, choose *[Other Actions -> Configure Project](../../../sdk/projects/index_cpp.md#update_config)*, add the plugin as described above, and click **Update Configuration**.
-2. Launch the plugin: specify the `extern_plugin` command line option on the application start-up. ```text main_x64 -extern_plugin "UnigineWebStream" ``` Otherwise, you can load the plugin at runtime using the following console command: ```text plugin_load UnigineWebStream ```
-3. In addition, you can enable the ***Offscreen*** mode by specifying the `-video_offscreen` command-line option. It will allow you to run the application in the headless mode without displaying a visible window. ```text main_x64 -extern_plugin "UnigineWebStream" -video_offscreen 1 ``` > **Notice:** - If you skip this parameter, the application window will be rendered alongside the video and input streams. However, in this case, inputs from remote clients may be processed incorrectly. > - For cases where [user input](../../../code/plugins/webstream/server.md#input_enabled) is not allowed in a remote client application, there is no need to enable *[Offscreen](#launch)* mode.
+1. **Add the plugin to your project.** To **add the plugin to a new project**, start by [creating a project](../../../sdk/projects/index_cpp.md#creation) from a template. In the project creation dialog, open *Advanced Settings > Plugins*, enable the *WebStream* plugin, click *Add*, then select *Create New Project*. ![](add_plugin.png) For **existing projects**, in the SDK Browser, open the *My Projects* tab, and click the three-dot menu on the project card. Select *Configure*, then click *Plugins*, enable the required plugin, click *Add*, and finish with *Configure Project*. ![](../../../sdk/projects/other_actions.png)
+2. **Run your server.** To use the *WebStream* plugin in your own infrastructure, you need to deploy and configure your own signaling server. The signaling server is required to establish a connection between the streaming application and the client. As a reference implementation, you can use our [sample signaling server](../../../code/plugins/webstream/server.md). You can review its structure, adapt it to your requirements, and use it as a basis for implementing your own signaling server.
+3. **Launch the application and the plugin**. Specify the `extern_plugin` command line option on the application start-up. ```text main_x64 -extern_plugin "UnigineWebStream" ``` Otherwise, you can load the plugin at runtime using the following console command: ```text plugin_load UnigineWebStream ```
+4. In addition, you can enable the ***Offscreen*** mode by specifying the `-video_offscreen` command-line option. It will allow you to run the application in the headless mode without displaying a visible window. ```text main_x64 -extern_plugin "UnigineWebStream" -video_offscreen 1 ``` > **Notice:** - If you skip this parameter, the application window will be rendered alongside the video and input streams. However, in this case, inputs from remote clients may be processed incorrectly. > - For cases where [user input](../../../code/plugins/webstream/server.md#input_enabled) is not allowed in a remote client application, there is no need to enable *[Offscreen](#launch)* mode.
 
 
 ## Viewing Output
@@ -44,7 +45,7 @@ To render the output from the main viewport in a web browser, use the http addre
 | [![](engine_image.jpg)](engine_image.jpg) | [![](streaming_image.jpg)](streaming_image.jpg) |
 
 
-The output is configured via the web browser UI. The description of parameters is available [here](../../../code/plugins/webstream/server.md#webstream_frontend_parameters).
+The output is configured via the web browser UI. The description of the sample server's parameters is available [here](../../../code/plugins/webstream/server.md#webstream_frontend_parameters).
 
 
 ## Web Configuration File

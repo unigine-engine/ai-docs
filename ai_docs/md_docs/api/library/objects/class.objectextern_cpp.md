@@ -18,6 +18,25 @@ C++ sample
 
 ### Members
 
+## void setMaterialNodeType ( int type )
+
+Sets a new [node type](../../../api/library/nodes/class.node_cpp.md) to be used by the renderer to determine which materials can be applied to the object. One of the [node type identifiers](../../../api/library/nodes/class.node_cpp.md#DECAL_BEGIN).
+> **Notice:** As ObjectExtern is a custom user-defined object, so the user should determine the node type for the renderer to treat this object properly. Setting inappropriate node type may lead to system crashes.
+
+
+### Arguments
+
+- *int* **type** - The node type to be used by the renderer to determine which materials can be applied to the object
+
+## int getMaterialNodeType () const
+
+Returns the current [node type](../../../api/library/nodes/class.node_cpp.md) to be used by the renderer to determine which materials can be applied to the object. One of the [node type identifiers](../../../api/library/nodes/class.node_cpp.md#DECAL_BEGIN).
+> **Notice:** As ObjectExtern is a custom user-defined object, so the user should determine the node type for the renderer to treat this object properly. Setting inappropriate node type may lead to system crashes.
+
+
+### Return value
+
+Current node type to be used by the renderer to determine which materials can be applied to the object
 ---
 
 ## static ObjectExternPtr create ( int class_id )
@@ -33,25 +52,6 @@ Returns the unique class ID of the object.
 ### Return value
 
 Class ID if the object exists; otherwise, 0.
-## void setMaterialNodeType ( int type )
-
-Sets the node type to be used by the renderer to determine which materials can be applied to the object.
-> **Notice:** As ObjectExtern is a custom user-defined object, so the user should determine the node type for the renderer to treat this object properly. Setting inappropriate node type may lead to system crashes.
-
-
-### Arguments
-
-- *int* **type** - Node type ID. One of the [node type identifiers](../../../api/library/nodes/class.node_cpp.md#DECAL_BEGIN).
-
-## int getMaterialNodeType ( ) const
-
-Returns the node type to be used by the renderer to determine which materials can be applied to the object.
-> **Notice:** As ObjectExtern is a custom user-defined object, so the user should determine the node type for the renderer to treat this object properly. Setting inappropriate node type may lead to system crashes.
-
-
-### Return value
-
-Node type ID. One of the [node type identifiers](../../../api/library/nodes/class.node_cpp.md#DECAL_BEGIN).
 ## static int type ( )
 
 Returns the type of the node.

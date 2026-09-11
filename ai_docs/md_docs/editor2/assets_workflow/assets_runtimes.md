@@ -11,7 +11,7 @@ In the context of runtime files, assets in UNIGINE can be divided into two group
 
 
 - For a **native asset** (in UNIGINE's native format) no runtime files are generated normally, as such an asset itself is treated and used as a runtime file. > **Notice:** - Such assets are included in the final build "as is". > - A `*.mesh` or an image file can be treated as a non-native asset if the **Unchanged** option is disabled for it (a corresponding runtime file will be generated).
-- For a **non-native asset** (e.g. `.fbx`, `.obj`, `.hdr`, etc.) corresponding runtime file(s) will be generated in the `data/.runtimes` folder. A particular case of a non-native asset is a **container-asset** — such assets have multiple runtime files generated for them (e.g. an FBX asset may produce `.node`, `.mesh`, `.mat`, etc. files). > **Notice:** A non-native asset may have no runtimes at all (e.g., a `.txt` file).
+- For a **non-native asset** (e.g. `.fbx`, `.obj`, `.hdr`, etc.) corresponding runtime file(s) will be generated in the `data/.runtimes` folder. A particular case of a non-native asset is a **container-asset** � such assets have multiple runtime files generated for them (e.g. an FBX asset may produce `.node`, `.mesh`, `.mat`, etc. files). > **Notice:** A non-native asset may have no runtimes at all (e.g., a `.txt` file).
 
 
 > **Notice:** You can choose to [use a non-native asset as a runtime file](../../editor2/assets_workflow/assets_create_import.md#unchanged), in this case the asset will be treated as a native one (no runtime file will be generated for it).

@@ -78,6 +78,9 @@ The path to the texture to be used as a background of the widget.
 ## string StyleTextureSelection
 
 The path to the texture to be used as a background for the selected text.
+## Gui.CursorMode CursorMode
+
+The cursor movement and hit-test mode for this text editor, one of the *Gui::CURSOR_MODE_** values. With *CURSOR_MODE_AUTO* (default) the mode is inherited from the **[GlobalCursorMode](../../../api/library/gui/class.gui_cs.md#getGlobalCursorMode_int)** property of the GUI. The visual mode moves the caret and selection in on-screen order per line, which is natural for bidirectional text; the logical mode follows the stored character sequence.
 ### Members
 
 ---

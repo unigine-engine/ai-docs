@@ -85,7 +85,7 @@ Returns the current value specifying if automatic DPI scaling is applied to the 
 
 ### Return value
 
-**true** if all GUI elements of the window are scaled is enabled; otherwise **false**.
+**true** if all GUI elements of the window are scaled is enabled ; otherwise **false**.
 ## getDpiAwareness () const
 
 Returns the current DPI awareness mode, the value indicating how the application processes the DPI scaling. The value is set to [PER_MONITOR_AWARE](#DPI_AWARENESS_PER_MONITOR_AWARE) by default. On Windows, if a specified mode cannot be set, it will switch to a possible lower value with a corresponding warning. On Linux, [PER_MONITOR_AWARE](#DPI_AWARENESS_PER_MONITOR_AWARE) is currently not supported, setting this value will switch the mode to the [SYSTEM_AWARE](#DPI_AWARENESS_SYSTEM_AWARE) mode with the corresponding warning in the console.
@@ -97,13 +97,13 @@ Returns the current DPI awareness mode, the value indicating how the application
 Current DPI awareness mode, the value indicating how the application processes the DPI scaling.
 ## getCurrentDpiAwareness () const
 
-Returns the current current actual DPI awareness mode, the value indicating how the application processes the DPI scaling. The value is set to [PER_MONITOR_AWARE](#DPI_AWARENESS_PER_MONITOR_AWARE) by default. On Windows, if a specified mode cannot be set, it will switch to a possible lower value with a corresponding warning. On Linux, [PER_MONITOR_AWARE](#DPI_AWARENESS_PER_MONITOR_AWARE) is currently not supported, setting this value will switch the mode to the [SYSTEM_AWARE](#DPI_AWARENESS_SYSTEM_AWARE) mode with the corresponding warning in the console.
+Returns the current actual DPI awareness mode, the value indicating how the application processes the DPI scaling. The value is set to [PER_MONITOR_AWARE](#DPI_AWARENESS_PER_MONITOR_AWARE) by default. On Windows, if a specified mode cannot be set, it will switch to a possible lower value with a corresponding warning. On Linux, [PER_MONITOR_AWARE](#DPI_AWARENESS_PER_MONITOR_AWARE) is currently not supported, setting this value will switch the mode to the [SYSTEM_AWARE](#DPI_AWARENESS_SYSTEM_AWARE) mode with the corresponding warning in the console.
 > **Notice:** This is an actual value, it may differ from the mode stored in the boot config file (in case the system cannot set the specified mode it will try to use the one that is suitable instead).
 
 
 ### Return value
 
-Current actual DPI awareness mode, the value indicating how the application processes the DPI scaling.
+Current actual DPI awareness mode
 ## static getEventImmediateWindowEvent () const
 
 The event handler signature is as follows: *myhandler()*
@@ -120,7 +120,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventWindowUnstacked () const
 
 The event handler signature is as follows: *myhandler()*
@@ -137,7 +137,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventWindowStacked () const
 
 The event handler signature is as follows: *myhandler()*
@@ -154,7 +154,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventWindowRemoved () const
 
 The event handler signature is as follows: *myhandler()*
@@ -171,7 +171,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventWindowCreated () const
 
 The event handler signature is as follows: *myhandler()*
@@ -188,13 +188,13 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getFullscreenWindow () const
 
 Returns the current first engine window viewport that is in the fullscreen state.
 ### Return value
 
-Current The viewport in the fullscreen state, or null if no window is found.
+Current first engine window viewport that is in the fullscreen state, or NULL if none
 ---
 
 ## EngineWindow getWindow ( int index )
@@ -255,7 +255,7 @@ Group of windows.
 Group of windows.
 ## EngineWindowGroup stackWithWindow ( EngineWindowViewport window_viewport , EngineWindow window , int group_type , int decompose_second = false )
 
-Returns a newly created group of the engine window viewport and any other engine window — another viewport or a window group.
+Returns a newly created group of the engine window viewport and any other engine window � another viewport or a window group.
 ### Arguments
 
 - *[EngineWindowViewport](../../../api/library/gui/class.enginewindowviewport_usc.md)* **window_viewport** - The window viewport to be stacked.
@@ -306,12 +306,6 @@ Returns the value indicating if the specified window is in a fullscreen state.
 ### Return value
 
 **1** if the engine window is the fullscreen state, **0** if it is in the window mode.
-## EngineWindowViewport getFullscreenWindow ( )
-
-Returns the first engine window viewport that is in the fullscreen state.
-### Return value
-
-The viewport in the fullscreen state, or null if no window is found.
 ## EngineWindow getWindowByID ( long win_id )
 
 Returns the window by its ID.

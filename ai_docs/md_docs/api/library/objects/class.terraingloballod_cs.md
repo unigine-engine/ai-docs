@@ -23,28 +23,32 @@ This class is used to manage a single [LOD](../../../objects/objects/terrain/ter
 The clear distance of the lod. starting from this distance the tiles of the lod are removed from memory.
 ## float LoadDistance
 
-The current load distance for the lod. starting from this distance the tiles of the lod are loaded into memory.
+The load distance for the lod. starting from this distance the tiles of the lod are loaded into memory.
 ## float VisibleDistance
 
-The current visibility distance. starting from this distance the tiles of the lod become visible.
+The visibility distance. starting from this distance the tiles of the lod become visible.
 ## int ViewportMask
 
-The current bit mask for rendering into the viewport. the lod is rendered, if its mask matches the player's one.
+The bit mask for rendering into the viewport. the lod is rendered, if its mask matches the player's one.
 ## float TileDensity
 
-The current density of lod tiles.
+The density of lod tiles.
 ## string Path
 
 The path to the folder where the lod is stored.
 ## bool Enabled
 
-The A value indicating if the lod is enabled.
+The value indicating if the lod is enabled.
 ## 🔒︎ string TypeName
 
-The Name of the terrain global LOD type.
+The Name of the terrain global LOD type. One of the following values:
+- TerrainGlobalLod
+- TerrainGlobalLodHeight
+
+
 ## 🔒︎ TerrainGlobalLod.TYPE Type
 
-The LOD type.
+The LOD type. One of the [TERRAIN_GLOBAL_LOD*](#TERRAIN_GLOBAL_LOD) variables.
 ### Members
 
 ---
@@ -68,17 +72,3 @@ Sets a new path to the folder where the LOD is stored.
 ## void Reload ( )
 
 Reloads the LOD.
-## TerrainGlobalLod.TYPE GetType ( )
-
-Returns the type of the LOD. This method is used to define whether it is a height LOD used for collision and intersection detection or an ordinary albedo, normal or detail mask LOD.
-### Return value
-
-LOD type, one of the [TYPE](#TYPE) values.
-## string GetTypeName ( )
-
-Returns the name of the terrain global LOD type. This method is used to define whether it is a height LOD used for collision and intersection detection or an ordinary albedo, normal or detail mask LOD.
-### Return value
-
-Name of the terrain global LOD type. One of the following values:
-- TerrainGlobalLod
-- TerrainGlobalLodHeight

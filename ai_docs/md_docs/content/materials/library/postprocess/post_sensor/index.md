@@ -56,13 +56,13 @@ If the object's temperature is low (in range [0;1]), the auxiliary texture with 
 The temperature value is obtained from the thermal map (the auxiliary texture) by adding the temperature values stored in the texture's channels. In parallel, the temperature value stored in each channel is multiplied by the corresponding channel of the **Auxiliary color** specified in the object's material.
 
 
-*At = Rt · Ra + Gt · Ga + Bt · Ba*
+*At = Rt � Ra + Gt � Ga + Bt � Ba*
 
 
 However, the resulting temperature that will be rendered after applying the *post_sensor* material is calculated as follows:
 
 
-*Tt = AtApower · Ascale + AOheat + ScolorSpower · Ascale + Tglobal*
+*Tt = AtApower � Ascale + AOheat + ScolorSpower � Ascale + Tglobal*
 
 
 Here:

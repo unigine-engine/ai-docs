@@ -84,6 +84,16 @@
 
 - [Material Mask Node](../../../../../content/materials/graph/node_library/input/material_mask.md)
 
+- [Surface Parameters Node](../../../../../content/materials/graph/node_library/input/surface_parameters.md)
+
+- [Current Surface Parameters Node](../../../../../content/materials/graph/node_library/input/current_surface_parameters.md)
+
+- [Material Parameters Node](../../../../../content/materials/graph/node_library/input/material_parameters.md)
+
+- [Material Parameters by ID Node](../../../../../content/materials/graph/node_library/input/material_parameters_by_id.md)
+
+- [Surface ID Rendering Mode Node](../../../../../content/materials/graph/node_library/input/surface_id_rendering_mode.md)
+
 - [Up Node](../../../../../content/materials/graph/node_library/input/up.md)
 
 - [Down Node](../../../../../content/materials/graph/node_library/input/down.md)

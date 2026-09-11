@@ -63,7 +63,7 @@ Current timeline length.
 Returns the current value indicating if the doppler effect is enabled.
 ### Return value
 
-**true** if doppler effect is enabled; otherwise **false**.
+**true** if doppler effect is enabled ; otherwise **false**.
 ## bool isOneShot () const
 
 Returns the current value indicating if the event is a oneshot event.

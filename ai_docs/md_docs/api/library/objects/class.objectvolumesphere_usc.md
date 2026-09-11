@@ -12,6 +12,19 @@ This class is used to create a [volume sphere](../../../objects/effects/volumetr
 
 ### Members
 
+## void setRadius ( vec3 radius )
+
+Sets a new volume sphere radius values.
+### Arguments
+
+- *vec3* **radius** - The volume sphere radius values
+
+## vec3 getRadius () const
+
+Returns the current volume sphere radius values.
+### Return value
+
+Current volume sphere radius values
 ---
 
 ## static ObjectVolumeSphere ( vec3 radius )
@@ -24,22 +37,6 @@ Constructor. Creates a new volume sphere object with given radius values.
 
 - *vec3* **radius** - Radius values of the new volume sphere object in units. If a negative value is provided, **0** will be used instead.
 
-## void setRadius ( vec3 radius )
-
-Updates volume sphere radius values.
-> **Notice:** If a [volume light](../../../content/materials/library/volume_light_base/index.md) material is assigned to an object, it is rendered based only on the X-axis radius value. If its radius values along Y or Z axes are smaller, then the object is cut along them.
-
-
-### Arguments
-
-- *vec3* **radius** - New radius values of the volume sphere in units. If a negative value is provided, 0 will be used instead.
-
-## vec3 getRadius ( )
-
-Returns volume sphere radius values.
-### Return value
-
-Radius values of the volume sphere in units.
 ## static int type ( )
 
 Returns the type of the node.

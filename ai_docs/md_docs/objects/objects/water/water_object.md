@@ -44,8 +44,14 @@ The *Global Water* object provides full control of the wave spectrum [through th
 
 
 - The *[ObjectWaterGlobal](../../../api/library/objects/class.objectwaterglobal_cpp.md)* class to edit *Global Water* via API
-- The set of the **Water Global** samples in the **[C++ Samples](../../../sdk/api_samples/cpp/nodes.md#cpp_samples_water_surface_parameters_fetch)** and **[C++ SIM Samples](../../../sdk/api_samples/sim_cpp/simulation.md#cpp_sim_samples_ship_buoyancy_high_accuracy_voxel_approximation)** suites included in the SDK and demonstrating how to use C++ API to control *Global Water*, fetch water level at a given point, etc.
-- The **Water Global** samples in the **[C# Component Samples](../../../sdk/api_samples/cs/nodes.md#csharp_component_samples_water_surface_parameters_fetch)** and **[C# SIM Samples](../../../sdk/api_samples/sim_cs/simulation.md#csharp_sim_samples_floating_buoy)** suites included in the SDK and demonstrating how to use C# API to control *Global Water*, fetch water level at a given point, etc.
+- A set of the **Water Global** samples included in the SDK demonstrate how to use API to control *Global Water* and [fetch water level](../../../objects/objects/water/water_object.md#fetch_intersection) at a given point:
+
+  -
+  -
+  -
+  -
+  -
+  -
 - The *[water_global_base](../../../content/materials/library/water_global_base/index.md)* material
 
 
@@ -77,9 +83,9 @@ Water settings can be adjusted via the *[Parameters](../../../editor2/node_param
 There are three options for creating waves:
 
 
-- **Layers mode** — you create layers on which waves will be randomly generated in a given range of wave parameters. All the layers are added together. > **Notice:** Wave layers are usually created through UnigineEditor, but you can also create and edit them [via code](../../../api/library/objects/class.objectwaterglobal_cpp.md).
-- **Beauforts mode** — waves are generated based on the presets reproducing the state of the sea according to the Beaufort wind force scale (0 — Calm, 12 — Hurricane). In this mode, the parameters that define the main wave geometry will not be available for editing.
-- **Manual mode** — you create your own individual waves and have full control over them. > **Notice:** This mode can only be set [via code](../../../api/library/objects/class.objectwaterglobal_cpp.md), you cannot do this in UnigineEditor.
+- **Layers mode** � you create layers on which waves will be randomly generated in a given range of wave parameters. All the layers are added together. > **Notice:** Wave layers are usually created through UnigineEditor, but you can also create and edit them [via code](../../../api/library/objects/class.objectwaterglobal_cpp.md).
+- **Beauforts mode** � waves are generated based on the presets reproducing the state of the sea according to the Beaufort wind force scale (0 � Calm, 12 � Hurricane). In this mode, the parameters that define the main wave geometry will not be available for editing.
+- **Manual mode** � you create your own individual waves and have full control over them. > **Notice:** This mode can only be set [via code](../../../api/library/objects/class.objectwaterglobal_cpp.md), you cannot do this in UnigineEditor.
 
 
 When you enable the **Manual mode**, the list of generated waves is cleared and you can set up your own waves.
@@ -192,7 +198,7 @@ Parameters defining normal detail texture:
 ### Distant Waves
 
 
-*Global Water* has two parts: the waves on the inner part, which is close to the camera, are generated based on the wave spectrum, and all the rest — distant waves (simplified waves rendered starting at a certain distance from the camera to save performance), that are created by using a Normal map. The two parts are blended at a certain distance to ensure a smooth transition between them.
+*Global Water* has two parts: the waves on the inner part, which is close to the camera, are generated based on the wave spectrum, and all the rest � distant waves (simplified waves rendered starting at a certain distance from the camera to save performance), that are created by using a Normal map. The two parts are blended at a certain distance to ensure a smooth transition between them.
 
 
 ![](distant_waves1.png)
@@ -201,9 +207,9 @@ Parameters defining normal detail texture:
 Parameters defining distant waves:
 
 
-| Normal Map | The **Normal Map** texture is used to create ripples on the water surface for distant waves. The texture is 2-channeled: - *RG* — normal components. |
+| Normal Map | The **Normal Map** texture is used to create ripples on the water surface for distant waves. The texture is 2-channeled: - *RG* � normal components. |
 |---|---|
-| UV Transform | UV transform for the distant waves normal map. The first two values (x,y) — represent the scale for texture coordinates along the X and Y axes, while the third and forth (z, w) — specify the speed of movement animation. |
+| UV Transform | UV transform for the distant waves normal map. The first two values (x,y) � represent the scale for texture coordinates along the X and Y axes, while the third and forth (z, w) � specify the speed of movement animation. |
 | Intensity | Intensity value for the normal map of the distant waves. > **Notice:** Unavailable for modes with Beaufort levels blending. |
 | Blend Min | Minimum amount of distant waves in the crossfade zone where the main geometry waves fade out and distant waves fade in (*Blend Distance*). The value is normalized in the [0, 1] range. |
 | Blend Max | Maximum amount of distant waves in the crossfade zone where the main geometry waves fade out and distant waves fade in (*Blend Distance*). The value is normalized in the [0, 1] range. |
@@ -331,7 +337,7 @@ Parameters defining planar reflections:
 Parameters defining environment reflections:
 
 
-| Roughness | Environment reflection roughness of the water surface. This parameter helps to tweak reflections on the water surface relative to the environment. \| ![](env_reflection_0.png) \| ![](env_reflection_1.png) \| \|---\|---\| \| ![](env_reflection_param_0.png) \| ![](env_reflection_param_1.png) \| | ![](env_reflection_0.png) | ![](env_reflection_1.png) | ![](env_reflection_param_0.png) | ![](env_reflection_param_1.png) |
+| Roughness | Environment reflection roughness of the water surface. The value is used for shading of the water surface: the higher the value, the more blurred environment reflections are. [Planar reflections](#planar_reflection_toggle) are blurred and attenuated by this value as well. > **Notice:** In the [Beauforts mode](#beauforts_mode), this parameter is set by the Beaufort preset automatically and is not available for editing. \| ![](env_reflection_0.png) \| ![](env_reflection_1.png) \| \|---\|---\| \| ![](env_reflection_param_0.png) \| ![](env_reflection_param_1.png) \| | ![](env_reflection_0.png) | ![](env_reflection_1.png) | ![](env_reflection_param_0.png) | ![](env_reflection_param_1.png) |
 |---|---|---|---|---|---|
 | ![](env_reflection_0.png) | ![](env_reflection_1.png) |  |  |  |  |
 | ![](env_reflection_param_0.png) | ![](env_reflection_param_1.png) |  |  |  |  |

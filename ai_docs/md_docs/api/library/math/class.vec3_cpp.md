@@ -14,7 +14,10 @@ This class represents a vector of 3 float components.
 
 ## vec3 ( const __m128& v )
 
+
 Constructor. Initializes the vector using a given 128-bit variable as a source.
+
+
 > **Notice:** We do not recommend to use this method unless you have a clear understanding of SSE2.
 
 
@@ -381,7 +384,10 @@ Performs vector assignment. Destination vector = Source vector.
 Result.
 ## vec3 & operator= ( const __m128& val )
 
+
 Sets the vector using a given 128-bit variable as a source.
+
+
 > **Notice:** We do not recommend to use this method unless you have a clear understanding of SSE2.
 
 

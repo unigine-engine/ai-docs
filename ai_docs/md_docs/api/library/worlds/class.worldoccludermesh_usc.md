@@ -5,7 +5,7 @@
 **Inherits from:** Node
 
 
-This class is used to create an occluder based on an arbitrary mesh, which culls surfaces, bounds of which are currently hidden behind it. If any part of the bound of the object's surface is visible behind the occluder, the surface will not be culled.  The objects' surfaces behind the occluder are not sent to the GPU, thereby saving performance.
+This class is used to create an occluder based on an arbitrary mesh, which culls surfaces, bounds of which are currently hidden behind it. If any part of the bound of the object's surface is visible behind the occluder, the surface will not be culled. The objects' surfaces behind the occluder are not sent to the GPU, thereby saving performance.
 
 
 The occluder itself is rendered by the CPU and stored in a separate buffer.
@@ -16,6 +16,7 @@ The occluder itself is rendered by the CPU and stored in a separate buffer.
 
 In order to enhance performance, occluders should be used wisely. The following notes will help you to decide whether to use the occluder or not:
 
+
 - Occluders can be highly effective in case of complex environments where there are many objects that occlude each other and are costly to render (they have a lot of polygons and/or heavy shaders).
 - Effective culling is possible if objects are not too large, since if any part of their surface is seen, it cannot be culled. In case objects are big and have a few surfaces, it is likely that an additional performance load of an occluder will not pay off.
 - In case the scene is filled with flat objects or a camera looks down on the scene from above (for example, in flight simulators), it is better not to use occluders at all or disable them.
@@ -25,41 +26,41 @@ In order to enhance performance, occluders should be used wisely. The following 
 
 
 - An article on [Occluders](../../../objects/worlds/world_occluders/index.md) for general information
-- An article on [Occluder Mesh](../../../objects/worlds/world_occluders/occluder_mesh/index.md)
+- An article on *[Occluder Mesh](../../../objects/worlds/world_occluders/occluder_mesh/index.md)*
 
 
 ## WorldOccluderMesh Class
 
 ### Members
 
+## void setDistance ( )
+
+Sets a new distance between the camera and the bounding box of the *Occluder Mesh*, at which this *Occluder Mesh* becomes disabled (it isn't processed by the cpu, hence it isn't rendered). by default, the inf value is used.
+### Arguments
+
+- **distance** - The distance in units.
+
+## getDistance () const
+
+Returns the current distance between the camera and the bounding box of the *Occluder Mesh*, at which this *Occluder Mesh* becomes disabled (it isn't processed by the cpu, hence it isn't rendered). by default, the inf value is used.
+### Return value
+
+Current distance in units.
 ---
 
 ## static WorldOccluderMesh ( )
 
-Constructor. Creates a new world occluder mesh with the default distance value.
+Constructor. Creates a new world *Occluder Mesh* with the default distance value.
 ## static WorldOccluderMesh ( string name )
 
-Constructor. Creates a new world occluder mesh from the given `*.mesh` file.
+Constructor. Creates a new world *Occluder Mesh* from the given `*.mesh` file.
 ### Arguments
 
 - *string* **name** - A mesh file name.
 
-## void setDistance ( float distance )
-
-Updates the distance between the camera and the bounding box of the occluder mesh, at which this occluder mesh becomes disabled (it isn't processed by the CPU, hence it isn't rendered). By default, the inf value is used.
-### Arguments
-
-- *float* **distance** - The distance in units.
-
-## float getDistance ( )
-
-Returns the current distance between the camera and the bounding box of the occluder mesh, at which this occluder mesh becomes disabled (it isn't processed by the CPU, hence it isn't rendered). By default, the inf value is used.
-### Return value
-
-The distance in units.
 ## int setMesh ( Mesh mesh )
 
-Allows for reinitialization of the occluder mesh: the function copies a given mesh into the current mesh used for the occluder mesh.
+Allows for reinitialization of the *Occluder Mesh*: the function copies a given mesh into the current mesh used for the *Occluder Mesh*.
 ### Arguments
 
 - *[Mesh](../../../api/library/rendering/class.mesh_usc.md)* **mesh** - A mesh to be copied.
@@ -69,7 +70,7 @@ Allows for reinitialization of the occluder mesh: the function copies a given me
 **1** if the mesh is copied successfully; otherwise, **0**.
 ## int getMesh ( Mesh & mesh )
 
-Copies the current mesh, on which the occluder mesh is based, into the target mesh.
+Copies the current mesh, on which the *Occluder Mesh* is based, into the target mesh.
 ### Arguments
 
 - *[Mesh](../../../api/library/rendering/class.mesh_usc.md) &* **mesh** - Target mesh.
@@ -79,7 +80,7 @@ Copies the current mesh, on which the occluder mesh is based, into the target me
 **1** if the mesh is copied successfully; otherwise, **0**.
 ## int setMeshPath ( string name , int force_load = false )
 
-Sets a new path for the mesh, on which the occluder mesh is based and forces loading of the mesh with the new path for the current occluder mesh.
+Sets a new path for the mesh, on which the *Occluder Mesh* is based and forces loading of the mesh with the new path for the current *Occluder Mesh*.
 ### Arguments
 
 - *string* **name** - A new path to be set for the mesh.
@@ -95,13 +96,13 @@ Sets a new path for the mesh, on which the occluder mesh is based and forces loa
 In other cases, **0**.
 ## string getMeshPath ( )
 
-Returns the path of the mesh, on which the occluder mesh is based.
+Returns the path of the mesh, on which the *Occluder Mesh* is based.
 ### Return value
 
 Mesh path.
 ## int loadMesh ( string name )
 
-Loads a mesh for the current occluder mesh from the file. This function doesn't change the mesh name.
+Loads a mesh for the current *Occluder Mesh* from the file. This function doesn't change the mesh name.
 ### Arguments
 
 - *string* **name** - The mesh file name.
@@ -111,7 +112,7 @@ Loads a mesh for the current occluder mesh from the file. This function doesn't 
 **1** if the mesh is loaded successfully; otherwise, **0**.
 ## int saveMesh ( string name )
 
-Saves the mesh, on which the occluder mesh is based, into a file.
+Saves the mesh, on which the *Occluder Mesh* is based, into a file.
 ### Arguments
 
 - *string* **name** - The mesh file name.

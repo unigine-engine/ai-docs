@@ -3,7 +3,7 @@
 **Inherits from:** Object
 
 
-Interface for **[Global Water](../../../objects/objects/water/water_object.md)** object handling. This water object represents infinitely spread water with auto-tessellation (the wireframe of the water object is not scaled — regardless of the camera position it stays the same) and the underwater mode. This type is suitable to represent boundless ocean while not overloading the GPU.
+Interface for **[Global Water](../../../objects/objects/water/water_object.md)** object handling. This water object represents infinitely spread water with auto-tessellation (the wireframe of the water object is not scaled � regardless of the camera position it stays the same) and the underwater mode. This type is suitable to represent boundless ocean while not overloading the GPU.
 
 
 However, it cannot have a body assigned, and thus does not provide proper physical interaction with scene objects. If you need to simulate the physics of buoyancy, you should use **[Physical Water](../../../objects/effects/physicals/physical_water/index.md)**. Also it is limited to a single water level. It means that the filling level of water always remains the same. So, if you need to create, for example, mountain lakes or water flows with height difference, you should use a **[Water Mesh](../../../objects/objects/water/water_mesh.md)**.
@@ -12,9 +12,9 @@ However, it cannot have a body assigned, and thus does not provide proper physic
 There are three options for creating waves:
 
 
-- **Layer mode** — you create layers on which waves will be randomly generated in a given range of wave parameters. All the layers are added together. > **Notice:** Wave layers are usually created through the UnigineEditor, but you can also create and edit them via code.
-- **Manual mode** — you create your own individual waves and have full control over them. This mode can only be set via code, you cannot do this in the UnigineEditor. > **Notice:** In **Manual mode**, be careful with the *Steepness* parameter, the waves will be everted if this value is set high.
-- **Beauforts mode** — waves are generated based on the presets reproducing the state of the sea according to the Beaufort wind force scale (0 - Calm, 12 - Hurricane). In this mode, the parameters that define the main wave geometry will not be available for editing via code.
+- **Layer mode** � you create layers on which waves will be randomly generated in a given range of wave parameters. All the layers are added together. > **Notice:** Wave layers are usually created through the UnigineEditor, but you can also create and edit them via code.
+- **Manual mode** � you create your own individual waves and have full control over them. This mode can only be set via code, you cannot do this in the UnigineEditor. > **Notice:** In **Manual mode**, be careful with the *Steepness* parameter, the waves will be everted if this value is set high.
+- **Beauforts mode** � waves are generated based on the presets reproducing the state of the sea according to the Beaufort wind force scale (0 - Calm, 12 - Hurricane). In this mode, the parameters that define the main wave geometry will not be available for editing via code.
 
 
 For all modes, wave frequency is calculated based on the wavelength using the formula:
@@ -410,7 +410,7 @@ Steepness calculation accuracy used when calculating intersections, as well as f
 
 ## bool FieldSpacerEnabled
 
-The a value indicating if the effect of [FieldSpacer](../../../objects/effects/fields/field_spacer/index.md) object on the Global Water object is enabled.
+The value indicating if the effect of [FieldSpacer](../../../objects/effects/fields/field_spacer/index.md) object on the Global Water object is enabled.
 ## float SoftInteraction
 
 The soft intersection of water with the shoreline and surfaces of objects.
@@ -422,13 +422,13 @@ The soft intersection of water with decals.
 The distortion of [decals](../../../objects/decals/index.md) projected onto water.
 ## float RefractionScale
 
-The scale of the water refraction.
+The scale of the [water refraction](../../../objects/objects/water/water_object.md#refraction_scale).
 ## vec4 AuxiliaryColor
 
-The color that goes into the auxiliary buffer.
+The color that goes into the auxiliary buffer. *Alpha* is the blend factor.
 ## bool Auxiliary
 
-The a value indicating if the auxiliary rendering pass for the material is enabled.
+The value indicating if the [auxiliary rendering pass](../../../objects/objects/water/water_object.md#auxiliary) for the material is enabled. Can be used for custom post-effects, such as thermal vision, night vision, etc. Enabling the option activates the [Auxiliary Color](../../../api/library/objects/class.objectwaterglobal_cs.md#setAuxiliaryColor_vec4_void) parameter.
 ## float ShorelineWetnessOffset
 
 The offset of the wetness area from the water.
@@ -476,19 +476,19 @@ The speed of tidal waves.
 The path to the LUT texture used for shoreline wetness effect.
 ## bool FieldShorelineFoam
 
-The a value indicating if rendering of foam for shoreline zones is enabled.
+The value indicating if [rendering of foam](../../../objects/objects/water/water_object.md#fieldshoreline_foam) for shoreline zones is enabled.
 ## bool FieldShorelineGeometry
 
-The a value indicating if rendering of wave geometry for shoreline waves is enabled.
+The value indicating if [rendering of wave geometry](../../../objects/objects/water/water_object.md#fieldshoreline_geometry) for shoreline waves is enabled. If disabled, the water surface remains flat. Disabling this option in cases where wave geometry is hardly noticeable (e.g. a flight simulator) gives a performance gain.
 ## bool FieldShorelineNormal
 
-The a value indicating if calculation of normals for geometry of shoreline waves is enabled.
+The value indicating if calculation of normals for [geometry](../../../api/library/objects/class.objectwaterglobal_cs.md#setFieldShorelineGeometry_int_void) of shoreline waves is enabled. This option significantly reduces performance and can be used in cases, when really large waves are required. Enabling just the geometry state to simulate distortion of the water surface by a shoreline wave is enough in most cases.
 ## bool FieldShorelineHighPrecision
 
-The a value indicating if the high precision of the shoreline is enabled. If enabled, this option improves interpolation between the adjacent pixels of the shoreline texture to reduce stepping artifacts.
+The value indicating if the [high precision](../../../objects/objects/water/water_object.md#high_precision) of the shoreline is enabled. If enabled, this option improves interpolation between the adjacent pixels of the shoreline texture to reduce stepping artifacts. This can be noticed when looking at the waterline separating overwater and underwater. This option should be used only when [geometry](../../../api/library/objects/class.objectwaterglobal_cs.md#setFieldShorelineGeometry_int_void) and/or [normal](../../../api/library/objects/class.objectwaterglobal_cs.md#setFieldShorelineNormal_int_void) states are enabled.
 ## bool FieldShorelineEnabled
 
-The Checks if the assigned material on the Global Water object has enabled [FieldShoreline](../../../objects/effects/fields/field_shoreline/index.md) interaction option.
+The value indicating if the assigned material on the Global Water object has enabled [FieldShoreline](../../../objects/effects/fields/field_shoreline/index.md) interaction option. Enabling this option makes available the group of Field Shoreline states.
 ## float FieldHeightSteepness
 
 The sharpness of the crests for the waves generated from the [FieldHeight](../../../objects/effects/fields/field_height/index.md) objects placed in Global Water.
@@ -500,7 +500,7 @@ The intensity of the foam generated from the [FieldHeight](../../../objects/effe
 The contrast of the foam generated from the [FieldHeight](../../../objects/effects/fields/field_height/index.md) objects placed in Global Water.
 ## bool FieldHeightEnabled
 
-The Checks if the assigned material on the Global Water object has enabled [FieldHeight](../../../objects/effects/fields/field_height/index.md) interaction option.
+The value indicating if the assigned material on the Global Water object has enabled [FieldHeight](../../../objects/effects/fields/field_height/index.md) interaction option.
 ## float CausticBrightness
 
 The brightness of the light shapes.
@@ -509,28 +509,28 @@ The brightness of the light shapes.
 The movement speed of the light patterns.
 ## float CausticDistanceFade
 
-The distance from the water surface downwards, at which light shapes fade.
+The [distance from the water surface](../../../objects/objects/water/water_object.md#caustics_distance_fade) downwards, at which light shapes fade.
 ## vec4 CausticUVTransform
 
-The UV Transform coordinates for the caustic texture.
+The [UV Transform](../../../objects/objects/water/water_object.md#caustics_uv_transform) coordinates for the caustic texture.
 ## string CausticsTexturePath
 
-The path to the 3D Caustic texture which determines the pattern of light rays refracted by the water surface.
+The path to the [3D Caustic texture](../../../objects/objects/water/water_object.md#caustics_texture) which determines the [pattern of light rays](../../../objects/objects/water/water_object.md#enable_caustics) refracted by the water surface. The texture is 1-channeled: *R* value defines the caustics pattern.
 ## bool CausticsDistortion
 
-The a value indicating if the caustics distortion effect is enabled.
+The value indicating if the [caustics distortion](../../../objects/objects/water/water_object.md#caustics_distortion) effect is enabled. This effect removes pixelation and makes caustics look smoother. When smoothing is not required, you can disable this option to gain performance.
 ## bool Caustics
 
-The a value indicating if the caustics effect is enabled.
+The value indicating if the [caustics effect](../../../objects/objects/water/water_object.md#enable_caustics) is enabled.
 ## float ReflectionOcclusionSlope
 
 The slope of negative normals of the water surface, at which occlusion is performed for wave reflections.
 ## float ReflectionOcclusion
 
-The occlusion factor for environment reflections on parts of the water surface with negative normals. Using this parameter enables simulation of reflection of waves on the water surface removing too bright areas on waves close to the horizon.
+The [occlusion factor for environment reflections](../../../objects/objects/water/water_object.md#occlusion) on parts of the water surface with negative normals. The higher the value, the less intensive reflections are on the surface parts with negative normals. Using this parameter enables simulation of reflection of waves on the water surface removing too bright areas on waves close to the horizon.
 ## float ReflectionRoughness
 
-The environment reflection roughness of the water surface. This parameter helps to tweak reflections on the water surface relative to the environment.
+The environment [reflection roughness](../../../objects/objects/water/water_object.md#roughness) of the water surface. The value is used for shading of the water surface: the higher the value, the more blurred environment reflections are; [planar reflections](../../../objects/objects/water/water_object.md#planar_reflection_toggle) are blurred and attenuated by this value as well. When waves are generated in the [Beauforts mode](../../../objects/objects/water/water_object.md#beauforts_mode), this parameter is driven by the Beaufort preset automatically and cannot be changed manually.
 ## int PlanarReflectionViewportMask
 
 The viewport [mask](../../../principles/bit_masking/index.md#viewport) of the reflection camera. A surface has its reflection rendered, if its viewport mask and its material's viewport mask match this mask.
@@ -542,19 +542,19 @@ The position of the reflection pivot point.
 The distance from the reflection viewport camera to the reflected object. This distance sums up to the distance from the camera to the reflective surface plus the distance from object to reflective surface.
 ## ObjectWaterGlobal.PLANAR_REFLECTION_SIZE PlanarReflectionMapSizeType
 
-The size of the planar reflection map.
+The size of the planar reflection map. The higher the value, the better the quality is.
 ## bool PlanarReflection
 
-The a value indicating if the planar reflections option is enabled.
+The value indicating if the planar reflections option is enabled. When enabled, planar reflections are used on the water surface instead of SSR. It is better to use this option for undisturbed water (0-2 Beaufort). Enabling the option activates [Planar Reflection MapSize](../../../api/library/objects/class.objectwaterglobal_cs.md#setPlanarReflectionMapSizeType_int_void) and Planar Reflection parameters.
 ## float UnderwaterDofDistance
 
-The focal distance for the underwater DOF effect.
+The focal distance for the [underwater DOF effect](../../../objects/objects/water/water_object.md#underwater_dof).
 ## bool UnderwaterDOF
 
-The a value indicating if the underwater DOF effect enabled.
+The value indicating if the [underwater DOF](../../../objects/objects/water/water_object.md#underwater_dof) effect enabled.
 ## float WaterlineSize
 
-The size of the borderline between the overwater and underwater environments.
+The [size of the borderline](../../../objects/objects/water/water_object.md#waterline_size) between the overwater and underwater environments.
 ## float UnderwaterShaftIntensity
 
 The intensity of the underwater sun shafts.
@@ -569,34 +569,34 @@ The degree of impact of the environment lighting on the final underwater color.
 The height offset for lighting.
 ## float UnderwaterFogDepth
 
-The distance from the water surface up to which the light affects the underwater color.
+The [distance from the water surface](../../../objects/objects/water/water_object.md#fog_lighting_depth) up to which the light affects the underwater color.
 ## float UnderwaterFogTransparency
 
-The transparency of the underwater fog.
+The [transparency of the underwater fog](../../../objects/objects/water/water_object.md#fog_transparency). The higher the value, the more transparent the underwater fog is.
 ## vec4 UnderwaterFogColor
 
-The underwater fog color.
+The [underwater fog color](../../../objects/objects/water/water_object.md#fog_color). The Sun and Environment lighting affect this parameter to create the final underwater fog color.
 ## string DepthLUTTexturePath
 
-The path to the LUT texture that shows the color of the bottom.
+The path to the [LUT texture](../../../objects/objects/water/water_object.md#depth_lut) that shows the color of the bottom.
 ## float SubsurfaceDecalsIntensity
 
 The intensity of subsurface scattering of diffuse lighting for decals.
 ## float SubsurfaceWaveFoamIntensity
 
-The intensity of subsurface scattering near the foam areas.
+The intensity of [subsurface scattering near the foam areas](../../../objects/objects/water/water_object.md#intensity_around_foam).
 ## float SubsurfaceWaveIntensity
 
-The intensity of light rays passing through waves.
+The intensity of [light rays passing through waves](../../../objects/objects/water/water_object.md#intensity_through_waves). The lower the value, the faster the light rays dissipate in water.
 ## float SubsurfaceAmbientIntensity
 
-The intensity of subsurface scattering for ambient lighting.
+The [intensity of subsurface scattering](../../../objects/objects/water/water_object.md#ambient_intensity) for ambient lighting. The lower the value, the faster the light rays dissipate in water.
 ## vec4 SubsurfaceColor
 
-The water subsurface scattering (SSS) color.
+The [water subsurface scattering (SSS) color](../../../objects/objects/water/water_object.md#color).
 ## float FoamTextureAffect
 
-The Sets the visibility of the foam texture.
+The visibility of the foam texture. It can be used to create additional effects, e.g., foam bubbles.
 ## float FoamContactIntensity
 
 The foam intensity near shores or different objects in water.
@@ -632,19 +632,19 @@ The speed for the first sample of the foam texture.
 The UV scale for the first sample of the foam texture.
 ## string FoamTexturePath
 
-The path to the foam texture.
+The path to the [foam texture](../../../objects/objects/water/water_object.md#texture).
 ## float DistantWavesBlendMax
 
-The value representing the maximum amount of distant waves in the crossfade zone where the main geometry waves fade out and distant waves fade in.
+The value representing the maximum amount of [distant waves](../../../objects/objects/water/water_object.md#distant_waves) in the crossfade zone where the main geometry waves fade out and distant waves fade in.
 ## float DistantWavesBlendMin
 
-The value representing the minimum amount of distant waves in the crossfade zone where the main geometry waves fade out and distant waves fade in.
+The value representing the minimum amount of [distant waves](../../../objects/objects/water/water_object.md#distant_waves) in the crossfade zone where the main geometry waves fade out and distant waves fade in.
 ## float DistantWavesBlendDistanceEnd
 
-The fade-in end distance for distant waves.
+The fade-in end distance for [distant waves](../../../objects/objects/water/water_object.md#distant_waves).
 ## float DistantWavesBlendDistanceStart
 
-The fade-in start distance for distant waves.
+The fade-in start distance for [distant waves](../../../objects/objects/water/water_object.md#distant_waves).
 ## float DistantWavesIntensity
 
 The intensity for [distant waves](../../../objects/objects/water/water_object.md#distant_waves).
@@ -652,31 +652,31 @@ The intensity for [distant waves](../../../objects/objects/water/water_object.md
 
 ## vec4 DistantWavesUVTransform
 
-The UV transform for the distant waves normal map.
+The UV transform for the [distant waves](../../../objects/objects/water/water_object.md#distant_waves) normal map. The first two values (x, y) represent the scale texture coordinates along the X and Y axes. The third and forth (z, w) specify the speed of movement animation.
 ## string DistantWavesTexturePath
 
 The path to the [normal map](../../../objects/objects/water/water_object.md#distant_waves_normal_map) of the distant waves.
 ## float Detail1Intensity
 
-The intensity of the first sample of the normal detail texture.
+The intensity of the first sample of the [normal detail texture](../../../objects/objects/water/water_object.md#detail_normal_map).
 ## vec2 Detail1UVSpeed
 
-The speed of the second sample of the normal detail texture.
+The speed of the second sample of the [normal detail texture](../../../objects/objects/water/water_object.md#detail_normal_map).
 ## vec2 Detail1UVSize
 
-The size of the second sample of the normal detail texture.
+The size of the second sample of the [normal detail texture](../../../objects/objects/water/water_object.md#detail_normal_map).
 ## float Detail0Intensity
 
-The intensity of the first sample of the normal detail texture.
+The intensity of the first sample of the [normal detail texture](../../../objects/objects/water/water_object.md#detail_normal_map).
 ## vec2 Detail0UVSpeed
 
-The speed of the first sample of the normal detail texture.
+The speed of the first sample of the [normal detail texture](../../../objects/objects/water/water_object.md#detail_normal_map).
 ## vec2 Detail0UVSize
 
-The size of the first sample of the normal detail texture.
+The size of the first sample of the [normal detail texture](../../../objects/objects/water/water_object.md#detail_normal_map).
 ## string DetailTexturePath
 
-The path to the location of a normal detail texture.
+The path to the location of a [normal detail texture](../../../objects/objects/water/water_object.md#detail_normal_map).
 ## float TextureNormalIntensity
 
 The intensity of procedurally generated normals. This affects the normals generated for [Field Height](../../../objects/effects/fields/field_height/index.md) and [Field Shoreline](../../../objects/effects/fields/field_shoreline/index.md).
@@ -688,7 +688,7 @@ The blurring ratio for the procedurally generated normals. This parameter enable
 The intensity of normals of the waves.
 ## float Beaufort
 
-The Beaufort wind force scale value. Available when the *Beauforts* mode [is set](../../../api/library/objects/class.objectwaterglobal_cs.md#setWavesMode_int_void).
+The Beaufort wind force scale value, from 0 (Calm) to 12 (Hurricane). Available when the *Beauforts* mode [is set](../../../api/library/objects/class.objectwaterglobal_cs.md#setWavesMode_int_void).
 ## 🔒︎ int NumLayers
 
 The number of wave layers. Available when the *Layers* mode [is set](../../../api/library/objects/class.objectwaterglobal_cs.md#setWavesMode_int_void).
@@ -697,7 +697,7 @@ The number of wave layers. Available when the *Layers* mode [is set](../../../ap
 The number of simulated waves. Available when the *Manual* mode [is set](../../../api/library/objects/class.objectwaterglobal_cs.md#setWavesMode_int_void).
 ## ObjectWaterGlobal.WAVES_MODE WavesMode
 
-The wave generation mode.
+The [wave generation mode](../../../objects/objects/water/water_object.md#creating_waves).
 ## 🔒︎ int VisualFieldMask
 
 The FieldHeight visual mask of the assigned material on the Global Water.
@@ -706,25 +706,25 @@ The FieldHeight visual mask of the assigned material on the Global Water.
 The FieldHeight physics mask of the assigned material on the Global Water.
 ## ObjectWaterGlobal.STEEPNESS_QUALITY IntersectionSteepnessQuality
 
-The wave steepness calculation quality used in intersection calculations.
+The wave steepness calculation quality used in [intersection calculations](#intersections).
 ## float IntersectionAmplitudeThreshold
 
-The threshold of amplitude values that will not participate in intersection calculations.
+The threshold of amplitude values that will not participate in [intersection calculations](#intersections).
 ## float IntersectionPrecision
 
-The intersection precision which represents an error between the real value of the water intersection point and the calculated value.
+The intersection precision which represents an error between the real value of the water intersection point and the calculated value. The default value is 0.25.
 ## ObjectWaterGlobal.STEEPNESS_QUALITY FetchSteepnessQuality
 
-The wave steepness calculation quality used in height and normal calculations.
+The wave steepness calculation quality used in [height and normal calculations](#fetch). Low quality is usually sufficient for calm water and large floating objects. If the waves are big, or you want to simulate small floating objects, you may need to increase the quality. Higher quality gives a more precise result but affects performance. The default is [STEEPNESS_QUALITY_LOW](../../../api/library/objects/class.objectwaterglobal_cs.md#STEEPNESS_QUALITY_LOW).
 ## float FetchAmplitudeThreshold
 
-The threshold for amplitude values that will not participate in height calculations.
+The threshold for amplitude values that will not participate in [height and normal calculations](#fetch). The more you cut off, the less accurate the height value you get, but the faster are the calculations. The default value is 0.1f.
 ## float WavesSpeedScale
 
-The Scale value.
+The scale value that affects the speed of all the waves. The resulting wave speed is calculated as ***sqrt(gravity * 2 * pi / wave_length) * waves_speed_scale***, where *gravity* = 9.81 m/s2.
 ## float WindAffect
 
-The value determining how much the wind direction affects the waves.
+The value determining how much the wind direction affects the waves, in range [0;1]. If you set it to 1, all waves will be directed along the wind direction.
 ## float WindDirectionAngle
 
 The angle that determines the wind direction.
@@ -733,10 +733,13 @@ The angle that determines the wind direction.
 The average Z coordinate of the water object.
 ## float AnimationTime
 
-The water animation time value for water synchronization.
+The water animation time value for water synchronization. It is used for effects, such as normals, caustics, and foam.
 ## bool ActiveWater
 
-The a value indicating if the global water object is active.
+The value indicating if the global water object is active. If there are more than one global water nodes in the scene, only the active one will be rendered.
+## 🔒︎ uint BackfaceMaterialID
+
+The runtime material ID of the internal backface material of the water. The engine inherits a hidden material from the assigned water material to represent the back (underwater) side of the water surface with its own material mask and feature bits; pixels showing the water backface reference this ID. If the backface material does not exist, *[MATERIAL_ID_NONE](../../../api/library/rendering/class.material_cs.md#MATERIAL_ID_NONE)* is returned.
 ### Members
 
 ---
@@ -1076,30 +1079,3 @@ Reads wave synchronization data from the specified stream and applies it to the 
 ### Arguments
 
 - *[Stream](../../../api/library/common/class.stream_cs.md)* **stream** - Stream with wave synchronization data to be applied.
-
-## void SetDecalsSoftInteraction ( float interaction )
-
-Sets a new soft intersection of water with decals.
-### Arguments
-
-- *float* **interaction** - Soft intersection value.
-
-## float GetDecalsSoftInteraction ( )
-
-Returns the current soft intersection of water with decals.
-### Return value
-
-Soft intersection value.
-## void SetWavesSpeedScale ( float scale )
-
-Sets a scale value that affects the speed of all the waves. The resulting wave speed is calculated as ***sqrt(gravity * 2 * pi / wave_length) * waves_speed_scale***, where *gravity* = 9.81 m/s2.
-### Arguments
-
-- *float* **scale** - Scale value.
-
-## float GetWavesSpeedScale ( )
-
-Returns the current scale value that affects the speed of all the waves.
-### Return value
-
-Scale value.

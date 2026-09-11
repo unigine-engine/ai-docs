@@ -154,7 +154,7 @@ Creates an XML tree with a given node as a root.
 ### Arguments
 
 - *string* **name** - Name of the node that will be a root.
-- *string* **args** - Optional arguments to the root node. If provided, they should be in this form: *arg1=\"value1\" arg2=\"value2\" …* If values do not contain spaces, escaped quotes can be omitted.
+- *string* **args** - Optional arguments to the root node. If provided, they should be in this form: *arg1=\"value1\" arg2=\"value2\" �* If values do not contain spaces, escaped quotes can be omitted.
 
 ## Xml ( Xml xml )
 
@@ -243,7 +243,10 @@ Sets a value of a given boolean argument.
 true if the operation was successful; otherwise, false.
 ## bool GetBoolArg ( string name , bool value )
 
+
 Returns a value of a given boolean argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -254,10 +257,13 @@ Returns a value of a given boolean argument.
 
 ### Return value
 
-**1** if the argument has a value *1*, *true* or *TRUE*; **0**, if the argument has a value *0*, *false* or *FALSE*; otherwise, **0**.
+**1** if the argument has a value 1, true or TRUE; **0**, if the argument has a value 0, false or FALSE; otherwise, **0**.
 ## bool GetBoolArg ( string name )
 
+
 Returns a value of a given boolean argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -280,7 +286,10 @@ Returns the child of the XML tree.
 XML instance.
 ## Xml GetChild ( int num )
 
+
 Returns a child node by its name or index number in the child list.
+
+
 > **Notice:** To check if a child with a given name exists, use the [*isChild()*](#isChild_cstr_int) method.
 
 
@@ -324,7 +333,10 @@ Sets a value of a given *dmat4* argument.
 Always true.
 ## dmat4 GetDMat4Arg ( string name )
 
+
 Returns a value of a given *dmat4* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -348,7 +360,10 @@ Sets a value of a given *double* argument.
 Always **1**.
 ## double GetDoubleArg ( string name , double value )
 
+
 Returns a value of a given *double* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -362,7 +377,10 @@ Returns a value of a given *double* argument.
 Argument value.
 ## double GetDoubleArg ( string name )
 
+
 Returns a value of a given *double* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -384,7 +402,7 @@ Sets the specified array of *double* elements as a value of a given argument.
 
 ### Return value
 
-Always **true**.
+Always true.
 ## bool GetDoubleArrayArg ( string name , ref double[] dest , int dest_size )
 
 Retrieves a set of *double* values stored in an argument and puts them to the specified array.
@@ -396,7 +414,7 @@ Retrieves a set of *double* values stored in an argument and puts them to the sp
 
 ### Return value
 
-**true** if *dest* contains anything; otherwise, **false**.
+true if *dest* contains anything; otherwise, false.
 ## bool SetDoubleArrayData ( double[] OUT_src , int src_size )
 
 Sets the specified array of *double* values as the content for the node. This can be done only for nodes with no children.
@@ -407,7 +425,7 @@ Sets the specified array of *double* values as the content for the node. This ca
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, false.
+true if the content is set successfully; otherwise, false.
 ## bool GetDoubleArrayData ( ref double[] dest , int dest_size )
 
 Retrieves an interpretation of data stored in the node and puts it to the specified array as *double* values.
@@ -456,7 +474,10 @@ Sets a value of a given *dvec3* argument.
 Always **1**.
 ## dvec3 GetDVec3Arg ( string name )
 
+
 Returns a value of a given *dvec3* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -480,7 +501,10 @@ Sets a value of a given *dvec4* argument.
 Always **1**.
 ## dvec4 GetDVec4Arg ( string name )
 
+
 Returns a value of a given *dvec4* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -504,7 +528,10 @@ Sets a value of a given *float* argument.
 Always **1**.
 ## float GetFloatArg ( string name , float value )
 
+
 Returns a value of a given *float* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -518,7 +545,10 @@ Returns a value of a given *float* argument.
 Argument value.
 ## float GetFloatArg ( string name )
 
+
 Returns a value of a given *float* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -540,7 +570,7 @@ Sets the specified array of *float* elements as a value of a given argument.
 
 ### Return value
 
-Always **true**.
+Always true.
 ## bool GetFloatArrayArg ( string name , ref float[] dest , int dest_size )
 
 Retrieves a set of *float* values stored in an argument and puts them to the specified array.
@@ -552,7 +582,7 @@ Retrieves a set of *float* values stored in an argument and puts them to the spe
 
 ### Return value
 
-**true** if *dest* contains anything; otherwise, **false**.
+true if *dest* contains anything; otherwise, false.
 ## bool SetFloatArrayData ( float[] OUT_src , int src_size )
 
 Sets the specified array of *float* values as the content for the node. This can be done only for nodes with no children.
@@ -563,7 +593,7 @@ Sets the specified array of *float* values as the content for the node. This can
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, false.
+true if the content is set successfully; otherwise, false.
 ## bool GetFloatArrayData ( ref float[] dest , int dest_size )
 
 Retrieves an interpretation of data stored in the node and puts it to the specified array as *float* values.
@@ -600,7 +630,10 @@ Sets a value for a given *int* argument in a given number notation. By default, 
 true if the value is set successfully; otherwise, false.
 ## int GetIntArg ( string name )
 
+
 Returns a value of a given *int* argument.
+
+
 > **Notice:** To check whether the argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -613,7 +646,10 @@ Returns a value of a given *int* argument.
 Argument value.
 ## int GetIntArg ( string name , int value )
 
+
 Returns a value of a given *int* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -677,7 +713,10 @@ Sets a value of a given *ivec2* argument.
 Always **1**.
 ## ivec2 GetIVec2Arg ( string name )
 
+
 Returns a value of a given *ivec2* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -701,7 +740,10 @@ Sets a value of a given *ivec3* argument.
 Always **1**.
 ## ivec3 GetIVec3Arg ( string name )
 
+
 Returns a value of a given *ivec3* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -725,7 +767,10 @@ Sets a value of a given *ivec4* argument.
 Always **1**.
 ## ivec4 GetIVec4Arg ( string name )
 
+
 Returns a value of a given *ivec4* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -749,7 +794,10 @@ Sets a value of a given *mat4* argument.
 Always **1**.
 ## mat4 GetMat4Arg ( string name )
 
+
 Returns a value of a given *mat4* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -779,7 +827,10 @@ Sets a value of a given *quat* argument.
 Always **1**.
 ## quat GetQuatArg ( string name )
 
+
 Returns a value of a given *quat* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -832,7 +883,7 @@ Sets a vector of strings as a content for the node. This can be done only for no
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool GetStringArrayData ( string[] OUT_dest , string delimiter = "," )
 
 Returns an interpretation of data stored in the node as a vector of strings.
@@ -867,7 +918,10 @@ Sets a value of a given *vec2* argument.
 Always **1**.
 ## vec2 GetVec2Arg ( string name )
 
+
 Returns a value of a given *vec2* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -891,7 +945,10 @@ Sets a value of a given *vec3* argument.
 Always **1**.
 ## vec3 GetVec3Arg ( string name )
 
+
 Returns a value of a given *vec3* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -915,7 +972,10 @@ Sets a value of a given *vec4* argument.
 Always **1**.
 ## vec4 GetVec4Arg ( string name )
 
+
 Returns a value of a given *vec4* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -1025,18 +1085,18 @@ Searches for the number of the XML node child by name.
 
 ### Return value
 
-The number of the XML node child if it is exists; otherwise, **-1**.
+The number of the XML node child if it is exists; otherwise, -1.
 ## bool Load ( string name , bool skip_errors = false )
 
 Loads an XML document and sets the current node to be the root of the parsed tree.
 ### Arguments
 
 - *string* **name** - File name.
-- *bool* **skip_errors** - true to enable automatic skipping of errors (the file will be loaded in any case); false — to disable it (the file will not be loaded in case of any error).
+- *bool* **skip_errors** - true to enable automatic skipping of errors (the file will be loaded in any case); false � to disable it (the file will not be loaded in case of any error).
 
 ### Return value
 
-**true** if the file is read and parsed successfully; otherwise, **false**.
+true if the file is read and parsed successfully; otherwise, false.
 ## bool Load ( Stream stream , ulong read_size , bool binary = false , bool skip_errors = false )
 
 Loads XML data from the specified stream and sets the current node to be the root of the parsed tree.
@@ -1044,12 +1104,12 @@ Loads XML data from the specified stream and sets the current node to be the roo
 
 - *[Stream](../../../api/library/common/class.stream_cs.md)* **stream** - Stream from which the data of the XML node is to be loaded.
 - *ulong* **read_size** - Size of the data block to be read from the stream, in bytes.
-- *bool* **binary** - Binary format flag: use true to load data in binary format, or **false** - to load it in text format.
-- *bool* **skip_errors** - true to enable automatic skipping of errors (the data will be loaded in any case); false — to disable it (the data will not be loaded in case of any error).
+- *bool* **binary** - Binary format flag: use true to load data in binary format, or false - to load it in text format.
+- *bool* **skip_errors** - true to enable automatic skipping of errors (the data will be loaded in any case); false � to disable it (the data will not be loaded in case of any error).
 
 ### Return value
 
-**true** if the data is read and parsed successfully; otherwise, **false**.
+true if the data is read and parsed successfully; otherwise, false.
 ## bool Parse ( string src )
 
 Parses a string with XML mark-up and sets the current node to be the root of the parsed tree.
@@ -1059,7 +1119,7 @@ Parses a string with XML mark-up and sets the current node to be the root of the
 
 ### Return value
 
-**true** if a string is successfully parsed; otherwise **false**.
+true if a string is successfully parsed; otherwise false.
 ## void PrintUnusedData ( string name )
 
 Logs warnings of unused data for debugging.
@@ -1089,28 +1149,28 @@ Removes a child node and its descendants from the current XML node.
 Removed child node and its descendants, if they are found; otherwise, 0.
 ## bool Save ( string name , bool binary = false , string indent = "\t" )
 
-Formats the tree of the current node and writes it to the specified file in the specified format. Creates the given file path if it doesn’t exist yet (including subdirectories).
+Formats the tree of the current node and writes it to the specified file in the specified format. Creates the given file path if it doesn�t exist yet (including subdirectories).
 ### Arguments
 
 - *string* **name** - Path to the file.
-- *bool* **binary** - Binary format flag: use true to save data to a binary file, or **false** - to save it to a text file.
+- *bool* **binary** - Binary format flag: use true to save data to a binary file, or false - to save it to a text file.
 - *string* **indent** - String to be used for indentation (e.g. "\t").
 
 ### Return value
 
-**true** if the file is written successfully; otherwise, **false**.
+true if the file is written successfully; otherwise, false.
 ## bool Save ( Stream stream , bool binary = false , string indent = "\t" )
 
 Formats the tree of the current node and writes is to the specified stream in the specified format.
 ### Arguments
 
 - *[Stream](../../../api/library/common/class.stream_cs.md)* **stream** - Stream to which the data of the XML node is to be written.
-- *bool* **binary** - Binary format flag: use true to save data to a binary file, or **false** - to save it to a text file.
+- *bool* **binary** - Binary format flag: use true to save data to a binary file, or false - to save it to a text file.
 - *string* **indent** - String to be used for indentation (e.g. "\t").
 
 ### Return value
 
-**true** if the file is written successfully; otherwise, **false**.
+true if the file is written successfully; otherwise, false.
 ## string Symbols ( string arg1 )
 
 Replaces ampersand characters with character entity references.
@@ -1130,7 +1190,7 @@ Sets a UGUID content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool SetData ( bool value )
 
 Sets a boolean content for the node.
@@ -1140,7 +1200,7 @@ Sets a boolean content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool SetData ( int value , int radix = 10 )
 
 Sets an integer content in the specified form (binary, octal, decimal, hexadecimal) for the node.
@@ -1156,7 +1216,7 @@ Sets an integer content in the specified form (binary, octal, decimal, hexadecim
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool SetData ( long value )
 
 Sets a long integer content for the node.
@@ -1166,7 +1226,7 @@ Sets a long integer content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool SetData ( float value )
 
 Sets a float content for the node.
@@ -1176,7 +1236,7 @@ Sets a float content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool SetData ( double value )
 
 Sets a double content for the node.
@@ -1186,7 +1246,7 @@ Sets a double content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool SetData ( vec2 value )
 
 Sets a vec2 vector content for the node.
@@ -1196,7 +1256,7 @@ Sets a vec2 vector content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool SetData ( vec3 value )
 
 Sets a vec3 vector content for the node.
@@ -1206,7 +1266,7 @@ Sets a vec3 vector content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool SetData ( vec4 value )
 
 Sets a vec4 vector content for the node.
@@ -1216,7 +1276,7 @@ Sets a vec4 vector content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool SetData ( dvec2 value )
 
 Sets a dvec2 vector content for the node.
@@ -1226,7 +1286,7 @@ Sets a dvec2 vector content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool SetData ( dvec3 value )
 
 Sets a dvec3 vector content for the node.
@@ -1236,7 +1296,7 @@ Sets a dvec3 vector content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool SetData ( dvec4 value )
 
 Sets a dvec4 vector content for the node.
@@ -1246,7 +1306,7 @@ Sets a dvec4 vector content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool SetData ( ivec3 value )
 
 Sets an ivec3 vector content for the node.
@@ -1256,7 +1316,7 @@ Sets an ivec3 vector content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool SetData ( ivec2 value )
 
 Sets an ivec2 vector content for the node.
@@ -1266,7 +1326,7 @@ Sets an ivec2 vector content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool SetData ( ivec4 value )
 
 Sets an ivec4 vector content for the node.
@@ -1276,7 +1336,7 @@ Sets an ivec4 vector content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool SetData ( mat4 value )
 
 Sets a mat4 matrix content for the node.
@@ -1286,7 +1346,7 @@ Sets a mat4 matrix content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool SetData ( dmat4 value )
 
 Sets a dmat4 matrix content for the node.
@@ -1296,7 +1356,7 @@ Sets a dmat4 matrix content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool SetData ( quat value )
 
 Sets a quaternion content for the node.
@@ -1306,7 +1366,7 @@ Sets a quaternion content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool SetData ( Palette value )
 
 Sets a palette content for the node.
@@ -1316,7 +1376,7 @@ Sets a palette content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## void ReadChildData ( string name , out bool value )
 
 Reads a boolean interpretation of the data stored in the node with the specified name and puts it to the specified target variable.
@@ -1575,7 +1635,7 @@ Reads a ivec4 interpretation of the argument in the node with specified name and
 
 ## void ReadArg ( string name , out Palette value )
 
-Reads a palette interpretation of the argument in the node with specified name and puts it to the specified target variable.
+Reads a *palette* interpretation of the argument in the node with specified name and puts it to the specified target variable.
 ### Arguments
 
 - *string* **name** - Name of the target argument.
@@ -1583,7 +1643,7 @@ Reads a palette interpretation of the argument in the node with specified name a
 
 ## bool SetPaletteArg ( string name , Palette value )
 
-Sets a palette value of a given argument.
+Sets a *palette* value of a given argument.
 ### Arguments
 
 - *string* **name** - The argument name.
@@ -1594,7 +1654,7 @@ Sets a palette value of a given argument.
 Always **1**.
 ## Palette GetPaletteArg ( string name )
 
-Returns a palette value of a specified argument.
+Returns a *palette* value of a specified argument.
 ### Arguments
 
 - *string* **name** - The argument name.
@@ -1621,7 +1681,10 @@ Sets a *long* value of a given argument.
 Always **1**.
 ## long GetLongArg ( string name )
 
+
 Returns a value of a given *long* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -1634,7 +1697,10 @@ Returns a value of a given *long* argument.
 The argument value.
 ## long GetLongArg ( string name , long value )
 
+
 Returns a value of a given *long* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 

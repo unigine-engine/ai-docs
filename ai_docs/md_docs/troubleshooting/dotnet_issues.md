@@ -22,12 +22,12 @@ Running a final application built by UnigineEditor via the *[Build Tool](../edit
 ## Typical Errors
 
 
-If you don't have .NET SDK installed, you can come across various errors while working with the project in both SDK Browser and UnigineEditor. For example, when running the application (clicking the *RUN* button) after creating it in SDK Browser, you may receive the error stating that *File Not Found — File *_x64.dll doesn't exist*:
+If you don't have .NET SDK installed, you can come across various errors while working with the project in both SDK Browser and UnigineEditor. For example, when running the application (clicking the *RUN* button) after creating it in SDK Browser, you may receive the error stating that *File Not Found � File *_x64.dll doesn't exist*:
 
 
 ![](file_not_found.png)
 
-*File Not Found — File *_x64.dll doesn't exist*
+*File Not Found � File *_x64.dll doesn't exist*
 
 
 Errors also can occur when clicking the **Play** button in UnigineEditor (*Required .NET SDK not found*):

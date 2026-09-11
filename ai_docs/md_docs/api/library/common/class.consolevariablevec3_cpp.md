@@ -52,14 +52,16 @@ Assignment operator for the variable.
 
 ## void setGetFunc ( vec3(*) func )
 
-Sets a function that will be called when the [get()](#c_get) function is called for the variable.
+Sets a function that will be called when the *[get()](#c_get)* function is called for the variable.
 ### Arguments
 
 - *vec3(*)* **func** - Function pointer.
 
 ## void setSetFunc ( void (*)(vec3) func )
 
-Sets a function that will be called when the [set()](#c_set_vec3) function is called for the variable. For example:
+Sets a function that will be called when the *[set()](#c_set_vec3)* function is called for the variable. For example:
+
+
 ```cpp
 ConsoleVariableVec3 my_debug_mode(...);
 

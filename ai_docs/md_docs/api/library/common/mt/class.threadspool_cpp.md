@@ -103,7 +103,7 @@ Default thread count used by CPUShader::runSync() when num_threads is -1.
  End-of-frame wait for frame-synchronized work. Signals workers and keeps processing until the internal frame-sync counter reaches zero or the Engine is shutting down.
 ## bool yield ( int pool_mask = POOL_THREAD_MASK_ALL , int priority_mask = PRIORITY_MASK_ALL , bool only_frame_sync = false )
 
- Tries to execute one pending job that matches the given pool and priority masks. If called from a pool worker, the pool_mask is additionally limited to that worker’s allowed pools.
+ Tries to execute one pending job that matches the given pool and priority masks. If called from a pool worker, the pool_mask is additionally limited to that worker�s allowed pools.
 ### Arguments
 
 - *int* **pool_mask** - Pool selection mask (POOL_THREAD_MASK_*).

@@ -37,48 +37,56 @@ Loading of nodes on demand is managed via the [AsyncQueue Class](../../../api/li
 
 ## void setUnpackNodeReferences ( bool references )
 
-Sets a new value indicating if automatic unpacking of [node references](../../../api/library/nodes/class.nodereference_cpp.md) at run time is enabled. This option can be used to simplify hierarchy management, as when it is enabled all nodes contained in node references will be present in the world hierarchy. When disabled you have to check the hierarchy of each node reference individually (e.g. to find the number of children or manage some of them). The content of *NodeReference* nodes is unpacked only at run time and does not affect your `*.world` and `*.node` files. So, you can use all advantages of node references when building worlds in the UnigineEditor and manage a clear and straightforward hierarchy at run time.
-> **Notice:** This option is available only via code, can be enabled in the [System Script](../../../code/fundamentals/execution_sequence/app_logic_system.md#system_logic) and works for all worlds used in your project.
+Sets a new value indicating if automatic unpacking of [node references](../../../api/library/nodes/class.nodereference_cpp.md) at run time is enabled.
+This option can be used to simplify hierarchy management, as when it is enabled all nodes contained in node references will be present in the world hierarchy. When disabled you have to check the hierarchy of each node reference individually (e.g. to find the number of children or manage some of them). The content of *NodeReference* nodes is unpacked only at run time and does not affect your `*.world` and `*.node` files. So, you can use all advantages of node references when building worlds in the UnigineEditor and manage a clear and straightforward hierarchy at run time.
 
 
-> **Notice:** **Auto-unpacking is enabled** in C# projects by default.
+> **Notice:** - This option is available only via code, can be enabled in the [System Script](../../../code/fundamentals/execution_sequence/app_logic_system.md#system_logic) and works for all worlds used in your project.
+> - **Auto-unpacking is enabled** in C# projects by default.
 
 
 ### Arguments
 
-- *bool* **references** - Set **true** to enable automatic unpacking of Node References at run time; **false** - to disable it.
+- *bool* **references** - Set **true** to enable automatic unpacking of *Node Reference* nodes at run time; **false** - to disable it.
 
 ## bool isUnpackNodeReferences () const
 
-Returns the current value indicating if automatic unpacking of [node references](../../../api/library/nodes/class.nodereference_cpp.md) at run time is enabled. This option can be used to simplify hierarchy management, as when it is enabled all nodes contained in node references will be present in the world hierarchy. When disabled you have to check the hierarchy of each node reference individually (e.g. to find the number of children or manage some of them). The content of *NodeReference* nodes is unpacked only at run time and does not affect your `*.world` and `*.node` files. So, you can use all advantages of node references when building worlds in the UnigineEditor and manage a clear and straightforward hierarchy at run time.
-> **Notice:** This option is available only via code, can be enabled in the [System Script](../../../code/fundamentals/execution_sequence/app_logic_system.md#system_logic) and works for all worlds used in your project.
+Returns the current value indicating if automatic unpacking of [node references](../../../api/library/nodes/class.nodereference_cpp.md) at run time is enabled.
+This option can be used to simplify hierarchy management, as when it is enabled all nodes contained in node references will be present in the world hierarchy. When disabled you have to check the hierarchy of each node reference individually (e.g. to find the number of children or manage some of them). The content of *NodeReference* nodes is unpacked only at run time and does not affect your `*.world` and `*.node` files. So, you can use all advantages of node references when building worlds in the UnigineEditor and manage a clear and straightforward hierarchy at run time.
 
 
-> **Notice:** **Auto-unpacking is enabled** in C# projects by default.
+> **Notice:** - This option is available only via code, can be enabled in the [System Script](../../../code/fundamentals/execution_sequence/app_logic_system.md#system_logic) and works for all worlds used in your project.
+> - **Auto-unpacking is enabled** in C# projects by default.
 
 
 ### Return value
 
-**true** if automatic unpacking of Node References at run time is enabled; otherwise **false**.
+**true** if automatic unpacking of *Node Reference* nodes at run time is enabled ; otherwise **false**.
 ## void setAutoReloadNodeReferences ( bool references )
 
-Sets a new value indicating if automatic reloading of Node References is enabled. If enabled, all [NodeReference](../../../api/library/nodes/class.nodereference_cpp.md) nodes will reload their `*.node` files, when the [saveNode()](#saveNode_cstr_Node_int_int) method is called.
-> **Notice:** This option can be used if you modify and save reference nodes at runtime. Otherwise you'll have to manually update pointers for all [NodeReferences](../../../api/library/nodes/class.nodereference_cpp.md) referring to the changed node.
+Sets a new value indicating if automatic reloading of *Node Reference* nodes is enabled.
+If enabled, all *[NodeReference](../../../api/library/nodes/class.nodereference_cpp.md)* nodes will reload their `*.node` files, when the *[saveNode()](#saveNode_cstr_Node_int_int)* method is called.
+
+
+> **Notice:** This option can be used if you modify and save reference nodes at runtime. Otherwise you'll have to manually update pointers for all *[NodeReferences](../../../api/library/nodes/class.nodereference_cpp.md)* referring to the changed node.
 
 
 ### Arguments
 
-- *bool* **references** - Set **true** to enable automatic reloading of Node References; **false** - to disable it.
+- *bool* **references** - Set **true** to enable automatic reloading of *Node Reference* nodes; **false** - to disable it.
 
 ## bool isAutoReloadNodeReferences () const
 
-Returns the current value indicating if automatic reloading of Node References is enabled. If enabled, all [NodeReference](../../../api/library/nodes/class.nodereference_cpp.md) nodes will reload their `*.node` files, when the [saveNode()](#saveNode_cstr_Node_int_int) method is called.
-> **Notice:** This option can be used if you modify and save reference nodes at runtime. Otherwise you'll have to manually update pointers for all [NodeReferences](../../../api/library/nodes/class.nodereference_cpp.md) referring to the changed node.
+Returns the current value indicating if automatic reloading of *Node Reference* nodes is enabled.
+If enabled, all *[NodeReference](../../../api/library/nodes/class.nodereference_cpp.md)* nodes will reload their `*.node` files, when the *[saveNode()](#saveNode_cstr_Node_int_int)* method is called.
+
+
+> **Notice:** This option can be used if you modify and save reference nodes at runtime. Otherwise you'll have to manually update pointers for all *[NodeReferences](../../../api/library/nodes/class.nodereference_cpp.md)* referring to the changed node.
 
 
 ### Return value
 
-**true** if automatic reloading of Node References is enabled; otherwise **false**.
+**true** if automatic reloading of *Node Reference* nodes is enabled ; otherwise **false**.
 ## void setUpdateGridSize ( float size )
 
 Sets a new size of the grid to be used for spatial tree update. The default value is an average one, and can be adjusted when necessary depending on the scene.
@@ -245,6 +253,19 @@ Current handling mode for attempts to move nodes having the *[Immovable](../../.
 - **1** - movement of nodes having the *[Immovable](../../../editor2/node_parameters/transformation_common/index.md#clutter)* flag is accompanied by a warning in the Console. (by default)
 - **2** - movement of nodes having the *[Immovable](../../../editor2/node_parameters/transformation_common/index.md#clutter)* flag is allowed (no warnings displayed).
 
+## void setExperimentalNavigationSettings ( const char * settings )
+
+Sets a new path to the file holding the navigation settings of the world � the registry of areas and flags that the [ExperimentalNavigation](../../../api/library/pathfinding/class.experimentalnavigation_cpp.md) singleton exposes. Keeping it in a file lets several worlds share one set of area definitions instead of each carrying its own copy.
+### Arguments
+
+- *const char ** **settings** - The path to the navigation settings file.
+
+## String getExperimentalNavigationSettings () const
+
+Returns the current path to the file holding the navigation settings of the world � the registry of areas and flags that the [ExperimentalNavigation](../../../api/library/pathfinding/class.experimentalnavigation_cpp.md) singleton exposes. Keeping it in a file lets several worlds share one set of area definitions instead of each carrying its own copy.
+### Return value
+
+Current path to the navigation settings file.
 ## void setAsyncLoadNodeReferences ( bool references )
 
 Sets a new value indicating if asynchronous loading of Node References is enabled.
@@ -257,10 +278,10 @@ Sets a new value indicating if asynchronous loading of Node References is enable
 Returns the current value indicating if asynchronous loading of Node References is enabled.
 ### Return value
 
-**true** if asynchronous loading of Node References is enabled; otherwise **false**.
+**true** if asynchronous loading of Node References is enabled ; otherwise **false**.
 ## static Event<const Ptr < Node > &> getEventNodeRemoved () const
 
-event triggered when a node is removed from the world. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a node is removed from the world. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -396,10 +417,10 @@ World::getEventNodeRemoved().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const Ptr < Node > &> getEventNodeAdded () const
 
-event triggered when a node is added into the world, including creation of a node from code. The event is also triggered when a the world is loaded from the xml file. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a node is added into the world, including creation of a node from code. The event is also triggered when a the world is loaded from the xml file. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -535,10 +556,10 @@ World::getEventNodeAdded().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventPostWorldShutdown () const
 
-event triggered after calling all WorldLogic::shutdown() methods. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after calling all WorldLogic::shutdown() methods. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -674,10 +695,10 @@ World::getEventPostWorldShutdown().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventPreWorldShutdown () const
 
-event triggered before calling all WorldLogic::shutdown() methods. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before calling all WorldLogic::shutdown() methods. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -813,10 +834,10 @@ World::getEventPreWorldShutdown().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventPostWorldInit () const
 
-event triggered after calling all WorldLogic::init() methods. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after calling all WorldLogic::init() methods. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** Forced closing of the Engine should be disabled with the [`-auto_quit 0`](../../../code/command_line.md#auto_quit) command-line option.
 
@@ -955,10 +976,10 @@ World::getEventPostWorldInit().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventPreWorldInit () const
 
-event triggered before calling all WorldLogic::init() methods. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before calling all WorldLogic::init() methods. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1094,10 +1115,10 @@ World::getEventPreWorldInit().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const char *, const Ptr < Node > &> getEventPostNodeSave () const
 
-event triggered after calling the World::saveNode() method. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after calling the World::saveNode() method. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1233,10 +1254,10 @@ World::getEventPostNodeSave().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const char *, const Ptr < Node > &> getEventPreNodeSave () const
 
-event triggered before calling the World::saveNode() method. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before calling the World::saveNode() method. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1372,10 +1393,10 @@ World::getEventPreNodeSave().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const char *> getEventPostWorldClear () const
 
-event triggered after clearing the World. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after clearing the World. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1511,10 +1532,10 @@ World::getEventPostWorldClear().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const char *> getEventPreWorldClear () const
 
-event triggered before clearing the world — either closing the current world or preparing to load the next World. This event always takes place in Engine::swap(), i.e. in the end of the frame. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before clearing the world � either closing the current world or preparing to load the next World. This event always takes place in Engine::swap(), i.e. in the end of the frame. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1650,10 +1671,10 @@ World::getEventPreWorldClear().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const char *> getEventPostWorldSave () const
 
-event triggered after saving the World. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after saving the World. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1789,10 +1810,10 @@ World::getEventPostWorldSave().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const char *> getEventPreWorldSave () const
 
-event triggered before saving the World. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before saving the World. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1928,10 +1949,10 @@ World::getEventPreWorldSave().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const char *> getEventPostWorldLoad () const
 
-event triggered after loading the World. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after loading the World. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2067,10 +2088,10 @@ World::getEventPostWorldLoad().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const char *> getEventPreWorldLoad () const
 
-event triggered before loading the World. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before loading the World. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2206,13 +2227,16 @@ World::getEventPreWorldLoad().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## bool getCollision ( const Math:: WorldBoundBox & bb , Vector < Ptr < Object >> & OUT_objects )
 
+
 Searches for all [collider objects](../../../principles/physics/collision/index.md#collider) within a given bounding box.
-> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)*code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method manually. The engine will call this method automatically after the *update()* code is executed anyways.
+
+
+> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)* code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method manually. The engine will call this method automatically after the *update()* code is executed anyways.
 
 
 ### Arguments
@@ -2225,8 +2249,11 @@ Searches for all [collider objects](../../../principles/physics/collision/index.
 true if collider objects are found; otherwise, false.
 ## bool getCollision ( const Math:: WorldBoundSphere & bs , Vector < Ptr < Object >> & OUT_objects )
 
+
 Searches for all [collider objects](../../../principles/physics/collision/index.md#collider) within a given bounding sphere.
-> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)*code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method manually. The engine will call this method automatically after the *update()* code is executed anyways.
+
+
+> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)* code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method manually. The engine will call this method automatically after the *update()* code is executed anyways.
 
 
 ### Arguments
@@ -2239,8 +2266,11 @@ Searches for all [collider objects](../../../principles/physics/collision/index.
 true if collider objects are found; otherwise, false.
 ## bool getCollision ( const Math:: WorldBoundFrustum & bf , Vector < Ptr < Object >> & OUT_objects )
 
+
 Searches for all [collider objects](../../../principles/physics/collision/index.md#collider) within a given bounding frustum.
-> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)*code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method manually. The engine will call this method automatically after the *update()* code is executed anyways.
+
+
+> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)* code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method manually. The engine will call this method automatically after the *update()* code is executed anyways.
 
 
 ### Arguments
@@ -2265,7 +2295,7 @@ Collisions with the surface can be found only if the following conditions are fu
 3. The surface has a material assigned.
 
 
-> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)*code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method manually. The engine will call this method automatically after the *update()* code is executed anyways.
+> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)* code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method manually. The engine will call this method automatically after the *update()* code is executed anyways.
 
 
 ### Arguments
@@ -2325,7 +2355,7 @@ Intersections with the surface can be found only if the following conditions are
 2. Per-surface [Intersection](../../../api/library/objects/class.object_cpp.md#setIntersection_int_int_void) flag is enabled.
 
 
-> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)*code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method manually. The engine will call this method automatically after the *update()* code is executed anyways.
+> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)* code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method manually. The engine will call this method automatically after the *update()* code is executed anyways.
 
 
 ### Arguments
@@ -2350,7 +2380,7 @@ Intersections with the surface can be found only if the following conditions are
 2. Per-surface [Intersection](../../../api/library/objects/class.object_cpp.md#setIntersection_int_int_void) flag is enabled.
 
 
-> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)*code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method manually. The engine will call this method automatically after the *update()* code is executed anyways.
+> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)* code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method manually. The engine will call this method automatically after the *update()* code is executed anyways.
 
 
 ### Arguments
@@ -2376,7 +2406,7 @@ Intersections with the surface can be found only if the following conditions are
 2. Per-surface [Intersection](../../../api/library/objects/class.object_cpp.md#setIntersection_int_int_void) flag is enabled.
 
 
-> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)*code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method manually. The engine will call this method automatically after the *update()* code is executed anyways.
+> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)* code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method manually. The engine will call this method automatically after the *update()* code is executed anyways.
 
 
 ### Arguments
@@ -2402,7 +2432,7 @@ Intersections with the surface can be found only if the following conditions are
 2. Per-surface [Intersection](../../../api/library/objects/class.object_cpp.md#setIntersection_int_int_void) flag is enabled.
 
 
-> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)*code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method manually. The engine will call this method automatically after the *update()* code is executed anyways.
+> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)* code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method manually. The engine will call this method automatically after the *update()* code is executed anyways.
 
 
 ### Arguments
@@ -2428,7 +2458,7 @@ Intersections with the surface can be found only if the following conditions are
 2. Per-surface [Intersection](../../../api/library/objects/class.object_cpp.md#setIntersection_int_int_void) flag is enabled.
 
 
-> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)*code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method manually. The engine will call this method automatically after the *update()* code is executed anyways.
+> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)* code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method manually. The engine will call this method automatically after the *update()* code is executed anyways.
 
 
 ### Arguments
@@ -2454,7 +2484,7 @@ Intersections with the surface can be found only if the following conditions are
 2. Per-surface [Intersection](../../../api/library/objects/class.object_cpp.md#setIntersection_int_int_void) flag is enabled.
 
 
-> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)*code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method manually. The engine will call this method automatically after the *update()* code is executed anyways.
+> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)* code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method manually. The engine will call this method automatically after the *update()* code is executed anyways.
 
 
 ### Arguments
@@ -2481,7 +2511,7 @@ Intersections with the surface can be found only if the following conditions are
 2. Per-surface [Intersection](../../../api/library/objects/class.object_cpp.md#setIntersection_int_int_void) flag is enabled.
 
 
-> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)*code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method manually. The engine will call this method automatically after the *update()* code is executed anyways.
+> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)* code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method manually. The engine will call this method automatically after the *update()* code is executed anyways.
 
 
 ### Arguments
@@ -2508,7 +2538,7 @@ Intersections with the surface can be found only if the following conditions are
 2. Per-surface [Intersection](../../../api/library/objects/class.object_cpp.md#setIntersection_int_int_void) flag is enabled.
 
 
-> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)*code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method manually. The engine will call this method automatically after the *update()* code is executed anyways.
+> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)* code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method manually. The engine will call this method automatically after the *update()* code is executed anyways.
 
 
 ### Arguments
@@ -2528,7 +2558,7 @@ Pointer to the first intersected object.
 Performs tracing from the p0 point to the p1 point to find **objects intersected by the line**. This function detects intersection with objects' bounds.
 
 
-> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)*code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method manually. The engine will call this method automatically after the *update()* code is executed anyways.
+> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)* code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method manually. The engine will call this method automatically after the *update()* code is executed anyways.
 
 
 ### Arguments
@@ -2547,7 +2577,7 @@ true if intersections are found; otherwise, false.
 Searches for intersections **with objects** that are found in a given bounding box.
 
 
-> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)*code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method manually. The engine will call this method automatically after the *update()* code is executed anyways.
+> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)* code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method manually. The engine will call this method automatically after the *update()* code is executed anyways.
 
 
 ### Arguments
@@ -2564,7 +2594,7 @@ true if intersections are found; otherwise, false.
 Searches for intersections **with nodes** that are found in a given bounding box.
 
 
-> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)*code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method manually. The engine will call this method automatically after the *update()* code is executed anyways.
+> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)* code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method manually. The engine will call this method automatically after the *update()* code is executed anyways.
 
 
 ### Arguments
@@ -2581,7 +2611,7 @@ true if intersections are found; otherwise, false.
 Searches for intersections **with specified type of nodes** that are found in a given bounding box.
 
 
-> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)*code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method manually. The engine will call this method automatically after the *update()* code is executed anyways.
+> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)* code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method manually. The engine will call this method automatically after the *update()* code is executed anyways.
 
 
 ### Arguments
@@ -2599,7 +2629,7 @@ true if intersections are found; otherwise, false.
 Searches for intersections **with objects** that are found in a given bounding sphere.
 
 
-> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)*code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method manually. The engine will call this method automatically after the *update()* code is executed anyways.
+> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)* code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method manually. The engine will call this method automatically after the *update()* code is executed anyways.
 
 
 ### Arguments
@@ -2616,7 +2646,7 @@ true if intersections are found; otherwise, false.
 Searches for intersections **with nodes** that are found in a given bounding sphere.
 
 
-> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)*code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method manually. The engine will call this method automatically after the *update()* code is executed anyways.
+> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)* code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method manually. The engine will call this method automatically after the *update()* code is executed anyways.
 
 
 ### Arguments
@@ -2633,7 +2663,7 @@ true if intersections are found; otherwise, false.
 Searches for intersections **with nodes of the specified type** that are found in a given bounding sphere.
 
 
-> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)*code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method manually. The engine will call this method automatically after the *update()* code is executed anyways.
+> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)* code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method manually. The engine will call this method automatically after the *update()* code is executed anyways.
 
 
 ### Arguments
@@ -2651,7 +2681,7 @@ true if intersections are found; otherwise, false.
 Searches for intersections **with Objects** that are found in a given bounding frustum. This method catches all objects independent of their visibility (i.e., if an object is disabled, any of its LODs are disabled, or it is out of the [visibility distance](../../../editor2/settings/render_settings/visibility_distances/index.md) range, but is located within the bounding frustum, the intersection shall be detected). To check for intersections while taking into account the visibility aspect, use *[getVisibleIntersection()](#getVisibleIntersection_Vec3_WorldBoundFrustum_VECObject_float_int)*. Check the [usage example](../../../code/usage/intersections/index_cpp.md#frustrum_search) applying this method.
 
 
-> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)*code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method manually. The engine will call this method automatically after the *update()* code is executed anyways.
+> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)* code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method manually. The engine will call this method automatically after the *update()* code is executed anyways.
 
 
 ### Arguments
@@ -2668,7 +2698,7 @@ true if intersections are found; otherwise, false.
 Searches for intersections **with nodes of the specified type** that are found in a given bounding frustum. This method catches all nodes of the specified type independent of their visibility (i.e., if an object is disabled, any of its LODs are disabled, or it is out of the [visibility distance](../../../editor2/settings/render_settings/visibility_distances/index.md) range, but is located within the bounding frustum, the intersection shall be detected). To check for intersections while taking into account the visibility aspect, use *[getVisibleIntersection()](#getVisibleIntersection_Vec3_WorldBoundFrustum_int_VECNode_float_int)*.
 
 
-> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)*code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method manually. The engine will call this method automatically after the *update()* code is executed anyways.
+> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)* code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method manually. The engine will call this method automatically after the *update()* code is executed anyways.
 
 
 ### Arguments
@@ -2686,7 +2716,7 @@ true if intersections are found; otherwise, false.
 Searches for intersections **with nodes of the specified type** that are found in a given bounding frustum. This method catches all nodes independent of their visibility (i.e., if an object is disabled, any of its LODs are disabled, or it is out of the [visibility distance](../../../editor2/settings/render_settings/visibility_distances/index.md) range, but is located within the bounding frustum, the intersection shall be detected). To check for intersections while taking into account the visibility aspect, use *[getVisibleIntersection()](#getVisibleIntersection_Vec3_WorldBoundFrustum_int_VECNode_float_int)*.
 
 
-> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)*code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)*method manually. The engine will call this method automatically after the *update()* code is executed anyways.
+> **Notice:** As a new node becomes a part of the BSP tree only after the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method is called (the engine calls the method automatically each frame after the world script *[update()](../../../code/fundamentals/execution_sequence/code_update.md#code_update)* code is executed), all engine subsystems can process this node only in the next frame. If you need to get the node in the very first frame, call the *[updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* method manually. The engine will call this method automatically after the *update()* code is executed anyways.
 
 
 ### Arguments
@@ -2699,7 +2729,7 @@ Searches for intersections **with nodes of the specified type** that are found i
 true if intersections are found; otherwise, false.
 ## bool getVisibleIntersection ( const Math:: Vec3 & camera , const Math:: WorldBoundFrustum & bf , Vector < Ptr < Object >> & OUT_objects , float max_distance )
 
-Searches for intersections with objects inside a given bounding frustum that are visible to the specified camera position, i.e. [either of its LODs](../../../api/library/objects/class.object_cpp.md#setMinVisibleDistance_float_int_void) is within the [visibility distance](../../../editor2/settings/render_settings/visibility_distances/index.md) distance. Unlike the *[getIntersection()](#getIntersection_WorldBoundFrustum_VECObject_int)*method, this one takes the "visibility" concept into account (hidden objects or the ones that are too far away won't be found). Check this [usage example](../../../code/usage/intersections/index_cpp.md#frustrum_search) for more details.
+Searches for intersections with objects inside a given bounding frustum that are visible to the specified camera position, i.e. [either of its LODs](../../../api/library/objects/class.object_cpp.md#setMinVisibleDistance_float_int_void) is within the [visibility distance](../../../editor2/settings/render_settings/visibility_distances/index.md) distance. Unlike the *[getIntersection()](#getIntersection_WorldBoundFrustum_VECObject_int)* method, this one takes the "visibility" concept into account (hidden objects or the ones that are too far away won't be found). Check this [usage example](../../../code/usage/intersections/index_cpp.md#frustrum_search) for more details.
 ### Arguments
 
 - *const  Math::[Vec3](../../../api/library/math/class.vec3_cpp.md) &* **camera** - Position of the camera from which the visibility distance to objects is checked.
@@ -2713,7 +2743,7 @@ true if at least one intersection is found; otherwise, false.
 ## bool getVisibleIntersection ( const Math:: Vec3 & camera , const Math:: WorldBoundFrustum & bf , Node::TYPE type , Vector < Ptr < Node >> & OUT_nodes , float max_distance )
 
 
-Searches for intersections with nodes inside a given bounding frustum that are visible to the specified camera position, i.e. [either of its LODs](../../../api/library/objects/class.object_cpp.md#setMinVisibleDistance_float_int_void) is within the [visibility distance](../../../editor2/settings/render_settings/visibility_distances/index.md) distance. Unlike the *[getIntersection()](#getIntersection_WorldBoundFrustum_int_VECNode_int)*method, this one takes the "visibility" concept into account (hidden nodes or the ones that are too far away won't be found). Check this [usage example](../../../code/usage/intersections/index_cpp.md#frustrum_search) for more details.
+Searches for intersections with nodes inside a given bounding frustum that are visible to the specified camera position, i.e. [either of its LODs](../../../api/library/objects/class.object_cpp.md#setMinVisibleDistance_float_int_void) is within the [visibility distance](../../../editor2/settings/render_settings/visibility_distances/index.md) distance. Unlike the *[getIntersection()](#getIntersection_WorldBoundFrustum_int_VECNode_int)* method, this one takes the "visibility" concept into account (hidden nodes or the ones that are too far away won't be found). Check this [usage example](../../../code/usage/intersections/index_cpp.md#frustrum_search) for more details.
 
 
 > **Notice:** This method can be used only for nodes inherited from the [Object](../../../api/library/objects/class.object_cpp.md) class, i.e. they have sufraces that store LOD and [visibility distance](../../../editor2/settings/render_settings/visibility_distances/index.md) data.
@@ -2732,7 +2762,7 @@ Searches for intersections with nodes inside a given bounding frustum that are v
 true if at least one intersection is found; otherwise, false.
 ## bool loadWorld ( const char * path )
 
-Loads a world from the specified file path and replaces the current world with it. The world is not loaded immediately — loading starts at the [beginning](../../../code/fundamentals/execution_sequence/main_loop.md#update) of the next frame, while the current world is unloaded at the [end](../../../code/fundamentals/execution_sequence/main_loop.md#swap) of the current frame.
+Loads a world from the specified file path and replaces the current world with it. The world is not loaded immediately � loading starts at the [beginning](../../../code/fundamentals/execution_sequence/main_loop.md#update) of the next frame, while the current world is unloaded at the [end](../../../code/fundamentals/execution_sequence/main_loop.md#swap) of the current frame.
 ### Arguments
 
 - *const char ** **path** - Path to the [file describing the world](../../../principles/world_structure/index.md).
@@ -2742,7 +2772,7 @@ Loads a world from the specified file path and replaces the current world with i
 true if the world is loaded successfully; otherwise, false.
 ## bool loadWorld ( const char * path , bool partial_path )
 
-Loads a world from the specified file path and replaces the current world with it. The world is not loaded immediately — loading starts at the [beginning](../../../code/fundamentals/execution_sequence/main_loop.md#update) of the next frame, while the current world is unloaded at the [end](../../../code/fundamentals/execution_sequence/main_loop.md#swap) of the current frame.
+Loads a world from the specified file path and replaces the current world with it. The world is not loaded immediately � loading starts at the [beginning](../../../code/fundamentals/execution_sequence/main_loop.md#update) of the next frame, while the current world is unloaded at the [end](../../../code/fundamentals/execution_sequence/main_loop.md#swap) of the current frame.
 ### Arguments
 
 - *const char ** **path** - Path to the [file describing the world](../../../principles/world_structure/index.md).
@@ -2763,7 +2793,7 @@ Loads a world from the specified file path and replaces the current world with i
 true if the world is loaded successfully; otherwise, false.
 ## bool loadWorldForce ( const char * path , bool partial_path )
 
-Loads a world from the specified file path and replaces the current world with it. The world is loaded immediately, breaking the Execution Sequence, therefore should be used either before [Engine::update()](../../../code/fundamentals/execution_sequence/main_loop.md#update) or after [Engine::swap()](../../../code/fundamentals/execution_sequence/main_loop.md#swap). If called in Engine::update(), the Execution Sequence will be as follows: update() before calling loadWorldForce(), loadWorldForce(), shutdown(), continuation of update() from the place of interruption, postUpdate(), swap(), init(), etc. This function is recommended for the Editor-related use.
+Loads a world from the specified file path and replaces the current world with it. The world is loaded immediately, breaking the Execution Sequence, therefore should be used either before [Engine::update()](../../../code/fundamentals/execution_sequence/main_loop.md#update) or after [Engine::swap()](../../../code/fundamentals/execution_sequence/main_loop.md#swap). If called in *Engine::update()*, the Execution Sequence will be as follows: *update()* before calling *loadWorldForce(), loadWorldForce(), shutdown()*, continuation of *update()* from the place of interruption, *postUpdate(), swap(), init()*, etc. This function is recommended for the Editor-related use.
 ### Arguments
 
 - *const char ** **path** - Path to the [file describing the world](../../../principles/world_structure/index.md).
@@ -2916,7 +2946,10 @@ Returns a node by its identifier if it exists.
 Node, if it exists in the world; otherwise, **nullptr**.
 ## Ptr < Node > getNodeByName ( const char * name ) const
 
+
 Returns a node by its name if it exists. If the world contains multiple nodes having the same name, only the first one found shall be returned. To get all nodes having the same name, use the [*getNodesByName()*](#getNodesByName_cstr_VECNode_void) method.
+
+
 > **Notice:** method filters out isolated node hierarchies and cache nodes, so it does not return nodes having a possessor (*NodeReference / Clutter / Cluster*) among its predecessors or nodes from cache.
 
 
@@ -3008,19 +3041,32 @@ Sets a range for random generation of a node ID. This method can be used, for ex
 
 ## void findNodes ( CallbackBase2 < Ptr < Node >, bool *> * find_node_callback ) const
 
+Traverses the whole world hierarchy and calls the specified callback function for each node found. The traversal starts from the root nodes and goes down the hierarchy, also entering [Node Reference internals](../../../api/library/nodes/class.nodereference_cpp.md#unpacking) and the nodes referenced by World Clutters. Each node is reported only once, the nodes scheduled for deletion are skipped. Unlike the *[getNodes()](#getNodes_VECNode_int_int_void)* method, this one doesn't collect all nodes into a list: the nodes are reported one by one and the callback can cut off the whole hierarchy of the current node, which is faster when you are looking for specific nodes in a large world.
+```cpp
+CallbackBase2<Ptr<Node>, bool *> *find_nodes_cb = MakeCallback(find_nodes);
+World::findNodes(find_nodes_cb);
+delete find_nodes_cb;
+
+```
+
+
 ### Arguments
 
-- *[CallbackBase2](../../../api/library/common/callbacks/class.callbackbase2_cpp.md)<[Ptr](../../../api/library/common/class.ptr_cpp.md)<[Node](../../../api/library/nodes/class.node_cpp.md)>, bool *> ** **find_node_callback**
+- *[CallbackBase2](../../../api/library/common/callbacks/class.callbackbase2_cpp.md)<[Ptr](../../../api/library/common/class.ptr_cpp.md)<[Node](../../../api/library/nodes/class.node_cpp.md)>, bool *> ** **find_node_callback** - Callback function to be called for each node found during the traversal. The second argument of the callback is an output flag: set it to true to skip the hierarchy of the current node (its children and the content it references), or leave it false to continue traversing this branch. The callback function must have the following signature: *find_node_callback(**NodePtr** node, **bool *** skip_hierarchy)*
 
 ## bool removeNodeFile ( const char * file_path )
 
 Clears [cached](../../../principles/world_management/index.md#node_cache) nodes for the given `*.node` file and removes all related *Node References* from the scene.
 When trying to access cached nodes, keep in mind the following:
 
-- if the node was loaded by the name — the node gets stored in the cache by its **name**;
-- if the node was loaded from the parent *Node Reference* — the node is stored in the cache by its **GUID**.
 
- Here is an example on how to clear cached nodes and reload them in both cases:
+- if the node was loaded by the name � the node gets stored in the cache by its **name**;
+- if the node was loaded from the parent *Node Reference* � the node is stored in the cache by its **GUID**.
+
+
+Here is an example on how to clear cached nodes and reload them in both cases:
+
+
 <details>
 <summary>Example | Close</summary>
 
@@ -3051,10 +3097,14 @@ true if nodes for the given `*.node` file were successfully removed from cache w
 Clears [cached](../../../principles/world_management/index.md#node_cache) nodes for the given `*.node` file and removes all related *Node References* from the scene.
 When trying to access cached nodes, keep in mind the following:
 
-- if the node was loaded by the name — the node gets stored in the cache by its **name**;
-- if the node was loaded from the parent *Node Reference* — the node is stored in the cache by its **GUID**.
 
- Here is an example on how to clear cached nodes and reload them in both cases:
+- if the node was loaded by the name � the node gets stored in the cache by its **name**;
+- if the node was loaded from the parent *Node Reference* � the node is stored in the cache by its **GUID**.
+
+
+Here is an example on how to clear cached nodes and reload them in both cases:
+
+
 <details>
 <summary>Example | Close</summary>
 
@@ -3085,10 +3135,14 @@ true if nodes for the given `*.node` file were successfully removed from cache w
 Clears [cached](../../../principles/world_management/index.md#node_cache) nodes for the given `*.node` file and reloads all related *Node References* in the scene.
 When trying to access cached nodes, keep in mind the following:
 
-- if the node was loaded by the name — the node gets stored in the cache by its **name**;
-- if the node was loaded from the parent *Node Reference* — the node is stored in the cache by its **GUID**.
 
- Here is an example on how to clear cached nodes and reload them in both cases:
+- if the node was loaded by the name � the node gets stored in the cache by its **name**;
+- if the node was loaded from the parent *Node Reference* � the node is stored in the cache by its **GUID**.
+
+
+Here is an example on how to clear cached nodes and reload them in both cases:
+
+
 <details>
 <summary>Example | Close</summary>
 
@@ -3119,10 +3173,14 @@ true if nodes for the given `*.node` file were successfully removed from cache a
 Clears [cached](../../../principles/world_management/index.md#node_cache) nodes for the given `*.node` file and reloads all related *Node References* in the scene.
 When trying to access cached nodes, keep in mind the following:
 
-- if the node was loaded by the name — the node gets stored in the cache by its **name**;
-- if the node was loaded from the parent *Node Reference* — the node is stored in the cache by its **GUID**.
 
- Here is an example on how to clear cached nodes and reload them in both cases:
+- if the node was loaded by the name � the node gets stored in the cache by its **name**;
+- if the node was loaded from the parent *Node Reference* � the node is stored in the cache by its **GUID**.
+
+
+Here is an example on how to clear cached nodes and reload them in both cases:
+
+
 <details>
 <summary>Example | Close</summary>
 
@@ -3153,10 +3211,14 @@ true if nodes for the given `*.node` file were successfully removed from cache a
 Clears [cached](../../../principles/world_management/index.md#node_cache) nodes for the given `*.node` file.
 When trying to access cached nodes, keep in mind the following:
 
-- if the node was loaded by the name — the node gets stored in the cache by its **name**;
-- if the node was loaded from the parent *Node Reference* — the node is stored in the cache by its **GUID**.
 
- Here is an example on how to clear cached nodes in both cases:
+- if the node was loaded by the name � the node gets stored in the cache by its **name**;
+- if the node was loaded from the parent *Node Reference* � the node is stored in the cache by its **GUID**.
+
+
+Here is an example on how to clear cached nodes in both cases:
+
+
 <details>
 <summary>Example | Close</summary>
 
@@ -3191,10 +3253,14 @@ true if nodes for the given `*.node` file were successfully removed from cache; 
 Clears [cached](../../../principles/world_management/index.md#node_cache) nodes for the given `*.node` file.
 When trying to access cached nodes, keep in mind the following:
 
-- if the node was loaded by the name — the node gets stored in the cache by its **name**;
-- if the node was loaded from the parent *Node Reference* — the node is stored in the cache by its **GUID**.
 
- Here is an example on how to clear cached nodes in both cases:
+- if the node was loaded by the name � the node gets stored in the cache by its **name**;
+- if the node was loaded from the parent *Node Reference* � the node is stored in the cache by its **GUID**.
+
+
+Here is an example on how to clear cached nodes in both cases:
+
+
 <details>
 <summary>Example | Close</summary>
 

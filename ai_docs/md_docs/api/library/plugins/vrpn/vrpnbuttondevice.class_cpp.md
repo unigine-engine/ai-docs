@@ -20,11 +20,20 @@ A class for the [VRPN Plugin](../../../../code/plugins/vrpn/index_cpp.md) that a
 
 ### Members
 
+## int getNumButtons () const
+
+Returns the current Total number of buttons of the input device.
+### Return value
+
+Current
 ---
 
 ## void setButtonCallback ( const char * name )
 
+
 Sets the world script callback function that receives data about input device buttons.
+
+
 > **Notice:** The callback function should be defined in the world script and receive **2** arguments - a button number and state.
 > ```cpp
 > void callback_func(int button,int state) {
@@ -72,7 +81,10 @@ void button_callback(int button,int state) {
 
 ## const char * getButtonCallback ( )
 
+
 Returns a name of the world script callback function that receives data about input device buttons. The callback function should be defined in the world script and receive **2** arguments - a button number and state.
+
+
 ```cpp
 void callback_func(int button,int state) {
     // function logic
@@ -86,16 +98,13 @@ void callback_func(int button,int state) {
 Callback function name.
 ## void update ( )
 
+
 Updates the internal state of the device and receives input data.
+
+
 > **Notice:** This function should be called each frame.
 
 
-## int getNumButtons ( ) const
-
-Returns the total number of buttons of the input device.
-### Return value
-
-Total number of buttons of the input device.
 ## int getButtonState ( int num ) const
 
 Returns the current state for a button with the specified index.

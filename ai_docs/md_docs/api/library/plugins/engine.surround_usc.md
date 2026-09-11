@@ -11,9 +11,13 @@ This set of functions is available when the [Surround](../../../principles/rende
 
 If the plugin are loaded together with the engine, the following definition is set:
 
+
 - `HAS_SURROUND` for the Surround plugin
 
+
 This definition can be used, for example, to avoid errors if the plugin is not loaded: the code in which the plugin functions are executed can be wrapped around as follows:
+
+
 ```cpp
 #ifdef HAS_SURROUND
 	// engine.surround functions

@@ -3,7 +3,7 @@
 **Header:** #include <UnigineGame.h>
 
 
-Stores the result of the [*Game::getIntersection()*](../../../api/library/engine/class.game_cpp.md#getIntersection_Vec3_Vec3_float_int_GameIntersection_Obstacle) function - the point where the intersection with an [obstacle](../../../api/library/pathfinding/class.obstacle_cpp.md) has been occurred.
+Stores the result of the *[*Game::getIntersection()*](../../../api/library/engine/class.game_cpp.md#getIntersection_Vec3_Vec3_float_int_GameIntersection_Obstacle)* function - the point where the intersection with an [obstacle](../../../api/library/pathfinding/class.obstacle_cpp.md) has been occurred.
 
 
 ![](cylinder01.png)
@@ -18,7 +18,7 @@ The following example shows how you can get the intersection point (vec3) of the
 1. Define and initialize two points (p0 and p1) by using the *[Player::getDirectionFromScreen()](../../../api/library/players/class.player_cpp.md#getDirectionFromScreen_Vec3_Vec3_int_int_int_int_int_int_void)*.
 2. Create an instance of the GameIntersection class to get the intersection point coordinates.
 3. Check, if there is an intersection with an obstacle. The *Game::getIntersection()* function returns an intersected obstacle when the obstacle appears in the area of the cylinder.
-4. After that GameIntersection instance gets the point of the nearest intersection point and you can get it by using the *getPoint()* function.
+4. After that *GameIntersection* instance gets the point of the nearest intersection point and you can get it by using the *getPoint()* function.
 
 
 ```cpp
@@ -68,21 +68,21 @@ if (obstacle)
 
 ### Members
 
+## void setPoint ( const const Math:: Vec3 && point )
+
+Sets a new coordinates of the intersection point.
+### Arguments
+
+- *const const  Math::[Vec3](../../../api/library/math/class.vec3_cpp.md) &&* **point** - The coordinates of the intersection point.
+
+## const Math:: Vec3 & getPoint () const
+
+Returns the current coordinates of the intersection point.
+### Return value
+
+Current coordinates of the intersection point.
 ---
 
 ## static GameIntersectionPtr create ( )
 
 The GameIntersection constructor.
-## void setPoint ( const Math:: Vec3 & point )
-
-Sets new coordinates of the intersection point.
-### Arguments
-
-- *const  Math::[Vec3](../../../api/library/math/class.vec3_cpp.md) &* **point** - Coordinates of the intersection point.
-
-## Math:: Vec3 getPoint ( )
-
-Returns coordinates of the intersection point.
-### Return value
-
-Coordinates of the intersection point.

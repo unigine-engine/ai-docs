@@ -33,6 +33,19 @@ This class is used to get the type of the window event.
 
 ### Members
 
+## void setAction ( WindowEventGeneric::ACTION action )
+
+Sets a new type of the generic action performed with the window during the event.
+### Arguments
+
+- *[WindowEventGeneric::ACTION](../../../api/library/gui/class.windoweventgeneric_cpp.md#ACTION)* **action** - The type of the generic action performed with the window during the event
+
+## WindowEventGeneric::ACTION getAction () const
+
+Returns the current type of the generic action performed with the window during the event.
+### Return value
+
+Current type of the generic action performed with the window during the event
 ---
 
 ## WindowEventGeneric ( )
@@ -77,17 +90,3 @@ Generic window event constructor.
 - *const  Math::[ivec2](../../../api/library/math/class.ivec2_cpp.md) &* **position** - Position of the window.
 - *const  Math::[ivec2](../../../api/library/math/class.ivec2_cpp.md) &* **size** - Size of the window.
 - *[WindowEventGeneric::ACTION](../../../api/library/gui/class.windoweventgeneric_cpp.md#ACTION)* **action** - Type of the generic action performed with the window during the event.
-
-## void setAction ( WindowEventGeneric::ACTION action )
-
-Sets the type of the generic action performed with the window during the event.
-### Arguments
-
-- *[WindowEventGeneric::ACTION](../../../api/library/gui/class.windoweventgeneric_cpp.md#ACTION)* **action** - The type of the generic action performed with the window during the event.
-
-## WindowEventGeneric::ACTION getAction ( ) const
-
-Returns the type of the generic action performed with the window during the event.
-### Return value
-
-The type of the generic action performed with the window during the event.

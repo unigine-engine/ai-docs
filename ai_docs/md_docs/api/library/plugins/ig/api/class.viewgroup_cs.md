@@ -5,6 +5,7 @@
 
 This class represents the IG View group interface.
 
+
 > **Notice:** IG plugin must be loaded.
 
 

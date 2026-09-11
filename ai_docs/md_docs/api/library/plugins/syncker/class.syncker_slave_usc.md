@@ -13,6 +13,29 @@ This class represents the slave interface of the Syncker.
 
 ### Members
 
+## void setSkipFlags ( int flags )
+
+Sets a new [skip flags](#SKIP_FLAGS) enabling you to ignore certain information from the Master.
+### Arguments
+
+- *int* **flags** - The combination of [skip flags](#SKIP_FLAGS) to be used, for example: ```cpp slave.setSkipFlags(SLAVE_GAME | SLAVE_WORLD_LOAD | SLAVE_USER_DATA); ```
+
+## int getSkipFlags () const
+
+Returns the current [skip flags](#SKIP_FLAGS) enabling you to ignore certain information from the Master.
+### Return value
+
+Current combination of [skip flags](#SKIP_FLAGS) to be used, for example:
+```cpp
+slave.setSkipFlags(SLAVE_GAME | SLAVE_WORLD_LOAD | SLAVE_USER_DATA);
+```
+
+## long getID () const
+
+Returns the current ID of the Slave.
+### Return value
+
+Current ID of the Slave combined as follows: IP address (32 bits) + port number (16 bits).
 ---
 
 ## int getMasterNodeID ( int slave_node_id )
@@ -37,7 +60,10 @@ Returns the local ID of a dynamic node on the Slave by its ID on the Master. A S
 ID of the node on the Slave.
 ## void addSyncNode ( Node node , int master_node_id )
 
+
 Enables synchronization of parameters of the given node via the UDP protocol.
+
+
 > **Notice:** Scene nodes are not synchronized by default, this method is used to add a particular node to the synchronization queue.
 
 
@@ -48,7 +74,10 @@ Enables synchronization of parameters of the given node via the UDP protocol.
 
 ## void addSyncNodeID ( int slave_node_id , int master_node_id )
 
+
 Enables synchronization of parameters of the given node via the UDP protocol.
+
+
 > **Notice:** Scene nodes are not synchronized by default, this method is used to add a particular node (by its id) to the synchronization queue.
 
 
@@ -77,25 +106,6 @@ Removes the node with the given number from the synchronization queue.
 ### Return value
 
 true if the node was successfully removed from the synchronization queue; otherwise, false.
-## long getID ( )
-
-Returns the current ID of the Slave.
-### Return value
-
-ID of the slave combined as follows: IP address (32 bits) + port number (16 bits).
-## void setSkipFlags ( int flags )
-
-Sets the [skip flags](#PROJECTIONS) enabling you to ignore certain information from the Master.
-### Arguments
-
-- *int* **flags** - A combination of [skip flags](#PROJECTIONS) to be used, for example: ```cpp slave.setSkipFlags(SLAVE_GAME | SLAVE_WORLD_LOAD | SLAVE_USER_DATA); ```
-
-## int getSkipFlags ( )
-
-Returns the current [skip flags](#PROJECTIONS) combination enabling you to ignore certain information from the Master.
-### Return value
-
-A combination of currently used [skip flags](#PROJECTIONS).
 ## Variable addCallback ( int callback , Variable func )
 
 Adds a callback of the specified type. Callback functions can be used to determine actions to be performed when sending or receiving user messages, as well as when changing settings on the Master or a Slave. The signature of the callback function can be one of the following:
@@ -134,7 +144,7 @@ void callback_function_name(Node node);
 - *Variable* **func** - There are two ways you can specify a callback function:
 
   - **by name** - when you call a function, declared globally.
-  - **by ID** - when you call a member function of a certain class. > **Notice:** An ID can be obtained via [functionid()](../../../../api/library/common/class.system_usc.md#functionid_variable_int).
+  - **by ID** - when you call a member function of a certain class. > **Notice:** An ID can be obtained via *[functionid()](../../../../api/library/common/class.system_usc.md#functionid_variable_int)*.
 
 ### Return value
 
@@ -155,7 +165,7 @@ Removes a given callback from the list of callbacks of the specified type. Callb
 - *Variable* **func** - There are two ways you can specify a callback function:
 
   - **by name** - when you call a function, declared globally.
-  - **by ID** - when you call a member function of a certain class. > **Notice:** An ID can be obtained via [functionid()](../../../../api/library/common/class.system_usc.md#functionid_variable_int).
+  - **by ID** - when you call a member function of a certain class. > **Notice:** An ID can be obtained via *[functionid()](../../../../api/library/common/class.system_usc.md#functionid_variable_int)*.
 
 ### Return value
 

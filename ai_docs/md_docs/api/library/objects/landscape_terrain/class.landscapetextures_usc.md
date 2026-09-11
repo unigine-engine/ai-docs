@@ -10,6 +10,42 @@ This class is used to manage a fragment of terrain data on the GPU side (e.g. mo
 
 ### Members
 
+## int getNumMipmaps () const
+
+Returns the current total number of mipmaps for the textures (maximum value among all data layers).
+### Return value
+
+Current total number of mipmaps for the textures (maximum value among all data layers)
+## ivec2 getResolution () const
+
+Returns the current texture resolution.
+### Return value
+
+Current texture resolution
+## RenderTarget getRenderTarget () const
+
+Returns the current [render target](../../../../api/library/rendering/class.rendertarget_usc.md) containing terrain data.
+### Return value
+
+Current [render target](../../../../api/library/rendering/class.rendertarget_usc.md) containing terrain data
+## Texture getOpacityHeight () const
+
+Returns the current Opacity information for height data as an r32f texture.
+### Return value
+
+Current Opacity information for height data as an r32f texture
+## Texture getAlbedo () const
+
+Returns the current Albedo data as an rgba8 texture. opacity data is stored in the alpha-channel.
+### Return value
+
+Current Albedo data as an rgba8 texture
+## Texture getHeight () const
+
+Returns the current Height data as an r32f texture.
+### Return value
+
+Current Height data as an r32f texture
 ---
 
 ## LandscapeTextures LandscapeTextures ( ivec2 resolution )
@@ -19,18 +55,6 @@ Creates a new LandscapeTextures object to store the data for a terrain area of t
 
 - *ivec2* **resolution** - Two-component vector containing texture resolution along X and Y axes.
 
-## Texture getHeight ( )
-
-Returns height data as an R32F texture.
-### Return value
-
-Texture (R32F) containing height data.
-## Texture getAlbedo ( )
-
-Returns albedo data as an RGBA8 texture. Opacity data is stored in the alpha-channel.
-### Return value
-
-Texture (RGBA8) containing albedo data.
 ## Texture getMask ( int num )
 
 Returns mask data as an RGBA8 texture.
@@ -43,12 +67,6 @@ Returns mask data as an RGBA8 texture.
 ### Return value
 
 Texture (RGBA8) containing mask data.
-## Texture getOpacityHeight ( )
-
-Returns opacity information for height data as an R32F texture.
-### Return value
-
-Texture (R32F) containing opacity information for height texture.
 ## Texture getOpacityMask ( int num )
 
 Returns opacity information for mask data as an RGBA8 texture.
@@ -71,24 +89,6 @@ Returns the texture of the specified type.
 ### Return value
 
 Texture of the specified type.
-## RenderTarget getRenderTarget ( )
-
-Returns the [render target](../../../../api/library/rendering/class.rendertarget_usc.md) containing terrain data.
-### Return value
-
-[Render target](../../../../api/library/rendering/class.rendertarget_usc.md) containing terrain data.
-## ivec2 getResolution ( )
-
-Returns the current texture resolution.
-### Return value
-
-Two-component vector containing texture resolution along X and Y axes.
-## int getNumMipmaps ( )
-
-Returns the total number of mipmaps for the textures (maximum value among all data layers).
-### Return value
-
-Total number of mipmaps for the textures.
 ## void createMipmaps ( )
 
 Generates mipmaps for the textures of all data layers.

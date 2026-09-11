@@ -146,7 +146,7 @@ Animations within a **[Blend Space 2D Sync](../../../content/animations/graph/no
 ## Sync Groups and State Machines
 
 
-When a **[State Machine](../../../content/animations/state_machines/index.md)** transitions between states, the sync group takes priority over the state's **Enter Time** setting. If the new state's animation node belongs to an active sync group, it aligns to the group's current normalized time instead of starting from the configured enter time.
+When a **[State Machine](../../../content/animations/state_machines/index.md)** transitions between states, the sync group takes priority over the **Enter Time** set on the transition's **[Transition Result](../../../content/animations/graph/node_library/result/transition_result.md)** node. If the new state's animation node belongs to a sync group that already has other active members, it aligns to the group's current normalized time instead of starting from the configured enter time.
 
 
 ## See Also

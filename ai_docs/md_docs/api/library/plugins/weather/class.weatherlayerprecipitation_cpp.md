@@ -12,52 +12,52 @@ This class is used to represent a precipitation layer within a [weather region](
 
 ### Members
 
----
+## void setParticlesSize ( float size )
 
-## Ptr < Node > getEffectNode ( ) const
-
-Returns the node used to visualize the precipitation effect.
-### Return value
-
-Node representing the precipitation effect in the world.
-## void setPrecipitationType ( int type )
-
-Sets a value defining the type of the weather precipitation layer.
+Sets a new size of particles used to visualize the precipitation effect (snowflakes, droplets, etc.).
 ### Arguments
 
-- *int* **type** - Integer value that defines the type of precipitation enabled for the weather layer: > **Notice:** The set of precipitation types can be [extended](../../../../ig/weather/config.md#config_precipitation_types).
+- *float* **size** - The particle size, in units.
+
+## float getParticlesSize () const
+
+Returns the current size of particles used to visualize the precipitation effect (snowflakes, droplets, etc.).
+### Return value
+
+Current particle size, in units.
+## void setPrecipitationType ( int type )
+
+Sets a new value defining the type of the weather precipitation layer.
+### Arguments
+
+- *int* **type** - The integer value that defines the type of precipitation enabled for the weather layer: > **Notice:** The set of precipitation types can be [extended](../../../../ig/weather/config_cpp.md#config_precipitation_types).
 
   - 0 - disable precipitation
   - 1 - rain
   - 2 - snow
 
-## int getPrecipitationType ( ) const
+## int getPrecipitationType () const
 
-Returns a value defining the type of the weather precipitation layer.
+Returns the current value defining the type of the weather precipitation layer.
 ### Return value
 
-Integer value that defines the type of precipitation enabled for the weather layer:
+Current integer value that defines the type of precipitation enabled for the weather layer:
 - 0 - disable precipitation
 - 1 - rain
 - 2 - snow
 
 
-> **Notice:** The set of precipitation types can be [extended](../../../../ig/weather/config.md#config_precipitation_types).
+> **Notice:** The set of precipitation types can be [extended](../../../../ig/weather/config_cpp.md#config_precipitation_types).
 
 
-## void setParticlesSize ( float size )
+## Ptr < Node > getEffectNode () const
 
-Sets the size of particles used to visualize the precipitation effect (snowflakes, droplets, etc.).
-### Arguments
-
-- *float* **size** - New particle size, in units.
-
-## float getParticlesSize ( ) const
-
-Returns the current size of particles used to visualize the precipitation effect (snowflakes, droplets, etc.).
+Returns the current node used to visualize the precipitation effect.
 ### Return value
 
-Particle size, in units.
+Current node representing the precipitation effect in the world.
+---
+
 ## void setParticlesSizeSmoothBySpeed ( float unit_per_sec )
 
 Sets the mode of smooth gradual change of the [particles size](#setParticlesSize_float_void) by the specified rate (in units per second). The particles size changes gradually from the current to target value by the specified value during each second, such smoothing is performed to make changes more realistic. Moreover, each value can be changed with its own rate (the rain starting fast with a slowly changing cloud coverage). This method fits best when the difference between the target and current value is either too big (e.g. visibility distance change from 10m to 1km) or too small (e.g. from 1m to 1.05m), avoiding too fast or too slow changes. For other cases you can also choose another mode "by time" to change the value from the current to target during the specified time interval via the *[setParticlesSizeSmoothByTime()](#setParticlesSizeSmoothByTime_float_void)*.

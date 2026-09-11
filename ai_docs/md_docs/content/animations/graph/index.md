@@ -10,7 +10,7 @@
 To create a new animation graph:
 
 
-1. Right-click in the **Asset Browser** and choose *Create* → *Animation Graph*. This creates a new `*.agraph` file.
+1. Right-click in the **Asset Browser** and choose *Create -> Animation Graph*. This creates a new `*.agraph` file.
 2. Double-click the created asset to open it in the Animation Graph Editor.
 
 
@@ -53,6 +53,15 @@ The main editing area where you create, arrange, and connect nodes. The canvas s
 >
 >
 > ![](pose_preview.png)
+>
+>
+> Vec3 and Quat nodes have their own eye icon in the header that shows the value in the preview viewport instead of a pose. This applies to the **[Vec3](../../../content/animations/graph/node_library/constant/vec3.md)** and **[Quaternion](../../../content/animations/graph/node_library/constant/quaternion.md)** constant nodes, and to parameter nodes of the same types.
+>
+>
+> ![](vec3_preview.png)
+>
+>
+> When enabled, the value appears in the viewport as a **point** labelled with the name of the node and its type. Click the point to open the manipulator: a **move gizmo for a Vec3**, a **rotate gizmo for a Quat**. Dragging it edits the value, which is a quick way to position something like an IK or look-at target directly in the viewport. For a *parameter* node the **change applies right away**; for a *constant node* it **takes effect after you save the graph**.
 
 
 ### Side Panels
@@ -67,7 +76,7 @@ A set of collapsible sections on the side of the window. Their contents change d
 | Preview | A 3D viewport showing the animated character in real time. Use *Play / Pause* to control playback and the *Speed* slider to adjust playback speed (click the reset button to return to 1.0). To set up the preview, select a skinned mesh in the *Mesh* field under *Preview Settings*. These settings only affect the preview and do not change the animation graph or the in-game result: - *Mesh* - skinned mesh used to display animation playback. - *Fix Root Bone in Origin* - locks the root bone at the world origin. Enable this to keep the character centered when animations contain root motion. - *Show Bones* - renders skeleton bones as lines connecting each joint. - *Show Bone Axes* - displays local coordinate axes (red = X, green = Y, blue = Z) at each joint. - *Show Bone Names* - displays bone name labels next to each joint. - *Show Ground* - displays a ground plane in the preview scene. |
 |---|---|
 | Animation Graph Settings | Global settings that affect how the entire animation graph behaves at runtime: - *Root Motion* - enables animation-driven character movement. See [Root Motion](../../../content/animations/root_motion/index.md) for details. - *Filter by Skeleton* - when enabled, asset selection fields only show meshes and animations compatible with the skeleton assigned to this graph. |
-| Parameters | Variables that control the animation graph at runtime. Create parameters here and use them as nodes in the graph. Their values can be changed from game logic via code. The panel provides controls to add, remove, reorder, and clone parameters. Preview overrides let you tweak parameter values in real time without writing code - they affect only the preview and do not modify saved defaults. |
+| Parameters | Variables that control the animation graph at runtime. Create parameters here and use them as nodes in the graph. Their values can be changed from game logic via code. The panel provides controls to add, remove, reorder, and clone parameters. Preview overrides let you tweak parameter values in real time without writing code - they affect only the preview and do not modify saved defaults. An override that differs from the default is highlighted, with a *Reset to Default* button next to it. |
 | Selected Item | Displays editable properties of the currently selected node or connection. |
 | Graph Hierarchy | Tree view showing all nodes organized by nesting level, with a search filter. Click a node to select it, double-click to navigate inside. The hierarchy panel can be moved to the left side of the window - hover over the panel header and click the arrow button. |
 
@@ -103,7 +112,7 @@ Common keyboard shortcuts to speed up your workflow:
    Sorry, your browser does not support embedded videos.
 | Ctrl + S | Save the current graph. |
 |---|---|
-| Ctrl + Z / Ctrl + Y | Undo / Redo. History stores up to 50 states. |
+| Ctrl + Z / Ctrl + Y | Undo / Redo. Graph edits go onto the editor-wide undo stack shared with the rest of UnigineEditor. |
 | Ctrl + C / Ctrl + V | Copy / Paste nodes (without external connections). |
 | Ctrl + D | Duplicate selected nodes in place. |
 | Delete | Delete selected nodes or connections. |

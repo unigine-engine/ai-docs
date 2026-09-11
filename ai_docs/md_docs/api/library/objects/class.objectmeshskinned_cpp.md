@@ -584,3 +584,15 @@ Returns a value indicating if the ObjectMeshSkinned needs to be updated.
 ### Return value
 
 true if the object needs to be updated; otherwise, false.
+## bool loadAsyncRender ( )
+
+Requests asynchronous loading of the mesh for rendering. The mesh becomes available in one of the following frames, so the object keeps rendering whatever it already has until then.
+### Return value
+
+true if the request has been queued; otherwise, false.
+## bool loadForceRender ( )
+
+Loads the mesh for rendering immediately, blocking until it is done.
+### Return value
+
+true if the mesh has been loaded; otherwise, false.

@@ -3,18 +3,19 @@
 **Inherits from:** WorldIntersection
 
 
-This class stores the normal of the intersection point. You should use this class when you need additional information about the normal at the intersection point (it also stores the coordinates of the intersection, the index of the intersected triangle, and the index of the intersected surface).
+This class stores the normal at the intersection point. You should use this class when you need additional information about the normal at the intersection point (it also stores the coordinates of the intersection, the index of the intersected triangle, and the index of the intersected surface).
 
 
 #### Usage Example
 
 
-The following example shows how you can get the intersection information by using the WorldIntersection class. In this example, the line is an invisible traced line from the point of the camera (vec3 p0) to the point of the mouse pointer (vec3 p1). The executing sequence is the following:
+The following example shows how you can get the intersection information by using the *WorldIntersection* class. In this example, the line is an invisible traced line from the point of the camera (*vec3 **p0***) to the point of the mouse pointer (*vec3 **p1***). The executing sequence is the following:
 
-- Define and initialize two points (p0 and p1) by using the *[Player.getDirectionFromScreen()](../../../api/library/players/class.player_cs.md#getDirectionFromScreen_Vec3_Vec3_int_int_int_int_int_int_void)*> function.
-- Create an instance of the WorldIntersectionNormal class to get the intersection information.
+
+- Define and initialize two points (p0 and p1) by using the *[Player.getDirectionFromScreen()](../../../api/library/players/class.player_cs.md#getDirectionFromScreen_Vec3_Vec3_int_int_int_int_int_int_void)* function.
+- Create an instance of the *WorldIntersectionNormal*class to get the intersection information.
 - Check, if there is a intersection with an object. The [*World.getIntersection()*](../../../api/library/engine/class.world_cs.md#getIntersection_vec3_vec3_int_Variable_Object) function returns an intersected object when the object intersects with the traced line.
-- In this example, when the object intersects with the traced line, all the surfaces of the intersected object change their material parameters. The WorldIntersectionNorma class instance gets the normal of the intersection point. You can get the normal by using the [*getNormal()*](#getNormal_vec3) function.
+- In this example, when the object intersects with the traced line, all the surfaces of the intersected object change their material parameters. The *WorldIntersectionNormal* class instance gets the normal of the intersection point. You can get the normal by using the [*getNormal()*](#getNormal_vec3) function.
 
 
 ```csharp
@@ -73,7 +74,7 @@ if(obj != null)
 
 ## vec3 Normal
 
-The normal of the intersection point.
+The normal at the intersection point.
 ### Members
 
 ---

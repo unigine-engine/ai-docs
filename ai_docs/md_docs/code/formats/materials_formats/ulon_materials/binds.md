@@ -8,7 +8,7 @@ The syntax is the following:
 
 
 ```cpp
-Bind from_node_name = to_node_name <defines=”SOME_UNIQUE_DEFINE”>
+Bind from_node_name = to_node_name <defines=�SOME_UNIQUE_DEFINE�>
 
 ```
 
@@ -42,6 +42,6 @@ Definitions separated by a comma without any space. You can also specify your ow
 
 
 ```cpp
-Bind main_node = new_node <defines=”SOME_UNIQUE_DEFINE”>
+Bind main_node = new_node <defines=�SOME_UNIQUE_DEFINE�>
 
 ```

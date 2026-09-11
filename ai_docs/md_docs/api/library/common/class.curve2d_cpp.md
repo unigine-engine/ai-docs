@@ -62,7 +62,7 @@ Returns the current repeat mode for the end of the curve (defines behavior after
 Current repeat mode for the end of the curve (defines behavior after the last key point), one of the [*REPEAT_MODE_**](#REPEAT_MODE) values.
 ## Event<> getEventChanged () const
 
-event triggered when the curve is changed. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when the curve is changed. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -198,7 +198,7 @@ publisher->getEventChanged().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## Curve2d ( )
@@ -320,8 +320,11 @@ Returns the current coordinates for the right tangent at the specified key point
 Current coordinates of the right tangent at the specified key point.
 ## int saveState ( const Ptr < Stream > & stream ) const
 
+
 Saves data of the curve to a binary stream.
-**Example** using saveState() and [restoreState()](#restoreState_Stream_int) methods:
+
+
+**Example** using *saveState()* and *[restoreState()](#restoreState_Stream_int)* methods:
 
 
 ```cpp
@@ -354,8 +357,11 @@ curve->restoreState(blob_state);
 true if the curve data is saved successfully; otherwise, false.
 ## bool restoreState ( const Ptr < Stream > & stream )
 
+
 Restores curve data from a binary stream.
-**Example** using [saveState()](#saveState_Stream_int) and restoreState() methods:
+
+
+**Example** using *[saveState()](#saveState_Stream_int)* and *restoreState()* methods:
 
 
 ```cpp

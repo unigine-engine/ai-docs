@@ -341,7 +341,7 @@ Creates an XML tree with a given node as a root.
 ### Arguments
 
 - *const char ** **name** - Name of the node that will be a root.
-- *const char ** **args** - Optional arguments to the root node. If provided, they should be in this form: *arg1=\"value1\" arg2=\"value2\" …* If values do not contain spaces, escaped quotes can be omitted.
+- *const char ** **args** - Optional arguments to the root node. If provided, they should be in this form: *arg1=\"value1\" arg2=\"value2\" �* If values do not contain spaces, escaped quotes can be omitted.
 
 ## static XmlPtr create ( const Ptr < Xml > & xml )
 
@@ -430,7 +430,10 @@ Sets a value of a given boolean argument.
 true if the operation was successful; otherwise, false.
 ## bool getBoolArg ( const char * name , bool value ) const
 
+
 Returns a value of a given boolean argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -441,10 +444,13 @@ Returns a value of a given boolean argument.
 
 ### Return value
 
-**1** if the argument has a value *1*, *true* or *TRUE*; **0**, if the argument has a value *0*, *false* or *FALSE*; otherwise, **0**.
+**1** if the argument has a value 1, true or TRUE; **0**, if the argument has a value 0, false or FALSE; otherwise, **0**.
 ## bool getBoolArg ( const char * name ) const
 
+
 Returns a value of a given boolean argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -467,7 +473,10 @@ Returns the child of the XML tree.
 Pointer to XML.
 ## Ptr < Xml > getChild ( int num ) const
 
+
 Returns a child node by its name or index number in the child list.
+
+
 > **Notice:** To check if a child with a given name exists, use the [*isChild()*](#isChild_cstr_int) method.
 
 
@@ -511,7 +520,10 @@ Sets a value of a given *dmat4* argument.
 Always true.
 ## Math:: dmat4 getDMat4Arg ( const char * name ) const
 
+
 Returns a value of a given *dmat4* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -535,7 +547,10 @@ Sets a value of a given *double* argument.
 Always **1**.
 ## double getDoubleArg ( const char * name , double value ) const
 
+
 Returns a value of a given *double* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -549,7 +564,10 @@ Returns a value of a given *double* argument.
 Argument value.
 ## double getDoubleArg ( const char * name ) const
 
+
 Returns a value of a given *double* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -571,7 +589,7 @@ Sets the specified array of *double* elements as a value of a given argument.
 
 ### Return value
 
-Always **true**.
+Always true.
 ## bool getDoubleArrayArg ( const char * name , const double* dest , int dest_size ) const
 
 Retrieves a set of *double* values stored in an argument and puts them to the specified array.
@@ -583,7 +601,7 @@ Retrieves a set of *double* values stored in an argument and puts them to the sp
 
 ### Return value
 
-**true** if *dest* contains anything; otherwise, **false**.
+true if *dest* contains anything; otherwise, false.
 ## bool setDoubleArrayData ( double* OUT_src , int src_size )
 
 Sets the specified array of *double* values as the content for the node. This can be done only for nodes with no children.
@@ -594,7 +612,7 @@ Sets the specified array of *double* values as the content for the node. This ca
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, false.
+true if the content is set successfully; otherwise, false.
 ## bool getDoubleArrayData ( const double* dest , int dest_size ) const
 
 Retrieves an interpretation of data stored in the node and puts it to the specified array as *double* values.
@@ -643,7 +661,10 @@ Sets a value of a given *dvec3* argument.
 Always **1**.
 ## Math:: dvec3 getDVec3Arg ( const char * name ) const
 
+
 Returns a value of a given *dvec3* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -667,7 +688,10 @@ Sets a value of a given *dvec4* argument.
 Always **1**.
 ## Math:: dvec4 getDVec4Arg ( const char * name ) const
 
+
 Returns a value of a given *dvec4* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -691,7 +715,10 @@ Sets a value of a given *float* argument.
 Always **1**.
 ## float getFloatArg ( const char * name , float value ) const
 
+
 Returns a value of a given *float* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -705,7 +732,10 @@ Returns a value of a given *float* argument.
 Argument value.
 ## float getFloatArg ( const char * name ) const
 
+
 Returns a value of a given *float* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -727,7 +757,7 @@ Sets the specified array of *float* elements as a value of a given argument.
 
 ### Return value
 
-Always **true**.
+Always true.
 ## bool getFloatArrayArg ( const char * name , const float* dest , int dest_size ) const
 
 Retrieves a set of *float* values stored in an argument and puts them to the specified array.
@@ -739,7 +769,7 @@ Retrieves a set of *float* values stored in an argument and puts them to the spe
 
 ### Return value
 
-**true** if *dest* contains anything; otherwise, **false**.
+true if *dest* contains anything; otherwise, false.
 ## bool setFloatArrayData ( float* OUT_src , int src_size )
 
 Sets the specified array of *float* values as the content for the node. This can be done only for nodes with no children.
@@ -750,7 +780,7 @@ Sets the specified array of *float* values as the content for the node. This can
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, false.
+true if the content is set successfully; otherwise, false.
 ## bool getFloatArrayData ( const float* dest , int dest_size ) const
 
 Retrieves an interpretation of data stored in the node and puts it to the specified array as *float* values.
@@ -787,7 +817,10 @@ Sets a value for a given *int* argument in a given number notation. By default, 
 true if the value is set successfully; otherwise, false.
 ## int getIntArg ( const char * name ) const
 
+
 Returns a value of a given *int* argument.
+
+
 > **Notice:** To check whether the argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -800,7 +833,10 @@ Returns a value of a given *int* argument.
 Argument value.
 ## int getIntArg ( const char * name , int value ) const
 
+
 Returns a value of a given *int* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -864,7 +900,10 @@ Sets a value of a given *ivec2* argument.
 Always **1**.
 ## Math:: ivec2 getIVec2Arg ( const char * name ) const
 
+
 Returns a value of a given *ivec2* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -888,7 +927,10 @@ Sets a value of a given *ivec3* argument.
 Always **1**.
 ## Math:: ivec3 getIVec3Arg ( const char * name ) const
 
+
 Returns a value of a given *ivec3* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -912,7 +954,10 @@ Sets a value of a given *ivec4* argument.
 Always **1**.
 ## Math:: ivec4 getIVec4Arg ( const char * name ) const
 
+
 Returns a value of a given *ivec4* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -936,7 +981,10 @@ Sets a value of a given *mat4* argument.
 Always **1**.
 ## Math:: mat4 getMat4Arg ( const char * name ) const
 
+
 Returns a value of a given *mat4* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -966,7 +1014,10 @@ Sets a value of a given *quat* argument.
 Always **1**.
 ## Math:: quat getQuatArg ( const char * name ) const
 
+
 Returns a value of a given *quat* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -1019,7 +1070,7 @@ Sets a vector of strings as a content for the node. This can be done only for no
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool getStringArrayData ( Vector < String > & OUT_dest , const char * delimiter = "," ) const
 
 Returns an interpretation of data stored in the node as a vector of strings.
@@ -1054,7 +1105,10 @@ Sets a value of a given *vec2* argument.
 Always **1**.
 ## Math:: vec2 getVec2Arg ( const char * name ) const
 
+
 Returns a value of a given *vec2* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -1078,7 +1132,10 @@ Sets a value of a given *vec3* argument.
 Always **1**.
 ## Math:: vec3 getVec3Arg ( const char * name ) const
 
+
 Returns a value of a given *vec3* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -1102,7 +1159,10 @@ Sets a value of a given *vec4* argument.
 Always **1**.
 ## Math:: vec4 getVec4Arg ( const char * name ) const
 
+
 Returns a value of a given *vec4* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -1209,18 +1269,18 @@ Searches for the number of the XML node child by name.
 
 ### Return value
 
-The number of the XML node child if it is exists; otherwise, **-1**.
+The number of the XML node child if it is exists; otherwise, -1.
 ## bool load ( const char * name , bool skip_errors = false )
 
 Loads an XML document and sets the current node to be the root of the parsed tree.
 ### Arguments
 
 - *const char ** **name** - File name.
-- *bool* **skip_errors** - true to enable automatic skipping of errors (the file will be loaded in any case); false — to disable it (the file will not be loaded in case of any error).
+- *bool* **skip_errors** - true to enable automatic skipping of errors (the file will be loaded in any case); false � to disable it (the file will not be loaded in case of any error).
 
 ### Return value
 
-**true** if the file is read and parsed successfully; otherwise, **false**.
+true if the file is read and parsed successfully; otherwise, false.
 ## bool load ( Ptr < Stream > & stream , size_t read_size , bool binary = false , bool skip_errors = false )
 
 Loads XML data from the specified stream and sets the current node to be the root of the parsed tree.
@@ -1228,12 +1288,12 @@ Loads XML data from the specified stream and sets the current node to be the roo
 
 - *[Ptr](../../../api/library/common/class.ptr_cpp.md)<[Stream](../../../api/library/common/class.stream_cpp.md)> &* **stream** - Stream from which the data of the XML node is to be loaded.
 - *size_t* **read_size** - Size of the data block to be read from the stream, in bytes.
-- *bool* **binary** - Binary format flag: use true to load data in binary format, or **false** - to load it in text format.
-- *bool* **skip_errors** - true to enable automatic skipping of errors (the data will be loaded in any case); false — to disable it (the data will not be loaded in case of any error).
+- *bool* **binary** - Binary format flag: use true to load data in binary format, or false - to load it in text format.
+- *bool* **skip_errors** - true to enable automatic skipping of errors (the data will be loaded in any case); false � to disable it (the data will not be loaded in case of any error).
 
 ### Return value
 
-**true** if the data is read and parsed successfully; otherwise, **false**.
+true if the data is read and parsed successfully; otherwise, false.
 ## bool parse ( const char * src )
 
 Parses a string with XML mark-up and sets the current node to be the root of the parsed tree.
@@ -1243,7 +1303,7 @@ Parses a string with XML mark-up and sets the current node to be the root of the
 
 ### Return value
 
-**true** if a string is successfully parsed; otherwise **false**.
+true if a string is successfully parsed; otherwise false.
 ## void printUnusedData ( const char * name ) const
 
 Logs warnings of unused data for debugging.
@@ -1273,28 +1333,28 @@ Removes a child node and its descendants from the current XML node.
 Removed child node and its descendants, if they are found; otherwise, 0.
 ## bool save ( const char * name , bool binary = false , const char * indent = "\t" ) const
 
-Formats the tree of the current node and writes it to the specified file in the specified format. Creates the given file path if it doesn’t exist yet (including subdirectories).
+Formats the tree of the current node and writes it to the specified file in the specified format. Creates the given file path if it doesn�t exist yet (including subdirectories).
 ### Arguments
 
 - *const char ** **name** - Path to the file.
-- *bool* **binary** - Binary format flag: use true to save data to a binary file, or **false** - to save it to a text file.
+- *bool* **binary** - Binary format flag: use true to save data to a binary file, or false - to save it to a text file.
 - *const char ** **indent** - String to be used for indentation (e.g. "\t").
 
 ### Return value
 
-**true** if the file is written successfully; otherwise, **false**.
+true if the file is written successfully; otherwise, false.
 ## bool save ( Ptr < Stream > & stream , bool binary = false , const char * indent = "\t" ) const
 
 Formats the tree of the current node and writes is to the specified stream in the specified format.
 ### Arguments
 
 - *[Ptr](../../../api/library/common/class.ptr_cpp.md)<[Stream](../../../api/library/common/class.stream_cpp.md)> &* **stream** - Stream to which the data of the XML node is to be written.
-- *bool* **binary** - Binary format flag: use true to save data to a binary file, or **false** - to save it to a text file.
+- *bool* **binary** - Binary format flag: use true to save data to a binary file, or false - to save it to a text file.
 - *const char ** **indent** - String to be used for indentation (e.g. "\t").
 
 ### Return value
 
-**true** if the file is written successfully; otherwise, **false**.
+true if the file is written successfully; otherwise, false.
 ## String symbols ( const char * arg1 )
 
 Replaces ampersand characters with character entity references.
@@ -1314,7 +1374,7 @@ Sets a UGUID content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool setData ( bool value )
 
 Sets a boolean content for the node.
@@ -1324,7 +1384,7 @@ Sets a boolean content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool setData ( int value , int radix = 10 )
 
 Sets an integer content in the specified form (binary, octal, decimal, hexadecimal) for the node.
@@ -1340,7 +1400,7 @@ Sets an integer content in the specified form (binary, octal, decimal, hexadecim
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool setData ( long long value )
 
 Sets a long integer content for the node.
@@ -1350,7 +1410,7 @@ Sets a long integer content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool setData ( float value )
 
 Sets a float content for the node.
@@ -1360,7 +1420,7 @@ Sets a float content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool setData ( double value )
 
 Sets a double content for the node.
@@ -1370,7 +1430,7 @@ Sets a double content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool setData ( const Math:: vec2 & value )
 
 Sets a vec2 vector content for the node.
@@ -1380,7 +1440,7 @@ Sets a vec2 vector content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool setData ( const Math:: vec3 & value )
 
 Sets a vec3 vector content for the node.
@@ -1390,7 +1450,7 @@ Sets a vec3 vector content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool setData ( const Math:: vec4 & value )
 
 Sets a vec4 vector content for the node.
@@ -1400,7 +1460,7 @@ Sets a vec4 vector content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool setData ( const Math:: dvec2 & value )
 
 Sets a dvec2 vector content for the node.
@@ -1410,7 +1470,7 @@ Sets a dvec2 vector content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool setData ( const Math:: dvec3 & value )
 
 Sets a dvec3 vector content for the node.
@@ -1420,7 +1480,7 @@ Sets a dvec3 vector content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool setData ( const Math:: dvec4 & value )
 
 Sets a dvec4 vector content for the node.
@@ -1430,7 +1490,7 @@ Sets a dvec4 vector content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool setData ( const Math:: ivec3 & value )
 
 Sets an ivec3 vector content for the node.
@@ -1440,7 +1500,7 @@ Sets an ivec3 vector content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool setData ( const Math:: ivec2 & value )
 
 Sets an ivec2 vector content for the node.
@@ -1450,7 +1510,7 @@ Sets an ivec2 vector content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool setData ( const Math:: ivec4 & value )
 
 Sets an ivec4 vector content for the node.
@@ -1460,7 +1520,7 @@ Sets an ivec4 vector content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool setData ( const Math:: mat4 & value )
 
 Sets a mat4 matrix content for the node.
@@ -1470,7 +1530,7 @@ Sets a mat4 matrix content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool setData ( const Math:: dmat4 & value )
 
 Sets a dmat4 matrix content for the node.
@@ -1480,7 +1540,7 @@ Sets a dmat4 matrix content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool setData ( const Math:: quat & value )
 
 Sets a quaternion content for the node.
@@ -1490,7 +1550,7 @@ Sets a quaternion content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## bool setData ( const Palette & value )
 
 Sets a palette content for the node.
@@ -1500,7 +1560,7 @@ Sets a palette content for the node.
 
 ### Return value
 
-**true** if the content is set successfully; otherwise, **false**.
+true if the content is set successfully; otherwise, false.
 ## void readChildData ( const char * name , bool & value ) const
 
 Reads a boolean interpretation of the data stored in the node with the specified name and puts it to the specified target variable.
@@ -1759,7 +1819,7 @@ Reads a ivec4 interpretation of the argument in the node with specified name and
 
 ## void readArg ( const char * name , Palette & value ) const
 
-Reads a palette interpretation of the argument in the node with specified name and puts it to the specified target variable.
+Reads a *palette* interpretation of the argument in the node with specified name and puts it to the specified target variable.
 ### Arguments
 
 - *const char ** **name** - Name of the target argument.
@@ -1767,7 +1827,7 @@ Reads a palette interpretation of the argument in the node with specified name a
 
 ## bool setPaletteArg ( const char * name , const Palette & value )
 
-Sets a palette value of a given argument.
+Sets a *palette* value of a given argument.
 ### Arguments
 
 - *const char ** **name** - The argument name.
@@ -1778,7 +1838,7 @@ Sets a palette value of a given argument.
 Always **1**.
 ## Palette getPaletteArg ( const char * name ) const
 
-Returns a palette value of a specified argument.
+Returns a *palette* value of a specified argument.
 ### Arguments
 
 - *const char ** **name** - The argument name.
@@ -1788,14 +1848,14 @@ Returns a palette value of a specified argument.
 Value of the argument, if it is found; otherwise, **0**.
 ## void setPaletteData ( const Palette & data )
 
-Sets a palette content for the node. This can be done only for nodes with no children.
+Sets a *palette* content for the node. This can be done only for nodes with no children.
 ### Arguments
 
 - *const [Palette](../../../api/library/common/class.palette_cpp.md) &* **data** - Content to set.
 
 ## Palette getPaletteData ( ) const
 
-Returns a palette interpretation of data stored in the node.
+Returns a *palette* interpretation of data stored in the node.
 ### Return value
 
 Data stored in the node.
@@ -1818,7 +1878,10 @@ Sets a *long* value of a given argument.
 Always **1**.
 ## long long getLongArg ( const char * name ) const
 
+
 Returns a value of a given *long* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -1831,7 +1894,10 @@ Returns a value of a given *long* argument.
 The argument value.
 ## long long getLongArg ( const char * name , long long value ) const
 
+
 Returns a value of a given *long* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 

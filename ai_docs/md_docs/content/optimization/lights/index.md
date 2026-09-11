@@ -39,13 +39,13 @@ To disable shadow rendering for a **material**:
 ### Enabling Static Lighting and Shadows
 
 
-Dynamic lighting ensures that all shadows from moving light sources cast by moving objects are rendered correctly. This approach implies that geometry of your scene is rendered one more time each frame to calculate shadows for each *Projected* light source (or six more times — for each *Omni*). Using multiple dynamic lights in the scene and calculating shadows for them on the fly may cause a performance drop, especially when the scene contains complex geometry with lots of polygons. It can be a terrible waste of resources, when most objects and lights are static.
+Dynamic lighting ensures that all shadows from moving light sources cast by moving objects are rendered correctly. This approach implies that geometry of your scene is rendered one more time each frame to calculate shadows for each *Projected* light source (or six more times � for each *Omni*). Using multiple dynamic lights in the scene and calculating shadows for them on the fly may cause a performance drop, especially when the scene contains complex geometry with lots of polygons. It can be a terrible waste of resources, when most objects and lights are static.
 
 
-It’s better to avoid dynamic shadows and use baked ones for everything static wherever possible. You can replace dynamic *Omni* and *Projected* Light sources with static ones (shadows for them are precomputed and stored in depth textures).
+It�s better to avoid dynamic shadows and use baked ones for everything static wherever possible. You can replace dynamic *Omni* and *Projected* Light sources with static ones (shadows for them are precomputed and stored in depth textures).
 
 
-Types of shadows to be rendered are defined by the [light’s mode](../../../objects/lights/parameters/index.md#light_mode) and shadow modes set for both [lights](../../../objects/lights/parameters/index.md#shadow_mode) and [object surfaces](../../../editor2/node_parameters/visual_representation/index.md#shadow_mode).
+Types of shadows to be rendered are defined by the [light�s mode](../../../objects/lights/parameters/index.md#light_mode) and shadow modes set for both [lights](../../../objects/lights/parameters/index.md#shadow_mode) and [object surfaces](../../../editor2/node_parameters/visual_representation/index.md#shadow_mode).
 
 
 ![](shadow_mode.png)
@@ -136,7 +136,7 @@ You can also set up per-light screen space shadows in the type-specific tabs (*L
 ### Reducing Size of Light Source
 
 
-All *[Omni](#omni_light)* and *[Projected](#proj_light)* light sources are subject to a common deferred optimization technique — the *Scissor Test*: for each light source a scissor rectangle is found to define its bounds and, therefore, the area of its influence. The scissor rectangle defines the size of the render target for the current light source, since everything that falls outside that region is not affected by the light at the current moment.
+All *[Omni](#omni_light)* and *[Projected](#proj_light)* light sources are subject to a common deferred optimization technique � the *Scissor Test*: for each light source a scissor rectangle is found to define its bounds and, therefore, the area of its influence. The scissor rectangle defines the size of the render target for the current light source, since everything that falls outside that region is not affected by the light at the current moment.
 
 
 Enable the **[Scissors](../../../editor2/using_visual_helpers/index.md#scissors)** visual helper or use the `render_show_scissors 1` console command to enable visualization of the *Scissor Test*.

@@ -33,7 +33,7 @@ A structure that represents a buffer for storing camera parameters.
 
 - *mat4* **camera_projection** - Camera projection matrix.
 - *mat4* **camera_iprojection** - Camera inverse projection matrix.
-- *mat4* **oblique_frustum_plane** - World coordinates of the oblique frustum culling plane in the format *(Nx, Ny, Nz, D)*, where *Nx*, *Ny*, *Nz* are the coordinates of the plane normal, and D is the distance from the origin to the plane.
+- *mat4* **oblique_frustum_plane** - World coordinates of the oblique frustum culling plane in the format *(Nx, Ny, Nz, D)*, where *Nx, Ny, Nz* are the coordinates of the plane normal, and *D* is the distance from the origin to the plane.
 - *int* **is_oblique_frustum** - Flag indicating if the viewing frustum is oblique.
 - *mat4* **projection** - Projection matrix.
 - *mat4* **iprojection** - Inverse projection matrix.
@@ -121,9 +121,6 @@ The [Gbuffer velocity texture](../../../principles/render/sequence/index.md#velo
 ## 🔒︎ Texture TextureGBufferFeatures
 
 The texture that stores intensity of the [screen-space bevel effect](../../../api/library/rendering/class.render_cs.md#setSSBevel_int_void).
-## 🔒︎ Texture TextureGBufferMaterialMask
-
-The [Gbuffer material mask texture](../../../principles/render/sequence/index.md#material_mask).
 ## 🔒︎ Texture TextureGBufferNormal
 
 The [Gbuffer normal texture](../../../principles/render/sequence/index.md#normal).
@@ -192,7 +189,7 @@ The [opacity depth texture](../../../principles/render/sequence/index.md#depth_p
 The [depth texture](../../../principles/render/sequence/index.md#depth).
 ## 🔒︎ Texture TextureNormalUnpack
 
-The texture that stores unpacked normals. Available for the following post-effects: SSR, SSGI, SSRTGI, Shadows screen space.
+The texture that stores unpacked normals. Available for the following post-effects: SSR, SSGI, SSRTGI, Screen-Space Shadows.
 ## 🔒︎ Texture TextureColorOldReprojection
 
 The [color old reprojection texture](../../../principles/render/sequence/index.md#linear_depth_for_ss).
@@ -222,11 +219,11 @@ The screen width.
 The environment cubemap texture.
 ## 🔒︎ Light CurrentLight
 
-The rendered light source. This method can be used to obtain shadow maps for a certain light source in an [event handler](../../../api/library/rendering/class.render_cs.md#getEventBegin_Event) (see [BeginShadows](../../../api/library/rendering/class.render_cs.md#getEventBeginShadows_Event) event).
+The rendered light source. This method can be used to obtain shadow maps for a certain light source in an [event handler](../../../api/library/rendering/class.render_cs.md#getEventBegin_Event) (see *[BeginShadows](../../../api/library/rendering/class.render_cs.md#getEventBeginShadows_Event)* event).
 ## bool ObliqueFrustum
 
 The value indicating if the viewing frustum is oblique.
-> **Notice:** It is recommended to set oblique viewing frustum using this method, as it doesn't affect the projection matrix. To specify the near clipping plane use the [setObliqueFrustumPlane()](#setObliqueFrustumPlane_Vec4_void) method.
+> **Notice:** It is recommended to set oblique viewing frustum using this method, as it doesn't affect the projection matrix. To specify the near clipping plane use the *[setObliqueFrustumPlane()](#setObliqueFrustumPlane_Vec4_void)* method.
 
 ## vec4 ObliqueFrustumPlane
 
@@ -309,13 +306,46 @@ The buffer containing tone mapping parameters to be passed to a custom shader. T
 ## bool VR
 
 The value indicating if the VR rendering mode is enabled.
+## 🔒︎ ivec2 OutputResolution
+
+The resolution, in pixels, of the final output (target) image of the current frame: the resolution the image is presented or upscaled to.
+## 🔒︎ ivec2 RenderResolution
+
+The actual internal resolution, in pixels, at which the current frame is rendered. It differs from the output resolution when dynamic resolution or an upscaler is active: in that case it is the per-frame varying input resolution of the upscaler.
+## 🔒︎ ivec2 RenderResolutionMax
+
+The upper bound of the internal render resolution for the current configuration. With dynamic resolution enabled, the per-frame render resolution moves between the minimum and this bound; otherwise it matches the render resolution.
+## 🔒︎ ivec2 RenderResolutionMin
+
+The lower bound of the internal render resolution for the current configuration. With dynamic resolution enabled, the per-frame render resolution moves between this bound and the maximum; otherwise it matches the render resolution.
+## 🔒︎ Texture TextureGBufferReactiveMask
+
+The reactive mask texture of the G-buffer of the current frame: a single-channel screen texture into which transparent materials with reactivity enabled write their reactivity factor. It is consumed by the temporal upscalers to reduce ghosting on surfaces whose color changes cannot be explained by motion vectors (transparency, particles). The texture exists only while an upscaler is enabled.
+## 🔒︎ Texture TextureGBufferSurfaceID
+
+The surface ID texture of the opaque G-buffer (*R32U*, one surface ID per pixel). The buffer is cleared to the sky ID each frame, so pixels not covered by any opaque surface are marked as sky.
+## 🔒︎ Texture TextureSurfaceIDDecal
+
+The surface ID texture of the decal stage (*R32U*). A separate per-stage buffer exists only when *[SurfaceIDMultilayered](../../../api/library/rendering/class.render_cs.md#isSurfaceIDMultilayered_int)* is enabled; otherwise, the composite scene surface ID texture is returned.
+## 🔒︎ Texture TextureSurfaceIDScene
+
+The composite scene surface ID texture: the opaque surface IDs with the decal, transparency, and water surface IDs composited on top (*R32U*). When *[SurfaceIDMultilayered](../../../api/library/rendering/class.render_cs.md#isSurfaceIDMultilayered_int)* is disabled, this is the same texture as the G-buffer surface ID texture.
+## 🔒︎ Texture TextureSurfaceIDTransparent
+
+The surface ID texture of the transparent stage (*R32U*). A separate per-stage buffer exists only when *[SurfaceIDMultilayered](../../../api/library/rendering/class.render_cs.md#isSurfaceIDMultilayered_int)* is enabled; otherwise, the composite scene surface ID texture is returned.
+## 🔒︎ Texture TextureSurfaceIDWater
+
+The surface ID texture of the water stage (*R32U*). A separate per-stage buffer exists only when *[SurfaceIDMultilayered](../../../api/library/rendering/class.render_cs.md#isSurfaceIDMultilayered_int)* is enabled; otherwise, the composite scene surface ID texture is returned.
 ### Members
 
 ---
 
 ## void ClearStates ( )
 
+
 Clears rendering states and textures.
+
+
 > **Notice:** The shader will also be cleared.
 
 
@@ -330,15 +360,15 @@ Sets the light blending function for a given rendering pass and material.
 - *[Render.PASS](../../../api/library/rendering/class.render_cs.md#PASS)* **pass** - Rendering pass. One of the following values:
 
   - [PASS_AMBIENT](../../../api/library/rendering/class.render_cs.md#PASS_AMBIENT)
-  - [PASS_LIGHT_OMNI](../../../api/library/rendering/class.render_cs.md#PASS_LIGHT_OMNI)
-  - [PASS_LIGHT_PROJ](../../../api/library/rendering/class.render_cs.md#PASS_LIGHT_PROJ)
-  - [PASS_LIGHT_WORLD](../../../api/library/rendering/class.render_cs.md#PASS_LIGHT_WORLD)
   - [PASS_EMISSION](../../../api/library/rendering/class.render_cs.md#PASS_EMISSION)
 - *[Material](../../../api/library/rendering/class.material_cs.md)* **material** - Material smart pointer.
 
 ## void SetBufferMask ( Render.PASS pass , Material material )
 
+
 Sets the buffer mask for a given rendering pass and material.
+
+
 > **Notice:** If the material does not use a depth mask and [ambient pass](../../../api/library/rendering/class.render_cs.md#PASS_AMBIENT) is specified, the [BUFFER_COLOR](../../../api/library/rendering/class.renderstate_cs.md#BUFFER_COLOR) mask will be set; otherwise, the [BUFFER_ALL](../../../api/library/rendering/class.renderstate_cs.md#BUFFER_ALL) mask will be set.
 
 
@@ -352,21 +382,24 @@ Sets the buffer mask for a given rendering pass and material.
 
 ## void SetDepthFunc ( Render.PASS pass , Material material )
 
+
 Sets depth function for a given rendering pass and material.
-> **Notice:** If the *depth_test* option of the material is enabled, the [DEPTH_GEQUAL](../../../api/library/rendering/class.renderstate_cs.md#DEPTH_GEQUAL) function will be used; otherwise the depth comparison function will be disabled.
+
+
+> **Notice:** If the *depth_test* option of the material is enabled, the *[DEPTH_GEQUAL](../../../api/library/rendering/class.renderstate_cs.md#DEPTH_GEQUAL)* function will be used; otherwise the depth comparison function will be disabled.
 
 
 ### Arguments
 
-- *[Render.PASS](../../../api/library/rendering/class.render_cs.md#PASS)* **pass** - Rendering pass. One of the [PASS_*](../../../api/library/rendering/class.render_cs.md#PASS_WIREFRAME) variables, except the following: PASS_DEFERRED, PASS_SHADOW, PASS_DEPTH_PRE_PASS, PASS_EMISSION.
+- *[Render.PASS](../../../api/library/rendering/class.render_cs.md#PASS)* **pass** - Rendering pass. One of the [PASS_*](../../../api/library/rendering/class.render_cs.md#PASS_WIREFRAME) variables, except the following: *PASS_DEFERRED, PASS_SHADOW, PASS_DEPTH_PRE_PASS, PASS_EMISSION*.
 - *[Material](../../../api/library/rendering/class.material_cs.md)* **material** - Material smart pointer.
 
 ## bool HasGeodeticPivot ( )
 
-Returns a value indicating if the rendering scene has a GeodeticPivot.
+Returns a value indicating if the rendering scene has a *GeodeticPivot*.
 ### Return value
 
-true if the rendering scene has a GeodeticPivot; otherwise, false.
+true if the rendering scene has a *GeodeticPivot*; otherwise, false.
 ## void SetMaterial ( Render.PASS pass , Material material )
 
 Sets material and initialize all material textures for the specified rendeting pass.
@@ -377,7 +410,10 @@ Sets material and initialize all material textures for the specified rendeting p
 
 ## void SetPolygonCull ( Render.PASS pass , Material material )
 
+
 Sets the polygon culling mode for a given rendering pass and material.
+
+
 > **Notice:** If the material is one-sided, the back-facing polygons will be culled; otherwise, polygon culling for the material will be disabled.
 
 
@@ -496,8 +532,12 @@ Returns a value indicating if rendering of the visualizer is enabled.
 true if rendering of the visualizer is enabled; otherwise, false.
 ## Texture CreateCustomTexture3D ( string name , int width , int height , int depth , int format , int flags = 0 )
 
+
 Creates a custom 3D texture. Such textures can be used in your materials.
+
+
 In your [base material](../../../content/materials/index.md#base_materials):
+
 
 ```xml
 <!-- ... -->
@@ -508,6 +548,7 @@ In your [base material](../../../content/materials/index.md#base_materials):
 
 
 Create a corresponding custom texture via code:
+
 
 ```cpp
 // ...
@@ -531,8 +572,12 @@ Create a corresponding custom texture via code:
 New created custom 3D texture.
 ## Texture CreateCustomTexture2D ( string name , int width , int height , int format , int flags = 0 )
 
+
 Creates a custom 2D texture array. Such texture can be used in your materials.
+
+
 In your [base material](../../../content/materials/index.md#base_materials):
+
 
 ```xml
 <!-- ... -->
@@ -543,6 +588,7 @@ In your [base material](../../../content/materials/index.md#base_materials):
 
 
 Create a corresponding custom texture via code:
+
 
 ```cpp
 // ...
@@ -565,7 +611,10 @@ Create a corresponding custom texture via code:
 New created custom 2D texture.
 ## Texture CreateCustomTexture2DArray ( string name , int width , int height , int depth , int format , int flags = 0 )
 
+
 Creates a custom 2D texture array. Such texture can be used in your materials.
+
+
 ```xml
 <!-- ... -->
 <texture type="texture_name"/>
@@ -575,6 +624,7 @@ Creates a custom 2D texture array. Such texture can be used in your materials.
 
 
 Create a corresponding custom texture via code:
+
 
 ```cpp
 // ...
@@ -632,3 +682,9 @@ Returns a value indicating if *[depth pre-pass](../../../principles/render/seque
 ### Return value
 
 true if depth pre-pass is used; otherwise false.
+## bool UseReactiveMask ( )
+
+Returns a value indicating if the reactive mask of the G-buffer is used in the current rendering, which is the case when a temporal upscaler is enabled.
+### Return value
+
+true if the reactive mask is used in the current rendering; otherwise, false.

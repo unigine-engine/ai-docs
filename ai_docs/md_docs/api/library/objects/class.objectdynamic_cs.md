@@ -36,10 +36,10 @@ The number of vertex attributes.
 The size of the current vertex, bytes.
 ## bool Instancing
 
-The value indicating if the hardware instancing flag is enabled.
+The value indicating if the hardware [instancing](../../../editor2/instancing_nodes/index.md) flag is enabled.
 ## Node.TYPE MaterialNodeType
 
-The node type to be used by the renderer to determine which materials can be applied to the object.
+The [node type](../../../api/library/nodes/class.node_cs.md) to be used by the renderer to determine which materials can be applied to the object. One of the [node type identifiers](../../../api/library/nodes/class.node_cs.md#DECAL_BEGIN).
 > **Notice:** As ObjectDynamic is a custom user-defined object, so the user should determine the node type for the renderer to treat this object properly. Setting inappropriate node type may lead to system crashes.
 
 

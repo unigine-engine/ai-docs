@@ -65,7 +65,7 @@ Returns the current interpreter stack depth.
 Interpreter stack depth.
 ## static void addExternClass ( const char * name , ExternClassBase * extern_class , int group_id )
 
-Adds an external user class to UnigineScript. To create an external function use MakeExternClass() command.
+Adds an external user class to UnigineScript. To create an external function use *MakeExternClass()* command.
 ### Arguments
 
 - *const char ** **name** - Name of the class.
@@ -91,7 +91,10 @@ Adds an external user function to UnigineScript. To create an external function 
 
 ## void addExternLibrary ( const char * name , int group_id )
 
+
 Adds an external library namespace to UnigineScript.
+
+
 > **Notice:** All external variables and functions with names like *library.function()* will be treated as library functions.
 
 
@@ -111,14 +114,20 @@ Adds an external user variable to UnigineScript.
 
 ## int addGroup ( const char * group_name )
 
+
 Adds a new group with the specified name. This group is assigned as an argument to the element via the following methods:
+
+
 - *[addExternDefine()](#addExternDefine_const_char_ptr_int_void)*
 - *[addExternLibrary()](#addExternLibrary_const_char_ptr_int_void)*
 - *[addExternVariable()](#addExternVariable_const_char_ptr_ExternVariableBase_ptr_int_void)*
 - *[addExternFunction()](#addExternFunction_const_char_ptr_ExternFunctionBase_ptr_int_void)*
 - *[addExternClass()](#addExternClass_const_char_ptr_ExternClassBase_ptr_int_void)*
 
-If the same group is added to several elements (definitions, libraries, variables, functions, classes), all of them can be removed from interpreter at once via [removeGroup()](#removeGroup_const_char_ptr_void).
+
+If the same group is added to several elements (definitions, libraries, variables, functions, classes), all of them can be removed from interpreter at once via *[removeGroup()](#removeGroup_const_char_ptr_void)*.
+
+
 ### Arguments
 
 - *const char ** **group_name** - Name of the group.
@@ -131,7 +140,7 @@ ID of the group.
 Interpreter error function.
 ### Arguments
 
-- *const char ** **format** - Format string. It is similar to the format string for printf() in C.
+- *const char ** **format** - Format string. It is similar to the format string for *printf()* in C.
 
 ## static Variable popStack ( )
 

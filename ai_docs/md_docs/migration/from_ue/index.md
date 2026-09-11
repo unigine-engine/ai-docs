@@ -40,7 +40,7 @@ This chapter matches common *Unreal Engine* terms on the left and their UNIGINE 
 ## Project and SDK Management
 
 
-As an *Unreal Engine* user, you are accustomed to use **Epic Games Launcher** — the application that streamlines the way you find, download and manage your projects and installations. In addition to it, you can manage your projects directly via *Unreal Editor*: create a new project and switch between the existing ones.
+As an *Unreal Engine* user, you are accustomed to use **Epic Games Launcher** � the application that streamlines the way you find, download and manage your projects and installations. In addition to it, you can manage your projects directly via *Unreal Editor*: create a new project and switch between the existing ones.
 
 
 **[UNIGINE SDK Browser](../../sdk/index.md)** is the first step to start working with UNIGINE Engine. This application incorporates all project-related tasks and enables you to manage your projects and installed SDKs, as well as gives you access to the samples and the knowledge base.
@@ -54,7 +54,7 @@ As an *Unreal Engine* user, you are accustomed to use **Epic Games Launcher** �
 UNIGINE provides several [programming workflows](../../code/fundamentals/programming_overview/index.md), to easily adapt your programming experience in *Unreal Engine* it is recommended for you to use the [C++ Component System](../../migration/from_ue/code.md). [Creating a project](../../sdk/projects/index_cpp.md#creation) using this workflow in SDK Browser is done as follows:
 
 
-1. Click *Create Project* on the *C++ Empty* template card in the *Templates* tab. ![](../../sdk/projects/create_project_cpp.png) > **Notice:** If you want to make a project compatible with one of the supported VR headsets, use the **VR C++** template instead. This will enable required plugins, add template assets and components (more about [VR-compatibility](../../start/vr/index_cpp.md)).
+1. Click *Create Project* on the *C++ Empty* template card in the *Templates* tab. ![](../../sdk/projects/create_project_cpp.png) > **Notice:** If you want to make a project compatible with one of the supported VR headsets, use the **VR C++** template instead. This will enable required plugins, add template assets and components (more about [VR-compatibility](../../vr_development/vr_template/index.md)).
 2. Choose **C++ (Visual Studio 2022)** project type in the *API + IDE* field.
 3. Click *Create New Project*.
 4. Once the new project is created, it will appear in the *My Projects* tab. Click ***Open Editor*** to open it in UnigineEditor; click **Open Code IDE** to open the project's source code via the default IDE.
@@ -135,8 +135,8 @@ To check application logic you will need to run an instance of the current compi
 - [Via SDK Browser](../../sdk/projects/index_cpp.md#run) by clicking **Run**: ![](../../sdk/projects/run_level.png) You can also [run the application with custom settings](../../sdk/projects/index_cpp.md#custom_run) by clicking an ellipsis under the *Run* button (e.g. choose the Debug binaries).
 - By using the corresponding **launcher** created by default in the project folder:
 
-  - ![](../../sdk/projects/file.png) `launch_debug` — the launcher of the project's debug version.
-  - ![](../../sdk/projects/file.png) `launch_release` — the launcher of the project's release version.
+  - ![](../../sdk/projects/file.png) `launch_debug` � the launcher of the project's debug version.
+  - ![](../../sdk/projects/file.png) `launch_release` � the launcher of the project's release version.
 - By running the project directly from the IDE used.
 
 
@@ -255,7 +255,7 @@ The concept of 3D scene in both engines is the same. However, *Unreal Engine* an
 
 | Unreal Engine | UNIGINE |
 |---|---|
-| ![Unreal Engine Coordinate System (left-handed)](ue_cs.png) Separate 3D scenes are called **Levels** (also referred to as *Maps*). UE uses a **left-handed** coordinate system where the vertical direction is usually represented by the **+Z** axis. **Axes and Directions:** - **X** — forwards (+), backwards (-) - **Y** — right (+), left (-) - **Z** — up (+), down (-) Positive rotation angle sets the rotation clockwise. File format: `*.umap` | ![UNIGINE Coordinate System (right-handed)](unigine_cs.png) Separate 3D scenes are called **Worlds**. UNIGINE uses a **right-handed** coordinate system where the vertical direction is usually represented by the **+Z** axis. **Axes and Directions:** - **X** — right (+), left (-) - **Y** — forwards (+), backwards (-) - **Z** — up (+), down (-) Positive rotation angle sets the rotation counterclockwise. File format: `*.world` |
+| ![Unreal Engine Coordinate System (left-handed)](ue_cs.png) Separate 3D scenes are called **Levels** (also referred to as *Maps*). UE uses a **left-handed** coordinate system where the vertical direction is usually represented by the **+Z** axis. **Axes and Directions:** - **X** � forwards (+), backwards (-) - **Y** � right (+), left (-) - **Z** � up (+), down (-) Positive rotation angle sets the rotation clockwise. File format: `*.umap` | ![UNIGINE Coordinate System (right-handed)](unigine_cs.png) Separate 3D scenes are called **Worlds**. UNIGINE uses a **right-handed** coordinate system where the vertical direction is usually represented by the **+Z** axis. **Axes and Directions:** - **X** � right (+), left (-) - **Y** � forwards (+), backwards (-) - **Z** � up (+), down (-) Positive rotation angle sets the rotation counterclockwise. File format: `*.world` |
 
 
 To change the **starting map** of your project in UE4, you open *Project Settings -> Maps & Modes* and specify the default map for game and editor. In UNIGINE you specify the **Default World** of the project when creating a build (*File -> Create Build*). As for UnigineEditor and development builds, you can override the default world explicitly by [running the project or the editor with custom settings](../../sdk/projects/index_cpp.md#custom_run):
@@ -273,7 +273,7 @@ This section gives a brief description of basic scene objects in both engines as
 
 | Unreal Engine | UNIGINE |
 |---|---|
-| ![](ue_hierarchy.png) *World Outliner* Basic scene object — **Actor**. It is the base object that can be placed in or spawned into the world. Actors can be organized into a hierarchy (parent-child relation). *Actor* is a container for *Components* that define its functionality. The Actor's position, rotation and scale are stored in a *Scene Component*. Usually *Actors*have a root component, which can be any subclass of *Scene Component*, by default. Programmers can inherit from the default *UActorComponent* to create a custom component using C++ or *Blueprint Script*. | ![](unigine_world_hierarchy.png) *World Hierarchy window* **Node** is a basic type from which all types of scene objects are inherited. Some of them appear visually: [Objects](../../objects/objects/index.md), [Decals](../../objects/decals/index.md), and [Effects](../../objects/effects/index.md) — they all have [surfaces](../../start/index.md#surface) to represent their geometry (mesh), while others ([Light Sources](../../objects/lights/index.md), [Players](../../objects/players/index.md), etc.) are invisible. Nodes can be organized into a hierarchy (parent-child relation). Basic functionality of a node is determined by its type. Additional functionality can be added using [properties](../../principles/properties/index.md) and the [component system](../../principles/component_system/component_system_cpp/index.md). Each node has a transformation matrix, which encodes its position, rotation, and scale in the world. > **Notice:** All scene objects added to the scene regardless of their type are called nodes. |
+| ![](ue_hierarchy.png) *World Outliner* Basic scene object � **Actor**. It is the base object that can be placed in or spawned into the world. Actors can be organized into a hierarchy (parent-child relation). *Actor* is a container for *Components* that define its functionality. The Actor's position, rotation and scale are stored in a *Scene Component*. Usually *Actors*have a root component, which can be any subclass of *Scene Component*, by default. Programmers can inherit from the default *UActorComponent* to create a custom component using C++ or *Blueprint Script*. | ![](unigine_world_hierarchy.png) *World Hierarchy window* **Node** is a basic type from which all types of scene objects are inherited. Some of them appear visually: [Objects](../../objects/objects/index.md), [Decals](../../objects/decals/index.md), and [Effects](../../objects/effects/index.md) � they all have [surfaces](../../start/index.md#surface) to represent their geometry (mesh), while others ([Light Sources](../../objects/lights/index.md), [Players](../../objects/players/index.md), etc.) are invisible. Nodes can be organized into a hierarchy (parent-child relation). Basic functionality of a node is determined by its type. Additional functionality can be added using [properties](../../principles/properties/index.md) and the [component system](../../principles/component_system/component_system_cpp/index.md). Each node has a transformation matrix, which encodes its position, rotation, and scale in the world. > **Notice:** All scene objects added to the scene regardless of their type are called nodes. |
 
 
 #### Blueprint Classes

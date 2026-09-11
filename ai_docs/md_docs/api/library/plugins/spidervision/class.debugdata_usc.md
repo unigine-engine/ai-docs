@@ -146,7 +146,20 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
+## void setDebugStereo ( int stereo )
+
+Sets a new value indicating if the real eye images are replaced by solid diagnostic colors in stereo rendering: the left eye receives a solid green image and the right eye a solid red one, so the operator can verify which physical output receives which eye. Disabled by default.
+### Arguments
+
+- *int* **stereo** - The diagnostic eye-color substitution in stereo mode
+
+## int isDebugStereo () const
+
+Returns the current value indicating if the real eye images are replaced by solid diagnostic colors in stereo rendering: the left eye receives a solid green image and the right eye a solid red one, so the operator can verify which physical output receives which eye. Disabled by default.
+### Return value
+
+Current diagnostic eye-color substitution in stereo mode
 ---
 
 ## String getDebugColorName ( int index )

@@ -3,7 +3,8 @@
 **Inherits from:** Node
 
 
-This class is used to create a frame-based succession of transformations from a loaded path.  For other nodes to move along with these transformations, they should be assigned as *WorldTransformPath* children.
+This class is used to create a frame-based succession of transformations from a loaded path. For other nodes to move along with these transformations, they should be assigned as *WorldTransformPath* children.
+
 
 > **Notice:** The *path* is a spline along which an object can be moved.
 
@@ -24,25 +25,25 @@ UnigineScript samples:
 
 ## 🔒︎ bool IsStopped
 
-The A value indicating if the transformation defined by the path is stopped.
+The value indicating if the transformation defined by the path is stopped.
 ## 🔒︎ bool IsPlaying
 
-The A value indicating if the transformation defined by the path is played.
+The value indicating if the transformation defined by the path is played.
 ## float Speed
 
-The speed of playback of the transformation defined by the path.
+The speed of the transformation playback. Negative value controls reverse playback.speed of playback of the transformation defined by the path.
 ## float Time
 
-The time from which the playback of the transformation defined by the path starts.
+The time from which the playback of the transformation defined by the path starts. If the object is [oriented](#getOrientation_int) along the path, its transformation will be correspond to the path transformation at the specified time. Otherwise, only position of the object will change.
 ## int Loop
 
-The A value indicating if the transformation defined by the path is looped.
+The value indicating if the transformation defined by the path is looped.
 ## int Orientation
 
-The A value indicating if an object is oriented along the path. When this option is enabled the complete transformation matrix (position, rotation, and scale) is taken into account when calculating intermediate transformation between the frames. When disabled - only the intermediate position between the frames is used, while keeping object's scale and rotation.
+The value indicating if an object is oriented along the path. When this option is enabled the complete transformation matrix (position, rotation, and scale) is taken into account when calculating intermediate transformation between the frames. When disabled - only the intermediate position between the frames is used, while keeping object's scale and rotation.
 ## 🔒︎ Path Path
 
-The  The path, by which the transformation is defined. by using this function, you can edit the current path or change velocity or  transformation of the object moving along the path.
+The instance of the [*Path*](../../../api/library/common/class.path_cs.md) class.path, by which the transformation is defined. by using this function, you can edit the current path or change velocity or transformation of the object moving along the path.
 ## float UpdateDistanceLimit
 
 The distance from the camera within which the object should be updated.

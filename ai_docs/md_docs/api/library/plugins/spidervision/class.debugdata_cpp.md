@@ -28,7 +28,7 @@ Sets a new value indicating if the visualization is enabled for blend area contr
 Returns the current value indicating if the visualization is enabled for blend area control lines and selected points on the screen.
 ### Return value
 
-**true** if visualization of blend area control lines and points is enabled; otherwise **false**.
+**true** if visualization of blend area control lines and points is enabled ; otherwise **false**.
 ## void setBlendPointPositions ( const Vector < Math:: vec2 >& positions )
 
 Sets a new positions of blend area points displayed in the viewport.
@@ -54,7 +54,7 @@ Sets a new value indicating if the visualization of warping grid on the screen i
 Returns the current value indicating if the visualization of warping grid on the screen is enabled.
 ### Return value
 
-**true** if visualization of warping grid is enabled; otherwise **false**.
+**true** if visualization of warping grid is enabled ; otherwise **false**.
 ## void setWarpPointsEnabled ( bool enabled )
 
 Sets a new value indicating if warping control points are displayed in the viewport.
@@ -67,7 +67,7 @@ Sets a new value indicating if warping control points are displayed in the viewp
 Returns the current value indicating if warping control points are displayed in the viewport.
 ### Return value
 
-**true** if display of warping control points is enabled; otherwise **false**.
+**true** if display of warping control points is enabled ; otherwise **false**.
 ## void setWarpPointPositions ( const Vector < Math:: vec2 >& positions )
 
 Sets a new positions of warping grid control points displayed in the viewport.
@@ -132,7 +132,7 @@ Returns the current color used in debug mode.
 Current color used in debug mode.
 ## static Event<> getEventChanged () const
 
-event triggered on changing debug data. You can subscribe to events via *connect()*   and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered on changing debug data. You can subscribe to events via *connect()* � and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -268,7 +268,20 @@ DebugData::getEventChanged().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
+## void setDebugStereo ( bool stereo )
+
+Sets a new value indicating if the real eye images are replaced by solid diagnostic colors in stereo rendering: the left eye receives a solid green image and the right eye a solid red one, so the operator can verify which physical output receives which eye. Disabled by default.
+### Arguments
+
+- *bool* **stereo** - Set **true** to enable diagnostic eye-color substitution in stereo mode; **false** - to disable it.
+
+## bool isDebugStereo () const
+
+Returns the current value indicating if the real eye images are replaced by solid diagnostic colors in stereo rendering: the left eye receives a solid green image and the right eye a solid red one, so the operator can verify which physical output receives which eye. Disabled by default.
+### Return value
+
+**true** if diagnostic eye-color substitution in stereo mode is enabled ; otherwise **false**.
 ---
 
 ## String getDebugColorName ( int index ) const

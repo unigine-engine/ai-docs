@@ -25,6 +25,77 @@ A *PhysicalWater* class is used to simulate water interaction effects.
 
 ### Members
 
+## void setVelocity ( vec3 velocity )
+
+Sets a new velocity of the flow in physical water.
+### Arguments
+
+- *vec3* **velocity** - The velocity of the flow in physical water
+
+## vec3 getVelocity () const
+
+Returns the current velocity of the flow in physical water.
+### Return value
+
+Current velocity of the flow in physical water
+## void setSize ( vec3 size )
+
+Sets a new size of the physical water node.
+### Arguments
+
+- *vec3* **size** - The size of the physical water node
+
+## vec3 getSize () const
+
+Returns the current size of the physical water node.
+### Return value
+
+Current size of the physical water node
+## int getNumContacts () const
+
+Returns the current number of contacts between the physical water and the objects.
+### Return value
+
+Current number of contacts with objects
+## void setLinearDamping ( float damping )
+
+Sets a new value indicating how much the linear velocity of the objects decreases when they get into the physical water.
+### Arguments
+
+- *float* **damping** - The damping of the objects linear velocity in the water
+
+## float getLinearDamping () const
+
+Returns the current value indicating how much the linear velocity of the objects decreases when they get into the physical water.
+### Return value
+
+Current damping of the objects linear velocity in the water
+## void setDensity ( float density )
+
+Sets a new density of the physical water that determines objects buoyancy.
+### Arguments
+
+- *float* **density** - The density of the physical water
+
+## float getDensity () const
+
+Returns the current density of the physical water that determines objects buoyancy.
+### Return value
+
+Current density of the physical water
+## void setAngularDamping ( float damping )
+
+Sets a new value indicating how much the angular velocity of the objects decreases when they get into the physical water.
+### Arguments
+
+- *float* **damping** - The damping of the objects angular velocity in the water
+
+## float getAngularDamping () const
+
+Returns the current value indicating how much the angular velocity of the objects decreases when they get into the physical water.
+### Return value
+
+Current damping of the objects angular velocity in the water
 ---
 
 ## static PhysicalWater ( vec3 size )
@@ -34,19 +105,6 @@ Constructor. Creates a physical water node of the specified size.
 
 - *vec3* **size** - Water box size in units.
 
-## void setAngularDamping ( float damping )
-
-Sets a value indicating how much the angular velocity of the objects decreases when they get into the physical water. The higher the value is, the lower the angular velocity will be.
-### Arguments
-
-- *float* **damping** - Angular damping value. If a negative value is provided, **0** will be used instead.
-
-## float getAngularDamping ( )
-
-Returns the current value indicating how much the angular velocity of the objects decreases when they get into the physical water.
-### Return value
-
-Angular damping value.
 ## Body getContactBody ( int num )
 
 Returns the body of the object by the given contact with physical water.
@@ -97,64 +155,6 @@ Returns the relative velocity between the object and the physical water.
 ### Return value
 
 Relative velocity in units per second.
-## void setDensity ( float density )
-
-Sets the density of the water that determines buoyancy of objects that float in the physical water. The higher the value is, the higher buoyancy of the object.
-### Arguments
-
-- *float* **density** - Density value. If a negative value is provided, **0** will be used instead.
-
-## float getDensity ( )
-
-Returns the current density of the physical water that determines buoyancy of objects that float in the physical water.
-### Return value
-
-Density value.
-## void setLinearDamping ( float damping )
-
-Sets a value indicating how much the linear velocity of the objects decreases when they get into the physical water. The higher the value is, the lower the linear velocity will be.
-### Arguments
-
-- *float* **damping** - Linear damping value. If a negative value is provided, **0** will be used instead.
-
-## float getLinearDamping ( )
-
-Returns the current value indicating how much the linear velocity of the objects decreases when they get into the physical water.
-### Return value
-
-Linear damping value.
-## int getNumContacts ( )
-
-Returns the number of contacts between the physical water and the objects.
-### Return value
-
-Number of contacts.
-## void setSize ( vec3 size )
-
-Sets the size of the physical water node.
-### Arguments
-
-- *vec3* **size** - Water box size in units.
-
-## vec3 getSize ( )
-
-Returns the current size of the physical water node.
-### Return value
-
-Water box size.
-## void setVelocity ( vec3 velocity )
-
-Sets velocity of the flow in physical water.
-### Arguments
-
-- *vec3* **velocity** - Velocity in units per second.
-
-## vec3 getVelocity ( )
-
-Returns the current velocity of the flow in physical water.
-### Return value
-
-Velocity in units per second.
 ## static int type ( )
 
 Returns the type of the node.

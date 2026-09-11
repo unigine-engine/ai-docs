@@ -3,7 +3,7 @@
 **Header:** #include <UniginePlugin.h>
 
 
-Unigine Plugin class allows loading a custom library dynamically at Unigine runtime.
+Unigine *Plugin* class allows loading a custom library dynamically at Unigine runtime.
 
 
 ## Plugin Class
@@ -26,7 +26,10 @@ Returns the name of the plugin.
 Plugin name.
 ## int get_order ( )
 
-Returns the execution order of the plugin. Each plugin has its execution order, which determines the sequence in which plugin’s functions (*[update](#update_void) / [postUpdate](#postUpdate_void) / [render](#render_const_EngineWindowViewportPtr_ref_void) / [shutdown](#shutdown_int)*) will be executed. The only exception is the [*init*](#init_int) function as it is called just after loading the plugin.
+
+Returns the execution order of the plugin. Each plugin has its execution order, which determines the sequence in which plugin�s functions (*[update](#update_void) / [postUpdate](#postUpdate_void) / [render](#render_const_EngineWindowViewportPtr_ref_void) / [shutdown](#shutdown_int)*) will be executed. The only exception is the [*init*](#init_int) function as it is called just after loading the plugin.
+
+
 > **Notice:** Remember, when [writing your own plugin](../../../code/cpp/plugin.md), that requires interaction with other ones, specifying correct order value is required to avoid issues and ensure proper execution sequence. If in your case the order doesn't matter, set the default 0 value.
 
 
@@ -35,16 +38,16 @@ Returns the execution order of the plugin. Each plugin has its execution order, 
 Plugin execution order.
 ## virtual int getCompilationFlags ( ) const
 
-Returns the Unigine compilation flags.
+Returns the UNIGINE compilation flags.
 ### Return value
 
-Unigine compilation flags.
+UNIGINE compilation flags.
 ## virtual void updatePhysics ( )
 
 Engine calls this function before updating each physics frame.
 ## virtual void gui ( EngineWindowViewportPtr& window )
 
-Engine calls this function before gui each render frame for the specified engine window viewport.
+Engine calls this function before GUI each render frame for the specified engine window viewport.
 ### Arguments
 
 - *EngineWindowViewportPtr&* **window** - Target Engine window viewport.
@@ -81,13 +84,13 @@ Engine calls this function on world saving.
 
 ### Return value
 
-Returns **1** on success, or 0 if an error has occurred.
+true on success, or false if an error has occurred.
 ## virtual int shutdown ( )
 
 Engine calls this function on plugin shutdown.
 ### Return value
 
-Returns **1** on success, or 0 if an error has occurred.
+true on success, or false if an error has occurred.
 ## virtual void swap ( )
 
 Engine calls this function before swapping each render frame.

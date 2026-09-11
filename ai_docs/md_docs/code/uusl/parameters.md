@@ -90,8 +90,8 @@ UUSL defines parameters that are passed by the engine to the shader. These param
 | *s_haze_color* | *float4* | The [color of the haze](../../api/library/rendering/class.render_cpp.md#getEnvironmentHazeColor_vec4). |
 | *s_haze_max_distance* | *float* | [Haze maximum visible distance](../../api/library/rendering/class.render_cpp.md#getEnvironmentHazeMaxDistance_float). |
 | *s_haze_density* | *float* | The [haze density](../../api/library/rendering/class.render_cpp.md#getEnvironmentHazeDensity_float). |
-| *s_haze_solid* | *float* | 1 if the [Environment Haze Mode](../../api/library/rendering/class.render_cpp.md#setEnvironmentHazeMode_int_void) is set to Solid, otherwise — 0. |
-| *s_haze_visibility* | *float* | 1 if haze is enabled, otherwise — 0. |
+| *s_haze_solid* | *float* | 1 if the [Environment Haze Mode](../../api/library/rendering/class.render_cpp.md#setEnvironmentHazeMode_int_void) is set to Solid, otherwise � 0. |
+| *s_haze_visibility* | *float* | 1 if haze is enabled, otherwise � 0. |
 | *s_haze_gradient* | *float* | [Environment haze gradient](../../api/library/rendering/class.render_cpp.md#setEnvironmentHazeGradient_int_void). |
 | *s_sky_up* | *float3* | Sky up vector. |
 | *s_sky_altitude* | *float* | Sky altitude. |
@@ -99,7 +99,7 @@ UUSL defines parameters that are passed by the engine to the shader. These param
 | *s_sun_color* | *float3* | Sun color. |
 | *s_sun_rotation* | *float4x4* | Sun rotation matrix. |
 | *s_moon_rotation* | *float4x4* | Moon rotation matrix. |
-| *s_haze_physical* | *float* | 1 if the [Environment Haze Mode](../../api/library/rendering/class.render_cpp.md#setEnvironmentHazeMode_int_void) is set to Physical, otherwise — 0. |
+| *s_haze_physical* | *float* | 1 if the [Environment Haze Mode](../../api/library/rendering/class.render_cpp.md#setEnvironmentHazeMode_int_void) is set to Physical, otherwise � 0. |
 | *s_haze_physical_start_height* | *float* | [Reference height value](../../api/library/rendering/class.render_cpp.md#getEnvironmentHazePhysicalStartHeight_float) for the two parameters ([Half Visibility Distance](../../api/library/rendering/class.render_cpp.md#getEnvironmentHazePhysicalHalfVisibilityDistance_float) and *s_haze_physical_falloff*). |
 | *s_haze_physical_density* | *float* | [Haze density](../../api/library/rendering/class.render_cpp.md#getEnvironmentHazeDensity_float) for the *Physical* preset. |
 | *s_haze_physical_falloff* | *float* | [Height of the haze density gradient](../../api/library/rendering/class.render_cpp.md#getEnvironmentHazePhysicalHalfFalloffHeight_float). |

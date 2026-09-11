@@ -63,7 +63,7 @@ Returns the current albedo color information at the point.
 ### Return value
 
 Current albedo color at the point as a 4 component vector (R, G, B, A).
-## isIntersection () const
+## int isIntersection () const
 
 Returns the current value indicating if an intersection was detected.
 ### Return value
@@ -82,20 +82,20 @@ Returns the current flags engaging/disengaging certain data types for the fetch/
 ### Return value
 
 Current combination of data engagement flags.
-## void setUsesHeight ( )
+## void setUsesHeight ( int height )
 
 Sets a new value indicating if heights data is engaged in the fetch/intersection request. When the data type is engaged, you can obtain it via the corresponding *get()* method. Disengaging unnecessary data when performing requests saves some performance (e.g., you can engage albedo data only if you need only color information at a certain point). This option is enabled by default.
 ### Arguments
 
-- **height** - The engagement of height data in the fetch/intersection request
+- *int* **height** - The engagement of height data in the fetch/intersection request
 
-## isUsesHeight () const
+## int isUsesHeight () const
 
 Returns the current value indicating if heights data is engaged in the fetch/intersection request. When the data type is engaged, you can obtain it via the corresponding *get()* method. Disengaging unnecessary data when performing requests saves some performance (e.g., you can engage albedo data only if you need only color information at a certain point). This option is enabled by default.
 ### Return value
 
 Current engagement of height data in the fetch/intersection request
-## void setUsesNormal ( )
+## void setUsesNormal ( int normal )
 
 Sets a new value indicating if normals data is engaged in the fetch/intersection request. When the data type is engaged, you can obtain it via the corresponding *get()* method. Disengaging unnecessary data when performing requests saves some performance (e.g., you can engage albedo data only if you need only color information at a certain point).
 > **Notice:** Enable this option to get [normal](#getNormal_vec3) information for the point.
@@ -103,9 +103,9 @@ Sets a new value indicating if normals data is engaged in the fetch/intersection
 
 ### Arguments
 
-- **normal** - The engagement of normals data in the fetch/intersection request
+- *int* **normal** - The engagement of normals data in the fetch/intersection request
 
-## isUsesNormal () const
+## int isUsesNormal () const
 
 Returns the current value indicating if normals data is engaged in the fetch/intersection request. When the data type is engaged, you can obtain it via the corresponding *get()* method. Disengaging unnecessary data when performing requests saves some performance (e.g., you can engage albedo data only if you need only color information at a certain point).
 > **Notice:** Enable this option to get [normal](#getNormal_vec3) information for the point.
@@ -114,7 +114,7 @@ Returns the current value indicating if normals data is engaged in the fetch/int
 ### Return value
 
 Current engagement of normals data in the fetch/intersection request
-## void setUsesAlbedo ( )
+## void setUsesAlbedo ( int albedo )
 
 Sets a new value indicating if albedo data is engaged in the fetch/intersection request. When the data type is engaged, you can obtain it via the corresponding *get()* method. Disengaging unnecessary data when performing requests saves some performance (e.g., you can engage albedo data only if you need only color information at a certain point).
 > **Notice:** Enable this option to get [albedo](#getAlbedo_vec4) information for the point.
@@ -122,9 +122,9 @@ Sets a new value indicating if albedo data is engaged in the fetch/intersection 
 
 ### Arguments
 
-- **albedo** - The engagement of albedo data in the fetch/intersection request
+- *int* **albedo** - The engagement of albedo data in the fetch/intersection request
 
-## isUsesAlbedo () const
+## int isUsesAlbedo () const
 
 Returns the current value indicating if albedo data is engaged in the fetch/intersection request. When the data type is engaged, you can obtain it via the corresponding *get()* method. Disengaging unnecessary data when performing requests saves some performance (e.g., you can engage albedo data only if you need only color information at a certain point).
 > **Notice:** Enable this option to get [albedo](#getAlbedo_vec4) information for the point.
@@ -185,20 +185,20 @@ Returns the current point for which terrain data is to be fetched.
 ### Return value
 
 Current two-component vector specifying point coordinates along X and Y axes.
-## isAsyncCompleted () const
+## int isAsyncCompleted () const
 
 Returns the current value indicating if async operation is completed. As the operation is completed you can obtain necessary data via *get*()* methods.
 ### Return value
 
 Current async operation is completed
-## void setHolesEnabled ( )
+## void setHolesEnabled ( int enabled )
 
 Sets a new value indicating if checking for terrain holes in the fetch/intersection request is enabled. This option is enabled by default. When disabled terrain holes created using decals are ignored.
 ### Arguments
 
-- **enabled** - The checking for terrain holes in the fetch/intersection request
+- *int* **enabled** - The checking for terrain holes in the fetch/intersection request
 
-## isHolesEnabled () const
+## int isHolesEnabled () const
 
 Returns the current value indicating if checking for terrain holes in the fetch/intersection request is enabled. This option is enabled by default. When disabled terrain holes created using decals are ignored.
 ### Return value
@@ -220,7 +220,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventStart () const
 
 The event handler signature is as follows: *myhandler()*
@@ -237,7 +237,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## static LandscapeFetch ( )

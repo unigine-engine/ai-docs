@@ -234,3 +234,29 @@ Destroys all objects created from the bank, unloads all sample data inside the b
 ### Return value
 
 true if bank is unloaded successfully; otherwise, false.
+## float getGlobalParameter ( const char * name )
+
+Returns the current value of a global parameter of the *FMOD Studio* system. An unknown name is reported to the log.
+### Arguments
+
+- *const char ** **name** - Name of the global parameter, as authored in *FMOD Studio*.
+
+### Return value
+
+Current value of the parameter.
+## void setGlobalParameterWithLabel ( const char * name , const char * label , bool ignore_seek = false )
+
+Sets a global parameter of the *FMOD Studio* system to the value associated with the given text label.
+### Arguments
+
+- *const char ** **name** - Name of the global parameter.
+- *const char ** **label** - Text label of the desired parameter value, as authored in *FMOD Studio*.
+- *bool* **ignore_seek** - Flag defining whether the value is set instantly, bypassing the parameter's authored seek speed.
+
+## void setGlobalParameter ( const char * name , float value )
+
+Sets a global (system-wide) parameter of the *FMOD Studio* system by name. Global parameters affect the whole system rather than a single event instance.
+### Arguments
+
+- *const char ** **name** - Name of the global parameter, as authored in *FMOD Studio*.
+- *float* **value** - New value of the parameter.

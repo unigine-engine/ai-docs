@@ -18,9 +18,9 @@ The topmost section of the *Parameters* windows includes common node description
 - **Selection** flag toggles node selection on and off. If disabled, the node cannot be selected in the viewport.
 - **Transformation** flag toggles node transformations on and off. If disabled, the node cannot be transformed.
 - **Enabled** flag toggles the node on and off. If unchecked, the node will not be rendered.
-- **Name** — the name of the node.
-- **Type** — the type of the node, it defines the set of node-specific parameters.
-- **ID** — the [ID](../../../api/library/nodes/class.node_cpp.md#getID_int) of the node.
+- **Name** � the name of the node.
+- **Type** � the type of the node, it defines the set of node-specific parameters.
+- **ID** � the [ID](../../../api/library/nodes/class.node_cpp.md#getID_int) of the node.
 
 
 > **Notice:** You can also rename and toggle the node flags on and off via the *[World Nodes](../../../editor2/organizing_nodes/index.md)* window.
@@ -35,7 +35,7 @@ The transformation parameters can be modified only when **Transformation** ![](.
 | Position | Specifies the position coordinates for the node. |
 |---|---|
 | Rotation | Specifies the rotation coordinates for the node. |
-| Scale | Specifies the scale factor for X, Y, and Z axes. > **Warning:** Don't scale meshes that are going to participate in collision detection — physics doesn't work properly with scaled objects. To avoid scaling, reimport the mesh with the required [scale](../../../editor2/fbx/index.md#fbx_scale). |
+| Scale | Specifies the scale factor for X, Y, and Z axes. > **Warning:** Don't scale meshes that are going to participate in collision detection � physics doesn't work properly with scaled objects. To avoid scaling, reimport the mesh with the required [scale](../../../editor2/fbx/index.md#fbx_scale). |
 
 
 The default values can be restored by clicking the ![](../default_value.png) icon next to the corresponding fields.

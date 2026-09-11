@@ -185,7 +185,7 @@ The number of loaded plugins.
 The precision type.
 ## 🔒︎ Event EventBeginUpdate
 
-The event triggered before the update stage is started. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the update stage is started. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -279,7 +279,7 @@ Engine.EventBeginUpdate.Enabled = true;
 
 ## 🔒︎ Event EventBeginPropertiesUpdate
 
-The event triggered before the properties update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the properties update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -373,7 +373,7 @@ Engine.EventBeginPropertiesUpdate.Enabled = true;
 
 ## 🔒︎ Event EventEndPropertiesUpdate
 
-The event triggered after the properties update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the properties update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -467,7 +467,7 @@ Engine.EventEndPropertiesUpdate.Enabled = true;
 
 ## 🔒︎ Event EventBeginInputUpdate
 
-The event triggered before the input update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the input update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -561,7 +561,7 @@ Engine.EventBeginInputUpdate.Enabled = true;
 
 ## 🔒︎ Event EventEndInputUpdate
 
-The event triggered after the input update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the input update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -655,7 +655,7 @@ Engine.EventEndInputUpdate.Enabled = true;
 
 ## 🔒︎ Event EventBeginControlsUpdate
 
-The event triggered before the controls update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the controls update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -749,7 +749,7 @@ Engine.EventBeginControlsUpdate.Enabled = true;
 
 ## 🔒︎ Event EventEndControlsUpdate
 
-The event triggered after the controls update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the controls update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -843,7 +843,7 @@ Engine.EventEndControlsUpdate.Enabled = true;
 
 ## 🔒︎ Event EventBeginWorldManagerUpdate
 
-The event triggered before the world manager update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the world manager update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -937,7 +937,7 @@ Engine.EventBeginWorldManagerUpdate.Enabled = true;
 
 ## 🔒︎ Event EventEndWorldManagerUpdate
 
-The event triggered after the world manager update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the world manager update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1031,7 +1031,7 @@ Engine.EventEndWorldManagerUpdate.Enabled = true;
 
 ## 🔒︎ Event EventBeginSoundManagerUpdate
 
-The event triggered before the sound manager update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the sound manager update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1125,7 +1125,7 @@ Engine.EventBeginSoundManagerUpdate.Enabled = true;
 
 ## 🔒︎ Event EventEndSoundManagerUpdate
 
-The event triggered after the sound manager update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the sound manager update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1219,7 +1219,7 @@ Engine.EventEndSoundManagerUpdate.Enabled = true;
 
 ## 🔒︎ Event EventBeginGameUpdate
 
-The event triggered before the game logic update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the game logic update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1313,7 +1313,7 @@ Engine.EventBeginGameUpdate.Enabled = true;
 
 ## 🔒︎ Event EventEndGameUpdate
 
-The event triggered after the game logic update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the game logic update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1407,7 +1407,7 @@ Engine.EventEndGameUpdate.Enabled = true;
 
 ## 🔒︎ Event EventBeginRenderUpdate
 
-The event triggered before the render functions update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the render functions update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1501,7 +1501,7 @@ Engine.EventBeginRenderUpdate.Enabled = true;
 
 ## 🔒︎ Event EventEndRenderUpdate
 
-The event triggered after the render functions update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the render functions update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1595,7 +1595,7 @@ Engine.EventEndRenderUpdate.Enabled = true;
 
 ## 🔒︎ Event EventBeginExpressionUpdate
 
-The event triggered before the expressions update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the expressions update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1689,7 +1689,7 @@ Engine.EventBeginExpressionUpdate.Enabled = true;
 
 ## 🔒︎ Event EventEndExpressionUpdate
 
-The event triggered after the expressions update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the expressions update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1783,7 +1783,7 @@ Engine.EventEndExpressionUpdate.Enabled = true;
 
 ## 🔒︎ Event EventBeginSoundsUpdate
 
-The event triggered before the sounds update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the sounds update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1877,7 +1877,7 @@ Engine.EventBeginSoundsUpdate.Enabled = true;
 
 ## 🔒︎ Event EventEndSoundsUpdate
 
-The event triggered after the sounds update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the sounds update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1971,7 +1971,7 @@ Engine.EventEndSoundsUpdate.Enabled = true;
 
 ## 🔒︎ Event EventBeginPluginsUpdate
 
-The event triggered before the plugins update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the plugins update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -2065,7 +2065,7 @@ Engine.EventBeginPluginsUpdate.Enabled = true;
 
 ## 🔒︎ Event EventEndPluginsUpdate
 
-The event triggered after the plugins update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the plugins update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -2159,7 +2159,7 @@ Engine.EventEndPluginsUpdate.Enabled = true;
 
 ## 🔒︎ Event EventBeginVRUpdate
 
-The event triggered before the VR update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the VR update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -2253,7 +2253,7 @@ Engine.EventBeginVRUpdate.Enabled = true;
 
 ## 🔒︎ Event EventEndVRUpdate
 
-The event triggered after the VR update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the VR update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -2347,7 +2347,7 @@ Engine.EventEndVRUpdate.Enabled = true;
 
 ## 🔒︎ Event EventBeginEditorUpdate
 
-The event triggered before the editor update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the editor update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -2441,7 +2441,7 @@ Engine.EventBeginEditorUpdate.Enabled = true;
 
 ## 🔒︎ Event EventEndEditorUpdate
 
-The event triggered after the editor update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the editor update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -2535,7 +2535,7 @@ Engine.EventEndEditorUpdate.Enabled = true;
 
 ## 🔒︎ Event EventBeginSystemScriptUpdate
 
-The event triggered before the system script update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the system script update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -2629,7 +2629,7 @@ Engine.EventBeginSystemScriptUpdate.Enabled = true;
 
 ## 🔒︎ Event EventEndSystemScriptUpdate
 
-The event triggered after the system script update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the system script update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -2723,7 +2723,7 @@ Engine.EventEndSystemScriptUpdate.Enabled = true;
 
 ## 🔒︎ Event EventBeginSystemLogicUpdate
 
-The event triggered before the system logic update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the system logic update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -2817,7 +2817,7 @@ Engine.EventBeginSystemLogicUpdate.Enabled = true;
 
 ## 🔒︎ Event EventEndSystemLogicUpdate
 
-The event triggered after the system logic update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the system logic update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -2911,7 +2911,7 @@ Engine.EventEndSystemLogicUpdate.Enabled = true;
 
 ## 🔒︎ Event EventBeginWorldUpdate
 
-The event triggered before the world logic update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the world logic update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -3005,7 +3005,7 @@ Engine.EventBeginWorldUpdate.Enabled = true;
 
 ## 🔒︎ Event EventEndWorldUpdate
 
-The event triggered after the world logic update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the world logic update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -3099,7 +3099,7 @@ Engine.EventEndWorldUpdate.Enabled = true;
 
 ## 🔒︎ Event EventBeginAnimationManagerUpdate
 
-The event triggered before the animation manager update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the animation manager update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -3193,7 +3193,7 @@ Engine.EventBeginAnimationManagerUpdate.Enabled = true;
 
 ## 🔒︎ Event EventEndAnimationManagerUpdate
 
-The event triggered after the animation manager update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the animation manager update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -3287,7 +3287,7 @@ Engine.EventEndAnimationManagerUpdate.Enabled = true;
 
 ## 🔒︎ Event EventBeginWorldPostUpdate
 
-The event triggered before the world logic postupdate stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the world logic postupdate stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -3381,7 +3381,7 @@ Engine.EventBeginWorldPostUpdate.Enabled = true;
 
 ## 🔒︎ Event EventEndWorldPostUpdate
 
-The event triggered after the world logic postupdate stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the world logic postupdate stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -3475,7 +3475,7 @@ Engine.EventEndWorldPostUpdate.Enabled = true;
 
 ## 🔒︎ Event EventBeginSystemScriptPostUpdate
 
-The event triggered before the system script postupdate stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the system script postupdate stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -3569,7 +3569,7 @@ Engine.EventBeginSystemScriptPostUpdate.Enabled = true;
 
 ## 🔒︎ Event EventEndSystemScriptPostUpdate
 
-The event triggered after the system script postupdate stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the system script postupdate stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -3663,7 +3663,7 @@ Engine.EventEndSystemScriptPostUpdate.Enabled = true;
 
 ## 🔒︎ Event EventBeginSystemLogicPostUpdate
 
-The event triggered before the system logic postupdate stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the system logic postupdate stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -3757,7 +3757,7 @@ Engine.EventBeginSystemLogicPostUpdate.Enabled = true;
 
 ## 🔒︎ Event EventEndSystemLogicPostUpdate
 
-The event triggered after the system logic postupdate stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the system logic postupdate stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -3851,7 +3851,7 @@ Engine.EventEndSystemLogicPostUpdate.Enabled = true;
 
 ## 🔒︎ Event EventBeginEditorPostUpdate
 
-The event triggered before the editor logic postupdate stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the editor logic postupdate stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -3945,7 +3945,7 @@ Engine.EventBeginEditorPostUpdate.Enabled = true;
 
 ## 🔒︎ Event EventEndEditorPostUpdate
 
-The event triggered after the editor logic postupdate stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the editor logic postupdate stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -4039,7 +4039,7 @@ Engine.EventEndEditorPostUpdate.Enabled = true;
 
 ## 🔒︎ Event EventBeginPluginsPostUpdate
 
-The event triggered before the plugins postupdate stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the plugins postupdate stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -4133,7 +4133,7 @@ Engine.EventBeginPluginsPostUpdate.Enabled = true;
 
 ## 🔒︎ Event EventEndPluginsPostUpdate
 
-The event triggered after the plugins postupdate stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the plugins postupdate stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -4227,7 +4227,7 @@ Engine.EventEndPluginsPostUpdate.Enabled = true;
 
 ## 🔒︎ Event EventBeginSpatialUpdate
 
-The event triggered before the spatial tree update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the spatial tree update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -4321,7 +4321,7 @@ Engine.EventBeginSpatialUpdate.Enabled = true;
 
 ## 🔒︎ Event EventEndSpatialUpdate
 
-The event triggered after the spatial tree update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the spatial tree update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -4415,7 +4415,7 @@ Engine.EventEndSpatialUpdate.Enabled = true;
 
 ## 🔒︎ Event EventBeginFilesystemUpdate
 
-The event triggered before the filesystem update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the filesystem update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -4509,7 +4509,7 @@ Engine.EventBeginFilesystemUpdate.Enabled = true;
 
 ## 🔒︎ Event EventEndFilesystemUpdate
 
-The event triggered after the filesystem update stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the filesystem update stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -4603,7 +4603,7 @@ Engine.EventEndFilesystemUpdate.Enabled = true;
 
 ## 🔒︎ Event EventBeginPathfinding
 
-The event triggered before the pathfinding module is updated. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the pathfinding module is updated. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -4697,7 +4697,7 @@ Engine.EventBeginPathfinding.Enabled = true;
 
 ## 🔒︎ Event EventEndUpdate
 
-The event triggered after the update stage is finished. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the update stage is finished. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -4791,7 +4791,7 @@ Engine.EventEndUpdate.Enabled = true;
 
 ## 🔒︎ Event EventSyncBeginFramePhysics
 
-The event triggered before the physics frame in the main thread. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the physics frame in the main thread. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -4885,7 +4885,7 @@ Engine.EventSyncBeginFramePhysics.Enabled = true;
 
 ## 🔒︎ Event EventSyncEndFramePhysics
 
-The event triggered after the physics frame in the main thread. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the physics frame in the main thread. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -4979,7 +4979,7 @@ Engine.EventSyncEndFramePhysics.Enabled = true;
 
 ## 🔒︎ Event EventAsyncBeginFramePhysics
 
-The event triggered before the physics frame in the physics thread. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the physics frame in the physics thread. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -5073,7 +5073,7 @@ Engine.EventAsyncBeginFramePhysics.Enabled = true;
 
 ## 🔒︎ Event EventAsyncEndFramePhysics
 
-The event triggered after the physics frame in the physics thread. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the physics frame in the physics thread. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -5167,7 +5167,7 @@ Engine.EventAsyncEndFramePhysics.Enabled = true;
 
 ## 🔒︎ Event EventBeginVRRender
 
-The event triggered before the VR rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the VR rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -5261,7 +5261,7 @@ Engine.EventBeginVRRender.Enabled = true;
 
 ## 🔒︎ Event EventEndVRRender
 
-The event triggered after the VR rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the VR rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -5355,7 +5355,7 @@ Engine.EventEndVRRender.Enabled = true;
 
 ## 🔒︎ Event EventBeginRender
 
-The event triggered before the rendering stage is started. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the rendering stage is started. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -5449,7 +5449,7 @@ Engine.EventBeginRender.Enabled = true;
 
 ## 🔒︎ Event EventBeginEditorRender
 
-The event triggered before the editor rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the editor rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -5543,7 +5543,7 @@ Engine.EventBeginEditorRender.Enabled = true;
 
 ## 🔒︎ Event EventEndEditorRender
 
-The event triggered after the editor rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the editor rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -5637,7 +5637,7 @@ Engine.EventEndEditorRender.Enabled = true;
 
 ## 🔒︎ Event EventBeginPluginsRender
 
-The event triggered before the plugins rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the plugins rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -5731,7 +5731,7 @@ Engine.EventBeginPluginsRender.Enabled = true;
 
 ## 🔒︎ Event EventEndPluginsRender
 
-The event triggered after the plugins rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the plugins rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -5825,7 +5825,7 @@ Engine.EventEndPluginsRender.Enabled = true;
 
 ## 🔒︎ Event EventBeginRenderWorld
 
-The event triggered before the world rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the world rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -5919,7 +5919,7 @@ Engine.EventBeginRenderWorld.Enabled = true;
 
 ## 🔒︎ Event EventEndRenderWorld
 
-The event triggered after the world rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the world rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -6013,7 +6013,7 @@ Engine.EventEndRenderWorld.Enabled = true;
 
 ## 🔒︎ Event EventBeginPluginsGui
 
-The event triggered before the gui() function of plugins is called. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the gui() function of plugins is called. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -6107,7 +6107,7 @@ Engine.EventBeginPluginsGui.Enabled = true;
 
 ## 🔒︎ Event EventEndPluginsGui
 
-The event triggered after the gui() function of plugins is called. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the gui() function of plugins is called. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -6201,7 +6201,7 @@ Engine.EventEndPluginsGui.Enabled = true;
 
 ## 🔒︎ Event EventBeginPostRender
 
-The event triggered before the post-rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the post-rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -6295,7 +6295,7 @@ Engine.EventBeginPostRender.Enabled = true;
 
 ## 🔒︎ Event EventEndPostRender
 
-The event triggered after the post-rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the post-rendering stage. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -6389,7 +6389,7 @@ Engine.EventEndPostRender.Enabled = true;
 
 ## 🔒︎ Event EventEndRender
 
-The event triggered after the rendering stage is finished. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the rendering stage is finished. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -6483,7 +6483,7 @@ Engine.EventEndRender.Enabled = true;
 
 ## 🔒︎ Event EventBeginSwap
 
-The event triggered before the swap stage is started. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the swap stage is started. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -6577,7 +6577,7 @@ Engine.EventBeginSwap.Enabled = true;
 
 ## 🔒︎ Event EventEndPathfinding
 
-The event triggered after the pathfinding is updated. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the pathfinding is updated. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -6671,7 +6671,7 @@ Engine.EventEndPathfinding.Enabled = true;
 
 ## 🔒︎ Event EventBeginWorldSwap
 
-The event triggered before the world logic swap() function is executed. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the world logic swap() function is executed. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -6765,7 +6765,7 @@ Engine.EventBeginWorldSwap.Enabled = true;
 
 ## 🔒︎ Event EventEndWorldSwap
 
-The event triggered after the world logic swap() function is executed. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the world logic swap() function is executed. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -6859,7 +6859,7 @@ Engine.EventEndWorldSwap.Enabled = true;
 
 ## 🔒︎ Event EventBeginPluginsSwap
 
-The event triggered before the plugin swap() function is called, if it exists. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the plugin swap() function is called, if it exists. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -6953,7 +6953,7 @@ Engine.EventBeginPluginsSwap.Enabled = true;
 
 ## 🔒︎ Event EventEndPluginsSwap
 
-The event triggered after the plugin swap() function is called, if it exists. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the plugin swap() function is called, if it exists. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -7047,7 +7047,7 @@ Engine.EventEndPluginsSwap.Enabled = true;
 
 ## 🔒︎ Event EventBeginDeleteObjects
 
-The event triggered before the objects are deleted. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the objects are deleted. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -7141,7 +7141,7 @@ Engine.EventBeginDeleteObjects.Enabled = true;
 
 ## 🔒︎ Event EventEndDeleteObjects
 
-The event triggered after the objects are deleted. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the objects are deleted. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -7235,7 +7235,7 @@ Engine.EventEndDeleteObjects.Enabled = true;
 
 ## 🔒︎ Event EventEndSwap
 
-The event triggered after the swap stage is finished. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the swap stage is finished. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -7329,7 +7329,7 @@ Engine.EventEndSwap.Enabled = true;
 
 ## 🔒︎ Event EventFocusGained
 
-The event triggered when any of the engine windows gained the focus. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when any of the engine windows gained the focus. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -7423,7 +7423,7 @@ Engine.EventFocusGained.Enabled = true;
 
 ## 🔒︎ Event EventFocusLost
 
-The event triggered when all engine windows lost the focus. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when all engine windows lost the focus. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -7517,7 +7517,7 @@ Engine.EventFocusLost.Enabled = true;
 
 ## 🔒︎ Event<string> EventPluginAdded
 
-The event triggered on loading a plugin. You can subscribe to events via *Connect()*  and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered on loading a plugin. You can subscribe to events via *Connect()*ï¿½ and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)*ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)*ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -7611,7 +7611,7 @@ Engine.EventPluginAdded.Enabled = true;
 
 ## 🔒︎ Event<string> EventPluginRemoved
 
-The event triggered on removing a plugin. You can subscribe to events via *Connect()*  and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered on removing a plugin. You can subscribe to events via *Connect()*ï¿½ and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)*ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)*ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -7770,7 +7770,7 @@ Returns a value indicating if the editor script function exists.
 
 ### Return value
 
-**true** if the editor script function exists; otherwise, **false**.
+true if the editor script function exists; otherwise, false.
 ## virtual IntPtr GetEditorInterpreter ( ) =0
 
 Returns a pointer to the editor interpreter.
@@ -7782,13 +7782,13 @@ Pointer to the editor interpreter.
 Returns a value indicating if the function is called from the editor script.
 ### Return value
 
-**true** if the function is called from the editor script; otherwise, **false**.
+true if the function is called from the editor script; otherwise, false.
 ## virtual bool IsEditorLoaded ( ) =0
 
 Returns a value indicating if the editor script is loaded.
 ### Return value
 
-**true** if the editor script is loaded; otherwise, **false**.
+true if the editor script is loaded; otherwise, false.
 ## virtual EditorLogic GetEditorLogic ( int num ) =0
 
 Returns the registered [EditorLogic](../../../api/library/common/logic/class.editorlogic_cs.md) instance by its number.
@@ -7826,7 +7826,7 @@ Returns a value indicating if the editor script variable exists.
 
 ### Return value
 
-**true** if the editor script variable exists; otherwise, **false**.
+true if the editor script variable exists; otherwise, false.
 ## virtual string GetArg ( int num ) =0
 
 Returns the command-line argument by its index.
@@ -7898,7 +7898,7 @@ Checks whether the system script function exists.
 
 ### Return value
 
-**true** if the system script function exists; otherwise, **false**.
+true if the system script function exists; otherwise, false.
 ## virtual IntPtr GetSystemInterpreter ( ) =0
 
 Returns a pointer to the system interpreter.
@@ -7910,7 +7910,7 @@ Pointer to the system interpreter.
 Checks if the function is called from the system script.
 ### Return value
 
-**true** when the function is called from the system script; otherwise, **false**.
+true when the function is called from the system script; otherwise, false.
 ## virtual System GetSystemLogic ( int num ) =0
 
 Returns the registered [SystemLogic](../../../api/library/common/logic/class.systemlogic_cs.md) instance by the given number.
@@ -7948,7 +7948,7 @@ Checks whether a system script variable exists.
 
 ### Return value
 
-**true** if the system script variable exists; otherwise, **false**.
+true if the system script variable exists; otherwise, false.
 ## int GetWorldFunction ( string name , int num_args )
 
 Returns the world script function identifier.
@@ -7970,7 +7970,7 @@ Returns value indicating if the world script function exists.
 
 ### Return value
 
-**true** if the world script function exists; otherwise, **false**.
+true if the world script function exists; otherwise, false.
 ## virtual IntPtr GetWorldInterpreter ( ) =0
 
 Returns a pointer to the world interpreter.
@@ -7982,13 +7982,13 @@ Pointer to the world interpreter.
 Returns a value indicating if the function is called from the world script.
 ### Return value
 
-**true** if the function is called from the world script; otherwise, **false**.
+true if the function is called from the world script; otherwise, false.
 ## virtual bool IsWorldLoaded ( ) =0
 
 Returns a value indicating if the world script is loaded.
 ### Return value
 
-**true** if the world script is loaded; otherwise, **false**.
+true if the world script is loaded; otherwise, false.
 ## virtual WorldLogic GetWorldLogic ( int num ) =0
 
 Returns the registered [WorldLogic](../../../api/library/common/logic/class.worldlogic_cs.md) instance by its number.
@@ -8026,7 +8026,7 @@ Returns a value indicating if the world script variable exists.
 
 ### Return value
 
-**true** if the world script variable exists; otherwise, **false**.
+true if the world script variable exists; otherwise, false.
 ## bool AddEditorLogic ( EditorLogic logic )
 
 Adds an [EditorLogic](../../../api/library/common/logic/class.editorlogic_cs.md) instance to the engine runtime.
@@ -8036,7 +8036,7 @@ Adds an [EditorLogic](../../../api/library/common/logic/class.editorlogic_cs.md)
 
 ### Return value
 
-**true** if the EditorLogic instance has been added successfully; otherwise, **false**.
+true if the EditorLogic instance has been added successfully; otherwise, false.
 ## virtual bool AddPlugin ( Plugin plugin ) =0
 
 Adds a plugin to engine runtime by using a pointer to this plugin.
@@ -8046,7 +8046,7 @@ Adds a plugin to engine runtime by using a pointer to this plugin.
 
 ### Return value
 
-**true** if the plugin ha been added successfully; otherwise, **false**.
+true if the plugin ha been added successfully; otherwise, false.
 ## bool AddPlugin ( string name )
 
 Adds a plugin to engine runtime by its name.
@@ -8056,7 +8056,7 @@ Adds a plugin to engine runtime by its name.
 
 ### Return value
 
-**true** if the plugin has been added successfully; otherwise, **false**.
+true if the plugin has been added successfully; otherwise, false.
 ## bool AddSystemLogic ( System logic )
 
 Adds a [SystemLogic](../../../api/library/common/logic/class.systemlogic_cs.md) instance to Engine runtime.
@@ -8066,10 +8066,13 @@ Adds a [SystemLogic](../../../api/library/common/logic/class.systemlogic_cs.md) 
 
 ### Return value
 
-**true** if the SystemLogic instance has been added successfully; otherwise, **false**.
+true if the SystemLogic instance has been added successfully; otherwise, false.
 ## bool AddWorldLogic ( WorldLogic logic )
 
+
 Adds a [WorldLogic](../../../api/library/common/logic/class.worldlogic_cs.md) instance to the engine runtime.
+
+
 > **Notice:** Instances of the *WorldLogic* class **should not be added while the world is loaded** and the world script is being executed (as you can't change a world script while the world is loaded). In such a case the ***init()*** method shall not be called if the WorldLogic is added before opening the world.
 
 
@@ -8079,7 +8082,7 @@ Adds a [WorldLogic](../../../api/library/common/logic/class.worldlogic_cs.md) in
 
 ### Return value
 
-**true** if the WorldLogic instance has been added successfully; otherwise, **false**.
+true if the WorldLogic instance has been added successfully; otherwise, false.
 ## int FindPlugin ( string name )
 
 Searches the index of the loaded plugin by its name.
@@ -8128,7 +8131,7 @@ Removes an [EditorLogic](../../../api/library/common/logic/class.editorlogic_cs.
 
 ### Return value
 
-**true** if the instance has been removed successfully; otherwise, **false**.
+true if the instance has been removed successfully; otherwise, false.
 ## virtual bool DestroyPlugin ( Plugin plugin ) =0
 
 Removes the specified plugin.
@@ -8138,7 +8141,7 @@ Removes the specified plugin.
 
 ### Return value
 
-**true** if the plugin has been removed successfully; otherwise, **false**.
+true if the plugin has been removed successfully; otherwise, false.
 ## bool RemoveSystemLogic ( System logic )
 
 Removes a [SystemLogic](../../../api/library/common/logic/class.systemlogic_cs.md) instance from engine runtime.
@@ -8148,10 +8151,13 @@ Removes a [SystemLogic](../../../api/library/common/logic/class.systemlogic_cs.m
 
 ### Return value
 
-**true** if the instance has been removed successfully; otherwise, **false**.
+true if the instance has been removed successfully; otherwise, false.
 ## bool RemoveWorldLogic ( WorldLogic logic )
 
+
 Removes a [WorldLogic](../../../api/library/common/logic/class.worldlogic_cs.md) instance from engine runtime.
+
+
 > **Notice:** Instances of the *WorldLogic* class **should not be removed while the world is loaded** and the world script is being executed (as you can't change a world script while the world is loaded). In such a case the ***shutdown()*** method shall not be called if the WorldLogic is removed before closing the world.
 
 
@@ -8161,7 +8167,7 @@ Removes a [WorldLogic](../../../api/library/common/logic/class.worldlogic_cs.md)
 
 ### Return value
 
-**true** if the instance has been removed successfully; otherwise, **false**.
+true if the instance has been removed successfully; otherwise, false.
 ## virtual Variable RunEditorFunction ( Variable name ) =0
 
 Runs the editor script function by its name. The target function can receive up to 8 arguments.

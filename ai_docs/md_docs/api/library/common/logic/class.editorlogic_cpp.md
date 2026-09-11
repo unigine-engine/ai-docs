@@ -3,15 +3,13 @@
 **Header:** #include <UnigineLogic.h>
 
 
-The EditorLogic class is used to control the logic of the editor. Methods of this class are called after corresponding methods of the editor script.
+The *EditorLogic* class is used to control the logic of the editor. Methods of this class are called after corresponding methods of the editor script.
 
 
 EditorLogic class methods are called only if the [UnigineEditor](../../../../editor2/index.md) is loaded.
 
 
 ## EditorLogic Class
-
-### Members
 
 ---
 
@@ -20,25 +18,25 @@ EditorLogic class methods are called only if the [UnigineEditor](../../../../edi
 Engine calls this function on editor initialization. Similar to the editor script's init() function.
 ### Return value
 
-**1** if the editor is initialized successfully; otherwise, **0**.
+true if the editor is initialized successfully; otherwise, false.
 ## virtual int shutdown ( )
 
 Engine calls this function on editor shutdown. Similar to the editor script's *shutdown()* function.
 ### Return value
 
-**1** if the editor shutdown is performed successfully; otherwise, **0**.
+true if the editor shutdown is performed successfully; otherwise, false.
 ## virtual int update ( )
 
 Engine calls this function before updating each render frame when editor is loaded. Similar to the editor script's *update()* function.
 ### Return value
 
-**1** if there were no errors during the editor update; otherwise, **0**.
+true if there were no errors during the editor update; otherwise, false.
 ## virtual int postUpdate ( )
 
 Engine calls this function after updating each render frame when editor is loaded. Similar to the editor script's *postUpdate()* function.
 ### Return value
 
-**1** if there were no errors during the editor post update; otherwise, **0**.
+true if there were no errors during the editor post update; otherwise, false.
 ## virtual int render ( const EngineWindowViewportPtr& window )
 
 Engine calls this function before rendering each render frame for the specified Engine window, when editor is loaded. Similar to the editor script's *render()* function.
@@ -48,31 +46,34 @@ Engine calls this function before rendering each render frame for the specified 
 
 ### Return value
 
-**1** if there were no errors during the editor rendering; otherwise, **0**.
+true if there were no errors during the editor rendering; otherwise, false.
 ## virtual int worldInit ( )
 
 Engine calls this function on world initialization when editor is loaded. This function is similar to the editor script's *worldInit()* function.
 ### Return value
 
-**1** if there were no errors during the world initialization; otherwise, **0**.
+true if there were no errors during the world initialization; otherwise, false.
 ## virtual int worldShutdown ( )
 
 Engine calls this function on world shutdown when editor is loaded. Similar to the editor script's *worldShutdown()* function.
 ### Return value
 
-**1** if there were no errors during the world shutdown; otherwise, **0**.
+true if there were no errors during the world shutdown; otherwise, false.
 ## virtual int worldSave ( )
 
 Engine calls this function on world save when editor is loaded. Similar to the editor script's *worldSave()* function.
 ### Return value
 
-**1** if there were no errors during the world saving; otherwise, **0**.
+true if there were no errors during the world saving; otherwise, false.
 ## virtual void clear ( )
 
 A callback on world reloading and clearing nodes list.
 ## virtual void nodeReparented ( const Node Ptr & node )
 
+
 Callback called on node reparenting.
+
+
 ```cpp
 void nodeReparented(conat NodePtr &node) override {
 	if(node->getName() == "my_node") {
@@ -89,7 +90,10 @@ void nodeReparented(conat NodePtr &node) override {
 
 ## virtual void nodeReordered ( const Node Ptr & node )
 
+
 Callback called on node reordering.
+
+
 ```cpp
 void nodeReordered(const NodePtr &node) override {
 	if(node->getName() == "my_node") {
@@ -106,7 +110,10 @@ void nodeReordered(const NodePtr &node) override {
 
 ## virtual void nodeRenamed ( const Node Ptr & node , const char * old_name )
 
+
 Callback called on node renaming.
+
+
 ```cpp
 void nodeRenamed(const NodePtr &node, const char *old_name) override {
 	if (old_name == "my_node") {
@@ -125,7 +132,10 @@ void nodeRenamed(const NodePtr &node, const char *old_name) override {
 
 ## virtual void nodeShowInEditorChanged ( const Node Ptr & node )
 
+
 Callback called on changing displaying in world hierarchy option for a node.
+
+
 ```cpp
 void nodeShowInEditorChanged(const NodePtr &node) override {
 	if(node->getName() == "my_node") {
@@ -172,7 +182,10 @@ Callback called on changing material's parent.
 
 ## virtual void propertyAdded ( const UGUID & guid )
 
+
 Callback called on adding a property.
+
+
 > **Notice:** Callbacks are triggered for all properties, including [hidden](../../../../code/formats/property_format.md#property_hidden) ones.
 
 ### Arguments
@@ -181,7 +194,10 @@ Callback called on adding a property.
 
 ## virtual void propertyRemoved ( const UGUID & guid )
 
+
 Callback called on removing a property.
+
+
 > **Notice:** Callbacks are triggered for all properties, including [hidden](../../../../code/formats/property_format.md#property_hidden) ones.
 
 ### Arguments
@@ -199,7 +215,10 @@ Callback called on moving a property.
 
 ## virtual void propertyChanged ( const UGUID & guid )
 
+
 Callback called on changing a property.
+
+
 > **Notice:** Callbacks are triggered for all properties, including [hidden](../../../../code/formats/property_format.md#property_hidden) ones.
 
 ### Arguments
@@ -208,7 +227,10 @@ Callback called on changing a property.
 
 ## virtual void propertyReparented ( const UGUID & guid , const UGUID & old_parent , const UGUID & new_parent )
 
+
 Callback called on changing property's parent.
+
+
 > **Notice:** Callbacks are triggered for all properties, including [hidden](../../../../code/formats/property_format.md#property_hidden) ones.
 
 ### Arguments
@@ -219,7 +241,10 @@ Callback called on changing property's parent.
 
 ## virtual void propertyReplaced ( const UGUID & guid , const UGUID & new_guid )
 
+
 Callback called on replacing a property with another one.
+
+
 > **Notice:** Callbacks are triggered for all properties, including [hidden](../../../../code/formats/property_format.md#property_hidden) ones.
 
 ### Arguments

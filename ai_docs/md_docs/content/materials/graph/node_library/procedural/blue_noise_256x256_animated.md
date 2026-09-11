@@ -5,4 +5,4 @@
 
 ### Description
 
-This node generates animated blue noise based on input coords using a 256×256 blue noise array.
+This node generates animated blue noise based on input coords using a 256�256 blue noise array.

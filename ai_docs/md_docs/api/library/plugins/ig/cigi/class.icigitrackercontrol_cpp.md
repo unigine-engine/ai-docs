@@ -31,7 +31,7 @@ Returns the value of the **Tracker Enable** parameter specified in the packet.
 **Tracker Enable** parameter value: 1 if the tracking device is enabled; otherwise, 0.
 ## int getBoresightEnabled ( ) const
 
-Returns the value of the **Boresight Enable** parameter specified in the packet. The boresight enable mode is used to reestablish the tracker’s “center” position at the current position and orientation.
+Returns the value of the **Boresight Enable** parameter specified in the packet. The boresight enable mode is used to reestablish the tracker�s �center� position at the current position and orientation.
 ### Return value
 
 **Boresight Enable** parameter value: 1 if the boresight state of the tracking device is enabled; otherwise, 0.

@@ -98,7 +98,7 @@ If you launch the application, you get the following particle system:
 For image consistency in multi-channel rendering use cases, Particle Systems can have more deterministic behavior, i.e. when a particle is spawned on one PC, it can travel to another screen seamlessly.
 
 
-To synchronize the particle systems across several applications, it is required to define which application is the Master one — it will count all particles and provide all related info via the network to Slaves — applications that only receive data and reproduce them.
+To synchronize the particle systems across several applications, it is required to define which application is the Master one � it will count all particles and provide all related info via the network to Slaves � applications that only receive data and reproduce them.
 
 
 ```csharp
@@ -189,22 +189,28 @@ The exact bounding box of the particle system.
 The estimated bounding box considering the changes of the particle system (velocity, length, etc.).
 ## 🔒︎ vec3 WorldOffset
 
-The current world offset of the local origin of coordinates of the particle system. the offset of the origin of coordinates is changed depending on the position of the particle system so that the particles are simulated near their emitter.
+The world offset of the local origin of coordinates of the particle system. the offset of the origin of coordinates is changed depending on the position of the particle system so that the particles are simulated near their emitter.
 ## 🔒︎ int NumContacts
 
 The total number of particles collisions with other objects.
 ## vec3 EmitterVelocity
 
-The current emitter velocity, which is added to the initial velocity of spawned particles. if the value equals 0, the actual velocity of emitter node will be used.
+The emitter velocity, which is added to the [initial velocity](#getVelocityOverTimeModifier_ParticleModifierScalar) of spawned particles. if the value equals 0, the actual velocity of emitter node will be used.
 ## vec3 EmitterSize
 
-The current emitter size.
+The emitter size. Depending on the type of the emitter, this value is interpreted as follows:
+- [EMITTER_POINT](#EMITTER_POINT), [EMITTER_SPARK](#EMITTER_SPARK), [EMITTER_RANDOM](#EMITTER_RANDOM): all vector components are ignored.
+- [EMITTER_SPHERE](#EMITTER_SPHERE): the first vector component is the radius of the sphere.
+- [EMITTER_CYLINDER](#EMITTER_CYLINDER): the first vector component is the radius of the cylinder, the second vector component is the height of the cylinder.
+- [EMITTER_BOX](#EMITTER_BOX): all vector components are interpreted as box dimensions (*x*, *y*, *z*).
+
+ If negative values are provided, 0 will be used instead of them.
 ## int EmitterSync
 
 The value indicating if a particle system emitter is synchronized to a parent particle system.
 ## int EmitterSequence
 
-The current rendering order of the particle system inside the particles hierarchy.
+The rendering order of the particle system inside the particles hierarchy. Particle systems with the lowest order number are rendered first.
 ## bool EmitterContinuous
 
 The value indicating if additional spawn points are generated when the emitter is moved, which provides a continuous flow of particles.
@@ -219,55 +225,58 @@ The value indicating if particles follow emitter transformations, i.e. the direc
 The value indicating if particle emission is enabled.
 ## int ProceduralParenting
 
-The current type of relationship between the particle system and a [decal](../../../api/library/decals/class.decalortho_cs.md) / [field](../../../api/library/fields/class.fieldheight_cs.md) node that uses the procedural texture.
+The type of relationship between the particle system and a [decal](../../../api/library/decals/class.decalortho_cs.md) / [field](../../../api/library/fields/class.fieldheight_cs.md) node that uses the procedural texture.
 > **Notice:** [Procedural rendering](#setProceduralRendering_int_void) must be enabled.
-
 
 ## int ProceduralPositioning
 
-The value indicating the procedural position mode.
-> **Notice:** [Procedural rendering](#setProceduralRendering_int_void) must be enabled.
+The value indicating the procedural position mode. Can be one of the following:
+- PROCEDURAL_POSITIONING_MANUAL = 0 - position of a child decal/field node, that uses the procedural texture, can be changed manually.
+- PROCEDURAL_POSITIONING_AUTO = 1 - position of a child decal/field node, that uses the procedural texture, is automatically defined by the position of particle system and cannot be changed manually.
 
+
+> **Notice:** - Positioning mode can be set only when the particle system is a parent of a decal/field node that uses the procedural texture ([parenting mode](#setProceduralParenting_int_void) is set to 0).
+> - [Procedural rendering](#setProceduralRendering_int_void) must be enabled.
 
 ## bool ProceduralRendering
 
-The value indicating if the procedural rendering enabled or not. this feature enables rendering of particles into an orthographic decal or a field height, and can be used, for example, to create ship wake waves.
+The value indicating if the procedural rendering enabled or not. this feature enables rendering of particles into an [orthographic decal](../../../api/library/decals/class.decalortho_cs.md) or a [field height](../../../api/library/fields/class.fieldheight_cs.md), and can be used, for example, to create ship wake waves.
 ## int EmitterType
 
-The type of the emitter.
+The [type](../../../objects/effects/particles/index.md#emitter_shape) of the emitter. One of the [OBJECT_PARTICLES_EMITTER_*](#EMITTER_BOX) variables.
 ## float Roughness
 
-The current roughness of the particle surface.
+The roughness of the particle surface.
 ## float Restitution
 
-The current restitution value for particles.
+The restitution value for particles. The provided value will be saturated in the range **[0; 1]**.
 ## float PhysicalMass
 
-The current mass of the particles. this value matters only for computing physical interactions.
+The mass of the particles. this value matters only for computing physical interactions.
 ## int PhysicalMask
 
-The bit mask for interactions with physicals. two objects interact, if they both have matching masks.
+The bit mask for interactions with [physicals](../../../api/library/physics/class.physical_cs.md). two objects interact, if they both have matching masks.
 ## 🔒︎ int NumParticles
 
-The current number of particles.
+The number of particles.
 ## float SpawnThreshold
 
-The current velocity threshold for spark and random emitters. they spawn particles if velocity of the parent particles is high enough.
+The velocity threshold for spark and random emitters. they spawn particles if velocity of the parent particles is high enough.
 ## float SpawnScale
 
-The current spawn scale that enables to modulate smooth and gradual initialization of the particle system starting with the given spawn state and up to the specified spawn rate.
+The spawn scale that enables to modulate smooth and gradual initialization of the particle system starting with the given spawn state and up to the specified spawn rate. The provided value is clipped to range **[0;1]**. By the value of 0, there are no spawned particles at the start. By the value of 1, the system is initialized with the specified spawn rate.
 ## float SpawnRate
 
-The current particle spawn rate.
+The particle spawn rate.
 ## ivec2 TextureAtlasSize
 
 The **NxN** size of the texture atlas for the particles.
 ## int NumberPerSpawn
 
-The current number of particles to be spawned simultaneously each time according to the [spawn rate](#setSpawnRate_float_void).
+The number of particles to be spawned simultaneously each time according to the [spawn rate](#setSpawnRate_float_void).
 ## bool ClearOnEnable
 
-The value indicating if particle system is to be re-initialized each time it is enabled.
+The value indicating if particle system is to be re-initialized each time it is enabled. When this option is disabled, turning on the particle system will restore the state it had before it was turned off.
 ## int Culling
 
 The value indicating if particles would disappear upon collision or intersection.
@@ -303,61 +312,61 @@ The Max time value for particles simulation during the warming, in seconds.
 The value indicating if the warm start is enabled for the particles. it means that the particle system starts to be rendered with already emitted particles, rather then from a zero point.
 ## int ParticlesType
 
-The type of emitted particles.
+The type of emitted particles. One of the [OBJECT_PARTICLES_TYPE_*](#TYPE_BILLBOARD) variables.
 ## uint Seed
 
 The seed value used for the particles' random generator.
 ## ObjectParticles.SYNC_MODE SyncMode
 
-The synchronization mode used for the particle system.
+The synchronization mode used for the particle system. One of the [SYNC_MODE](#SYNC_MODE) values.
 ## float UpdateDistanceLimit
 
-The distance from the camera within which the object should be updated.
+The distance from the camera within which the object should be updated. The default value is 1000 units.
 ## int FPSInvisible
 
-The update rate value when the object is not rendered at all.
+The update rate value when the object is not rendered at all. The default value is 0 fps.
 ## int FPSVisibleShadow
 
-The update rate value when only object shadows are rendered.
+The update rate value when only object shadows are rendered. The default value is 30 fps.
 ## int FPSVisibleCamera
 
-The update rate value when the object is rendered to the viewport.
+The update rate value when the object is rendered to the viewport. The default value is infinity.
 ## 🔒︎ ParticleModifierScalar LinearDampingOverTimeModifier
 
-The current linear damping of particles.
+The linear damping of particles.
 ## 🔒︎ ParticleModifierVector PositionOverTimeModifier
 
-The Modifier, that controls position of particles.
+The modifier that controls position of particles.
 ## 🔒︎ ParticleModifierVector DirectionOverTimeModifier
 
-The Modifier, that controls direction of emission of particles.
+The modifier that controls [direction](../../../objects/effects/particles/index.md#direction) of emission of particles.
 ## 🔒︎ ParticleModifierScalar VelocityOverTimeModifier
 
-The Modifier, that controls linear velocity of particles.
+The modifier that controls linear [velocity](../../../objects/effects/particles/index.md#velocity) of particles.
 ## 🔒︎ ParticleModifierScalar LengthFlatteningOverTimeModifier
 
-The Modifier, that controls flattening of Length particles.
+The modifier that controls [flattening](../../../objects/effects/particles/index.md#length_flattening) of Length particles.
 ## 🔒︎ ParticleModifierScalar LengthStretchOverTimeModifier
 
-The Modifier, that controls stretching of Length particles.
+The modifier that controls [stretching](../../../objects/effects/particles/index.md#length_stretch) of Length particles.
 ## 🔒︎ ParticleModifierScalar GrowthOverTimeModifier
 
-The Modifier, that controls particle growth.
+The modifier that controls particle [growth](../../../objects/effects/particles/index.md#increase_in_radius).
 ## 🔒︎ ParticleModifierScalar RadiusOverTimeModifier
 
-The Modifier, that controls particle radius values.
+The modifier that controls [particle radius](../../../objects/effects/particles/index.md#radius) values.
 ## 🔒︎ ParticleModifierScalar RotationOverTimeModifier
 
-The Modifier, that controls particle angular velocity values.
+The modifier that controls [particle angular velocity](../../../objects/effects/particles/index.md#angle) values.
 ## 🔒︎ ParticleModifierScalar AngleOverTimeModifier
 
-The Modifier, that controls orientation angle values.
+The modifier that controls [orientation angle](../../../objects/effects/particles/index.md#angle) values.
 ## int EmitterLimitPerSpawn
 
-The Current number of particles emitted per spawn.
+The [number of particles](../../../objects/effects/particles/index.md#number_per_spawn) emitted per spawn.
 ## 🔒︎ ParticleModifierVector GravityOverTimeModifier
 
-The Modifier, that controls gravity of particles.
+The modifier that controls gravity of particles.
 ## int ParticlesFieldMask
 
 The bit mask enabling you to control interactions with *[Particles Fields](../../../api/library/objects/class.particlesfield_cs.md)*. A *Particles Field* will interact with particles generated by a Particles System if they both have matching *Particles Field* masks (one bit at least).
@@ -382,7 +391,7 @@ The screen size mode for particles. This mode defines whether the maximum and mi
 - **[WIDTH](#SCREEN_SIZE_MODE_WIDTH)** - minimum and maximum sizes of particles on the screen are limited relative to screen width.
 - **[HEIGHT](#SCREEN_SIZE_MODE_HEIGHT)** - minimum and maximum sizes of particles on the screen are limited relative to screen height.
 
-
+. One of the *[SCREEN_SIZE_MODE](#SCREEN_SIZE_MODE)* values.
 ### Members
 
 ---

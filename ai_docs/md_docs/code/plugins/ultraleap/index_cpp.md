@@ -13,7 +13,7 @@
 The *Ultraleap* system recognizes and tracks hands and fingers. The device operates in an intimate proximity with high precision and tracking frame rate and reports discrete positions and motion.
 
 
-The *Ultraleap* controller uses optical sensors and infrared light. The sensors are directed along the Y axis — upward when the controller is in its standard operating position — and have a field of view of about 150 degrees. The effective range of the *Ultraleap* Controller extends from approximately 25 to 600 millimeters above the device (1 inch to 2 feet).
+The *Ultraleap* controller uses optical sensors and infrared light. The sensors are directed along the Y axis � upward when the controller is in its standard operating position � and have a field of view of about 150 degrees. The effective range of the *Ultraleap* Controller extends from approximately 25 to 600 millimeters above the device (1 inch to 2 feet).
 
 
 ![](leap_view.jpg)
@@ -102,10 +102,10 @@ Bones are represented by the *[Bone](../../../api/library/plugins/ultraleap/clas
 The bones are identified as:
 
 
-- **Metacarpal** — the bone inside the palm connecting the finger to the wrist (except the thumb).
-- **Proximal Phalanx** — the bone at the base of the finger, connected to the palm.
-- **Intermediate Phalanx** — the middle bone of the finger, between the tip and the base.
-- **Distal Phalanx** — the terminal bone at the end of the finger.
+- **Metacarpal** � the bone inside the palm connecting the finger to the wrist (except the thumb).
+- **Proximal Phalanx** � the bone at the base of the finger, connected to the palm.
+- **Intermediate Phalanx** � the middle bone of the finger, between the tip and the base.
+- **Distal Phalanx** � the terminal bone at the end of the finger.
 
 
 > **Notice:** Such model for the thumb does not quite match the standard anatomical naming system. A real thumb has one less bone than the other fingers. However, for ease of programming, the *Ultraleap* thumb model includes a zero-length metacarpal bone so that the thumb has the same number of bones at the same indexes as the other fingers. As a result the thumb's anatomical metacarpal bone is labeled as a proximal phalanx and the anatomical proximal phalanx is labeled as the intermediate phalanx in the *Ultraleap* finger bone model.
@@ -132,7 +132,7 @@ To use the *Ultraleap* plugin in your UNIGINE application, perform the following
 
 
 1. Download the *[Ultraleap SDK](https://www.leapmotion.com/setup/desktop/windows)* and install *Ultraleap* device drivers.
-2. Create a new project with *Ultraleap* support via UNIGINE SDK Browser: click *Plugins*, check the *Ultraleap support (Ultraleap plugin)* option in the form that opens and click **OK**. > **Notice:** To add *Ultraleap* support to the existing project, in UNIGINE SDK Browser, click *Other Actions -> [Configure Project](../../../sdk/projects/index_cpp.md#update_config) -> Plugins -> Ultraleap support (Ultraleap plugin) -> OK*.
+2. To **add the plugin to a new project**, start by [creating a project](../../../sdk/projects/index_cpp.md#creation) from a template. In the project creation dialog, open *Advanced Settings > Plugins*, enable the *Ultraleap* plugin, click *Add*, then select *Create New Project*. ![](add_plugin.png) For **existing projects**, in the SDK Browser, open the *My Projects* tab, and click the three-dot menu on the project card. Select *Configure*, then click *Plugins*, enable the required plugin, click *Add*, and finish with *Configure Project*. ![](../../../sdk/projects/other_actions.png)
 3. Implement your application.
 4. [Launch](#launch) the *Ultraleap* plugin on the application start-up.
 

@@ -8,8 +8,6 @@ This class is used to address the [component parameters](../../../../../../api/l
 
 ## ComponentVariable Class
 
-### Members
-
 ---
 
 ## const PropertyParameter Ptr & getParameter ( ) const

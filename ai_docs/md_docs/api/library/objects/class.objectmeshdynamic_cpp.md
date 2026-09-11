@@ -154,7 +154,7 @@ Returns the current value indicating if the mesh used by the object is unique (d
 Returns the current value indicating if the dynamic mesh object has the [USAGE_MISC_SHARED](#USAGE_MISC_SHARED) flag enabled.
 ### Return value
 
-**true** if the [USAGE_MISC_SHARED](#USAGE_MISC_SHARED) flag for the dynamic mesh object is enabled; otherwise **false**.
+**true** if the dynamic mesh object has the [USAGE_MISC_SHARED](#USAGE_MISC_SHARED) flag enabled; otherwise **false**.
 ---
 
 ## static ObjectMeshDynamicPtr create ( const Ptr < Mesh > & mesh , int flags = 0 )

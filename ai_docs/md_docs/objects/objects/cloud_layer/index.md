@@ -114,7 +114,7 @@ A layer of clouds will be added to the scene and you will be able to adjust it v
 ## Adjusting a Cloud Layer
 
 
-Cloud layers have a realistic look with the default settings, so you might not need to tweak them at all. However, if necessary, you don’t need to be a shader guru to adjust the available parameters (type, coverage, wind, etc.) to achieve the desired look of clouds in your project.
+Cloud layers have a realistic look with the default settings, so you might not need to tweak them at all. However, if necessary, you don�t need to be a shader guru to adjust the available parameters (type, coverage, wind, etc.) to achieve the desired look of clouds in your project.
 
 
 You can control your clouds via:

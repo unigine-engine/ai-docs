@@ -40,12 +40,15 @@ Returns the current  [set of usage flags](#USAGE_DYNAMIC_VERTEX) (*USAGE_DYNAMIC
 Current usage flags for vertex and index memory behavior.
 ## bool isSupportedMultiThreadedLoad () const
 
-Returns the current support status for multi-threaded mesh loading. This feature is considered supported if the [GPU Upload heap](../../../code/console/index.md#d3d12_gpu_upload_heap) is available or *[USAGE_DYNAMIC_ALL](#USAGE_DYNAMIC_ALL)* is enabled.
+Returns the current support status for multi-threaded mesh loading.
+This feature is considered supported if the [GPU Upload heap](../../../code/console/index.md#d3d12_gpu_upload_heap) is available or *[USAGE_DYNAMIC_ALL](#USAGE_DYNAMIC_ALL)* is enabled.
+
+
 > **Notice:** This feature is supported for **DirectX 12** only.
 
 ### Return value
 
-**true** if multi-threaded loading is enabled; otherwise **false**.
+**true** if multi-threaded loading is enabled ; otherwise **false**.
 ---
 
 ## static MeshRenderPtr create ( )

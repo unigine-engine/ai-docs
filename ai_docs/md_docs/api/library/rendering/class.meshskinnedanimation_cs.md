@@ -13,7 +13,7 @@ The animation data consists of:
 - Sync markers - named time positions within the animation used for synchronizing playback between different animations (e.g., matching foot plants across walk and run cycles). Each marker has a name, a time value, and an optional integer ID.
 
 
-Use [getPoseByFrame()](#getPoseByFrame_SkeletonPoseDecomposed_float_int_int) / [getPoseByTime()](#getPoseByTime_SkeletonPoseDecomposed_float_int_int) / [getPoseByNormalizedTime()](#getPoseByNormalizedTime_SkeletonPoseDecomposed_float_int_int) to extract a full pose at a given time, or the updatePose*() variants to update only the animated joints of an existing pose. Use [getMarkerSyncInterval()](#getMarkerSyncInterval_float_int_uint_uint_float_VECuint_int) and [getTimeFromMarkerSyncInterval()](#getTimeFromMarkerSyncInterval_uint_uint_float_float_int_VECuint_float) to synchronize playback positions between animations that share common sync markers.
+Use *[getPoseByFrame()](#getPoseByFrame_SkeletonPoseDecomposed_float_int_int) / [getPoseByTime()](#getPoseByTime_SkeletonPoseDecomposed_float_int_int) / [getPoseByNormalizedTime()](#getPoseByNormalizedTime_SkeletonPoseDecomposed_float_int_int)* to extract a full pose at a given time, or the updatePose*() variants to update only the animated joints of an existing pose. Use *[getMarkerSyncInterval()](#getMarkerSyncInterval_float_int_uint_uint_float_VECuint_int)* and *[getTimeFromMarkerSyncInterval()](#getTimeFromMarkerSyncInterval_uint_uint_float_float_int_VECuint_float)* to synchronize playback positions between animations that share common sync markers.
 
 
 ## MeshSkinnedAnimation Class

@@ -189,14 +189,14 @@ Current engine [window size](#window_structure) in [logical units](../../../prin
 Sets a new size of the window [client (content) area](#window_structure) in [logical units](../../../principles/dpi/index.md).
 ### Arguments
 
-- *ivec2* **size** - The
+- *ivec2* **size** - The size of the window client (content) area in logical units
 
 ## ivec2 getClientSize () const
 
 Returns the current size of the window [client (content) area](#window_structure) in [logical units](../../../principles/dpi/index.md).
 ### Return value
 
-Current
+Current size of the window client (content) area in logical units
 ## void setMinSize ( ivec2 size )
 
 Sets a new minimum possible window size in [logical units](../../../principles/dpi/index.md) when resizing the window. If the value is more than the current maximum size, use the [setMinAndMaxSize()](#setMinAndMaxSize_ivec2_ivec2_void) method, to change both values at once. Otherwise the value will be clamped to the current maximum size.
@@ -315,7 +315,7 @@ Sets a new value indicating if the engine window is resizable by the mouse.
 
 ### Arguments
 
-- *int* **resizable** - The the option of making the engine window resizable by the mouse
+- *int* **resizable** - The resizing of the engine window with the mouse
 
 ## int isResizable () const
 
@@ -325,7 +325,7 @@ Returns the current value indicating if the engine window is resizable by the mo
 
 ### Return value
 
-Current the option of making the engine window resizable by the mouse
+Current resizing of the engine window with the mouse
 ## int isShown () const
 
 Returns the current value indicating if the engine window is rendered.
@@ -446,7 +446,7 @@ Sets a new value indicating if closing the window using the OS methods is ignore
 Returns the current value indicating if closing the window using the OS methods is ignored (*ALT+F4* or cross in the top-right corner of the window).
 ### Return value
 
-**true** if ignoring OS methods for closing the window is enabled; otherwise **false**.
+**true** if ignoring OS methods for closing the window is enabled ; otherwise **false**.
 ## void setHoldEngine ( bool engine )
 
 Sets a new value indicating if the engine operation can't be stopped while this window is open.
@@ -503,7 +503,7 @@ Sets a new value indicating if the engine window can become a group.
 Returns the current value indicating if the engine window can become a group.
 ### Return value
 
-**true** if usage of the engine window as a group is enabled; otherwise **false**.
+**true** if usage of the engine window as a group is enabled ; otherwise **false**.
 ## void setCanBeNested ( bool nested )
 
 Sets a new value indicating if the engine window can be used as a nested window.
@@ -516,7 +516,7 @@ Sets a new value indicating if the engine window can be used as a nested window.
 Returns the current value indicating if the engine window can be used as a nested window.
 ### Return value
 
-**true** if usage of the engine window as a nested window is enabled; otherwise **false**.
+**true** if usage of the engine window as a nested window is enabled ; otherwise **false**.
 ## bool isSystemFocused () const
 
 Returns the current value indicating if the engine window is currently in focus.
@@ -549,7 +549,7 @@ Returns the current [size of the border](#window_examples) in the widget that is
 Current size of the border in the widget that is manipulated to resize the window, in pixels.
 ## void setEngineStyle ( bool style )
 
-Sets a new value indicating if the engine style or the default system style is set for the engine window.
+Sets a new value indicating if the [engine style](#window_examples) or the default system style is set for the engine window.
 > **Notice:** This method should be applied to a separate or parent window, using this method for a nested window is not allowed (it will return true).
 
 
@@ -559,16 +559,16 @@ Sets a new value indicating if the engine style or the default system style is s
 
 ## bool isEngineStyle () const
 
-Returns the current value indicating if the engine style or the default system style is set for the engine window.
+Returns the current value indicating if the [engine style](#window_examples) or the default system style is set for the engine window.
 > **Notice:** This method should be applied to a separate or parent window, using this method for a nested window is not allowed (it will return true).
 
 
 ### Return value
 
-**true** if the engine style for the engine window is enabled; otherwise **false**.
+**true** if the engine style for the engine window is enabled ; otherwise **false**.
 ## void setSystemStyle ( bool style )
 
-Sets a new value indicating if the default system style or the engine style is set for the engine window.
+Sets a new value indicating if the default [system style](#window_examples) or the engine style is set for the engine window.
 > **Notice:** This method should be applied to a separate or parent window, using this method for a nested window is not allowed (it will return true).
 
 
@@ -578,13 +578,13 @@ Sets a new value indicating if the default system style or the engine style is s
 
 ## bool isSystemStyle () const
 
-Returns the current value indicating if the default system style or the engine style is set for the engine window.
+Returns the current value indicating if the default [system style](#window_examples) or the engine style is set for the engine window.
 > **Notice:** This method should be applied to a separate or parent window, using this method for a nested window is not allowed (it will return true).
 
 
 ### Return value
 
-**true** if the default system style for the engine window is enabled; otherwise **false**.
+**true** if the default system style for the engine window is enabled ; otherwise **false**.
 ## void setTitleBarHeight ( int height )
 
 Sets a new height of the window title bar.
@@ -626,7 +626,7 @@ Returns the current value indicating if the title bar is enabled for the engine 
 
 ### Return value
 
-**true** if the title bar for the engine window is enabled; otherwise **false**.
+**true** if the title bar for the engine window is enabled ; otherwise **false**.
 ## const char * getTypeName () const
 
 Returns the current name of the engine window type as a string.
@@ -691,7 +691,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventStack () const
 
 The event handler signature is as follows: *myhandler()*
@@ -708,7 +708,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventUnstackMove () const
 
 The event handler signature is as follows: *myhandler()*
@@ -725,7 +725,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventItemDrop () const
 
 The event handler signature is as follows: *myhandler()*
@@ -742,7 +742,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventClose () const
 
 The event handler signature is as follows: *myhandler()*
@@ -759,7 +759,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventRestored () const
 
 The event handler signature is as follows: *myhandler()*
@@ -776,7 +776,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventMaximized () const
 
 The event handler signature is as follows: *myhandler()*
@@ -793,7 +793,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventMinimized () const
 
 The event handler signature is as follows: *myhandler()*
@@ -810,7 +810,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventHidden () const
 
 The event handler signature is as follows: *myhandler()*
@@ -827,7 +827,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventShown () const
 
 The event handler signature is as follows: *myhandler()*
@@ -844,7 +844,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventMouseLeave () const
 
 The event handler signature is as follows: *myhandler()*
@@ -861,7 +861,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventMouseEnter () const
 
 The event handler signature is as follows: *myhandler()*
@@ -878,7 +878,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventUnfocused () const
 
 The event handler signature is as follows: *myhandler()*
@@ -895,7 +895,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventFocused () const
 
 The event handler signature is as follows: *myhandler()*
@@ -912,7 +912,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventResized () const
 
 The event handler signature is as follows: *myhandler()*
@@ -929,7 +929,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventMoved () const
 
 The event handler signature is as follows: *myhandler()*
@@ -946,7 +946,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventFuncSwap () const
 
 The event handler signature is as follows: *myhandler()*
@@ -963,7 +963,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventFuncEndRender () const
 
 The event handler signature is as follows: *myhandler()*
@@ -980,7 +980,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventFuncEndRenderGui () const
 
 The event handler signature is as follows: *myhandler()*
@@ -997,7 +997,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventFuncBeginRenderGui () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1014,7 +1014,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventFuncRender () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1031,7 +1031,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventFuncBeginRender () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1048,7 +1048,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventFuncUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1065,7 +1065,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventWindowEvent () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1082,7 +1082,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## void moveToCenter ( )
@@ -1202,7 +1202,7 @@ Returns the value specifying if the current window is a part of a hierarchy of t
 **1** if the current window is globally a child of the specified one, otherwise **0**.
 ## void updateGuiHierarchy ( )
 
-Updates the hierarchy for all widgets — the widgets are arranged, expanded to the required sizes and then their positions are updated. Updating the hierarchy may be required, for example, for getting the screen position immediately after the widget has been added to the hierarchy. For a separate window, the hierarchy in [self gui](#getSelfGui_Gui) is updated; for a nested window, the hierarchy in [self gui](#getSelfGui_Gui) of the global parent group is updated.
+Updates the hierarchy for all widgets � the widgets are arranged, expanded to the required sizes and then their positions are updated. Updating the hierarchy may be required, for example, for getting the screen position immediately after the widget has been added to the hierarchy. For a separate window, the hierarchy in [self gui](#getSelfGui_Gui) is updated; for a nested window, the hierarchy in [self gui](#getSelfGui_Gui) of the global parent group is updated.
 ## string getDroppedItem ( int index )
 
 Returns the absolute path to the file or folder dropped to the window.

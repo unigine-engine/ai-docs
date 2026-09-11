@@ -61,9 +61,9 @@ private void Init()
 
 By default each new widget's lifetime matches the lifetime of the **[Engine](#LIFETIME_ENGINE)** (i.e. the widget shall be deleted on Engine shutdown). But you can choose widget's lifetime to be managed:
 
-- By a separate **[window](#LIFETIME_WINDOW)** — in this case the widget is deleted automatically on deleting the window.
-- By the **[world](#LIFETIME_WORLD)** — in this case the widget is deleted when the world is closed.
-- **[Manually](#LIFETIME_MANUAL)** — in this case the widget should be deleted manually.
+- By a separate **[window](#LIFETIME_WINDOW)** � in this case the widget is deleted automatically on deleting the window.
+- By the **[world](#LIFETIME_WORLD)** � in this case the widget is deleted when the world is closed.
+- **[Manually](#LIFETIME_MANUAL)** � in this case the widget should be deleted manually.
 
 
 The examples below show how the different lifetime management types work.
@@ -447,7 +447,7 @@ The color of the font used by the widget.
 The size of the font used by the widget.
 ## int MouseCursor
 
-The current mouse pointer.
+The mouse pointer set for the widget.
 ## 🔒︎ int MouseY
 
 The Y coordinate of the mouse pointer position in the widget's local space.
@@ -537,7 +537,7 @@ The value indicating if the widget is expanded.
 The lifetime management type for the root of the widget, or for the widget itself (if it is not a child for another widget).
 > **Notice:** Lifetime of each widget in the hierarchy is defined by its root. Thus, lifetime management type set for a child widget that differs from the one set for the root is ignored.
 
-
+. One of the [LIFETIME_*](#LIFETIME) variables.
 ## 🔒︎ float DpiScale
 
 The DPI scale applied to the widget.
@@ -549,7 +549,7 @@ The widget frame height in pixels.
 The widget frame width in pixels.
 ## 🔒︎ Event< Widget > EventRemove
 
-The event triggered when a widget is removed. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a widget is removed. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -643,7 +643,7 @@ publisher.EventRemove.Enabled = true;
 
 ## 🔒︎ Event< Widget , Widget > EventDragDrop
 
-The event triggered when a drag-and-drop operation is performed with a widget. Supported by all widgets. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a drag-and-drop operation is performed with a widget. Supported by all widgets. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -737,7 +737,7 @@ publisher.EventDragDrop.Enabled = true;
 
 ## 🔒︎ Event< Widget , Widget > EventDragMove
 
-The event triggered when a focused widget is moved. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a focused widget is moved. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -831,7 +831,7 @@ publisher.EventDragMove.Enabled = true;
 
 ## 🔒︎ Event< Widget > EventLeave
 
-The event triggered when the mouse pointer leaves a widget. Supported by all widgets. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when the mouse pointer leaves a widget. Supported by all widgets. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -925,7 +925,7 @@ publisher.EventLeave.Enabled = true;
 
 ## 🔒︎ Event< Widget > EventEnter
 
-The event triggered when the mouse pointer enters a widget. Supported by all widgets. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when the mouse pointer enters a widget. Supported by all widgets. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1024,7 +1024,7 @@ The event triggered when a virtual key is pressed while a widget is in focus. Su
 - [*WidgetEditText*](../../../api/library/gui/class.widgetedittext_cs.md)
 
  **Virtual key** - is a value to which a scan code was converted by an Operating System (e.g., the **Q** scan code will have the **Q** virtual key on a *QWERTY*-keyboard, while on an *AZERTY*-keyboard it will have the **A** virtual key; or **NUMPAD_DIGIT_7** scan code can be translated into virtual **NUMPAD_HOME** or **NUMPAD_DIGIT_7** depending on the current *Num Lock* state. Virtual keys are used, when it is important to know what exactly did user type (not just the physical button, but rather a letter).
- You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+ You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1123,7 +1123,7 @@ The event triggered when a key (by a scan code) is pressed while a widget is in 
 - [*WidgetEditText*](../../../api/library/gui/class.widgetedittext_cs.md)
 
  **Scan code** - is a code assigned to avery key on the keyboard. Keyboard drivers use scan codes to detect which key is pressed. Scan codes are assigned to keys on the hardware level and are not affected by the states of modifiers like *Caps Lock*, *Num Lock*, *Scroll Lock*, *Shift*, *Alt*, and *Ctrl* making it possible to implement identical control on different types of keyboards (*uiQWERTY*, *AZERTY*, *QWERTC*, etc.). Scan codes are used when only a physical position of a key (a button) is important (e.g. in the *ControlsApp* class or Console key).
- You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+ You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1230,7 +1230,7 @@ The event triggered when the mouse is released after clicking somewhere on a wid
 - [*WidgetWindow*](../../../api/library/gui/class.widgetwindow_cs.md)
 - [*EngineWindow*](../../../api/library/gui/class.enginewindow_cs.md) (**mouse_buttons** is always 0)
 
- You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+ You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1373,7 +1373,7 @@ The event triggered when a mouse button or **ENTER** (**RETURN**) is pressed, wh
 - [*WidgetSprite*](../../../api/library/gui/class.widgetsprite_cs.md)
 - [*WidgetWindow*](../../../api/library/gui/class.widgetwindow_cs.md)
 
- You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+ You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1523,7 +1523,7 @@ The event triggered when the mouse is double-clicked somewhere on a widget. Supp
 - [*WidgetVPaned*](../../../api/library/gui/class.widgetvpaned_cs.md)
 - [*WidgetWindow*](../../../api/library/gui/class.widgetwindow_cs.md)
 
- You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+ You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1640,7 +1640,7 @@ The event triggered when the mouse is clicked somewhere on a widget. Supported b
 - [*WidgetTreeBox*](../../../api/library/gui/class.widgettreebox_cs.md)
 - [*WidgetVPaned*](../../../api/library/gui/class.widgetvpaned_cs.md)
 
- You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+ You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1795,7 +1795,7 @@ The event triggered when a widget has changed its state. Supported by the follow
 - [*WidgetTreeBox*](../../../api/library/gui/class.widgettreebox_cs.md)
 - [*WidgetVPaned*](../../../api/library/gui/class.widgetvpaned_cs.md)
 
- You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+ You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1889,7 +1889,7 @@ publisher.EventChanged.Enabled = true;
 
 ## 🔒︎ Event< Widget > EventFocusOut
 
-The event triggered when a widget loses focus. Supported by all widgets. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a widget loses focus. Supported by all widgets. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -1983,7 +1983,7 @@ publisher.EventFocusOut.Enabled = true;
 
 ## 🔒︎ Event< Widget > EventFocusIn
 
-The event triggered when a widget is focused. Supported by all widgets. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a widget is focused. Supported by all widgets. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -2077,7 +2077,7 @@ publisher.EventFocusIn.Enabled = true;
 
 ## 🔒︎ Event< Widget > EventHide
 
-The event triggered when a widget is removed using [*Gui::removeChild()*](../../../api/library/gui/class.gui_cs.md#removeChild_Widget_void). Supported by all widgets. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a widget is removed using [*Gui::removeChild()*](../../../api/library/gui/class.gui_cs.md#removeChild_Widget_void). Supported by all widgets. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -2171,7 +2171,7 @@ publisher.EventHide.Enabled = true;
 
 ## 🔒︎ Event< Widget > EventShow
 
-The event triggered when a widget is shown. Supported by all widgets. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a widget is shown. Supported by all widgets. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -2263,6 +2263,9 @@ publisher.EventShow.Enabled = true;
 
 </details>
 
+## Gui.TextDirection TextDirection
+
+The base paragraph direction for this widget's text, one of the *Gui::TEXT_DIRECTION_** values. With *TEXT_DIRECTION_AUTO* (default) the direction is inherited from the **[GlobalTextDirection](../../../api/library/gui/class.gui_cs.md#getGlobalTextDirection_int)** property of the GUI, and if that is also set to auto, it is detected from the text content.
 ### Members
 
 ---
@@ -2352,7 +2355,7 @@ Sets a tooltip for the widget.
 ### Arguments
 
 - *string* **str** - Tooltip text.
-- *int* **reset** - **1** to recalculate a tooltip location if the mouse cursor was relocated; otherwise — **0**(by default).
+- *int* **reset** - **1** to recalculate a tooltip location if the mouse cursor was relocated; otherwise � **0**(by default).
 
 ## string GetToolTip ( )
 

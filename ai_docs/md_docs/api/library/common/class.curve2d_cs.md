@@ -34,7 +34,7 @@ The repeat mode for the beginning of the curve (defines behavior before the firs
 The repeat mode for the end of the curve (defines behavior after the last key point), one of the [*REPEAT_MODE_**](#REPEAT_MODE) values. This mode shall be used for repeating the sequence defined by the key points of the curve (tiling curves).
 ## 🔒︎ Event EventChanged
 
-The event triggered when the curve is changed. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when the curve is changed. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -249,8 +249,11 @@ Returns the current coordinates for the right tangent at the specified key point
 Current coordinates of the right tangent at the specified key point.
 ## bool SaveState ( Stream stream )
 
+
 Saves data of the curve to a binary stream.
-**Example** using saveState() and [restoreState()](#restoreState_Stream_int) methods:
+
+
+**Example** using *saveState()* and *[restoreState()](#restoreState_Stream_int)* methods:
 
 
 ```csharp
@@ -283,8 +286,11 @@ curve.RestoreState(blob_state);
 true if the curve data is saved successfully; otherwise, false.
 ## bool RestoreState ( Stream stream )
 
+
 Restores curve data from a binary stream.
-**Example** using [saveState()](#saveState_Stream_int) and restoreState() methods:
+
+
+**Example** using *[saveState()](#saveState_Stream_int)* and *restoreState()* methods:
 
 
 ```csharp

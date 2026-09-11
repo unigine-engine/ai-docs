@@ -13,7 +13,7 @@ The camera can be moved freely in the scene or relative to a target. In terms of
 Whether the target is set or not, you can freely navigate in the scene: [move](#move_camera) the camera, [change direction](#rotate) of the camera (horizontally and vertically), [track](#track) the camera or [zoom](#zoom_cam) it in and out.
 
 
-If the camera is [focused](#set_focus) on a node (in other words — positioned relative to the target), you can also [orbit](#orbit) the camera about the target and [zoom](#dolly) it towards or away from the target by using the dolly zoom.
+If the camera is [focused](#set_focus) on a node (in other words � positioned relative to the target), you can also [orbit](#orbit) the camera about the target and [zoom](#dolly) it towards or away from the target by using the dolly zoom.
 
 
 In addition to the commonly used terms (for example, Move left, Move up and so on), the following terms are used in UnigineEditor:

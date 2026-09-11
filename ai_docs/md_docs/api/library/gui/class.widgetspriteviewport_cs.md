@@ -22,10 +22,17 @@ This class is used to create virtual monitors that display data from arbitrary c
 
 ## float IFps
 
-The constant frame duration used to render WidgetSpriteViewport viewport.
+The constant frame duration used to render the sprite viewport, in seconds (*1/FPS*). If a too small value is provided, **1E-6** will be used instead. It can be used to decrease the frame rate to get higher performance (for example, if the widget is used to create a TV set, lowered frame rate makes no visual difference, but allows for faster rendering of the scene).
 ## int SkipFlags
 
-The [skip flag](../../../api/library/rendering/class.viewport_cs.md#SKIP_SHADOWS) set for the current viewport.
+The [skip flag](../../../api/library/rendering/class.viewport_cs.md#SKIP_SHADOWS) set for the current viewport. Available flags:
+- SKIP_SHADOWS
+- SKIP_VISUALIZER
+- SKIP_POSTEFFECTS
+- SKIP_DYNAMIC_REFLECTIONS
+- SKIP_VELOCITY_BUFFER
+- SKIP_SRGB
+
 ## mat4 Modelview
 
 The model-view matrix of the associated camera.
@@ -34,22 +41,22 @@ The model-view matrix of the associated camera.
 The projection matrix of the associated camera.
 ## int ReflectionViewportMask
 
-The bit mask for rendering reflections into the viewport. Reflections are rendered in the sprite viewport if masks of reflective materials match this one (one bit at least).
+The bit mask for rendering reflections into the viewport. Reflections are rendered in the sprite viewport if masks of reflective surfaces match this one.
 ## int ViewportMask
 
 The bit mask for rendering into the viewport. Nodes are rendered in the sprite viewport if their masks match this one.
 ## int TextureHeight
 
-The height of the texture buffer used for a widget that affects the widget size.
+The height of the texture buffer used for the widget. This affects the widget size accordingly.
 ## int TextureWidth
 
-The width of the texture buffer used for a widget that affects the widget size.
+The width of the texture buffer used for the widget.
 ## bool AspectCorrection
 
-The value indicating if the aspect correction enabled for WidgetSpriteViewport.
+The value indicating if aspect correction is enabled for the sprite viewport.
 ## bool UseTAAOffset
 
-The value indicating if skipping render mode check is enabled for using TAA. Can be used to ensure proper TAA calculation when rendering mode for the *Viewport* is set to [RENDER_DEPTH](../../../api/library/rendering/class.viewport_cs.md#RENDER_DEPTH).
+The value indicating if skipping the render mode check is enabled to use TAA. It can be used to ensure proper TAA calculation when rendering mode for the *Viewport* is set to [RENDER_DEPTH](../../../api/library/rendering/class.viewport_cs.md#RENDER_DEPTH).
 ### Members
 
 ---
@@ -135,17 +142,3 @@ Renders the sprite viewport into the specified target texture.
 ### Arguments
 
 - *[Texture](../../../api/library/rendering/class.texture_cs.md)* **texture** - Target texture.
-
-## void SetUseTAAOffset ( bool offset )
-
-Sets a value indicating if skipping render mode check is enabled for using TAA. Can be used to ensure proper TAA calculation when rendering mode for the *Viewport* is set to [RENDER_DEPTH](../../../api/library/rendering/class.viewport_cs.md#RENDER_DEPTH).
-### Arguments
-
-- *bool* **offset** - true to enable skipping render mode check and use TAA; otherwise false.
-
-## bool IsUseTAAOffset ( )
-
-Returns a value indicating if skipping render mode check is enabled for using TAA. Can be used to ensure proper TAA calculation when rendering mode for the *Viewport* is set to [RENDER_DEPTH](../../../api/library/rendering/class.viewport_cs.md#RENDER_DEPTH).
-### Return value
-
-true if skipping render mode check is enabled for using TAA; otherwise false.

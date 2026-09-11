@@ -19,7 +19,7 @@ Strings support *Small String Optimization (SSO)*: you can store *7* characters 
 
 
 ```cpp
-String s = “1234567”;
+String s = �1234567�;
 
 ```
 
@@ -87,7 +87,7 @@ The null-terminated string.
 Returns an *n*-th character of the string.
 ### Arguments
 
-- *int* **index** - index of a character in range **[0;string_length - 1]**. > **Notice:** If the given index is out of the range bounds, the engine assertion will occur.
+- *int* **index** - index of a character in range [0;string_length - 1]. > **Notice:** If the given index is out of the range bounds, the engine assertion will occur.
 
 ### Return value
 
@@ -97,7 +97,7 @@ An *n*-th character.
 Returns an *n*-th character of the string.
 ### Arguments
 
-- *int* **index** - index of a character in range **[0;string_length - 1]**. > **Notice:** If the given index is out of the range bounds, the engine assertion will occur.
+- *int* **index** - index of a character in range [0;string_length - 1]. > **Notice:** If the given index is out of the range bounds, the engine assertion will occur.
 
 ### Return value
 
@@ -111,7 +111,7 @@ Checks whether *code* is an alphabetic letter.
 
 ### Return value
 
-**true** if the *code* is an alphabetic character; otherwise, **false**.
+true if the *code* is an alphabetic character; otherwise, false.
 ## static bool isdigit ( int code )
 
 Checks whether *code* is a decimal digit character.
@@ -121,7 +121,7 @@ Checks whether *code* is a decimal digit character.
 
 ### Return value
 
-**true** if the *code* is a decimal digit character; otherwise, **false**.
+true if the *code* is a decimal digit character; otherwise, false.
 ## double getDouble ( )
 
 Returns the current string as a *double* value.
@@ -167,7 +167,7 @@ Checks whether *code* is a lower-case letter.
 
 ### Return value
 
-**true** if the *code* is a lower-case character; otherwise, **false**.
+true if the *code* is a lower-case character; otherwise, false.
 ## static bool isspace ( int code )
 
 Checks whether *code* is a space or a horizontal tab character.
@@ -177,7 +177,7 @@ Checks whether *code* is a space or a horizontal tab character.
 
 ### Return value
 
-**true** if the *code* is a space a horizontal tab character; otherwise, **false**.
+true if the *code* is a space a horizontal tab character; otherwise, false.
 ## static bool isupper ( int code )
 
 Checks whether *code* is an upper-case letter.
@@ -187,7 +187,7 @@ Checks whether *code* is an upper-case letter.
 
 ### Return value
 
-**true** if the *code* is an upper-case character; otherwise, **false**.
+true if the *code* is an upper-case character; otherwise, false.
 ## static StringStack <> absname ( const char * path , const char * str )
 
 Returns an absolute path for given paths.
@@ -218,7 +218,7 @@ Modifies a string by putting backslashes before control characters that need esc
 
 ### Return value
 
-The modified **str** string with escaped control characters.
+The modified str string with escaped control characters.
 ## void allocate ( int size )
 
 Allocates the required memory.
@@ -306,44 +306,44 @@ Appends a given string to the end of the string.
 Resulting string.
 ## static double atod ( const char * str )
 
-Parses the **str** string and returns it as a *double* value.
+Parses the str string and returns it as a *double* value.
 ### Arguments
 
 - *const char ** **str** - A string.
 
 ### Return value
 
-*Double* value of the **str** string.
+*Double* value of the str string.
 ## static float atof ( const char * str )
 
-Parses the **str** string and returns it as a *float* value.
+Parses the str string and returns it as a *float* value.
 ### Arguments
 
 - *const char ** **str** - A string.
 
 ### Return value
 
-*Float* value of the **str** string.
+*Float* value of the str string.
 ## static int atoi ( const char * str )
 
-Parses the **str** string and returns it as an *integer* value.
+Parses the str string and returns it as an *integer* value.
 ### Arguments
 
 - *const char ** **str** - A string.
 
 ### Return value
 
-*Integer* value of the **str** string.
+*Integer* value of the str string.
 ## static long long atol ( const char * str )
 
-Parses the **str** string and returns it as a *long long* value.
+Parses the str string and returns it as a *long long* value.
 ### Arguments
 
 - *const char ** **str** - A string.
 
 ### Return value
 
-*Long long* value of the **str** string.
+*Long long* value of the str string.
 ## String basename ( )
 
 Returns a [filename with extension](#basename_const_char_ptr_StringStacktmplargs) extracted from the current string.
@@ -352,15 +352,18 @@ Returns a [filename with extension](#basename_const_char_ptr_StringStacktmplargs
 A string containing filename with extension.
 ## static StringStack <> basename ( const char * str )
 
-Extracts filename with extension from the **str** string and returns it.
+Extracts filename with extension from the str string and returns it.
 ### Arguments
 
 - *const char ** **str** - Path to file.
 
 ### Return value
 
+
 Filename with extension.
-> **Notice:** If the input string does not contain a full stop ('**.**'), the same value as the **str** value will be returned.
+
+
+> **Notice:** If the input string does not contain a full stop ('**.**'), the same value as the str value will be returned.
 
 
 ### Examples
@@ -386,14 +389,17 @@ Compares the string *str0* to the string *str1* character by character.
 
 ### Return value
 
+
 A value indicating the relationship between the strings:
-- 0 — the contents of both strings are equal.
-- other value — the contents of strings do not coincide.
+
+
+- 0 � the contents of both strings are equal.
+- other value � the contents of strings do not coincide.
 
 
 ## static int compare ( const char * str0 , const char * str1 , int case_sensitive )
 
-Compares the string *str0* to the string *str1* character by character taking into account the character case — upper or lower.
+Compares the string *str0* to the string *str1* character by character taking into account the character case � upper or lower.
 ### Arguments
 
 - *const char ** **str0** - a string to be compared.
@@ -402,9 +408,12 @@ Compares the string *str0* to the string *str1* character by character taking in
 
 ### Return value
 
+
 A value indicating the relationship between the strings:
-- 0 — the contents of both strings are equal.
-- another value — the contents of strings do not coincide.
+
+
+- 0 � the contents of both strings are equal.
+- another value � the contents of strings do not coincide.
 
 
 ## int contains ( const char * s , int case_sensitive )
@@ -467,15 +476,18 @@ Returns a [parent directory's path](#dirname_const_char_ptr_StringStacktmplargs)
 The directory's path without filename and extension.
 ## static StringStack <> dirname ( const char * str )
 
-Returns a parent directory's path extracted from the **str** string.
+Returns a parent directory's path extracted from the str string.
 ### Arguments
 
 - *const char ** **str** - Path to file
 
 ### Return value
 
+
 The directory's path without filename and extension.
-> **Notice:** If the **str** string does not meet path syntax, an empty value will be returned.
+
+
+> **Notice:** If the str string does not meet path syntax, an empty value will be returned.
 
 
 ### Examples
@@ -543,7 +555,7 @@ Converts a double value to a string using specified precision.
 
 - *double* **value** - An input value.
 - *int* **precision** - Precision in the range **[-1; 17]**. Data is represented the following way: | Precision | Representation | Example | |---|---|---| | -1 | The shortest representation: decimal floating point or scientific notation (mantissa/exponent). | 2.6265e+2 | | 0-8 | Decimal floating point. | 262.65 | | 9-17 | The shortest representation: decimal floating point or scientific notation (mantissa/exponent) with the *precision* digits to be printed after the decimal point. | 2.6264999e+2 |
-- *int* **use_inf** - A flag indicating whether to use -inf and inf values if the input value is out of the range **(-1e9; 1e9)**.
+- *int* **use_inf** - A flag indicating whether to use -inf and inf values if the input value is out of the range (-1e9; 1e9).
 
 ### Return value
 
@@ -580,7 +592,7 @@ Checks whether the current string ends with *size* characters of the **s** subst
 1 if the current string ends with the specified substring; otherwise, 0.
 ## static int endsWith ( const char * data , const char * str , int case_sensitive , int data_size , int str_size )
 
-Checks whether the **data** string ends with the **str** substring.
+Checks whether the **data** string ends with the str substring.
 ### Arguments
 
 - *const char ** **data** - A string.
@@ -647,7 +659,10 @@ Returns a [filename](#filename_const_char_ptr_StringStacktmplargs) extracted fro
 A string containing filename without extension.
 ## static StringStack <> filename ( const char * str )
 
-Extracts filename from the **str** string and returns it without extension.
+
+Extracts filename from the str string and returns it without extension.
+
+
 > **Notice:** If the input string does not contain a full stop, an empty string will be returned.
 
 
@@ -715,7 +730,10 @@ Returns the first character of the current string.
 The first character.
 ## static StringStack <> format ( const char * format , va_list argptr )
 
+
 Returns a stack of formatted strings. A format string is composed of zero or more ordinary characters (excluding %) that are copied directly to the result string and control sequences, each of which results in fetching its own parameter. Each control sequence consists of a percent sign (%) followed by one or more of these elements, in order:
+
+
 - An optional number, a width specifier, that says how many characters (minimum) this conversion should result in.
 - An optional precision specifier that says how many decimal digits should be displayed for floating-point numbers.
 - A type specifier that says what type the argument data should be treated as. Possible types:
@@ -746,7 +764,10 @@ Returns a stack of formatted strings. A format string is composed of zero or mor
 [Stack](../../../api/library/common/class.stringstack_cpp.md) of formatted strings.
 ## StringStack <> format ( const char * format )
 
+
 Returns a stack of formatted strings. A format string is composed of zero or more ordinary characters (excluding %) that are copied directly to the result string and control sequences, each of which results in fetching its own parameter. Each control sequence consists of a percent sign (%) followed by one or more of these elements, in order:
+
+
 - An optional number, a width specifier, that says how many characters (minimum) this conversion should result in.
 - An optional precision specifier that says how many decimal digits should be displayed for floating-point numbers.
 - A type specifier that says what type the argument data should be treated as. Possible types:
@@ -906,7 +927,8 @@ Returns string representation of a given long long value.
 String representation of a specified long long value.
 ## static int match ( const char * pattern , const char * str )
 
-Checks whether a **str** string matches a **pattern**.
+Checks whether a str string matches a **pattern**.
+
 > **Notice:** Only the following symbols are supported: ****, ?, +***
 
 ### Arguments
@@ -929,7 +951,7 @@ Returns a stack of strings containing information on memory consumption for the 
 Stack of strings containing information on memory consumption for the string.
 ## static StringStack <> normalizeDirPath ( const char * path )
 
-Returns [normalized](#normalizePath_const_char_ptr_StringStacktmplargs) **path** string and ensures that it is a path to a directory (ends with a forward slash).
+Returns [normalized](#normalizePath_const_char_ptr_StringStacktmplargs) path string and ensures that it is a path to a directory (ends with a forward slash).
 ### Arguments
 
 - *const char ** **path** - An input path string.
@@ -939,7 +961,7 @@ Returns [normalized](#normalizePath_const_char_ptr_StringStacktmplargs) **path**
 Normalized path to a directory.
 ## static String & normalizeDirPath ( String & ret , const char * path , int size )
 
-Returns [normalized](#normalizePath_const_char_ptr_StringStacktmplargs) **path** string and ensures that it is a path to a directory (ends with a forward slash).
+Returns [normalized](#normalizePath_const_char_ptr_StringStacktmplargs) path string and ensures that it is a path to a directory (ends with a forward slash).
 ### Arguments
 
 - *[String](../../../api/library/common/class.string_cpp.md) &* **ret** - a string to store the result.
@@ -951,7 +973,7 @@ Returns [normalized](#normalizePath_const_char_ptr_StringStacktmplargs) **path**
 Normalized path to a directory.
 ## static StringStack <> normalizePath ( const char * path )
 
-Returns a de-escaped **path** string where all double backslashes are replaced with forward ones.
+Returns a de-escaped path string where all double backslashes are replaced with forward ones.
 ### Arguments
 
 - *const char ** **path** - A string.
@@ -961,7 +983,7 @@ Returns a de-escaped **path** string where all double backslashes are replaced w
 Normalized path string.
 ## static String & normalizePath ( String & ret , const char * path , int size )
 
-Returns a de-escaped **path** string where all double backslashes are replaced with forward ones.
+Returns a de-escaped path string where all double backslashes are replaced with forward ones.
 ### Arguments
 
 - *[String](../../../api/library/common/class.string_cpp.md) &* **ret** - a string to store the result.
@@ -1050,8 +1072,11 @@ Parses the current string and returns [path to a directory](#pathname_const_char
 Directory name.
 ## static StringStack <> pathname ( const char * str )
 
+
 Parses an input string and returns path to a directory.
-> **Notice:** Unlike the [dirname](#dirname_const_char_ptr_StringStacktmplargs) function, the pathname is able to process the path syntax with parent directories ("../").
+
+
+> **Notice:** Unlike the *[dirname](#dirname_const_char_ptr_StringStacktmplargs)* function, the pathname is able to process the path syntax with parent directories ("../").
 
 
 ### Arguments
@@ -1061,7 +1086,7 @@ Parses an input string and returns path to a directory.
 ### Return value
 
 Directory name.
-> **Notice:** If the **str** string does not meet path syntax, an empty value will be returned.
+> **Notice:** If the str string does not meet path syntax, an empty value will be returned.
 
 
 ### Examples
@@ -1083,7 +1108,7 @@ Initializes a formatted string.
 
 ## static StringStack <> relname ( const char * path , const char * str )
 
-Returns a relative path for **str** relatively to **path**. Both paths can be either absolute or relative.
+Returns a relative path for str relatively to path. Both paths can be either absolute or relative.
 ### Arguments
 
 - *const char ** **path** - The path of a working directory.
@@ -1400,7 +1425,7 @@ An upper-cased character.
 Removes the specified symbols from the beginning and the ending of the current string.
 ### Arguments
 
-- *const char ** **symbols** - A string with symbols to remove. > **Notice:** If the **symbols** argument is not specified, the function removes white spaces from the string.
+- *const char ** **symbols** - A string with symbols to remove. > **Notice:** If the symbols argument is not specified, the function removes white spaces from the string.
 
 ### Return value
 
@@ -1426,7 +1451,7 @@ Removes the specified symbols from the beginning and the ending of a given strin
 ### Arguments
 
 - *const char ** **str** - A string.
-- *const char ** **symbols** - A string with symbols to remove. > **Notice:** If the **symbols** argument is not specified, the function removes white spaces from the string.
+- *const char ** **symbols** - A string with symbols to remove. > **Notice:** If the symbols argument is not specified, the function removes white spaces from the string.
 
 ### Return value
 
@@ -1436,7 +1461,7 @@ Resulting string.
 Removes the specified symbols only from the beginning of the current string.
 ### Arguments
 
-- *const char ** **symbols** - A string with symbols to remove. > **Notice:** If the **symbols** argument is not specified, the function removes white spaces from the string.
+- *const char ** **symbols** - A string with symbols to remove. > **Notice:** If the symbols argument is not specified, the function removes white spaces from the string.
 
 ### Return value
 
@@ -1462,7 +1487,7 @@ Removes the specified symbols only from the beginning of a given string.
 ### Arguments
 
 - *const char ** **str** - A string.
-- *const char ** **symbols** - A string with symbols to remove. > **Notice:** If the **symbols** argument is not specified, the function removes white spaces from the string.
+- *const char ** **symbols** - A string with symbols to remove. > **Notice:** If the symbols argument is not specified, the function removes white spaces from the string.
 
 ### Return value
 
@@ -1472,7 +1497,7 @@ Resulting string.
 Removes the specified symbols only from the end of the current string.
 ### Arguments
 
-- *const char ** **symbols** - A string with symbols to remove. > **Notice:** If the **symbols** argument is not specified, the function removes white spaces from the string.
+- *const char ** **symbols** - A string with symbols to remove. > **Notice:** If the symbols argument is not specified, the function removes white spaces from the string.
 
 ### Return value
 
@@ -1498,7 +1523,7 @@ Removes the specified symbols only from the end of a given string.
 ### Arguments
 
 - *const char ** **str** - A string.
-- *const char ** **symbols** - A string with symbols to remove. > **Notice:** If the **symbols** argument is not specified, the function removes white spaces from the string.
+- *const char ** **symbols** - A string with symbols to remove. > **Notice:** If the symbols argument is not specified, the function removes white spaces from the string.
 
 ### Return value
 
@@ -1512,7 +1537,10 @@ Returns the type of a unicode character.
 
 ### Return value
 
+
 An item of the *String::Direction* enumerator. The following types are possible:
+
+
 - LTR - left-to-right characters.
 - RTL - right-to-left characters.
 - Neutral - non-directional characters.

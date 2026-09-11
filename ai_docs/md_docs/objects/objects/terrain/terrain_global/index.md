@@ -93,8 +93,8 @@ As it was mentioned, there might be no data available for a more detailed LOD of
 Let us consider the following example. Suppose we have two LODs:
 
 
-- LOD1 with the resolution of 100 meters per pixel — green area
-- LOD0 with the resolution of 30 meters per pixel — orange area
+- LOD1 with the resolution of 100 meters per pixel � green area
+- LOD0 with the resolution of 30 meters per pixel � orange area
 
 
 In this case masks are generated only for the tiles marked with M.
@@ -135,17 +135,17 @@ You can add a new height or remove an existing one by clicking ![](plus.png) or 
 The following parameters are available for the Height LODs:
 
 
-- Intersectable — toggle intersection detection for the current height LOD on and off.
-- Collidable — toggle collision detection for the current height LOD on and off.
-- Cast Shadow — toggle shadow casting for the current height LOD on and off. You can use this parameter for performance optimization: disable shadow casting for high-poly LODs and enable for low-poly ones. > **Notice:** When only the low-poly LOD casts shadows, the high-poly LOD may be shadowed in areas where it shouldn't be. To reduce this effect, use the *[Shadow Offset](../../../../content/materials/library/terrain_global_base/index.md#shadow_offset)* parameter of the terrain material.
-- Viewport — [viewport mask](../../../../principles/bit_masking/index.md#viewport) for the current height LOD.
-- Intersection — [intersection mask](../../../../principles/bit_masking/index.md#intersection_mask) for the current height LOD.
-- Collision — [collision mask](../../../../principles/bit_masking/index.md#collision_mask) for the current height LOD.
-- Path — path to a folder, in which the current height LOD is [stored](#format).
-- Visibility distance — the distance starting from which the tiles of the current height LOD become visible.
-- Load distance — the distance starting from which the tiles of the current height LOD are loaded into memory.
-- Clear distance — the distance starting from which the tiles of the current height LOD are removed from memory.
-- Video memory usage — memory consumption of the current height LOD.
+- Intersectable � toggle intersection detection for the current height LOD on and off.
+- Collidable � toggle collision detection for the current height LOD on and off.
+- Cast Shadow � toggle shadow casting for the current height LOD on and off. You can use this parameter for performance optimization: disable shadow casting for high-poly LODs and enable for low-poly ones. > **Notice:** When only the low-poly LOD casts shadows, the high-poly LOD may be shadowed in areas where it shouldn't be. To reduce this effect, use the *[Shadow Offset](../../../../content/materials/library/terrain_global_base/index.md#shadow_offset)* parameter of the terrain material.
+- Viewport � [viewport mask](../../../../principles/bit_masking/index.md#viewport) for the current height LOD.
+- Intersection � [intersection mask](../../../../principles/bit_masking/index.md#intersection_mask) for the current height LOD.
+- Collision � [collision mask](../../../../principles/bit_masking/index.md#collision_mask) for the current height LOD.
+- Path � path to a folder, in which the current height LOD is [stored](#format).
+- Visibility distance � the distance starting from which the tiles of the current height LOD become visible.
+- Load distance � the distance starting from which the tiles of the current height LOD are loaded into memory.
+- Clear distance � the distance starting from which the tiles of the current height LOD are removed from memory.
+- Video memory usage � memory consumption of the current height LOD.
 
 
 ### Albedo Data
@@ -165,12 +165,12 @@ You can add a new LOD or remove an existing one by clicking ![](plus.png) or ![]
 The following parameters are available for the Albedo LODs:
 
 
-- Viewport — [viewport mask](../../../../principles/bit_masking/index.md#viewport) for the current albedo LOD.
-- Path — path to a folder, in which the current albedo LOD is [stored](#format).
-- Visibility Distance — the distance starting from which the tiles of the current albedo LOD become visible.
-- Load Distance — the distance starting from which the tiles of the current albedo LOD are loaded into memory.
-- Clear Distance — the distance starting from which the tiles of the current albedo LOD are removed from memory.
-- Video Memory Usage — memory consumption of the current albedo LOD.
+- Viewport � [viewport mask](../../../../principles/bit_masking/index.md#viewport) for the current albedo LOD.
+- Path � path to a folder, in which the current albedo LOD is [stored](#format).
+- Visibility Distance � the distance starting from which the tiles of the current albedo LOD become visible.
+- Load Distance � the distance starting from which the tiles of the current albedo LOD are loaded into memory.
+- Clear Distance � the distance starting from which the tiles of the current albedo LOD are removed from memory.
+- Video Memory Usage � memory consumption of the current albedo LOD.
 
 
 ### Normal Data
@@ -190,12 +190,12 @@ You can add a new LOD or remove an existing one by clicking ![](plus.png) or ![]
 The following parameters are available for the Normal LODs:
 
 
-- Viewport — [viewport mask](../../../../principles/bit_masking/index.md#viewport) for the current normal LOD.
-- Path — path to a folder, in which the current normal LOD is [stored](#format).
-- Visibility Distance — the distance starting from which the tiles of the current normal LOD become visible.
-- Load Distance — the distance starting from which the tiles of the current normal LOD are loaded into memory.
-- Clear Distance — the distance starting from which the tiles of the current normal LOD are removed from memory.
-- Video Memory Usage — memory consumption of the current normal LOD.
+- Viewport � [viewport mask](../../../../principles/bit_masking/index.md#viewport) for the current normal LOD.
+- Path � path to a folder, in which the current normal LOD is [stored](#format).
+- Visibility Distance � the distance starting from which the tiles of the current normal LOD become visible.
+- Load Distance � the distance starting from which the tiles of the current normal LOD are loaded into memory.
+- Clear Distance � the distance starting from which the tiles of the current normal LOD are removed from memory.
+- Video Memory Usage � memory consumption of the current normal LOD.
 
 
 ### Masks Data
@@ -215,12 +215,12 @@ You can add a new LOD or remove an existing one by clicking ![](plus.png) or ![]
 The following parameters are available for the Mask LODs:
 
 
-- **Viewport** — [viewport mask](../../../../principles/bit_masking/index.md#viewport) for the current masks LOD.
-- **Path** — path to a folder, in which the current masks LOD is [stored](#format).
-- **Visibility Distance** — the distance starting from which the tiles of the current masks LOD become visible.
-- **Load Distance** — the distance starting from which the tiles of the current masks LOD are loaded into memory.
-- **Clear Distance** — the distance starting from which the tiles of the current masks LOD are removed from memory.
-- **Video Memory Usage** — memory consumption of the current masks LOD.
+- **Viewport** � [viewport mask](../../../../principles/bit_masking/index.md#viewport) for the current masks LOD.
+- **Path** � path to a folder, in which the current masks LOD is [stored](#format).
+- **Visibility Distance** � the distance starting from which the tiles of the current masks LOD become visible.
+- **Load Distance** � the distance starting from which the tiles of the current masks LOD are loaded into memory.
+- **Clear Distance** � the distance starting from which the tiles of the current masks LOD are removed from memory.
+- **Video Memory Usage** � memory consumption of the current masks LOD.
 
 
 ### Terrain Data Storage Format
@@ -233,26 +233,26 @@ Generated terrain data is stored in the specified folder with the following stru
 
   - ![](dir.gif) **lod0**
 
-    - ![](file.gif) `data.uts + data.utsh` — tileset containing details data for all tiles of the terrain [LOD](#lods).
-    - ![](file.gif) `masks.uts + masks.utsh` — tileset containing mask layout data for the details terrain [LOD](#lods).
+    - ![](file.gif) `data.uts + data.utsh` � tileset containing details data for all tiles of the terrain [LOD](#lods).
+    - ![](file.gif) `masks.uts + masks.utsh` � tileset containing mask layout data for the details terrain [LOD](#lods).
 - ![](dir.gif) **heights**
 
   - ![](dir.gif) **lod0**
 
-    - ![](file.gif) `data.uts + data.utsh` — tileset containing height data for all tiles of the terrain [LOD](#lods).
-    - ![](file.gif) `masks.uts + masks.utsh` — tileset containing mask layout data for the height terrain [LOD](#lods).
+    - ![](file.gif) `data.uts + data.utsh` � tileset containing height data for all tiles of the terrain [LOD](#lods).
+    - ![](file.gif) `masks.uts + masks.utsh` � tileset containing mask layout data for the height terrain [LOD](#lods).
 - ![](dir.gif) **imagery**
 
   - ![](dir.gif) **lod0**
 
-    - ![](file.gif) `data.uts + data.utsh` — tileset containing imagery data for all tiles of the terrain [LOD](#lods).
-    - ![](file.gif) `masks.uts + masks.utsh` — tileset containing mask layout data for the imagery terrain [LOD](#lods).
+    - ![](file.gif) `data.uts + data.utsh` � tileset containing imagery data for all tiles of the terrain [LOD](#lods).
+    - ![](file.gif) `masks.uts + masks.utsh` � tileset containing mask layout data for the imagery terrain [LOD](#lods).
 - ![](dir.gif) **normals**
 
   - ![](dir.gif) **lod0**
 
-    - ![](file.gif) `data.uts + data.utsh` — tileset containing normals data for all tiles of the terrain [LOD](#lods).
-    - ![](file.gif) `masks.uts + masks.utsh` — tileset containing mask layout data for the normals terrain [LOD](#lods).
+    - ![](file.gif) `data.uts + data.utsh` � tileset containing normals data for all tiles of the terrain [LOD](#lods).
+    - ![](file.gif) `masks.uts + masks.utsh` � tileset containing mask layout data for the normals terrain [LOD](#lods).
 - ![](dir.gif) **landcover** masks for each type of generated landcover objects stored in separate folders with the corresponding names.
 - ![](dir.gif) **vector_data** masks for each type of generated vector objects stored in separate folders with the corresponding names.
 

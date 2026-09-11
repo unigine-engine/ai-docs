@@ -135,6 +135,9 @@ DebugData.EventChanged.Enabled = true;
 
 </details>
 
+## bool DebugStereo
+
+The value indicating if the real eye images are replaced by solid diagnostic colors in stereo rendering: the left eye receives a solid green image and the right eye a solid red one, so the operator can verify which physical output receives which eye. Disabled by default.
 ### Members
 
 ---

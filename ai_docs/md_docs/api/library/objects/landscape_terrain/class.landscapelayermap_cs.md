@@ -66,13 +66,13 @@ The value indicating if bicubic filtering is enabled for height texture (collisi
 The value indicating if heights data of the layer map is to be used for culling precalculation. In order to define which parts of the terrain are to be rendered a culling test is required. This test is performed on the basis of a precalculated low-detail height map, combining heights data of all landscape layer maps having a significant impact on the result. Precalculation is performed on the CPU side, so processing a large number of landscape layer maps may reduce performance. Moreover, some layer maps may be used as decals (i.e. their impact on the resulting height map is insignificant). For such cases you can simply disable this option to avoid unnecessary calculations.
 ## int Order
 
-The current rendering order for the landscape layer map. A map with a higher order value shall be rendered above the ones with lower ones.
+The rendering order for the landscape layer map. A map with a higher order value shall be rendered above the ones with lower ones.
 ## vec2 Size
 
 The two-component vector **(X, Y)** defining the size of the landscape layer map along X and Y axes, in units.
 ## float HeightScale
 
-The scale factor used for heights data.
+The scale factor used for heights data. Height values of the landscape layer map are multiplied by this value during terrain rendering.
 ## 🔒︎ vec2 TexelSize
 
 The two-component vector **(X, Y)** defining the size of the texel of the landscape layer map textures along X and Y axes.
@@ -90,28 +90,28 @@ The two-component vector **(X, Y)** defining the fade attenuation of the landsca
 The value indicating if the landscape layer map is compressed.
 ## 🔒︎ vec2 AlbedoFadeAttenuation
 
-The two-component vector **(X, Y)** defining the fade attenuation of the albedo data along X and Y axes.
+The two-component vector (X, Y) defining the fade attenuation of the albedo data along the X and Y axes.
 ## 🔒︎ vec2 HeightFadeAttenuation
 
-The two-component vector **(X, Y)** defining the fade attenuation of the height data along X and Y axes.
+The two-component vector (X, Y) defining the fade attenuation of the height data along the X and Y axes.
 ## 🔒︎ Landscape.BLENDING_MODE AlbedoBlending
 
-The blending mode, one of the *[Landscape.BLENDING_MODE](../../../../api/library/objects/landscape_terrain/class.landscape_cs.md#BLENDING_MODE)* values.
+The blending mode for the albedo data. One of the *[Landscape.BLENDING_MODE](../../../../api/library/objects/landscape_terrain/class.landscape_cs.md#BLENDING_MODE)* values
 ## 🔒︎ Landscape.BLENDING_MODE HeightBlending
 
-The blending mode, one of the *[Landscape.BLENDING_MODE](../../../../api/library/objects/landscape_terrain/class.landscape_cs.md#BLENDING_MODE)* values.
+The blending mode for the height data. One of the *[Landscape.BLENDING_MODE](../../../../api/library/objects/landscape_terrain/class.landscape_cs.md#BLENDING_MODE)* values
 ## 🔒︎ bool IsEnabledOpacityAlbedo
 
-The value specifying if albedo data with an additional opacity mask applied is enabled for the landscape layer map.
+The value indicating if albedo data with an additional opacity mask applied is enabled for the landscape layer map.
 ## 🔒︎ bool IsEnabledOpacityHeight
 
-The value specifying if heightmap with an additional opacity mask applied is enabled for the landscape layer map.
+The value indicating if heightmap with an additional opacity mask applied is enabled for the landscape layer map.
 ## 🔒︎ bool IsEnabledAlbedo
 
-The value specifying if albedo data is enabled for the landscape layer map.
+The value indicating if albedo data is enabled for the landscape layer map.
 ## 🔒︎ bool IsEnabledHeight
 
-The value specifying if height data is enabled for the landscape layer map.
+The value indicating if heightmap data is enabled for the landscape layer map.
 ### Members
 
 ---
@@ -141,3 +141,43 @@ Returns the type of the node.
 ### Return value
 
 [LandscapeLayerMap](../../../../api/library/nodes/class.node_cs.md#LANDSCAPE_LAYER_MAP) type identifier.
+## bool IsEnabledMask ( int mask )
+
+Returns the value specifying if the specified mask is enabled for the landscape layer map.
+### Arguments
+
+- *int* **mask** - Mask index.
+
+### Return value
+
+true if the specified mask is enabled for the landscape layer map; otherwise, false.
+## bool IsEnabledOpacityMask ( int mask )
+
+Returns the value specifying if the specified mask with an additional opacity mask applied is enabled for the landscape layer map.
+### Arguments
+
+- *int* **mask** - Mask index.
+
+### Return value
+
+true if heightmap with an opacity mask is enabled for the landscape layer map; otherwise, false.
+## Landscape.BLENDING_MODE GetMaskBlending ( int mask )
+
+Returns the blending mode set for the mask data.
+### Arguments
+
+- *int* **mask** - Mask index.
+
+### Return value
+
+The blending mode, one of the *[Landscape.BLENDING_MODE](../../../../api/library/objects/landscape_terrain/class.landscape_cs.md#BLENDING_MODE)* values.
+## vec2 GetMaskFadeAttenuation ( int mask )
+
+Returns the current fade attenuation for the data of the specified detail mask. This parameter defines the distance of the transparency attenuation starting from the edge of the map.
+### Arguments
+
+- *int* **mask** - Mask index.
+
+### Return value
+
+The two-component vector **(X, Y)** defining the fade attenuation of the detail mask data along X and Y axes.

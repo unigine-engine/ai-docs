@@ -7,7 +7,7 @@
 Light is an integral part of every scene, and the number of light sources in the world can be close to infinite with all aircraft lights and strobes, airport and city illumination, strobes and so on.
 
 
-Light sources are categorized by their application — on an aircraft or in the scene:
+Light sources are categorized by their application � on an aircraft or in the scene:
 
 
 - Aircraft lights are controlled via the **[LightAircraft](#light_aircraft)** property and are described in `ig_config.xml` as [entity components](../ig/config.md#config_entities).
@@ -32,22 +32,22 @@ Setting aircraft lights requires the use of two components: **LightAircraft** an
 ![](lightaircraft_prop.png)
 
 
-- **Light Type** — type of the aircraft light.
-- **Source Type** — type of the light source.
+- **Light Type** � type of the aircraft light.
+- **Source Type** � type of the light source.
 
-  - **Node Switch** — the node can be enabled and disabled. The min and max light intensity in this case is set for [light nodes](../objects/lights/index.md) only.
-  - **Emissive Surface** — emission is enabled and disabled for the specified surface or surfaces of the node.
+  - **Node Switch** � the node can be enabled and disabled. The min and max light intensity in this case is set for [light nodes](../objects/lights/index.md) only.
+  - **Emissive Surface** � emission is enabled and disabled for the specified surface or surfaces of the node.
 
-    - **Emission-Toggled Node** — toggling on disables the node if emission of its surface is disabled.
-    - **Surfaces** — surfaces for which emission is enabled. To add a surface, type its name the same way it is written in the list of surfaces of this node.
-  - **Emissive Material** — emission is enabled and disabled globally for the specified material.
+    - **Emission-Toggled Node** � toggling on disables the node if emission of its surface is disabled.
+    - **Surfaces** � surfaces for which emission is enabled. To add a surface, type its name the same way it is written in the list of surfaces of this node.
+  - **Emissive Material** � emission is enabled and disabled globally for the specified material.
 
-    - **Materials** — materials for which emission is enabled.
-- **Enabled By Default** — the state of the light source when the world is loaded.
-- **Min Intensity** and **Max Intensity** — minimum and maximum intensity of the emitting light. For light nodes, the [light intensity](../objects/lights/parameters/index.md#intensity) is adjusted, for emissive surfaces — the *[Emission](../content/materials/library/mesh_base/index.md#emission_scale)* parameter.
-- **Strobe** — strobe mode for the light.
+    - **Materials** � materials for which emission is enabled.
+- **Enabled By Default** � the state of the light source when the world is loaded.
+- **Min Intensity** and **Max Intensity** � minimum and maximum intensity of the emitting light. For light nodes, the [light intensity](../objects/lights/parameters/index.md#intensity) is adjusted, for emissive surfaces � the *[Emission](../content/materials/library/mesh_base/index.md#emission_scale)* parameter.
+- **Strobe** � strobe mode for the light.
 
-  - **Strobe Program** — strobe program used by the light source. The program uses a sequence of indicated time periods in seconds to consecutively enable and disable the light source starting from the Enabled state. For example, a sequence of 0.3;0.05;0.1 means that a strobe is enabled for 0.3 seconds, then disabled for 0.05 seconds, enabled for 0.1 seconds, and then continues to be enabled for 0.3 seconds, etc.
+  - **Strobe Program** � strobe program used by the light source. The program uses a sequence of indicated time periods in seconds to consecutively enable and disable the light source starting from the Enabled state. For example, a sequence of 0.3;0.05;0.1 means that a strobe is enabled for 0.3 seconds, then disabled for 0.05 seconds, enabled for 0.1 seconds, and then continues to be enabled for 0.3 seconds, etc.
 
 
 **LightAircraftController** should be assigned to the parent node (aircraft) to make this type of lights work correctly via CIGI. Do not change any parameters in this property.
@@ -95,13 +95,13 @@ Suppose, we have the following hierarchy of scene lights:
     - buildings
 
 
-Using this hierarchy, you can manage any light or group of lights via the console. To generalize, the asterisk symbol (*) is used. Asterisk inside the path means that all categories on this level are checked; at the end of the path — all categories are selected.
+Using this hierarchy, you can manage any light or group of lights via the console. To generalize, the asterisk symbol (*) is used. Asterisk inside the path means that all categories on this level are checked; at the end of the path � all categories are selected.
 
 
 ```bash
-lights City/Airport/runway/runway_1﻿/PAPI 1 — enables the PAPI light on runway_1.
-lights City/Airport/runway/*﻿/touchdown 1 — enables touchdown lights on runway_1 and runway_2.
-lights City/Downtown/* 0 — disables all lights in the downtown area.
+lights City/Airport/runway/runway_1﻿/PAPI 1 � enables the PAPI light on runway_1.
+lights City/Airport/runway/*﻿/touchdown 1 � enables touchdown lights on runway_1 and runway_2.
+lights City/Downtown/* 0 � disables all lights in the downtown area.
 
 ```
 
@@ -136,7 +136,7 @@ lights City/District_2/street_lights/lamppost_1 2
 The parameters are the same as in the **[LightAircraft](#light_parameters)** component with the only exception:
 
 
-- Category — the full path in the [hierarchy of lights](#lights_hierarchy). The hierarchy of lights is developed by a user to consider all lights in the project and assign the corresponding category to a light. This hierarchy does not have any correlation with the *World Nodes hierarchy*.
+- Category � the full path in the [hierarchy of lights](#lights_hierarchy). The hierarchy of lights is developed by a user to consider all lights in the project and assign the corresponding category to a light. This hierarchy does not have any correlation with the *World Nodes hierarchy*.
 
 
 ### AutomaticTimeLightingComponent
@@ -147,24 +147,24 @@ The parameters are the same as in the **[LightAircraft](#light_parameters)** com
 
 ![](automatictimelighting_prop.png)
 
-*This example component enables car daytime running lights from6:00:00to23:12:35, and all downtown lights and car headlights — from23:12:35to6:00:00*
+*This example component enables car daytime running lights from6:00:00to23:12:35, and all downtown lights and car headlights � from23:12:35to6:00:00*
 
 
-Time of day can be defined either using the Sun position or the sunrise and sunset time — the approach is selected via the **Control Type** parameter.
+Time of day can be defined either using the Sun position or the sunrise and sunset time � the approach is selected via the **Control Type** parameter.
 
 
-- **Disabled** — automatic control of lights depending on time of day is disabled.
-- **Celestial** — the Sun position is used to define time of day. The *Sun Zenith Threshold* parameter is available for fine-tuning.
-- **Time** — the *Sunrise* and *Sunset Time* is set to define time of day in hours, minutes, and seconds.
+- **Disabled** � automatic control of lights depending on time of day is disabled.
+- **Celestial** � the Sun position is used to define time of day. The *Sun Zenith Threshold* parameter is available for fine-tuning.
+- **Time** � the *Sunrise* and *Sunset Time* is set to define time of day in hours, minutes, and seconds.
 
 
 Four categories of automatically controlled light sources are provided:
 
 
-- **Categories Day Enabled** — categories of the [light sources hierarchy](#lights_hierarchy) that should be enabled during the day-time and disabled during the night-time.
-- **Categories Night Enabled** — categories of the [light sources hierarchy](#lights_hierarchy) that should be enabled during the nignt-time and disabled during the day-time.
-- **Materials Day Enabled** — materials that should be enabled during the day-time and disabled during the night-time.
-- **Materials Night Enabled** — materials that should be enabled during the nignt-time and disabled during the day-time.
+- **Categories Day Enabled** � categories of the [light sources hierarchy](#lights_hierarchy) that should be enabled during the day-time and disabled during the night-time.
+- **Categories Night Enabled** � categories of the [light sources hierarchy](#lights_hierarchy) that should be enabled during the nignt-time and disabled during the day-time.
+- **Materials Day Enabled** � materials that should be enabled during the day-time and disabled during the night-time.
+- **Materials Night Enabled** � materials that should be enabled during the nignt-time and disabled during the day-time.
 
 
 ## Controlling Light via CIGI

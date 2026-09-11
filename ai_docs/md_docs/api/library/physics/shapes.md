@@ -2,9 +2,9 @@
 
 ## Articles in This Section
 
-- [Shape Class (CS)](../../../api/library/physics/class.shape_cs.md)
-
 - [Shape Class (USC)](../../../api/library/physics/class.shape_usc.md)
+
+- [Shape Class (CS)](../../../api/library/physics/class.shape_cs.md)
 
 - [Shape Class (CPP)](../../../api/library/physics/class.shape_cpp.md)
 

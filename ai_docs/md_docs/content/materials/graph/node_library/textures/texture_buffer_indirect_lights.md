@@ -11,8 +11,8 @@ Texture buffers are 2D textures used to build a deferred image for various post-
 This 2D Texture Array contains indirect lighting from light sources for opaque materials.
 
 
-- **Index 0** — indirect diffuse lighting (diffuse lighting from probes, sky, and lightmaps).
-- **Index 1** — indirect specular lighting (reflections from probes and sky).
+- **Index 0** � indirect diffuse lighting (diffuse lighting from probes, sky, and lightmaps).
+- **Index 1** � indirect specular lighting (reflections from probes and sky).
 
 
 > **Notice:** This buffer may contain data of both opaque and transparent materials.

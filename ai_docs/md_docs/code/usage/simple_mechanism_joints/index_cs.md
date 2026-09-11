@@ -18,7 +18,7 @@ The **basic workflow** of creating and animating a simple mechanism is as follow
 
 1. Create geometry for all parts of the mechanism.
 2. Assign [bodies](../../../principles/physics/bodies/index.md) and [collision shapes](../../../principles/physics/shapes/index.md) to the parts.
-3. Set up masses for the parts. > **Notice:** It is very important to ensure mass balance – avoid connection of too heavy bodies to light ones, otherwise the joints may become unstable!
+3. Set up masses for the parts. > **Notice:** It is very important to ensure mass balance � avoid connection of too heavy bodies to light ones, otherwise the joints may become unstable!
 4. Connect all parts of the mechanism using appropriate types of [joints](../../../principles/physics/joints/index.md). Set up joint parameters.
 5. Animate the mechanism using [joint motors](../../../principles/physics/joints/index.md#motors).
 

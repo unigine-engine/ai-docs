@@ -10,8 +10,8 @@ Unlike many other engines using third-party solutions, UNIGINE features its own 
 The advantages of using a built-in physics module:
 
 
-- **Memory efficiency** — a single instance of the world is used (if an external solution is used, one more copy of the world has to be created and stored).
-- **Performance** — calls to external functions, excessive data conversion and transmission between integrated systems are avoided.
+- **Memory efficiency** � a single instance of the world is used (if an external solution is used, one more copy of the world has to be created and stored).
+- **Performance** � calls to external functions, excessive data conversion and transmission between integrated systems are avoided.
 
 
 It should be clear that it is not a high-precision simulation of real world physics! The simulation is just an approximation based on **simplified calculations** and **decreased accuracy** providing a realistic look within the strict limits of the real-time mode. Achieving a true-to-life result always involves a trade-off between accuracy and performance.
@@ -163,7 +163,7 @@ Body mass and density are used for [buoyancy](../../principles/physics/bodies/wa
 ### Shape
 
 
-While the body determines the object’s behavior, the shape represents the volume of space occupied by a physical body. The shape is invisible and doesn’t have to be the same as the object’s [mesh](../../start/index.md#mesh). Actually a rough approximation (*[sphere](../../principles/physics/shapes/index.md#sphere), [capsule](../../principles/physics/shapes/index.md#capsule), [cylinder](../../principles/physics/shapes/index.md#cylinder), [box](../../principles/physics/shapes/index.md#box), [convex hull](../../principles/physics/shapes/index.md#convex)*) is often more efficient and indistinguishable. A physical body has one or several collision shapes allowing objects to [collide](#collision_intersection) with each other.
+While the body determines the object�s behavior, the shape represents the volume of space occupied by a physical body. The shape is invisible and doesn�t have to be the same as the object�s [mesh](../../start/index.md#mesh). Actually a rough approximation (*[sphere](../../principles/physics/shapes/index.md#sphere), [capsule](../../principles/physics/shapes/index.md#capsule), [cylinder](../../principles/physics/shapes/index.md#cylinder), [box](../../principles/physics/shapes/index.md#box), [convex hull](../../principles/physics/shapes/index.md#convex)*) is often more efficient and indistinguishable. A physical body has one or several collision shapes allowing objects to [collide](#collision_intersection) with each other.
 
 
 ![A car approximation using one and several shapes](car_shapes.jpg)
@@ -191,10 +191,10 @@ In virtual worlds, like in the real world, we would like to have complex objects
 A joint connects two [rigid bodies](../../principles/physics/bodies/rigid/index.md) and represents certain constraints i.e. it restricts the movement of connected bodies relative to each other. When the force applied to a joint is too much, the joint breaks. The implementation of destructible joints includes the limits of linear and angular motion, so if a force exceeds these limits, the joint is broken. There are several types of joints: *[fixed](../../principles/physics/joints/index.md#fixed), [hinge](../../principles/physics/joints/index.md#hinge), [ball](../../principles/physics/joints/index.md#ball), [prismatic](../../principles/physics/joints/index.md#prismatic), [cylindrical](../../principles/physics/joints/index.md#cylindrical), [suspension](../../principles/physics/joints/index.md#suspension), [wheel](../../principles/physics/joints/index.md#wheel), [path](../../principles/physics/joints/index.md#path)*.
 
 
-When using joints, it is very important to ensure mass balance — avoid connection of too heavy bodies to light ones, otherwise the system may become unstable. As mentioned before, physics simulation uses approximate calculations, therefore, if the difference of mass between two connected bodies is significant, accumulation of errors and precision issues lead to instability of the result.
+When using joints, it is very important to ensure mass balance � avoid connection of too heavy bodies to light ones, otherwise the system may become unstable. As mentioned before, physics simulation uses approximate calculations, therefore, if the difference of mass between two connected bodies is significant, accumulation of errors and precision issues lead to instability of the result.
 
 
-Thus, when making a car model, do not set the mass of the car body equal to 2000 kg and the wheels — to 10 kg, it might be better to use 5 kg for the body and 1 kg for each wheel to provide realistic behavior.
+Thus, when making a car model, do not set the mass of the car body equal to 2000 kg and the wheels � to 10 kg, it might be better to use 5 kg for the body and 1 kg for each wheel to provide realistic behavior.
 
 
 ## Collision and Intersection Detection
@@ -207,7 +207,7 @@ There are two types of collision detection implemented in UNIGINE:
 
 
 - **Discrete collision detection** is performed in certain intervals of time and each frame is treated separately from others. In general, discretization improves performance. However, when a project framerate is already low, a small fast-moving object is likely to teleport from one point to another instead of moving there smoothly, and a collision will not be detected.
-- **[Continuous collision detection](../../principles/physics/simulation.md#ccd)** does not suffer this problem as the moving body is extruded along its trajectory (between two adjacent frames). If something gets into this volume and a collision is detected, the body is taken back in time to correct the collision reaction. > **Notice:** Continuous collision detection is available for [sphere](../../principles/physics/shapes/index.md#sphere) and [capsule](../../principles/physics/shapes/index.md#capsule) shapes only.
+- **[Continuous collision detection](../../principles/physics/simulation.md#ccd)** does not suffer this problem as the moving body is extruded along its trajectory (between two adjacent frames). If something gets into this volume and a collision is detected, the body is taken back in time to correct the collision reaction. > **Notice:** By default, continuous collision detection is enabled only for [sphere](../../principles/physics/shapes/index.md#sphere) and [capsule](../../principles/physics/shapes/index.md#capsule) shapes. For other shape types, it must be [enabled manually](../../api/library/physics/class.shape_cpp.md#setContinuous_int_void).
 
 
 ![Discrete and continuous collision detection](collision_detection.jpg)
@@ -219,16 +219,16 @@ Collision detection is a very expensive operation, and since our scene may have 
 
 
 - The first parameter contributing to the cost is collision shape complexity. As a rule, most 3D objects are represented by a complex and detailed visible [mesh](../../start/index.md#mesh) and an invisible simplified [shape](#shape) used by a physics engine for collision detection. Types of shapes available are listed [above](#shape). > **Notice:** To reduce computational load it is strongly recommended to use simple collision shapes instead of complex ones wherever possible.
-- The second parameter is a number of checks to be performed — the worst case would be all-against-all. To exclude unnecessary checks (e.g. two objects hardly collide if they are far from each other) the scene is to be split into sections.
+- The second parameter is a number of checks to be performed � the worst case would be all-against-all. To exclude unnecessary checks (e.g. two objects hardly collide if they are far from each other) the scene is to be split into sections.
 
 
-There is an important step which follows collision detection — **collision response**, or the result of collision (e.g. two balls bounce off each other). [Friction](../../principles/physics/bodies/index.md#friction), [restitution](../../principles/physics/bodies/index.md#restitution), and other parameters are taken into account in calculation of the collision response.
+There is an important step which follows collision detection � **collision response**, or the result of collision (e.g. two balls bounce off each other). [Friction](../../principles/physics/bodies/index.md#friction), [restitution](../../principles/physics/bodies/index.md#restitution), and other parameters are taken into account in calculation of the collision response.
 
 
 If some [surfaces](../../start/index.md#surface) of an object participate in collisions, and others don't, collision detection can be enabled on a per-surface basis. For example, you can disable collision detection for a dashboard inside a cockpit, as it is covered by other surfaces.
 
 
-> **Warning:** Don't scale meshes that are going to participate in collision detection — physics doesn't work properly with scaled objects. To avoid scaling, reimport the mesh with the required [scale](../../editor2/fbx/index.md#fbx_scale).
+> **Warning:** Don't scale meshes that are going to participate in collision detection � physics doesn't work properly with scaled objects. To avoid scaling, reimport the mesh with the required [scale](../../editor2/fbx/index.md#fbx_scale).
 
 
 **Intersection detection** lies at the heart of collision detection, but is a particular case of ray intersection (**ray casting**) that serves slightly different purposes. Calculation of the intersection between a ray cast from a certain point in a certain direction and a surface is fast and inexpensive and therefore sometimes can be used instead of computing a collision. For example, calculation of collisions of car wheels with the ground takes time and decreases framerate. In this case we can use intersection of rays cast from the bottom of the car with the ground instead of precise collision detection using collision shapes, thus reducing computational costs and increasing performance.

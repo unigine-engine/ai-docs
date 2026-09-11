@@ -5,6 +5,7 @@
 
 You can work with UnigineScript [containers](../../../../code/uniginescript/language/containers/index.md) from C# side via Unigine API, that is, with:
 
+
 - [Vectors](../../../../code/uniginescript/language/containers/index.md#vector)
 - [Maps](../../../../code/uniginescript/language/containers/index.md#maps)
 
@@ -20,8 +21,8 @@ An example can be found in `<UnigineSDK>/source/csharp/samples/Api/Scripts/Array
 
 Unigine vectors and maps can be accessed via:
 
-- *ArrayVector* class and the *ArrayVector.Get()* function for vectors. The *[ArrayVector::get()](../../../../api/library/containers/class.arrayvector_cpp.md#get_void_ptr_const_Variable_ref_ArrayVector)* C++ API function and the *[ArrayVector](../../../../api/library/containers/class.arrayvector_cpp.md)* C++ API class have the same behavior.
-- *ArrayMap* class and the *ArrayMap.Get()* function for maps. The *[ArrayMap](../../../../api/library/containers/arraymap/class.arraymap_cpp.md)* C++ API class and the *[ArrayMap::get()](../../../../api/library/containers/arraymap/class.arraymap_cpp.md#get_void_ptr_const_Variable_ref_ArrayMap)* C++ API function have the same behavior.
+- *ArrayVector* class and the *ArrayVector.Get()* function for vectors. The *[ArrayVector::get()](../../../../api/library/containers/class.arrayvector_cpp.md#get_void_ptr_const_Variable_ref_ArrayVector)* C++�API function and the�*[ArrayVector](../../../../api/library/containers/class.arrayvector_cpp.md)* C++ API class have the same behavior.
+- *ArrayMap* class and the *ArrayMap.Get()* function for maps. The *[ArrayMap](../../../../api/library/containers/arraymap/class.arraymap_cpp.md)* C++�API class and the�*[ArrayMap::get()](../../../../api/library/containers/arraymap/class.arraymap_cpp.md#get_void_ptr_const_Variable_ref_ArrayMap)* C++ API function have the same behavior.
 
 
 ### C# Side
@@ -29,12 +30,18 @@ Unigine vectors and maps can be accessed via:
 
 Create setter and getter functions that receive Unigine containers and handle their elements. Then, export the created functions in order to use them in the script.
 
+
 > **Notice:** You should specify the array declaration as the last argument of the Function if your array functions receive an array as an argument.
+>
+>
 > ```csharp
 > Function(my_array_vector_set,"[]")
 > ```
 >
->  The postfix of Function shows the number of arguments (up to **8** arguments) and the type of return value:
+>
+> The postfix of Function shows the number of arguments (up to **8** arguments) and the type of return value:
+>
+>
 > - **no postfix** - void.
 > - **i** - int.
 > - **d** - double.

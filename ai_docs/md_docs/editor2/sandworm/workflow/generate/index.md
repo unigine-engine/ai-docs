@@ -7,13 +7,10 @@ As soon as you have [added imagery and/or elevation](../../../../editor2/sandwor
 The *Generation Settings* panel is behind the *Parameters* panel and is accessible by switching the tabs.
 
 
-![](settings_with_fill_height_min_value.png)
+![](settings.png)
 
 
-The items required to be set in order to start the terrain generation process, are highlighted red and displayed at the bottom.
-
-
-You can adjust the outlined settings, if required.
+The items required to be set in order to start the terrain generation process, are highlighted red and displayed as clickable links at the bottom.
 
 
 ## Export Area
@@ -34,7 +31,7 @@ You can set boundaries for the export area to limit the generated terrain area.
 ## Generating a Terrain
 
 
-As soon as you configured all settings, click the *Generate* button below and wait until the generation process is finished. A generated terrain is available in the selected world.
+As soon as you configured all settings, click the *Generate Object Landscape Terrain* (*Generate Object Terrain Global*) button below and wait until the generation process is finished. A generated terrain is available in the selected world.
 
 
 > **Notice:** You can also generate only the selected [type of data](../../../../editor2/sandworm/generation/data_types/index.md).

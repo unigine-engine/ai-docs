@@ -24,9 +24,9 @@ This class is used to create a [global terrain](../../../objects/objects/terrain
 
 ## bool ForceIntersection
 
-The A value indicating if forced loading of terrain tiles for intersection detection is enabled.
-> **Notice:** This option is used to enable force loading of terrain tiles to ensure correct intersection detection.
-
+The value indicating if forced loading of terrain tiles for intersection detection is enabled.
+> **Notice:** - When enabled, this option may significantly reduce performance. Thus, it is recommended to enable it, perform intersection check, and disable it again.
+> - It is recommended to make two or more intersection requests to make sure you get the required result when necessary, as in some rare cases forced loading of tiles may not give you a 100% guarantee.
 
 ## 🔒︎ Texture HeightTextureArray
 

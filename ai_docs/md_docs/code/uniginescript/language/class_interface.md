@@ -14,6 +14,7 @@ The interface is used to provide a polymorphism. It means that several classes c
 
 The interface class is declared as any other class in UnigineScript. In the example, the [abstract virtual function declaration](#abstract_declaration) is used.
 
+
 ```cpp
 class Interface {
 	// functions declaration
@@ -23,8 +24,9 @@ class Interface {
 
 ```
 
- Note that the word *Interface* is not reserved.
-Any class that is inherited from the *Interface* class must contain an implementation for its functions. For example:
+
+Note that the word *Interface* is not reserved. Any class that is inherited from the *Interface* class must contain an implementation for its functions. For example:
+
 
 ```cpp
 class Bar : Interface {
@@ -48,6 +50,7 @@ class Baz : Interface {
 
 Let's suppose that there is an interface class, which describes an object:
 
+
 ```cpp
 class Interface {
 	void update() = 0;
@@ -55,8 +58,9 @@ class Interface {
 
 ```
 
- It means that each object must be updated.
-*Bar* and *Baz* classes decribe two different objects. This classes are inherited from the *Interface* class, and also the *Bar* class is derived from the Foo class.
+
+It means that each object must be updated. *Bar* and *Baz* classes decribe two different objects. This classes are inherited from the *Interface* class, and also the *Bar* class is derived from the Foo class.
+
 
 ```cpp
 class Foo {
@@ -79,17 +83,9 @@ class Baz : Interface {
 The interface is used to iterate objects of different types that implement that interface. So, you can create an array of the objects and update them all.
 
 
-```cpp
-Interface interfaces[0];
-interfaces.append(new Bar());
-interfaces.append(new Baz());
-foreach(Interface i; interfaces) {
-	i.update();
-}
+The example displays the following:
 
-```
 
- The example displays the following:
 ```text
 Bar::update(): called
 Baz::update(): called
@@ -108,6 +104,7 @@ A virtual function is a function, which can be overridden in a derived class.
 
 You can declare the virtual function the following way (C++ style):
 
+
 ```cpp
 class Foo {
 	void foo() = 0;
@@ -115,5 +112,8 @@ class Foo {
 
 ```
 
- In this case, the function has no any implementation, but the derived class must implement it.
+
+In this case, the function has no any implementation, but the derived class must implement it.
+
+
 > **Notice:** Also you can declare the virtual function by using the virtual keyword, but it's optional.

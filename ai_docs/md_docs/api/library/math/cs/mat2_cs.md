@@ -306,7 +306,10 @@ Sets all matrix elements equal to **0**.
 Sets the matrix equal to the identity matrix.
 ## void SetRotate ( float angle )
 
+
 Fills the rotation matrix using a given angle.
+
+
 ```text
 Rotation matrix:
     | cos(angle)   	-sin(angle) |
@@ -321,7 +324,10 @@ R=  | sin(angle)     cos(angle) |
 
 ## void SetScale ( vec2 v )
 
+
 Fills the scaling matrix using a given [vec2](../../../../api/library/math/cs/vec2_cs.md) source vector.
+
+
 ```text
 Scaling matrix:
     | v.x   	0.0f |

@@ -71,6 +71,7 @@ This class allows creating and managing [Environment Probes](../../../objects/li
 |---|---|
 | **ENVIRONMENT_PROBE** = 0 | The cubemap used for the last step is the same as for all previous steps. |
 | **ONLY_SKY** = 1 | The cubemap contains the sky and clouds only. |
+| **UNDERLYING_PROBES** = 2 | Nothing is taken from the cubemap: at the last step the probe becomes partially transparent instead, letting the underlying lighting show through - voxel probes, planar probes, other environment probes, and the sky. |
 
 ## SECONDARY_BOUNCE_PROJECTION_MODE
 
@@ -78,6 +79,34 @@ This class allows creating and managing [Environment Probes](../../../objects/li
 |---|---|
 | **SPHERE** = 0 | Sphere projection. |
 | **RAYMARCHING** = 1 | Raymarching. |
+
+## GRAB_DYNAMIC_REPROJECTION
+
+Reprojection quality mode for a dynamic environment probe that refreshes fewer than 6 cube map faces per frame: the probe movement is compensated in the faces that were not redrawn this frame, so the reflection does not lag behind a moving probe.
+| Name | Description |
+|---|---|
+| **DISABLED** = 0 | No reprojection: the faces that were not redrawn this frame lag behind a moving probe (default). |
+| **LOW** = 1 | Low quality reprojection: the stale faces are reprojected to the new probe position using the stored depth. Cheaper than the high quality mode. |
+| **HIGH** = 2 | High quality reprojection: in addition to the low quality compensation, the depth of the previous frame is scattered into the new probe position, correcting parallax for geometry close to the probe. |
+
+## GRAB_DYNAMIC_INTERLEAVED
+
+Interleaved rendering mode for a dynamic environment probe: each updated cube map face is rendered at a reduced resolution and scattered into its own subset (phase) of the face texels, so the full-resolution face is reassembled over several updates.
+| Name | Description |
+|---|---|
+| **DISABLED** = 0 | Interleaved rendering is disabled: each updated face is rendered at full resolution in one go (default). |
+| **MODE_1X2** = 1 | The face is updated in 2 phases (a 1x2 interleave pattern): each update renders half of the face texels. |
+| **MODE_2X2** = 2 | The face is updated in 4 phases (a 2x2 interleave pattern): each update renders a quarter of the face texels. |
+| **MODE_4X4** = 3 | The face is updated in 16 phases (a 4x4 interleave pattern): each update renders one sixteenth of the face texels. |
+
+## GRAB_DYNAMIC_INTERLEAVED_COLOR_CLAMPING
+
+Color clamping mode suppressing ghosting between the interleaved phases of a dynamic environment probe: the texels of the phases that were not rendered this update are clamped to the color range of the freshly rendered one.
+| Name | Description |
+|---|---|
+| **DISABLED** = 0 | No clamping: the phases keep their rendered colors until their own update. The cheapest mode; stale phases may lag behind changing content. |
+| **ON_MOVEMENT** = 1 | The clamping is applied only while the probe is moving; the phases of a static probe accumulate unclamped (default). |
+| **ALWAYS** = 2 | The clamping is applied on every update. |
 
 ### Properties
 
@@ -294,8 +323,8 @@ The ambient occlusion intensity. Keep in mind that ambient occlusion doesn't exi
 ## LightEnvironmentProbe.LAST_STEP_MODE RaymarchingLastStepMode
 
 The cubemap to be used for the last raymarching step. The following modes are available:
-- **Environment Probe** — the cubemap used for the last step is the same as for all previous steps.
-- **Only Sky** — the cubemap contains the sky and clouds only. This option is designed to fix the incorrect parallax that may occur in reflections due to the infinite length of the last step.
+- **Environment Probe** � the cubemap used for the last step is the same as for all previous steps.
+- **Only Sky** � the cubemap contains the sky and clouds only. This option is designed to fix the incorrect parallax that may occur in reflections due to the infinite length of the last step.
 
 
 ## LightEnvironmentProbe.SECONDARY_BOUNCE_PROJECTION_MODE RaymarchingSecondaryBounceProjectionMode
@@ -318,9 +347,15 @@ The value indicating if the *Environment Probe* cubemap or realtime calculation 
 This option may be combined with *[ReflectionCubicFiltering](../../...md#setReflectionCubicFiltering_int_void)* to achieve a better gradient between pixels.
 
 
-## bool RenderAboveVoxelProbes
+## LightEnvironmentProbe.GRAB_DYNAMIC_REPROJECTION GrabDynamicReprojection
 
-The value indicating if this *Environment Probe* is rendered above Voxel Probes (or other Environment Probes) to imitate the GI bounce from the sun. If enabled, the *Environment Probe* is additively blended with Voxel Probes (or other Environment Probes). In case of several Environment Probes having this setting enabled, they are rendered according to the specified [order](../../../api/library/lights/class.light_cs.md#setOrder_int_void).
+The reprojection mode compensating the probe movement in the cube map faces that were not redrawn this frame, one of the *GRAB_DYNAMIC_REPROJECTION_** values. Effective only for probes with the dynamic grab mode refreshing fewer than 6 faces per frame. Disabled by default.
+## LightEnvironmentProbe.GRAB_DYNAMIC_INTERLEAVED GrabDynamicInterleaved
+
+The interleaved rendering mode for the cube map faces updated by the dynamic grab, one of the *GRAB_DYNAMIC_INTERLEAVED_** values: each updated face is rendered at a reduced resolution and scattered into its own subset (phase) of the face texels, spreading the full-resolution refresh over several updates and reducing the per-update cost accordingly. Disabled by default.
+## LightEnvironmentProbe.GRAB_DYNAMIC_INTERLEAVED_COLOR_CLAMPING GrabDynamicInterleavedColorClamping
+
+The color clamping mode suppressing ghosting between the interleaved phases of the dynamic grab, one of the *GRAB_DYNAMIC_INTERLEAVED_COLOR_CLAMPING_** values. Effective only when interleaved rendering is enabled via the **[GrabDynamicInterleaved](../../...md#getGrabDynamicInterleaved_int)** property. By default the clamping is applied on movement only.
 ### Members
 
 ---

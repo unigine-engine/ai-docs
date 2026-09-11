@@ -64,21 +64,21 @@ public float p_float;
 The type of field in UI can be configured using the following attributes:
 
 
-- **Parameter** — a common attribute for all supported types of fields. It has the following parameters: > **Notice:** These three attributes are available for all parameter types.
+- **Parameter** � a common attribute for all supported types of fields. It has the following parameters: > **Notice:** These three attributes are available for all parameter types.
 
-  - ***Title*** — a parameter title to be displayed in UnigineEditor
-  - ***Tooltip*** — a tooltip to be displayed when the user hovers the mouse pointer over the parameter in UnigineEditor
-  - ***Group*** — a group to which the parameter belongs when displayed in UnigineEditor
-- ***ParameterColor*** — a *vec4* parameter to be displayed using a Color widget in UnigineEditor
-- ***ParameterFile*** — a *string* parameter to be displayed using the File Asset widget in UnigineEditor. It has the following *attribute*:
+  - ***Title*** � a parameter title to be displayed in UnigineEditor
+  - ***Tooltip*** � a tooltip to be displayed when the user hovers the mouse pointer over the parameter in UnigineEditor
+  - ***Group*** � a group to which the parameter belongs when displayed in UnigineEditor
+- ***ParameterColor*** � a *vec4* parameter to be displayed using a Color widget in UnigineEditor
+- ***ParameterFile*** � a *string* parameter to be displayed using the File Asset widget in UnigineEditor. It has the following *attribute*:
 
-  - ***Filter*** — a list of acceptable asset extensions, separated by vertical bar (e.g. "*.node|.txt|.mat*")
-- ***ParameterAsset*** — an *[AssetLink](../../../../../../api/library/common/logic/component_system/cs/class.assetlink_cs.md)* parameter to be displayed using the File Asset widget in UnigineEditor. It has the following *attribute*:
+  - ***Filter*** � a list of acceptable asset extensions, separated by vertical bar (e.g. "*.node|.txt|.mat*")
+- ***ParameterAsset*** � an *[AssetLink](../../../../../../api/library/common/logic/component_system/cs/class.assetlink_cs.md)* parameter to be displayed using the File Asset widget in UnigineEditor. It has the following *attribute*:
 
-  - ***Filter*** — a list of acceptable asset extensions, separated by vertical bar (e.g. "*.node|.txt|.mat*")
-- ***ParameterMask*** — an *integer* parameter to be displayed using the Mask widget in UnigineEditor. It has the following *attribute*:
+  - ***Filter*** � a list of acceptable asset extensions, separated by vertical bar (e.g. "*.node|.txt|.mat*")
+- ***ParameterMask*** � an *integer* parameter to be displayed using the Mask widget in UnigineEditor. It has the following *attribute*:
 
-  - ***MaskType*** — one of values included in the *ParameterMaskAttribute.TYPE* enumeration and corresponding to a [bit mask type](../../../../../../principles/bit_masking/index.md):
+  - ***MaskType*** � one of values included in the *ParameterMaskAttribute.TYPE* enumeration and corresponding to a [bit mask type](../../../../../../principles/bit_masking/index.md):
 
     - GENERAL = 0
     - INTERSECTION
@@ -94,27 +94,27 @@ The type of field in UI can be configured using the following attributes:
     - OBSTACLE
     - PHYSICAL
     - FIELD
-- ***ParameterSlider*** — an *integer* parameter to be displayed as a slider in UnigineEditor. It has the following *attributes*:
+- ***ParameterSlider*** � an *integer* parameter to be displayed as a slider in UnigineEditor. It has the following *attributes*:
 
-  - ***Min*** — the minimum slider value (int, float, or double)
-  - ***Max*** — the maximum slider value (int, float, or double)
-  - ***Logarithmic*** — use nonlinear scale (with base 10) for the slider (bool)
-  - ***Expand*** — A value indicating if the minimum and maximum values of the slider can be exceeded (bool)
-  - ***MinExpand*** — A value indicating if the minimum value of the slider can be decreased (bool)
-  - ***MaxExpand*** — A value indicating if the maximum value of the slider can be increased (bool)
-- ***ParameterSwitch*** — an integer parameter to be displayed as a combobox in UnigineEditor. *Attributes:*
+  - ***Min*** � the minimum slider value (int, float, or double)
+  - ***Max*** � the maximum slider value (int, float, or double)
+  - ***Logarithmic*** � use nonlinear scale (with base 10) for the slider (bool)
+  - ***Expand*** � A value indicating if the minimum and maximum values of the slider can be exceeded (bool)
+  - ***MinExpand*** � A value indicating if the minimum value of the slider can be decreased (bool)
+  - ***MaxExpand*** � A value indicating if the maximum value of the slider can be increased (bool)
+- ***ParameterSwitch*** � an integer parameter to be displayed as a combobox in UnigineEditor. *Attributes:*
 
-  - ***Items*** — a comma-separated list of options to be displayed in the combobox
-- ***ParameterProperty*** — a Property asset parameter to be displayed as a combobox in UnigineEditor. *Attributes:*
+  - ***Items*** � a comma-separated list of options to be displayed in the combobox
+- ***ParameterProperty*** � a Property asset parameter to be displayed as a combobox in UnigineEditor. *Attributes:*
 
-  - ***InternalOnly*** — sets a filter allowing to use only properties that are attached to a node ([internal](../../../../../../principles/properties/index.md#internal))
-  - ***ParentGUID*** — sets a [GUID](../../../../../../principles/properties/inheritance.md#property_guid)-based filter indicating the parent property for allowed properties.
-- ***ParameterMaterial*** — a Material asset parameter to be displayed as a combobox in UnigineEditor. *Attributes:*
+  - ***InternalOnly*** � sets a filter allowing to use only properties that are attached to a node ([internal](../../../../../../principles/properties/index.md#internal))
+  - ***ParentGUID*** � sets a [GUID](../../../../../../principles/properties/inheritance.md#property_guid)-based filter indicating the parent property for allowed properties.
+- ***ParameterMaterial*** � a Material asset parameter to be displayed as a combobox in UnigineEditor. *Attributes:*
 
-  - ***ParentGUID*** — sets a [GUID](../../../../../../principles/properties/inheritance.md#property_guid)-based filter indicating the parent material for allowed materials.
+  - ***ParentGUID*** � sets a [GUID](../../../../../../principles/properties/inheritance.md#property_guid)-based filter indicating the parent material for allowed materials.
 
 
-> **Notice:** By default, parameters are displayed or hidden in UI in accordance with access modifiers: *public* — displayed, otherwise — hidden. But you can hide a *public* parameter, or show a *private* or *protected* one by specifying the corresponding visibility option (**ShowInEditor** or **HideInEditor**) in the brackets (see examples below).
+> **Notice:** By default, parameters are displayed or hidden in UI in accordance with access modifiers: *public* � displayed, otherwise � hidden. But you can hide a *public* parameter, or show a *private* or *protected* one by specifying the corresponding visibility option (**ShowInEditor** or **HideInEditor**) in the brackets (see examples below).
 
 
 #### Parameter Conditions
@@ -379,7 +379,7 @@ public class TestComponent : Component
 Each component has a set of methods implementing its logic. These methods can be divided into two groups: methods of the [main loop](../../../../../../code/fundamentals/execution_sequence/index.md) (such as *void Init(), void Update(), void UpdateSyncThread()*, etc.) and arbitrary methods.
 
 
-The methods from the first group have names that define their behavior and are executed during the corresponding stages of the [World Logic](../../../../../../code/fundamentals/execution_sequence/app_logic_system.md#worldlogic). There is only one attribute — *Method*. You can set multiple methods for each stage — they are executed according to their **order** value (optional) or in the order they appear in the declaration. For example:
+The methods from the first group have names that define their behavior and are executed during the corresponding stages of the [World Logic](../../../../../../code/fundamentals/execution_sequence/app_logic_system.md#worldlogic). There is only one attribute � *Method*. You can set multiple methods for each stage � they are executed according to their **order** value (optional) or in the order they appear in the declaration. For example:
 
 
 ```csharp
@@ -446,13 +446,13 @@ class C : Component {
 Suppose, we have 3 objects of class A, 2 objects of class B and 1 objects of class C. The methods for them are executed in the following order:
 
 
-- Order **-1** — B::Update1 and B::Update1
-- Order **0** — C::Update1
-- Order **1** — B::Update2 and B::Update2
-- Order **2** — C::Update2
-- Order **5** — A::Update, A::Update, A::Update
-- Order **-10** — A::PostUpdate, A::PostUpdate, A::PostUpdate
-- Order **0** — B::PostUpdate and B::PostUpdate
+- Order **-1** � B::Update1 and B::Update1
+- Order **0** � C::Update1
+- Order **1** � B::Update2 and B::Update2
+- Order **2** � C::Update2
+- Order **5** � A::Update, A::Update, A::Update
+- Order **-10** � A::PostUpdate, A::PostUpdate, A::PostUpdate
+- Order **0** � B::PostUpdate and B::PostUpdate
 
 
 Components can also override several lifecycle callbacks. These are invoked by the Component System when the component is created and when its enabled state changes:
@@ -469,7 +469,7 @@ protected override void OnDisable() {}	// ... was disabled
 #### Invoking and Overriding Private Methods
 
 
-Private methods in derived components are now invoked and can be overridden, giving you an exceptional flexibility in implementing your application’s logic via components.
+Private methods in derived components are now invoked and can be overridden, giving you an exceptional flexibility in implementing your application�s logic via components.
 
 
 **Example:**
@@ -517,7 +517,10 @@ The Value indicating whether the component is initialized (its *init()* method w
 
 ## protected void OnReady ( )
 
-This method is called **immediately** after the component was created and attached to a node. You can override this method and use it instead of the constructor for initialization, as the component is in an "undefined" state at construction time.
+This method is called **immediately** after the component was created and attached to a node.
+You can override this method and use it instead of the constructor for initialization, as the component is in an "undefined" state at construction time.
+
+
 > **Notice:** The *Init()* method is called only on [initializing a world](../../../../../../code/fundamentals/execution_sequence/main_loop.md#world_init). Implementing component initialization in *OnReady()* enables you to do all necessary preparations beforehand, if your component is to be accessed by other components on world initialization.
 
 ## protected void OnEnable ( )
@@ -528,7 +531,7 @@ This method is called by the Engine, when the component and node become enabled 
 This method is called by the Engine, when the component and node become disabled. You can override this method to implement some specific actions to be performed each time, when the component becomes disabled.
 ## protected T AddComponent < T > ( Node node ) # where T : Component
 
-Adds the component to the specified node. This method is equivalent to [ComponentSystem.AddComponent()](../../../../../../api/library/common/logic/component_system/cs/class.componentsystem_cs.md#addComponent_Node_T) method.
+Adds the component to the specified node. This method is equivalent to *[ComponentSystem.AddComponent()](../../../../../../api/library/common/logic/component_system/cs/class.componentsystem_cs.md#addComponent_Node_T)* method.
 ### Arguments
 
 - *[Node](../../../../../../api/library/nodes/class.node_cs.md)* **node** - Node, to which the component is to be added.
@@ -538,7 +541,7 @@ Adds the component to the specified node. This method is equivalent to [Componen
 New added component instance, if it was successfully added to the specified node; otherwise null.
 ## protected T GetComponent < T > ( Node node , bool enabled_only ) # where T : Class
 
-Returns the first component of the specified type associated with the specified node. This method is equivalent to [ComponentSystem.GetComponent()](../../../../../../api/library/common/logic/component_system/cs/class.componentsystem_cs.md#getComponent_Node_bool_T) method.
+Returns the first component of the specified type associated with the specified node. This method is equivalent to *[ComponentSystem.GetComponent()](../../../../../../api/library/common/logic/component_system/cs/class.componentsystem_cs.md#getComponent_Node_bool_T)* method.
 ### Arguments
 
 - *[Node](../../../../../../api/library/nodes/class.node_cs.md)* **node** - Node, for which the component of this type is to be found.
@@ -549,7 +552,7 @@ Returns the first component of the specified type associated with the specified 
 Component if it exists; otherwise, null.
 ## protected T[] GetComponents < T > ( Node node , bool enabled_only ) # where T : Class
 
-Returns all components of this type assigned to the specified node. This method is equivalent to [ComponentSystem.GetComponents()](../../../../../../api/library/common/logic/component_system/cs/class.componentsystem_cs.md#getComponents_Node_bool_VectorT) method.
+Returns all components of this type assigned to the specified node. This method is equivalent to *[ComponentSystem.GetComponents()](../../../../../../api/library/common/logic/component_system/cs/class.componentsystem_cs.md#getComponents_Node_bool_VectorT)* method.
 ### Arguments
 
 - *[Node](../../../../../../api/library/nodes/class.node_cs.md)* **node** - Node, whose components are to be retrieved.
@@ -560,13 +563,18 @@ Returns all components of this type assigned to the specified node. This method 
 Array containing all found components of this type (if any); otherwise null.
 ## protected T GetComponentInChildren < T > ( Node node , bool enabled_only ) # where T : Class
 
+
 Returns the first component of this type found among all the children of the specified node (including the node itself). This method searches for the component in the following order:
+
+
 - node itself
 - node reference
 - node's children
 - children of node's children
 
-This method is equivalent to [ComponentSystem.GetComponentInChildren()](../../../../../../api/library/common/logic/component_system/cs/class.componentsystem_cs.md#getComponentInChildren_Node_bool_T) method.
+
+This method is equivalent to *[ComponentSystem.GetComponentInChildren()](../../../../../../api/library/common/logic/component_system/cs/class.componentsystem_cs.md#getComponentInChildren_Node_bool_T)* method.
+
 ### Arguments
 
 - *[Node](../../../../../../api/library/nodes/class.node_cs.md)* **node** - Node, whose hierarchy is to be checked for the components of this type.
@@ -577,7 +585,7 @@ This method is equivalent to [ComponentSystem.GetComponentInChildren()](../../..
 Component if it exists; otherwise, null.
 ## protected T[] GetComponentsInChildren < T > ( Node node , bool enabled_only ) # where T : Class
 
-Searches for all components of this type down the hierarchy of the specified node. This method is equivalent to [ComponentSystem.GetComponentsInChildren()](../../../../../../api/library/common/logic/component_system/cs/class.componentsystem_cs.md#getComponentsInChildren_Node_bool_VectorT) method.
+Searches for all components of this type down the hierarchy of the specified node. This method is equivalent to *[ComponentSystem.GetComponentsInChildren()](../../../../../../api/library/common/logic/component_system/cs/class.componentsystem_cs.md#getComponentsInChildren_Node_bool_VectorT)* method.
 ### Arguments
 
 - *[Node](../../../../../../api/library/nodes/class.node_cs.md)* **node** - Node, whose hierarchy is to be checked for the components of this type.
@@ -588,7 +596,7 @@ Searches for all components of this type down the hierarchy of the specified nod
 Array containing all found components of this type (if any); otherwise null.
 ## protected T GetComponentInParent < T > ( Node node , bool enabled_only ) # where T : Class
 
-Returns the first component of this type found among all predecessors and [posessors](../../../../../../api/library/nodes/class.node_cs.md#getPossessor_Node) of the specified node. This method is equivalent to [ComponentSystem.GetComponentInParent()](../../../../../../api/library/common/logic/component_system/cs/class.componentsystem_cs.md#getComponentInParent_Node_bool_T) method.
+Returns the first component of this type found among all predecessors and [posessors](../../../../../../api/library/nodes/class.node_cs.md#getPossessor_Node) of the specified node. This method is equivalent to *[ComponentSystem.GetComponentInParent()](../../../../../../api/library/common/logic/component_system/cs/class.componentsystem_cs.md#getComponentInParent_Node_bool_T)* method.
 ### Arguments
 
 - *[Node](../../../../../../api/library/nodes/class.node_cs.md)* **node** - Node, whose hierarchy is to be checked for the components of this type.
@@ -599,7 +607,7 @@ Returns the first component of this type found among all predecessors and [poses
 Component if it exists; otherwise, null.
 ## protected T[] GetComponentsInParent < T > ( Node node , bool enabled_only ) # where T : Class
 
-Searches for all components of this type up the hierarchy of the specified node. This method is equivalent to [ComponentSystem.GetComponentsInParent()](../../../../../../api/library/common/logic/component_system/cs/class.componentsystem_cs.md#getComponentsInParent_Node_bool_VectorT) method.
+Searches for all components of this type up the hierarchy of the specified node. This method is equivalent to *[ComponentSystem.GetComponentsInParent()](../../../../../../api/library/common/logic/component_system/cs/class.componentsystem_cs.md#getComponentsInParent_Node_bool_VectorT)* method.
 ### Arguments
 
 - *[Node](../../../../../../api/library/nodes/class.node_cs.md)* **node** - Node, whose hierarchy is to be checked for the components of this type.
@@ -610,7 +618,7 @@ Searches for all components of this type up the hierarchy of the specified node.
 Array containing all found components of this type (if any); otherwise null.
 ## protected T FindComponentInWorld < T > ( bool enabled_only ) # where T : Class
 
-Returns the first component of this type found in the current world. This method is equivalent to [ComponentSystem.FindComponentInWorld()](../../../../../../api/library/common/logic/component_system/cs/class.componentsystem_cs.md#findComponentInWorld_bool_T) method.
+Returns the first component of this type found in the current world. This method is equivalent to *[ComponentSystem.FindComponentInWorld()](../../../../../../api/library/common/logic/component_system/cs/class.componentsystem_cs.md#findComponentInWorld_bool_T)* method.
 ### Arguments
 
 - *bool* **enabled_only** - Enabled flag: true to get enabled component only, false to get component in any case.
@@ -620,7 +628,7 @@ Returns the first component of this type found in the current world. This method
 Component if it exists; otherwise, null.
 ## protected T[] FindComponentsInWorld < T > ( bool enabled_only ) # where T : Class
 
-Returns the list of all components of this type found in the current world. This method is equivalent to [ComponentSystem.FindComponentsInWorld()](../../../../../../api/library/common/logic/component_system/cs/class.componentsystem_cs.md#findComponentsInWorld_bool_VectorT) method.
+Returns the list of all components of this type found in the current world. This method is equivalent to *[ComponentSystem.FindComponentsInWorld()](../../../../../../api/library/common/logic/component_system/cs/class.componentsystem_cs.md#findComponentsInWorld_bool_VectorT)* method.
 ### Arguments
 
 - *bool* **enabled_only** - Enabled flag: true to get only enabled components, false to get all components.
@@ -630,7 +638,7 @@ Returns the list of all components of this type found in the current world. This
 Array containing all found components of this type (if any); otherwise null.
 ## protected int RemoveComponent < T > ( Node component ) # where T : Class
 
-Removes the component from the specified node. This method is equivalent to [ComponentSystem.RemoveComponent()](../../../../../../api/library/common/logic/component_system/cs/class.componentsystem_cs.md#removeComponent_Node_int) method.
+Removes the component from the specified node. This method is equivalent to *[ComponentSystem.RemoveComponent()](../../../../../../api/library/common/logic/component_system/cs/class.componentsystem_cs.md#removeComponent_Node_int)* method.
 ### Arguments
 
 - *[Node](../../../../../../api/library/nodes/class.node_cs.md)* **component** - Node, from which the component is to be removed.
@@ -640,7 +648,7 @@ Removes the component from the specified node. This method is equivalent to [Com
 **1** if the component was successfully removed from the specified node; otherwise **0**.
 ## protected int RemoveComponent ( Component node )
 
-Removes the specified component. This method is equivalent to [ComponentSystem.RemoveComponent()](../../../../../../api/library/common/logic/component_system/cs/class.componentsystem_cs.md#removeComponent_Component_int) method.
+Removes the specified component. This method is equivalent to *[ComponentSystem.RemoveComponent()](../../../../../../api/library/common/logic/component_system/cs/class.componentsystem_cs.md#removeComponent_Component_int)* method.
 ### Arguments
 
 - *Component* **node** - Component to be removed.

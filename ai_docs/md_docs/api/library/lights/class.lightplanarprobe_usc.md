@@ -89,7 +89,7 @@ Sets a new value indicating if rendering of the reflection for each eye separate
 Returns the current value indicating if rendering of the reflection for each eye separately is enabled.
 ### Return value
 
-**true** if rendering of the reflection for each eye separately is enabled; otherwise **false**.
+**true** if rendering of the reflection for each eye separately is enabled ; otherwise **false**.
 ## void setDistanceScale ( float scale )
 
 Sets a new distance multiplier for the reflection visibility distance. Distance Scale is applied to the distance measured from the reflection camera to the node (surface) bound.

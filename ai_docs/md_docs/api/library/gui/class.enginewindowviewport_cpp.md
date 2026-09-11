@@ -91,7 +91,7 @@ Sets a new value indicating if the console is displayed for the window currently
 Returns the current value indicating if the console is displayed for the window currently in focus.
 ### Return value
 
-**true** if the console display for the window currently in focus is enabled; otherwise **false**.
+**true** if the console display for the window currently in focus is enabled ; otherwise **false**.
 ## void setProfilerUsage ( bool usage )
 
 Sets a new value indicating if the profiler is displayed for the window currently in focus.
@@ -104,7 +104,7 @@ Sets a new value indicating if the profiler is displayed for the window currentl
 Returns the current value indicating if the profiler is displayed for the window currently in focus.
 ### Return value
 
-**true** if the profiler display for the window currently in focus is enabled; otherwise **false**.
+**true** if the profiler display for the window currently in focus is enabled ; otherwise **false**.
 ## void setVisualizerUsage ( bool usage )
 
 Sets a new value indicating if the visualizer is displayed for the window currently in focus.
@@ -117,20 +117,20 @@ Sets a new value indicating if the visualizer is displayed for the window curren
 Returns the current value indicating if the visualizer is displayed for the window currently in focus.
 ### Return value
 
-**true** if the visualizer display for the window currently in focus is enabled; otherwise **false**.
+**true** if the visualizer display for the window currently in focus is enabled ; otherwise **false**.
 ## void setSkipRenderEngine ( bool engine )
 
 Sets a new value indicating whether the Engine rendering for the current window is disabled (even if it has the [main camera flag](#setMain_int_void) or the [user camera](#setCamera_Camera_void) set). This doesn't disable the Gui instance, so widgets and the console remain available.
 ### Arguments
 
-- *bool* **engine** - true to disable Engine rendering; false to enable it.
+- *bool* **engine** - value indicating whether the Engine rendering for the current window is disabled
 
 ## bool isSkipRenderEngine () const
 
 Returns the current value indicating whether the Engine rendering for the current window is disabled (even if it has the [main camera flag](#setMain_int_void) or the [user camera](#setCamera_Camera_void) set). This doesn't disable the Gui instance, so widgets and the console remain available.
 ### Return value
 
-true to disable Engine rendering; false to enable it.
+value indicating whether the Engine rendering for the current window is disabled
 ## bool isFullscreen () const
 
 Returns the current value indicating if the engine window is the fullscreen state. A nested window will be withdrawn from the group if set to fullscreen.
@@ -162,14 +162,14 @@ Returns the current total number of children widgets of the engine window.
 Current total number of children widgets of the engine window.
 ## Event<const Ptr < EngineWindowViewport > &> getEventCustomRender () const
 
-Subscribing to this event makes the engine stop rendering the scene to this viewport — using this approach you may implement your own rendering to the viewport. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+Subscribing to this event makes the engine stop rendering the scene to this viewport � using this approach you may implement your own rendering to the viewport. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
  The event handler signature is as follows: *myhandler(const Ptr<EngineWindowViewport> & **viewport**)*
 ### Return value
 
-Event reference.
+Event instance.
 ## void setAspectCorrection ( bool correction )
 
 Sets a new value indicating if the aspect correction for the engine window viewport is enabled.
@@ -182,7 +182,7 @@ Sets a new value indicating if the aspect correction for the engine window viewp
 Returns the current value indicating if the aspect correction for the engine window viewport is enabled.
 ### Return value
 
-**true** if the aspect correction is enabled; otherwise **false**.
+**true** if the aspect correction is enabled ; otherwise **false**.
 ---
 
 ## static EngineWindowViewportPtr create ( const Math:: ivec2 & size , int flags = 0 )
@@ -264,3 +264,11 @@ Checks if the argument widget is the child of the current window viewport.
 ### Return value
 
 true if the widget is the child of the current window viewport; otherwise, false.
+## void calculateEngineRenderResolution ( Math:: ivec2 & render_resolution_min , Math:: ivec2 & render_resolution_max , Math:: ivec2 & render_resolution ) const
+
+Calculates the actual internal render resolutions for this viewport window based on the current client render size and the global render settings (render border, supersampling, dynamic resolution bounds, and the upscaler input resolution when the viewport renders the full pipeline).
+### Arguments
+
+- *Math::[ivec2](../../../api/library/math/class.ivec2_cpp.md) &* **render_resolution_min** - Output value: the minimum resolution the engine may render at (differs from the maximum only when dynamic resolution is enabled).
+- *Math::[ivec2](../../../api/library/math/class.ivec2_cpp.md) &* **render_resolution_max** - Output value: the maximum resolution the engine may render at.
+- *Math::[ivec2](../../../api/library/math/class.ivec2_cpp.md) &* **render_resolution** - Output value: the resolution the next frame is going to be rendered at.

@@ -53,6 +53,7 @@ If you are interested in further code-level details related to Unigine, refer to
       - [3 Monitor Output with Surround Plugin](../principles/render/output/multi_monitor/appsurround/index.md)
     - [Panoramic Rendering](../principles/render/output/apppanorama/index.md)
   - [Upscaling with DLSS and FSR](../principles/render/upscaling/index.md)
+  - [Dynamic Resolution Scale](../principles/render/drs/index.md)
 
 - [Physics](../principles/physics/index.md)
 
@@ -88,3 +89,5 @@ If you are interested in further code-level details related to Unigine, refer to
 - [Memory Allocator](../principles/allocator/index.md)
 
 - [DPI Scaling](../principles/dpi/index.md)
+
+- [Georeferencing in UNIGINE](../principles/georeferencing/index.md)

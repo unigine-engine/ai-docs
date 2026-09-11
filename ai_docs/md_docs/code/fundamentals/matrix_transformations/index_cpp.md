@@ -89,7 +89,7 @@ To calculate the vector length (also known as magnitude), you should find a squa
 
 
 ```text
-|vector length| = √(x² + y² + z²)
+|vector length| = √(x� + y� + z�)
 ```
 
 

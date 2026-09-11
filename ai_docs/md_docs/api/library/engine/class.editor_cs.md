@@ -6,7 +6,7 @@
 This class provides functionality for the [editor script](../../../code/fundamentals/execution_sequence/app_logic_system.md#editor_logic) that loads and manages the hierarchy of nodes displayed in the editor.
 
 
-> **Notice:** C++ methods running editor script functions are described in the [Engine class](../../../api/library/engine/class.engine_cs.md) reference.
+> **Notice:** C++ methods running editor script functions are described in the *[Engine](../../../api/library/engine/class.engine_cs.md)* class reference.
 
 
 ## Editor Class
@@ -16,12 +16,15 @@ This class provides functionality for the [editor script](../../../code/fundamen
 ## Player Player
 
 The player used in the Editor mode at the moment.
-> **Notice:** Editor player is handled differently than in-game players. Parameters set directly for the player are ignored; instead, Editor player uses [Camera](../../../editor2/camera_settings/index.md) parameters set via the interface. (See Editor scripts in `data/core/editor` folder for implementation.)
+> **Notice:** Editor player is handled differently than in-game players. Parameters set directly for the player are ignored; instead, *Editor* player uses [Camera](../../../editor2/camera_settings/index.md) parameters set via the interface. (See Editor scripts in `data/core/editor` folder for implementation.)
 
 
 ## Player VRPlayer
 
-The player used to render VR in the Editor mode at the moment. If VR Player has not been set, VR is rendered to the [Editor Player](#getPlayer_Player); if the Editor Player hasn't been set either, the [Game Player](../../../api/library/engine/class.game_cs.md#getPlayer_Player) is used for rendering.
+The player used to render VR in the Editor mode at the moment.
+If VR Player has not been set, VR is rendered to the [Editor Player](#getPlayer_Player); if the *Editor* Player hasn't been set either, the [Game Player](../../../api/library/engine/class.game_cs.md#getPlayer_Player) is used for rendering.
+
+
 > **Notice:** Editor player is handled differently than in-game players. Parameters set directly for the player are ignored; instead, Editor player uses [Camera](../../../editor2/camera_settings/index.md) parameters set via the interface. (See Editor scripts in `data/core/editor` folder for implementation.)
 
 
@@ -83,7 +86,7 @@ Returns a value indicating if the given player is an Editor player.
 true if the *Player* is an Editor player; otherwise, false.
 ## Node GetIntersection ( vec3 p0 , vec3 p1 , bool use_handlers = true )
 
-Searches for all of the nodes intersected by the line traced from **p0** to **p1**. The node closest to the start point is returned.
+Searches for all of the nodes intersected by the line traced from p0 to p1. The node closest to the start point is returned.
 ### Arguments
 
 - *vec3* **p0** - Line start point coordinates
@@ -95,7 +98,7 @@ Searches for all of the nodes intersected by the line traced from **p0** to **p1
 The first intersected node found along the line; otherwise, *null*, if there was no intersection.
 ## Node GetIntersection ( vec3 p0 , vec3 p1 , WorldIntersection intersection , bool use_handlers = true )
 
-Searches for all of the nodes intersecting the line. The node closest to the start point is returned. The intersection result will be presented as a WorldIntersection instance.
+Searches for all of the nodes intersecting the line. The node closest to the start point is returned. The intersection result will be presented as a *WorldIntersection* instance.
 ### Arguments
 
 - *vec3* **p0** - Line start point coordinates.
@@ -108,7 +111,7 @@ Searches for all of the nodes intersecting the line. The node closest to the sta
 The first intersected node found along the line; otherwise, *null*, if there was no intersection.
 ## Node GetIntersection ( vec3 p0 , vec3 p1 , WorldIntersectionNormal intersection , bool use_handlers = true )
 
-Searches for all of the nodes intersecting the line. The node closest to the start point is returned. The intersection result will be presented as a WorldIntersectionNormal instance.
+Searches for all of the nodes intersecting the line. The node closest to the start point is returned. The intersection result will be presented as a *WorldIntersectionNormal* instance.
 ### Arguments
 
 - *vec3* **p0** - Line start point coordinates.
@@ -121,7 +124,7 @@ Searches for all of the nodes intersecting the line. The node closest to the sta
 The first intersected node found along the line; otherwise, *null*, if there was no intersection.
 ## Node GetIntersection ( vec3 p0 , vec3 p1 , WorldIntersectionTexCoord intersection , bool use_handlers = true )
 
-Searches for all of the nodes intersecting the line. The node closest to the start point is returned. The intersection result will be presented as a WorldIntersectionTexCoord node.
+Searches for all of the nodes intersecting the line. The node closest to the start point is returned. The intersection result will be presented as a *WorldIntersectionTexCoord* node.
 ### Arguments
 
 - *vec3* **p0** - Start point of the line.
@@ -144,6 +147,18 @@ Finds all nodes intersected by the specified bound frustum and puts them to the 
 ### Return value
 
 true if intersected nodes are found; otherwise, false.
+## bool GetIntersection ( WorldBoundFrustum bf , Node [] OUT_bound_nodes , Node [] OUT_handler_nodes )
+
+Performs a frustum selection query returning two kinds of hits separately: nodes whose bounds intersect the given frustum, and nodes whose visualizer handler points fall inside it.
+### Arguments
+
+- *[WorldBoundFrustum](../../../api/library/math/cs/bounds/worldboundfrustum_cs.md)* **bf** - Bounding frustum where intersection search is to be performed.
+- *[Node](../../../api/library/nodes/class.node_cs.md)[]* **OUT_bound_nodes** - Output vector filled with all nodes whose bounds intersect the frustum. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
+- *[Node](../../../api/library/nodes/class.node_cs.md)[]* **OUT_handler_nodes** - Output vector filled with nodes whose visualizer handler point (the on-screen node icon) lies inside the frustum. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
+
+### Return value
+
+true if at least one node was found in either list; otherwise, false.
 ## Node GetIntersection ( vec3 p0 , vec3 p1 , IntersectionNodeFilter node_filter , IntersectionSurfaceFilter surface_filter , bool use_handlers = true )
 
 Searches for all nodes intersected by the line traced from **p0** to **p1**, ignoring the ones defined by the specified **filters**. The node closest to the start point is returned (if any).

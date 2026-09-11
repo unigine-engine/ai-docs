@@ -27,7 +27,7 @@ The screen width of the mesh gui object.
 The distance at which the GUI becomes controllable.
 ## int MouseMode
 
-The current mouse mode.
+The mouse mode. One of the [MOUSE_*](#MOUSE_VIRTUAL) variables.
 ## bool MouseShow
 
 The value indicating if the mouse cursor is rendered in the mesh GUI object.
@@ -36,10 +36,12 @@ The value indicating if the mouse cursor is rendered in the mesh GUI object.
 The value indicating if gui background (black screen) is rendered.
 ## 🔒︎ Gui Gui
 
-The gui instance associated with the object.
+The [gui](../../../api/library/gui/class.gui_cs.md) instance associated with the object.
 ## string MeshPath
 
 The path to the source *.mesh*-file used for the object.
+> **Notice:** Setting a new path does not update the mesh immediately, and if the mesh is in the procedural mode, it will be reset. The mesh should contain a single surface; in case the mesh contains several surfaces, only the one with the 0 index will be used.
+
 ## 🔒︎ bool IsMeshLoadedVRAM
 
 The value indicating if the source mesh used for the object is loaded to video memory (VRAM).

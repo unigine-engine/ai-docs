@@ -72,7 +72,7 @@ Assess the approach that was used at creating the models and consider if they ca
 
 
 - Don't create one inseparable mesh for a big model (such as a building) uniting a great number of elements (doors, poles, stairs, etc.), otherwise you won't be able to use various optimization tools available in the engine (such as [clusters and clutters](../../content/optimization/geometry/cluster_clutter/index.md) that can speed up rendering of numerous identical parts and reduce performance costs).
-- Use [impostors](../../content/optimization/geometry/impostors/index.md) wherever applicable (background/distant vegetation and some other distant objects quite often don't require geometry, so you can just replace the model with a flat square photo of the model — just two triangles, it's definitely less than any model that you have).
+- Use [impostors](../../content/optimization/geometry/impostors/index.md) wherever applicable (background/distant vegetation and some other distant objects quite often don't require geometry, so you can just replace the model with a flat square photo of the model � just two triangles, it's definitely less than any model that you have).
 - Make sure that the potential of a material is used to the full extent: for example, small bumps and curves may be implemented not as the object geometry, but using the normal map ([displacement sample](../../content/materials/graph/samples/displacement/index.md)). Check [Art Samples](../../content/samples/index.md) to find more ideas.
 - Inspect the content in your scene carefully, you might have added objects that you don't use (hidden somewhere inside a building or underneath the scene). Remove them, otherwise they'll also affect performance.
 
@@ -119,7 +119,7 @@ You can use the corresponding helper to highlight the surfaces in the scene that
 ### Water
 
 
-It makes no sense to use the *[Global Water](../../objects/objects/water/water_object.md)* object when you only need a small pond or a river, and you'll never go underwater — the object will consume resources, but you won't make the benefit of the features it provides. *[Water Mesh](../../objects/objects/water/water_mesh.md)* will be enough in this case.
+It makes no sense to use the *[Global Water](../../objects/objects/water/water_object.md)* object when you only need a small pond or a river, and you'll never go underwater � the object will consume resources, but you won't make the benefit of the features it provides. *[Water Mesh](../../objects/objects/water/water_mesh.md)* will be enough in this case.
 
 
 If your scene indeed needs the Global Water features, use the corresponding [optimization techniques](../../content/optimization/water/index.md).

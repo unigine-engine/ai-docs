@@ -139,6 +139,16 @@ public partial class ProfilerClass : Component
 
 ## Profiler Class
 
+### Enums
+
+## COUNTER_VR_FLAG
+
+Flags defining whether a custom counter appears in the VR (HMD) profiler overlay in addition to the regular screen profiler.
+| Name | Description |
+|---|---|
+| **DISABLED** = 0 | The counter is displayed only in the regular screen profiler and never in the VR profiler overlay (default). |
+| **PERFORMANCE_ADVANCED** = 1 << 1 | The counter is included in the advanced performance panel of the VR profiler shown inside the HMD (requires the VR profiler enabled in the advanced mode). |
+
 ### Properties
 
 ## Gui Gui
@@ -155,7 +165,7 @@ The microprofile web server url.
 The total number of the profiler counters.
 ## 🔒︎ Event EventProfileDumpStart
 
-The Event triggered when profiler dump recording starts. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The Event triggered when profiler dump recording starts. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -249,7 +259,7 @@ Profiler.EventProfileDumpStart.Enabled = true;
 
 ## 🔒︎ Event EventProfileDumpEnd
 
-The Event triggered when profiler dump recording ends. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The Event triggered when profiler dump recording ends. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -345,52 +355,56 @@ Profiler.EventProfileDumpEnd.Enabled = true;
 
 ---
 
-## void SetValue ( string name , string units , int value , int max_value , float[] OUT_arg5 )
+## void SetValue ( string name , string units , int value , int max_value , float[] OUT_arg5 , Profiler.COUNTER_VR_FLAG vr_flags = Enum.Profiler.COUNTER_VR_FLAG.DISABLED , bool show_chart = true )
 
-Updates settings of the integer counter.
+Sets the value of a custom integer counter displayed in the engine profiler and, depending on the flags, in the VR profiler overlay. The counter is updated only while the profiler (or the VR profiler) is enabled.
 ```csharp
 // initialize the graph color
 float[] color = new float [4] {1.0f,1.0f,1.0f,1.0f};
 
 // add a counter without a graph
-Profiler.SetValue("Random value 1", "", new System.Random().Next(0,5), 4, null);
+Profiler.SetValue("Random value 1", "", new System.Random().Next(0,5), 4, null, COUNTER_VR_FLAG.DISABLED);
 // add a counter with a colored graph
-Profiler.SetValue("Random value 2", "", new System.Random().Next(0,10), 9, color);
+Profiler.SetValue("Random value 2", "", new System.Random().Next(0,10), 9, color, COUNTER_VR_FLAG.DISABLED);
 
 ```
 
 
 ### Arguments
 
-- *string* **name** - Name of the counter.
-- *string* **units** - Counter units.
-- *int* **value** - Value of the counter.
-- *int* **max_value** - Counter maximum value.
-- *float[]* **OUT_arg5** - Color of the graph. Pass NULL if no graph is required. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
+- *string* **name** - Name of the counter, also used as its label.
+- *string* **units** - Unit suffix appended after the printed value (for example, ms); can be omitted.
+- *int* **value** - Value of the counter for the current frame.
+- *int* **max_value** - Reference maximum used to scale the counter's colored bar in the profiler chart.
+- *float[]* **OUT_arg5** - Color of the counter's chart bar (RGBA); if omitted, no chart bar is created. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
+- *[Profiler.COUNTER_VR_FLAG](../../../api/library/engine/class.profiler_cs.md#COUNTER_VR_FLAG)* **vr_flags** - Flags controlling the counter's visibility in the VR profiler, a combination of the *COUNTER_VR_FLAG_** values.
+- *bool* **show_chart** - Flag defining whether the counter draws its chart curve in the profiler.
 
-## void SetValue ( string name , string units , float value , float max_value , float[] OUT_arg5 )
+## void SetValue ( string name , string units , float value , float max_value , float[] OUT_arg5 , Profiler.COUNTER_VR_FLAG vr_flags = Enum.Profiler.COUNTER_VR_FLAG.DISABLED , bool show_chart = true )
 
-Updates settings of the float counter.
+Sets the value of a custom float counter displayed in the engine profiler and, depending on the flags, in the VR profiler overlay. The counter is updated only while the profiler (or the VR profiler) is enabled.
 ```csharp
 // initialize the graph color
 float[] color = new float [4] {1.0f,1.0f,1.0f,1.0f};
 
 float rvalue = (float)new System.Random().NextDouble() * 1;
 // add a counter without a graph
-Profiler.SetValue("Random value 1", "", rvalue, 1.0f, null);
+Profiler.SetValue("Random value 1", "", rvalue, 1.0f, null, COUNTER_VR_FLAG.DISABLED);
 // add a counter with a colored graph
-Profiler.SetValue("Random value 2", "", 1 + rvalue, 10.0f, color);
+Profiler.SetValue("Random value 2", "", 1 + rvalue, 10.0f, color, COUNTER_VR_FLAG.DISABLED);
 
 ```
 
 
 ### Arguments
 
-- *string* **name** - Name of the counter.
-- *string* **units** - Counter units.
-- *float* **value** - Value of the counter.
-- *float* **max_value** - Counter maximum value.
-- *float[]* **OUT_arg5** - Color of the graph. Pass NULL if no graph is required. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
+- *string* **name** - Name of the counter, also used as its label.
+- *string* **units** - Unit suffix appended after the printed value (for example, ms); can be omitted.
+- *float* **value** - Value of the counter for the current frame.
+- *float* **max_value** - Reference maximum used to scale the counter's colored bar in the profiler chart.
+- *float[]* **OUT_arg5** - Color of the counter's chart bar (RGBA); if omitted, no chart bar is created. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
+- *[Profiler.COUNTER_VR_FLAG](../../../api/library/engine/class.profiler_cs.md#COUNTER_VR_FLAG)* **vr_flags** - Flags controlling the counter's visibility in the VR profiler, a combination of the *COUNTER_VR_FLAG_** values.
+- *bool* **show_chart** - Flag defining whether the counter draws its chart curve in the profiler.
 
 ## float GetValue ( string name )
 
@@ -404,7 +418,10 @@ Returns a value of the specified counter.
 Value of the counter in milliseconds.
 ## void Begin ( string name , vec4 color )
 
+
 Starts a counter with a given name and shows a colored graph (if the `show_profiler 1` console variable is set). The counter shows user how many millisecods have been spent for the operation that is performed between the *begin()* and the *[end()](#end_float)* functions.
+
+
 ```csharp
 int size = 128;
 
@@ -440,7 +457,10 @@ ObjectMeshDynamic mesh;
 
 ## void Begin ( string name )
 
+
 Starts a counter with a given name. The counter shows user how many millisecods have been spent for the operation that is performed between the *begin()* and the *[end()](#end_float)* functions.
+
+
 ```csharp
 ObjectMeshDynamic mesh;
 
@@ -468,7 +488,10 @@ Stops the last [activated](#begin_cstr_vec4_void) counter and returns its value.
 Value of the counter in milliseconds.
 ## int BeginMicro ( string name , bool gpu = 0 )
 
+
 Starts a counter with a given name in the [Microprofile](../../../tools/profiling/microprofile/index_cs.md) only, without overloading the [Performance Profiler](../../../tools/profiling/profiler/index.md) layout. The counter shows user how many millisecods have been spent for the operation that is performed between the *beginMicro()* and the *[endMicro()](#endMicro_int_void)* functions.
+
+
 > **Notice:** Each counter has an ID. Thus, several nested *beginMicro() / endMicro()* blocks can be created, which can't be done in the [Performance Profiler](../../../tools/profiling/profiler/index.md).
 
 
@@ -492,7 +515,7 @@ ObjectMeshDynamic mesh;
 ### Arguments
 
 - *string* **name** - Name of the counter.
-- *bool* **gpu** - true for the GPU counter; false — for the CPU counter. The default value is false.
+- *bool* **gpu** - true for the GPU counter; false � for the CPU counter. The default value is false.
 
 ### Return value
 
@@ -506,7 +529,10 @@ Stops a previously [activated](#beginMicro_cstr_int_int) Microprofile counter wi
 
 ## void InitThread ( string name , int priority = 0 )
 
+
 Initiates the custom thread for Microprofile calculations to avoid spikes, which otherwise are registered by Microprofile on registering a new thread. This method shall be called at the beginning of the thread and before [*BeginMicro()*](#beginMicro_cstr_int_int) and followed by [*ShutdownThread()*](#shutdownThread_void) when the thread is not required anymore.
+
+
 ```csharp
 void thread_function()
 {

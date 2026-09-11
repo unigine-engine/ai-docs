@@ -43,7 +43,7 @@ Returns the value of the **Source Point Coordinate System** parameter specified 
 
 Source Point Coordinate System parameter value. The following values are supported:
 - 0 - Geodetic. The point shall be given by latitude, longitude, and altitude. The vector, specified by Azimuth and Elevation, shall be defined relative to the Geodetic coordinate system.
-- 1 - Entity. The point shall be defined relative to the reference point of the entity specified by [Entity ID](#getEntityID_int). The vector shall also be specified relative to the entity’s coordinate system.
+- 1 - Entity. The point shall be defined relative to the reference point of the entity specified by [Entity ID](#getEntityID_int). The vector shall also be specified relative to the entity�s coordinate system.
 
 
 ## int getRespCoordSystem ( ) const

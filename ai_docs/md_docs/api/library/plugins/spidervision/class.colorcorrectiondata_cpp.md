@@ -31,7 +31,7 @@ Sets a new value indicating if the color correction is applied.
 Returns the current value indicating if the color correction is applied.
 ### Return value
 
-**true** if color correction is enabled; otherwise **false**.
+**true** if color correction is enabled ; otherwise **false**.
 ## void setColorScale ( const Math:: vec4 & scale )
 
 Sets a new color multiplier for the rendered image.
@@ -73,7 +73,7 @@ Returns the current brightness correction values for the corners of the rendered
 Current four-component vector containing brightness values, in the **[0.0f, 1.0f]** range, for the corners of the rendered image (upper left, upper right, lower left, lower right).
 ## static Event<> getEventChanged () const
 
-event triggered on changing color correction data. You can subscribe to events via *connect()*   and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered on changing color correction data. You can subscribe to events via *connect()* � and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -209,7 +209,7 @@ ColorCorrectionData::getEventChanged().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## void saveXml ( const Ptr < Xml > & xml )

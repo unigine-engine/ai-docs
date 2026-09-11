@@ -34,7 +34,7 @@ BaseMaterial B <parent = A>
 ```
 
 
-> **Notice:** The abstract materials don’t support multiple inheritance.
+> **Notice:** The abstract materials don�t support multiple inheritance.
 
 
 When the child material implements the shader with the same name, the source code of the parent and the child shader is merged (the parent shader code precedes the child one):
@@ -110,7 +110,7 @@ Shader a =
 The same rules apply to the [Script](../../../code/formats/materials_formats/ulon_materials/scripts.md) code (use **#script script_name** as a marker).
 
 
-Elements in parent and child materials' [Groups](../../../code/formats/materials_formats/ulon_materials/groups.md) with the same name can be merged. Both groups should have the **merge_group** argument set to true. The first group entry defines the place in the Editor’s UI where all the elements of this group are positioned (parent and child):
+Elements in parent and child materials' [Groups](../../../code/formats/materials_formats/ulon_materials/groups.md) with the same name can be merged. Both groups should have the **merge_group** argument set to true. The first group entry defines the place in the Editor�s UI where all the elements of this group are positioned (parent and child):
 
 
 ```glsl
@@ -526,7 +526,7 @@ AbstractMaterial <preview_hidden=true var_prefix=var texture_prefix=tex>
 ### 2. Inheriting a Base Material from the Abstract One
 
 
-Now we are going to inherit a base material from the created abstract one (`my_abstract.abstmat`) to extend its functionality.
+Now we are going to inherit a base material from the created abstract one ( `my_abstract.abstmat`) to extend its functionality.
 
 
 To begin with, we'll implement a simple color filter post-effect.
@@ -604,7 +604,7 @@ Now we are going to derive another, more complex material, from our abstract one
 This material shall use triplanar mapping to apply a specified *modulation* texture with the specified *intensity* in the occluded areas (according to SSAO map)
 
 
-Let's create a new base material file and set the same abstract material (`my_abstract.abstmat`) as its parent.
+Let's create a new base material file and set the same abstract material ( `my_abstract.abstmat`) as its parent.
 
 
 Here is the complete code of our second base material (save it as `my_abstract_base2.basemat` to your project's `data` folder):
@@ -677,7 +677,7 @@ The values of parameters declared in base materials can be modified in real time
 In order to test our first post-effect do the following:
 
 
-- Find the `my_abstract_base1.basemat` in the *Materials* window, right-click it, choose **Create Child**, and rename your new material as `my_color_filter`. ![](create_child.png)
+- Find the `my_abstract_base1.basemat` in the *Materials* window, right-click it, choose **Create Child**, and rename your new material as `my_color_filter` . ![](create_child.png)
 - As it is a post-effect, to apply the material globally we should open the *Settings -> Render -> Custom Post Materials*
 - Click **Add New Material** and specify the `my_color_filter` material. After shis you can change the filter color. ![](assign_scriptable.png)
 

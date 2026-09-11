@@ -20,6 +20,12 @@ A class for the [VRPN Plugin](../../../../code/plugins/vrpn/index_usc.md) that a
 
 ### Members
 
+## int getNumSensors () const
+
+Returns the current total number of sensors.
+### Return value
+
+Current total number of sensors.
 ---
 
 ## VrpnTrackerDevice ( string name )
@@ -69,6 +75,8 @@ void acceleration_callback(int sensor,vec3 acceleration,quat orientation,float i
 ## string getAccelerationCallback ( )
 
 Returns a name of the world script callback function that receives data about acceleration of tracked objects. The callback function should be defined in the world script and receive **4** arguments:
+
+
 1. Sensor number (*int*)
 2. Linear acceleration (*vec3* for the float precision version, or *dvec3* for the double precision version)
 3. Acceleration of orientation change (an analog of angular acceleration; *quat*)
@@ -130,7 +138,10 @@ void transform_callback(int sensor,vec3 position,quat orientation) {
 
 ## string getTransformCallback ( )
 
+
 Returns a name of the world script callback function that receives data about position and orientation of tracked objects. The callback function should be defined in the world script and receive **3** arguments:
+
+
 1. Sensor number (*int*)
 2. Position (*vec3* for the float precision version, or *dvec3* for the double precision version)
 3. Orientation (*quat*)
@@ -192,7 +203,10 @@ void velocity_callback(int sensor,vec3 velocity,quat orientation,float velocity_
 
 ## string getVelocityCallback ( )
 
+
 Returns a name of the world script callback function that receives data about velocity of tracked objects. The callback function should be defined in the world script and receive **4** arguments:
+
+
 1. Sensor number (*int*)
 2. Linear velocity (*vec3* for the float precision version, or *dvec3* for the double precision version)
 3. Velocity of orientation change (an analog of angular velocity; *quat*)
@@ -217,16 +231,13 @@ void callback_func(int sensor,dvec3 velocity,quat velocity_orientation,double if
 Callback function name.
 ## void update ( )
 
+
 Updates the internal state of the device and receives input data.
+
+
 > **Notice:** This function should be called each frame.
 
 
-## int getNumSensors ( )
-
-Returns the total number of sensors.
-### Return value
-
-The total number of sensors.
 ## Vec3 getSensorPosition ( int num )
 
 Returns the specified sensor position.

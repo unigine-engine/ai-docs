@@ -56,12 +56,24 @@ Returns the current name of the model of the VR device.
 ### Return value
 
 Current model name.
-## bool isCharging () const
+## int isBatteryCharging () const
 
-Returns the current value indicating if the VR device is charging.
+Returns the current value indicating if the device's battery is currently charging.
 ### Return value
 
-**true** if the VR device is charging; otherwise **false**.
+Current the device's battery is currently charging
+## int isBatteryPluggedIn () const
+
+Returns the current value indicating if the device is connected to external power. *OpenVR* runtimes report no separate plugged-in state, so the charging state is used as the signal there.
+### Return value
+
+Current the device is connected to external power
+## int isBatteryValid () const
+
+Returns the current value indicating if the device actually provides battery status information, so that the battery-related values (charge level, charging state) can be trusted. *OpenXR* runtimes always report true.
+### Return value
+
+Current the device provides battery status information
 ## float getBatteryValue () const
 
 Returns the current battery level.
@@ -139,12 +151,6 @@ Returns a value indicating if the VR device has a battery.
 ### Return value
 
 true if the device has the battery; otherwise, false.
-## int canReportBatteryValue ( )
-
-Returns a value indicating if the VR device provides the battery status.
-### Return value
-
-true if the battery status is provided; otherwise, false.
 ## Mat4 getWorldTransform ( int type = Enum.InputVRDevice.TRANSFORM_TYPE.GRIP )
 
 Retuns the world transformation of the VR device for the specified transformation type.

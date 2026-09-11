@@ -84,8 +84,8 @@ A flag, indicating if all the base material settings can be changed in the [Para
 Available values:
 
 
-- 0 — unchangeable (by default)
-- 1 — changeable
+- 0 � unchangeable (by default)
+- 1 � changeable
 
 
 You can set the flag to 1 in the following cases:
@@ -107,8 +107,8 @@ A flag, indicating if a material is displayed in the *[Materials Hierarchy](../.
 Available values:
 
 
-- 0 — displayed (by default)
-- 1 — hidden
+- 0 � displayed (by default)
+- 1 � hidden
 
 
 ### options_hidden
@@ -120,8 +120,8 @@ A flag, indicating if the [Options](#element_options) section is displayed for t
 Available values:
 
 
-- 0 — displayed (by default)
-- 1 — hidden
+- 0 � displayed (by default)
+- 1 � hidden
 
 
 ### preview_hidden
@@ -133,14 +133,15 @@ A flag, indicating if the material preview is displayed.
 Available values:
 
 
-- 0 — displayed (by default)
-- 1 — hidden
+- 0 � displayed (by default)
+- 1 � hidden
 
 
 ### namespace
 
 
 The material namespace.
+
 
 > **Notice:** The Engine has its own reserved namespaces: *Unigine* and *Editor*.
 
@@ -176,17 +177,17 @@ A polygon color (source image) and a screen buffer color (destination image) mul
 Available values for both attributes:
 
 
-- none — blending is not used.
-- zero — RGBA components of the source/destination image color are multiplied by zero.
-- one — RGBA components of the source/destination image color are multiplied by one.
-- src_color — RGBA components of the source/destination image color are multiplied by the mR, mG, mB, mA components (per component).
-- one_minus_src_color — RGBA components of the source/destination image color are multiplied by the 1 - mR , 1 - mG , 1 - mB , 1 - mA  components (per component).
-- src_alpha — RGBA components of the source/destination image color are multiplied by the mA component.
-- one_minus_src_alpha — RGBA components of the source/destination image color are multiplied by the 1 - mA  component.
-- dest_color — RGBA components of the source/destination image color are multiplied by the bR, bG, bB, bA components (per component).
-- one_minus_dest_color — RGBA components of the source/destination image color are multiplied by the 1 - bR , 1 - bG , 1 - bB , 1 - bA  components (per component).
-- dest_alpha — RGBA components of the source/destination image color are multiplied by the bA component.
-- one_minus_dest_alpha — RGBA components of the source/destination image color are multiplied by the 1 - bA  component. Where mR, mG, mB, mA are normalized Red, Blue, Green and Alpha material image channels; bR, bG, bB, bA are normalized Red, Blue, Green and Alpha background image channels.
+- none � blending is not used.
+- zero � RGBA components of the source/destination image color are multiplied by zero.
+- one � RGBA components of the source/destination image color are multiplied by one.
+- src_color � RGBA components of the source/destination image color are multiplied by the mR, mG, mB, mA components (per component).
+- one_minus_src_color � RGBA components of the source/destination image color are multiplied by the 1�- �mR , 1�- �mG , 1�- �mB , 1�- �mA  components (per component).
+- src_alpha � RGBA components of the source/destination image color are multiplied by the mA component.
+- one_minus_src_alpha � RGBA components of the source/destination image color are multiplied by the 1�- �mA  component.
+- dest_color � RGBA components of the source/destination image color are multiplied by the bR, bG, bB, bA components (per component).
+- one_minus_dest_color � RGBA components of the source/destination image color are multiplied by the 1�- �bR , 1�- �bG , 1�- �bB , 1�- �bA  components (per component).
+- dest_alpha � RGBA components of the source/destination image color are multiplied by the bA component.
+- one_minus_dest_alpha � RGBA components of the source/destination image color are multiplied by the 1�- �bA  component. Where mR, mG, mB, mA are normalized Red, Blue, Green and Alpha material image channels; bR, bG, bB, bA are normalized Red, Blue, Green and Alpha background image channels.
 
 
 ### Usage Example
@@ -224,7 +225,7 @@ It can have the attributes listed below.
 Available values:
 
 
-- -128 — 127. The default value is 0. The higher the rendering order, the lower the rendering priority (the material with the -128 order will be rendered first).
+- -128 � 127. The default value is 0. The higher the rendering order, the lower the rendering priority (the material with the -128 order will be rendered first).
 
 
 ### shadow_mask
@@ -260,9 +261,9 @@ A flag indicating whether the material is [transparent](../../../editor2/materia
 Available values:
 
 
-- 0 — the material is opaque
-- 1 — the *Alpha test* blending preset.
-- 2 — the *Alpha blend*, *Additive*, *Multiplicative* or *Custom* blending preset.
+- 0 � the material is opaque
+- 1 � the *Alpha test* blending preset.
+- 2 � the *Alpha blend*, *Additive*, *Multiplicative* or *Custom* blending preset.
 
 
 ### depth_mask
@@ -274,8 +275,8 @@ A flag indicating if writing in the [depth buffer](../../../editor2/materials_se
 Available values:
 
 
-- 0 — not used
-- 1 — used (by default)
+- 0 � not used
+- 1 � used (by default)
 
 
 ### depth_pre_pass
@@ -287,21 +288,21 @@ A flag indicating if the [native depth pre-pass](../../../principles/render/sequ
 Available values:
 
 
-- 0 — is performed
-- 1 — not performed
+- 0 � is performed
+- 1 � not performed
 
 
 ### overlap
 
 
-A flag indicating if an [Overlap](../../../editor2/materials_settings/index.md#overlap) option is enabled for a material.
+A flag indicating if an Overlap option is enabled for a material.
 
 
 Available values:
 
 
-- 0 — disabled (by default)
-- 1 — enabled
+- 0 � disabled (by default)
+- 1 � enabled
 
 
 ### two_sided
@@ -313,8 +314,8 @@ A flag indicating if a [Two Sided](../../../editor2/materials_settings/index.md#
 Available values:
 
 
-- 0 — disabled (by default)
-- 1 — enabled
+- 0 � disabled (by default)
+- 1 � enabled
 
 
 ### depth_test
@@ -326,8 +327,8 @@ A flag indicating if a [Depth Test](../../../editor2/materials_settings/index.md
 Available values:
 
 
-- 0 — disabled
-- 1 — enabled (by default)
+- 0 � disabled
+- 1 � enabled (by default)
 
 
 ### cast_shadow
@@ -339,8 +340,8 @@ A flag indicating if a [Cast Proj and Omni Shadow](../../../editor2/materials_se
 Available values:
 
 
-- 0 — disabled
-- 1 — enabled (by default)
+- 0 � disabled
+- 1 � enabled (by default)
 
 
 ### cast_world_shadow
@@ -352,8 +353,8 @@ A flag indicating if a [Cast World shadow](../../../editor2/materials_settings/i
 Available values:
 
 
-- 0 — disabled
-- 1 — enabled (by default)
+- 0 � disabled
+- 1 � enabled (by default)
 
 
 ### Usage Example
@@ -431,8 +432,8 @@ Name of the state.
 Below are some of the values available:
 
 
-- terrain_lerp — Replace material's albedo texture by the projected albedo texture of the ObjectTerrainGlobal to ensure smooth blending with the terrain. Used in the [mesh_base](../../../content/materials/library/mesh_base/index.md#terrain_lerp) material.
-- use_taa — Enable [Temporal Anti-Aliasing](../../../principles/render/antialiasing/taa.md) for the post material. Enabling this state has an impact on performance, as TAA in this case is applied twice (stage of the [rendering sequence](../../../principles/render/sequence/index.md) plus for the post material).
+- terrain_lerp � Replace material's albedo texture by the projected albedo texture of the ObjectTerrainGlobal to ensure smooth blending with the terrain. Used in the [mesh_base](../../../content/materials/library/mesh_base/index.md#terrain_lerp) material.
+- use_taa � Enable [Temporal Anti-Aliasing](../../../principles/render/antialiasing/taa.md) for the post material. Enabling this state has an impact on performance, as TAA in this case is applied twice (stage of the [rendering sequence](../../../principles/render/sequence/index.md) plus for the post material).
 
 
 ### hidden
@@ -551,8 +552,8 @@ A flag indicating if the state is internal (i.e. cannot be changed via UnigineEd
 Available values:
 
 
-- 0 — not internal (by default)
-- 1 — internal
+- 0 � not internal (by default)
+- 1 � internal
 
 
 ### State Conditions
@@ -602,25 +603,25 @@ A pass during which a texture will be rendered.
 Available values:
 
 
-- wireframe — the wireframe pass
-- visualizer_solid — the visualizer solid pass
-- deferred — the deferred pass
-- auxiliary — the auxiliary pass
-- emission — the emission pass
-- refraction — the refraction pass
-- reflection — the reflection pass
-- transparent_blur — the transparent blur pass
-- ambient — the ambient pass
-- light_environment_probe — the environment probe pass
-- light_omni — the omni-directional light pass
-- light_proj — the projected light pass
-- light_world — the world light pass
-- light_all — the [environment probe](#texture_pass_light_environment_probe), [omni-directional light](#texture_pass_light_omni), [projected light](#texture_pass_light_proj), [world light](#texture_pass_light_world) passes
-- depth_pre_pass — the native depth pre-pass
-- shadow — the shadows pass
-- post — the post-process pass
-- forward — the [environment probe](#texture_pass_light_environment_probe), [omni-directional light](#texture_pass_light_omni), [projected light](#texture_pass_light_proj), [world light](#texture_pass_light_world) and [ambient](#texture_pass_ambient) passes
-- transparent — the [forward](#texture_pass_forward), [refraction](#texture_pass_refraction), [transparent blur](#texture_pass_transparent_blur) passes
+- wireframe � the wireframe pass
+- visualizer_solid � the visualizer solid pass
+- deferred � the deferred pass
+- auxiliary � the auxiliary pass
+- emission � the emission pass
+- refraction � the refraction pass
+- reflection � the reflection pass
+- transparent_blur � the transparent blur pass
+- ambient � the ambient pass
+- light_environment_probe � the environment probe pass
+- light_omni � the omni-directional light pass
+- light_proj � the projected light pass
+- light_world � the world light pass
+- light_all � the [environment probe](#texture_pass_light_environment_probe), [omni-directional light](#texture_pass_light_omni), [projected light](#texture_pass_light_proj), [world light](#texture_pass_light_world) passes
+- depth_pre_pass � the native depth pre-pass
+- shadow � the shadows pass
+- post � the post-process pass
+- forward � the [environment probe](#texture_pass_light_environment_probe), [omni-directional light](#texture_pass_light_omni), [projected light](#texture_pass_light_proj), [world light](#texture_pass_light_world) and [ambient](#texture_pass_ambient) passes
+- transparent � the [forward](#texture_pass_forward), [refraction](#texture_pass_refraction), [transparent blur](#texture_pass_transparent_blur) passes
 
 
 ### source
@@ -702,9 +703,9 @@ A texture format.
 Available values:
 
 
-- srgb — standard RGB color model format.
-- signed — signed normalized format.
-- integer — integer normalized format.
+- srgb � standard RGB color model format.
+- signed � signed normalized format.
+- integer � integer normalized format.
 
 
 ### wrap
@@ -716,15 +717,15 @@ A texture wrapping methods.
 Available values:
 
 
-- clamp — texture is clamped along all axes
-- clamp_x — texture is clamped along X-axis
-- clamp_y — texture is clamped along Y-axis
-- clamp_z — texture is clamped along Z-axis
-- border — texture is bordered along all axes
-- border_x — texture is bordered along X-axis
-- border_y — texture is bordered along Y-axis
-- border_z — texture is bordered along Z-axis
-- repeat — no wrap, a texture is tiled along all axes.
+- clamp � texture is clamped along all axes
+- clamp_x � texture is clamped along X-axis
+- clamp_y � texture is clamped along Y-axis
+- clamp_z � texture is clamped along Z-axis
+- border � texture is bordered along all axes
+- border_x � texture is bordered along X-axis
+- border_y � texture is bordered along Y-axis
+- border_z � texture is bordered along Z-axis
+- repeat � no wrap, a texture is tiled along all axes.
 
 
 ### anisotropy
@@ -736,8 +737,8 @@ A flag, indicating if the anisotropy for the texture is enabled.
 Available values:
 
 
-- 0  - disabled (by default)
-- 1  - enabled
+- 0  �- �disabled (by default)
+- 1  �- �enabled
 
 
 ### filter
@@ -749,9 +750,9 @@ A type of the texture filtering.
 Available values:
 
 
-- point  — point filtering (when enablled, disables anisotropy filtering)
-- linear  — linear filtering
-- bilinear  — bilinear filtering
+- point  � � point filtering (when enablled, disables anisotropy filtering) �
+- linear  � � linear filtering �
+- bilinear  � � bilinear filtering �
 
 
 ### title
@@ -812,8 +813,8 @@ A flag indicating if a texture is uploaded immediately.
 Available values:
 
 
-- 0 — disabled (by default).
-- 1 — enabled.
+- 0 � disabled (by default).
+- 1 � enabled.
 
 
 ### Texture Conditions
@@ -864,8 +865,8 @@ A flag indicating if the parameter is controlled via [expression](#element_expre
 Available values:
 
 
-- 0 — not controlled via expression (by default).
-- 1 — controlled via expression.
+- 0 � not controlled via expression (by default).
+- 1 � controlled via expression.
 
 
 ### name
@@ -898,12 +899,12 @@ A group which a parameter belongs to. The attribute is optional: you can use the
 For the parameter of the *combiner* type the names of the combined parameters are used as attributes that specify *combiner masks*. Available values:
 
 
-- **XYZW** — all values of the parameter are taken into account when combining with the other parameters.
-- **XYZ** — the 4th component of the parameter isn't taken into account.
-- **X** — only the 1st component of the parameter is taken into account.
-- **Y** — only th 2nd component of the parameter is taken into account.
-- **Z** — only the 3rd component of the parameter is taken into account.
-- **W** — only th 4th component of the parameter is taken into account.
+- **XYZW** � all values of the parameter are taken into account when combining with the other parameters.
+- **XYZ** � the 4th component of the parameter isn't taken into account.
+- **X** � only the 1st component of the parameter is taken into account.
+- **Y** � only th 2nd component of the parameter is taken into account.
+- **Z** � only the 3rd component of the parameter is taken into account.
+- **W** � only th 4th component of the parameter is taken into account.
 
 
 ### pass
@@ -915,27 +916,27 @@ A pass during which a parameter will be used.
 Available values:
 
 
-- wireframe — the wireframe pass
-- visualizer_solid — the visualizer solid pass
-- deferred — the deferred pass
-- auxiliary — the auxiliary pass
-- emission — the emission pass
-- refraction — the refraction pass
-- reflection — the reflection pass
-- transparent_blur — the transparent blur pass
-- ambient — the ambient pass
-- light_environment_probe — the environment probe pass
-- light_voxel_probe — the voxel probe pass
-- light_omni — the omni-directional light pass
-- light_proj — the projected light pass
-- light_world — the world light pass
-- light_all — the [environment probe](#parameter_pass_light_environment_probe), [omni-directional light](#parameter_pass_light_omni), [projected light](#parameter_pass_light_proj), [world light](#parameter_pass_light_world) passes
-- depth_pre_pass — the native depth pre-pass
-- shadow — the shadows pass
-- post — the post-process pass
-- forward — the [environment probe](#parameter_pass_light_environment_probe), [omni-directional light](#parameter_pass_light_omni), [projected light](#parameter_pass_light_proj), [world light](#parameter_pass_light_world) and [ambient](#parameter_pass_ambient) passes
-- transparent — the [forward](#parameter_pass_forward), [refraction](#parameter_pass_refraction), [transparent blur](#parameter_pass_transparent_blur) passes
-- custom_pass_name — name of a custom rendering pass. Up to 32 custom passes are supported.
+- wireframe � the wireframe pass
+- visualizer_solid � the visualizer solid pass
+- deferred � the deferred pass
+- auxiliary � the auxiliary pass
+- emission � the emission pass
+- refraction � the refraction pass
+- reflection � the reflection pass
+- transparent_blur � the transparent blur pass
+- ambient � the ambient pass
+- light_environment_probe � the environment probe pass
+- light_voxel_probe � the voxel probe pass
+- light_omni � the omni-directional light pass
+- light_proj � the projected light pass
+- light_world � the world light pass
+- light_all � the [environment probe](#parameter_pass_light_environment_probe), [omni-directional light](#parameter_pass_light_omni), [projected light](#parameter_pass_light_proj), [world light](#parameter_pass_light_world) passes
+- depth_pre_pass � the native depth pre-pass
+- shadow � the shadows pass
+- post � the post-process pass
+- forward � the [environment probe](#parameter_pass_light_environment_probe), [omni-directional light](#parameter_pass_light_omni), [projected light](#parameter_pass_light_proj), [world light](#parameter_pass_light_world) and [ambient](#parameter_pass_ambient) passes
+- transparent � the [forward](#parameter_pass_forward), [refraction](#parameter_pass_refraction), [transparent blur](#parameter_pass_transparent_blur) passes
+- custom_pass_name � name of a custom rendering pass. Up to 32 custom passes are supported.
 
 
 ### shared
@@ -947,8 +948,8 @@ A flag indicating if the parameter will be exported to the shader.
 Available values:
 
 
-- 0 — parameter is not exported
-- 1 — parameter is exported (by default)
+- 0 � parameter is not exported
+- 1 � parameter is exported (by default)
 
 
 ### internal
@@ -960,8 +961,8 @@ A flag indicating if the parameter is internal (i.e. cannot be changed via Unigi
 Available values:
 
 
-- 0 — not internal (by default)
-- 1 — internal
+- 0 � not internal (by default)
+- 1 � internal
 
 
 ### hidden
@@ -973,8 +974,8 @@ A flag indicating if the parameter is hidden in UnigineEditor.
 Available values:
 
 
-- 0 — not hidden(by default)
-- 1 — hidden
+- 0 � not hidden(by default)
+- 1 � hidden
 
 
 ### min and max
@@ -1010,8 +1011,8 @@ A flag indicating if the specified maximum and minimum values of the parameter c
 Available values:
 
 
-- 0 — disabled
-- 1 — enabled
+- 0 � disabled
+- 1 � enabled
 
 
 ### min_expand
@@ -1023,8 +1024,8 @@ A flag indicating if the specified minimum value of the parameter can be decreas
 Available values:
 
 
-- 0 — disabled
-- 1 — enabled
+- 0 � disabled
+- 1 � enabled
 
 
 ### max_expand
@@ -1036,8 +1037,8 @@ A flag indicating if the specified maximum value of the parameter can be increas
 Available values:
 
 
-- 0 — disabled
-- 1 — enabled
+- 0 � disabled
+- 1 � enabled
 
 
 ### widget
@@ -1161,24 +1162,24 @@ A pass for the shader to be applied.
 Available values:
 
 
-- wireframe — the wireframe pass
-- visualizer_solid — the visualizer solid pass
-- deferred — the deferred pass
-- auxiliary — the auxiliary pass
-- emission — the emission pass
-- refraction — the refraction pass
-- reflection — the reflection pass
-- transparent_blur — the transparent blur pass
-- ambient — the ambient pass
-- light_environment_probe — the environment probe light pass
-- light_voxel_probe — the voxel probe light pass
-- light_omni — the omni-directional light pass
-- light_proj — the projected light pass
-- light_world — the world light pass
-- depth_pre_pass — the native depth pre-pass
-- shadow — the shadows pass
-- post — the post-process pass
-- custom_pass_name — name of a custom rendering pass. Up to 32 custom passes are supported.
+- wireframe � the wireframe pass
+- visualizer_solid � the visualizer solid pass
+- deferred � the deferred pass
+- auxiliary � the auxiliary pass
+- emission � the emission pass
+- refraction � the refraction pass
+- reflection � the reflection pass
+- transparent_blur � the transparent blur pass
+- ambient � the ambient pass
+- light_environment_probe � the environment probe light pass
+- light_voxel_probe � the voxel probe light pass
+- light_omni � the omni-directional light pass
+- light_proj � the projected light pass
+- light_world � the world light pass
+- depth_pre_pass � the native depth pre-pass
+- shadow � the shadows pass
+- post � the post-process pass
+- custom_pass_name � name of a custom rendering pass. Up to 32 custom passes are supported.
 
 
 ### node
@@ -1199,8 +1200,8 @@ Available values:
 - [object_landscape_terrain](../../../api/library/objects/landscape_terrain/index.md)  - landscape terrain object
 - [object_terrain_global](../../../api/library/objects/class.objectterrainglobal_cpp.md)  - global terrain object
 - [object_grass](../../../api/library/objects/class.objectgrass_cpp.md)  - grass object
-- [object_particles](../../../api/library/objects/class.objectparticles_cpp.md)  — particles
-- [object_billboards](../../../api/library/objects/class.objectbillboards_cpp.md)  — billboards
+- [object_particles](../../../api/library/objects/class.objectparticles_cpp.md)  � particles
+- [object_billboards](../../../api/library/objects/class.objectbillboards_cpp.md)  � billboards
 - [object_volume_box](../../../api/library/objects/class.objectvolumebox_cpp.md)  - volume box
 - [object_volume_sphere](../../../api/library/objects/class.objectvolumesphere_cpp.md)  - volume sphere
 - [object_volume_omni](../../../api/library/objects/class.objectvolumeomni_cpp.md)  - volume omni object
@@ -1349,8 +1350,8 @@ Available values:
 - [object_landscape_terrain](../../../api/library/objects/landscape_terrain/index.md)  - landscape terrain object
 - [object_terrain_global](../../../api/library/objects/class.objectterrainglobal_cpp.md)  - global terrain object
 - [object_grass](../../../api/library/objects/class.objectgrass_cpp.md)  - grass object
-- [object_particles](../../../api/library/objects/class.objectparticles_cpp.md)  — particles
-- [object_billboards](../../../api/library/objects/class.objectbillboards_cpp.md)  — billboards
+- [object_particles](../../../api/library/objects/class.objectparticles_cpp.md)  � particles
+- [object_billboards](../../../api/library/objects/class.objectbillboards_cpp.md)  � billboards
 - [object_volume_box](../../../api/library/objects/class.objectvolumebox_cpp.md)  - volume box
 - [object_volume_sphere](../../../api/library/objects/class.objectvolumesphere_cpp.md)  - volume sphere
 - [object_volume_omni](../../../api/library/objects/class.objectvolumeomni_cpp.md)  - volume omni object
@@ -1400,7 +1401,7 @@ An example of binding a mesh skinned object to a mesh object (with the mesh skin
 A **condition** specifies when the state, texture, parameter or shader is displayed in UnigineEditor. The condition is an attribute of the [state](#element_state), [texture](#element_texture), [parameter](#element_parameter) or [shader](#element_shader) element. The following conditions are available:
 
 
-- **transparent** — the element will be displayed when the [transparent](#transparent) option is set to the specified value. For example, the Multiple Environment Probes state will be displayed only when the *transparent* option is set to 2 (the *Alpha blend*, *Additive*, *Multiplicative* or *Custom* blending preset is used): ```xml <state name="multiple_environment_probes" transparent="2" defines="name">0</state> ```
+- **transparent** � the element will be displayed when the [transparent](#transparent) option is set to the specified value. For example, the Multiple Environment Probes state will be displayed only when the *transparent* option is set to 2 (the *Alpha blend*, *Additive*, *Multiplicative* or *Custom* blending preset is used): ```xml <state name="multiple_environment_probes" transparent="2" defines="name">0</state> ```
 - An option specified in the *[options](#element_options)* element, except the following: *[order](#order)*, *[shadow_mask](#shadow_mask)*, *[viewport_mask](#viewport_mask)*.
 - A [state name](#state_name). For example, the *auxiliary_color* parameter will be displayed only if the *Auxiliary* state is enabled: ```xml <color name="auxiliary_color" auxiliary="1">1.0 1.0 1.0 1.0</color> ```
 

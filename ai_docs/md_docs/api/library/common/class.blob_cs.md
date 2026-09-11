@@ -11,6 +11,7 @@ This class is used to store data in the memory (unlike *[File](../../../api/libr
 
 The code below illustrates the following process:
 
+
 - Packing data to a blob and saving compressed data to a [file](../../../api/library/filesystem/class.file_cs.md)
 - Reading and uncompressing data from the file to the destination blob
 - Reading data from the destination blob
@@ -103,7 +104,7 @@ Returns the value of the specified byte in the blob.
 The byte value.
 ## int Getc ( )
 
-Gets a next symbol from the blob.
+Returns the next symbol from the blob.
 ### Return value
 
 Character read from the blob.
@@ -115,7 +116,10 @@ Returns the 32-bit CRC checksum.
 The 32-bit CRC checksum.
 ## void SetData ( byte[] OUT_data , uint size )
 
+
 Sets new data to the Blob instance.
+
+
 > **Notice:** You should manage the previously stored data manually.
 
 
@@ -150,13 +154,16 @@ Returns a 256-bit SHA256 checksum.
 256-bit SHA256 checksum.
 ## uint GetSize ( )
 
-Returns the current blob size.
+Returns the current size of the blob.
 ### Return value
 
 Blob size.
 ## void Allocate ( uint size )
 
+
 Allocates the required memory without resizing the blob.
+
+
 > **Notice:** The blob will be resized dynamically when the allocated memory is filled.
 
 
@@ -166,11 +173,14 @@ Allocates the required memory without resizing the blob.
 
 ## void Clear ( )
 
-Clears the blob size to 0.
+Clears the size of the blob to **0**.
 ## int Compress ( Stream dest , int quality )
 
+
 Compresses the blob and writes it into the given stream.
-> **Notice:** This method uses zlib compression which is better than Lz4 (see the [compressLz4()](#compressLz4_Stream_int_int) method), but significantly slower.
+
+
+> **Notice:** This method uses zlib compression which is better than Lz4 (see the *[compressLz4()](#compressLz4_Stream_int_int)* method), but significantly slower.
 
 
 ### Arguments
@@ -180,7 +190,7 @@ Compresses the blob and writes it into the given stream.
 
 ### Return value
 
-**1** if the data is compressed successfully; otherwise, 0.
+**1** if the data is compressed successfully; otherwise, **0**.
 ## int CompressLz4 ( Stream dest , int quality )
 
 Compresses the blob with Lz4 algorithm and writes it into the given stream.
@@ -201,7 +211,7 @@ Decodes a base64 encoded string into the blob.
 
 ### Return value
 
-Returns **1** if the data is decoded successfully; otherwise, **0**.
+**1** if the data is decoded successfully; otherwise, **0**.
 ## int DecodeZBase32 ( string src )
 
 Decodes a Zbase32 encoded string into the blob.
@@ -214,10 +224,10 @@ Decodes a Zbase32 encoded string into the blob.
 Returns **1** if the data is decoded successfully; otherwise, **0**.
 ## int Decompress ( Stream src )
 
-Reads the compressed blob from a stream and decompresses it.
+Reads and decompresses a previously [compressed](#compress_Stream_int_int) blob from a given stream.
 ### Arguments
 
-- *[Stream](../../../api/library/common/class.stream_cs.md)* **src** - Stream to read data from.
+- *[Stream](../../../api/library/common/class.stream_cs.md)* **src** - Source stream to read data from.
 
 ### Return value
 
@@ -246,63 +256,66 @@ Encodes the blob into the ZBase32 encoded string.
 ZBase32 encoded string.
 ## int Eof ( )
 
-Tests if the end of the blob has been reached.
+Checks if the end of the blob has been reached.
 ### Return value
 
-Returns **1** if the end of the blob is reached; otherwise, 0.
+**1** if the end of blob is reached; otherwise, **0**.
 ## int Flush ( )
 
-Flushes the blob.
+Flushes the blob. This function has an empty body; it is created for *Blob* class to have the same number of methods as the *[File](../../../api/library/filesystem/class.file_cs.md)* class has.
 ### Return value
 
-Returns **1** if the blob is flushed successfully; otherwise, 0.
+**1** if the blob is successfully flushed; otherwise, **0**.
 ## void Reserve ( uint size )
 
-Reserves the blob, i.e. allocates (size * 1.5) bytes without resizing the blob. It will be resized dynamically when the allocated memory is filled.
+Reserves the blob, i.e. allocates *(size * 1.5)* bytes without resizing the blob.
+> **Notice:** The blob will be resized dynamically when the allocated memory is filled.
+
+
 ### Arguments
 
-- *uint* **size** - The size of the allocated memory, in bytes.
+- *uint* **size** - Size of the allocated memory, in bytes.
 
 ## void Resize ( uint size )
 
 Allocates the required memory and resizes the blob.
 ### Arguments
 
-- *uint* **size** - The size of the blob, in bytes.
+- *uint* **size** - Size of the blob, in bytes.
 
 ## int SeekCur ( uint offset )
 
-Seeks to position relative to the current offset.
+Seeks the position relative to the current offset.
 ### Arguments
 
-- *uint* **offset** - The offset from the current position of the indicator, in bytes.
+- *uint* **offset** - Offset from the current position of the indicator, in bytes.
 
 ### Return value
 
-Returns **1** if the blob position indicator is set successfully; otherwise, 0.
+**1** if the blob position indicator is set successfully; otherwise, 0.
 ## int SeekEnd ( uint offset )
 
 Seeks to position relative to the end of the blob.
 ### Arguments
 
-- *uint* **offset** - The offset from the end of the blob, in bytes.
+- *uint* **offset** - Offset from the end of the blob, in bytes.
 
 ### Return value
 
-Returns **1** if the blob position indicator is set successfully; otherwise, 0.
+**1** if the blob position indicator is set successfully; otherwise, **0**.
 ## int SeekSet ( uint offset )
 
 Seeks to position relative to the start of the blob.
 ### Arguments
 
-- *uint* **offset** - The offset from the beginning of the blob, in bytes.
+- *uint* **offset** - Offset from the beginning of the blob, in bytes.
 
 ### Return value
 
-Returns **1** if the blob position indicator is set successfully; otherwise, 0.
+**1** if the blob position indicator is successfully set; otherwise, **0**.
 ## uint Tell ( )
 
-Gets the current blob offset position indicator.
+Returns the current blob offset position indicator.
 ### Return value
 
-Returns the current blob offset.
+Current blob offset.

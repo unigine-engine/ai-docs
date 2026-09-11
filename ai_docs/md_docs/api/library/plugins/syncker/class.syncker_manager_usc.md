@@ -27,7 +27,7 @@ Sets a new value indicating if the syncker's debug window is enabled.
 Returns the current value indicating if the syncker's debug window is enabled.
 ### Return value
 
-**true** if the Syncker's debug window is enabled; otherwise **false**.
+**true** if the Syncker's debug window is enabled ; otherwise **false**.
 ## Syncker getSyncker () const
 
 Returns the current [Syncker interface](../../../../api/library/plugins/syncker/class.syncker_syncker_usc.md).
@@ -108,7 +108,7 @@ Returns the current broadcast address of the Master set by the command line argu
 Current broadcast address of the Master.
 ## int getArgPeersCount () const
 
-Returns the current Returns the number of peers set by the command line argument "[-sync_count](../../../../code/plugins/syncker/options.md#sync_count)".
+Returns the current number of peers set by the command line argument "[-sync_count](../../../../code/plugins/syncker/options.md#sync_count)".
 ### Return value
 
 Current number of peers. The default value is 1. The number of peers includes all Slaves in the network + the Master.
@@ -160,6 +160,7 @@ Initializes the Syncker as the Master application using values specified via the
 ## Master engine.syncker. initMasterBroadcast ( int peers_count , string broadcast_address , int udp_port , int swap_mode = Syncker.SWAP_SYNC_MODE.DEFAULT )
 
 Initializes the Syncker as the Master application with the [broadcast mode](../../../../code/plugins/syncker/index.md#addressing_broadcast) enabled.
+
 > **Notice:** Slaves must be [initialized with broadcast mode enabled](#initSlaveBroadcast_ushort_int_Slave) as well.
 
 ### Arguments
@@ -188,6 +189,7 @@ Initializes the Syncker as the Master application with the [multicast mode](../.
 ## Master engine.syncker. initMasterUnicast ( int peers_count , int udp_port , int swap_mode = Syncker.SWAP_SYNC_MODE.DEFAULT )
 
 Initializes the Syncker as the Master application with the [unicast mode](../../../../code/plugins/syncker/index.md#addressing_unicast) enabled.
+
 > **Notice:** Slaves must be [initialized with unicast mode enabled](#initSlaveUnicast_ushort_ushort_int_Slave) as well.
 
 ### Arguments
@@ -214,6 +216,7 @@ Performs shutdown and destroys the Syncker.
 ## Slave engine.syncker. initSlaveBroadcast ( int udp_port , int swap_mode = Syncker.SWAP_SYNC_MODE.DEFAULT )
 
 Initializes the Syncker as the Slave application with the [broadcast mode](../../../../code/plugins/syncker/index.md#addressing_broadcast) enabled. Master's IP address will be detected automatically.
+
 > **Notice:** Master must be initialized with broadcast mode enabled as well.
 
 ### Arguments
@@ -227,6 +230,7 @@ Initializes the Syncker as the Slave application with the [broadcast mode](../..
 ## Slave engine.syncker. initSlaveBroadcast ( string master_address , int udp_port , int swap_mode = Syncker.SWAP_SYNC_MODE.DEFAULT )
 
 Initializes the Syncker as the Slave application with the specified parameters and the [broadcast mode](../../../../code/plugins/syncker/index.md#addressing_broadcast) enabled. Master's IP address is specified explicitly.
+
 > **Notice:** Master must be initialized with broadcast mode enabled as well.
 
 ### Arguments
@@ -241,6 +245,7 @@ Initializes the Syncker as the Slave application with the specified parameters a
 ## Slave engine.syncker. initSlaveMulticast ( string multicast_address , int udp_port , int swap_mode = Syncker.SWAP_SYNC_MODE.DEFAULT )
 
 Initializes the Syncker as the Slave application with the specified parameters and the [multicast mode](../../../../code/plugins/syncker/index.md#addressing_multicast) enabled. Master's IP address will be detected automatically.
+
 > **Notice:** Master must be initialized with broadcast mode enabled as well.
 
 ### Arguments
@@ -255,6 +260,7 @@ Initializes the Syncker as the Slave application with the specified parameters a
 ## Slave engine.syncker. initSlaveMulticast ( string master_address , string multicast_address , int udp_port , int swap_mode = Syncker.SWAP_SYNC_MODE.DEFAULT )
 
 Initializes the Syncker as the Slave application with the specified parameters and the [multicast mode](../../../../code/plugins/syncker/index.md#addressing_multicast) enabled. Master's IP address is specified explicitly.
+
 > **Notice:** Master must be initialized with broadcast mode enabled as well.
 
 ### Arguments
@@ -270,6 +276,7 @@ Initializes the Syncker as the Slave application with the specified parameters a
 ## Slave engine.syncker. initSlaveUnicast ( int master_udp_port , int slave_udp_port = 0 , int swap_mode = Syncker.SWAP_SYNC_MODE.DEFAULT )
 
 Initializes the Syncker as the Slave application with the specified parameters and the [unicast mode](../../../../code/plugins/syncker/index.md#addressing_unicast) enabled. Master's IP address will be detected automatically.
+
 > **Notice:** Master must be initialized with broadcast mode enabled as well.
 
 ### Arguments
@@ -284,6 +291,7 @@ Initializes the Syncker as the Slave application with the specified parameters a
 ## Slave engine.syncker. initSlaveUnicast ( string master_address , int master_udp_port , int slave_udp_port = 0 , int swap_mode = Syncker.SWAP_SYNC_MODE.DEFAULT )
 
 Initializes the Syncker as the Slave application with the specified parameters and the [unicast mode](../../../../code/plugins/syncker/index.md#addressing_unicast) enabled. Master's IP address is specified explicitly.
+
 > **Notice:** Master must be initialized with broadcast mode enabled as well.
 
 ### Arguments

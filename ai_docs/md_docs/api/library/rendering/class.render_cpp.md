@@ -35,9 +35,6 @@ Provides access to Unigine rendering functions. For example, it is used by Wall 
 | **PASS_LIGHT_VOXEL_PROBE** = 10 | Light voxel probe pass. |
 | **PASS_LIGHT_ENVIRONMENT_PROBE** = 11 | Light environment probe pass. |
 | **PASS_LIGHT_PLANAR_PROBE** = 12 | Light planar probe pass. |
-| **PASS_LIGHT_OMNI** = 11 | Omni light pass. |
-| **PASS_LIGHT_PROJ** = 12 | Proj light pass. |
-| **PASS_LIGHT_WORLD** = 13 | World light pass. |
 | **PASS_SHADOW** = 13 | Shadow pass. |
 | **PASS_DEPTH_PRE_PASS** = 14 | Depth pre-pass. |
 | **PASS_MS_DEPTH** = 15 | MS depth pass. |
@@ -97,7 +94,6 @@ Quality of GGX mipmaps for environment reflections on rough surfaces.
 |---|---|
 | **STREAMING_MESHES_PREFETCH_DISABLE** = 0 | Asynchronous pre-loading of meshes is disabled. |
 | **STREAMING_MESHES_PREFETCH_RADIUS** = 1 | Asynchronous pre-loading of meshes is enabled within a certain radius. |
-| **STREAMING_MESHES_PREFETCH_FULL** = 2 | Asynchronous pre-loading of all meshes is enabled. |
 
 ## STREAMING_IGPU_VRAM_MODE
 
@@ -166,12 +162,13 @@ Tone mapping mode.
 | **VIEWPORT_MODE_PANORAMA_FISHEYE_EQUDISTANT** = 6 | Enables rendering of the viewport as an equidistant spherical panorama (fisheye). |
 | **VIEWPORT_MODE_PANORAMA_FISHEYE_STEREOGRAPHIC** = 7 | Enables rendering of the viewport as an stereographic spherical panorama (fisheye). |
 | **VIEWPORT_MODE_PANORAMA_FISHEYE_EQUISOLID** = 8 | Enables rendering of the viewport as an equisolid spherical panorama (fisheye). |
-| **VIEWPORT_MODE_STEREO_ANAGLYPH** = 9 | Enables the anaglyph stereo mode that is viewed with red-cyan anaglyph glasses. |
-| **VIEWPORT_MODE_STEREO_INTERLACED** = 10 | Enables the interlaced stereo mode that is used with interlaced stereo monitors and polarized 3D glasses. |
-| **VIEWPORT_MODE_STEREO_HORIZONTAL** = 11 | Enables the horizontal stereo mode that is supported on mobile devices. |
-| **VIEWPORT_MODE_STEREO_VERTICAL** = 12 | Enables the vertical stereo mode that is supported on mobile devices. |
-| **VIEWPORT_MODE_STEREO_SEPARATE** = 13 | Enables the replicate images stereo mode. |
-| **VIEWPORT_MODE_STEREO_REPLICATE** = 14 | Enables the separate images stereo mode. This mode serves to output two separate images for each of the eye. It can be used with any VR/AR output devices that support separate images output, e.g. for 3D video glasses or helmets (HMD). |
+| **VIEWPORT_MODE_PANORAMA_FISHEYE_KANNALA_BRANDT** = 9 | Enables the Kannala-Brandt fisheye camera model. |
+| **VIEWPORT_MODE_STEREO_ANAGLYPH** = 10 | Enables the anaglyph stereo mode that is viewed with red-cyan anaglyph glasses. |
+| **VIEWPORT_MODE_STEREO_INTERLACED** = 11 | Enables the interlaced stereo mode that is used with interlaced stereo monitors and polarized 3D glasses. |
+| **VIEWPORT_MODE_STEREO_HORIZONTAL** = 12 | Enables the horizontal stereo mode that is supported on mobile devices. |
+| **VIEWPORT_MODE_STEREO_VERTICAL** = 13 | Enables the vertical stereo mode that is supported on mobile devices. |
+| **VIEWPORT_MODE_STEREO_SEPARATE** = 14 | Enables the replicate images stereo mode. |
+| **VIEWPORT_MODE_STEREO_REPLICATE** = 15 | Enables the separate images stereo mode. This mode serves to output two separate images for each of the eye. It can be used with any VR/AR output devices that support separate images output, e.g. for 3D video glasses or helmets (HMD). |
 
 ## VSYNC
 
@@ -358,6 +355,21 @@ Lifetime of a temporary render texture that defines when the allocated resource 
 | **RENDER_VR_EMULATION_MODE_VARJO_VR_4** = 15 | Emulates the Varjo VR-4 headset rendering parameters. |
 | **RENDER_VR_EMULATION_NUM_MODES** = 16 | The total number of emulation modes. |
 
+## RENDER_PARAMETER
+
+Data types for custom render parameters. These parameters are passed to shaders as uniforms (if dynamic) or as defines (if static), and are managed via [addParameter()](#addParameter_cstr_int_int_UGUID_int), [setParameter*()](#setParameterFloat_int_float_void), and [getParameter*()](#getParameterFloat_int_float) methods.
+| Name | Description |
+|---|---|
+| **RENDER_PARAMETER_FLOAT** = 0 | Single float value (shader type: float). |
+| **RENDER_PARAMETER_FLOAT2** = 1 | Two-component float vector (shader type: float2). |
+| **RENDER_PARAMETER_FLOAT3** = 2 | Three-component float vector (shader type: float3). |
+| **RENDER_PARAMETER_FLOAT4** = 3 | Four-component float vector (shader type: float4). |
+| **RENDER_PARAMETER_INT** = 4 | Single integer value (shader type: int). |
+| **RENDER_PARAMETER_INT2** = 5 | Two-component integer vector (shader type: int2). |
+| **RENDER_PARAMETER_INT3** = 6 | Three-component integer vector (shader type: int3). |
+| **RENDER_PARAMETER_INT4** = 7 | Four-component integer vector (shader type: int4). |
+| **RENDER_PARAMETER_BOOL** = 8 | Boolean value (shader type: bool). |
+
 ## SHOW_QUAD_OVERDRAW_PASSES
 
 | Name | Description |
@@ -389,6 +401,31 @@ Quality levels of shading. In graph-based materials, this corresponds to the inp
 | **SHADING_QUALITY_MEDIUM** = 1 | Medium shading quality level. |
 | **SHADING_QUALITY_HIGH** = 2 | High shading quality level (default). |
 
+## RENDER_DYNAMIC_RESOLUTION_DIMENSION
+
+| Name | Description |
+|---|---|
+| **RENDER_DYNAMIC_RESOLUTION_DIMENSION_UNIFORM** = 0 | Uniform dynamic resolution scaling. |
+| **RENDER_DYNAMIC_RESOLUTION_DIMENSION_HORIZONTAL** = 1 | Dynamic resolution scaling only in horizontal dimension. |
+| **RENDER_DYNAMIC_RESOLUTION_DIMENSION_VERTICAL** = 2 | Dynamic resolution scaling only in vertical dimension. |
+
+## DOF_SAMPLING_MODE
+
+Bokeh sampling mode of the Depth of Field effect.
+| Name | Description |
+|---|---|
+| **DOF_SAMPLING_MODE_CONSTANT_PATTERN** = 0 | The bokeh samples are laid out in fixed rings, the same way for every pixel; the sample count is defined by the DOF quality preset. |
+| **DOF_SAMPLING_MODE_JITTER** = 1 | Every pixel gets its own bokeh sample positions, so the pattern reads as a fine grain instead of a visible structure; the sample count is set directly via the **[getDOFJitterSamples()](../../...md#getDOFJitterSamples_int)** property. The positions advance every frame and are averaged by a temporal filter, which is a part of this mode. |
+
+## SURFACE_ID
+
+Reserved surface ID values. A surface ID is a frame-local index of the row storing the parameters of a rendered surface in the per-view GPU buffer; it is written to the screen-space surface ID buffers. The values below *SURFACE_ID_RESERVED_NUM* are reserved by the engine.
+| Name | Description |
+|---|---|
+| **SURFACE_ID_NONE** = 0 | No surface. This value is read from a surface ID buffer for pixels that have no rendered surface in the corresponding stage. |
+| **SURFACE_ID_SKY** = 1 | Sky. The opaque surface ID buffer is cleared to this value each frame, so pixels not covered by any surface are marked as sky. |
+| **SURFACE_ID_RESERVED_NUM** = 2 | Number of reserved surface ID values. Surfaces are assigned IDs starting from this value. |
+
 ### Members
 
 ## void setEnabled ( bool enabled )
@@ -403,7 +440,7 @@ Sets a new a value indicating if the render is enabled.
 Returns the current a value indicating if the render is enabled.
 ### Return value
 
-**true** if the render is is enabled; otherwise **false**.
+**true** if the render is is enabled ; otherwise **false**.
 ## int getNumTriangles () const
 
 Returns the current number of rendered per frame triangles that can be seen in the viewport. See [Rendering Profiler](../../../tools/profiling/profiler/index.md#rtriangles) article for details.
@@ -482,7 +519,7 @@ Current
 ***Console*:**`render_show_field_mask`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_field_mask_bits) of the [field mask](../../../principles/bit_masking/index.md#field_mask).
 ### Return value
 
-**true** if visualizer for the surfaces using the field mask is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for the surfaces using the field mask is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowFieldMaskBits ( int bits )
 
 ***Console*:**`render_show_field_mask_bits`Sets a new value indicating which bit or bits of the [field mask](../../../principles/bit_masking/index.md#field_mask) are used for visualization. The surfaces that use the specified bits of the field mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowFieldMask()](../../...md#render_show_field_mask)* should be enabled.
@@ -515,7 +552,7 @@ Current bits of the field mask to be visualized, represented as an integer value
 ***Console*:**`render_show_shadow_mask`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_shadow_mask_bits) of the [shadow mask](../../../principles/bit_masking/index.md#shadow_mask).
 ### Return value
 
-**true** if visualizer for the surfaces using the shadow mask is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for the surfaces using the shadow mask is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowShadowMaskBits ( int bits )
 
 ***Console*:**`render_show_shadow_mask_bits`Sets a new value indicating which bit or bits of the [shadow mask](../../../principles/bit_masking/index.md#shadow_mask) are used for visualization. The surfaces that use the specified bits of the shadow mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowShadowMask()](../../...md#render_show_shadow_mask)* should be enabled.
@@ -548,7 +585,7 @@ Current bits of the shadow mask to be visualized, represented as an integer valu
 ***Console*:**`render_show_obstacle_mask`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_obstacle_mask_bits) of the [obstacle mask](../../../principles/bit_masking/index.md#obstacle_mask).
 ### Return value
 
-**true** if visualizer for the surfaces using the obstacle mask is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for the surfaces using the obstacle mask is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowObstacleMaskBits ( int bits )
 
 ***Console*:**`render_show_obstacle_mask_bits`Sets a new value indicating which bit or bits of the [obstacle mask](../../../principles/bit_masking/index.md#obstacle_mask) are used for visualization. The surfaces that use the specified bits of the obstacle mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowObstacleMask()](../../...md#render_show_obstacle_mask)* should be enabled.
@@ -581,7 +618,7 @@ Current bits of the obstacle mask to be visualized, represented as an integer va
 ***Console*:**`render_show_material_mask`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_material_mask_bits) of the [material mask](../../../principles/bit_masking/index.md#material_mask).
 ### Return value
 
-**true** if visualizer for the surfaces using the material mask is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for the surfaces using the material mask is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowMaterialMaskBits ( int bits )
 
 ***Console*:**`render_show_material_mask_bits`Sets a new value indicating which bit or bits of the [material mask](../../../principles/bit_masking/index.md#material_mask) are used for visualization. The surfaces that use the specified bits of the material mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowMaterialMask()](../../...md#render_show_material_mask)* should be enabled.
@@ -614,7 +651,7 @@ Current bits of the material mask to be visualized, represented as an integer va
 ***Console*:**`render_show_viewport_mask`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_viewport_mask_bits) of the [viewport mask](../../../principles/bit_masking/index.md#viewport).
 ### Return value
 
-**true** if visualizer for the surfaces using the viewport mask is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for the surfaces using the viewport mask is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowViewportMaskBits ( int bits )
 
 ***Console*:**`render_show_viewport_mask_bits`Sets a new value indicating which bit or bits of the [viewport mask](../../../principles/bit_masking/index.md#viewport) are used for visualization. The surfaces that use the specified bits of the viewport mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowViewportMask()](../../...md#render_show_viewport_mask)* should be enabled.
@@ -647,7 +684,7 @@ Current bits of the viewport mask to be visualized, represented as an integer va
 ***Console*:**`render_show_physical_mask`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_physical_mask_bits) of the [physical mask](../../../principles/bit_masking/index.md#physical_mask).
 ### Return value
 
-**true** if visualizer for the surfaces using the physical mask is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for the surfaces using the physical mask is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowPhysicalMaskBits ( int bits )
 
 ***Console*:**`render_show_physical_mask_bits`Sets a new value indicating which bit or bits of the [physical mask](../../../principles/bit_masking/index.md#physical_mask) are used for visualization. The surfaces that use the specified bits of the physical mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowPhysicalMask()](../../...md#render_show_physical_mask)* should be enabled.
@@ -680,7 +717,7 @@ Current bits of the physical mask to be visualized, represented as an integer va
 ***Console*:**`render_show_collision_mask`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_collision_mask_bits) of the [collision mask](../../../principles/bit_masking/index.md#collision_mask).
 ### Return value
 
-**true** if visualizer for the surfaces using the collision mask is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for the surfaces using the collision mask is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowCollisionMaskBits ( int bits )
 
 ***Console*:**`render_show_collision_mask_bits`Sets a new value indicating which bit or bits of the [collision mask](../../../principles/bit_masking/index.md#collision_mask) are used for visualization. The surfaces that use the specified bits of the collision mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowCollisionMask()](../../...md#render_show_collision_mask)* should be enabled.
@@ -713,7 +750,7 @@ Current bits of the collision mask to be visualized, represented as an integer v
 ***Console*:**`render_show_navigation_mask`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_navigation_mask_bits) of the [navigation mask](../../../principles/bit_masking/index.md#navigation_mask).
 ### Return value
 
-**true** if visualizer for the surfaces using the navigation mask is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for the surfaces using the navigation mask is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowNavigationMaskBits ( int bits )
 
 ***Console*:**`render_show_navigation_mask_bits`Sets a new value indicating which bit or bits of the [navigation mask](../../../principles/bit_masking/index.md#navigation_mask) are used for visualization. The surfaces that use the specified bits of the navigation mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowNavigationMask()](../../...md#render_show_navigation_mask)* should be enabled.
@@ -746,7 +783,7 @@ Current bits of the navigation mask to be visualized, represented as an integer 
 ***Console*:**`render_show_intersection_mask`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_intersection_mask_bits) of the [intersection mask](../../../principles/bit_masking/index.md#intersection_mask).
 ### Return value
 
-**true** if visualizer for the surfaces using the intersection mask is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for the surfaces using the intersection mask is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowIntersectionMaskBits ( int bits )
 
 ***Console*:**`render_show_intersection_mask_bits`Sets a new value indicating which bit or bits of the [intersection mask](../../../principles/bit_masking/index.md#intersection_mask) are used for visualization. The surfaces that use the specified bits of the intersection mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowIntersectionMask()](../../...md#render_show_intersection_mask)* should be enabled.
@@ -779,7 +816,7 @@ Current bits of the intersection mask to be visualized, represented as an intege
 ***Console*:**`render_show_sound_source_mask`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_sound_source_mask_bits) of the [sound source mask](../../../principles/bit_masking/index.md#source_mask).
 ### Return value
 
-**true** if visualizer for the surfaces using the sound source mask is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for the surfaces using the sound source mask is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowSoundSourceMaskBits ( int bits )
 
 ***Console*:**`render_show_sound_source_mask_bits`Sets a new value indicating which bit or bits of the [sound source mask](../../../principles/bit_masking/index.md#source_mask) are used for visualization. The surfaces that use the specified bits of the sound source mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowSoundSourceMask()](../../...md#render_show_sound_source_mask)* should be enabled.
@@ -812,7 +849,7 @@ Current bits of the sound source mask to be visualized, represented as an intege
 ***Console*:**`render_show_sound_reverb_mask`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_sound_reverb_mask_bits) of the [reverberation mask](../../../principles/bit_masking/index.md#reverb_mask).
 ### Return value
 
-**true** if visualizer for the surfaces using the reverberation mask is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for the surfaces using the reverberation mask is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowSoundReverbMaskBits ( int bits )
 
 ***Console*:**`render_show_sound_reverb_mask_bits`Sets a new value indicating which bit or bits of the [reverberation mask](../../../principles/bit_masking/index.md#reverb_mask) are used for visualization. The surfaces that use the specified bits of the reverberation mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowSoundReverbMask()](../../...md#render_show_sound_reverb_mask)* should be enabled.
@@ -845,7 +882,7 @@ Current bits of the reverberation mask to be visualized, represented as an integ
 ***Console*:**`render_show_sound_occlusion_mask`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_sound_occlusion_mask_bits) of the [sound occlusion mask](../../../principles/bit_masking/index.md#sound_occlusion_mask).
 ### Return value
 
-**true** if visualizer for the surfaces using the sound occlusion mask is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for the surfaces using the sound occlusion mask is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowSoundOcclusionMaskBits ( int bits )
 
 ***Console*:**`render_show_sound_occlusion_mask_bits`Sets a new value indicating which bit or bits of the [sound occlusion mask](../../../principles/bit_masking/index.md#sound_occlusion_mask) are used for visualization. The surfaces that use the specified bits of the sound occlusion mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowSoundOcclusionMask()](../../...md#render_show_sound_occlusion_mask)* should be enabled.
@@ -878,7 +915,7 @@ Current bits of the sound occlusion mask to be visualized, represented as an int
 ***Console*:**`render_show_physical_exclusion_mask`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_physical_exclusion_mask_bits) of the [physical exclusion mask](../../../principles/bit_masking/index.md#exclusion_mask).
 ### Return value
 
-**true** if visualizer for the surfaces using the physical exclusion mask is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for the surfaces using the physical exclusion mask is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowPhysicalExclusionMaskBits ( int bits )
 
 ***Console*:**`render_show_physical_exclusion_mask_bits`Sets a new value indicating which bit or bits of the [physical exclusion mask](../../../principles/bit_masking/index.md#exclusion_mask) are used for visualization. The surfaces that use the specified bits of the physical exclusion mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowPhysicalExclusionMask()](../../...md#render_show_physical_exclusion_mask)* should be enabled.
@@ -911,7 +948,7 @@ Current bits of the physical exclusion mask to be visualized, represented as an 
 ***Console*:**`render_show_physics_intersection_mask`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is enabled to highlight the surfaces that use the [specified bits](#render_show_physics_intersection_mask_bits) of the [physics intersection mask](../../../principles/bit_masking/index.md#physics_intersection_mask).
 ### Return value
 
-**true** if visualizer for the surfaces using the physics intersection mask is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for the surfaces using the physics intersection mask is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowPhysicsIntersectionMaskBits ( int bits )
 
 ***Console*:**`render_show_physics_intersection_mask_bits`Sets a new value indicating which bit or bits of the [physics intersection mask](../../../principles/bit_masking/index.md#physics_intersection_mask) are used for visualization. The surfaces that use the specified bits of the physics intersection mask will be highlighted. To use this option, rendering of the relevant visualizer *[setShowPhysicsIntersectionMask()](../../...md#render_show_physics_intersection_mask)* should be enabled.
@@ -944,7 +981,7 @@ Current bits of the physics intersection mask to be visualized, represented as a
 ***Console*:**`render_show_queries`Returns the current value indicating whether occlusion query boxes are displayed in the viewport. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
 ### Return value
 
-**true** if rendering of occlusion query boxes is enabled; otherwise **false**. The default value is **false**.
+**true** if rendering of occlusion query boxes is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowDecals ( bool decals )
 
 ***Console*:**`render_show_decals`Sets a new value indicating whether the visualizer is displayed for decals. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
@@ -957,7 +994,7 @@ Current bits of the physics intersection mask to be visualized, represented as a
 ***Console*:**`render_show_decals`Returns the current value indicating whether the visualizer is displayed for decals. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
 ### Return value
 
-**true** if visualizer for decals is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for decals is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowScissors ( bool scissors = 0 )
 
 ***Console*:**`render_show_scissors`Sets a new value indicating if scissor rectangles are displayed. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
@@ -970,7 +1007,7 @@ Current bits of the physics intersection mask to be visualized, represented as a
 ***Console*:**`render_show_scissors`Returns the current value indicating if scissor rectangles are displayed. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
 ### Return value
 
-**true** if visualization of scissor rectangles is enabled; otherwise **false**. The default value is **false**.
+**true** if visualization of scissor rectangles is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowLightmapChecker ( bool checker )
 
 ***Console*:**`render_show_lightmap_checker`Sets a new value indicating whether the Baked Lightmap Checker debug mode is enabled. This mode maps the checker texture onto the baked lightmap polygons, which can be used to facilitate the process of comparing UV map texels on neighboring planes.
@@ -983,7 +1020,7 @@ Current bits of the physics intersection mask to be visualized, represented as a
 ***Console*:**`render_show_lightmap_checker`Returns the current value indicating whether the Baked Lightmap Checker debug mode is enabled. This mode maps the checker texture onto the baked lightmap polygons, which can be used to facilitate the process of comparing UV map texels on neighboring planes.
 ### Return value
 
-**true** if Baked Lightmap Checker debug mode is enabled; otherwise **false**. The default value is **false**.
+**true** if Baked Lightmap Checker debug mode is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowOccluder ( bool occluder )
 
 ***Console*:**`render_show_occluder`Sets a new value indicating whether the buffer used for occluders is displayed in the viewport. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
@@ -996,7 +1033,7 @@ Current bits of the physics intersection mask to be visualized, represented as a
 ***Console*:**`render_show_occluder`Returns the current value indicating whether the buffer used for occluders is displayed in the viewport. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
 ### Return value
 
-**true** if visualization of the buffer used for occluders is enabled; otherwise **false**. The default value is **false**.
+**true** if visualization of the buffer used for occluders is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowCascades ( bool cascades )
 
 ***Console*:**`render_show_cascades`Sets a new value indicating whether Parallel Split Shadow Map - world shadow cascades are displayed. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
@@ -1009,7 +1046,7 @@ Current bits of the physics intersection mask to be visualized, represented as a
 ***Console*:**`render_show_cascades`Returns the current value indicating whether Parallel Split Shadow Map - world shadow cascades are displayed. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
 ### Return value
 
-**true** if visualization of world shadow cascades is enabled; otherwise **false**. The default value is **false**.
+**true** if visualization of world shadow cascades is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowVisualizerDistance ( float distance = 500 )
 
 ***Console*:**`render_show_visualizer_distance`Sets a new distance from the camera within which the helpers are visualized. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
@@ -1036,7 +1073,7 @@ Range of values: **[0, 100000]**. The default value is : **500**.
 ***Console*:**`render_show_world_shadow_casters`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for surfaces that are configured to cast shadows from the current *World Light*.
 ### Return value
 
-**true** if visualizer for surfaces casting shadows from *World Light* is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for surfaces casting shadows from *World Light* is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowProjAndOmniShadowCasters ( bool casters = 0 )
 
 ***Console*:**`render_show_proj_and_omni_shadow_casters`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for surfaces that are configured to cast shadows from *Proj* and *Omni* light sources.
@@ -1049,7 +1086,7 @@ Range of values: **[0, 100000]**. The default value is : **500**.
 ***Console*:**`render_show_proj_and_omni_shadow_casters`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for surfaces that are configured to cast shadows from *Proj* and *Omni* light sources.
 ### Return value
 
-**true** if visualizer for surfaces casting shadows from *Proj* and *Omni* light sources. is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for surfaces casting shadows from *Proj* and *Omni* light sources. is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowAlphaTest ( bool test = 0 )
 
 ***Console*:**`render_show_alpha_test`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for transparent objects using alpha test. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
@@ -1062,7 +1099,7 @@ Range of values: **[0, 100000]**. The default value is : **500**.
 ***Console*:**`render_show_alpha_test`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for transparent objects using alpha test. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
 ### Return value
 
-**true** if visualizer for transparent objects using alpha test is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for transparent objects using alpha test is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowDepthPrePass ( bool pass = 0 )
 
 ***Console*:**`render_show_depth_pre_pass`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for surfaces that use depth pre-pass rendering. This includes surfaces with Alpha Test transparency and opaque surfaces with Force Depth Pre-Pass option enabled in the material. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
@@ -1075,7 +1112,7 @@ Range of values: **[0, 100000]**. The default value is : **500**.
 ***Console*:**`render_show_depth_pre_pass`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for surfaces that use depth pre-pass rendering. This includes surfaces with Alpha Test transparency and opaque surfaces with Force Depth Pre-Pass option enabled in the material. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
 ### Return value
 
-**true** if visualizer for surfaces using depth pre-pass is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for surfaces using depth pre-pass is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowEmission ( bool emission = 0 )
 
 ***Console*:**`render_show_emission`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for materials with the *Emission* state enabled or connecting any data to the *Emission* input in the material graph.
@@ -1088,7 +1125,7 @@ Range of values: **[0, 100000]**. The default value is : **500**.
 ***Console*:**`render_show_emission`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for materials with the *Emission* state enabled or connecting any data to the *Emission* input in the material graph.
 ### Return value
 
-**true** if visualizer for emissive materials. is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for emissive materials. is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowMeshStatics ( bool statics = 0 )
 
 ***Console*:**`render_show_mesh_statics`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for static meshes.
@@ -1101,7 +1138,7 @@ Range of values: **[0, 100000]**. The default value is : **500**.
 ***Console*:**`render_show_mesh_statics`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for static meshes.
 ### Return value
 
-**true** if visualizer for static meshes is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for static meshes is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowMeshDynamics ( bool dynamics = 0 )
 
 ***Console*:**`render_show_mesh_dynamics`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for dynamic meshes.
@@ -1114,7 +1151,7 @@ Range of values: **[0, 100000]**. The default value is : **500**.
 ***Console*:**`render_show_mesh_dynamics`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for dynamic meshes.
 ### Return value
 
-**true** if visualizer for dynamic meshes is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for dynamic meshes is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowComplexShadowShader ( bool shader = 0 )
 
 ***Console*:**`render_show_complex_shadow_shader`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for objects that cast shadows in the following way: the pixels are cut out during the shadow pass, as it's done in Alpha Test or Alpha Blend materials, materials assigned to animated Mesh Skinned, opaque materials with the enabled Depth Offset or any other effects that affect shadows.
@@ -1127,7 +1164,7 @@ Range of values: **[0, 100000]**. The default value is : **500**.
 ***Console*:**`render_show_complex_shadow_shader`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for objects that cast shadows in the following way: the pixels are cut out during the shadow pass, as it's done in Alpha Test or Alpha Blend materials, materials assigned to animated Mesh Skinned, opaque materials with the enabled Depth Offset or any other effects that affect shadows.
 ### Return value
 
-**true** if visualizer for objects that cast complex shadows with the pixels are cut out during the shadow pass is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for objects that cast complex shadows with the pixels are cut out during the shadow pass is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowSurfaceCustomTextureNotAvailable ( bool available = 0 )
 
 ***Console*:**`render_show_surface_custom_texture_not_available`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for surfaces the materials of which use the [surface custom texture](../../../content/materials/graph/node_library/textures/surface_custom_texture.md) in the material graph, however the option is not enabled for the surface.
@@ -1140,7 +1177,7 @@ Range of values: **[0, 100000]**. The default value is : **500**.
 ***Console*:**`render_show_surface_custom_texture_not_available`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for surfaces the materials of which use the [surface custom texture](../../../content/materials/graph/node_library/textures/surface_custom_texture.md) in the material graph, however the option is not enabled for the surface.
 ### Return value
 
-**true** if visualizer for surfaces the materials of which use the surface custom texture in the material graph, however the option is not enabled for the surface is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for surfaces the materials of which use the surface custom texture in the material graph, however the option is not enabled for the surface is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowSurfaceCustomTextureNotUsed ( bool used = 0 )
 
 ***Console*:**`render_show_surface_custom_texture_not_used`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for surfaces with the [surface custom texture](../../../content/materials/graph/node_library/textures/surface_custom_texture.md) enabled and/or set, but not used in the material graph.
@@ -1153,7 +1190,7 @@ Range of values: **[0, 100000]**. The default value is : **500**.
 ***Console*:**`render_show_surface_custom_texture_not_used`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for surfaces with the [surface custom texture](../../../content/materials/graph/node_library/textures/surface_custom_texture.md) enabled and/or set, but not used in the material graph.
 ### Return value
 
-**true** if visualizer for surfaces with the surface custom texture enabled and/or set, but not used in the material graph is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for surfaces with the surface custom texture enabled and/or set, but not used in the material graph is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowSurfaceCustomTexture ( bool texture = 0 )
 
 ***Console*:**`render_show_surface_custom_texture`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for surfaces with the [surface custom texture](../../../content/materials/graph/node_library/textures/surface_custom_texture.md) enabled.
@@ -1166,7 +1203,7 @@ Range of values: **[0, 100000]**. The default value is : **500**.
 ***Console*:**`render_show_surface_custom_texture`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for surfaces with the [surface custom texture](../../../content/materials/graph/node_library/textures/surface_custom_texture.md) enabled.
 ### Return value
 
-**true** if visualizer for surfaces with the surface custom texture enabled is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for surfaces with the surface custom texture enabled is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowPhysicsIntersection ( bool intersection = 0 )
 
 ***Console*:**`render_show_physics_intersection`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for surfaces with the *[physics intersection](../../../editor2/node_parameters/physics/index.md#surface_physics_intersection)* enabled.
@@ -1179,7 +1216,7 @@ Range of values: **[0, 100000]**. The default value is : **500**.
 ***Console*:**`render_show_physics_intersection`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for surfaces with the *[physics intersection](../../../editor2/node_parameters/physics/index.md#surface_physics_intersection)* enabled.
 ### Return value
 
-**true** if visualizer for surfaces with the physics intersection enabled is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for surfaces with the physics intersection enabled is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowIntersection ( bool intersection = 0 )
 
 ***Console*:**`render_show_intersection`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for surfaces with the *[Intersection](../../../editor2/node_parameters/physics/index.md#surface_intersection)* enabled.
@@ -1192,7 +1229,7 @@ Range of values: **[0, 100000]**. The default value is : **500**.
 ***Console*:**`render_show_intersection`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for surfaces with the *[Intersection](../../../editor2/node_parameters/physics/index.md#surface_intersection)* enabled.
 ### Return value
 
-**true** if visualizer for surfaces with the intersection enabled is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for surfaces with the intersection enabled is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowManualMaterials ( bool materials = 0 )
 
 ***Console*:**`render_show_manual_materials`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for objects with manual materials.
@@ -1205,7 +1242,7 @@ Range of values: **[0, 100000]**. The default value is : **500**.
 ***Console*:**`render_show_manual_materials`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for objects with manual materials.
 ### Return value
 
-**true** if visualizer for objects with manual materials is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for objects with manual materials is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowNonManualMaterials ( bool materials = 0 )
 
 ***Console*:**`render_show_non_manual_materials`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for objects with non-manual materials.
@@ -1218,7 +1255,7 @@ Range of values: **[0, 100000]**. The default value is : **500**.
 ***Console*:**`render_show_non_manual_materials`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for objects with non-manual materials.
 ### Return value
 
-**true** if visualizer for objects with non-manual materials is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for objects with non-manual materials is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowClusters ( bool clusters = 0 )
 
 ***Console*:**`render_show_clusters`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for *Mesh Cluster* objects.
@@ -1231,7 +1268,7 @@ Range of values: **[0, 100000]**. The default value is : **500**.
 ***Console*:**`render_show_clusters`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for *Mesh Cluster* objects.
 ### Return value
 
-**true** if visualizer for *Mesh Cluster* objects is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for *Mesh Cluster* objects is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowImmovable ( int immovable = 0 )
 
 ***Console*:**`render_show_immovable`Sets a new value visualizing the state of the [Immovable](../../../editor2/node_parameters/transformation_common/index.md#clutter) option for objects. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
@@ -1265,7 +1302,7 @@ Current state of the Immovable option. One of the following values:
 ***Console*:**`render_show_dynamic`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for dynamic objects. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
 ### Return value
 
-**true** if visualizer for dynamic objects is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for dynamic objects is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowTransparent ( bool transparent = 0 )
 
 ***Console*:**`render_show_transparent`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for transparent objects. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
@@ -1278,7 +1315,7 @@ Current state of the Immovable option. One of the following values:
 ***Console*:**`render_show_transparent`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for transparent objects. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
 ### Return value
 
-**true** if visualizer for transparent objects is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for transparent objects is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowTransparentGBuffer ( bool gbuffer = 0 )
 
 ***Console*:**`render_show_transparent_gbuffer`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for transparent (blend) surfaces whose material is configured to render in the deferred pass (write to GBuffer). This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
@@ -1291,7 +1328,7 @@ Current state of the Immovable option. One of the following values:
 ***Console*:**`render_show_transparent_gbuffer`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for transparent (blend) surfaces whose material is configured to render in the deferred pass (write to GBuffer). This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
 ### Return value
 
-**true** if visualizer for transparent surfaces that write to GBuffer is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for transparent surfaces that write to GBuffer is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowTransparentLightingAmbient ( bool ambient = 0 )
 
 ***Console*:**`render_show_transparent_lighting_ambient`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for transparent (blend) surfaces whose material is configured to receive lighting from ambient sources. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
@@ -1304,7 +1341,7 @@ Current state of the Immovable option. One of the following values:
 ***Console*:**`render_show_transparent_lighting_ambient`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for transparent (blend) surfaces whose material is configured to receive lighting from ambient sources. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
 ### Return value
 
-**true** if visualizer for transparent surfaces that receive ambient lighting is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for transparent surfaces that receive ambient lighting is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowTransparentLightingEnvironmentProbe ( bool probe = 0 )
 
 ***Console*:**`render_show_transparent_lighting_environment_probe`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for transparent (blend) surfaces whose material is configured to receive lighting from Environment Probes. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
@@ -1317,7 +1354,7 @@ Current state of the Immovable option. One of the following values:
 ***Console*:**`render_show_transparent_lighting_environment_probe`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for transparent (blend) surfaces whose material is configured to receive lighting from Environment Probes. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
 ### Return value
 
-**true** if visualizer for transparent surfaces that receive Environment Probe lighting is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for transparent surfaces that receive Environment Probe lighting is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowTransparentLightingVoxelProbe ( bool probe = 0 )
 
 ***Console*:**`render_show_transparent_lighting_voxel_probe`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for transparent (blend) surfaces whose material is configured to receive lighting from Voxel Probes. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
@@ -1330,7 +1367,7 @@ Current state of the Immovable option. One of the following values:
 ***Console*:**`render_show_transparent_lighting_voxel_probe`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for transparent (blend) surfaces whose material is configured to receive lighting from Voxel Probes. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
 ### Return value
 
-**true** if visualizer for transparent surfaces that receive Voxel Probe lighting is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for transparent surfaces that receive Voxel Probe lighting is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowTransparentLightingPlanarProbe ( bool probe = 0 )
 
 ***Console*:**`render_show_transparent_lighting_planar_probe`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for transparent (blend) surfaces whose material is configured to receive lighting from Planar Probes. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
@@ -1343,7 +1380,7 @@ Current state of the Immovable option. One of the following values:
 ***Console*:**`render_show_transparent_lighting_planar_probe`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for transparent (blend) surfaces whose material is configured to receive lighting from Planar Probes. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
 ### Return value
 
-**true** if visualizer for transparent surfaces that receive Planar Probe lighting is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for transparent surfaces that receive Planar Probe lighting is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowTransparentLightingLightOmni ( bool omni = 0 )
 
 ***Console*:**`render_show_transparent_lighting_light_omni`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for transparent (blend) surfaces whose material is configured to receive lighting from Omni lights. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
@@ -1356,7 +1393,7 @@ Current state of the Immovable option. One of the following values:
 ***Console*:**`render_show_transparent_lighting_light_omni`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for transparent (blend) surfaces whose material is configured to receive lighting from Omni lights. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
 ### Return value
 
-**true** if visualizer for transparent surfaces that receive Omni lighting is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for transparent surfaces that receive Omni lighting is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowTransparentLightingLightProj ( bool proj = 0 )
 
 ***Console*:**`render_show_transparent_lighting_light_proj`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for transparent (blend) surfaces whose material is configured to receive lighting from Projected lights. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
@@ -1369,7 +1406,7 @@ Current state of the Immovable option. One of the following values:
 ***Console*:**`render_show_transparent_lighting_light_proj`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for transparent (blend) surfaces whose material is configured to receive lighting from Projected lights. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
 ### Return value
 
-**true** if visualizer for transparent surfaces that receive Projected lighting is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for transparent surfaces that receive Projected lighting is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowTransparentLightingLightWorld ( bool world = 0 )
 
 ***Console*:**`render_show_transparent_lighting_light_world`Sets a new value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for transparent (blend) surfaces whose material is configured to receive lighting from World light (sun). This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
@@ -1382,7 +1419,7 @@ Current state of the Immovable option. One of the following values:
 ***Console*:**`render_show_transparent_lighting_light_world`Returns the current value indicating whether the [visualizer](../../../api/library/engine/class.visualizer_cpp.md) is displayed for transparent (blend) surfaces whose material is configured to receive lighting from World light (sun). This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
 ### Return value
 
-**true** if visualizer for transparent surfaces that receive World lighting is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for transparent surfaces that receive World lighting is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowAmbient ( bool ambient = 0 )
 
 ***Console*:**`render_show_ambient`Sets a new value indicating whether the ambient pass buffer is displayed. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
@@ -1395,7 +1432,7 @@ Current state of the Immovable option. One of the following values:
 ***Console*:**`render_show_ambient`Returns the current value indicating whether the ambient pass buffer is displayed. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
 ### Return value
 
-**true** if displaying of the ambient pass buffer is enabled; otherwise **false**. The default value is **false**.
+**true** if displaying of the ambient pass buffer is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowGeodeticPivot ( bool pivot = 0 )
 
 ***Console*:**`render_show_geodetic_pivot`Sets a new value indicating whether [geodetic pivots](../../../objects/geodetics/geodeticpivot/index.md) are displayed. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
@@ -1408,7 +1445,7 @@ Current state of the Immovable option. One of the following values:
 ***Console*:**`render_show_geodetic_pivot`Returns the current value indicating whether [geodetic pivots](../../../objects/geodetics/geodeticpivot/index.md) are displayed. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
 ### Return value
 
-**true** if displaying of geodetic pivots is enabled; otherwise **false**. The default value is **false**.
+**true** if displaying of geodetic pivots is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowLandscapeMask ( int mask )
 
 ***Console*:**`render_show_landscape_mask`Sets a new number of the [Landscape Terrain detail mask](../../../objects/objects/terrain/landscape_terrain/index.md#details) to be visualized. This method can be used for visual debugging to display the selected detail mask of the Landscape Terrain. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
@@ -1446,7 +1483,7 @@ Current Landscape Terrain detail mask number. One of the following values:
 ***Console*:**`render_show_landscape_albedo`Returns the current value indicating if visualization of albedo data of the Landscape Terrain is enabled. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
 ### Return value
 
-**true** if visualization of albedo data of the Landscape Terrain is enabled; otherwise **false**. The default value is **false**.
+**true** if visualization of albedo data of the Landscape Terrain is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowLandscapeTerrainVTStreaming ( bool vtstreaming )
 
 ***Console*:**`render_show_landscape_terrain_vt_streaming`Sets a new value indicating if visualization is enabled for [streaming of tiles](../../../objects/objects/terrain/landscape_terrain/index.md#tiling) of the Landscape Terrain megatexture. In this mode colored areas show the tiles that are currently being rendered in a lower resolution until the highest MIP-level is loaded. This method can be used for visual adjustment of the streaming process.
@@ -1459,7 +1496,7 @@ Current Landscape Terrain detail mask number. One of the following values:
 ***Console*:**`render_show_landscape_terrain_vt_streaming`Returns the current value indicating if visualization is enabled for [streaming of tiles](../../../objects/objects/terrain/landscape_terrain/index.md#tiling) of the Landscape Terrain megatexture. In this mode colored areas show the tiles that are currently being rendered in a lower resolution until the highest MIP-level is loaded. This method can be used for visual adjustment of the streaming process.
 ### Return value
 
-**true** if visualization of Landscape Terrain tiles being streamed is enabled; otherwise **false**. The default value is **false**.
+**true** if visualization of Landscape Terrain tiles being streamed is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowVoxelProbeVisualizer ( bool visualizer )
 
 ***Console*:**`render_show_voxel_probe_visualizer`Sets a new value indicating if the Voxel Probe visualizer is enabled. The visualizer shows only the selected probe with the grid size*[setShowVoxelProbeVisualizerGridSize()](../../...md#render_show_voxel_probe_visualizer_grid_size)* from 7 to 40.
@@ -1472,7 +1509,7 @@ Current Landscape Terrain detail mask number. One of the following values:
 ***Console*:**`render_show_voxel_probe_visualizer`Returns the current value indicating if the Voxel Probe visualizer is enabled. The visualizer shows only the selected probe with the grid size*[setShowVoxelProbeVisualizerGridSize()](../../...md#render_show_voxel_probe_visualizer_grid_size)* from 7 to 40.
 ### Return value
 
-**true** if Voxel Probe visualizer is enabled; otherwise **false**. The default value is **false**.
+**true** if Voxel Probe visualizer is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowVoxelProbeVisualizerGridSize ( int size )
 
 ***Console*:**`render_show_voxel_probe_visualizer_grid_size`Sets a new size of the grid that is used to visualize Voxel Probes.
@@ -1674,7 +1711,7 @@ Current value indicating whether displaying of geometry that uses the selected v
 ***Console*:**`render_show_nodes_interaction_grass`Returns the current value indicating whether the visualizer is enabled for nodes with the *Grass Interaction* flag enabled. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
 ### Return value
 
-**true** if visualizer for for nodes with the *Grass Interaction* flag enabled is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for for nodes with the *Grass Interaction* flag enabled is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowNodesInteractionClutter ( bool clutter = 0 )
 
 ***Console*:**`render_show_nodes_interaction_clutter`Sets a new value indicating whether the visualizer is enabled for nodes with the *Clutter Interaction* flag enabled. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
@@ -1687,7 +1724,7 @@ Current value indicating whether displaying of geometry that uses the selected v
 ***Console*:**`render_show_nodes_interaction_clutter`Returns the current value indicating whether the visualizer is enabled for nodes with the *Clutter Interaction* flag enabled. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
 ### Return value
 
-**true** if visualizer for for nodes with the *Clutter Interaction* flag enabled is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for for nodes with the *Clutter Interaction* flag enabled is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowNodesInteractionTrigger ( bool trigger = 0 )
 
 ***Console*:**`render_show_nodes_interaction_trigger`Sets a new value indicating whether the visualizer is enabled for nodes with the *Trigger Interaction* flag enabled. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
@@ -1700,7 +1737,7 @@ Current value indicating whether displaying of geometry that uses the selected v
 ***Console*:**`render_show_nodes_interaction_trigger`Returns the current value indicating whether the visualizer is enabled for nodes with the *Trigger Interaction* flag enabled. This parameter is stored in the following configuration file: **[*.user](../../../code/configuration_file_cpp.md#user)**.
 ### Return value
 
-**true** if visualizer for for nodes with the *Trigger Interaction* flag enabled is enabled; otherwise **false**. The default value is **false**.
+**true** if visualizer for for nodes with the *Trigger Interaction* flag enabled is enabled ; otherwise **false**. The default value is **false**.
 ## void setTransparentMultipleEnvProbes ( bool probes = 1 )
 
 ***Console*:**`render_transparent_multiple_env_probes`Sets a new value indicating if the transparent [multiple environment probes](../../../principles/render/sequence/index.md#transparent_multiple_env_probes) pass is rendered.
@@ -1717,7 +1754,7 @@ Current value indicating whether displaying of geometry that uses the selected v
 
 ### Return value
 
-**true** if rendering of the transparent multiple environment probes pass is enabled; otherwise **false**. The default value is **true**.
+**true** if rendering of the transparent multiple environment probes pass is enabled ; otherwise **false**. The default value is **true**.
 ## void setTransparentDeferred ( bool deferred = 1 )
 
 ***Console*:**`render_transparent_deferred`Sets a new value indicating if the deferred pass for transparent objects is enabled.
@@ -1736,7 +1773,7 @@ Current value indicating whether displaying of geometry that uses the selected v
 
 ### Return value
 
-**true** if rendering of the deferred pass for transparent objects is enabled; otherwise **false**. The default value is **true**.
+**true** if rendering of the deferred pass for transparent objects is enabled ; otherwise **false**. The default value is **true**.
 ## void setTransparentEnabled ( bool enabled = 1 )
 
 ***Console*:**`render_transparent_enabled`Sets a new value indicating if the transparent pass is rendered.
@@ -1755,7 +1792,7 @@ Current value indicating whether displaying of geometry that uses the selected v
 
 ### Return value
 
-**true** if rendering of the transparent pass is enabled; otherwise **false**. The default value is **true**.
+**true** if rendering of the transparent pass is enabled ; otherwise **false**. The default value is **true**.
 ## void setScreenSpaceEffects ( bool effects = 1 )
 
 ***Console*:**`render_screen_space_effects`Sets a new value indicating if rendering of screen-space effects is enabled.
@@ -1768,7 +1805,7 @@ Current value indicating whether displaying of geometry that uses the selected v
 ***Console*:**`render_screen_space_effects`Returns the current value indicating if rendering of screen-space effects is enabled.
 ### Return value
 
-**true** if rendering of screen-space effects is enabled; otherwise **false**. The default value is **true**.
+**true** if rendering of screen-space effects is enabled ; otherwise **false**. The default value is **true**.
 ## void setFieldShorelineResolution ( int resolution = 0 )
 
 ***Console*:**`render_field_shoreline_resolution`Sets a new resolution of the texture into which all textures set for all *[FieldShoreline](../../../api/library/fields/class.fieldshoreline_cpp.md)* objects are rendered.
@@ -1825,7 +1862,7 @@ Current resolution in pixels. One of the following values:
 
 ### Return value
 
-**true** if high (32-bit) precision for textures is enabled; otherwise **false**. One of the following values:
+**true** if high (32-bit) precision for textures is enabled ; otherwise **false**. One of the following values:
 - **0** - 16 bit (by default)
 - **1** - 32 bit
 
@@ -2014,9 +2051,9 @@ Current downsampling rendering for clouds. One of the following values:
 - *int* **rendering** - The interleaved rendering mode for clouds. One of the following values: > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setCloudsQualityPreset()](/api/library/rendering/class.render_cs#render_clouds_quality_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
   - **0** - Disabled (by default)
-  - **1** - 2×2
-  - **2** - 4×4
-  - **3** - 8×8
+  - **1** - 2ï¿½2
+  - **2** - 4ï¿½4
+  - **3** - 8ï¿½8
 
 ## int getCloudsInterleavedRendering () const
 
@@ -2025,9 +2062,9 @@ Current downsampling rendering for clouds. One of the following values:
 
 Current interleaved rendering mode for clouds. One of the following values:
 - **0** - Disabled (by default)
-- **1** - 2×2
-- **2** - 4×4
-- **3** - 8×8
+- **1** - 2ï¿½2
+- **2** - 4ï¿½4
+- **3** - 8ï¿½8
 
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setCloudsQualityPreset()](/api/library/rendering/class.render_cs#render_clouds_quality_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
@@ -2203,7 +2240,7 @@ Current lighting quality. One of the following values:
 ***Console*:**`render_clouds_ground_shadows`Returns the current value indicating if rendering of shadows from the clouds on the ground is enabled.
 ### Return value
 
-**true** if rendering of shadows from the clouds on the ground is enabled; otherwise **false**. The default value is **true**.
+**true** if rendering of shadows from the clouds on the ground is enabled ; otherwise **false**. The default value is **true**.
 ## void setCloudsEnabled ( bool enabled = 1 )
 
 ***Console*:**`render_clouds_enabled`Sets a new value indicating if rendering of clouds is enabled.
@@ -2216,7 +2253,7 @@ Current lighting quality. One of the following values:
 ***Console*:**`render_clouds_enabled`Returns the current value indicating if rendering of clouds is enabled.
 ### Return value
 
-**true** if rendering of clouds is enabled; otherwise **false**. The default value is **true**.
+**true** if rendering of clouds is enabled ; otherwise **false**. The default value is **true**.
 ## void setCloudsStepAccuracy ( float accuracy = 0.5f )
 
 ***Console*:**`render_clouds_step_accuracy`Sets a new accuracy of ray marching steps. This parameter enables you to improve the visual look of clouds when viewed from inside a cloud layer. It reduces the noise of lighting and clouds shape for long ray marching distances, adds some noise-based blur to a sharp border at the bottom sphere of the cloud layer (rounded) and removes popping effect when leaving a rounded cloud layer. *Higher* values provide more accurate form and less noise, while *lower* ones gain more performance.
@@ -2249,7 +2286,7 @@ Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
 
 ### Return value
 
-**true** if correct sorting of intersecting cloud layers is enabled; otherwise **false**. The default value is **false**.
+**true** if correct sorting of intersecting cloud layers is enabled ; otherwise **false**. The default value is **false**.
 ## void setCloudDistortionTexture ( int texture = 0 )
 
 ***Console*:**`render_clouds_distortion_texture`Sets a new value indicating which texture type is used for clouds distortion at the moment. This parameter has a significant impact on performance:
@@ -2295,7 +2332,7 @@ Current texture type to be used. One of the following values:
 
 ### Return value
 
-**true** if temporal accumulation of noises for interleaved sampling for clouds is enabled; otherwise **false**. The default value is **true**.
+**true** if temporal accumulation of noises for interleaved sampling for clouds is enabled ; otherwise **false**. The default value is **true**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setCloudsQualityPreset()](/api/library/rendering/class.render_cs#render_clouds_quality_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setCloudsDepthBasedReconstructionThreshold ( float threshold = 100.0f )
@@ -2332,7 +2369,7 @@ Range of values: **[0.0f, inf]**. The default value is : **100.0f**.
 
 ### Return value
 
-**true** if using ray-marched depth for upsampling the downsampled clouds is enabled; otherwise **false**. The default value is **false**.
+**true** if using ray-marched depth for upsampling the downsampled clouds is enabled ; otherwise **false**. The default value is **false**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setCloudsQualityPreset()](/api/library/rendering/class.render_cs#render_clouds_quality_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setCloudsFarClipping ( bool clipping = 1 )
@@ -2351,7 +2388,7 @@ Controlling clouds visibility by increasing the far-plane distance significantly
 
 ### Return value
 
-**true** if using far-plane clipping for clouds visibility. is enabled; otherwise **false**. The default value is **true**.
+**true** if using far-plane clipping for clouds visibility. is enabled ; otherwise **false**. The default value is **true**.
 ## void setCloudsRoundedPlanetRadius ( float radius = 200000.0f )
 
 ***Console*:**`render_clouds_rounded_planet_radius`Sets a new radius of the planet to be used for clouds curving. Visual curving can be used to make clouds look more natural imitating planet's curvature.
@@ -2378,7 +2415,7 @@ Range of values: **[100.0f, inf]**. The default value is : **200000.0f**.
 ***Console*:**`render_clouds_rounded`Returns the current value indicating if cloud layers are to be curved to make them look more natural imitating planet's curvature.
 ### Return value
 
-**true** if visual curving for clouds is enabled; otherwise **false**. The default value is **true**.
+**true** if visual curving for clouds is enabled ; otherwise **false**. The default value is **true**.
 ## void setWaterAnisotropy ( int anisotropy = 1 )
 
 ***Console*:**`render_water_anisotropy`Sets a new water texture anisotropy level. The following values are available:
@@ -2482,7 +2519,7 @@ Current water SSR quality. One of the following values:
 
 ### Return value
 
-**true** if rendering of lights on the water surface is enabled; otherwise **false**. The default value is **true**.
+**true** if rendering of lights on the water surface is enabled ; otherwise **false**. The default value is **true**.
 ## void setWaterVoxelProbes ( bool probes = 1 )
 
 ***Console*:**`render_water_voxel_probes`Sets a new value indicating if voxel probes are enabled for water rendering.
@@ -2495,7 +2532,7 @@ Current water SSR quality. One of the following values:
 ***Console*:**`render_water_voxel_probes`Returns the current value indicating if voxel probes are enabled for water rendering.
 ### Return value
 
-**true** if rendering of voxel probes on the water surface is enabled; otherwise **false**. The default value is **true**.
+**true** if rendering of voxel probes on the water surface is enabled ; otherwise **false**. The default value is **true**.
 ## void setWaterEnvironmentProbes ( bool probes = 1 )
 
 ***Console*:**`render_water_environment_probes`Sets a new value indicating if rendering of environment probes on the water surface is enabled.
@@ -2508,7 +2545,7 @@ Current water SSR quality. One of the following values:
 ***Console*:**`render_water_environment_probes`Returns the current value indicating if rendering of environment probes on the water surface is enabled.
 ### Return value
 
-**true** if rendering of environment probes on the water surface is enabled; otherwise **false**. The default value is **true**.
+**true** if rendering of environment probes on the water surface is enabled ; otherwise **false**. The default value is **true**.
 ## void setWaterOpacityDepth ( bool depth = 1 )
 
 ***Console*:**`render_water_opacity_depth`Sets a new value indicating if depth data for water is written to the opacity buffer.
@@ -2521,7 +2558,7 @@ Current water SSR quality. One of the following values:
 ***Console*:**`render_water_opacity_depth`Returns the current value indicating if depth data for water is written to the opacity buffer.
 ### Return value
 
-**true** if writing depth data for water to the opacity buffer is enabled; otherwise **false**. The default value is **true**.
+**true** if writing depth data for water to the opacity buffer is enabled ; otherwise **false**. The default value is **true**.
 ## void setWaterShafts ( bool shafts = 1 )
 
 ***Console*:**`render_water_shafts`Sets a new value indicating if rendering of underwater shafts is enabled.
@@ -2534,7 +2571,7 @@ Current water SSR quality. One of the following values:
 ***Console*:**`render_water_shafts`Returns the current value indicating if rendering of underwater shafts is enabled.
 ### Return value
 
-**true** if rendering of underwater shafts is enabled; otherwise **false**. The default value is **true**.
+**true** if rendering of underwater shafts is enabled ; otherwise **false**. The default value is **true**.
 ## void setWaterShorelineWetness ( bool wetness = 1 )
 
 ***Console*:**`render_water_shoreline_wetness`Sets a new value indicating if the wetness effect for objects near the shoreline is enabled.
@@ -2547,7 +2584,7 @@ Current water SSR quality. One of the following values:
 ***Console*:**`render_water_shoreline_wetness`Returns the current value indicating if the wetness effect for objects near the shoreline is enabled.
 ### Return value
 
-**true** if shoreline wetness is enabled; otherwise **false**. The default value is **true**.
+**true** if shoreline wetness is enabled ; otherwise **false**. The default value is **true**.
 ## void setWaterSSRIncreasedAccuracy ( bool accuracy = 0 )
 
 ***Console*:**`render_water_ssr_increased_accuracy`Sets a new value indicating if increased accuracy for the water SSR (Screen Space Reflections). This option reduces visual artifacts by increasing accuracy of the last step.
@@ -2560,7 +2597,7 @@ Current water SSR quality. One of the following values:
 ***Console*:**`render_water_ssr_increased_accuracy`Returns the current value indicating if increased accuracy for the water SSR (Screen Space Reflections). This option reduces visual artifacts by increasing accuracy of the last step.
 ### Return value
 
-**true** if increased accuracy for the water SSR is enabled; otherwise **false**. The default value is **false**.
+**true** if increased accuracy for the water SSR is enabled ; otherwise **false**. The default value is **false**.
 ## void setWaterSSR ( bool ssr = 1 )
 
 ***Console*:**`render_water_ssr`Sets a new value indicating if the SSR (Screen Space Reflections) effect is enabled for water.
@@ -2573,7 +2610,7 @@ Current water SSR quality. One of the following values:
 ***Console*:**`render_water_ssr`Returns the current value indicating if the SSR (Screen Space Reflections) effect is enabled for water.
 ### Return value
 
-**true** if SSR effect for water is enabled; otherwise **false**. The default value is **true**.
+**true** if SSR effect for water is enabled ; otherwise **false**. The default value is **true**.
 ## void setWaterEnabled ( bool enabled = 1 )
 
 ***Console*:**`render_water_enabled`Sets a new value indicating if rendering of water is enabled.
@@ -2586,7 +2623,7 @@ Current water SSR quality. One of the following values:
 ***Console*:**`render_water_enabled`Returns the current value indicating if rendering of water is enabled.
 ### Return value
 
-**true** if water rendering is enabled; otherwise **false**. The default value is **true**.
+**true** if water rendering is enabled ; otherwise **false**. The default value is **true**.
 ## void setTerrainGlobalAnisotropy ( int anisotropy = 2 )
 
 ***Console*:**`render_terrain_global_anisotropy`Sets a new [global terrain](../../../objects/objects/terrain/terrain_global/index.md) texture anisotropy level (degree of anisotropic filtering). Anisotropy for the global terrain has a huge impact for the performance if terrain has a lot of tiled detail materials as anisotropy filtering for the terrain is much slower than for the other objects.
@@ -2624,7 +2661,7 @@ Current anisotropy level One of the following values:
 ***Console*:**`render_terrain_global_holes`Returns the current value indicating if [decal-based holes](../../../objects/objects/terrain/terrain_global/index.md#decal_holes) are enabled for the [global terrain](../../../objects/objects/terrain/terrain_global/index.md).
 ### Return value
 
-**true** if decal-based holes for the Global Terrain is enabled; otherwise **false**. The default value is **false**.
+**true** if decal-based holes for the Global Terrain is enabled ; otherwise **false**. The default value is **false**.
 ## void setTerrainGlobalDisplacementNormal ( bool normal = 0 )
 
 ***Console*:**`render_terrain_global_displacement_normal`Sets a new value indicating if displacement mapping for the [Global Terrain](../../../objects/objects/terrain/terrain_global/index.md) rendering uses normals.
@@ -2637,7 +2674,7 @@ Current anisotropy level One of the following values:
 ***Console*:**`render_terrain_global_displacement_normal`Returns the current value indicating if displacement mapping for the [Global Terrain](../../../objects/objects/terrain/terrain_global/index.md) rendering uses normals.
 ### Return value
 
-**true** if using normals for displacement mapping for the Global Terrain is enabled; otherwise **false**. The default value is **false**.
+**true** if using normals for displacement mapping for the Global Terrain is enabled ; otherwise **false**. The default value is **false**.
 ## void setTerrainGlobalDisplacement ( bool displacement = 0 )
 
 ***Console*:**`render_terrain_global_displacement`Sets a new value indicating if displacement mapping is enabled for the [Global Terrain](../../../objects/objects/terrain/terrain_global/index.md).
@@ -2650,7 +2687,7 @@ Current anisotropy level One of the following values:
 ***Console*:**`render_terrain_global_displacement`Returns the current value indicating if displacement mapping is enabled for the [Global Terrain](../../../objects/objects/terrain/terrain_global/index.md).
 ### Return value
 
-**true** if displacement mapping for the Global Terrain is enabled; otherwise **false**. The default value is **false**.
+**true** if displacement mapping for the Global Terrain is enabled ; otherwise **false**. The default value is **false**.
 ## void setTerrainGlobalTriplanar ( bool triplanar = 0 )
 
 ***Console*:**`render_terrain_global_triplanar`Sets a new value indicating if [triplanar texture mapping](../../../objects/objects/terrain/terrain_global/details/index.md#triplanar) is enabled for the [Global Terrain](../../../objects/objects/terrain/terrain_global/index.md). If disabled, planar UV-mapping is used.
@@ -2663,7 +2700,7 @@ Current anisotropy level One of the following values:
 ***Console*:**`render_terrain_global_triplanar`Returns the current value indicating if [triplanar texture mapping](../../../objects/objects/terrain/terrain_global/details/index.md#triplanar) is enabled for the [Global Terrain](../../../objects/objects/terrain/terrain_global/index.md). If disabled, planar UV-mapping is used.
 ### Return value
 
-**true** if triplanar texture mapping for the Global Terrain. is enabled; otherwise **false**. The default value is **false**.
+**true** if triplanar texture mapping for the Global Terrain. is enabled ; otherwise **false**. The default value is **false**.
 ## void setSSDirtConvexityMetalnessVisibility ( float visibility = 0.0f )
 
 ***Console*:**`render_ssdirt_convexity_metalness_visibility`Sets a new [metalness visibility](../../../editor2/settings/render_settings/ssdirt/index.md#convexity_metalness_visibility) value for convexities. A multiplier that determines the degree of impact of the effect on metalness buffer (the *higher* the value the more metalness buffer is affected. SSDirt*[setSSDirt()](../../...md#render_ssdirt)* must be enabled.
@@ -2868,7 +2905,7 @@ Current name of the albedo texture.
 ***Console*:**`render_ssdirt_increase_accuracy`Returns the current value indicating if increased accuracy for the [SSDirt](../../../editor2/settings/render_settings/ssdirt/index.md) effect. This option should be used to remove visual artefacts along the screen edges, in case if they appear. Otherwise, it should be disabled. SSDirt*[setSSDirt()](../../...md#render_ssdirt)* must be enabled.
 ### Return value
 
-**true** if increased accuracy for SSDirt is enabled; otherwise **false**. The default value is **false**.
+**true** if increased accuracy for SSDirt is enabled ; otherwise **false**. The default value is **false**.
 ## void setSSDirtPerspective ( float perspective = 0.02f )
 
 ***Console*:**`render_ssdirt_perspective`Sets a new [perspective](../../../editor2/settings/render_settings/ssdirt/index.md#perspective) value, that determines the degree of impact of distance from the camera on the radius of the Screen-Space Dirt effect.
@@ -3041,7 +3078,7 @@ Current quality level. One of the following values:
 ***Console*:**`render_ssdirt`Returns the current value indicating if the [Screen-Space Dirt](../../../editor2/settings/render_settings/ssdirt/index.md) (SSDirt) effect is enabled.
 ### Return value
 
-**true** if SSDirt effect is enabled; otherwise **false**. The default value is **false**.
+**true** if SSDirt effect is enabled ; otherwise **false**. The default value is **false**.
 ## void setSSBevelRadius ( float radius = 0.01f )
 
 ***Console*:**`render_ssbevel_radius`Sets a new [size](../../../editor2/settings/render_settings/ssbevel/index.md#radius) of the Screen-Space Bevel effect. To use this option, rendering of SSBevel *[setSSBevel()](../../...md#render_ssbevel)* should be enabled.
@@ -3068,7 +3105,7 @@ Range of values: **[0.0f, inf]**. The default value is : **0.01f**.
 ***Console*:**`render_ssbevel_noise`Returns the current value indicating if the [noise](../../../editor2/settings/render_settings/ssbevel/index.md#noise) is enabled for smoothing bevels. It is recommended to use the noise with TAA*[setTAA()](../../...md#render_taa)* enabled to avoid visual artifacts. The bevel noise is applied at a certain distance from the camera (i.e. if the camera is too far from the object with bevels, the noise won't be applied). To use this option, rendering of SSBevel*[setSSBevel()](../../...md#render_ssbevel)* should be enabled.
 ### Return value
 
-**true** if noise-based smoothing for bevels is enabled; otherwise **false**. The default value is **true**.
+**true** if noise-based smoothing for bevels is enabled ; otherwise **false**. The default value is **true**.
 ## void setSSBevelQuality ( int quality = 1 )
 
 ***Console*:**`render_ssbevel_quality`Sets a new [quality mode](../../../editor2/settings/render_settings/ssbevel/index.md#quality) for the screen-space bevels.
@@ -3132,7 +3169,7 @@ Current bevels rendering mode. One of the following values:
 ***Console*:**`render_ssbevel`Returns the current value indicating if the Screen-Space Bevels (SSBevel effect) are enabled.
 ### Return value
 
-**true** if Screen-Space Bevels is enabled; otherwise **false**. The default value is **true**.
+**true** if Screen-Space Bevels is enabled ; otherwise **false**. The default value is **true**.
 ## void setScreenPrecision ( bool precision = 1 )
 
 ***Console*:**`render_screen_precision`Sets a new value indicating the current screen precision. This parameter determines the texture format used for screen HDR buffers.
@@ -3148,7 +3185,7 @@ Current bevels rendering mode. One of the following values:
 ***Console*:**`render_screen_precision`Returns the current value indicating the current screen precision. This parameter determines the texture format used for screen HDR buffers.
 ### Return value
 
-**true** if screen precision is enabled; otherwise **false**. One of the following values:
+**true** if screen precision is enabled ; otherwise **false**. One of the following values:
 - **0** - RG11B10F
 - **1** - RGBA16F (by default)
 
@@ -3164,7 +3201,7 @@ Current bevels rendering mode. One of the following values:
 ***Console*:**`render_shadows_filter_noise`Returns the current value indicating if noise for shadow filtering is enabled. This noise is used for smoothing.
 ### Return value
 
-**true** if noise for shadow filtering is enabled; otherwise **false**. The default value is **true**.
+**true** if noise for shadow filtering is enabled ; otherwise **false**. The default value is **true**.
 ## void setShadowsFilterMode ( int mode = 2 )
 
 ***Console*:**`render_shadows_filter_mode`Sets a new global filtering mode to be used for shadows from all light sources by default. This mode determines quality of soft shadows. *Higher* quality produces *smoother* shadow edges. When disabled, no filtering is performed and the stair-step effect is clearly seen at the edges of shadows.
@@ -3208,7 +3245,7 @@ Current filtering mode. One of the following values:
 ***Console*:**`render_shadows_penumbra_noise`Returns the current value indicating if noise for penumbra rendering is enabled. This noise is used for smoothing.
 ### Return value
 
-**true** if noise for penumbra rendering is enabled; otherwise **false**. The default value is **true**.
+**true** if noise for penumbra rendering is enabled ; otherwise **false**. The default value is **true**.
 ## void setShadowsPenumbraMode ( int mode = 1 )
 
 ***Console*:**`render_shadows_penumbra_mode`Sets a new global quality mode to be used for rendering penumbra from all light sources by default. This mode enables simulation of real-world shadows by keeping sharp contact shadows closer to the base and softening the farther the shadow stretches away. *Higher* values produce *softer* shadows. When disabled, shadow edges are crisp and sharp (no shadow softness at all).
@@ -3252,7 +3289,7 @@ Current quality mode. One of the following values:
 ***Console*:**`render_shadows_screen_space`Returns the current value indicating if screen space shadows are enabled. They provide high-quality penumbra, per-light work, per-pixel detail at any zoom level and infinite visibility distance (when enabled, distant objects can cast shadows next to the horizon). Supports depth cutout parallax. Screen space shadows can be mixed with regular ones.
 ### Return value
 
-**true** if screen-space shadows is enabled; otherwise **false**. The default value is **true**.
+**true** if screen-space shadows is enabled ; otherwise **false**. The default value is **true**.
 ## void setShadowsAlphaTest ( bool test = 1 )
 
 ***Console*:**`render_shadows_alpha_test`Sets a new value indicating if alpha test is enabled for shadows.
@@ -3265,7 +3302,7 @@ Current quality mode. One of the following values:
 ***Console*:**`render_shadows_alpha_test`Returns the current value indicating if alpha test is enabled for shadows.
 ### Return value
 
-**true** if alpha test for shadows is enabled; otherwise **false**. The default value is **true**.
+**true** if alpha test for shadows is enabled ; otherwise **false**. The default value is **true**.
 ## void setShadowsWorldLerpCascades ( bool cascades = 1 )
 
 ***Console*:**`render_shadows_world_lerp_cascades`Sets a new value indicating if [linear interpolation of shadow cascades](../../../editor2/settings/render_settings/shadows/index.md#lerp_shadow_cascades) is enabled, making transitions between cascades smoother. This option significantly affects performance, as two shadow maps are rendered in transition areas.
@@ -3278,7 +3315,7 @@ Current quality mode. One of the following values:
 ***Console*:**`render_shadows_world_lerp_cascades`Returns the current value indicating if [linear interpolation of shadow cascades](../../../editor2/settings/render_settings/shadows/index.md#lerp_shadow_cascades) is enabled, making transitions between cascades smoother. This option significantly affects performance, as two shadow maps are rendered in transition areas.
 ### Return value
 
-**true** if linear interpolation of shadow cascades is enabled; otherwise **false**. The default value is **true**.
+**true** if linear interpolation of shadow cascades is enabled ; otherwise **false**. The default value is **true**.
 ## void setShadowsTranslucentDepth ( float depth = 0.1f )
 
 ***Console*:**`render_shadows_translucent_depth`Sets a new global translucence depth value defining how deep the light goes through translucent objects shifting the shadow. The *higher* the value, the *deeper* the light penetrates translucent objects shifting the shadow.
@@ -3305,7 +3342,7 @@ Range of values: **[0.0f, inf]**. The default value is : **0.1f**.
 ***Console*:**`render_shadows`Returns the current value indicating whether shadows are rendered.
 ### Return value
 
-**true** if shadows rendering is enabled; otherwise **false**. The default value is **true**.
+**true** if shadows rendering is enabled ; otherwise **false**. The default value is **true**.
 ## void setLightsLensFlares ( bool flares = 1 )
 
 ***Console*:**`render_lights_lens_flares`Sets a new value indicating if rendering of [per-light lens flares](../../../api/library/lights/class.light_cpp.md#setLensFlaresEnabled_int_void) is enabled.
@@ -3318,7 +3355,7 @@ Range of values: **[0.0f, inf]**. The default value is : **0.1f**.
 ***Console*:**`render_lights_lens_flares`Returns the current value indicating if rendering of [per-light lens flares](../../../api/library/lights/class.light_cpp.md#setLensFlaresEnabled_int_void) is enabled.
 ### Return value
 
-**true** if rendering of per-light lens flares is enabled; otherwise **false**. The default value is **true**.
+**true** if rendering of per-light lens flares is enabled ; otherwise **false**. The default value is **true**.
 ## void setLightsForwardPerObjectVoxel ( int voxel = 4 )
 
 ***Console*:**`render_lights_forward_per_object_voxel`Sets a new maximum number of Voxel Probes per object (available only for materials rendered in the [forward rendering pass](../../../principles/render/sequence/index.md#transparent)). You should set the nonzero value to increase performance: it is not recommended to use more than 4 Voxel Probes per object.
@@ -3467,7 +3504,7 @@ Current color clamping mode One of the following values:
 ***Console*:**`render_direct_lighting_interleaved_catmull_resampling`Returns the current value indicating if the Catmull-Rom resampling for interleaved rendering of direct lighting is enabled. This mode allows you to reduce image blurring when the camera moves forward/backward.
 ### Return value
 
-**true** if Catmull-Rom resampling is enabled; otherwise **false**. The default value is **false**.
+**true** if Catmull-Rom resampling is enabled ; otherwise **false**. The default value is **false**.
 ## void setDirectLightingInterleaved ( bool interleaved = 0 )
 
 ***Console*:**`render_direct_lighting_interleaved`Sets a new value indicating if interleaved mode for rendering direct lighting is enabled. When enabled, lights are rendered in half resolution with subsequent reconstruction of neighboring pixels using the data from previous frames. This mode requires a high framerate (60+ FPS), otherwise anti-aliasing quality reduces and ghosting effect becomes more pronounced. Recommended for relatively static scenes which contain a lot of light sources and do not have a lot of reflective surfaces (in case of small number of light sources may reduce performance).
@@ -3480,7 +3517,7 @@ Current color clamping mode One of the following values:
 ***Console*:**`render_direct_lighting_interleaved`Returns the current value indicating if interleaved mode for rendering direct lighting is enabled. When enabled, lights are rendered in half resolution with subsequent reconstruction of neighboring pixels using the data from previous frames. This mode requires a high framerate (60+ FPS), otherwise anti-aliasing quality reduces and ghosting effect becomes more pronounced. Recommended for relatively static scenes which contain a lot of light sources and do not have a lot of reflective surfaces (in case of small number of light sources may reduce performance).
 ### Return value
 
-**true** if interleaved rendering mode for direct lighting is enabled; otherwise **false**. The default value is **false**.
+**true** if interleaved rendering mode for direct lighting is enabled ; otherwise **false**. The default value is **false**.
 ## void setIndirectLightingInterleaved ( bool interleaved = 0 )
 
 ***Console*:**`render_indirect_lighting_interleaved`Sets a new value indicating if interleaved mode for rendering indirect lighting is enabled. When enabled, lights are rendered in half resolution with subsequent reconstruction of neighboring pixels using the data from previous frames. This mode requires a high framerate (60+ FPS), otherwise anti-aliasing quality reduces and ghosting effect becomes more pronounced. Recommended for relatively static scenes which contain a lot of light sources and do not have a lot of reflective surfaces (in case of small number of light sources may reduce performance).
@@ -3493,7 +3530,7 @@ Current color clamping mode One of the following values:
 ***Console*:**`render_indirect_lighting_interleaved`Returns the current value indicating if interleaved mode for rendering indirect lighting is enabled. When enabled, lights are rendered in half resolution with subsequent reconstruction of neighboring pixels using the data from previous frames. This mode requires a high framerate (60+ FPS), otherwise anti-aliasing quality reduces and ghosting effect becomes more pronounced. Recommended for relatively static scenes which contain a lot of light sources and do not have a lot of reflective surfaces (in case of small number of light sources may reduce performance).
 ### Return value
 
-**true** if interleaved rendering mode for indirect lighting is enabled; otherwise **false**. The default value is **false**.
+**true** if interleaved rendering mode for indirect lighting is enabled ; otherwise **false**. The default value is **false**.
 ## void setLightsEnabled ( bool enabled = 1 )
 
 ***Console*:**`render_lights_enabled`Sets a new value indicating if rendering of lights is enabled.
@@ -3506,7 +3543,7 @@ Current color clamping mode One of the following values:
 ***Console*:**`render_lights_enabled`Returns the current value indicating if rendering of lights is enabled.
 ### Return value
 
-**true** if lights rendering is enabled; otherwise **false**. The default value is **true**.
+**true** if lights rendering is enabled ; otherwise **false**. The default value is **true**.
 ## void setOccludersShadowsResolution ( const Math:: vec2 & resolution )
 
 ***Console*:**`render_occluders_shadows_resolution`Sets a new resolution of the texture, to which occluders for shadows*[setOccludersShadows()](../../...md#render_occluders_shadows)* are rendered.
@@ -3533,7 +3570,7 @@ From **1x1** to **1024x1024** Default: **512x512**
 ***Console*:**`render_occluders_shadows`Returns the current value indicating whether rendering of occluders for shadows is enabled.
 ### Return value
 
-**true** if rendering of occluders for shadows is enabled; otherwise **false**. The default value is **false**.
+**true** if rendering of occluders for shadows is enabled ; otherwise **false**. The default value is **false**.
 ## void setOccludersResolution ( const Math:: vec2 & resolution )
 
 ***Console*:**`render_occluders_resolution`Sets a new resolution of the texture, to which occluders*[setOccluders()](../../...md#render_occluders)* are rendered.
@@ -3560,7 +3597,7 @@ From **1x1** to **1024x1024** Default: **128x64**
 ***Console*:**`render_occluders`Returns the current value indicating if rendering of occluders is enabled.
 ### Return value
 
-**true** if rendering of occluders is enabled; otherwise **false**. The default value is **true**.
+**true** if rendering of occluders is enabled ; otherwise **false**. The default value is **true**.
 ## void setOcclusionQueriesNumFrames ( int frames = 5 )
 
 ***Console*:**`render_occlusion_queries_num_frames`Sets a new number of frames for additional hardware occlusion query test performed before sending data to GPU. Make sure that the additional hardware occlusion query test*[setOcclusionQueries()](../../...md#render_occlusion_queries)* is enabled.
@@ -3587,7 +3624,7 @@ Range of values: **[0, 1024]**. The default value is : **5**.
 ***Console*:**`render_occlusion_queries`Returns the current value indicating if additional hardware occlusion query test before sending data to GPU is enabled. This test is performed for all objects with the *[Culled by occlusion query](../../../editor2/node_parameters/transformation_common/index.md#query)* flag set.
 ### Return value
 
-**true** if additional hardware occlusion query test is enabled; otherwise **false**. The default value is **true**.
+**true** if additional hardware occlusion query test is enabled ; otherwise **false**. The default value is **true**.
 ## void setSkyRotation ( const Math:: quat & rotation )
 
 Sets a new sky rotation.
@@ -3871,7 +3908,7 @@ Current haze mode: one of the *[HAZE_*](#HAZE_DISABLED)* variables. One of the f
 ***Console*:**`render_environment`Returns the current value indicating if rendering of environment of the scene is enabled.
 ### Return value
 
-**true** if rendering of environment is enabled; otherwise **false**. The default value is **true**.
+**true** if rendering of environment is enabled ; otherwise **false**. The default value is **true**.
 ## void setColorCorrectionLUTPath ( const char * lutpath )
 
 Sets a new name of a new color transformation texture (LUT).
@@ -3991,7 +4028,7 @@ Range of values: **[-1.0f, 1.0f]**. The default value is : **0.0f**.
 ***Console*:**`color_correction_preserve_saturation`Returns the current value indicating if initial scene color saturation is to be preserved after applying color correction.
 ### Return value
 
-**true** if preserving initial scene color saturation is enabled; otherwise **false**. The default value is **false**.
+**true** if preserving initial scene color saturation is enabled ; otherwise **false**. The default value is **false**.
 ## void setFadeColor ( const Math:: vec4 & color )
 
 ***Console*:**`render_fade_color`Sets a new fade color for the scene on the screen. By gradually changing this value it is possible to create "fade in" and "fade out" effects depending on the w component of the given vector. For example, when the following vectors are passed the result will be:
@@ -4146,7 +4183,7 @@ Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
 ***Console*:**`render_lens`Returns the current value indicating if lens flares are enabled.
 ### Return value
 
-**true** if lens flares effect. is enabled; otherwise **false**. The default value is **false**.
+**true** if lens flares effect. is enabled ; otherwise **false**. The default value is **false**.
 ## void setScreenSpaceShadowShaftsMode ( int mode = 1 )
 
 ***Console*:**`render_screen_space_shadow_shafts_mode`Sets a new rendering mode for volumetric [screen-space shadow shafts](../../../editor2/settings/render_settings/environment/index.md#ssss). Shadow shafts (aka light shafts) can be generated in screen space for the Sun and the Moon to simulate the real world effect of crepuscular rays, or atmospheric shadowing of atmospheric in-scattering. These rays add depth and realism to any scene.
@@ -4334,7 +4371,7 @@ Range of values: **[2, 32]**. The default value is : **4**.
 ***Console*:**`render_cross`Returns the current value indicating if [cross flares](../../../editor2/settings/render_settings/camera_effects/index.md#cross) are enabled.
 ### Return value
 
-**true** if cross flares effect is enabled; otherwise **false**. The default value is **false**.
+**true** if cross flares effect is enabled ; otherwise **false**. The default value is **false**.
 ## void setFilmicSaturationRecovery ( float recovery = 0.75f )
 
 ***Console*:**`render_filmic_saturation_recovery`Sets a new [color saturation recovery](../../../editor2/settings/render_settings/color/index.md#saturation_recovery) value for the filmic tonemapper. Filmic tonemapper desaturates image colors in bright areas making them look grayish. This parameter enables you to recover initial color saturation in such areas. Higher values make colors more saturated:
@@ -4548,7 +4585,7 @@ Current resolution. One of the following values:
 ***Console*:**`render_bloom`Returns the current value indicating if the Bloom effect is enabled.
 ### Return value
 
-**true** if Bloom effect is enabled; otherwise **false**. The default value is **false**.
+**true** if Bloom effect is enabled ; otherwise **false**. The default value is **false**.
 ## void setDOFNearFocalOffset ( float offset = 0.0f )
 
 ***Console*:**`render_dof_near_focal_offset`Sets a new [offset](../../../editor2/settings/render_settings/camera_effects/index.md#near_focal_offset) from the focal to the nearest blurred zone. In other words, the distance when foreground (near) is in focus.
@@ -4731,7 +4768,7 @@ Current DOF quality. One of the following values:
 ***Console*:**`render_dof_focus_improvement`Returns the current value indicating if the [focus improvement](../../../editor2/settings/render_settings/camera_effects/index.md#focus_improvement) option is enabled for the DOF (Depth Of Field) effect. When enabled, transitions between the focused and unfocused parts of the scene become more accurate.
 ### Return value
 
-**true** if focus improvement for the DOF effect is enabled; otherwise **false**. The default value is **false**.
+**true** if focus improvement for the DOF effect is enabled ; otherwise **false**. The default value is **false**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setDOFPreset()](/api/library/rendering/class.render_cs#render_dof_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setDOFIncreasedAccuracy ( bool accuracy = 0 )
@@ -4746,7 +4783,7 @@ Current DOF quality. One of the following values:
 ***Console*:**`render_dof_increased_accuracy`Returns the current value indicating if the [increased accuracy](../../../editor2/settings/render_settings/camera_effects/index.md#increased_accuracy) option is enabled for the DOF (Depth Of Field) effect. When enabled, focusing calculation is performed with increased accuracy.
 ### Return value
 
-**true** if increased accuracy for the DOF effect is enabled; otherwise **false**. The default value is **false**.
+**true** if increased accuracy for the DOF effect is enabled ; otherwise **false**. The default value is **false**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setDOFPreset()](/api/library/rendering/class.render_cs#render_dof_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setDOF ( bool dof = 0 )
@@ -4761,7 +4798,7 @@ Current DOF quality. One of the following values:
 ***Console*:**`render_dof`Returns the current value indicating if the [DOF](../../../editor2/settings/render_settings/camera_effects/index.md) (Depth Of Field) effect is enabled.
 ### Return value
 
-**true** if Gaussian blur DOF (Depth Of Field) effect is enabled; otherwise **false**. The default value is **false**.
+**true** if Gaussian blur DOF (Depth Of Field) effect is enabled ; otherwise **false**. The default value is **false**.
 ## void setMotionBlurNumSteps ( int steps = 8 )
 
 ***Console*:**`render_motion_blur_num_steps`Sets a new number of steps used in the [motion blur](../../../principles/render/sequence/index.md#motion_blur). The higher the value, the more correct the motion blur effect is. At low values, moving objects may look doubled, however, performance will increase. To use this option, rendering of the motion blur effect*[setMotionBlur()](../../...md#render_motion_blur)* should be enabled.
@@ -4856,7 +4893,7 @@ Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
 
 ### Return value
 
-**true** if taking camera velocity into account in the motion blur effect is enabled; otherwise **false**. The default value is **true**.
+**true** if taking camera velocity into account in the motion blur effect is enabled ; otherwise **false**. The default value is **true**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setMotionBlurPreset()](/api/library/rendering/class.render_cs#render_motion_blur_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setMotionBlurDepthThresholdFar ( float far = 0.5f )
@@ -4947,7 +4984,7 @@ Range of values: **[0, 512]**. The default value is : **32**.
 ***Console*:**`render_motion_blur`Returns the current value indicating if the motion blur effect is enabled.
 ### Return value
 
-**true** if motion blur effect is enabled; otherwise **false**. The default value is **true**.
+**true** if motion blur effect is enabled ; otherwise **false**. The default value is **true**.
 ## void setWhiteBalanceAdaptationTime ( float time = 1.0f )
 
 ***Console*:**`render_white_balance_adaptation_time`Sets a new time period set for the camera to adjust white balance. During this time white balance correction is performed (0.0f - instant correction is to be used).
@@ -5015,7 +5052,7 @@ Range of values: **[0.0f, 1.0f]**. The default value is : **0.3f**.
 ***Console*:**`render_white_balance`Returns the current value indicating if [automatic white balance correction](../../../editor2/settings/render_settings/camera_effects/index.md#white_balance) is enabled.
 ### Return value
 
-**true** if automatic white balance correction is enabled; otherwise **false**. The default value is **true**.
+**true** if automatic white balance correction is enabled ; otherwise **false**. The default value is **true**.
 ## void setExposureMaxLuminance ( float luminance = 10.0f )
 
 ***Console*:**`render_exposure_max_luminance`Sets a new [maximum luminance](../../../editor2/settings/render_settings/camera_effects/index.md#max_luminance) offset relative to the default luminance of the scene used for rendering of adaptive exposure effect: the *lower* the value, the brighter the adapted image will be. The parameter can take on negative values.
@@ -5143,7 +5180,7 @@ Current value indicating the exposure mode. One of the following values:
 ***Console*:**`render_metering_mask_enabled`Returns the current value indicating if metering mask for exposure and white balance correction is enabled. This option gives you an additional texture slot*[setMeteringMaskTexture()](../../...md#MeteringMaskTexture)* to control the effect of auto exposure and white balance correction on the whole screen, where each pixel is weighted in importance in accordance with the specified texture mask.
 ### Return value
 
-**true** if metering mask for exposure and white balance correction is enabled; otherwise **false**. The default value is **false**.
+**true** if metering mask for exposure and white balance correction is enabled ; otherwise **false**. The default value is **false**.
 ## Ptr < Texture > getMeteringMaskTexture () const
 
 Returns the current Metering Mask texture used to control the influence of auto exposure and white balance correction for the whole screen, where each pixel is weighted in importance in accordance with the specified texture mask. Giving importance to pixels toward the center of the screen rather than along the edges helps stabilize auto exposure.
@@ -5198,7 +5235,7 @@ Current visualization mode. One of the following values:
 ***Console*:**`render_clouds_panorama_reuse`Returns the current value indicating if the panorama cubemap texture is reused between several viewports. Available for *Render To Panorama* [clouds mode](#render_clouds_mode).
 ### Return value
 
-**true** if reuse of the panorama cubemap texture between several viewports is enabled; otherwise **false**. The default value is **false**.
+**true** if reuse of the panorama cubemap texture between several viewports is enabled ; otherwise **false**. The default value is **false**.
 ## void setCloudsPanoramaResolution ( int resolution = 4 )
 
 ***Console*:**`render_clouds_panorama_resolution`Sets a new resolution of the panorama cubemap texture. Available for *Render To Panorama* [clouds mode](#render_clouds_mode).
@@ -5263,7 +5300,7 @@ Current clouds rendering mode. One of the following values:
 ***Console*:**`render_clouds_environment_sky`Returns the current value indicating whether the custom environment cubemap texture is automatically adjusted to match the current sky lighting. When enabled, the original sky color baked into the texture (specified via [CloudsEnvironmentSkyColor](#CloudsEnvironmentSkyColor)) is replaced with the actual sky color based on the current sun position. Only applies in Panorama clouds rendering mode.
 ### Return value
 
-**true** if automatic sky lighting adjustment for the clouds environment texture is enabled; otherwise **false**. The default value is **true**.
+**true** if automatic sky lighting adjustment for the clouds environment texture is enabled ; otherwise **false**. The default value is **true**.
 ## void setCloudsEnvironmentSkyColor ( const Math:: vec4 & color )
 
 ***Console*:**`render_clouds_environment_sky_color`Sets a new reference sky color that was baked into the custom environment cubemap texture. Used to remove the original sky lighting before applying the current sky color when [CloudsEnvironmentSky](#CloudsEnvironmentSky) is enabled. Only applies in Panorama clouds rendering mode.
@@ -5317,7 +5354,7 @@ Current custom environment cubemap texture path for clouds
 ***Console*:**`render_shadows_simplified`Returns the current value indicating if the [static shadows](../../../code/materials_shaders/abstract_materials/mesh.md#static_shadow) are enabled for all materials in the scene.
 ### Return value
 
-**true** if static shadows for all materials in the scene is enabled; otherwise **false**. The default value is **false**.
+**true** if static shadows for all materials in the scene is enabled ; otherwise **false**. The default value is **false**.
 ## void setShadowsReuse ( bool reuse = 0 )
 
 ***Console*:**`render_shadows_reuse`Sets a new value indicating if the shadow maps of the main viewport are reused for other viewports. Shadow maps are normally rendered separately for each viewport when multiple viewports render the scene. It is important as each camera that renders into the viewport has its unique transformation. However, in cases when cameras are close to each other, shadows appear very similar, so for certain viewport and camera configurations you can save resources by enabling this mode - the shadow maps will be rendered only for the main viewport and then used for the others.
@@ -5330,7 +5367,7 @@ Current custom environment cubemap texture path for clouds
 ***Console*:**`render_shadows_reuse`Returns the current value indicating if the shadow maps of the main viewport are reused for other viewports. Shadow maps are normally rendered separately for each viewport when multiple viewports render the scene. It is important as each camera that renders into the viewport has its unique transformation. However, in cases when cameras are close to each other, shadows appear very similar, so for certain viewport and camera configurations you can save resources by enabling this mode - the shadow maps will be rendered only for the main viewport and then used for the others.
 ### Return value
 
-**true** if reuse of shadow maps from the main viewport is enabled; otherwise **false**. The default value is **false**.
+**true** if reuse of shadow maps from the main viewport is enabled ; otherwise **false**. The default value is **false**.
 ## void setDenoiseDenoiseMaskBias ( float bias = 0.001f )
 
 ***Console*:**`render_denoise_denoise_mask_bias`Sets a new threshold value for the brightness delta between frames below which the denoise mask becomes black. Denoise mask is based on the difference in brightness between the previous frame and the current one. Sometimes this difference is very small and can be neglected. This bias value is the threshold difference below which the denoise mask will be plain black. Since a zero value may cause a slight blur effect on the global illumination, this bias was added to avoid such effect.
@@ -5511,7 +5548,7 @@ Range of values: **[0.0f, inf]**. The default value is : **0.1f**.
 ***Console*:**`render_denoise_interleaved`Returns the current interleaved rendering for the Denoiser.
 ### Return value
 
-**true** if interleaved rendering for the Denoiser is enabled; otherwise **false**. The default value is **false**.
+**true** if interleaved rendering for the Denoiser is enabled ; otherwise **false**. The default value is **false**.
 ## void setIndirectSpecularNormalization ( bool normalization = 0 )
 
 ***Console*:**`render_indirect_specular_normalization`Sets a new  adjustment of indirect reflection color and brightness to match the indirect diffuse lighting. When this option is enabled, all indirect specular reflections will attempt to match the brightness and color of the indirect diffuse lighting. This affects both matte and glossy reflections.
@@ -5542,7 +5579,7 @@ This feature is commonly used in many games, especially on consoles, because it'
 
 ### Return value
 
-**true** if adjustment of indirect reflection color and brightness to match the indirect diffuse lighting is enabled; otherwise **false**. The default value is **false**.
+**true** if adjustment of indirect reflection color and brightness to match the indirect diffuse lighting is enabled ; otherwise **false**. The default value is **false**.
 ## void setIndirectSpecularDenoiseThresholdAO ( float ao = 0.1f )
 
 ***Console*:**`render_indirect_specular_denoise_threshold_ao`Sets a new threshold noise reduction value for the indirect specular lighting in the areas where the Ambient Occlusion mask is black.
@@ -5820,7 +5857,7 @@ Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
 ***Console*:**`render_camera_effects_temporal_filtering`Returns the current value indicating if temporal filtering for camera effects is enabled. Temporal filtering reduces flickering of the bloom effect on the small bright objects (such flickering may appear when the camera moves). For example, it can be used in scenes with industrial pipes.
 ### Return value
 
-**true** if temporal filtering is enabled; otherwise **false**. The default value is **false**.
+**true** if temporal filtering is enabled ; otherwise **false**. The default value is **false**.
 ## void setCameraEffectsTemporalFilteringColorClampingIntensity ( float intensity = 3.0f )
 
 ***Console*:**`render_camera_effects_temporal_filtering_color_clamping_intensity`Sets a new intensity of TAA color clamping for the Bloom effect. *Lower* values result in more accumulated frames combined, which reduces noise flickering, but increases ghosting effect. To reduce ghosting in this case you can use Min Velocity Clamping*[setCameraEffectsTemporalFilteringMinVelocityClamping()](../../...md#render_camera_effects_temporal_filtering_min_velocity_clamping)* and Max Velocity Clamping*[setCameraEffectsTemporalFilteringMaxVelocityClamping()](../../...md#render_camera_effects_temporal_filtering_max_velocity_clamping)*, while *higher* values reduce ghosting effect, but increase flickering.
@@ -5921,7 +5958,7 @@ Current translucent color.
 ***Console*:**`render_indirect_diffuse_temporal_filtering_enabled`Returns the current value indicating if temporal filtering for Indirect Diffuse is enabled. Temporal filtering reduces flickering of indirect diffuse light.
 ### Return value
 
-**true** if Indirect Diffuse temporal filtering is enabled; otherwise **false**. The default value is **true**.
+**true** if Indirect Diffuse temporal filtering is enabled ; otherwise **false**. The default value is **true**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setDenoisePreset()](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setIndirectDiffuseTemporalFilteringFrameCount ( float count = 50.0f )
@@ -5984,7 +6021,7 @@ Range of values: **[0.0f, inf]**. The default value is : **100.0f**.
 ***Console*:**`render_indirect_diffuse_denoise_enabled`Returns the current value indicating if noise reduction for Indirect Diffuse is enabled.
 ### Return value
 
-**true** if Indirect Diffuse noise reduction is enabled; otherwise **false**. The default value is **true**.
+**true** if Indirect Diffuse noise reduction is enabled ; otherwise **false**. The default value is **true**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setDenoisePreset()](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setIndirectDiffuseDenoiseMaskEnabled ( bool enabled = 1 )
@@ -5999,7 +6036,7 @@ Range of values: **[0.0f, inf]**. The default value is : **100.0f**.
 ***Console*:**`render_indirect_diffuse_denoise_mask_enabled`Returns the current value indicating if the denoise mask for Indirect Diffuse is enabled. This mask identifies which portions of the screen should be denoised more, and which - less. This may ensure more detailed ambient lighting.
 ### Return value
 
-**true** if Indirect Diffuse noise reduction is enabled; otherwise **false**. The default value is **true**.
+**true** if Indirect Diffuse noise reduction is enabled ; otherwise **false**. The default value is **true**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setDenoisePreset()](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setIndirectDiffuseDenoiseThreshold ( float threshold = 1.0f )
@@ -6034,7 +6071,7 @@ Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
 ***Console*:**`render_indirect_specular_temporal_filtering_enabled`Returns the current value indicating if temporal filtering for Indirect Specular is enabled. Temporal filtering reduces flickering of Indirect Specular lighting.
 ### Return value
 
-**true** if temporal filtering is enabled; otherwise **false**. The default value is **true**.
+**true** if temporal filtering is enabled ; otherwise **false**. The default value is **true**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setDenoisePreset()](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setIndirectSpecularTemporalFilteringFrameCount ( float count = 50.0f )
@@ -6097,7 +6134,7 @@ Range of values: **[0.0f, inf]**. The default value is : **100.0f**.
 ***Console*:**`render_indirect_specular_denoise_enabled`Returns the current value indicating if noise reduction for Indirect Specular is enabled.
 ### Return value
 
-**true** if Indirect Specular noise reduction is enabled; otherwise **false**. The default value is **true**.
+**true** if Indirect Specular noise reduction is enabled ; otherwise **false**. The default value is **true**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setDenoisePreset()](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setIndirectSpecularDenoiseMaskEnabled ( bool enabled = 1 )
@@ -6112,7 +6149,7 @@ Range of values: **[0.0f, inf]**. The default value is : **100.0f**.
 ***Console*:**`render_indirect_specular_denoise_mask_enabled`Returns the current value indicating if the denoise mask for Indirect Specular is enabled.This mask identifies which portions of the screen should be denoised more, and which - less. This may ensure more detailed ambient lighting.
 ### Return value
 
-**true** if Indirect Specular noise reduction is enabled; otherwise **false**. The default value is **true**.
+**true** if Indirect Specular noise reduction is enabled ; otherwise **false**. The default value is **true**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setDenoisePreset()](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setIndirectSpecularDenoiseThreshold ( float threshold = 1.0f )
@@ -6240,7 +6277,7 @@ Range of values: **[0, 10]**. The default value is : **5**.
 ***Console*:**`render_sssss`Returns the current  value indicating if the SSSSS (Screen-Space Subsurface Scattering) effect is enabled. This effect is used to imitate human skin, wax, etc.
 ### Return value
 
-**true** if SSSSS (Screen-Space Subsurface Scattering) effect is enabled; otherwise **false**. The default value is **false**.
+**true** if SSSSS (Screen-Space Subsurface Scattering) effect is enabled ; otherwise **false**. The default value is **false**.
 ## void setSSSSSPreset ( int ssssspreset = 0 )
 
 ***Console*:**`render_sssss_preset`Sets a new SSSSS (Screen-Space Subsurface Scattering) preset used at the moment. To customize the SSSSS effect options at run time you should activate the **Custom** preset:
@@ -6386,7 +6423,7 @@ Current Subsurface scattering color.
 ***Console*:**`render_sssss_diffuse`Returns the current value indicating if the SSSSS (Screen-Space Subsurface Scattering) calculation for diffuse lighting (directional lights) is enabled. If this option is not required, disable it to save performance. To use this option, the SSSSS effect*[setSSSSS()](../../...md#render_sssss)* should be enabled.
 ### Return value
 
-**true** if SSSSS calculation for diffuse lighting is enabled; otherwise **false**. The default value is **true**.
+**true** if SSSSS calculation for diffuse lighting is enabled ; otherwise **false**. The default value is **true**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setSSSSSPreset()](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setSSSSSAmbient ( bool sssssambient = 0 )
@@ -6401,7 +6438,7 @@ Current Subsurface scattering color.
 ***Console*:**`render_sssss_ambient`Returns the current value indicating if the SSSSS (Screen-Space Subsurface Scattering) calculation for ambient lighting (environment) is enabled. If this option is not required, disable it to save performance. To use this option, the SSSSS effect*[setSSSSS()](../../...md#render_sssss)* should be enabled.
 ### Return value
 
-**true** if SSSSS calculation for ambient lighting is enabled; otherwise **false**. The default value is **false**.
+**true** if SSSSS calculation for ambient lighting is enabled ; otherwise **false**. The default value is **false**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setSSSSSPreset()](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setSSSSSMinThreshold ( float threshold = 4.0f )
@@ -6484,7 +6521,7 @@ The effect is cumulative and works best with *[Temporal Filter](../../../editor2
 
 ### Return value
 
-**true** if interleaved rendering mode for SSSSS is enabled; otherwise **false**. The default value is **false**.
+**true** if interleaved rendering mode for SSSSS is enabled ; otherwise **false**. The default value is **false**.
 ## void setSSSSSInterleavedColorClamping ( int clamping = 1 )
 
 ***Console*:**`render_sssss_interleaved_color_clamping`Sets a new [color clamping mode](../../../editor2/settings/render_settings/sss/index.md#sss_interleaved_color_clamping) used to reduce ghosting effect. *Higher* values increase clamping intensity, but may cause flickering (to reduce flickering you can choose **High + Velocity**). When disabled, translucency has a lag as it is several frames behind.
@@ -6553,7 +6590,7 @@ Current skipping mode. One of the following values:
 ***Console*:**`render_sssss_taa`Returns the current value indicating if [TAA (Temporal Anti-Aliasing)](../../../principles/render/antialiasing/taa.md) for Screen-Space Subsurface Scattering is enabled.
 ### Return value
 
-**true** if SSSSS TAA is enabled; otherwise **false**. The default value is **true**.
+**true** if SSSSS TAA is enabled ; otherwise **false**. The default value is **true**.
 ## void setSSSSSTAAFixFlicker ( bool flicker = 1 )
 
 ***Console*:**`render_sssss_taa_fix_flicker`Sets a new value of TAA parameter for Screen-Space Subsurface Scattering that is similar to [TAA Fix Flicker](#render_taa_fix_flicker)*[setTAAFixFlicker()](../../...md#render_taa_fix_flicker)*.
@@ -6566,7 +6603,7 @@ Current skipping mode. One of the following values:
 ***Console*:**`render_sssss_taa_fix_flicker`Returns the current value of TAA parameter for Screen-Space Subsurface Scattering that is similar to [TAA Fix Flicker](#render_taa_fix_flicker)*[setTAAFixFlicker()](../../...md#render_taa_fix_flicker)*.
 ### Return value
 
-**true** if TAA parameter value. is enabled; otherwise **false**. The default value is **true**.
+**true** if TAA parameter value. is enabled ; otherwise **false**. The default value is **true**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setSSSSSPreset()](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setSSSSSTAAAntialiasingInMotion ( bool motion = 0 )
@@ -6581,7 +6618,7 @@ Current skipping mode. One of the following values:
 ***Console*:**`render_sssss_taa_antialiasing_in_motion`Returns the current value of TAA parameter for Screen-Space Subsurface Scattering that is similar to [TAA Antialiasing In Motion](#render_taa_antialiasing_in_motion)*[setTAAAntialiasingInMotion()](../../...md#render_taa_antialiasing_in_motion)*.
 ### Return value
 
-**true** if TAA parameter value. is enabled; otherwise **false**. The default value is **false**.
+**true** if TAA parameter value. is enabled ; otherwise **false**. The default value is **false**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setSSSSSPreset()](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setSSSSSTAAFramesByColor ( bool color = 1 )
@@ -6596,7 +6633,7 @@ Current skipping mode. One of the following values:
 ***Console*:**`render_sssss_taa_frames_by_color`Returns the current value of TAA parameter for Screen-Space Subsurface Scattering that is similar to [TAA Frames By Color](#render_taa_frames_by_color)*[setTAAFramesByColor()](../../...md#render_taa_frames_by_color)*.
 ### Return value
 
-**true** if TAA parameter value. is enabled; otherwise **false**. The default value is **true**.
+**true** if TAA parameter value. is enabled ; otherwise **false**. The default value is **true**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setSSSSSPreset()](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setSSSSSTAAFramesByVelocity ( bool velocity = 1 )
@@ -6611,7 +6648,7 @@ Current skipping mode. One of the following values:
 ***Console*:**`render_sssss_taa_frames_by_velocity`Returns the current value of TAA parameter for Screen-Space Subsurface Scattering that is similar to [TAA Frames By Velocity](#render_taa_frames_by_velocity)*[setTAAFramesByVelocity()](../../...md#render_taa_frames_by_velocity)*.
 ### Return value
 
-**true** if TAA parameter value. is enabled; otherwise **false**. The default value is **true**.
+**true** if TAA parameter value. is enabled ; otherwise **false**. The default value is **true**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setSSSSSPreset()](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setSSSSSTAAPreserveDetails ( float details = 0.5f )
@@ -6686,7 +6723,7 @@ Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
 ***Console*:**`render_sssss_taa_catmull_resampling`Returns the current value of TAA parameter for Screen-Space Subsurface Scattering that is similar to [TAA Catmull Resampling](#render_taa_catmull_resampling)*[setTAACatmullResampling()](../../...md#render_taa_catmull_resampling)*.
 ### Return value
 
-**true** if TAA parameter value. is enabled; otherwise **false**. The default value is **true**.
+**true** if TAA parameter value. is enabled ; otherwise **false**. The default value is **true**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setSSSSSPreset()](/api/library/rendering/class.render_cs#render_sssss_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setSSSSSTAASamples ( int ssssstaasamples = 1 )
@@ -6883,7 +6920,7 @@ Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
 ***Console*:**`render_ssr_information_lost_fix`Returns the current value indicating if the information lost fix option is enabled for the SSR (Screen Space Reflections). This option removes artifacts in the information lost areas around moving objects.
 ### Return value
 
-**true** if the information lost fix option for the SSR is enabled; otherwise **false**. The default value is **false**.
+**true** if the information lost fix option for the SSR is enabled ; otherwise **false**. The default value is **false**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setSSRPreset()](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setSSRStepSize ( float size = 0.5f )
@@ -7022,7 +7059,7 @@ Current SSR resolution. One of the following values:
 ***Console*:**`render_ssr_increased_accuracy`Returns the current value indicating if [increased accuracy](../../../editor2/settings/render_settings/ssr/index.md#ssr_increased_accuracy) option is enabled for the SSR (Screen Space Reflections). This option increases the accuracy of intersection detection between the ray and surfaces, which makes a reflection on smooth surfaces more detailed.
 ### Return value
 
-**true** if increased accuracy for SSR is enabled; otherwise **false**. The default value is **false**.
+**true** if increased accuracy for SSR is enabled ; otherwise **false**. The default value is **false**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setSSRPreset()](/api/library/rendering/class.render_cs#render_ssr_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setSSR ( bool ssr = 0 )
@@ -7037,7 +7074,7 @@ Current SSR resolution. One of the following values:
 ***Console*:**`render_ssr`Returns the current value indicating if the SSR (Screen Space Reflections) effect is enabled.
 ### Return value
 
-**true** if SSR (Screen Space Reflections) effect is enabled; otherwise **false**. The default value is **false**.
+**true** if SSR (Screen Space Reflections) effect is enabled ; otherwise **false**. The default value is **false**.
 ## void setBentNormal ( bool normal = 0 )
 
 ***Console*:**`render_bent_normal`Sets a new value indicating if ray-traced bent normals calculation is enabled. The use of SSRTGI for bent normals allows for smooth ambient lighting.
@@ -7056,7 +7093,7 @@ Current SSR resolution. One of the following values:
 
 ### Return value
 
-**true** if ray-traced bent normals calculation is enabled; otherwise **false**. The default value is **false**.
+**true** if ray-traced bent normals calculation is enabled ; otherwise **false**. The default value is **false**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setSSRTGIPreset()](/api/library/rendering/class.render_cs#render_ssrtgi_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setBentNormalThreshold ( float threshold = 1.0f )
@@ -7099,7 +7136,7 @@ Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
 
 ### Return value
 
-**true** if correction of overlit areas for ray-traced bent normals calculation is enabled; otherwise **false**. The default value is **false**.
+**true** if correction of overlit areas for ray-traced bent normals calculation is enabled ; otherwise **false**. The default value is **false**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setSSRTGIPreset()](/api/library/rendering/class.render_cs#render_ssrtgi_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setSSGI ( bool ssgi = 0 )
@@ -7114,7 +7151,7 @@ Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
 ***Console*:**`render_ssgi`Returns the current value indicating if the [SSGI](../../../editor2/settings/render_settings/global_illumination/indirect_diffuse/ssgi/index.md) (Screen Space Global Illumination) effect is enabled.
 ### Return value
 
-**true** if SSGI (Screen Space Global Illumination) is enabled; otherwise **false**. The default value is **false**.
+**true** if SSGI (Screen Space Global Illumination) is enabled ; otherwise **false**. The default value is **false**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[set()](/api/library/rendering/class.render_cs#render_gi_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setSSGIIntensity ( float ssgiintensity = 1.0f )
@@ -7145,7 +7182,7 @@ Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
 ***Console*:**`render_ssgi_information_lost_fix`Returns the current value indicating if the information lost fix option is enabled for the ray-traced SSGI (Screen Space Global Illumination). This option removes artifacts in the information lost areas around moving objects.
 ### Return value
 
-**true** if the information lost fix option for the ray-traced SSGI is enabled; otherwise **false**. The default value is **false**.
+**true** if the information lost fix option for the ray-traced SSGI is enabled ; otherwise **false**. The default value is **false**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setSSRTGIPreset()](/api/library/rendering/class.render_cs#render_ssrtgi_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setSSGIThreshold ( float ssgithreshold = 1.0f )
@@ -7258,7 +7295,7 @@ Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
 
 ### Return value
 
-**true** if cavity option for SSAO is enabled; otherwise **false**. The default value is **true**.
+**true** if cavity option for SSAO is enabled ; otherwise **false**. The default value is **true**.
 ## void setSSAO ( bool ssao = 1 )
 
 ***Console*:**`render_ssao`Sets a new value indicating if the [SSAO](../../../editor2/settings/render_settings/global_illumination/indirect_diffuse/ssao/index.md) (Screen Space Ambient Occlusion) effect is enabled.
@@ -7271,7 +7308,7 @@ Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
 ***Console*:**`render_ssao`Returns the current value indicating if the [SSAO](../../../editor2/settings/render_settings/global_illumination/indirect_diffuse/ssao/index.md) (Screen Space Ambient Occlusion) effect is enabled.
 ### Return value
 
-**true** if SSAO (Screen Space Ambient Occlusion) effect is enabled; otherwise **false**. The default value is **true**.
+**true** if SSAO (Screen Space Ambient Occlusion) effect is enabled ; otherwise **false**. The default value is **true**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[set()](/api/library/rendering/class.render_cs#render_gi_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setSSRTGIStepSize ( float size = 1.0f )
@@ -7380,7 +7417,7 @@ Current SSRTGI resolution. One of the following values:
 ***Console*:**`render_ssrtgi_upscaling`Returns the current value indicating if upscaling is enabled for the SSRTGI (screen space ray-traced global illumination). This option makes the quality of edges in half and quarter resolution look closer to full. SSRTGI must be enabled*[setSSRTGIPreset()](../../...md#render_ssrtgi_preset)*.
 ### Return value
 
-**true** if upscaling for the SSRTGI is enabled; otherwise **false**. The default value is **true**.
+**true** if upscaling for the SSRTGI is enabled ; otherwise **false**. The default value is **true**.
 ## void setSSRTGIIncreasedAccuracy ( bool accuracy = 1 )
 
 ***Console*:**`render_ssrtgi_increased_accuracy`Sets a new value indicating if increased accuracy is enabled for the SSRTGI (Screen Space Ray-Traced Global Illumination). This option reduces visual artifacts by increasing accuracy of the last step. SSRTGI must be enabled*[setSSRTGIPreset()](../../...md#render_ssrtgi_preset)*.
@@ -7393,7 +7430,7 @@ Current SSRTGI resolution. One of the following values:
 ***Console*:**`render_ssrtgi_increased_accuracy`Returns the current value indicating if increased accuracy is enabled for the SSRTGI (Screen Space Ray-Traced Global Illumination). This option reduces visual artifacts by increasing accuracy of the last step. SSRTGI must be enabled*[setSSRTGIPreset()](../../...md#render_ssrtgi_preset)*.
 ### Return value
 
-**true** if increased accuracy for the SSRTGI is enabled; otherwise **false**. The default value is **true**.
+**true** if increased accuracy for the SSRTGI is enabled ; otherwise **false**. The default value is **true**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setSSRTGIPreset()](/api/library/rendering/class.render_cs#render_ssrtgi_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setSSRTGIFastTracing ( bool tracing = 1 )
@@ -7408,7 +7445,7 @@ Current SSRTGI resolution. One of the following values:
 ***Console*:**`render_ssrtgi_fast_tracing`Returns the current value indicating if fast tracing is enabled for the SSRTGI (Screen Space Ray-Traced Global Illumination). This option dynamically changes step size to obtain indirect illumination bounces using low number of steps while keeping performance high. Disabling this option improves quality, but significantly reduces performance. SSRTGI must be enabled*[setSSRTGIPreset()](../../...md#render_ssrtgi_preset)*.
 ### Return value
 
-**true** if fast tracing for the SSRTGI is enabled; otherwise **false**. The default value is **true**.
+**true** if fast tracing for the SSRTGI is enabled ; otherwise **false**. The default value is **true**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setSSRTGIPreset()](/api/library/rendering/class.render_cs#render_ssrtgi_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setReflectionLods ( bool lods = 1 )
@@ -7423,7 +7460,7 @@ Current SSRTGI resolution. One of the following values:
 ***Console*:**`render_reflection_lods`Returns the current value indicating if reduction of resolution of dynamic reflections when the camera moves away is enabled.
 ### Return value
 
-**true** if reduction of resolution of dynamic reflections when the camera moves away is enabled; otherwise **false**. The default value is **true**.
+**true** if reduction of resolution of dynamic reflections when the camera moves away is enabled ; otherwise **false**. The default value is **true**.
 ## void setReflectionDynamic ( bool dynamic = 1 )
 
 ***Console*:**`render_reflection_dynamic`Sets a new value indicating if dynamic reflections for materials are enabled.
@@ -7436,7 +7473,7 @@ Current SSRTGI resolution. One of the following values:
 ***Console*:**`render_reflection_dynamic`Returns the current value indicating if dynamic reflections for materials are enabled.
 ### Return value
 
-**true** if dynamic reflections for materials is enabled; otherwise **false**. The default value is **true**.
+**true** if dynamic reflections for materials is enabled ; otherwise **false**. The default value is **true**.
 ## void setTransparentBlur ( bool blur = 1 )
 
 ***Console*:**`render_transparent_blur`Sets a new value indicating if transparent blur is enabled for materials. This option makes it possible to render matte transparent materials like matte glass.
@@ -7449,7 +7486,7 @@ Current SSRTGI resolution. One of the following values:
 ***Console*:**`render_transparent_blur`Returns the current value indicating if transparent blur is enabled for materials. This option makes it possible to render matte transparent materials like matte glass.
 ### Return value
 
-**true** if transparent blur for materials is enabled; otherwise **false**. The default value is **true**.
+**true** if transparent blur for materials is enabled ; otherwise **false**. The default value is **true**.
 ## void setRefractionDispersion ( const Math:: vec3 & dispersion )
 
 ***Console*:**`render_refraction_dispersion`Sets a new refraction displacement for red, green, and blue channels (according to the refraction texture of refractive materials). Can be used to create light dispersion (chromatic aberrations). To use this option, render_refraction*[setRefraction()](../../...md#render_refraction)* should be enabled.
@@ -7476,7 +7513,7 @@ vec3_one - default value
 ***Console*:**`render_refraction`Returns the current value indicating if refraction is enabled.
 ### Return value
 
-**true** if refraction rendering is enabled; otherwise **false**. The default value is **true**.
+**true** if refraction rendering is enabled ; otherwise **false**. The default value is **true**.
 ## void setSharpen ( bool sharpen = 0 )
 
 ***Console*:**`render_sharpen`Sets a new value indicating if the sharpening post-processing effect is enabled.
@@ -7489,7 +7526,7 @@ vec3_one - default value
 ***Console*:**`render_sharpen`Returns the current value indicating if the sharpening post-processing effect is enabled.
 ### Return value
 
-**true** if sharpening post-processing effect is enabled; otherwise **false**. The default value is **false**.
+**true** if sharpening post-processing effect is enabled ; otherwise **false**. The default value is **false**.
 ## void setSharpenIntensity ( float intensity = 0.5f )
 
 ***Console*:**`render_sharpen_intensity`Sets a new intensity of the sharpening effect. To use this option, sharpening post-processing effect should be enabled*[setSharpen()](../../...md#render_sharpen)*.
@@ -7516,7 +7553,7 @@ Range of values: **[0.0f, inf]**. The default value is : **0.5f**.
 ***Console*:**`render_sharpen_diagonal_samples`Returns the current value indicating diagonal neighboring pixels are included in the blur calculation, which is a part of the [sharpening post-processing effect](#render_sharpen). When enabled, all eight surrounding pixels affect the blur, resulting in a more rounded and consistent blur shape, but may affect performance. Disabling it limits the effect to only horizontal and vertical neighbors (left, right, top, bottom).
 ### Return value
 
-**true** if the scope of pixels affected by the blur effect is enabled; otherwise **false**. The default value is **true**.
+**true** if the scope of pixels affected by the blur effect is enabled ; otherwise **false**. The default value is **true**.
 ## void setSharpenResolution ( int resolution = 2 )
 
 ***Console*:**`render_sharpen_resolution`Sets a new resolution of the [sharpening post-processing effect](#render_sharpen).
@@ -7607,7 +7644,7 @@ Range of values: **[0.001f, inf]**. The default value is : **1.0f**.
 ***Console*:**`render_alpha_fade`Returns the current value indicating if [alpha-blend fading](../../../principles/world_management/index.md#fading) (dithering) is enabled for objects. When the feature is enabled, objects LODs are smoothly blended into each other over a [fade distance](../../../principles/world_management/index.md#fading).
 ### Return value
 
-**true** if alpha fading is enabled; otherwise **false**. The default value is **true**.
+**true** if alpha fading is enabled ; otherwise **false**. The default value is **true**.
 ## void setAuxiliary ( bool auxiliary = 1 )
 
 ***Console*:**`render_auxiliary`Sets a new value indicating if auxiliary render buffer is used. The buffer should be enabled for render and post post-processes to work.
@@ -7620,7 +7657,7 @@ Range of values: **[0.001f, inf]**. The default value is : **1.0f**.
 ***Console*:**`render_auxiliary`Returns the current value indicating if auxiliary render buffer is used. The buffer should be enabled for render and post post-processes to work.
 ### Return value
 
-**true** if auxiliary render buffer is enabled; otherwise **false**. The default value is **true**.
+**true** if auxiliary render buffer is enabled ; otherwise **false**. The default value is **true**.
 ## void setDecals ( bool decals = 1 )
 
 ***Console*:**`render_decals`Sets a new value indicating if rendering of decals is enabled.
@@ -7633,7 +7670,7 @@ Range of values: **[0.001f, inf]**. The default value is : **1.0f**.
 ***Console*:**`render_decals`Returns the current value indicating if rendering of decals is enabled.
 ### Return value
 
-**true** if decals rendering is enabled; otherwise **false**. The default value is **true**.
+**true** if decals rendering is enabled ; otherwise **false**. The default value is **true**.
 ## void setTAA ( bool taa = 1 )
 
 ***Console*:**`render_taa`Sets a new value indicating if [TAA (Temporal Anti-Aliasing)](../../../principles/render/antialiasing/taa.md) is enabled.
@@ -7646,7 +7683,7 @@ Range of values: **[0.001f, inf]**. The default value is : **1.0f**.
 ***Console*:**`render_taa`Returns the current value indicating if [TAA (Temporal Anti-Aliasing)](../../../principles/render/antialiasing/taa.md) is enabled.
 ### Return value
 
-**true** if TAA is enabled; otherwise **false**. The default value is **true**.
+**true** if TAA is enabled ; otherwise **false**. The default value is **true**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setAAPreset()](/api/library/rendering/class.render_cs#render_aa_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setTAAPreset ( int taapreset = 0 )
@@ -7718,7 +7755,7 @@ Current number of presets.
 
 ### Return value
 
-**true** if TAA fix flicker option is enabled; otherwise **false**. The default value is **true**.
+**true** if TAA fix flicker option is enabled ; otherwise **false**. The default value is **true**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setTAAPreset()](/api/library/rendering/class.render_cs#render_taa_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setTAAAntialiasingInMotion ( bool motion = 0 )
@@ -7733,7 +7770,7 @@ Current number of presets.
 ***Console*:**`render_taa_antialiasing_in_motion`Returns the current value indicating if improved anti-aliasing in motion (for moving camera and objects) is enabled. TAA*[setTAA()](../../...md#render_taa)* must be enabled.
 ### Return value
 
-**true** if improved anti-aliasing in motion is enabled; otherwise **false**. The default value is **false**.
+**true** if improved anti-aliasing in motion is enabled ; otherwise **false**. The default value is **false**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setTAAPreset()](/api/library/rendering/class.render_cs#render_taa_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setTAAFramesByColor ( bool color = 1 )
@@ -7748,7 +7785,7 @@ Current number of presets.
 ***Console*:**`render_taa_frames_by_color`Returns the current value indicating if TAA [color clamping](../../../principles/render/antialiasing/taa.md#taa_color_clamping) option is enabled. This option clamps the color of the current and previous frame. The image becomes more sharp. TAA*[setTAA()](../../...md#render_taa)* must be enabled.
 ### Return value
 
-**true** if TAA color clamping is enabled; otherwise **false**. The default value is **true**.
+**true** if TAA color clamping is enabled ; otherwise **false**. The default value is **true**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setTAAPreset()](/api/library/rendering/class.render_cs#render_taa_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setTAAFramesByVelocity ( bool velocity = 1 )
@@ -7763,7 +7800,7 @@ Current number of presets.
 ***Console*:**`render_taa_frames_by_velocity`Returns the current value indicating if the TAA [velocity clamping](../../../principles/render/antialiasing/taa.md#taa_vc_enabled) option is enabled. This option controls the number of frames combined for pixels depending on the velocity in the fragment. It reduces blurring in dynamic scenes with a lot of moving objects.
 ### Return value
 
-**true** if TAA velocity clamping is enabled; otherwise **false**. The default value is **true**.
+**true** if TAA velocity clamping is enabled ; otherwise **false**. The default value is **true**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setTAAPreset()](/api/library/rendering/class.render_cs#render_taa_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setTAADiagonalNeighbors ( bool neighbors = 0 )
@@ -7778,7 +7815,7 @@ Current number of presets.
 ***Console*:**`render_taa_diagonal_neighbors`Returns the current value indicating if diagonally neighboring pixels are to be taken into account in the process of color clamping for TAA. This mode can be used for relatively static scenes when improved antialiasing is required. In case of a dynamic scene, blurring artefacts near the screen borders may appear.
 ### Return value
 
-**true** if taking diagonally neighboring pixels into account in the process of color clamping is enabled; otherwise **false**. The default value is **false**.
+**true** if taking diagonally neighboring pixels into account in the process of color clamping is enabled ; otherwise **false**. The default value is **false**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setTAAPreset()](/api/library/rendering/class.render_cs#render_taa_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setTAAPreserveDetails ( float details = 0.5f )
@@ -7851,7 +7888,7 @@ Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
 ***Console*:**`render_taa_catmull_resampling`Returns the current value indicating if Catmull-Rom resampling is enabled. This option enables you to reduce image blurring when the camera moves forward/backward. It is recommended to disable resampling fow low-quality presets.
 ### Return value
 
-**true** if Catmull-Rom resampling is enabled; otherwise **false**. The default value is **true**.
+**true** if Catmull-Rom resampling is enabled ; otherwise **false**. The default value is **true**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setTAAPreset()](/api/library/rendering/class.render_cs#render_taa_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setTAACatmullResamplingSharpness ( float sharpness = 0.7f )
@@ -7921,7 +7958,7 @@ Range of values: **[1.0f, inf]**. The default value is : **1.0f**.
 ***Console*:**`render_fxaa`Returns the current value indicating if FXAA (post-process anti-aliasing) is enabled.
 ### Return value
 
-**true** if FXAA (post-process anti-aliasing) is enabled; otherwise **false**. The default value is **true**.
+**true** if FXAA (post-process anti-aliasing) is enabled ; otherwise **false**. The default value is **true**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setAAPreset()](/api/library/rendering/class.render_cs#render_aa_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setFXAAIntensity ( float fxaaintensity = 0.0f )
@@ -8358,17 +8395,17 @@ Sets a new value indicating if force-streaming is enabled for all resources.
 Returns the current value indicating if force-streaming is enabled for all resources.
 ### Return value
 
-**true** if force-streaming is enabled; otherwise **false**.
+**true** if force-streaming is enabled ; otherwise **false**.
 ## void setStreamingAnimationsLifeTime ( int time = -1 )
 
-***Console*:**`render_streaming_animations_life_time`Sets a new lifetime of GPU cache used for animations rendering.
+***Console*:**`render_streaming_animations_life_time`Sets a new lifetime of the RAM cache used for animation streaming, in frames. When an animation is no longer used, it remains in the cache for this number of frames before being unloaded, so that it can be reused without reloading. The default value of -1 keeps animations in memory permanently - they are never unloaded. Values below 6 are clamped to 6 frames.
 ### Arguments
 
 - *int* **time** - The lifetime of animations, number of frames. Range of values: **[-1, INT_MAX]**. The default value is : **-1**.
 
 ## int getStreamingAnimationsLifeTime () const
 
-***Console*:**`render_streaming_animations_life_time`Returns the current lifetime of GPU cache used for animations rendering.
+***Console*:**`render_streaming_animations_life_time`Returns the current lifetime of the RAM cache used for animation streaming, in frames. When an animation is no longer used, it remains in the cache for this number of frames before being unloaded, so that it can be reused without reloading. The default value of -1 keeps animations in memory permanently - they are never unloaded. Values below 6 are clamped to 6 frames.
 ### Return value
 
 Current lifetime of animations, number of frames.
@@ -8496,6 +8533,45 @@ Current streaming mode. One of the following values:
 - **0** - asynchronous streaming (by default)
 - **1** - force-loading of resources
 
+## void setStreamingAnimationsMode ( Render::STREAMING_MODE mode = 1 )
+
+***Console*:**`render_streaming_animations_mode`Sets a new streaming mode for skinned mesh animations. The following modes are available:
+- *Async* - asynchronous loading of animations.
+- *Force* - force-loading of animations required for the current frame at once.
+
+### Arguments
+
+- *[Render::STREAMING_MODE](../../../api/library/rendering/class.render_cpp.md#STREAMING_MODE)* **mode** - The streaming mode for animations. One of the following values:
+
+  - **0** - asynchronous streaming
+  - **1** - force-loading of resources (by default)
+
+## Render::STREAMING_MODE getStreamingAnimationsMode () const
+
+***Console*:**`render_streaming_animations_mode`Returns the current streaming mode for skinned mesh animations. The following modes are available:
+- *Async* - asynchronous loading of animations.
+- *Force* - force-loading of animations required for the current frame at once.
+
+### Return value
+
+Current streaming mode for animations. One of the following values:
+- **0** - asynchronous streaming
+- **1** - force-loading of resources (by default)
+
+## void setStreamingAnimationCacheRAM ( int ram = -1 )
+
+***Console*:**`render_streaming_animation_cache_ram`Sets a new hard limit on the amount of RAM, in megabytes, used by the animation streaming cache. The cache stores currently unused but potentially reusable animations to reduce loading times. The default value of -1 means the cache size is not limited.
+### Arguments
+
+- *int* **ram** - The RAM cache limit for animations streaming, in megabytes. Range of values: **[-1, INT_MAX]**. The default value is : **-1**.
+
+## int getStreamingAnimationCacheRAM () const
+
+***Console*:**`render_streaming_animation_cache_ram`Returns the current hard limit on the amount of RAM, in megabytes, used by the animation streaming cache. The cache stores currently unused but potentially reusable animations to reduce loading times. The default value of -1 means the cache size is not limited.
+### Return value
+
+Current RAM cache limit for animations streaming, in megabytes.
+Range of values: **[-1, INT_MAX]**. The default value is : **-1**.
 ## void setStreamingMeshesPrefetchCollision ( Render::STREAMING_MESHES_PREFETCH collision = 0 )
 
 ***Console*:**`render_streaming_meshes_prefetch_collision`Sets a new mode of asynchronous pre-loading of meshes to memory before they are used. Pre-loading is available only for meshes, which have at least one surface with the *Collision* flag set. There are 2 modes of loading such meshes to RAM:
@@ -8744,7 +8820,7 @@ Current material GUID.
 ***Console*:**`render_debug`Returns the current value indicating whether debug materials (the *debug_materials* material) are rendered. Debug materials can be used for debugging of image generation stages. For example, you can render only SSR, or only cubemaps and so on.
 ### Return value
 
-**true** if rendering of debug materials is enabled; otherwise **false**. The default value is **false**.
+**true** if rendering of debug materials is enabled ; otherwise **false**. The default value is **false**.
 ## void setGbufferLightmap ( bool lightmap = 1 )
 
 ***Console*:**`render_gbuffer_lightmap`Sets a new value indicating if lightmap data is stored in the gbuffer.
@@ -8757,7 +8833,7 @@ Current material GUID.
 ***Console*:**`render_gbuffer_lightmap`Returns the current value indicating if lightmap data is stored in the gbuffer.
 ### Return value
 
-**true** if storing lightmap data in the GBuffer is enabled; otherwise **false**. The default value is **true**.
+**true** if storing lightmap data in the GBuffer is enabled ; otherwise **false**. The default value is **true**.
 ## void setDepthPrePass ( bool pass = 0 )
 
 ***Console*:**`render_depth_pre_pass`Sets a new value indicating if depth pre-pass rendering is enabled. When enabled, an additional depth buffer rendering pass is performed in the beginning of the rendering sequence.
@@ -8776,7 +8852,7 @@ Current material GUID.
 
 ### Return value
 
-**true** if depth pre-pass rendering is enabled; otherwise **false**. The default value is **false**.
+**true** if depth pre-pass rendering is enabled ; otherwise **false**. The default value is **false**.
 ## void setVirtualResolution ( const Math:: vec2 & resolution )
 
 ***Console*:**`render_virtual_resolution`Sets a new virtual screen resolution. This option can be used to render video with high resolution (e.g. 8K) regardless of monitor's resolution.
@@ -8914,6 +8990,7 @@ Current main viewport instance.
 - *Panorama Fisheye Equidistant* - equidistant (tru-theta or f-theta) spherical panorama (fisheye) with an adjustable Field of View.
 - *Panorama Fisheye Stereographic* - stereographic spherical panorama (fisheye) with an adjustable Field of View.
 - *Panorama Fisheye Equisolid* - equisolid (equal-area) spherical panorama (fisheye) with an adjustable Field of View.
+- *Panorama Fisheye Kannala-Brandt* - Kannala-Brandt fisheye camera model.
 - *Anaglyph* - stereo mode that is viewed with red-cyan anaglyph glasses.
 - *Interlaced* - stereo mode that is used with interlaced stereo monitors and polarized 3D glasses.
 - *Horizontal* - horizontal stereo mode.
@@ -8936,10 +9013,11 @@ Current main viewport instance.
   - **6** - Panorama Fisheye Equidistant
   - **7** - Panorama Fisheye Stereographic
   - **8** - Panorama Fisheye Equisolid
-  - **9** - Anaglyph
-  - **10** - Interlaced
-  - **11** - Horizontal
-  - **12** - Vertical
+  - **9** - Panorama Fisheye Kannala-Brandt
+  - **10** - Anaglyph
+  - **11** - Interlaced
+  - **12** - Horizontal
+  - **13** - Vertical
 
 ## Render::VIEWPORT_MODE getViewportMode () const
 
@@ -8953,6 +9031,7 @@ Current main viewport instance.
 - *Panorama Fisheye Equidistant* - equidistant (tru-theta or f-theta) spherical panorama (fisheye) with an adjustable Field of View.
 - *Panorama Fisheye Stereographic* - stereographic spherical panorama (fisheye) with an adjustable Field of View.
 - *Panorama Fisheye Equisolid* - equisolid (equal-area) spherical panorama (fisheye) with an adjustable Field of View.
+- *Panorama Fisheye Kannala-Brandt* - Kannala-Brandt fisheye camera model.
 - *Anaglyph* - stereo mode that is viewed with red-cyan anaglyph glasses.
 - *Interlaced* - stereo mode that is used with interlaced stereo monitors and polarized 3D glasses.
 - *Horizontal* - horizontal stereo mode.
@@ -8974,10 +9053,11 @@ Current viewport rendering mode (default, stereo, or panoramic - see the [VIEWPO
 - **6** - Panorama Fisheye Equidistant
 - **7** - Panorama Fisheye Stereographic
 - **8** - Panorama Fisheye Equisolid
-- **9** - Anaglyph
-- **10** - Interlaced
-- **11** - Horizontal
-- **12** - Vertical
+- **9** - Panorama Fisheye Kannala-Brandt
+- **10** - Anaglyph
+- **11** - Interlaced
+- **12** - Horizontal
+- **13** - Vertical
 
 ## void setShaderDefines ( const char * defines )
 
@@ -9053,7 +9133,7 @@ Sets a new value indicating if the first frame is enabled over the current frame
 Returns the current value indicating if the first frame is enabled over the current frame.
 ### Return value
 
-**true** if first frame over the current frame is enabled; otherwise **false**.
+**true** if first frame over the current frame is enabled ; otherwise **false**.
 ## void setData ( const char * data )
 
 Sets a new user data associated with the render. This string is written directly into a `*.world` file. Namely, into the *data* child tag of the *render* tag, for example:
@@ -9155,7 +9235,7 @@ Math::mat4 transform = Math::translate(translate_x, translate_y, 0.0f) * Math::s
 
 ### Return value
 
-**true** if render flipping is enabled; otherwise **false**.
+**true** if render flipping is enabled ; otherwise **false**.
 ## int getAPI () const
 
 Returns the current Graphics API (see *[API_*](#API_DIRECT3D12)* variables).
@@ -9294,7 +9374,7 @@ Range of values: **[0.0f, 1000.0f]**. The default value is : **0.01f**.
 ***Console*:**`render_landscape_terrain_geometry_holes`Returns the current value indicating if [decal-based holes](../../../objects/objects/terrain/landscape_terrain/index.md#decal_holes) for the [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md) are enabled.
 ### Return value
 
-**true** if decal-based holes for Landscape Terrain is enabled; otherwise **false**. The default value is **true**.
+**true** if decal-based holes for Landscape Terrain is enabled ; otherwise **false**. The default value is **true**.
 ## void setLandscapeTerrainDetailResolutionAdditionalMask ( int mask = 4 )
 
 ***Console*:**`render_landscape_terrain_detail_resolution_additional_mask`Sets a new resolution of the additional mask texture for details of the [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md).
@@ -9305,15 +9385,15 @@ Range of values: **[0.0f, 1000.0f]**. The default value is : **0.01f**.
 
 - *int* **mask** - The texture resolution, in pixels. One of the following values:
 
-  - **0** - 64×64
-  - **1** - 128×128
-  - **2** - 256×256
-  - **3** - 512×512
-  - **4** - 1024×1024 (by default)
-  - **5** - 2048×2048
-  - **6** - 4096×4096
-  - **7** - 8192×8192
-  - **8** - 16384×16384
+  - **0** - 64ï¿½64
+  - **1** - 128ï¿½128
+  - **2** - 256ï¿½256
+  - **3** - 512ï¿½512
+  - **4** - 1024ï¿½1024 (by default)
+  - **5** - 2048ï¿½2048
+  - **6** - 4096ï¿½4096
+  - **7** - 8192ï¿½8192
+  - **8** - 16384ï¿½16384
 
 ## int getLandscapeTerrainDetailResolutionAdditionalMask () const
 
@@ -9324,15 +9404,15 @@ Range of values: **[0.0f, 1000.0f]**. The default value is : **0.01f**.
 ### Return value
 
 Current texture resolution, in pixels. One of the following values:
-- **0** - 64×64
-- **1** - 128×128
-- **2** - 256×256
-- **3** - 512×512
-- **4** - 1024×1024 (by default)
-- **5** - 2048×2048
-- **6** - 4096×4096
-- **7** - 8192×8192
-- **8** - 16384×16384
+- **0** - 64ï¿½64
+- **1** - 128ï¿½128
+- **2** - 256ï¿½256
+- **3** - 512ï¿½512
+- **4** - 1024ï¿½1024 (by default)
+- **5** - 2048ï¿½2048
+- **6** - 4096ï¿½4096
+- **7** - 8192ï¿½8192
+- **8** - 16384ï¿½16384
 
 ## void setLandscapeTerrainDetailResolutionHeight ( int height = 4 )
 
@@ -9344,15 +9424,15 @@ Current texture resolution, in pixels. One of the following values:
 
 - *int* **height** - The height texture resolution. One of the following values:
 
-  - **0** - 64×64
-  - **1** - 128×128
-  - **2** - 256×256
-  - **3** - 512×512
-  - **4** - 1024×1024 (by default)
-  - **5** - 2048×2048
-  - **6** - 4096×4096
-  - **7** - 8192×8192
-  - **8** - 16384×16384
+  - **0** - 64ï¿½64
+  - **1** - 128ï¿½128
+  - **2** - 256ï¿½256
+  - **3** - 512ï¿½512
+  - **4** - 1024ï¿½1024 (by default)
+  - **5** - 2048ï¿½2048
+  - **6** - 4096ï¿½4096
+  - **7** - 8192ï¿½8192
+  - **8** - 16384ï¿½16384
 
 ## int getLandscapeTerrainDetailResolutionHeight () const
 
@@ -9363,15 +9443,15 @@ Current texture resolution, in pixels. One of the following values:
 ### Return value
 
 Current height texture resolution. One of the following values:
-- **0** - 64×64
-- **1** - 128×128
-- **2** - 256×256
-- **3** - 512×512
-- **4** - 1024×1024 (by default)
-- **5** - 2048×2048
-- **6** - 4096×4096
-- **7** - 8192×8192
-- **8** - 16384×16384
+- **0** - 64ï¿½64
+- **1** - 128ï¿½128
+- **2** - 256ï¿½256
+- **3** - 512ï¿½512
+- **4** - 1024ï¿½1024 (by default)
+- **5** - 2048ï¿½2048
+- **6** - 4096ï¿½4096
+- **7** - 8192ï¿½8192
+- **8** - 16384ï¿½16384
 
 ## void setLandscapeTerrainDetailResolutionAlbedo ( int albedo = 4 )
 
@@ -9383,15 +9463,15 @@ Current height texture resolution. One of the following values:
 
 - *int* **albedo** - The albedo texture resolution. One of the following values:
 
-  - **0** - 64×64
-  - **1** - 128×128
-  - **2** - 256×256
-  - **3** - 512×512
-  - **4** - 1024×1024 (by default)
-  - **5** - 2048×2048
-  - **6** - 4096×4096
-  - **7** - 8192×8192
-  - **8** - 16384×16384
+  - **0** - 64ï¿½64
+  - **1** - 128ï¿½128
+  - **2** - 256ï¿½256
+  - **3** - 512ï¿½512
+  - **4** - 1024ï¿½1024 (by default)
+  - **5** - 2048ï¿½2048
+  - **6** - 4096ï¿½4096
+  - **7** - 8192ï¿½8192
+  - **8** - 16384ï¿½16384
 
 ## int getLandscapeTerrainDetailResolutionAlbedo () const
 
@@ -9402,15 +9482,15 @@ Current height texture resolution. One of the following values:
 ### Return value
 
 Current albedo texture resolution. One of the following values:
-- **0** - 64×64
-- **1** - 128×128
-- **2** - 256×256
-- **3** - 512×512
-- **4** - 1024×1024 (by default)
-- **5** - 2048×2048
-- **6** - 4096×4096
-- **7** - 8192×8192
-- **8** - 16384×16384
+- **0** - 64ï¿½64
+- **1** - 128ï¿½128
+- **2** - 256ï¿½256
+- **3** - 512ï¿½512
+- **4** - 1024ï¿½1024 (by default)
+- **5** - 2048ï¿½2048
+- **6** - 4096ï¿½4096
+- **7** - 8192ï¿½8192
+- **8** - 16384ï¿½16384
 
 ## void setLandscapeTerrainVTTilesReloadPerFrame ( int frame = 4 )
 
@@ -9526,9 +9606,9 @@ Current target viewport resolution (in pixels) as a two-component vector (width,
 ## void setLandscapeTerrainVTMemorySize ( float size = 0.4f )
 
 ***Console*:**`render_landscape_terrain_vt_memory_size`Sets a new value defining memory consumption for the [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md) textures. The value is interpreted as follows:
-- 0.0f - 3072×3072 (~200 MB of VRAM)
-- 1.0f - 16384×16384 (~3.1 GB of VRAM)
-- **0.4f** - 8192×8192 (~860 MB of VRAM)
+- 0.0f - 3072ï¿½3072 (~200 MB of VRAM)
+- 1.0f - 16384ï¿½16384 (~3.1 GB of VRAM)
+- **0.4f** - 8192ï¿½8192 (~860 MB of VRAM)
 
 
 > **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
@@ -9541,9 +9621,9 @@ Current target viewport resolution (in pixels) as a two-component vector (width,
 ## float getLandscapeTerrainVTMemorySize () const
 
 ***Console*:**`render_landscape_terrain_vt_memory_size`Returns the current value defining memory consumption for the [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md) textures. The value is interpreted as follows:
-- 0.0f - 3072×3072 (~200 MB of VRAM)
-- 1.0f - 16384×16384 (~3.1 GB of VRAM)
-- **0.4f** - 8192×8192 (~860 MB of VRAM)
+- 0.0f - 3072ï¿½3072 (~200 MB of VRAM)
+- 1.0f - 16384ï¿½16384 (~3.1 GB of VRAM)
+- **0.4f** - 8192ï¿½8192 (~860 MB of VRAM)
 
 
 > **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
@@ -9623,7 +9703,7 @@ Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
 ***Console*:**`render_ffp_antialiasing_lines`Returns the current value indicating if antialiasing is enabled for rendering of the Visualizer and other FFP lines.
 ### Return value
 
-**true** if antialiasing for Visualizer and FFP is enabled; otherwise **false**. The default value is **true**.
+**true** if antialiasing for Visualizer and FFP is enabled ; otherwise **false**. The default value is **true**.
 ## void setWireframeAntialiasing ( bool antialiasing )
 
 ***Console*:**`render_wireframe_antialiasing`Sets a new value indicating if antialiasing is enabled for wireframe rendering.
@@ -9636,7 +9716,7 @@ Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
 ***Console*:**`render_wireframe_antialiasing`Returns the current value indicating if antialiasing is enabled for wireframe rendering.
 ### Return value
 
-**true** if antialiasing for wireframe rendering is enabled; otherwise **false**. The default value is **true**.
+**true** if antialiasing for wireframe rendering is enabled ; otherwise **false**. The default value is **true**.
 ## void setEnvironmentHazeScreenSpaceGlobalIllumination ( bool illumination = 1 )
 
 ***Console*:**`render_environment_haze_screen_space_global_illumination`Sets a new value indicating if the Screen-Space Haze Global Illumination effect is enabled. SSHGI - is a screen-space effect ensuring consistency of haze color with the current color of Global Illumination.
@@ -9653,7 +9733,7 @@ Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
 
 ### Return value
 
-**true** if Screen-Space Haze Global Illumination effect is enabled; otherwise **false**. The default value is **true**.
+**true** if Screen-Space Haze Global Illumination effect is enabled ; otherwise **false**. The default value is **true**.
 ## void setEnvironmentHazeTemporalFilter ( bool filter = 1 )
 
 ***Console*:**`render_environment_haze_temporal_filter`Sets a new value indicating if temporal filtering for the Screen-Space Haze Global Illumination effect is enabled.
@@ -9666,7 +9746,7 @@ Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
 ***Console*:**`render_environment_haze_temporal_filter`Returns the current value indicating if temporal filtering for the Screen-Space Haze Global Illumination effect is enabled.
 ### Return value
 
-**true** if temporal filtering for the Screen-Space Haze Global Illumination effect is enabled; otherwise **false**. The default value is **true**.
+**true** if temporal filtering for the Screen-Space Haze Global Illumination effect is enabled ; otherwise **false**. The default value is **true**.
 ## void setEnvironmentHazeColorizationThreshold ( float threshold = 0.5f )
 
 ***Console*:**`render_environment_haze_colorization_threshold`Sets a new treshold value for scene depth used when setting haze color for the SSHGI effect in "information lost" areas on the screen.
@@ -9928,7 +10008,7 @@ Range of values: **[0.0f, inf]**. The default value is : **0.1f**.
 ***Console*:**`render_sraa_debug`Returns the current value indicating if the SRAA debug mode is enabled. This mode shows the geometry edges smoothed by the SRAA.
 ### Return value
 
-**true** if SRAA debug mode is enabled; otherwise **false**. The default value is **false**.
+**true** if SRAA debug mode is enabled ; otherwise **false**. The default value is **false**.
 ## void setSRAATemporal ( bool sraatemporal = 1 )
 
 ***Console*:**`render_sraa_temporal`Sets a new value indicating if TAA integration is enabled. SRAA will use the shading sample from the previously rendered frame (TAA) to achieve correct anti-aliasing. Uses camera jittering, so it works only when the TAA*[setTAA()](../../...md#render_taa)* is enabled. It is recommended to use this option by default.
@@ -9941,7 +10021,7 @@ Range of values: **[0.0f, inf]**. The default value is : **0.1f**.
 ***Console*:**`render_sraa_temporal`Returns the current value indicating if TAA integration is enabled. SRAA will use the shading sample from the previously rendered frame (TAA) to achieve correct anti-aliasing. Uses camera jittering, so it works only when the TAA*[setTAA()](../../...md#render_taa)* is enabled. It is recommended to use this option by default.
 ### Return value
 
-**true** if usage of the shading sample from the previously rendered frame (TAA) is enabled; otherwise **false**. The default value is **true**.
+**true** if usage of the shading sample from the previously rendered frame (TAA) is enabled ; otherwise **false**. The default value is **true**.
 ## void setSRAASamples ( int sraasamples = 1 )
 
 ***Console*:**`render_sraa_samples`Sets a new number of depth geometry samples per pixel. This value may significantly affect performance, so keep it low when the image quality differences are not apparent.
@@ -9975,7 +10055,7 @@ Current number of depth geometry samples per pixel. One of the following values:
 ***Console*:**`render_sraa`Returns the current value indicating if [Subpixel Reconstruction Anti-Aliasing (SRAA)](../../../principles/render/antialiasing/sraa.md) is enabled.
 ### Return value
 
-**true** if SRAA is enabled; otherwise **false**. The default value is **false**.
+**true** if SRAA is enabled ; otherwise **false**. The default value is **false**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setAAPreset()](/api/library/rendering/class.render_cs#render_aa_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setPanoramaFisheyeFov ( float fov = 0 )
@@ -10008,7 +10088,7 @@ Range of values: **[0, 360]**. The default value is : **0**.
 ***Console*:**`render_shadows_world_cascades_culling_clusters`Returns the current value indicating whether culling of shadow cascades is enabled for *Mesh Cluster/Clutter* objects. If enabled, the *Mesh Cluster/Clutter* objects rendered in the nearest cascade won't be rendered again in farther cascades. If disabled, the *Mesh Cluster* objects rendered in the nearest cascade will also be rendered in all other cascades. In some cases performance may be better if this option is disabled.
 ### Return value
 
-**true** if culling of shadow cascades for *Mesh Cluster/Clutter* objects is enabled; otherwise **false**. The default value is **false**.
+**true** if culling of shadow cascades for *Mesh Cluster/Clutter* objects is enabled ; otherwise **false**. The default value is **false**.
 ## void setReflectionDynamicAlphaFade ( bool fade = 0 )
 
 ***Console*:**`render_reflection_dynamic_alpha_fade`Sets a new value indicating if [alpha-blend fading](../../../principles/world_management/index.md#fading) (dithering) is enabled for surfaces inside the dynamic reflections when switching between LODs. This feature may be disabled to save performance, but in this case surfaces rendered in dynamic reflections will pop in and pop out.
@@ -10021,7 +10101,7 @@ Range of values: **[0, 360]**. The default value is : **0**.
 ***Console*:**`render_reflection_dynamic_alpha_fade`Returns the current value indicating if [alpha-blend fading](../../../principles/world_management/index.md#fading) (dithering) is enabled for surfaces inside the dynamic reflections when switching between LODs. This feature may be disabled to save performance, but in this case surfaces rendered in dynamic reflections will pop in and pop out.
 ### Return value
 
-**true** if Alpha Fade for surfaces inside the dynamic reflections is enabled; otherwise **false**. The default value is **false**.
+**true** if Alpha Fade for surfaces inside the dynamic reflections is enabled ; otherwise **false**. The default value is **false**.
 ## void setReflectionDynamicRoughnessOffset ( bool offset = 0 )
 
 ***Console*:**`render_reflection_dynamic_roughness_offset`Sets a new value indicating whether roughness offset is enabled for dynamic reflections produced by *Environment Probes*. Sometimes, when specular highlights from glossy surfaces get into dynamic *Environment Probes* a very bright flickering of lighting from it may appear. This option makes surrounding materials look more matte for an *Environment Probe* than they actually are, reducing such flickering artefacts.
@@ -10034,7 +10114,7 @@ Range of values: **[0, 360]**. The default value is : **0**.
 ***Console*:**`render_reflection_dynamic_roughness_offset`Returns the current value indicating whether roughness offset is enabled for dynamic reflections produced by *Environment Probes*. Sometimes, when specular highlights from glossy surfaces get into dynamic *Environment Probes* a very bright flickering of lighting from it may appear. This option makes surrounding materials look more matte for an *Environment Probe* than they actually are, reducing such flickering artefacts.
 ### Return value
 
-**true** if roughness offset for dynamic reflections produced by *Environment Probes* is enabled; otherwise **false**. The default value is **false**.
+**true** if roughness offset for dynamic reflections produced by *Environment Probes* is enabled ; otherwise **false**. The default value is **false**.
 ## void setClouds3dTextureVerticalResolution ( int resolution = 3 )
 
 ***Console*:**`render_clouds_3d_texture_vertical_resolution`Sets a new vertical resolution for the 3D texture to be used for clouds rendering.
@@ -10880,7 +10960,7 @@ Range of values: **[0.0f, 1.0f]**. The default value is : **1.0f**.
 ***Console*:**`render_tonemapper`Returns the current value indicating if [tone mapping](../../../editor2/settings/render_settings/color/index.md#tonemapper) is enabled.
 ### Return value
 
-**true** if tone mappingtone mapping mode. is enabled; otherwise **false**. The default value is **true**.
+**true** if tone mappingtone mapping mode. is enabled ; otherwise **false**. The default value is **true**.
 ## void setTonemapperMode ( Render::TONEMAPPER mode = 1 )
 
 ***Console*:**`render_tonemapper_mode`Sets a new mode of [tone mapping](../../../editor2/settings/render_settings/color/index.md#tonemapper).
@@ -10970,7 +11050,7 @@ Range of values: **[0.0f, 1.0f]**. The default value is : **0.1f**.
 ***Console*:**`render_water_culling_aggressive`Returns the current value indicating if frustum culling optimization is enabled for the [Global Water](../../../objects/objects/water/water_object.md). When enabled, the number of culled polygons increases thereby increasing performance. In case of any issues with polygons rendering, try disabling this option (however, note that performance may drop).
 ### Return value
 
-**true** if frustum culling optimization is enabled; otherwise **false**. The default value is **true**.
+**true** if frustum culling optimization is enabled ; otherwise **false**. The default value is **true**.
 ## void setWaterGeometrySubpixelReduction ( float reduction = 6.0f )
 
 ***Console*:**`render_water_geometry_subpixel_reduction`Sets a new minimum ratio of a polygon size (in screen space) to the size of an area seen in the viewport. If the ratio calculated for the polygon is less than this value, such polygon will be removed.
@@ -11008,15 +11088,47 @@ Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
 ***Console*:**`render_water_geometry_progression`Sets a new progression of [Global Water](../../../objects/objects/water/water_object.md) geometry tessellation.
 ### Arguments
 
-- *float* **progression** - The CPU cache size, in percentage of the total CPU memory. Range of values: **[0.0f, 50.0f]**. The default value is : **1.5f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setWaterGeometryPreset()](/api/library/rendering/class.render_cs#render_water_geometry_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+- *float* **progression** - The progression of Global Water geometry tessellation. Range of values: **[0.0f, 50.0f]**. The default value is : **1.5f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setWaterGeometryPreset()](/api/library/rendering/class.render_cs#render_water_geometry_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## float getWaterGeometryProgression () const
 
 ***Console*:**`render_water_geometry_progression`Returns the current progression of [Global Water](../../../objects/objects/water/water_object.md) geometry tessellation.
 ### Return value
 
-Current CPU cache size, in percentage of the total CPU memory.
+Current progression of Global Water geometry tessellation.
 Range of values: **[0.0f, 50.0f]**. The default value is : **1.5f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setWaterGeometryPreset()](/api/library/rendering/class.render_cs#render_water_geometry_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setWaterGeometryProgressionFovMin ( float min = 1.5f )
+
+***Console*:**`render_water_geometry_progression_fov_min`Sets a new minimum camera field of view value taken into account for tessellation of [Global Water](../../../objects/objects/water/water_object.md) geometry, in degrees. Tessellation distances are scaled proportionally to the ratio of 60 degrees to the current camera FOV, so that narrow fields of view (zoom optics, long lenses, binocular views) get detailed water geometry at longer distances. The FOV value used in this calculation is clamped to be no less than this minimum, preventing excessive tessellation at extremely narrow FOV values.
+### Arguments
+
+- *float* **min** - The minimum camera FOV value used for tessellation compensation, in degrees. Range of values: **[0.01f, 60.0f]**. The default value is : **1.5f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setWaterGeometryPreset()](/api/library/rendering/class.render_cs#render_water_geometry_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getWaterGeometryProgressionFovMin () const
+
+***Console*:**`render_water_geometry_progression_fov_min`Returns the current minimum camera field of view value taken into account for tessellation of [Global Water](../../../objects/objects/water/water_object.md) geometry, in degrees. Tessellation distances are scaled proportionally to the ratio of 60 degrees to the current camera FOV, so that narrow fields of view (zoom optics, long lenses, binocular views) get detailed water geometry at longer distances. The FOV value used in this calculation is clamped to be no less than this minimum, preventing excessive tessellation at extremely narrow FOV values.
+### Return value
+
+Current minimum camera FOV value used for tessellation compensation, in degrees.
+Range of values: **[0.01f, 60.0f]**. The default value is : **1.5f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setWaterGeometryPreset()](/api/library/rendering/class.render_cs#render_water_geometry_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setWaterGeometryProgressionFovScale ( float scale = 0.75f )
+
+***Console*:**`render_water_geometry_progression_fov_scale`Sets a new intensity of [Global Water](../../../objects/objects/water/water_object.md) tessellation compensation for narrow camera fields of view. Tessellation distances are scaled proportionally to the ratio of 60 degrees to the current camera FOV raised to the power of this value: by 0, the camera FOV does not affect tessellation distances at all; by 1, the scaling is strictly linear. Intermediate values soften the compensation.
+### Arguments
+
+- *float* **scale** - The intensity of tessellation compensation for narrow camera FOV values. Range of values: **[0.0f, 1.0f]**. The default value is : **0.75f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setWaterGeometryPreset()](/api/library/rendering/class.render_cs#render_water_geometry_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getWaterGeometryProgressionFovScale () const
+
+***Console*:**`render_water_geometry_progression_fov_scale`Returns the current intensity of [Global Water](../../../objects/objects/water/water_object.md) tessellation compensation for narrow camera fields of view. Tessellation distances are scaled proportionally to the ratio of 60 degrees to the current camera FOV raised to the power of this value: by 0, the camera FOV does not affect tessellation distances at all; by 1, the scaling is strictly linear. Intermediate values soften the compensation.
+### Return value
+
+Current intensity of tessellation compensation for narrow camera FOV values.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.75f**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setWaterGeometryPreset()](/api/library/rendering/class.render_cs#render_water_geometry_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
 ## void setWaterGeometryPolygonSize ( float size = 0.01f )
@@ -11075,7 +11187,7 @@ Range of values: **[0.0f, inf]**. The default value is : **0.0f**.
 ***Console*:**`render_environment_hemisphere`Returns the current value indicating if rendering of environment only for the top (above-ground) hemisphere is enabled. The underground is rendered black. When disabled, environment for the whole sphere is rendered.
 ### Return value
 
-**true** if rendering of environment only for the top (above-ground) hemisphere is enabled; otherwise **false**. The default value is **false**.
+**true** if rendering of environment only for the top (above-ground) hemisphere is enabled ; otherwise **false**. The default value is **false**.
 ## void setWaterPlanarProbes ( bool probes = 1 )
 
 ***Console*:**`render_water_planar_probes`Sets a new value indicating if rendering of [Planar Reflection Probes](../../../objects/lights/planar/index.md) on the water surface is enabled.
@@ -11088,7 +11200,7 @@ Range of values: **[0.0f, inf]**. The default value is : **0.0f**.
 ***Console*:**`render_water_planar_probes`Returns the current value indicating if rendering of [Planar Reflection Probes](../../../objects/lights/planar/index.md) on the water surface is enabled.
 ### Return value
 
-**true** if rendering of planar reflection probes on the water surface is enabled; otherwise **false**. The default value is **true**.
+**true** if rendering of planar reflection probes on the water surface is enabled ; otherwise **false**. The default value is **true**.
 ## int getNumDebugMaterials () const
 
 Returns the current number of debug materials.
@@ -11107,7 +11219,7 @@ Current number of debug materials.
 ***Console*:**`color_correction_hue_per_color`Returns the current value indicating if fine-adjustment of hue (color shift) for each of the 12 major colors of the spectre is enabled.
 ### Return value
 
-**true** if fine-adjustment of hue (color shift) for each of the 12 major colors of the spectre is enabled; otherwise **false**. The default value is **true**.
+**true** if fine-adjustment of hue (color shift) for each of the 12 major colors of the spectre is enabled ; otherwise **false**. The default value is **true**.
 ## void setColorCorrectionSaturationPerColor ( bool color = 1 )
 
 ***Console*:**`color_correction_saturation_per_color`Sets a new value indicating if fine-adjustment of saturation for each of the 12 major colors of the spectre is enabled.
@@ -11120,7 +11232,7 @@ Current number of debug materials.
 ***Console*:**`color_correction_saturation_per_color`Returns the current value indicating if fine-adjustment of saturation for each of the 12 major colors of the spectre is enabled.
 ### Return value
 
-**true** if fine-adjustment of saturation for each of the 12 major colors of the spectre is enabled; otherwise **false**. The default value is **true**.
+**true** if fine-adjustment of saturation for each of the 12 major colors of the spectre is enabled ; otherwise **false**. The default value is **true**.
 ## void setColorCorrectionByCurves ( bool curves = 1 )
 
 ***Console*:**`color_correction_by_curves`Sets a new value indicating if color correction via curves is enabled.
@@ -11133,7 +11245,7 @@ Current number of debug materials.
 ***Console*:**`color_correction_by_curves`Returns the current value indicating if color correction via curves is enabled.
 ### Return value
 
-**true** if color correction via curves is enabled; otherwise **false**. The default value is **true**.
+**true** if color correction via curves is enabled ; otherwise **false**. The default value is **true**.
 ## void setVignetteMask ( bool mask = 0 )
 
 ***Console*:**`render_vignette_mask`Sets a new value indicating if rendering of the *[Vignette Mask](../../../editor2/settings/render_settings/camera_effects/index.md#post_vignette)* post-effect is enabled. The effect applies darkening towards the edges of an image compared to the center usually caused by thick or stacked filters, secondary lenses, and lens hoods. It can be used for an artistic effect, to draw focus to the center of the image.
@@ -11146,7 +11258,7 @@ Current number of debug materials.
 ***Console*:**`render_vignette_mask`Returns the current value indicating if rendering of the *[Vignette Mask](../../../editor2/settings/render_settings/camera_effects/index.md#post_vignette)* post-effect is enabled. The effect applies darkening towards the edges of an image compared to the center usually caused by thick or stacked filters, secondary lenses, and lens hoods. It can be used for an artistic effect, to draw focus to the center of the image.
 ### Return value
 
-**true** if rendering of the Vignette Mask post-effect is enabled; otherwise **false**. The default value is **false**.
+**true** if rendering of the Vignette Mask post-effect is enabled ; otherwise **false**. The default value is **false**.
 ## void setVignetteMaskIntensity ( float intensity = 1.0f )
 
 ***Console*:**`render_vignette_mask_intensity`Sets a new intensity of the *[Vignette Mask](../../../editor2/settings/render_settings/camera_effects/index.md#post_vignette)*. Defines the amount of vignetting on the screen: *higher* values moke the vignette wider.
@@ -11200,7 +11312,7 @@ Current path to the custom mask texture for the vignette.
 ***Console*:**`render_noise`Returns the current value indicating if rendering of the *[Noise](../../../editor2/settings/render_settings/camera_effects/index.md#post_noise)* post-effect is enabled.
 ### Return value
 
-**true** if rendering of the Noise post-effect is enabled; otherwise **false**. The default value is **false**.
+**true** if rendering of the Noise post-effect is enabled ; otherwise **false**. The default value is **false**.
 ## void setNoiseIntensity ( float intensity = 0.03f )
 
 ***Console*:**`render_noise_intensity`Sets a new intensity of the *[Noise](../../../editor2/settings/render_settings/camera_effects/index.md#post_noise)* post-effect. *Higher* values result in more noise applied to the image.
@@ -11227,7 +11339,7 @@ Range of values: **[0.0f, inf]**. The default value is : **0.03f**.
 ***Console*:**`render_chromatic_aberration`Returns the current value indicating if rendering of the *[Chromatic Aberration](../../../editor2/settings/render_settings/camera_effects/index.md#post_chromatic_aberration)* post-effect is enabled. This effect simulates color shifts in real-world camera lenses due to light rays entering a lens at different points causing separation of RGB colors.
 ### Return value
 
-**true** if rendering of the Chromatic Aberration post-effect is enabled; otherwise **false**. The default value is **false**.
+**true** if rendering of the Chromatic Aberration post-effect is enabled ; otherwise **false**. The default value is **false**.
 ## void setChromaticAberrationIntensity ( float intensity = 0.5f )
 
 ***Console*:**`render_chromatic_aberration_intensity`Sets a new intensity (strength) of the *[Chromatic Aberration](../../../editor2/settings/render_settings/camera_effects/index.md#post_chromatic_aberration)* post-effect. Controls how much color shifting occurs.
@@ -11414,7 +11526,7 @@ Range of values: **[4, 2048]**. The default value is : **64**.
 ***Console*:**`render_landscape_terrain_culling_by_depth`Returns the current  value indicating if culling by depth is enabled. Keep this option enabled to get the performance higher due to culling of tiles occluded by geometry and Landscape Terrain itself.
 ### Return value
 
-**true** if culling by depth is enabled; otherwise **false**. The default value is **true**.
+**true** if culling by depth is enabled ; otherwise **false**. The default value is **true**.
 ## void setLandscapeTerrainCullingFrustumAggressive ( bool aggressive = 1 )
 
 ***Console*:**`render_landscape_terrain_culling_frustum_aggressive`Sets a new value indicating if frustum culling optimization is enabled for the [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md). When enabled, the number of culled polygons increases thereby increasing performance. In case of any issues with polygons rendering, try disabling this option (however, note that performance may drop).
@@ -11427,7 +11539,7 @@ Range of values: **[4, 2048]**. The default value is : **64**.
 ***Console*:**`render_landscape_terrain_culling_frustum_aggressive`Returns the current value indicating if frustum culling optimization is enabled for the [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md). When enabled, the number of culled polygons increases thereby increasing performance. In case of any issues with polygons rendering, try disabling this option (however, note that performance may drop).
 ### Return value
 
-**true** if frustum culling optimization for the Landscape Terrain is enabled; otherwise **false**. The default value is **true**.
+**true** if frustum culling optimization for the Landscape Terrain is enabled ; otherwise **false**. The default value is **true**.
 ## void setLandscapeTerrainGeometryDetailMaxHeight ( float height = 0.5f )
 
 ***Console*:**`render_landscape_terrain_geometry_detail_max_height`Sets a new maximum height for detail displacement clamping. Adjust this value to the highest height value used in details in case of artifacts of stepped geometry caused by insufficient bit depth.
@@ -11481,7 +11593,7 @@ Current detail textures compression. One of the following values:
 ***Console*:**`render_landscape_terrain_streaming_per_lods`Returns the current value indicating if streaming per LODs (MIP maps) is enabled. Disable this option to make streaming faster by skipping loading of intermediate MIP-levels for textures.
 ### Return value
 
-**true** if streaming per LODs (MIP maps) is enabled; otherwise **false**. The default value is **true**.
+**true** if streaming per LODs (MIP maps) is enabled ; otherwise **false**. The default value is **true**.
 ## void setLandscapeTerrainStreamingThreads ( int threads = 1 )
 
 ***Console*:**`render_landscape_terrain_streaming_threads`Sets a new  number of threads used for streaming.
@@ -11595,7 +11707,7 @@ Range of values: **[1, 32]**. The default value is : **2**.
 ***Console*:**`render_local_tonemapper`Returns the current value indicating if the local tonemapper is enabled.
 ### Return value
 
-**true** if local tonemapper is enabled; otherwise **false**. The default value is **false**.
+**true** if local tonemapper is enabled ; otherwise **false**. The default value is **false**.
 ## void setLocalTonemapperNumBlurIterations ( int iterations = 5 )
 
 ***Console*:**`render_local_tonemapper_num_blur_iterations`Sets a new number of blur iterations applied to the screen texture, which is used to define bright and dark portions of the screen. A higher number of iterations increases the blur radius and reduces halo artifacts around objects, but may affect performance.
@@ -11719,7 +11831,7 @@ Current upscaling mode. One of the following values:
 ***Console*:**`render_upscale_fix_flicker`Returns the current value indicating whether a temporal filtering pass is applied when upscaling is active to reduce pixel flicker on bright thin details such as wires and lines. May increase rendering costs.
 ### Return value
 
-**true** if pixel flicker fix for upscaling is enabled; otherwise **false**. The default value is **false**.
+**true** if pixel flicker fix for upscaling is enabled ; otherwise **false**. The default value is **false**.
 ## void setDLSSMode ( Render::RENDER_DLSS_MODE dlssmode = 3 )
 
 ***Console*:**`render_upscale_dlss_mode`Sets a new DLSS quality.
@@ -11785,7 +11897,7 @@ Range of values: **[0.1f, 1.0f]**. The default value is : **0.5f**.
 ***Console*:**`render_upscale_dlss_resolution_scale_enabled`Returns the current value indicating whether a custom resolution scale is used instead of the default render resolution provided by DLSS for the current [DLSSMode](#DLSSMode). When enabled, the render resolution is adjusted within the allowed range for the current mode using the [DLSSResolutionScaleValue](#DLSSResolutionScaleValue).
 ### Return value
 
-**true** if custom resolution scale override for DLSS is enabled; otherwise **false**. The default value is **false**.
+**true** if custom resolution scale override for DLSS is enabled ; otherwise **false**. The default value is **false**.
 ## void setDLSSResolutionScaleValue ( float value = 0.5f )
 
 ***Console*:**`render_upscale_dlss_resolution_scale_value`Sets a new custom resolution scale for DLSS within the allowed range for the current [DLSSMode](#DLSSMode) and output resolution, where 0.0 is the minimum and 1.0 is the maximum render resolution. [DLSSResolutionScaleEnabled](#DLSSResolutionScaleEnabled) must be enabled for this value to take effect.
@@ -11920,7 +12032,7 @@ Current FSR quality mode. One of the following values:
 ***Console*:**`render_upscale_fsr_enable_sharpness`Returns the current value indicating if additional sharpness pass for FidelityFX Super Resolution upscaling is enabled.
 ### Return value
 
-**true** if additional sharpness pass for FidelityFX Super Resolution upscaling is enabled; otherwise **false**. The default value is **false**.
+**true** if additional sharpness pass for FidelityFX Super Resolution upscaling is enabled ; otherwise **false**. The default value is **false**.
 ## void setFSRSharpness ( float fsrsharpness = 0.5f )
 
 ***Console*:**`render_upscale_fsr_sharpness`Sets a new sharpness value, where 0 is no additional sharpness and 1 is maximum additional sharpness.
@@ -11951,7 +12063,7 @@ Current pre-exposure value.
 Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
 ## static Event<> getEventBegin () const
 
-event triggered when rendering of the frame begins. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when rendering of the frame begins. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -12087,10 +12199,10 @@ Render::getEventBegin().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginEnvironment () const
 
-event triggered before the Environment rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the Environment rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -12226,10 +12338,10 @@ Render::getEventBeginEnvironment().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndEnvironment () const
 
-event triggered after the Environment rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the Environment rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -12365,10 +12477,10 @@ Render::getEventEndEnvironment().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginShadows () const
 
-event triggered before the shadows rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the shadows rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -12504,10 +12616,10 @@ Render::getEventBeginShadows().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginWorldShadow () const
 
-event triggered before the stage of rendering shadows from World light sources. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the stage of rendering shadows from World light sources. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -12643,10 +12755,10 @@ Render::getEventBeginWorldShadow().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndWorldShadow () const
 
-event triggered after the stage of rendering shadows from World light sources. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the stage of rendering shadows from World light sources. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -12782,10 +12894,10 @@ Render::getEventEndWorldShadow().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginProjShadow () const
 
-event triggered before the stage of rendering shadows from Projected light sources. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the stage of rendering shadows from Projected light sources. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -12921,10 +13033,10 @@ Render::getEventBeginProjShadow().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndProjShadow () const
 
-event triggered after the stage of rendering shadows from Projected light sources. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the stage of rendering shadows from Projected light sources. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -13060,10 +13172,10 @@ Render::getEventEndProjShadow().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginOmniShadow () const
 
-event triggered before the stage of rendering shadows from Omni light sources. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the stage of rendering shadows from Omni light sources. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -13199,10 +13311,10 @@ Render::getEventBeginOmniShadow().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndOmniShadow () const
 
-event triggered after the stage of rendering shadows from Omni light sources. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the stage of rendering shadows from Omni light sources. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -13338,10 +13450,10 @@ Render::getEventEndOmniShadow().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndShadows () const
 
-event triggered after the shadows rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the shadows rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -13477,10 +13589,10 @@ Render::getEventEndShadows().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginScreen () const
 
-event triggered before the stage of rendering each screen (a stereo image has 2 screens, while a cubemap will have 6). You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the stage of rendering each screen (a stereo image has 2 screens, while a cubemap will have 6). You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -13616,10 +13728,10 @@ Render::getEventBeginScreen().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginMixedRealityBlendMaskColor () const
 
-event triggered before the mask for Mixed Reality is rendered. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the mask for Mixed Reality is rendered. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -13755,10 +13867,10 @@ Render::getEventBeginMixedRealityBlendMaskColor().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndMixedRealityBlendMaskColor () const
 
-event triggered after the mask for Mixed Reality is rendered. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the mask for Mixed Reality is rendered. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -13894,10 +14006,10 @@ Render::getEventEndMixedRealityBlendMaskColor().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginVisualizerQuadOverdraw () const
 
-event triggered before *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer rendering. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer rendering. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -14033,10 +14145,10 @@ publisher->getEventBeginVisualizerQuadOverdraw().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndVisualizerQuadOverdraw () const
 
-event triggered *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer rendering. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer rendering. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -14172,10 +14284,10 @@ publisher->getEventEndVisualizerQuadOverdraw().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginOpacityGBuffer () const
 
-event triggered before filling the Gbuffer. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before filling the Gbuffer. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -14311,10 +14423,10 @@ Render::getEventBeginOpacityGBuffer().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginAuxiliarySurfaces () const
 
-event triggered before auxiliary surfaces rendering. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before auxiliary surfaces rendering. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -14450,10 +14562,10 @@ Render::getEventBeginAuxiliarySurfaces().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndAuxiliarySurfaces () const
 
-event triggered after auxiliary surfaces rendering. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after auxiliary surfaces rendering. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -14589,10 +14701,10 @@ Render::getEventEndAuxiliarySurfaces().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndOpacityGBuffer () const
 
-event triggered after filling the Gbuffer. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after filling the Gbuffer. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -14728,10 +14840,10 @@ Render::getEventEndOpacityGBuffer().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginOpacityDecals () const
 
-event triggered before the opacity decals rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the opacity decals rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -14867,10 +14979,10 @@ Render::getEventBeginOpacityDecals().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndOpacityDecals () const
 
-event triggered after the opacity decals rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the opacity decals rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -15006,10 +15118,10 @@ Render::getEventEndOpacityDecals().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginAuxiliaryDecals () const
 
-event triggered before the auxiliary decals rendering. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the auxiliary decals rendering. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -15145,10 +15257,10 @@ Render::getEventBeginAuxiliaryDecals().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndAuxiliaryDecals () const
 
-event triggered after the auxiliary decals rendering. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the auxiliary decals rendering. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -15284,10 +15396,10 @@ Render::getEventEndAuxiliaryDecals().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginCurvature () const
 
-event triggered before the [SSBevel](../../../editor2/settings/render_settings/ssbevel/index.md) effect rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the [SSBevel](../../../editor2/settings/render_settings/ssbevel/index.md) effect rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -15423,10 +15535,10 @@ Render::getEventBeginCurvature().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndCurvature () const
 
-event triggered after the [SSBevel](../../../editor2/settings/render_settings/ssbevel/index.md) effect rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the [SSBevel](../../../editor2/settings/render_settings/ssbevel/index.md) effect rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -15562,10 +15674,10 @@ Render::getEventEndCurvature().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginCurvatureComposite () const
 
-event triggered before the curvature rendering stage for the [SSDirt](../../../editor2/settings/render_settings/ssdirt/index.md) effect. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the curvature rendering stage for the [SSDirt](../../../editor2/settings/render_settings/ssdirt/index.md) effect. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -15701,10 +15813,10 @@ Render::getEventBeginCurvatureComposite().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndCurvatureComposite () const
 
-event triggered after the curvature rendering stage for the [SSDirt](../../../editor2/settings/render_settings/ssdirt/index.md) effect. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the curvature rendering stage for the [SSDirt](../../../editor2/settings/render_settings/ssdirt/index.md) effect. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -15840,10 +15952,10 @@ Render::getEventEndCurvatureComposite().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginSSRTGI () const
 
-event triggered before the SSRTGI rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the SSRTGI rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -15979,10 +16091,10 @@ Render::getEventBeginSSRTGI().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndSSRTGI () const
 
-event triggered after the SSRTGI rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the SSRTGI rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -16118,10 +16230,10 @@ Render::getEventEndSSRTGI().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginOpacityLights () const
 
-event triggered before the opacity lightgs rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the opacity lightgs rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -16257,10 +16369,10 @@ Render::getEventBeginOpacityLights().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndOpacityLights () const
 
-event triggered after the opacity lightgs rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the opacity lightgs rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -16396,10 +16508,10 @@ Render::getEventEndOpacityLights().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginOpacityVoxelProbes () const
 
-event triggered before the opacity voxel probes rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the opacity voxel probes rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -16535,10 +16647,10 @@ Render::getEventBeginOpacityVoxelProbes().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndOpacityVoxelProbes () const
 
-event triggered after the opacity voxel probes rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the opacity voxel probes rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -16674,10 +16786,10 @@ Render::getEventEndOpacityVoxelProbes().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginOpacityEnvironmentProbes () const
 
-event triggered before the opacity environment probes rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the opacity environment probes rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -16813,10 +16925,10 @@ Render::getEventBeginOpacityEnvironmentProbes().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndOpacityEnvironmentProbes () const
 
-event triggered after the opacity environment probes rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the opacity environment probes rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -16952,10 +17064,10 @@ Render::getEventEndOpacityEnvironmentProbes().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginOpacityPlanarProbes () const
 
-event triggered before the opacity planar probes rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the opacity planar probes rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -17091,10 +17203,10 @@ Render::getEventBeginOpacityPlanarProbes().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndOpacityPlanarProbes () const
 
-event triggered after the opacity planar probes rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the opacity planar probes rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -17230,10 +17342,10 @@ Render::getEventEndOpacityPlanarProbes().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginRefractionBuffer () const
 
-event triggered before filling the refraction buffer. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before filling the refraction buffer. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -17369,10 +17481,10 @@ Render::getEventBeginRefractionBuffer().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndRefractionBuffer () const
 
-event triggered after filling the refraction buffer. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after filling the refraction buffer. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -17508,10 +17620,10 @@ Render::getEventEndRefractionBuffer().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginTransparentBlurBuffer () const
 
-event triggered before filling the transparent blur buffer. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before filling the transparent blur buffer. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -17647,10 +17759,10 @@ Render::getEventBeginTransparentBlurBuffer().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndTransparentBlurBuffer () const
 
-event triggered after filling the transparent blur buffer. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after filling the transparent blur buffer. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -17786,10 +17898,10 @@ Render::getEventEndTransparentBlurBuffer().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginSSSS () const
 
-event triggered before the Screen-Space Shadow Shafts rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the Screen-Space Shadow Shafts rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -17925,10 +18037,10 @@ Render::getEventBeginSSSS().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndSSSS () const
 
-event triggered after the Screen-Space Shadow Shafts rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the Screen-Space Shadow Shafts rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -18064,10 +18176,10 @@ Render::getEventEndSSSS().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginSSR () const
 
-event triggered before the SSR rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the SSR rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -18203,10 +18315,10 @@ Render::getEventBeginSSR().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndSSR () const
 
-event triggered after the SSR rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the SSR rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -18342,10 +18454,10 @@ Render::getEventEndSSR().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginSSAO () const
 
-event triggered before the SSAO rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the SSAO rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -18481,10 +18593,10 @@ Render::getEventBeginSSAO().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndSSAO () const
 
-event triggered after the SSAO rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the SSAO rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -18620,10 +18732,10 @@ Render::getEventEndSSAO().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginSSGI () const
 
-event triggered before the SSGI rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the SSGI rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -18759,10 +18871,10 @@ Render::getEventBeginSSGI().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndSSGI () const
 
-event triggered after the SSGI rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the SSGI rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -18898,10 +19010,10 @@ Render::getEventEndSSGI().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginSky () const
 
-event triggered before the sky rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the sky rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -19037,10 +19149,10 @@ Render::getEventBeginSky().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndSky () const
 
-event triggered after the sky rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the sky rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -19176,10 +19288,10 @@ Render::getEventEndSky().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginCompositeDeferred () const
 
-event triggered before the clouds deferred composite stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the clouds deferred composite stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -19315,10 +19427,10 @@ Render::getEventBeginCompositeDeferred().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndCompositeDeferred () const
 
-event triggered after the clouds deferred composite stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the clouds deferred composite stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -19454,10 +19566,10 @@ Render::getEventEndCompositeDeferred().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginTransparent () const
 
-event triggered before the transparent objects rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the transparent objects rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -19593,10 +19705,10 @@ Render::getEventBeginTransparent().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginClouds () const
 
-event triggered before the clouds rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the clouds rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -19732,10 +19844,10 @@ Render::getEventBeginClouds().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndClouds () const
 
-event triggered after the clouds rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the clouds rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -19871,10 +19983,10 @@ Render::getEventEndClouds().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginWater () const
 
-event triggered before the water rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the water rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -20010,10 +20122,10 @@ Render::getEventBeginWater().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginWaterGBuffer () const
 
-event triggered before the Water G-Buffer rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the Water G-Buffer rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -20149,10 +20261,10 @@ publisher->getEventBeginWaterGBuffer().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndWaterGBuffer () const
 
-event triggered after the Water G-Buffer rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the Water G-Buffer rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -20288,10 +20400,10 @@ publisher->getEventEndWaterGBuffer().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginWaterDecals () const
 
-event triggered before the water decals rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the water decals rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -20427,10 +20539,10 @@ Render::getEventBeginWaterDecals().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndWaterDecals () const
 
-event triggered after the water decals rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the water decals rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -20566,10 +20678,10 @@ Render::getEventEndWaterDecals().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginWaterLights () const
 
-event triggered before the water lights rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the water lights rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -20705,10 +20817,10 @@ Render::getEventBeginWaterLights().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndWaterLights () const
 
-event triggered after the water lights rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the water lights rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -20844,10 +20956,10 @@ Render::getEventEndWaterLights().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginWaterVoxelProbes () const
 
-event triggered before the water voxel probes rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the water voxel probes rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -20983,10 +21095,10 @@ Render::getEventBeginWaterVoxelProbes().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndWaterVoxelProbes () const
 
-event triggered after the water voxel probes rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the water voxel probes rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -21122,10 +21234,10 @@ Render::getEventEndWaterVoxelProbes().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginWaterEnvironmentProbes () const
 
-event triggered before the water environment probes rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the water environment probes rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -21261,10 +21373,10 @@ Render::getEventBeginWaterEnvironmentProbes().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndWaterEnvironmentProbes () const
 
-event triggered after the water environment probes rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the water environment probes rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -21400,10 +21512,10 @@ Render::getEventEndWaterEnvironmentProbes().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginWaterPlanarProbes () const
 
-event triggered before the water planar probes rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the water planar probes rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -21539,10 +21651,10 @@ Render::getEventBeginWaterPlanarProbes().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndWaterPlanarProbes () const
 
-event triggered after the water planar probes rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the water planar probes rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -21678,10 +21790,10 @@ Render::getEventEndWaterPlanarProbes().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndWater () const
 
-event triggered after the water rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the water rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -21817,10 +21929,10 @@ Render::getEventEndWater().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndTransparent () const
 
-event triggered after the transparent objects rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the transparent objects rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -21956,10 +22068,10 @@ Render::getEventEndTransparent().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginSrgbCorrection () const
 
-event triggered before the sRGB correction stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the sRGB correction stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -22095,10 +22207,10 @@ Render::getEventBeginSrgbCorrection().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndSrgbCorrection () const
 
-event triggered after the sRGB correction stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the sRGB correction stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -22234,10 +22346,10 @@ Render::getEventEndSrgbCorrection().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginAdaptationColorAverage () const
 
-event triggered before the calculation of automatic exposure and white balance correction. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the calculation of automatic exposure and white balance correction. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -22373,10 +22485,10 @@ Render::getEventBeginAdaptationColorAverage().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndAdaptationColorAverage () const
 
-event triggered after the calculation of automatic exposure and white balance correction. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the calculation of automatic exposure and white balance correction. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -22512,10 +22624,10 @@ Render::getEventEndAdaptationColorAverage().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginAdaptationColor () const
 
-event triggered before the color adaptation rendering stage (automatic exposure and white balance correction). You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the color adaptation rendering stage (automatic exposure and white balance correction). You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -22651,10 +22763,10 @@ Render::getEventBeginAdaptationColor().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndAdaptationColor () const
 
-event triggered after the color adaptation rendering stage (automatic exposure and white balance correction). You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the color adaptation rendering stage (automatic exposure and white balance correction). You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -22790,10 +22902,10 @@ Render::getEventEndAdaptationColor().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginTAA () const
 
-event triggered before the Temporal Anti-Aliasing (TAA) pass. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the Temporal Anti-Aliasing (TAA) pass. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -22929,10 +23041,10 @@ Render::getEventBeginTAA().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndTAA () const
 
-event triggered after the Temporal Anti-Aliasing (TAA) pass. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the Temporal Anti-Aliasing (TAA) pass. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -23068,10 +23180,10 @@ Render::getEventEndTAA().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginCameraEffects () const
 
-event triggered before the camera effects stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the camera effects stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -23207,10 +23319,10 @@ Render::getEventBeginCameraEffects().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndCameraEffects () const
 
-event triggered after the camera effects stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the camera effects stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -23346,10 +23458,10 @@ Render::getEventEndCameraEffects().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginPostMaterials () const
 
-event triggered before the post materials rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the post materials rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -23485,10 +23597,10 @@ Render::getEventBeginPostMaterials().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndPostMaterials () const
 
-event triggered after the post materials rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the post materials rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -23624,10 +23736,10 @@ Render::getEventEndPostMaterials().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginDebugMaterials () const
 
-event triggered before the debug materials stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the debug materials stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -23763,10 +23875,10 @@ Render::getEventBeginDebugMaterials().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndDebugMaterials () const
 
-event triggered after the debug materials stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the debug materials stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -23902,10 +24014,10 @@ Render::getEventEndDebugMaterials().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginVisualizer () const
 
-event triggered before the visualizer rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the visualizer rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -24041,10 +24153,10 @@ Render::getEventBeginVisualizer().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndVisualizer () const
 
-event triggered after the visualizer rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the visualizer rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -24180,10 +24292,10 @@ Render::getEventEndVisualizer().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndScreen () const
 
-event triggered after the stage of rendering each screen (a stereo image has 2 screens, while a cubemap will have 6). You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the stage of rendering each screen (a stereo image has 2 screens, while a cubemap will have 6). You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -24319,10 +24431,10 @@ Render::getEventEndScreen().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEnd () const
 
-event triggered when rendering of the frame ends. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when rendering of the frame ends. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -24458,10 +24570,10 @@ Render::getEventEnd().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndFrameExecuteCommandLists () const
 
-Event triggered after *ExecuteCommandLists* just before *Present*. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+Event triggered after *ExecuteCommandLists* just before *Present*. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -24597,10 +24709,10 @@ publisher->getEventEndFrameExecuteCommandLists().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndVRQuadComposeEyeSwapchains () const
 
-Event triggered after composing VR viewports, enabling you to subscribe and perform certain actions (e.g. implement a binoculars effect using post-materials). You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+Event triggered after composing VR viewports, enabling you to subscribe and perform certain actions (e.g. implement a binoculars effect using post-materials). You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -24736,10 +24848,10 @@ publisher->getEventEndVRQuadComposeEyeSwapchains().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const char *, const char *> getEventGPUCrashDump () const
 
-Event triggered when a GPU crash is detected and a crash dump file has been written. The event provides the path to the dump file and an error message containing crash details (device status, page fault info, active shaders). Requires *video_debug_crash_dump* to be enabled and an NVIDIA GPU with Nsight Aftermath support. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+Event triggered when a GPU crash is detected and a crash dump file has been written. The event provides the path to the dump file and an error message containing crash details (device status, page fault info, active shaders). Requires *video_debug_crash_dump* to be enabled and an NVIDIA GPU with Nsight Aftermath support. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -24875,7 +24987,424 @@ publisher->getEventGPUCrashDump().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
+## Event<> getEventChangedParameters () const
+
+Event triggered when {event_description}. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
+
+> **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
+
+ The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+// implement the ChangedParameters event handler
+void changedparameters_event_handler()
+{
+	Log::message("\Handling ChangedParameters event\n");
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//  1. Multiple subscriptions can be linked to an instance of the EventConnections
+//  class that you can use later to remove all these subscriptions at once
+//////////////////////////////////////////////////////////////////////////////
+
+// create an instance of the EventConnections class
+EventConnections changedparameters_event_connections;
+
+// link to this instance when subscribing to an event (subscription to various events can be linked)
+publisher->getEventChangedParameters().connect(changedparameters_event_connections, changedparameters_event_handler);
+
+// other subscriptions are also linked to this EventConnections instance
+// (e.g. you can subscribe using lambdas)
+publisher->getEventChangedParameters().connect(changedparameters_event_connections, []() {
+		Log::message("\Handling ChangedParameters event (lambda).\n");
+	}
+);
+
+// ...
+
+// later all of these linked subscriptions can be removed with a single line
+changedparameters_event_connections.disconnectAll();
+
+//////////////////////////////////////////////////////////////////////////////
+//  2. You can subscribe and unsubscribe via an instance of the EventConnection
+//  class. And toggle this particular connection off and on, when necessary.
+//////////////////////////////////////////////////////////////////////////////
+
+// create an instance of the EventConnection class
+EventConnection changedparameters_event_connection;
+
+// subscribe to the ChangedParameters event with a handler function keeping the connection
+publisher->getEventChangedParameters().connect(changedparameters_event_connection, changedparameters_event_handler);
+
+// ...
+
+// you can temporarily disable a particular event connection to perform certain actions
+changedparameters_event_connection.setEnabled(false);
+
+// ... actions to be performed
+
+// and enable it back when necessary
+changedparameters_event_connection.setEnabled(true);
+
+// ...
+
+// remove subscription to the ChangedParameters event via the connection
+changedparameters_event_connection.disconnect();
+
+//////////////////////////////////////////////////////////////////////////////
+//  3. You can add EventConnection/EventConnections instance as a member of the
+//  class that handles the event. In this case all linked subscriptions will be
+//  automatically removed when class destructor is called
+//////////////////////////////////////////////////////////////////////////////
+
+// Class handling the event
+class SomeClass
+{
+public:
+	// instance of the EventConnections class as a class member
+	EventConnections e_connections;
+
+	// A ChangedParameters event handler implemented as a class member
+	void event_handler()
+	{
+		Log::message("\Handling ChangedParameters event\n");
+		// ...
+	}
+};
+
+SomeClass *sc = new SomeClass();
+
+// ...
+
+// specify a class instance in case a handler method belongs to some class
+publisher->getEventChangedParameters().connect(sc->e_connections, sc, &SomeClass::event_handler);
+
+// ...
+
+// handler class instance is deleted with all its subscriptions removed automatically
+delete sc;
+
+//////////////////////////////////////////////////////////////////////////////
+//   4. Subscribe to an event saving a particular connection ID
+//   and unsubscribe later by this ID
+//////////////////////////////////////////////////////////////////////////////
+// instance of the EventConnections class to manage event connections
+EventConnections e_connections;
+
+// define a particular connection ID to be used to unsubscribe later
+EventConnectionId changedparameters_handler_id;
+
+// subscribe to the ChangedParameters event with a lambda handler function and keeping connection ID
+changedparameters_handler_id = publisher->getEventChangedParameters().connect(e_connections, []() {
+		Log::message("\Handling ChangedParameters event (lambda).\n");
+	}
+);
+
+// remove the subscription later using the ID
+publisher->getEventChangedParameters().disconnect(changedparameters_handler_id);
+
+//////////////////////////////////////////////////////////////////////////////
+//   5. Ignoring all ChangedParameters events when necessary
+//////////////////////////////////////////////////////////////////////////////
+
+// you can temporarily disable the event to perform certain actions without triggering it
+publisher->getEventChangedParameters().setEnabled(false);
+
+// ... actions to be performed
+
+// and enable it back when necessary
+publisher->getEventChangedParameters().setEnabled(true);
+
+```
+
+</details>
+
+### Return value
+
+Event instance.
+## Event<const Ptr <const MeshSkinnedAnimation > &, const UGUID &> getEventStreamingAnimationLoaded () const
+
+Event triggered when a skinned mesh animation has been loaded into the [data streaming](../../../principles/data_streaming/index.md) system. The event provides the loaded animation and the GUID of its source file. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
+
+> **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
+
+ The event handler signature is as follows: *myhandler(const Ptr<const MeshSkinnedAnimation> & **animation**, const UGUID & **file_guid**)*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+// implement the StreamingAnimationLoaded event handler
+void streaminganimationloaded_event_handler(const Ptr<const MeshSkinnedAnimation> & animation,  const UGUID & file_guid)
+{
+	Log::message("\Handling StreamingAnimationLoaded event\n");
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//  1. Multiple subscriptions can be linked to an instance of the EventConnections
+//  class that you can use later to remove all these subscriptions at once
+//////////////////////////////////////////////////////////////////////////////
+
+// create an instance of the EventConnections class
+EventConnections streaminganimationloaded_event_connections;
+
+// link to this instance when subscribing to an event (subscription to various events can be linked)
+publisher->getEventStreamingAnimationLoaded().connect(streaminganimationloaded_event_connections, streaminganimationloaded_event_handler);
+
+// other subscriptions are also linked to this EventConnections instance
+// (e.g. you can subscribe using lambdas)
+publisher->getEventStreamingAnimationLoaded().connect(streaminganimationloaded_event_connections, [](const Ptr<const MeshSkinnedAnimation> & animation,  const UGUID & file_guid) {
+		Log::message("\Handling StreamingAnimationLoaded event (lambda).\n");
+	}
+);
+
+// ...
+
+// later all of these linked subscriptions can be removed with a single line
+streaminganimationloaded_event_connections.disconnectAll();
+
+//////////////////////////////////////////////////////////////////////////////
+//  2. You can subscribe and unsubscribe via an instance of the EventConnection
+//  class. And toggle this particular connection off and on, when necessary.
+//////////////////////////////////////////////////////////////////////////////
+
+// create an instance of the EventConnection class
+EventConnection streaminganimationloaded_event_connection;
+
+// subscribe to the StreamingAnimationLoaded event with a handler function keeping the connection
+publisher->getEventStreamingAnimationLoaded().connect(streaminganimationloaded_event_connection, streaminganimationloaded_event_handler);
+
+// ...
+
+// you can temporarily disable a particular event connection to perform certain actions
+streaminganimationloaded_event_connection.setEnabled(false);
+
+// ... actions to be performed
+
+// and enable it back when necessary
+streaminganimationloaded_event_connection.setEnabled(true);
+
+// ...
+
+// remove subscription to the StreamingAnimationLoaded event via the connection
+streaminganimationloaded_event_connection.disconnect();
+
+//////////////////////////////////////////////////////////////////////////////
+//  3. You can add EventConnection/EventConnections instance as a member of the
+//  class that handles the event. In this case all linked subscriptions will be
+//  automatically removed when class destructor is called
+//////////////////////////////////////////////////////////////////////////////
+
+// Class handling the event
+class SomeClass
+{
+public:
+	// instance of the EventConnections class as a class member
+	EventConnections e_connections;
+
+	// A StreamingAnimationLoaded event handler implemented as a class member
+	void event_handler(const Ptr<const MeshSkinnedAnimation> & animation,  const UGUID & file_guid)
+	{
+		Log::message("\Handling StreamingAnimationLoaded event\n");
+		// ...
+	}
+};
+
+SomeClass *sc = new SomeClass();
+
+// ...
+
+// specify a class instance in case a handler method belongs to some class
+publisher->getEventStreamingAnimationLoaded().connect(sc->e_connections, sc, &SomeClass::event_handler);
+
+// ...
+
+// handler class instance is deleted with all its subscriptions removed automatically
+delete sc;
+
+//////////////////////////////////////////////////////////////////////////////
+//   4. Subscribe to an event saving a particular connection ID
+//   and unsubscribe later by this ID
+//////////////////////////////////////////////////////////////////////////////
+// instance of the EventConnections class to manage event connections
+EventConnections e_connections;
+
+// define a particular connection ID to be used to unsubscribe later
+EventConnectionId streaminganimationloaded_handler_id;
+
+// subscribe to the StreamingAnimationLoaded event with a lambda handler function and keeping connection ID
+streaminganimationloaded_handler_id = publisher->getEventStreamingAnimationLoaded().connect(e_connections, [](const Ptr<const MeshSkinnedAnimation> & animation,  const UGUID & file_guid) {
+		Log::message("\Handling StreamingAnimationLoaded event (lambda).\n");
+	}
+);
+
+// remove the subscription later using the ID
+publisher->getEventStreamingAnimationLoaded().disconnect(streaminganimationloaded_handler_id);
+
+//////////////////////////////////////////////////////////////////////////////
+//   5. Ignoring all StreamingAnimationLoaded events when necessary
+//////////////////////////////////////////////////////////////////////////////
+
+// you can temporarily disable the event to perform certain actions without triggering it
+publisher->getEventStreamingAnimationLoaded().setEnabled(false);
+
+// ... actions to be performed
+
+// and enable it back when necessary
+publisher->getEventStreamingAnimationLoaded().setEnabled(true);
+
+```
+
+</details>
+
+### Return value
+
+Event instance.
+## Event<const Ptr <const MeshSkinnedAnimation > &, const UGUID &> getEventStreamingAnimationUnloaded () const
+
+Event triggered when a skinned mesh animation has been unloaded from the [data streaming](../../../principles/data_streaming/index.md) system. The event provides the unloaded animation and the GUID of its source file. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
+
+> **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
+
+ The event handler signature is as follows: *myhandler(const Ptr<const MeshSkinnedAnimation> & **animation**, const UGUID & **file_guid**)*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+// implement the StreamingAnimationUnloaded event handler
+void streaminganimationunloaded_event_handler(const Ptr<const MeshSkinnedAnimation> & animation,  const UGUID & file_guid)
+{
+	Log::message("\Handling StreamingAnimationUnloaded event\n");
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//  1. Multiple subscriptions can be linked to an instance of the EventConnections
+//  class that you can use later to remove all these subscriptions at once
+//////////////////////////////////////////////////////////////////////////////
+
+// create an instance of the EventConnections class
+EventConnections streaminganimationunloaded_event_connections;
+
+// link to this instance when subscribing to an event (subscription to various events can be linked)
+publisher->getEventStreamingAnimationUnloaded().connect(streaminganimationunloaded_event_connections, streaminganimationunloaded_event_handler);
+
+// other subscriptions are also linked to this EventConnections instance
+// (e.g. you can subscribe using lambdas)
+publisher->getEventStreamingAnimationUnloaded().connect(streaminganimationunloaded_event_connections, [](const Ptr<const MeshSkinnedAnimation> & animation,  const UGUID & file_guid) {
+		Log::message("\Handling StreamingAnimationUnloaded event (lambda).\n");
+	}
+);
+
+// ...
+
+// later all of these linked subscriptions can be removed with a single line
+streaminganimationunloaded_event_connections.disconnectAll();
+
+//////////////////////////////////////////////////////////////////////////////
+//  2. You can subscribe and unsubscribe via an instance of the EventConnection
+//  class. And toggle this particular connection off and on, when necessary.
+//////////////////////////////////////////////////////////////////////////////
+
+// create an instance of the EventConnection class
+EventConnection streaminganimationunloaded_event_connection;
+
+// subscribe to the StreamingAnimationUnloaded event with a handler function keeping the connection
+publisher->getEventStreamingAnimationUnloaded().connect(streaminganimationunloaded_event_connection, streaminganimationunloaded_event_handler);
+
+// ...
+
+// you can temporarily disable a particular event connection to perform certain actions
+streaminganimationunloaded_event_connection.setEnabled(false);
+
+// ... actions to be performed
+
+// and enable it back when necessary
+streaminganimationunloaded_event_connection.setEnabled(true);
+
+// ...
+
+// remove subscription to the StreamingAnimationUnloaded event via the connection
+streaminganimationunloaded_event_connection.disconnect();
+
+//////////////////////////////////////////////////////////////////////////////
+//  3. You can add EventConnection/EventConnections instance as a member of the
+//  class that handles the event. In this case all linked subscriptions will be
+//  automatically removed when class destructor is called
+//////////////////////////////////////////////////////////////////////////////
+
+// Class handling the event
+class SomeClass
+{
+public:
+	// instance of the EventConnections class as a class member
+	EventConnections e_connections;
+
+	// A StreamingAnimationUnloaded event handler implemented as a class member
+	void event_handler(const Ptr<const MeshSkinnedAnimation> & animation,  const UGUID & file_guid)
+	{
+		Log::message("\Handling StreamingAnimationUnloaded event\n");
+		// ...
+	}
+};
+
+SomeClass *sc = new SomeClass();
+
+// ...
+
+// specify a class instance in case a handler method belongs to some class
+publisher->getEventStreamingAnimationUnloaded().connect(sc->e_connections, sc, &SomeClass::event_handler);
+
+// ...
+
+// handler class instance is deleted with all its subscriptions removed automatically
+delete sc;
+
+//////////////////////////////////////////////////////////////////////////////
+//   4. Subscribe to an event saving a particular connection ID
+//   and unsubscribe later by this ID
+//////////////////////////////////////////////////////////////////////////////
+// instance of the EventConnections class to manage event connections
+EventConnections e_connections;
+
+// define a particular connection ID to be used to unsubscribe later
+EventConnectionId streaminganimationunloaded_handler_id;
+
+// subscribe to the StreamingAnimationUnloaded event with a lambda handler function and keeping connection ID
+streaminganimationunloaded_handler_id = publisher->getEventStreamingAnimationUnloaded().connect(e_connections, [](const Ptr<const MeshSkinnedAnimation> & animation,  const UGUID & file_guid) {
+		Log::message("\Handling StreamingAnimationUnloaded event (lambda).\n");
+	}
+);
+
+// remove the subscription later using the ID
+publisher->getEventStreamingAnimationUnloaded().disconnect(streaminganimationunloaded_handler_id);
+
+//////////////////////////////////////////////////////////////////////////////
+//   5. Ignoring all StreamingAnimationUnloaded events when necessary
+//////////////////////////////////////////////////////////////////////////////
+
+// you can temporarily disable the event to perform certain actions without triggering it
+publisher->getEventStreamingAnimationUnloaded().setEnabled(false);
+
+// ... actions to be performed
+
+// and enable it back when necessary
+publisher->getEventStreamingAnimationUnloaded().setEnabled(true);
+
+```
+
+</details>
+
+### Return value
+
+Event instance.
 ## void setShowTextureResolutionStreamingAccountingMode ( Render::SHOW_TEXTURE_RESOLUTION_STREAMING_ACCOUNTING mode = 0 )
 
 ***Console*:**`render_show_texture_resolution_streaming_accounting_mode`Sets a new streaming accounting mode. The following modes are available:
@@ -24967,7 +25496,7 @@ Current color clamping mode. One of the following values:
 ***Console*:**`render_indirect_lighting_interleaved_catmull_resampling`Returns the current value indicating whether Catmull-Rom resampling is enabled or not. Catmull-Rom resampling allows you to reduce image blurring when the camera moves forward/backward. It is recommended to disable resampling for low quality presets.
 ### Return value
 
-**true** if Catmull-Rom resampling is enabled; otherwise **false**. The default value is **false**.
+**true** if Catmull-Rom resampling is enabled ; otherwise **false**. The default value is **false**.
 ## void setLocalTonemapperColorDifferenceThreshold ( float threshold = 0.1f )
 
 ***Console*:**`render_local_tonemapper_color_difference_threshold`Sets a new threshold value that determines the extent to which color differences on the screen are considered. If you set the value to 1, the result will appear as if the [*Color Difference*](#LocalTonemapperColorDifferenceEnabled) feature is turned off.
@@ -24994,7 +25523,7 @@ Range of values: **[0.0f, 1.0f]**. The default value is : **0.1f**.
 ***Console*:**`render_local_tonemapper_color_difference_enabled`Returns the current value indicating whether considering of the image color rendered on the screen is enabled. Enabling this feature allows reducing halo artifacts on surfaces with sharp color transitions. For example, it can significantly improve the appearance of a distinct shadow from the sun on asphalt.
 ### Return value
 
-**true** if considering of the image color rendered on the screen is enabled; otherwise **false**. The default value is **false**.
+**true** if considering of the image color rendered on the screen is enabled ; otherwise **false**. The default value is **false**.
 ## void setLocalTonemapperDepthDifferenceEnabled ( bool enabled = true )
 
 ***Console*:**`render_local_tonemapper_depth_difference_enabled`Sets a new value indicating whether considering of the depth difference between objects in the scene is enabled. Enabling this feature allows reducing halo artifacts around objects. However, we recommend using it only in exceptional cases, as it is a performance-costly operation.
@@ -25007,7 +25536,7 @@ Range of values: **[0.0f, 1.0f]**. The default value is : **0.1f**.
 ***Console*:**`render_local_tonemapper_depth_difference_enabled`Returns the current value indicating whether considering of the depth difference between objects in the scene is enabled. Enabling this feature allows reducing halo artifacts around objects. However, we recommend using it only in exceptional cases, as it is a performance-costly operation.
 ### Return value
 
-**true** if considering of the depth difference between objects in the scene is enabled; otherwise **false**. The default value is **false**.
+**true** if considering of the depth difference between objects in the scene is enabled ; otherwise **false**. The default value is **false**.
 ## void setLocalTonemapperBlurUpscaleKernelSize ( int size = 0 )
 
 ***Console*:**`render_local_tonemapper_blur_upscale_kernel_size`Sets a new size of the kernel used for upscaling the blurred image. The higher the value the better the upscaling quality, but the lower the performance. It is recommended to set the kernel size as follows:
@@ -25047,7 +25576,7 @@ Current kernel size. One of the following values:
 ***Console*:**`render_local_tonemapper_blur_upscale`Returns the current value indicating whether upscaling the blurred image from the *Quarter* or *Half* resolution to the *Full* one is enabled.
 ### Return value
 
-**true** if upscaling the blurred image is enabled; otherwise **false**. The default value is **false**.
+**true** if upscaling the blurred image is enabled ; otherwise **false**. The default value is **false**.
 ## void setLocalTonemapperBlurResolution ( int resolution = 2 )
 
 ***Console*:**`render_local_tonemapper_blur_resolution`Sets a new resolution of the blur applied during the tone mapping process.
@@ -25088,7 +25617,7 @@ Current blur resolution. One of the following values:
 ***Console*:**`render_local_tonemapper_debug`Returns the current value indicating whether the debug mode for the local tonemapper is enabled.
 ### Return value
 
-**true** if debug mode for the local tonemapper is enabled; otherwise **false**. The default value is **false**.
+**true** if debug mode for the local tonemapper is enabled ; otherwise **false**. The default value is **false**.
 ## void setDenoiseColorClampingBlurResolution ( int resolution = 2 )
 
 ***Console*:**`render_denoise_color_clamping_blur_resolution`Sets a new resolution of the Color Clamping Blur buffer. This buffer allows for reducing ghosting artifacts and information lost areas. The *Full* resolution is the slowest one, so we don't recommend using it.
@@ -25137,7 +25666,7 @@ Range of values: **[0.0f, inf]**. The default value is : **0.03f**.
 ***Console*:**`render_denoise_wrong_velocity_fix_by_depth_enabled`Returns the current value indicating whether correction of a wrong velocity during the denoise process is enabled. It helps reduce ghosting artifacts around moving objects.
 ### Return value
 
-**true** if correction of a wrong velocity during the denoise process is enabled; otherwise **false**. The default value is **false**.
+**true** if correction of a wrong velocity during the denoise process is enabled ; otherwise **false**. The default value is **false**.
 ## void setTAAInformationLostDepthThreshold ( float threshold = 0.1f )
 
 ***Console*:**`render_taa_information_lost_depth_threshold`Sets a new threshold value for the depth difference used to calculate information lost areas. "Information lost" refers to rendering of the surfaces that weren't rendered in the prevoius frame.
@@ -25178,7 +25707,7 @@ Range of values: **[0.0f, 1000000.0f]**. The default value is : **2.0f**.
 ***Console*:**`render_streaming_textures_mipmaps`Returns the current value indicating whether texture mipmap loading is enabled.
 ### Return value
 
-**true** if texture mipmap loading is enabled; otherwise **false**. The default value is **false**.
+**true** if texture mipmap loading is enabled ; otherwise **false**. The default value is **false**.
 ## void setStreamingVRAMBudget ( Render::STREAMING_VRAM_BUDGET vrambudget = 1 )
 
 ***Console*:**`render_streaming_vram_budget`Sets a new mode for determining the amount of available VRAM. The following modes are available:
@@ -25222,7 +25751,7 @@ Current mode for determining the amount of available VRAM. One of the following 
 ***Console*:**`render_streaming_vram_overcommit`Returns the current value indicating whether VRAM limits (both the usage limit and free space) are applied.
 ### Return value
 
-**true** if application of VRAM limits (both the usage limit and free space) is enabled; otherwise **false**. The default value is **false**.
+**true** if application of VRAM limits (both the usage limit and free space) is enabled ; otherwise **false**. The default value is **false**.
 ## void setStreamingCommittedMemoryOvercommit ( bool overcommit = 1 )
 
 ***Console*:**`render_streaming_committed_memory_overcommit`Sets a new value indicating whether the Engine enforces internal limits on committed memory usage.
@@ -25263,7 +25792,7 @@ Current mode for determining the amount of available VRAM. One of the following 
 
 ### Return value
 
-**true** if enforcement of committed memory usage limits by the Engine is enabled; otherwise **false**. The default value is **true**.
+**true** if enforcement of committed memory usage limits by the Engine is enabled ; otherwise **false**. The default value is **true**.
 ## void setStreamingFreeSpaceRAM ( int ram = 1024 )
 
 ***Console*:**`render_streaming_free_space_ram`Sets a new amount of physical memory that the Engine will always keep free and never allocate for its own use, in Mbytes.
@@ -25430,7 +25959,7 @@ Current quality level of shading. One of the following values:
 ***Console*:**`render_multithreaded`Returns the current value indicating if the multithreaded rendering mode is enabled (DX12 only).
 ### Return value
 
-**true** if multithreaded rendering mode is enabled; otherwise **false**. The default value is **true**.
+**true** if multithreaded rendering mode is enabled ; otherwise **false**. The default value is **true**.
 ## void setMultithreadedEditor ( bool editor = 0 )
 
 ***Console*:**`render_multithreaded_editor`Sets a new value indicating if the multithreaded rendering mode in the Editor is enabled (DX12 only).
@@ -25443,7 +25972,7 @@ Current quality level of shading. One of the following values:
 ***Console*:**`render_multithreaded_editor`Returns the current value indicating if the multithreaded rendering mode in the Editor is enabled (DX12 only).
 ### Return value
 
-**true** if multithreaded rendering mode in the Editor is enabled; otherwise **false**. The default value is **false**.
+**true** if multithreaded rendering mode in the Editor is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowQuadOverdrawBlend ( float blend = 1.0f )
 
 ***Console*:**`render_show_quad_overdraw_blend`Sets a new opacity of the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer.
@@ -25484,7 +26013,7 @@ Range of values: **[1, 1000000]**. The default value is : **40**.
 ***Console*:**`render_show_quad_overdraw_water_global`Returns the current *[Water Global](../../../objects/objects/water/water_object.md)* rendering enabled state in the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer.
 ### Return value
 
-**true** if *Water Global* rendering in the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer. is enabled; otherwise **false**. The default value is **false**.
+**true** if *Water Global* rendering in the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer. is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowQuadOverdrawLandscapeTerrain ( bool terrain = 0 )
 
 ***Console*:**`render_show_quad_overdraw_landscape_terrain`Sets a new *[Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md)* rendering enabled state in the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer.
@@ -25497,7 +26026,7 @@ Range of values: **[1, 1000000]**. The default value is : **40**.
 ***Console*:**`render_show_quad_overdraw_landscape_terrain`Returns the current *[Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md)* rendering enabled state in the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer.
 ### Return value
 
-**true** if Landscape Terrain rendering in the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer is enabled; otherwise **false**. The default value is **false**.
+**true** if Landscape Terrain rendering in the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowQuadOverdrawWireframe ( bool wireframe = 0 )
 
 ***Console*:**`render_show_quad_overdraw_wireframe`Sets a new Wireframe rendering enabled state in the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer.
@@ -25510,7 +26039,7 @@ Range of values: **[1, 1000000]**. The default value is : **40**.
 ***Console*:**`render_show_quad_overdraw_wireframe`Returns the current Wireframe rendering enabled state in the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer.
 ### Return value
 
-**true** if *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* Wireframe rendering is enabled; otherwise **false**. The default value is **false**.
+**true** if *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* Wireframe rendering is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowQuadOverdrawPasses ( Render::SHOW_QUAD_OVERDRAW_PASSES passes = 0 )
 
 ***Console*:**`render_show_quad_overdraw_passes`Sets a new operating mode of the *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer. The following options are available:
@@ -25581,7 +26110,7 @@ Current display mode of the *[Quad Overdraw](../../../content/optimization/geome
 ***Console*:**`render_show_quad_overdraw_enabled`Returns the current *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer enabled state.
 ### Return value
 
-**true** if *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer is enabled; otherwise **false**. The default value is **false**.
+**true** if *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer is enabled ; otherwise **false**. The default value is **false**.
 ## void setShowVertexDensityBlend ( float blend = 1.0f )
 
 ***Console*:**`render_show_vertex_density_blend`Sets a new opacity of the *[Vertex Density](../../../content/optimization/geometry/vertex_density/index.md#tool_overview)* visualizer.
@@ -25636,7 +26165,7 @@ Range of values: **[1, 1024]**. The default value is : **8**.
 ***Console*:**`render_show_vertex_density_depth_test`Returns the current *[Vertex Density](../../../content/optimization/geometry/vertex_density/index.md#tool_overview)* depth testing enabled state.
 ### Return value
 
-**true** if *[Vertex Density](../../../content/optimization/geometry/vertex_density/index.md#tool_overview)* depth testing is enabled; otherwise **false**. The default value is **true**.
+**true** if *[Vertex Density](../../../content/optimization/geometry/vertex_density/index.md#tool_overview)* depth testing is enabled ; otherwise **false**. The default value is **true**.
 ## void setShowVertexDensityMode ( Render::SHOW_VERTEX_DENSITY_MODE mode = 0 )
 
 ***Console*:**`render_show_vertex_density_mode`Sets a new mode of the *[Vertex Density](../../../content/optimization/geometry/vertex_density/index.md#tool_overview)* visualizer. The following modes are available:
@@ -25676,7 +26205,35 @@ Current mode of the *[Vertex Density](../../../content/optimization/geometry/ver
 ***Console*:**`render_show_vertex_density_enabled`Returns the current *[Vertex Density](../../../content/optimization/geometry/vertex_density/index.md#tool_overview)* visualizer enabled state.
 ### Return value
 
-**true** if *[Vertex Density](../../../content/optimization/geometry/vertex_density/index.md#tool_overview)* visualizer is enabled; otherwise **false**. The default value is **false**.
+**true** if *[Vertex Density](../../../content/optimization/geometry/vertex_density/index.md#tool_overview)* visualizer is enabled ; otherwise **false**. The default value is **false**.
+## void setShadowsBlockerSearchRadiusOmniProj ( float proj = 0.5f )
+
+***Console*:**`render_shadows_blocker_search_radius_omni_proj`Sets a new blocker search radius used for penumbra calculation of Omni and Projected light shadows. This value controls the area sampled to find shadow-casting occluders when computing soft shadow penumbra. Higher values produce wider, softer penumbra. This is a base value: the effective radius also scales with the shadow map resolution and with the **Penumbra** value of the light source. The parameter is not applied when the effective **Penumbra Mode** of the light is **Low**.
+### Arguments
+
+- *float* **proj** - The **0.5f** - blocker search radius for Omni and Projected light shadows Range of values: **[eps, inf]**. The default value is : **0.5f**.
+
+## float getShadowsBlockerSearchRadiusOmniProj () const
+
+***Console*:**`render_shadows_blocker_search_radius_omni_proj`Returns the current blocker search radius used for penumbra calculation of Omni and Projected light shadows. This value controls the area sampled to find shadow-casting occluders when computing soft shadow penumbra. Higher values produce wider, softer penumbra. This is a base value: the effective radius also scales with the shadow map resolution and with the **Penumbra** value of the light source. The parameter is not applied when the effective **Penumbra Mode** of the light is **Low**.
+### Return value
+
+Current **0.5f** - blocker search radius for Omni and Projected light shadows
+Range of values: **[eps, inf]**. The default value is : **0.5f**.
+## void setShadowsBlockerSearchRadiusWorld ( float world = 0.5f )
+
+***Console*:**`render_shadows_blocker_search_radius_world`Sets a new blocker search radius used for penumbra calculation of the World light shadows. This value controls the area sampled to find shadow-casting occluders when computing soft shadow penumbra. Higher values produce wider, softer penumbra. This is a base value: the effective radius also scales with the shadow map resolution, the **Penumbra** value of the light source, and the shadow distance.
+### Arguments
+
+- *float* **world** - The **0.5f** - blocker search radius for World light shadows Range of values: **[eps, inf]**. The default value is : **0.5f**.
+
+## float getShadowsBlockerSearchRadiusWorld () const
+
+***Console*:**`render_shadows_blocker_search_radius_world`Returns the current blocker search radius used for penumbra calculation of the World light shadows. This value controls the area sampled to find shadow-casting occluders when computing soft shadow penumbra. Higher values produce wider, softer penumbra. This is a base value: the effective radius also scales with the shadow map resolution, the **Penumbra** value of the light source, and the shadow distance.
+### Return value
+
+Current **0.5f** - blocker search radius for World light shadows
+Range of values: **[eps, inf]**. The default value is : **0.5f**.
 ## void setLightsDitherScale ( float scale = 1.0f )
 
 ***Console*:**`render_lights_dither_scale`Sets a new dithering intensity for light rendering. Dithering adds subtle noise to reduce color banding in light gradients.
@@ -25743,7 +26300,7 @@ Range of values: **[0.0f, 1.0f]**. The default value is : **0.0f**.
 ***Console*:**`render_upscale_fsr_show_debug_view`Returns the current value indicating if FSR debug view is enabled.
 ### Return value
 
-**true** if FSR debug view is enabled; otherwise **false**. The default value is **false**.
+**true** if FSR debug view is enabled ; otherwise **false**. The default value is **false**.
 ## void setUpscaleOrder ( Render::RENDER_UPSCALE_ORDER order = 0 )
 
 ***Console*:**`render_upscale_order`Sets a new stage of the rendering pipeline at which upscaling is applied.
@@ -25822,6 +26379,652 @@ Returns the current number of global PSOs compiled during the current frame. Glo
 ### Return value
 
 Current number of global PSOs compiled per frame
+## void setDynamicResolutionEnabled ( bool enabled = 0 )
+
+***Console*:**`render_dynamic_resolution_enabled`Sets a new [Dynamic Resolution Scaling](../../../principles/render/drs/index.md). When enabled, the engine can automatically adjust the internal rendering resolution based on GPU frame time to maintain the target frame rate.
+### Arguments
+
+- *bool* **enabled** - Set **true** to enable Dynamic Resolution Scaling.; **false** - to disable it. The default value is **false**.
+
+## bool isDynamicResolutionEnabled () const
+
+***Console*:**`render_dynamic_resolution_enabled`Returns the current [Dynamic Resolution Scaling](../../../principles/render/drs/index.md). When enabled, the engine can automatically adjust the internal rendering resolution based on GPU frame time to maintain the target frame rate.
+### Return value
+
+**true** if Dynamic Resolution Scaling. is enabled ; otherwise **false**. The default value is **false**.
+## void setDynamicResolutionScaleMin ( float min = 0.275f )
+
+***Console*:**`render_dynamic_resolution_scale_min`Sets a new minimum dynamic resolution scale relative to the target resolution. For example, if the target resolution is 3840 ï¿½ 2160 and the minimum scale is 0.5, the internal rendering resolution can be reduced down to 1920 ï¿½ 1080.
+### Arguments
+
+- *float* **min** - The minimum dynamic resolution scale relative to the target resolution. Range of values: **[0.1f, 1.0f]**. The default value is : **0.275f**.
+
+## float getDynamicResolutionScaleMin () const
+
+***Console*:**`render_dynamic_resolution_scale_min`Returns the current minimum dynamic resolution scale relative to the target resolution. For example, if the target resolution is 3840 ï¿½ 2160 and the minimum scale is 0.5, the internal rendering resolution can be reduced down to 1920 ï¿½ 1080.
+### Return value
+
+Current minimum dynamic resolution scale relative to the target resolution.
+Range of values: **[0.1f, 1.0f]**. The default value is : **0.275f**.
+## void setDynamicResolutionScaleMax ( float max = 1.0f )
+
+***Console*:**`render_dynamic_resolution_scale_max`Sets a new maximum dynamic resolution scale relative to the target resolution. A value of 1.0 means that the internal rendering resolution can reach the full target resolution.
+### Arguments
+
+- *float* **max** - The maximum dynamic resolution scale relative to the target resolution. Range of values: **[0.1f, 1.0f]**. The default value is : **1.0f**.
+
+## float getDynamicResolutionScaleMax () const
+
+***Console*:**`render_dynamic_resolution_scale_max`Returns the current maximum dynamic resolution scale relative to the target resolution. A value of 1.0 means that the internal rendering resolution can reach the full target resolution.
+### Return value
+
+Current maximum dynamic resolution scale relative to the target resolution.
+Range of values: **[0.1f, 1.0f]**. The default value is : **1.0f**.
+## void setDynamicResolutionDimension ( Render::RENDER_DYNAMIC_RESOLUTION_DIMENSION dimension = 0 )
+
+***Console*:**`render_dynamic_resolution_dimension`Sets a new mode that defines which dimension is affected by dynamic resolution scaling.
+### Arguments
+
+- *[Render::RENDER_DYNAMIC_RESOLUTION_DIMENSION](../../../api/library/rendering/class.render_cpp.md#RENDER_DYNAMIC_RESOLUTION_DIMENSION)* **dimension** - The dynamic resolution scaling dimension mode. One of the following values:
+
+  - **0** - uniform scaling (by default)
+  - **1** - horizontal scaling
+  - **2** - vertical scaling
+
+## Render::RENDER_DYNAMIC_RESOLUTION_DIMENSION getDynamicResolutionDimension () const
+
+***Console*:**`render_dynamic_resolution_dimension`Returns the current mode that defines which dimension is affected by dynamic resolution scaling.
+### Return value
+
+Current dynamic resolution scaling dimension mode. One of the following values:
+- **0** - uniform scaling (by default)
+- **1** - horizontal scaling
+- **2** - vertical scaling
+
+## void setDynamicResolutionStep ( float step = 0.05f )
+
+***Console*:**`render_dynamic_resolution_step`Sets a new resolution scale step used when increasing or decreasing the internal rendering resolution. Larger values result in more noticeable resolution changes, while smaller values provide smoother transitions.
+### Arguments
+
+- *float* **step** - The resolution scale step when increasing or decreasing the internal rendering resolution. Range of values: **[0.01f, 1.0f]**. The default value is : **0.05f**.
+
+## float getDynamicResolutionStep () const
+
+***Console*:**`render_dynamic_resolution_step`Returns the current resolution scale step used when increasing or decreasing the internal rendering resolution. Larger values result in more noticeable resolution changes, while smaller values provide smoother transitions.
+### Return value
+
+Current resolution scale step when increasing or decreasing the internal rendering resolution.
+Range of values: **[0.01f, 1.0f]**. The default value is : **0.05f**.
+## void setDynamicResolutionDownThreshold ( float threshold = 0.95f )
+
+***Console*:**`render_dynamic_resolution_down_threshold`Sets a new GPU frame time threshold for decreasing the internal rendering resolution. When GPU timings exceed the target frame time by this threshold, DRS may reduce the resolution.
+### Arguments
+
+- *float* **threshold** - The GPU frame time threshold for decreasing the internal rendering resolution. Range of values: **[0.0f, 2.0f]**. The default value is : **0.95f**.
+
+## float getDynamicResolutionDownThreshold () const
+
+***Console*:**`render_dynamic_resolution_down_threshold`Returns the current GPU frame time threshold for decreasing the internal rendering resolution. When GPU timings exceed the target frame time by this threshold, DRS may reduce the resolution.
+### Return value
+
+Current GPU frame time threshold for decreasing the internal rendering resolution.
+Range of values: **[0.0f, 2.0f]**. The default value is : **0.95f**.
+## void setDynamicResolutionUpThreshold ( float threshold = 1.05f )
+
+***Console*:**`render_dynamic_resolution_up_threshold`Sets a new GPU frame time threshold for increasing the internal rendering resolution. When GPU timings remain below the target frame time by this threshold, DRS may increase the resolution.
+### Arguments
+
+- *float* **threshold** - The GPU frame time threshold for increasing the internal rendering resolution. Range of values: **[0.0f, 2.0f]**. The default value is : **1.05f**.
+
+## float getDynamicResolutionUpThreshold () const
+
+***Console*:**`render_dynamic_resolution_up_threshold`Returns the current GPU frame time threshold for increasing the internal rendering resolution. When GPU timings remain below the target frame time by this threshold, DRS may increase the resolution.
+### Return value
+
+Current GPU frame time threshold for increasing the internal rendering resolution.
+Range of values: **[0.0f, 2.0f]**. The default value is : **1.05f**.
+## void setDynamicResolutionWarmupFrames ( int frames = 30 )
+
+***Console*:**`render_dynamic_resolution_warmup_frames`Sets a new number of frames rendered at the maximum resolution after startup before Dynamic Resolution Scaling starts adjusting the resolution.
+### Arguments
+
+- *int* **frames** - The number of frames rendered at the maximum resolution after startup before applying DRS. Range of values: **[0, 1000]**. The default value is : **30**.
+
+## int getDynamicResolutionWarmupFrames () const
+
+***Console*:**`render_dynamic_resolution_warmup_frames`Returns the current number of frames rendered at the maximum resolution after startup before Dynamic Resolution Scaling starts adjusting the resolution.
+### Return value
+
+Current number of frames rendered at the maximum resolution after startup before applying DRS.
+Range of values: **[0, 1000]**. The default value is : **30**.
+## void setDynamicResolutionDownFrames ( int frames = 3 )
+
+***Console*:**`render_dynamic_resolution_down_frames`Sets a new number of consecutive frames that must exceed the downscale threshold before DRS decreases the internal rendering resolution.
+### Arguments
+
+- *int* **frames** - The number of consecutive frames above the threshold to decrease the internal rendering resolution. Range of values: **[0, 1000]**. The default value is : **3**.
+
+## int getDynamicResolutionDownFrames () const
+
+***Console*:**`render_dynamic_resolution_down_frames`Returns the current number of consecutive frames that must exceed the downscale threshold before DRS decreases the internal rendering resolution.
+### Return value
+
+Current number of consecutive frames above the threshold to decrease the internal rendering resolution.
+Range of values: **[0, 1000]**. The default value is : **3**.
+## void setDynamicResolutionUpFrames ( int frames = 30 )
+
+***Console*:**`render_dynamic_resolution_up_frames`Sets a new number of consecutive frames that must stay below the upscale threshold before DRS increases the internal rendering resolution.
+### Arguments
+
+- *int* **frames** - The number of consecutive frames below the threshold to increase the internal rendering resolution. Range of values: **[0, 1000]**. The default value is : **30**.
+
+## int getDynamicResolutionUpFrames () const
+
+***Console*:**`render_dynamic_resolution_up_frames`Returns the current number of consecutive frames that must stay below the upscale threshold before DRS increases the internal rendering resolution.
+### Return value
+
+Current number of consecutive frames below the threshold to increase the internal rendering resolution.
+Range of values: **[0, 1000]**. The default value is : **30**.
+## void setDynamicResolutionCooldownFrames ( int frames = 10 )
+
+***Console*:**`render_dynamic_resolution_cooldown_frames`Sets a new number of frames during which the rendering resolution is kept unchanged after a resolution adjustment. This prevents the resolution from changing too frequently.
+### Arguments
+
+- *int* **frames** - The number of frames during which the rendering resolution is kept unchanged after a resolution adjustment. Range of values: **[0, 1000]**. The default value is : **10**.
+
+## int getDynamicResolutionCooldownFrames () const
+
+***Console*:**`render_dynamic_resolution_cooldown_frames`Returns the current number of frames during which the rendering resolution is kept unchanged after a resolution adjustment. This prevents the resolution from changing too frequently.
+### Return value
+
+Current number of frames during which the rendering resolution is kept unchanged after a resolution adjustment.
+Range of values: **[0, 1000]**. The default value is : **10**.
+## void setDynamicResolutionTargetFPS ( int fps = 60 )
+
+***Console*:**`render_dynamic_resolution_target_fps`Sets a new target frame rate used by Dynamic Resolution Scaling. DRS compares GPU timings against this value and adjusts the internal rendering resolution accordingly.
+### Arguments
+
+- *int* **fps** - The target GPU frame rate for dynamic resolution. Range of values: **[1, 1000]**. The default value is : **60**.
+
+## int getDynamicResolutionTargetFPS () const
+
+***Console*:**`render_dynamic_resolution_target_fps`Returns the current target frame rate used by Dynamic Resolution Scaling. DRS compares GPU timings against this value and adjusts the internal rendering resolution accordingly.
+### Return value
+
+Current target GPU frame rate for dynamic resolution.
+Range of values: **[1, 1000]**. The default value is : **60**.
+## void setDynamicResolutionAlignmentEnabled ( bool enabled = 1 )
+
+***Console*:**`render_dynamic_resolution_alignment_enabled`Sets a new value indicating if alignment of dynamic rendering resolutions to reduce texture reallocations when the resolution changes.
+### Arguments
+
+- *bool* **enabled** - Set **true** to enable dynamic resolution alignment; **false** - to disable it. The default value is **true**.
+
+## bool isDynamicResolutionAlignmentEnabled () const
+
+***Console*:**`render_dynamic_resolution_alignment_enabled`Returns the current value indicating if alignment of dynamic rendering resolutions to reduce texture reallocations when the resolution changes.
+### Return value
+
+**true** if dynamic resolution alignment is enabled ; otherwise **false**. The default value is **true**.
+## void setPanoramaFisheyeKannalaBrandtImageCircleRadius ( float radius = 0.0f )
+
+***Console*:**`render_panorama_fisheye_kannala_brandt_image_circle_radius`Sets a new image circle radius for the Kannala-Brandt fisheye camera model. The value defines the radius of the valid circular image area produced by the fisheye projection. Pixels outside this radius are considered outside the projected image area.
+> **Notice:** Available only when the viewport rendering mode*[setViewportMode()](../../...md#render_viewport_mode)* is set to [Panorama Fisheye Kannala-Brandt](#VIEWPORT_MODE_PANORAMA_FISHEYE_KANNALA_BRANDT).
+
+### Arguments
+
+- *float* **radius** - The image circle radius for the Kannala-Brandt fisheye camera model. Range of values: **[-inf, inf]**. The default value is : **0.0f**.
+
+## float getPanoramaFisheyeKannalaBrandtImageCircleRadius () const
+
+***Console*:**`render_panorama_fisheye_kannala_brandt_image_circle_radius`Returns the current image circle radius for the Kannala-Brandt fisheye camera model. The value defines the radius of the valid circular image area produced by the fisheye projection. Pixels outside this radius are considered outside the projected image area.
+> **Notice:** Available only when the viewport rendering mode*[setViewportMode()](../../...md#render_viewport_mode)* is set to [Panorama Fisheye Kannala-Brandt](#VIEWPORT_MODE_PANORAMA_FISHEYE_KANNALA_BRANDT).
+
+### Return value
+
+Current image circle radius for the Kannala-Brandt fisheye camera model.
+Range of values: **[-inf, inf]**. The default value is : **0.0f**.
+## void setPanoramaFisheyeKannalaBrandtSkew ( float skew = 0.0f )
+
+***Console*:**`render_panorama_fisheye_kannala_brandt_skew`Sets a new skew coefficient for the Kannala-Brandt fisheye camera model. The skew value controls the non-orthogonality between the image axes. It is typically used when matching the projection to calibrated camera parameters.
+> **Notice:** Available only when the viewport rendering mode*[setViewportMode()](../../...md#render_viewport_mode)* is set to [Panorama Fisheye Kannala-Brandt](#VIEWPORT_MODE_PANORAMA_FISHEYE_KANNALA_BRANDT).
+
+### Arguments
+
+- *float* **skew** - The skew coefficient for the Kannala-Brandt fisheye camera model. Range of values: **[-inf, inf]**. The default value is : **0.0f**.
+
+## float getPanoramaFisheyeKannalaBrandtSkew () const
+
+***Console*:**`render_panorama_fisheye_kannala_brandt_skew`Returns the current skew coefficient for the Kannala-Brandt fisheye camera model. The skew value controls the non-orthogonality between the image axes. It is typically used when matching the projection to calibrated camera parameters.
+> **Notice:** Available only when the viewport rendering mode*[setViewportMode()](../../...md#render_viewport_mode)* is set to [Panorama Fisheye Kannala-Brandt](#VIEWPORT_MODE_PANORAMA_FISHEYE_KANNALA_BRANDT).
+
+### Return value
+
+Current skew coefficient for the Kannala-Brandt fisheye camera model.
+Range of values: **[-inf, inf]**. The default value is : **0.0f**.
+## void setPanoramaFisheyeKannalaBrandtImageDimensions ( const Math:: vec2 & dimensions )
+
+***Console*:**`render_panorama_fisheye_kannala_brandt_image_dimensions`Sets a new image dimensions used by the Kannala-Brandt fisheye camera model. The dimensions define the reference image size for interpreting the focal length, principal point, image circle radius, and distortion parameters. Use values that match the calibrated camera resolution.
+> **Notice:** Available only when the viewport rendering mode*[setViewportMode()](../../...md#render_viewport_mode)* is set to [Panorama Fisheye Kannala-Brandt](#VIEWPORT_MODE_PANORAMA_FISHEYE_KANNALA_BRANDT).
+
+### Arguments
+
+- *const  Math::[vec2](../../../api/library/math/class.vec2_cpp.md)&* **dimensions** - The image dimensions used by the Kannala-Brandt fisheye camera model.
+
+## Math:: vec2 getPanoramaFisheyeKannalaBrandtImageDimensions () const
+
+***Console*:**`render_panorama_fisheye_kannala_brandt_image_dimensions`Returns the current image dimensions used by the Kannala-Brandt fisheye camera model. The dimensions define the reference image size for interpreting the focal length, principal point, image circle radius, and distortion parameters. Use values that match the calibrated camera resolution.
+> **Notice:** Available only when the viewport rendering mode*[setViewportMode()](../../...md#render_viewport_mode)* is set to [Panorama Fisheye Kannala-Brandt](#VIEWPORT_MODE_PANORAMA_FISHEYE_KANNALA_BRANDT).
+
+### Return value
+
+Current image dimensions used by the Kannala-Brandt fisheye camera model.
+
+## void setPanoramaFisheyeKannalaBrandtPrincipalPoint ( const Math:: vec2 & point )
+
+***Console*:**`render_panorama_fisheye_kannala_brandt_principal_point`Sets a new principal point for the Kannala-Brandt fisheye camera model. The principal point defines the projection center in image coordinates. It is usually set according to calibrated camera parameters and may differ from the exact image center.
+> **Notice:** Available only when the viewport rendering mode*[setViewportMode()](../../...md#render_viewport_mode)* is set to [Panorama Fisheye Kannala-Brandt](#VIEWPORT_MODE_PANORAMA_FISHEYE_KANNALA_BRANDT).
+
+### Arguments
+
+- *const  Math::[vec2](../../../api/library/math/class.vec2_cpp.md)&* **point** - The principal point for the Kannala-Brandt fisheye camera model.
+
+## Math:: vec2 getPanoramaFisheyeKannalaBrandtPrincipalPoint () const
+
+***Console*:**`render_panorama_fisheye_kannala_brandt_principal_point`Returns the current principal point for the Kannala-Brandt fisheye camera model. The principal point defines the projection center in image coordinates. It is usually set according to calibrated camera parameters and may differ from the exact image center.
+> **Notice:** Available only when the viewport rendering mode*[setViewportMode()](../../...md#render_viewport_mode)* is set to [Panorama Fisheye Kannala-Brandt](#VIEWPORT_MODE_PANORAMA_FISHEYE_KANNALA_BRANDT).
+
+### Return value
+
+Current principal point for the Kannala-Brandt fisheye camera model.
+
+## void setPanoramaFisheyeKannalaBrandtFocalLength ( const Math:: vec2 & length )
+
+***Console*:**`render_panorama_fisheye_kannala_brandt_focal_length`Sets a new focal length for the Kannala-Brandt fisheye camera model. The focal length defines the projection scale along the image axes. Use calibrated focal length values to match the rendered fisheye projection to a physical camera lens.
+> **Notice:** Available only when the viewport rendering mode*[setViewportMode()](../../...md#render_viewport_mode)* is set to [Panorama Fisheye Kannala-Brandt](#VIEWPORT_MODE_PANORAMA_FISHEYE_KANNALA_BRANDT).
+
+### Arguments
+
+- *const  Math::[vec2](../../../api/library/math/class.vec2_cpp.md)&* **length** - The focal length for the Kannala-Brandt fisheye camera model.
+
+## Math:: vec2 getPanoramaFisheyeKannalaBrandtFocalLength () const
+
+***Console*:**`render_panorama_fisheye_kannala_brandt_focal_length`Returns the current focal length for the Kannala-Brandt fisheye camera model. The focal length defines the projection scale along the image axes. Use calibrated focal length values to match the rendered fisheye projection to a physical camera lens.
+> **Notice:** Available only when the viewport rendering mode*[setViewportMode()](../../...md#render_viewport_mode)* is set to [Panorama Fisheye Kannala-Brandt](#VIEWPORT_MODE_PANORAMA_FISHEYE_KANNALA_BRANDT).
+
+### Return value
+
+Current focal length for the Kannala-Brandt fisheye camera model.
+
+## void setPanoramaFisheyeKannalaBrandtTangentialDistortion ( const Math:: vec2 & distortion )
+
+***Console*:**`render_panorama_fisheye_kannala_brandt_tangential_distortion`Sets a new tangential distortion parameters for the Kannala-Brandt fisheye camera model. Tangential distortion compensates for lens or sensor misalignment relative to the optical axis. Use this setting when calibrated camera data includes tangential distortion values.
+> **Notice:** Available only when the viewport rendering mode*[setViewportMode()](../../...md#render_viewport_mode)* is set to [Panorama Fisheye Kannala-Brandt](#VIEWPORT_MODE_PANORAMA_FISHEYE_KANNALA_BRANDT).
+
+### Arguments
+
+- *const  Math::[vec2](../../../api/library/math/class.vec2_cpp.md)&* **distortion** - The tangential distortion parameters for the Kannala-Brandt fisheye camera model.
+
+## Math:: vec2 getPanoramaFisheyeKannalaBrandtTangentialDistortion () const
+
+***Console*:**`render_panorama_fisheye_kannala_brandt_tangential_distortion`Returns the current tangential distortion parameters for the Kannala-Brandt fisheye camera model. Tangential distortion compensates for lens or sensor misalignment relative to the optical axis. Use this setting when calibrated camera data includes tangential distortion values.
+> **Notice:** Available only when the viewport rendering mode*[setViewportMode()](../../...md#render_viewport_mode)* is set to [Panorama Fisheye Kannala-Brandt](#VIEWPORT_MODE_PANORAMA_FISHEYE_KANNALA_BRANDT).
+
+### Return value
+
+Current tangential distortion parameters for the Kannala-Brandt fisheye camera model.
+
+## void setPanoramaFisheyeKannalaBrandtCoefficients ( const Math:: vec4 & coefficients )
+
+***Console*:**`render_panorama_fisheye_kannala_brandt_coefficients`Sets a new distortion coefficients for the Kannala-Brandt fisheye camera model. These coefficients define the radial distortion curve used by the Kannala-Brandt projection. Use calibrated values to match the output to a real fisheye lens.
+> **Notice:** Available only when the viewport rendering mode*[setViewportMode()](../../...md#render_viewport_mode)* is set to [Panorama Fisheye Kannala-Brandt](#VIEWPORT_MODE_PANORAMA_FISHEYE_KANNALA_BRANDT).
+
+### Arguments
+
+- *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md)&* **coefficients** - The distortion coefficients for the Kannala-Brandt fisheye camera model.
+
+## Math:: vec4 getPanoramaFisheyeKannalaBrandtCoefficients () const
+
+***Console*:**`render_panorama_fisheye_kannala_brandt_coefficients`Returns the current distortion coefficients for the Kannala-Brandt fisheye camera model. These coefficients define the radial distortion curve used by the Kannala-Brandt projection. Use calibrated values to match the output to a real fisheye lens.
+> **Notice:** Available only when the viewport rendering mode*[setViewportMode()](../../...md#render_viewport_mode)* is set to [Panorama Fisheye Kannala-Brandt](#VIEWPORT_MODE_PANORAMA_FISHEYE_KANNALA_BRANDT).
+
+### Return value
+
+Current distortion coefficients for the Kannala-Brandt fisheye camera model.
+
+## void setPanoramaForceDisableScreenSpaceEffects ( bool effects = 1 )
+
+***Console*:**`render_panorama_force_disable_screen_space_effects`Sets a new value indicating whether screen-space effects are to be force-disabled when rendering panoramas.
+### Arguments
+
+- *bool* **effects** - Set **true** to enable force-disabling of screen-space effects when rendering panoramas; **false** - to disable it. The default value is **true**.
+
+## bool isPanoramaForceDisableScreenSpaceEffects () const
+
+***Console*:**`render_panorama_force_disable_screen_space_effects`Returns the current value indicating whether screen-space effects are to be force-disabled when rendering panoramas.
+### Return value
+
+**true** if force-disabling of screen-space effects when rendering panoramas is enabled ; otherwise **false**. The default value is **true**.
+## void setLocalTonemapperDetailContrastIntensity ( float intensity = 0.5f )
+
+***Console*:**`render_local_tonemapper_detail_contrast_intensity`Sets a new intensity of the Detail Contrast effect of the local tonemapper, in the [0; 1] range. The default value is 0.5.
+### Arguments
+
+- *float* **intensity** - The intensity of the Detail Contrast effect Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
+
+## float getLocalTonemapperDetailContrastIntensity () const
+
+***Console*:**`render_local_tonemapper_detail_contrast_intensity`Returns the current intensity of the Detail Contrast effect of the local tonemapper, in the [0; 1] range. The default value is 0.5.
+### Return value
+
+Current intensity of the Detail Contrast effect
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
+## void setLocalTonemapperUseDetailContrast ( bool contrast = 0 )
+
+***Console*:**`render_local_tonemapper_use_detail_contrast`Sets a new value indicating if the Detail Contrast effect is enabled: it enhances mid-frequency local contrast on top of the local tonemapper, accentuating surface detail and texture. Useful when the tonemapped image looks flat and needs more visual depth without changing global exposure. Disabled by default.
+### Arguments
+
+- *bool* **contrast** - Set **true** to enable the Detail Contrast effect of the local tonemapper; **false** - to disable it. The default value is **false**.
+
+## bool isLocalTonemapperUseDetailContrast () const
+
+***Console*:**`render_local_tonemapper_use_detail_contrast`Returns the current value indicating if the Detail Contrast effect is enabled: it enhances mid-frequency local contrast on top of the local tonemapper, accentuating surface detail and texture. Useful when the tonemapped image looks flat and needs more visual depth without changing global exposure. Disabled by default.
+### Return value
+
+**true** if the Detail Contrast effect of the local tonemapper is enabled ; otherwise **false**. The default value is **false**.
+## void setSkyOffset ( float offset )
+
+Sets a new height offset, in units, added to the camera's world height when computing the sky altitude used by atmospheric scattering. It shifts the virtual altitude of the camera within the physically based sky model (for example, to render the scattering as if the scene were at a different altitude) without moving the scene.
+### Arguments
+
+- *float* **offset** - The height offset of the sky altitude used by atmospheric scattering
+
+## float getSkyOffset () const
+
+Returns the current height offset, in units, added to the camera's world height when computing the sky altitude used by atmospheric scattering. It shifts the virtual altitude of the camera within the physically based sky model (for example, to render the scattering as if the scene were at a different altitude) without moving the scene.
+### Return value
+
+Current height offset of the sky altitude used by atmospheric scattering
+## void setStreamingMeshCacheRAM ( int ram = -1 )
+
+***Console*:**`render_streaming_mesh_cache_ram`Sets a new maximum amount of memory, in megabytes, the streaming system may keep cached in RAM for static meshes. The value of -1 (default) removes the individual limit, leaving the memory use governed by the common streaming budget.
+### Arguments
+
+- *int* **ram** - The RAM cache limit for streamed static meshes, in megabytes Range of values: **[-1, INT_MAX]**. The default value is : **-1**.
+
+## int getStreamingMeshCacheRAM () const
+
+***Console*:**`render_streaming_mesh_cache_ram`Returns the current maximum amount of memory, in megabytes, the streaming system may keep cached in RAM for static meshes. The value of -1 (default) removes the individual limit, leaving the memory use governed by the common streaming budget.
+### Return value
+
+Current RAM cache limit for streamed static meshes, in megabytes
+Range of values: **[-1, INT_MAX]**. The default value is : **-1**.
+## void setStreamingMeshCacheVRAM ( int vram = -1 )
+
+***Console*:**`render_streaming_mesh_cache_vram`Sets a new maximum amount of memory, in megabytes, the streaming system may keep cached in video memory for static meshes. The value of -1 (default) removes the individual limit, leaving the memory use governed by the common streaming budget.
+### Arguments
+
+- *int* **vram** - The VRAM cache limit for streamed static meshes, in megabytes Range of values: **[-1, INT_MAX]**. The default value is : **-1**.
+
+## int getStreamingMeshCacheVRAM () const
+
+***Console*:**`render_streaming_mesh_cache_vram`Returns the current maximum amount of memory, in megabytes, the streaming system may keep cached in video memory for static meshes. The value of -1 (default) removes the individual limit, leaving the memory use governed by the common streaming budget.
+### Return value
+
+Current VRAM cache limit for streamed static meshes, in megabytes
+Range of values: **[-1, INT_MAX]**. The default value is : **-1**.
+## void setStreamingMeshSkinnedCacheRAM ( int ram = -1 )
+
+***Console*:**`render_streaming_mesh_skinned_cache_ram`Sets a new maximum amount of memory, in megabytes, the streaming system may keep cached in RAM for skinned meshes. The value of -1 (default) removes the individual limit, leaving the memory use governed by the common streaming budget.
+### Arguments
+
+- *int* **ram** - The RAM cache limit for streamed skinned meshes, in megabytes Range of values: **[-1, INT_MAX]**. The default value is : **-1**.
+
+## int getStreamingMeshSkinnedCacheRAM () const
+
+***Console*:**`render_streaming_mesh_skinned_cache_ram`Returns the current maximum amount of memory, in megabytes, the streaming system may keep cached in RAM for skinned meshes. The value of -1 (default) removes the individual limit, leaving the memory use governed by the common streaming budget.
+### Return value
+
+Current RAM cache limit for streamed skinned meshes, in megabytes
+Range of values: **[-1, INT_MAX]**. The default value is : **-1**.
+## void setStreamingMeshSkinnedCacheVRAM ( int vram = -1 )
+
+***Console*:**`render_streaming_mesh_skinned_cache_vram`Sets a new maximum amount of memory, in megabytes, the streaming system may keep cached in video memory for skinned meshes. The value of -1 (default) removes the individual limit, leaving the memory use governed by the common streaming budget.
+### Arguments
+
+- *int* **vram** - The VRAM cache limit for streamed skinned meshes, in megabytes Range of values: **[-1, INT_MAX]**. The default value is : **-1**.
+
+## int getStreamingMeshSkinnedCacheVRAM () const
+
+***Console*:**`render_streaming_mesh_skinned_cache_vram`Returns the current maximum amount of memory, in megabytes, the streaming system may keep cached in video memory for skinned meshes. The value of -1 (default) removes the individual limit, leaving the memory use governed by the common streaming budget.
+### Return value
+
+Current VRAM cache limit for streamed skinned meshes, in megabytes
+Range of values: **[-1, INT_MAX]**. The default value is : **-1**.
+## void setStreamingTextureCacheVRAM ( int vram = -1 )
+
+***Console*:**`render_streaming_texture_cache_vram`Sets a new maximum amount of memory, in megabytes, the streaming system may keep cached in video memory for textures. The value of -1 (default) removes the individual limit, leaving the memory use governed by the common streaming budget.
+### Arguments
+
+- *int* **vram** - The VRAM cache limit for streamed textures, in megabytes Range of values: **[-1, INT_MAX]**. The default value is : **-1**.
+
+## int getStreamingTextureCacheVRAM () const
+
+***Console*:**`render_streaming_texture_cache_vram`Returns the current maximum amount of memory, in megabytes, the streaming system may keep cached in video memory for textures. The value of -1 (default) removes the individual limit, leaving the memory use governed by the common streaming budget.
+### Return value
+
+Current VRAM cache limit for streamed textures, in megabytes
+Range of values: **[-1, INT_MAX]**. The default value is : **-1**.
+## void setDOFJitterSamples ( int samples = 16 )
+
+***Console*:**`render_dof_jitter_samples`Sets a new number of bokeh samples taken per pixel in the jitter sampling mode of the Depth of Field effect. Unlike the ring pattern, whose count comes in fixed steps through the quality preset, jittered sampling takes any count, so it is set directly. The default value is 16.
+### Arguments
+
+- *int* **samples** - The number of bokeh samples per pixel in the jitter mode Range of values: **[1, 1024]**. The default value is : **16**.
+
+## int getDOFJitterSamples () const
+
+***Console*:**`render_dof_jitter_samples`Returns the current number of bokeh samples taken per pixel in the jitter sampling mode of the Depth of Field effect. Unlike the ring pattern, whose count comes in fixed steps through the quality preset, jittered sampling takes any count, so it is set directly. The default value is 16.
+### Return value
+
+Current number of bokeh samples per pixel in the jitter mode
+Range of values: **[1, 1024]**. The default value is : **16**.
+## void setDOFMipmapByBlurIntensity ( float intensity = 0.5f )
+
+***Console*:**`render_dof_mipmap_by_blur_intensity`Sets a new value defining how much of the mip level chosen by the blur intensity is taken by the bokeh sampling of the Depth of Field effect, so each sample reads a mip that already averaged the area it stands for. The value of 0 keeps the full resolution, 1 reads the coarsest fitting mip. Reading coarser mips cuts the memory traffic of a wide bokeh and reduces sampling noise, but too high values make the blurred image look coarse. The default value is 0.5.
+### Arguments
+
+- *float* **intensity** - The fraction of the mip level used by the bokeh sampling Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
+
+## float getDOFMipmapByBlurIntensity () const
+
+***Console*:**`render_dof_mipmap_by_blur_intensity`Returns the current value defining how much of the mip level chosen by the blur intensity is taken by the bokeh sampling of the Depth of Field effect, so each sample reads a mip that already averaged the area it stands for. The value of 0 keeps the full resolution, 1 reads the coarsest fitting mip. Reading coarser mips cuts the memory traffic of a wide bokeh and reduces sampling noise, but too high values make the blurred image look coarse. The default value is 0.5.
+### Return value
+
+Current fraction of the mip level used by the bokeh sampling
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
+## void setDOFSamplingMode ( Render::DOF_SAMPLING_MODE mode = 0 )
+
+***Console*:**`render_dof_sampling_mode`Sets a new bokeh sampling mode of the Depth of Field effect, one of the *DOF_SAMPLING_MODE_** values: a constant ring pattern (default) or per-pixel jittered sampling accumulated by a temporal filter. Effective when the DOF effect is enabled.
+### Arguments
+
+- *[Render::DOF_SAMPLING_MODE](../../../api/library/rendering/class.render_cpp.md#DOF_SAMPLING_MODE)* **mode** - The bokeh sampling mode of the DOF effect One of the following values:
+
+## Render::DOF_SAMPLING_MODE getDOFSamplingMode () const
+
+***Console*:**`render_dof_sampling_mode`Returns the current bokeh sampling mode of the Depth of Field effect, one of the *DOF_SAMPLING_MODE_** values: a constant ring pattern (default) or per-pixel jittered sampling accumulated by a temporal filter. Effective when the DOF effect is enabled.
+### Return value
+
+Current bokeh sampling mode of the DOF effect One of the following values:
+
+## void setDOFTAAFrameCount ( float count = 30.0f )
+
+***Console*:**`render_dof_taa_frame_count`Sets a new number of frames accumulated by the temporal filter of the Depth of Field jitter sampling mode; the value of 1 disables the accumulation. Higher values result in a cleaner bokeh but increase the ghosting effect. The default value is 30.
+### Arguments
+
+- *float* **count** - The number of frames accumulated by the DOF temporal filter Range of values: **[1.0f, inf]**. The default value is : **30.0f**.
+
+## float getDOFTAAFrameCount () const
+
+***Console*:**`render_dof_taa_frame_count`Returns the current number of frames accumulated by the temporal filter of the Depth of Field jitter sampling mode; the value of 1 disables the accumulation. Higher values result in a cleaner bokeh but increase the ghosting effect. The default value is 30.
+### Return value
+
+Current number of frames accumulated by the DOF temporal filter
+Range of values: **[1.0f, inf]**. The default value is : **30.0f**.
+## void setDOFTAAFramesVelocityThreshold ( float threshold = 1.0f )
+
+***Console*:**`render_dof_taa_frames_velocity_threshold`Sets a new threshold defining sensitivity to velocity change for the temporal filter of the Depth of Field jitter sampling mode: higher values discard the accumulated history faster on moving objects, which reduces ghosting but brings the jitter grain back in motion. The default value is 1.
+### Arguments
+
+- *float* **threshold** - The velocity sensitivity threshold of the DOF temporal filter Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+
+## float getDOFTAAFramesVelocityThreshold () const
+
+***Console*:**`render_dof_taa_frames_velocity_threshold`Returns the current threshold defining sensitivity to velocity change for the temporal filter of the Depth of Field jitter sampling mode: higher values discard the accumulated history faster on moving objects, which reduces ghosting but brings the jitter grain back in motion. The default value is 1.
+### Return value
+
+Current velocity sensitivity threshold of the DOF temporal filter
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+## void setLocalTonemapperDetailContrastRadius ( int radius = 2 )
+
+***Console*:**`render_local_tonemapper_detail_contrast_radius`Sets a new radius of the Detail Contrast effect, set as the number of blur iterations reused for it, each one doubling the radius: 1 corresponds to 1 texel, 2 to 3 texels, 3 to 7 texels, and so on. Smaller values accentuate finer details and produce narrower halos around objects. The value is always clamped below the number of blur iterations of the local tonemapper. The default value is 2.
+### Arguments
+
+- *int* **radius** - The radius of the Detail Contrast effect Range of values: **[1, 9]**. The default value is : **2**.
+
+## int getLocalTonemapperDetailContrastRadius () const
+
+***Console*:**`render_local_tonemapper_detail_contrast_radius`Returns the current radius of the Detail Contrast effect, set as the number of blur iterations reused for it, each one doubling the radius: 1 corresponds to 1 texel, 2 to 3 texels, 3 to 7 texels, and so on. Smaller values accentuate finer details and produce narrower halos around objects. The value is always clamped below the number of blur iterations of the local tonemapper. The default value is 2.
+### Return value
+
+Current radius of the Detail Contrast effect
+Range of values: **[1, 9]**. The default value is : **2**.
+## void setIndirectSpecularTemporalFilteringAngleDependence ( bool dependence = 0 )
+
+***Console*:**`render_indirect_specular_temporal_filtering_angle_dependence`Sets a new value indicating if temporal filtering for Indirect Specular depends on the angle between the surface and the view direction. Reflections flicker at grazing angles, where the reflection is compressed into a few pixels and the neighboring pixels the clamping range is built from see different content. When enabled, the color clamping is relaxed towards such angles, and the length of the history is bounded along with it, which keeps the relaxed clamping from smearing. Surfaces seen head-on and a moving camera are not affected. Disabled by default.
+### Arguments
+
+- *bool* **dependence** - Set **true** to enable angle dependence of Indirect Specular temporal filtering; **false** - to disable it. The default value is **false**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setDenoisePreset()](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## bool isIndirectSpecularTemporalFilteringAngleDependence () const
+
+***Console*:**`render_indirect_specular_temporal_filtering_angle_dependence`Returns the current value indicating if temporal filtering for Indirect Specular depends on the angle between the surface and the view direction. Reflections flicker at grazing angles, where the reflection is compressed into a few pixels and the neighboring pixels the clamping range is built from see different content. When enabled, the color clamping is relaxed towards such angles, and the length of the history is bounded along with it, which keeps the relaxed clamping from smearing. Surfaces seen head-on and a moving camera are not affected. Disabled by default.
+### Return value
+
+**true** if angle dependence of Indirect Specular temporal filtering is enabled ; otherwise **false**. The default value is **false**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setDenoisePreset()](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setIndirectSpecularTemporalFilteringColorClampingGrazing ( float grazing = 0.1f )
+
+***Console*:**`render_indirect_specular_temporal_filtering_color_clamping_grazing`Sets a new intensity of the velocity-independent part of temporal filtering color clamping for Indirect Specular at grazing angles, where the reflection is compressed into a few pixels, so the neighboring pixels the clamping range is built from see different content and the range follows the noise of the trace instead of the signal, which shows up as flickering. Lower values let the history survive there; its length is bounded by the **[getIndirectSpecularTemporalFilteringFrameCountGrazing()](../../...md#getIndirectSpecularTemporalFilteringFrameCountGrazing_float)** property. Surfaces seen head-on and a moving camera are not affected at any value. Effective only when the **[isIndirectSpecularTemporalFilteringAngleDependence()](../../...md#isIndirectSpecularTemporalFilteringAngleDependence_int)** option is enabled.
+### Arguments
+
+- *float* **grazing** - The Indirect Specular color clamping intensity at grazing angles Range of values: **[0.0f, 1.0f]**. The default value is : **0.1f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setDenoisePreset()](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getIndirectSpecularTemporalFilteringColorClampingGrazing () const
+
+***Console*:**`render_indirect_specular_temporal_filtering_color_clamping_grazing`Returns the current intensity of the velocity-independent part of temporal filtering color clamping for Indirect Specular at grazing angles, where the reflection is compressed into a few pixels, so the neighboring pixels the clamping range is built from see different content and the range follows the noise of the trace instead of the signal, which shows up as flickering. Lower values let the history survive there; its length is bounded by the **[getIndirectSpecularTemporalFilteringFrameCountGrazing()](../../...md#getIndirectSpecularTemporalFilteringFrameCountGrazing_float)** property. Surfaces seen head-on and a moving camera are not affected at any value. Effective only when the **[isIndirectSpecularTemporalFilteringAngleDependence()](../../...md#isIndirectSpecularTemporalFilteringAngleDependence_int)** option is enabled.
+### Return value
+
+Current Indirect Specular color clamping intensity at grazing angles
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.1f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setDenoisePreset()](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## void setIndirectSpecularTemporalFilteringFrameCountGrazing ( float grazing = 4.0f )
+
+***Console*:**`render_indirect_specular_temporal_filtering_frame_count_grazing`Sets a new number of accumulated frames of temporal filtering for Indirect Specular at grazing angles, where the **[getIndirectSpecularTemporalFilteringColorClampingGrazing()](../../...md#getIndirectSpecularTemporalFilteringColorClampingGrazing_float)** property has relaxed the clamping. Nothing else limits the history there: reflections are reprojected by the velocity of the surface, which does not see the content moving inside the reflection of it. Higher values reduce the noise of reflections and lengthen the smear behind such content. The value is scaled by how much of the clamping has been relaxed, so it has no effect while the clamping is at its full strength. Effective only when the **[isIndirectSpecularTemporalFilteringAngleDependence()](../../...md#isIndirectSpecularTemporalFilteringAngleDependence_int)** option is enabled.
+### Arguments
+
+- *float* **grazing** - The Indirect Specular frame count at grazing angles Range of values: **[0.0f, inf]**. The default value is : **4.0f**. > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setDenoisePreset()](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float getIndirectSpecularTemporalFilteringFrameCountGrazing () const
+
+***Console*:**`render_indirect_specular_temporal_filtering_frame_count_grazing`Returns the current number of accumulated frames of temporal filtering for Indirect Specular at grazing angles, where the **[getIndirectSpecularTemporalFilteringColorClampingGrazing()](../../...md#getIndirectSpecularTemporalFilteringColorClampingGrazing_float)** property has relaxed the clamping. Nothing else limits the history there: reflections are reprojected by the velocity of the surface, which does not see the content moving inside the reflection of it. Higher values reduce the noise of reflections and lengthen the smear behind such content. The value is scaled by how much of the clamping has been relaxed, so it has no effect while the clamping is at its full strength. Effective only when the **[isIndirectSpecularTemporalFilteringAngleDependence()](../../...md#isIndirectSpecularTemporalFilteringAngleDependence_int)** option is enabled.
+### Return value
+
+Current Indirect Specular frame count at grazing angles
+Range of values: **[0.0f, inf]**. The default value is : **4.0f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[setDenoisePreset()](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## int getNumParameters () const
+
+Returns the current number of global render parameters registered via **[addParameter()](../../...md#addParameter_cstr_int_int_UGUID_int)**.
+### Return value
+
+Current number of registered global render parameters
+## void setPanoramaFisheyeKannalaBrandtChromaticAberration ( float aberration = 0.0f )
+
+***Console*:**`render_panorama_fisheye_kannala_brandt_chromatic_aberration`Sets a new chromatic aberration intensity for the Kannala-Brandt fisheye camera model. The value models lateral chromatic aberration of the lens: the red channel is sampled at the radial distance scaled by (1 - value), the blue channel at (1 + value), while the green channel is the reference. 0 means no chromatic aberration.
+> **Notice:** Available only when the viewport rendering mode*[setViewportMode()](../../...md#render_viewport_mode)* is set to [Panorama Fisheye Kannala-Brandt](#VIEWPORT_MODE_PANORAMA_FISHEYE_KANNALA_BRANDT).
+
+### Arguments
+
+- *float* **aberration** - The chromatic aberration intensity for the Kannala-Brandt fisheye camera model Range of values: **[-inf, inf]**. The default value is : **0.0f**.
+
+## float getPanoramaFisheyeKannalaBrandtChromaticAberration () const
+
+***Console*:**`render_panorama_fisheye_kannala_brandt_chromatic_aberration`Returns the current chromatic aberration intensity for the Kannala-Brandt fisheye camera model. The value models lateral chromatic aberration of the lens: the red channel is sampled at the radial distance scaled by (1 - value), the blue channel at (1 + value), while the green channel is the reference. 0 means no chromatic aberration.
+> **Notice:** Available only when the viewport rendering mode*[setViewportMode()](../../...md#render_viewport_mode)* is set to [Panorama Fisheye Kannala-Brandt](#VIEWPORT_MODE_PANORAMA_FISHEYE_KANNALA_BRANDT).
+
+### Return value
+
+Current chromatic aberration intensity for the Kannala-Brandt fisheye camera model
+Range of values: **[-inf, inf]**. The default value is : **0.0f**.
+## void setPanoramaFisheyeKannalaBrandtVignettingCoefficient5 ( float coefficient5 = 0.0f )
+
+***Console*:**`render_panorama_fisheye_kannala_brandt_vignetting_coefficient_5`Sets a new fifth coefficient of the vignetting polynomial for the Kannala-Brandt fisheye camera model. The value is the coefficient at the 10th power of the normalized radial distance; it complements the four coefficients set via **[getPanoramaFisheyeKannalaBrandtVignettingCoefficients()](../../...md#getPanoramaFisheyeKannalaBrandtVignettingCoefficients_vec4)** and is kept as a separate value because the vector holds only four components.
+> **Notice:** Available only when the viewport rendering mode*[setViewportMode()](../../...md#render_viewport_mode)* is set to [Panorama Fisheye Kannala-Brandt](#VIEWPORT_MODE_PANORAMA_FISHEYE_KANNALA_BRANDT).
+
+### Arguments
+
+- *float* **coefficient5** - The fifth coefficient of the vignetting polynomial for the Kannala-Brandt fisheye camera model Range of values: **[-inf, inf]**. The default value is : **0.0f**.
+
+## float getPanoramaFisheyeKannalaBrandtVignettingCoefficient5 () const
+
+***Console*:**`render_panorama_fisheye_kannala_brandt_vignetting_coefficient_5`Returns the current fifth coefficient of the vignetting polynomial for the Kannala-Brandt fisheye camera model. The value is the coefficient at the 10th power of the normalized radial distance; it complements the four coefficients set via **[getPanoramaFisheyeKannalaBrandtVignettingCoefficients()](../../...md#getPanoramaFisheyeKannalaBrandtVignettingCoefficients_vec4)** and is kept as a separate value because the vector holds only four components.
+> **Notice:** Available only when the viewport rendering mode*[setViewportMode()](../../...md#render_viewport_mode)* is set to [Panorama Fisheye Kannala-Brandt](#VIEWPORT_MODE_PANORAMA_FISHEYE_KANNALA_BRANDT).
+
+### Return value
+
+Current fifth coefficient of the vignetting polynomial for the Kannala-Brandt fisheye camera model
+Range of values: **[-inf, inf]**. The default value is : **0.0f**.
+## void setPanoramaFisheyeKannalaBrandtVignettingCoefficients ( const Math:: vec4 & coefficients )
+
+***Console*:**`render_panorama_fisheye_kannala_brandt_vignetting_coefficients`Sets a new first four coefficients of the vignetting polynomial for the Kannala-Brandt fisheye camera model. Vignetting is modeled as an even-order polynomial of the radial distance normalized by the image circle radius: the vector components are the coefficients at the 2nd, 4th, 6th, and 8th powers, and the coefficient at the 10th power is set separately via **[getPanoramaFisheyeKannalaBrandtVignettingCoefficient5()](../../...md#getPanoramaFisheyeKannalaBrandtVignettingCoefficient5_float)**. The resulting intensity multiplier is clamped to [0; 1]; all-zero coefficients disable vignetting.
+> **Notice:** Available only when the viewport rendering mode*[setViewportMode()](../../...md#render_viewport_mode)* is set to [Panorama Fisheye Kannala-Brandt](#VIEWPORT_MODE_PANORAMA_FISHEYE_KANNALA_BRANDT).
+
+### Arguments
+
+- *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md)&* **coefficients** - The first four coefficients of the vignetting polynomial for the Kannala-Brandt fisheye camera model
+
+## Math:: vec4 getPanoramaFisheyeKannalaBrandtVignettingCoefficients () const
+
+***Console*:**`render_panorama_fisheye_kannala_brandt_vignetting_coefficients`Returns the current first four coefficients of the vignetting polynomial for the Kannala-Brandt fisheye camera model. Vignetting is modeled as an even-order polynomial of the radial distance normalized by the image circle radius: the vector components are the coefficients at the 2nd, 4th, 6th, and 8th powers, and the coefficient at the 10th power is set separately via **[getPanoramaFisheyeKannalaBrandtVignettingCoefficient5()](../../...md#getPanoramaFisheyeKannalaBrandtVignettingCoefficient5_float)**. The resulting intensity multiplier is clamped to [0; 1]; all-zero coefficients disable vignetting.
+> **Notice:** Available only when the viewport rendering mode*[setViewportMode()](../../...md#render_viewport_mode)* is set to [Panorama Fisheye Kannala-Brandt](#VIEWPORT_MODE_PANORAMA_FISHEYE_KANNALA_BRANDT).
+
+### Return value
+
+Current first four coefficients of the vignetting polynomial for the Kannala-Brandt fisheye camera model
+
+## void setSurfaceIDMultilayered ( bool idmultilayered = 0 )
+
+***Console*:**`render_surface_id_multilayered`Sets a new value indicating if the transparency, decal, and water surface IDs are stored in separate per-stage buffers instead of being stacked into the scene surface ID buffer. Each per-stage buffer costs one additional *R32U* screen buffer.
+### Arguments
+
+- *bool* **idmultilayered** - Set **true** to enable storing surface IDs in separate per-stage buffers; **false** - to disable it. The default value is **false**.
+
+## bool isSurfaceIDMultilayered () const
+
+***Console*:**`render_surface_id_multilayered`Returns the current value indicating if the transparency, decal, and water surface IDs are stored in separate per-stage buffers instead of being stacked into the scene surface ID buffer. Each per-stage buffer costs one additional *R32U* screen buffer.
+### Return value
+
+**true** if storing surface IDs in separate per-stage buffers is enabled ; otherwise **false**. The default value is **false**.
+## Ptr < CustomParameterLayout > getSurfaceParameters () const
+
+Returns the current layout of custom surface parameters (the *[CustomParameterLayout](../../../api/library/common/class.customparameterlayout_cpp.md)* instance shared by all object surfaces and decals). Each parameter defined in this layout exists on every surface of every object and on every decal.
+### Return value
+
+Current layout of custom surface parameters
 ---
 
 ## bool isAPISupported ( int api )
@@ -26860,12 +28063,20 @@ Renders the scene into a 2D texture in accordance with the specified parameters.
 - *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Texture](../../../api/library/rendering/class.texture_cpp.md)> &* **texture** - [Texture](../../../api/library/rendering/class.texture_cpp.md) to save the result to.
 - *int* **skip_flags** - Skip the effects: 0 enables all the effects.
 
-  - VIEWPORT_SKIP_SHADOWS
-  - VIEWPORT_SKIP_VISUALIZER
-  - VIEWPORT_SKIP_SRGB
-  - VIEWPORT_SKIP_POSTEFFECTS
-  - VIEWPORT_SKIP_VELOCITY
-  - VIEWPORT_SKIP_DYNAMIC_REFLECTIONS
+  - *[VIEWPORT::SKIP_SHADOWS](../../../api/library/rendering/class.viewport_cpp.md#SKIP_SHADOWS)*
+  - *[VIEWPORT::SKIP_VISUALIZER](../../../api/library/rendering/class.viewport_cpp.md#SKIP_VISUALIZER)*
+  - *[VIEWPORT::SKIP_SRGB](../../../api/library/rendering/class.viewport_cpp.md#SKIP_SRGB)*
+  - *[VIEWPORT::SKIP_POSTEFFECTS](../../../api/library/rendering/class.viewport_cpp.md#SKIP_POSTEFFECTS)*
+  - *[VIEWPORT::SKIP_DYNAMIC_REFLECTIONS](../../../api/library/rendering/class.viewport_cpp.md#SKIP_DYNAMIC_REFLECTIONS)*
+  - *[VIEWPORT::SKIP_VELOCITY_BUFFER](../../../api/library/rendering/class.viewport_cpp.md#SKIP_VELOCITY_BUFFER)*
+  - *[VIEWPORT::SKIP_SRGB](../../../api/library/rendering/class.viewport_cpp.md#SKIP_SRGB)*
+  - *[VIEWPORT::SKIP_FORMAT_RG11B10](../../../api/library/rendering/class.viewport_cpp.md#SKIP_FORMAT_RG11B10)*
+  - *[VIEWPORT::SKIP_TRANSPARENT](../../../api/library/rendering/class.viewport_cpp.md#SKIP_TRANSPARENT)*
+  - *[VIEWPORT::SKIP_STREAMING](../../../api/library/rendering/class.viewport_cpp.md#SKIP_STREAMING)*
+  - *[VIEWPORT::SKIP_AUTO_EXPOSURE](../../../api/library/rendering/class.viewport_cpp.md#SKIP_AUTO_EXPOSURE)*
+  - *[VIEWPORT::SKIP_AUTO_WHITE_BALANCE](../../../api/library/rendering/class.viewport_cpp.md#SKIP_AUTO_WHITE_BALANCE)*
+  - *[VIEWPORT::SKIP_OCCLUSION_QUERY](../../../api/library/rendering/class.viewport_cpp.md#SKIP_OCCLUSION_QUERY)*
+  - *[VIEWPORT::SKIP_UPSCALE](../../../api/library/rendering/class.viewport_cpp.md#SKIP_UPSCALE)*
 
 ## void renderTexture2D ( const Ptr < Camera > & camera , const Ptr < Texture > & texture , int width , int height , int hdr , int skip_flags )
 
@@ -26879,12 +28090,20 @@ Renders the scene into a 2D texture of the given size in accordance with the spe
 - *int* **hdr** - 1 - enable HDR, 0 - disable HDR.
 - *int* **skip_flags** - Skip the effects: 0 enables all the effects.
 
-  - VIEWPORT_SKIP_SHADOWS
-  - VIEWPORT_SKIP_VISUALIZER
-  - VIEWPORT_SKIP_SRGB
-  - VIEWPORT_SKIP_POSTEFFECTS
-  - VIEWPORT_SKIP_VELOCITY
-  - VIEWPORT_SKIP_DYNAMIC_REFLECTIONS
+  - *[VIEWPORT::SKIP_SHADOWS](../../../api/library/rendering/class.viewport_cpp.md#SKIP_SHADOWS)*
+  - *[VIEWPORT::SKIP_VISUALIZER](../../../api/library/rendering/class.viewport_cpp.md#SKIP_VISUALIZER)*
+  - *[VIEWPORT::SKIP_SRGB](../../../api/library/rendering/class.viewport_cpp.md#SKIP_SRGB)*
+  - *[VIEWPORT::SKIP_POSTEFFECTS](../../../api/library/rendering/class.viewport_cpp.md#SKIP_POSTEFFECTS)*
+  - *[VIEWPORT::SKIP_DYNAMIC_REFLECTIONS](../../../api/library/rendering/class.viewport_cpp.md#SKIP_DYNAMIC_REFLECTIONS)*
+  - *[VIEWPORT::SKIP_VELOCITY_BUFFER](../../../api/library/rendering/class.viewport_cpp.md#SKIP_VELOCITY_BUFFER)*
+  - *[VIEWPORT::SKIP_SRGB](../../../api/library/rendering/class.viewport_cpp.md#SKIP_SRGB)*
+  - *[VIEWPORT::SKIP_FORMAT_RG11B10](../../../api/library/rendering/class.viewport_cpp.md#SKIP_FORMAT_RG11B10)*
+  - *[VIEWPORT::SKIP_TRANSPARENT](../../../api/library/rendering/class.viewport_cpp.md#SKIP_TRANSPARENT)*
+  - *[VIEWPORT::SKIP_STREAMING](../../../api/library/rendering/class.viewport_cpp.md#SKIP_STREAMING)*
+  - *[VIEWPORT::SKIP_AUTO_EXPOSURE](../../../api/library/rendering/class.viewport_cpp.md#SKIP_AUTO_EXPOSURE)*
+  - *[VIEWPORT::SKIP_AUTO_WHITE_BALANCE](../../../api/library/rendering/class.viewport_cpp.md#SKIP_AUTO_WHITE_BALANCE)*
+  - *[VIEWPORT::SKIP_OCCLUSION_QUERY](../../../api/library/rendering/class.viewport_cpp.md#SKIP_OCCLUSION_QUERY)*
+  - *[VIEWPORT::SKIP_UPSCALE](../../../api/library/rendering/class.viewport_cpp.md#SKIP_UPSCALE)*
 
 ## void renderTextureCube ( const Ptr < Camera > & camera , const Ptr < Texture > & texture , int skip_flags )
 
@@ -26895,12 +28114,20 @@ Renders the scene into a cube map texture in accordance with the specified param
 - *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Texture](../../../api/library/rendering/class.texture_cpp.md)> &* **texture** - [Texture](../../../api/library/rendering/class.texture_cpp.md) to save the result to.
 - *int* **skip_flags** - Skip the effects: 0 enables all the effects.
 
-  - VIEWPORT_SKIP_SHADOWS
-  - VIEWPORT_SKIP_VISUALIZER
-  - VIEWPORT_SKIP_SRGB
-  - VIEWPORT_SKIP_POSTEFFECTS
-  - VIEWPORT_SKIP_VELOCITY
-  - VIEWPORT_SKIP_DYNAMIC_REFLECTIONS
+  - *[VIEWPORT::SKIP_SHADOWS](../../../api/library/rendering/class.viewport_cpp.md#SKIP_SHADOWS)*
+  - *[VIEWPORT::SKIP_VISUALIZER](../../../api/library/rendering/class.viewport_cpp.md#SKIP_VISUALIZER)*
+  - *[VIEWPORT::SKIP_SRGB](../../../api/library/rendering/class.viewport_cpp.md#SKIP_SRGB)*
+  - *[VIEWPORT::SKIP_POSTEFFECTS](../../../api/library/rendering/class.viewport_cpp.md#SKIP_POSTEFFECTS)*
+  - *[VIEWPORT::SKIP_DYNAMIC_REFLECTIONS](../../../api/library/rendering/class.viewport_cpp.md#SKIP_DYNAMIC_REFLECTIONS)*
+  - *[VIEWPORT::SKIP_VELOCITY_BUFFER](../../../api/library/rendering/class.viewport_cpp.md#SKIP_VELOCITY_BUFFER)*
+  - *[VIEWPORT::SKIP_SRGB](../../../api/library/rendering/class.viewport_cpp.md#SKIP_SRGB)*
+  - *[VIEWPORT::SKIP_FORMAT_RG11B10](../../../api/library/rendering/class.viewport_cpp.md#SKIP_FORMAT_RG11B10)*
+  - *[VIEWPORT::SKIP_TRANSPARENT](../../../api/library/rendering/class.viewport_cpp.md#SKIP_TRANSPARENT)*
+  - *[VIEWPORT::SKIP_STREAMING](../../../api/library/rendering/class.viewport_cpp.md#SKIP_STREAMING)*
+  - *[VIEWPORT::SKIP_AUTO_EXPOSURE](../../../api/library/rendering/class.viewport_cpp.md#SKIP_AUTO_EXPOSURE)*
+  - *[VIEWPORT::SKIP_AUTO_WHITE_BALANCE](../../../api/library/rendering/class.viewport_cpp.md#SKIP_AUTO_WHITE_BALANCE)*
+  - *[VIEWPORT::SKIP_OCCLUSION_QUERY](../../../api/library/rendering/class.viewport_cpp.md#SKIP_OCCLUSION_QUERY)*
+  - *[VIEWPORT::SKIP_UPSCALE](../../../api/library/rendering/class.viewport_cpp.md#SKIP_UPSCALE)*
 
 ## void renderTextureCube ( const Ptr < Camera > & camera , const Ptr < Texture > & texture , int size , int hdr , int skip_flags , bool local_space = 0 )
 
@@ -26913,12 +28140,12 @@ Renders the scene into a cube map in accordance with the specified parameters. T
 - *int* **hdr** - 1 - enable HDR; 0 - disable HDR.
 - *int* **skip_flags** - Skip the effects: 0 enables all the effects.
 
-  - VIEWPORT_SKIP_SHADOWS
-  - VIEWPORT_SKIP_VISUALIZER
-  - VIEWPORT_SKIP_SRGB
-  - VIEWPORT_SKIP_POSTEFFECTS
-  - VIEWPORT_SKIP_VELOCITY
-  - VIEWPORT_SKIP_DYNAMIC_REFLECTIONS
+  - *[VIEWPORT::SKIP_SHADOWS](../../../api/library/rendering/class.viewport_cpp.md#SKIP_SHADOWS)*
+  - *[VIEWPORT::SKIP_VISUALIZER](../../../api/library/rendering/class.viewport_cpp.md#SKIP_VISUALIZER)*
+  - *[VIEWPORT::SKIP_SRGB](../../../api/library/rendering/class.viewport_cpp.md#SKIP_SRGB)*
+  - *[VIEWPORT::SKIP_POSTEFFECTS](../../../api/library/rendering/class.viewport_cpp.md#SKIP_POSTEFFECTS)*
+  - *[VIEWPORT::SKIP_VELOCITY_BUFFER](../../../api/library/rendering/class.viewport_cpp.md#SKIP_VELOCITY_BUFFER)*
+  - *[VIEWPORT::SKIP_DYNAMIC_REFLECTIONS](../../../api/library/rendering/class.viewport_cpp.md#SKIP_DYNAMIC_REFLECTIONS)*
 - *bool* **local_space** - 1 - local space coordinates; 0 - world space coordinates.
 
 ## void renderNodeTexture2D ( const Ptr < Camera > & camera , const Ptr < Node > & node , const Ptr < Texture > & texture , int skip_flags , int light_usage , const char * environment_texture_name )
@@ -27383,6 +28610,473 @@ Instantaneously reloads the resources (texture, node, geometry - MeshStatic/Mesh
 
 - *const [Vector](../../../api/library/containers/vector/class.vector_cpp.md)<[String](../../../api/library/common/class.string_cpp.md)> &* **pathes** - A set of paths to the resources to be reloaded.
 
+## int getNumParameters ( ) const
+
+Returns the total number of custom render parameters.
+### Return value
+
+total number of custom render parameters.
+## int findParameter ( const char * name ) const
+
+Searches for a custom render parameter by name.
+### Arguments
+
+- *const char ** **name** - parameter name.
+
+### Return value
+
+parameter index, or -1 if not found.
+## void removeParameter ( int num )
+
+Removes the custom render parameter at the specified index. Triggers shader recompilation.
+### Arguments
+
+- *int* **num** - parameter index.
+
+## void swapParameters ( int num0 , int num1 )
+
+Swaps the positions of two custom render parameters in the list.
+### Arguments
+
+- *int* **num0** - index of the first parameter.
+- *int* **num1** - index of the second parameter.
+
+## void moveParameter ( int from , int to )
+
+Moves a custom render parameter from one position to another in the list.
+### Arguments
+
+- *int* **from** - current index of the parameter.
+- *int* **to** - target index.
+
+## int cloneParameter ( int num )
+
+Creates a copy of the custom render parameter at the specified index with a new GUID.
+### Arguments
+
+- *int* **num** - index of the parameter to clone.
+
+### Return value
+
+index of the new parameter.
+## UGUID getParameterGUID ( int num ) const
+
+Returns the GUID of the custom render parameter at the specified index. The GUID is used to generate the shader uniform name and define name.
+### Arguments
+
+- *int* **num** - parameter index.
+
+### Return value
+
+parameter GUID.
+## const char * getParameterShaderName ( int num ) const
+
+Returns the auto-generated shader uniform name of the custom render parameter (format: **param_<guid>**). This is the name used to access the parameter value in shader code.
+### Arguments
+
+- *int* **num** - parameter index.
+
+### Return value
+
+shader uniform name.
+## const char * getParameterDefineName ( int num ) const
+
+Returns the auto-generated shader define name of the custom render parameter (format: **PARAM_<GUID>**). This define is set when the parameter exists, allowing shaders to check for parameter availability via **#ifdef**.
+### Arguments
+
+- *int* **num** - parameter index.
+
+### Return value
+
+shader define name.
+## const char * getParameterName ( int num ) const
+
+Returns the human-readable name of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+
+### Return value
+
+parameter name.
+## void setParameterName ( int num , const char * name )
+
+Sets the human-readable name of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+- *const char ** **name** - new parameter name.
+
+## Render::RENDER_PARAMETER getParameterType ( int num ) const
+
+Returns the data type of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+
+### Return value
+
+parameter data type.
+## void setParameterType ( int num , Render::RENDER_PARAMETER type )
+
+Sets the data type of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+- *[Render::RENDER_PARAMETER](../../../api/library/rendering/class.render_cpp.md#RENDER_PARAMETER)* **type** - new parameter data type.
+
+## bool isParameterFloat ( int num ) const
+
+Returns a value indicating whether the custom render parameter has a floating-point type (FLOAT, FLOAT2, FLOAT3, or FLOAT4).
+### Arguments
+
+- *int* **num** - parameter index.
+
+### Return value
+
+**true** if the parameter type is floating-point; otherwise, **false**.
+## bool isParameterDynamic ( int num ) const
+
+Returns a value indicating whether the custom render parameter is dynamic. Dynamic parameters are passed to shaders as uniforms every frame.
+### Arguments
+
+- *int* **num** - parameter index.
+
+### Return value
+
+**true** if the parameter is dynamic; otherwise, **false**.
+## void setParameterDynamic ( int num , bool dynamic )
+
+Sets whether the custom render parameter is dynamic. Dynamic parameters are passed to shaders as uniforms every frame.
+### Arguments
+
+- *int* **num** - parameter index.
+- *bool* **dynamic** - **true** to make the parameter dynamic; **false** to make it static.
+
+## void setParameterFloat ( int num , float value )
+
+Sets the float value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+- *float* **value** - value to set.
+
+## void setParameterFloat2 ( int num , const Math:: vec2 & value )
+
+Sets the vec2 value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+- *const  Math::[vec2](../../../api/library/math/class.vec2_cpp.md) &* **value** - value to set.
+
+## void setParameterFloat3 ( int num , const Math:: vec3 & value )
+
+Sets the vec3 value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+- *const  Math::[vec3](../../../api/library/math/class.vec3_cpp.md) &* **value** - value to set.
+
+## void setParameterFloat4 ( int num , const Math:: vec4 & value )
+
+Sets the vec4 value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+- *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md) &* **value** - value to set.
+
+## void setParameterInt ( int num , int value )
+
+Sets the int value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+- *int* **value** - value to set.
+
+## void setParameterInt2 ( int num , const Math:: ivec2 & value )
+
+Sets the ivec2 value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+- *const  Math::[ivec2](../../../api/library/math/class.ivec2_cpp.md) &* **value** - value to set.
+
+## void setParameterInt3 ( int num , const Math:: ivec3 & value )
+
+Sets the ivec3 value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+- *const  Math::[ivec3](../../../api/library/math/class.ivec3_cpp.md) &* **value** - value to set.
+
+## void setParameterInt4 ( int num , const Math:: ivec4 & value )
+
+Sets the ivec4 value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+- *const  Math::[ivec4](../../../api/library/math/class.ivec4_cpp.md) &* **value** - value to set.
+
+## void setParameterBool ( int num , bool value )
+
+Sets the bool value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+- *bool* **value** - value to set.
+
+## void setParameterFloat ( const char * name , float value )
+
+Sets the float value of the custom render parameter with the specified name.
+### Arguments
+
+- *const char ** **name** - parameter name.
+- *float* **value** - value to set.
+
+## void setParameterFloat2 ( const char * name , const Math:: vec2 & value )
+
+Sets the vec2 value of the custom render parameter with the specified name.
+### Arguments
+
+- *const char ** **name** - parameter name.
+- *const  Math::[vec2](../../../api/library/math/class.vec2_cpp.md) &* **value** - value to set.
+
+## void setParameterFloat3 ( const char * name , const Math:: vec3 & value )
+
+Sets the vec3 value of the custom render parameter with the specified name.
+### Arguments
+
+- *const char ** **name** - parameter name.
+- *const  Math::[vec3](../../../api/library/math/class.vec3_cpp.md) &* **value** - value to set.
+
+## void setParameterFloat4 ( const char * name , const Math:: vec4 & value )
+
+Sets the vec4 value of the custom render parameter with the specified name.
+### Arguments
+
+- *const char ** **name** - parameter name.
+- *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md) &* **value** - value to set.
+
+## void setParameterBool ( const char * name , bool value )
+
+Sets the bool value of the custom render parameter with the specified name.
+### Arguments
+
+- *const char ** **name** - parameter name.
+- *bool* **value** - value to set.
+
+## void setParameterInt ( const char * name , int value )
+
+Sets the int value of the custom render parameter with the specified name.
+### Arguments
+
+- *const char ** **name** - parameter name.
+- *int* **value** - value to set.
+
+## void setParameterInt2 ( const char * name , const Math:: ivec2 & value )
+
+Sets the ivec2 value of the custom render parameter with the specified name.
+### Arguments
+
+- *const char ** **name** - parameter name.
+- *const  Math::[ivec2](../../../api/library/math/class.ivec2_cpp.md) &* **value** - value to set.
+
+## void setParameterInt3 ( const char * name , const Math:: ivec3 & value )
+
+Sets the ivec3 value of the custom render parameter with the specified name.
+### Arguments
+
+- *const char ** **name** - parameter name.
+- *const  Math::[ivec3](../../../api/library/math/class.ivec3_cpp.md) &* **value** - value to set.
+
+## void setParameterInt4 ( const char * name , const Math:: ivec4 & value )
+
+Sets the ivec4 value of the custom render parameter with the specified name.
+### Arguments
+
+- *const char ** **name** - parameter name.
+- *const  Math::[ivec4](../../../api/library/math/class.ivec4_cpp.md) &* **value** - value to set.
+
+## float getParameterFloat ( int num ) const
+
+Returns the float value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+
+### Return value
+
+parameter value.
+## Math:: vec2 getParameterFloat2 ( int num ) const
+
+Returns the vec2 value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+
+### Return value
+
+parameter value.
+## Math:: vec3 getParameterFloat3 ( int num ) const
+
+Returns the vec3 value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+
+### Return value
+
+parameter value.
+## Math:: vec4 getParameterFloat4 ( int num ) const
+
+Returns the vec4 value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+
+### Return value
+
+parameter value.
+## int getParameterInt ( int num ) const
+
+Returns the int value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+
+### Return value
+
+parameter value.
+## Math:: ivec2 getParameterInt2 ( int num ) const
+
+Returns the ivec2 value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+
+### Return value
+
+parameter value.
+## Math:: ivec3 getParameterInt3 ( int num ) const
+
+Returns the ivec3 value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+
+### Return value
+
+parameter value.
+## Math:: ivec4 getParameterInt4 ( int num ) const
+
+Returns the ivec4 value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+
+### Return value
+
+parameter value.
+## bool getParameterBool ( int num ) const
+
+Returns the bool value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+
+### Return value
+
+parameter value.
+## float getParameterFloat ( const char * name ) const
+
+Returns the float value of the custom render parameter with the specified name.
+### Arguments
+
+- *const char ** **name** - parameter name.
+
+### Return value
+
+parameter value.
+## Math:: vec2 getParameterFloat2 ( const char * name ) const
+
+Returns the vec2 value of the custom render parameter with the specified name.
+### Arguments
+
+- *const char ** **name** - parameter name.
+
+### Return value
+
+parameter value.
+## Math:: vec3 getParameterFloat3 ( const char * name ) const
+
+Returns the vec3 value of the custom render parameter with the specified name.
+### Arguments
+
+- *const char ** **name** - parameter name.
+
+### Return value
+
+parameter value.
+## Math:: vec4 getParameterFloat4 ( const char * name ) const
+
+Returns the vec4 value of the custom render parameter with the specified name.
+### Arguments
+
+- *const char ** **name** - parameter name.
+
+### Return value
+
+parameter value.
+## int getParameterInt ( const char * name ) const
+
+Returns the int value of the custom render parameter with the specified name.
+### Arguments
+
+- *const char ** **name** - parameter name.
+
+### Return value
+
+parameter value.
+## Math:: ivec2 getParameterInt2 ( const char * name ) const
+
+Returns the ivec2 value of the custom render parameter with the specified name.
+### Arguments
+
+- *const char ** **name** - parameter name.
+
+### Return value
+
+parameter value.
+## Math:: ivec3 getParameterInt3 ( const char * name ) const
+
+Returns the ivec3 value of the custom render parameter with the specified name.
+### Arguments
+
+- *const char ** **name** - parameter name.
+
+### Return value
+
+parameter value.
+## Math:: ivec4 getParameterInt4 ( const char * name ) const
+
+Returns the ivec4 value of the custom render parameter with the specified name.
+### Arguments
+
+- *const char ** **name** - parameter name.
+
+### Return value
+
+parameter value.
+## bool getParameterBool ( const char * name ) const
+
+Returns the bool value of the custom render parameter with the specified name.
+### Arguments
+
+- *const char ** **name** - parameter name.
+
+### Return value
+
+parameter value.
 ## void setMaterialReplaceFunc ( Render::MaterialReplaceFunc func )
 
 Sets a pointer to a function that is used during rendering to determine the material for an object surface. The function is called for each *(object_id, surface)* pair and must return the material to be used for rendering the surface. If the function returns nullptr, the material currently assigned to the surface is used.
@@ -27393,7 +29087,7 @@ Sets a pointer to a function that is used during rendering to determine the mate
 // Callback: return replacement material or nullptr
 Material *my_replace_func(int object_id, int surface)
 {
-	// need_replace — your logic that defines which object/surface is to be replaced
+	// need_replace ï¿½ your logic that defines which object/surface is to be replaced
 	if (need_replace(object_id, surface))
 		return replacement_material.get();
 
@@ -27448,3 +29142,252 @@ private:
 
 A function pointer type representing a callback that receives an object ID and a surface index, and returns a pointer to a Material, declared as follows:
  typedef *Unigine::Material (MaterialReplaceFunc)*(*int* **object_id**, *int* **surface**);
+## Ptr <const MeshSkinnedAnimation > loadStreamingAnimationAsync ( const char * path )
+
+Requests asynchronous loading of the animation with the specified path into the [data streaming](../../../principles/data_streaming/index.md) system. The animation is loaded in a background thread and becomes available later.
+### Arguments
+
+- *const char ** **path** - Path to the animation file.
+
+### Return value
+
+Loaded animation, or null if the resource cannot be found.
+## Ptr <const MeshSkinnedAnimation > loadStreamingAnimationAsync ( const UGUID & guid )
+
+Requests asynchronous loading of the animation with the specified GUID into the [data streaming](../../../principles/data_streaming/index.md) system. The animation is loaded in a background thread and becomes available later.
+### Arguments
+
+- *const [UGUID](../../../api/library/filesystem/class.uguid_cpp.md) &* **guid** - GUID of the animation file.
+
+### Return value
+
+Loaded animation, or null if the resource cannot be found.
+## Ptr <const MeshSkinnedAnimation > loadStreamingAnimationForce ( const char * path )
+
+Forces immediate loading of the animation with the specified path into the [data streaming](../../../principles/data_streaming/index.md) system, blocking until the animation is available.
+### Arguments
+
+- *const char ** **path** - Path to the animation file.
+
+### Return value
+
+Loaded animation, or null if the resource cannot be found.
+## Ptr <const MeshSkinnedAnimation > loadStreamingAnimationForce ( const UGUID & guid )
+
+Forces immediate loading of the animation with the specified GUID into the [data streaming](../../../principles/data_streaming/index.md) system, blocking until the animation is available.
+### Arguments
+
+- *const [UGUID](../../../api/library/filesystem/class.uguid_cpp.md) &* **guid** - GUID of the animation file.
+
+### Return value
+
+Loaded animation, or null if the resource cannot be found.
+## bool holdStreamingAnimation ( const char * path )
+
+Increases the hold counter of the animation with the specified path, keeping it in the [data streaming](../../../principles/data_streaming/index.md) system and preventing it from being unloaded.
+### Arguments
+
+- *const char ** **path** - Path to the animation file.
+
+### Return value
+
+true if the hold counter has been increased; false if there is no resource with the specified path.
+## bool holdStreamingAnimation ( const UGUID & guid )
+
+Increases the hold counter of the animation with the specified GUID, keeping it in the [data streaming](../../../principles/data_streaming/index.md) system and preventing it from being unloaded.
+### Arguments
+
+- *const [UGUID](../../../api/library/filesystem/class.uguid_cpp.md) &* **guid** - GUID of the animation file.
+
+### Return value
+
+true if the hold counter has been increased; false if there is no resource with the specified GUID.
+## bool unholdStreamingAnimation ( const char * path )
+
+Decreases the hold counter of the animation with the specified path in the [data streaming](../../../principles/data_streaming/index.md) system.
+### Arguments
+
+- *const char ** **path** - Path to the animation file.
+
+### Return value
+
+true if the hold counter has been decreased; false if there is no resource with the specified path or the counter is already 0.
+## bool unholdStreamingAnimation ( const UGUID & guid )
+
+Decreases the hold counter of the animation with the specified GUID in the [data streaming](../../../principles/data_streaming/index.md) system.
+### Arguments
+
+- *const [UGUID](../../../api/library/filesystem/class.uguid_cpp.md) &* **guid** - GUID of the animation file.
+
+### Return value
+
+true if the hold counter has been decreased; false if there is no resource with the specified GUID or the counter is already 0.
+## void resetStreamingAnimationHold ( const char * path )
+
+Resets the hold counter of the animation with the specified path to 0 in the [data streaming](../../../principles/data_streaming/index.md) system.
+### Arguments
+
+- *const char ** **path** - Path to the animation file.
+
+## void resetStreamingAnimationHold ( const UGUID & guid )
+
+Resets the hold counter of the animation with the specified GUID to 0 in the [data streaming](../../../principles/data_streaming/index.md) system.
+### Arguments
+
+- *const [UGUID](../../../api/library/filesystem/class.uguid_cpp.md) &* **guid** - GUID of the animation file.
+
+## bool isStreamingAnimationHeld ( const char * path )
+
+Returns a value indicating if the animation with the specified path is currently held in the [data streaming](../../../principles/data_streaming/index.md) system.
+### Arguments
+
+- *const char ** **path** - Path to the animation file.
+
+### Return value
+
+true if the animation is held in the streaming system; otherwise, false.
+## bool isStreamingAnimationHeld ( const UGUID & guid )
+
+Returns a value indicating if the animation with the specified GUID is currently held in the [data streaming](../../../principles/data_streaming/index.md) system.
+### Arguments
+
+- *const [UGUID](../../../api/library/filesystem/class.uguid_cpp.md) &* **guid** - GUID of the animation file.
+
+### Return value
+
+true if the animation is held in the streaming system; otherwise, false.
+## int getStreamingAnimationHoldCount ( const char * path )
+
+Returns the current value of the hold counter of the animation with the specified path in the [data streaming](../../../principles/data_streaming/index.md) system.
+### Arguments
+
+- *const char ** **path** - Path to the animation file.
+
+### Return value
+
+Current value of the hold counter.
+## int getStreamingAnimationHoldCount ( const UGUID & guid )
+
+Returns the current value of the hold counter of the animation with the specified GUID in the [data streaming](../../../principles/data_streaming/index.md) system.
+### Arguments
+
+- *const [UGUID](../../../api/library/filesystem/class.uguid_cpp.md) &* **guid** - GUID of the animation file.
+
+### Return value
+
+Current value of the hold counter.
+## bool isStreamingAnimationExist ( const char * path )
+
+Returns a value indicating if an animation with the specified path exists in the [data streaming](../../../principles/data_streaming/index.md) system.
+### Arguments
+
+- *const char ** **path** - Path to the animation file.
+
+### Return value
+
+true if a resource with the specified path exists in the streaming system; otherwise, false.
+## bool isStreamingAnimationExist ( const UGUID & guid )
+
+Returns a value indicating if an animation with the specified GUID exists in the [data streaming](../../../principles/data_streaming/index.md) system.
+### Arguments
+
+- *const [UGUID](../../../api/library/filesystem/class.uguid_cpp.md) &* **guid** - GUID of the animation file.
+
+### Return value
+
+true if a resource with the specified GUID exists in the streaming system; otherwise, false.
+## bool isStreamingAnimationLoaded ( const char * path )
+
+Returns a value indicating if the animation with the specified path is currently loaded in the [data streaming](../../../principles/data_streaming/index.md) system.
+### Arguments
+
+- *const char ** **path** - Path to the animation file.
+
+### Return value
+
+true if the animation with the specified path is currently loaded; otherwise, false.
+## bool isStreamingAnimationLoaded ( const UGUID & guid )
+
+Returns a value indicating if the animation with the specified GUID is currently loaded in the [data streaming](../../../principles/data_streaming/index.md) system.
+### Arguments
+
+- *const [UGUID](../../../api/library/filesystem/class.uguid_cpp.md) &* **guid** - GUID of the animation file.
+
+### Return value
+
+true if the animation with the specified GUID is currently loaded; otherwise, false.
+## void calculateEngineRenderResolution ( int render_mode , int skip_flags , const Math:: ivec2 & viewport_size , Math:: ivec2 & min_resolution , Math:: ivec2 & max_resolution , Math:: ivec2 & frame_render_resolution ) const
+
+Calculates the internal engine render resolutions that would be used for a viewport of the given size, taking into account the render border, supersampling, dynamic resolution, and the active upscaler.
+### Arguments
+
+- *int* **render_mode** - Viewport render mode, one of the **[Viewport::RENDER_*](../../../api/library/rendering/class.viewport_cpp.md#RENDER_DEPTH)** values; adjustments for dynamic resolution and the upscaler are applied only for the full render pipeline mode.
+- *int* **skip_flags** - Combination of the **[Viewport::SKIP_*](../../../api/library/rendering/class.viewport_cpp.md#SKIP_SHADOWS)** flags; skipping post effects or upscaling suppresses the corresponding resolution adjustment.
+- *const  Math::[ivec2](../../../api/library/math/class.ivec2_cpp.md) &* **viewport_size** - Target viewport size, in pixels.
+- *Math::[ivec2](../../../api/library/math/class.ivec2_cpp.md) &* **min_resolution** - Output value: the minimum resolution the engine may render at (differs from the maximum only when dynamic resolution is enabled).
+- *Math::[ivec2](../../../api/library/math/class.ivec2_cpp.md) &* **max_resolution** - Output value: the maximum resolution the engine may render at.
+- *Math::[ivec2](../../../api/library/math/class.ivec2_cpp.md) &* **frame_render_resolution** - Output value: the resolution the current frame would actually be rendered at.
+
+## Ptr <ConstMeshSkinnedAnimation> loadStreamingAnimationAsync ( const UGUID & guid )
+
+Requests a skinned mesh animation from the animation streaming system without blocking: asynchronous loading is started and the call returns immediately. The returned resource may not be loaded yet.
+### Arguments
+
+- *const [UGUID](../../../api/library/filesystem/class.uguid_cpp.md) &* **guid** - GUID of the animation asset.
+
+### Return value
+
+Read-only animation resource managed by the streaming system, or null if the resource cannot be created.
+## Ptr <ConstMeshSkinnedAnimation> loadStreamingAnimationAsync ( const char * path )
+
+Requests a skinned mesh animation from the animation streaming system without blocking: asynchronous loading is started and the call returns immediately. The returned resource may not be loaded yet.
+### Arguments
+
+- *const char ** **path** - Path to the animation file.
+
+### Return value
+
+Read-only animation resource managed by the streaming system, or null if the resource cannot be created.
+## Ptr <ConstMeshSkinnedAnimation> loadStreamingAnimationForce ( const UGUID & guid )
+
+Loads a skinned mesh animation via the animation streaming system synchronously: the call blocks until the animation data is loaded, so the returned resource is ready for immediate use. Prefer the asynchronous variant during rendering to avoid spikes.
+### Arguments
+
+- *const [UGUID](../../../api/library/filesystem/class.uguid_cpp.md) &* **guid** - GUID of the animation asset.
+
+### Return value
+
+Read-only animation resource managed by the streaming system, or null if the resource cannot be created.
+## Ptr <ConstMeshSkinnedAnimation> loadStreamingAnimationForce ( const char * path )
+
+Loads a skinned mesh animation via the animation streaming system synchronously: the call blocks until the animation data is loaded, so the returned resource is ready for immediate use. Prefer the asynchronous variant during rendering to avoid spikes.
+### Arguments
+
+- *const char ** **path** - Path to the animation file.
+
+### Return value
+
+Read-only animation resource managed by the streaming system, or null if the resource cannot be created.
+## int addParameter ( const char * name , Render::RENDER_PARAMETER type = Enum.Render.RENDER_PARAMETER.FLOAT , bool dynamic = true , const UGUID & guid = UGUID() )
+
+Registers a new global render parameter and returns its number. If a parameter with the given GUID is already registered, the number of the existing parameter is returned, making the registration idempotent.
+### Arguments
+
+- *const char ** **name** - Parameter name.
+- *[Render::RENDER_PARAMETER](../../../api/library/rendering/class.render_cpp.md#RENDER_PARAMETER)* **type** - Parameter type.
+- *bool* **dynamic** - true to make the parameter dynamic: its value is provided to shaders as a uniform and can be changed at runtime without shader recompilation. false to bake the value into shaders as a compile-time constant (changing the value triggers shader recompilation).
+- *const [UGUID](../../../api/library/filesystem/class.uguid_cpp.md) &* **guid** - Parameter GUID. If an empty GUID is passed, a new one is generated automatically.
+
+### Return value
+
+Number of the registered parameter.
+## bool isValidSurfaceMaterialParameterName ( const char * name )
+
+Checks if the given name can be used as a custom parameter name. A valid name is a valid C/HLSL identifier that does not start with an underscore or the *unigine_* prefix and is not a reserved shader keyword or type name.
+### Arguments
+
+- *const char ** **name** - Name to be checked.
+
+### Return value
+
+true if the name can be used as a custom parameter name; otherwise, false.

@@ -24,6 +24,12 @@ This section contains functions available when the *[SpiderVision](../../../../p
 
 - [CalibrationGridData Class (CPP)](../../../../api/library/plugins/spidervision/class.calibrationgriddata_cpp.md)
 
+- [CAVEGroupData Class (USC)](../../../../api/library/plugins/spidervision/class.cavegroupdata_usc.md)
+
+- [CAVEGroupData Class (CS)](../../../../api/library/plugins/spidervision/class.cavegroupdata_cs.md)
+
+- [CAVEGroupData Class (CPP)](../../../../api/library/plugins/spidervision/class.cavegroupdata_cpp.md)
+
 - [ColorCorrectionData Class (USC)](../../../../api/library/plugins/spidervision/class.colorcorrectiondata_usc.md)
 
 - [ColorCorrectionData Class (CS)](../../../../api/library/plugins/spidervision/class.colorcorrectiondata_cs.md)

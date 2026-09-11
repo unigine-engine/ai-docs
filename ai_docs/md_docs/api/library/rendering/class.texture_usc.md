@@ -296,43 +296,43 @@ Sets a new ownership flag that defines if the texture is to be automatically man
 Returns the current ownership flag that defines if the texture is to be automatically managed by the Engine. If the flag is set the Engine takes care of the texture as if it was created by the Engine, otherwise the user should manage the texture manually (destroy the object, do all necessary memory cleanup).
 ### Return value
 
-**true** if automatic managing of the texture and used memory lifetime by the Engine is enabled; otherwise **false**.
+**true** if automatic managing of the texture and used memory lifetime by the Engine is enabled ; otherwise **false**.
 ## bool isUsageShared () const
 
 Returns the current value indicating if the texture has the [FORMAT_USAGE_SHARED](#FORMAT_USAGE_SHARED) flag enabled.
 ### Return value
 
-**true** if the [FORMAT_USAGE_SHARED](#FORMAT_USAGE_SHARED) flag for the texture is enabled; otherwise **false**.
+**true** if the [FORMAT_USAGE_SHARED](#FORMAT_USAGE_SHARED) flag for the texture is enabled ; otherwise **false**.
 ## bool isUsageStaging () const
 
 Returns the current value indicating if the texture has the [FORMAT_USAGE_STAGING](#FORMAT_USAGE_STAGING) flag enabled.
 ### Return value
 
-**true** if the [FORMAT_USAGE_STAGING](#FORMAT_USAGE_STAGING) flag for the texture is enabled; otherwise **false**.
+**true** if the [FORMAT_USAGE_STAGING](#FORMAT_USAGE_STAGING) flag for the texture is enabled ; otherwise **false**.
 ## bool isUsageDynamic () const
 
 Returns the current value indicating if the texture has the [FORMAT_USAGE_DYNAMIC](#FORMAT_USAGE_DYNAMIC) flag enabled.
 ### Return value
 
-**true** if the [FORMAT_USAGE_DYNAMIC](#FORMAT_USAGE_DYNAMIC) flag for the texture is enabled; otherwise **false**.
+**true** if the [FORMAT_USAGE_DYNAMIC](#FORMAT_USAGE_DYNAMIC) flag for the texture is enabled ; otherwise **false**.
 ## bool isUsageImmutable () const
 
 Returns the current value indicating if the texture has the [FORMAT_USAGE_IMMUTABLE](#FORMAT_USAGE_IMMUTABLE) flag enabled.
 ### Return value
 
-**true** if the [FORMAT_USAGE_IMMUTABLE](#FORMAT_USAGE_IMMUTABLE) flag for the texture is enabled; otherwise **false**.
+**true** if the [FORMAT_USAGE_IMMUTABLE](#FORMAT_USAGE_IMMUTABLE) flag for the texture is enabled ; otherwise **false**.
 ## bool isUsageRender () const
 
 Returns the current value indicating if the texture has the [FORMAT_USAGE_RENDER](#FORMAT_USAGE_RENDER) flag enabled.
 ### Return value
 
-**true** if the [FORMAT_USAGE_RENDER](#FORMAT_USAGE_RENDER) flag for the texture is enabled; otherwise **false**.
+**true** if the [FORMAT_USAGE_RENDER](#FORMAT_USAGE_RENDER) flag for the texture is enabled ; otherwise **false**.
 ## bool isUsageUnorderedAccess () const
 
 Returns the current value indicating if the texture has the [FORMAT_USAGE_UNORDERED_ACCESS](#FORMAT_USAGE_UNORDERED_ACCESS) flag enabled.
 ### Return value
 
-**true** if the [FORMAT_USAGE_UNORDERED_ACCESS](#FORMAT_USAGE_UNORDERED_ACCESS) flag for the texture is enabled; otherwise **false**.
+**true** if the [FORMAT_USAGE_UNORDERED_ACCESS](#FORMAT_USAGE_UNORDERED_ACCESS) flag for the texture is enabled ; otherwise **false**.
 ## getVideoMemoryUsage () const
 
 Returns the current amount of memory occupied by the texture.
@@ -385,8 +385,13 @@ Sets texture data using the data of the specified source image.
 **1** if the data was set successfully; otherwise, **0**.
 ## int setImage2D ( Image image , int offset_x , int offset_y , int texture_format = -1 )
 
+
 Sets texture data using the data of the specified 2D or 2D array image.
+
+
 > **Notice:** The following conditions must be satisfied:
+>
+>
 > - Both texture and image types must be either **2D** or **2D_ARRAY**.
 > - Texture resolution must be greater or equal to the image resolution.
 > - Image and texture mipmap counts must be equal (the same is for layer counts of 2D arrays).
@@ -404,8 +409,13 @@ Sets texture data using the data of the specified 2D or 2D array image.
 **1** if the data was set successfully; otherwise, **0**.
 ## int setImageLayer ( Image image , int layer , int texture_format = -1 )
 
+
 Sets the data of the specified layer of the 2D texture array using the data of the specified 2D image.
+
+
 > **Notice:** The following conditions must be satisfied:
+>
+>
 > - Texture and image must have the same resolution.
 > - Image and texture mipmap counts must be equal (the same is for layer counts of 2D arrays).
 

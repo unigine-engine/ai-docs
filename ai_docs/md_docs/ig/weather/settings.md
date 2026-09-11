@@ -30,7 +30,7 @@ One of the key factors making visualization of the [terrain database](../../ig/i
 Using a full-year ephemeris model, IG automatically updates positions of the Sun, Moon, and stars based on the date, time, and geographic location.
 
 
-By default IG is [configured to work in the Greenwich time zone](../../ig/weather/config.md#config_datetime). But you can change time zone via [code](../../api/library/plugins/weather/class.skymap_cpp.md#setTimezone_float_void) or by using the [IG Editor Plugin](../../ig/ig_plugin.md#timezone).
+By default IG is [configured to work in the Greenwich time zone](../../ig/weather/config_cpp.md#config_datetime). But you can change time zone via [code](../../api/library/plugins/weather/class.skymap_cpp.md#setTimezone_float_void) or by using the [IG Editor Plugin](../../ig/ig_plugin.md#timezone).
 
 
 ### Configuring the Star Field
@@ -215,12 +215,12 @@ A layer can be set up either via the IG Editor Plugin or by the means of [IG Hos
 
 
 - **Enabled** - enables or disables the selected layer
-- **Elevation** - layer’s height above sea level
+- **Elevation** - layer�s height above sea level
 - **Thickness** - vertical width of the layer
 - **Transition** - smooth border transition width
 - **Visibility** - visibility distance within the layer (can be used to simulate haze)
 - **Coverage** - density of layer effects
-- **Humidity, Temperature, Barometric** - density of the layer’s effects
+- **Humidity, Temperature, Barometric** - density of the layer�s effects
 - **Lightning** - lightning frequency
 
 
@@ -245,7 +245,7 @@ When different regions with layers intersect each other, all their parameters ar
 To add a new layer to a region, use the [IG:Meteo](../../ig/ig_plugin.md#meteo) window of the *IG Editor Plugin*.
 
 
-1. Select the region in the left *Regions* list and click the required *Add Layer* button. ![](add_layer.png)
+1. Select the region in the left *Regions* list and click the required *Add Layer* button.![](add_layer.png)
 2. Depending on the type of the layer you must specify its properties (see below).
 
 
@@ -276,7 +276,7 @@ You also can [extend](../../ig/ig_plugin.md#cloud_types) the default cloud set b
 Cloud coverage is set automatically using the *Coverage* value from a `weather_control` packet received.
 
 
-Cloud coverage does not change immediately, it has some transition period providing smoothness. You can adjust transition time by changing the value in the `cloud_transition_time` tag in the [configuration file](../../ig/weather/config.md) (`data/weather_config.xml`).
+Cloud coverage does not change immediately, it has some transition period providing smoothness. You can adjust transition time by changing the value in the `cloud_transition_time` tag in the [configuration file](../../ig/weather/config_cpp.md) (`data/weather_config.xml`).
 
 
 Cloud type for a cloud layer and other parameters can be set up via [IG Editor Plugin](../../ig/ig_plugin.md) or by the means of [IG Host](../../ig/ig_host.md).
@@ -303,29 +303,29 @@ To adjust specific parameters for rain or snow (spawn rate, size of raindrops/sn
 The following parameters are available:
 
 
-- **Precipitation Type** — type of precipitation (rain or snow).
-- **Emitter Node** — particles node that simulates the effect.
-- **Minimum and Maximum Particles Size** — limits for random particles size.
-- **Minimum and Maximum Spawn Rate** — limits for spawn rate value.
-- **Rotation** — rotation parameters for particles based on the camera movement.
+- **Precipitation Type** � type of precipitation (rain or snow).
+- **Emitter Node** � particles node that simulates the effect.
+- **Minimum and Maximum Particles Size** � limits for random particles size.
+- **Minimum and Maximum Spawn Rate** � limits for spawn rate value.
+- **Rotation** � rotation parameters for particles based on the camera movement.
 
-  - *Enabled* — enables the particles rotation.
-  - *Curve* — sets the interpolation curve for rotation (linear interpolation when the curve is not specified).
-  - *Curve Angle Scale* — maximum deflection angle.
-  - *Curve Speed Scale* — maximum speed when the maximum deflection angle is achieved.
-- **Spawn Increase** — spawn increase parameters for particles based on the camera movement speed.
+  - *Enabled* � enables the particles rotation.
+  - *Curve* � sets the interpolation curve for rotation (linear interpolation when the curve is not specified).
+  - *Curve Angle Scale* � maximum deflection angle.
+  - *Curve Speed Scale* � maximum speed when the maximum deflection angle is achieved.
+- **Spawn Increase** � spawn increase parameters for particles based on the camera movement speed.
 
-  - *Enabled* — enables the spawn increase.
-  - *Curve* — sets the interpolation curve for spawn increase (linear interpolation when the curve is not specified).
-  - *Curve Angle Scale* — maximum spawn rate.
-  - *Curve Speed Scale* — maximum speed when the maximum spawn rate is achieved.
-- **Velocity Increase** — velocity increase parameters for particles based on the camera movement speed.
+  - *Enabled* � enables the spawn increase.
+  - *Curve* � sets the interpolation curve for spawn increase (linear interpolation when the curve is not specified).
+  - *Curve Angle Scale* � maximum spawn rate.
+  - *Curve Speed Scale* � maximum speed when the maximum spawn rate is achieved.
+- **Velocity Increase** � velocity increase parameters for particles based on the camera movement speed.
 
-  - *Enabled* — enables the velocity increase.
-  - *Curve* — sets the interpolation curve for velocity increase (linear interpolation when the curve is not specified).
-  - *Curve Angle Scale* — maximum velocity.
-  - *Curve Speed Scale* — maximum speed when the maximum velocity is achieved.
-- **IGEditor** — editable parameters for preview in Editor.
+  - *Enabled* � enables the velocity increase.
+  - *Curve* � sets the interpolation curve for velocity increase (linear interpolation when the curve is not specified).
+  - *Curve Angle Scale* � maximum velocity.
+  - *Curve Speed Scale* � maximum speed when the maximum velocity is achieved.
+- **IGEditor** � editable parameters for preview in Editor.
 
   - *Density* - particles density.
   - *Size* - particles size.
@@ -335,7 +335,7 @@ The following parameters are available:
 #### Lightning
 
 
-Lightnings are particles that get spawned and played inside a [layer’s](#weather_layers) volume. They can be enabled with any type of layer.
+Lightnings are particles that get spawned and played inside a [layer�s](#weather_layers) volume. They can be enabled with any type of layer.
 
 
 Lightning parameters can be set up either via the IG Editor Plugin or by the means of IG Host.
@@ -350,7 +350,7 @@ In order to setup a custom lightning strike and expand the list of lightning typ
 1. [Create a particle system](../../objects/effects/particles/index.md#create) representing new lightning and [assign](../../editor2/properties_settings/organizing_properties/index.md#assign_property) a *LightningEffect* property to the *ObjectParticles* node.
 2. Assign this *ObjectParticles* node to the *Emitter Node* field. ![](emitter.png)
 3. [Export](../../editor2/exporting_nodes/index.md#export_to_noderef) the particles to a node reference.
-4. Go to the [configuration file](../../ig/weather/config.md) (`data/weather_config.xml`) and add a new *lightning_source* entry to the lightning sources section (*lightning_sources*). Specify the new *id* and *path* to the newly created node representing lightning. ```xml <lightning_sources> <lightning_source id="0" node_path="ig/weather/fx/lightning/nodes/ObjectParticles.node"/> </lightning_sources> ```
+4. Go to the [configuration file](../../ig/weather/config_cpp.md) (`data/weather_config.xml`) and add a new *lightning_source* entry to the lightning sources section (*lightning_sources*). Specify the new *id* and *path* to the newly created node representing lightning. ```xml <lightning_sources> <lightning_source id="0" node_path="ig/weather/fx/lightning/nodes/ObjectParticles.node"/> </lightning_sources> ```
 5. Save the `weather_config.xml` file and restart the *UnigineEditor* to see the new lightning in action.
 
 
@@ -387,7 +387,7 @@ This asset is already preconfigured to be affected by the IG wind via the **Wind
 The following parameters are available:
 
 
-- **Angle Wind** — additional angle rotating the mesh to align it with the wind direction.
-- **Mesh Skinned** — the windsock mesh.
-- **Anim Power** — animation of the windsock deformation depending on the wind speed variation.
-- **Anim Standing** — animation of the windsock rippling.
+- **Angle Wind** � additional angle rotating the mesh to align it with the wind direction.
+- **Mesh Skinned** � the windsock mesh.
+- **Anim Power** � animation of the windsock deformation depending on the wind speed variation.
+- **Anim Standing** � animation of the windsock rippling.

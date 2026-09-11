@@ -27,6 +27,18 @@ For example, by using the *VRPN Client* plugin, you can implement an application
 ## Launching VRPN Client Plugin
 
 
+To **add the plugin to a new project**, start by [creating a project](../../../sdk/projects/index.md#creation) from a template. In the project creation dialog, open *Advanced Settings > Plugins*, enable the *VRPN* plugin, click *Add*, then select *Create New Project*.
+
+
+![](add_plugin.png)
+
+
+For **existing projects**, in the SDK Browser, open the *My Projects* tab, and click the three-dot menu on the project card. Select *Configure*, then click *Plugins*, enable the required plugin, click *Add*, and finish with *Configure Project*.
+
+
+![](../../../sdk/projects/other_actions.png)
+
+
 > **Notice:** Before launching the plugin, you should run a server application (it is usually *DTrack*) that receives input data from an input device. The *VRPN Client* plugin will connect to this server and receive data from it.
 
 

@@ -11,11 +11,15 @@ This class is used to simulate [physical bodies](../../../principles/physics/bod
 
 To transform a body, one of the following can be used:
 
+
 - **[setTransform()](../../...md#setTransform_Mat4_void)**
 - **[setPreserveTransform()](../../...md#setPreserveTransform_Mat4_void)**
 - **[setVelocityTransform()](../../...md#setVelocityTransform_Mat4_void)**
 
+
 All of these functions take effect when physics calculations are over and **[updatePhysics()](../../../code/fundamentals/execution_sequence/main_loop.md#physics)** is performed. Only after that transformations of the body are applied to the rendered node. If a node needs to be transformed immediately after its physical body, **[flushTransform()](../../...md#flushTransform_void)** is to be called.
+
+
 The simulation of the body can be [frozen](../../../principles/physics/bodies/index.md#freezing) (if the *[Frozen](#setFrozen_int_void)* flag is set).
 
 
@@ -174,49 +178,49 @@ Returns the current value indicating if [gravity](../../../api/library/physics/c
 **true** if the body is affected by gravity; otherwise **false**.
 ## void setImmovable ( bool immovable )
 
-Sets a new value indicating if the body is immovable (static).
+Sets a new value indicating if the body is immovable (static), i.e. not affected by any forces or collisions.
 ### Arguments
 
 - *bool* **immovable** - Set **true** to enable the body is immovable (static); **false** - to disable it.
 
 ## bool isImmovable () const
 
-Returns the current value indicating if the body is immovable (static).
+Returns the current value indicating if the body is immovable (static), i.e. not affected by any forces or collisions.
 ### Return value
 
 **true** if the body is immovable (static); otherwise **false**.
 ## void setFrozen ( bool frozen )
 
-Sets a new value indicating if the body is [frozen](../../../principles/physics/bodies/index.md#frozen_velocities). When a body is frozen, it is not simulated (though its contacts are still calculated), until a collision with a frozen body occurs or some force is applied.
+Sets a new value indicating if the body is frozen. When a body is frozen, it is not simulated (though its contacts are still calculated) until a collision with a non-frozen body occurs or a force is applied.
 ### Arguments
 
-- *bool* **frozen** - Set **true** to enable the body frozen status; **false** - to disable it.
+- *bool* **frozen** - Set **true** to enable body simulation freezing; **false** - to disable it.
 
 ## bool isFrozen () const
 
-Returns the current value indicating if the body is [frozen](../../../principles/physics/bodies/index.md#frozen_velocities). When a body is frozen, it is not simulated (though its contacts are still calculated), until a collision with a frozen body occurs or some force is applied.
+Returns the current value indicating if the body is frozen. When a body is frozen, it is not simulated (though its contacts are still calculated) until a collision with a non-frozen body occurs or a force is applied.
 ### Return value
 
-**true** if the body frozen status is enabled; otherwise **false**.
+**true** if body simulation freezing is enabled ; otherwise **false**.
 ## bool isEnabledSelf () const
 
-Returns the current value indicating if the body is enabled.
+Returns the current value indicating if the body is enabled by its own flag, regardless of the enabled state it may inherit from its node or the physics simulation.
 ### Return value
 
-**true** if the body is enabled; otherwise **false**.
+**true** if the body is enabled by its own flag; otherwise **false**.
 ## void setEnabled ( bool enabled )
 
 Sets a new value indicating if physical interactions with the body are enabled.
 ### Arguments
 
-- *bool* **enabled** - Set **true** to enable physical interactions with the body; **false** - to disable it.
+- *bool* **enabled** - Set **true** to enable physical simulation of the body; **false** - to disable it.
 
 ## bool isEnabled () const
 
 Returns the current value indicating if physical interactions with the body are enabled.
 ### Return value
 
-**true** if physical interactions with the body is enabled; otherwise **false**.
+**true** if physical simulation of the body is enabled ; otherwise **false**.
 ## const char * getTypeName () const
 
 Returns the current name of the body type.
@@ -269,7 +273,7 @@ Returns the current normalized direction vector of the body (in world coordinate
 Current normalized direction vector in the world coordinates.
 ## Event<const Ptr < Body > &> getEventContacts () const
 
-event triggered after adding new contacts and before removing the ones that cease to exist. This event can be used to get **all contacts** of the body including new ones (*enter*) and the ending ones (*leave*). *Leave* contacts are removed after the event is triggered, so this is the only point where you can still get them. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after adding new contacts and before removing the ones that cease to exist. This event can be used to get **all contacts** of the body including new ones (*enter*) and the ending ones (*leave*). *Leave* contacts are removed after the event is triggered, so this is the only point where you can still get them. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** Physics-based events are executed in the main thread, as they are mainly used for creation, destruction or modification of other objects.
 
@@ -408,10 +412,10 @@ publisher->getEventContacts().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < Body > &, int> getEventContactLeave () const
 
-event triggered when a contact with the body ends (the body stops touching another body). You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a contact with the body ends (the body stops touching another body). You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** Physics-based events are executed in the main thread, as they are mainly used for creation, destruction or modification of other objects.
 
@@ -550,10 +554,10 @@ publisher->getEventContactLeave().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < Body > &, int> getEventContactEnter () const
 
-event triggered when a contact with the body occurs (the body begins touching another body). You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a contact with the body occurs (the body begins touching another body). You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** Physics-based events are executed in the main thread, as they are mainly used for creation, destruction or modification of other objects.
 
@@ -829,10 +833,10 @@ publisher->getEventContactEnter().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < Body > &> getEventPosition () const
 
-event triggered when a given body moves a certain distance (rotation is not taken into account). You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a given body moves a certain distance (rotation is not taken into account). You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** Physics-based events are executed in the main thread, as they are mainly used for creation, destruction or modification of other objects.
 
@@ -971,10 +975,10 @@ publisher->getEventPosition().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < Body > &> getEventFrozen () const
 
-event triggered when a given body [freezes/unfreezes](#isFrozen_int) (i.e. its *Frozen* state changes). Use **[isFrozen()](../../...md#isFrozen_int)** to define whether the body is frozen or unfrozen at the moment. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a given body [freezes/unfreezes](#isFrozen_int) (i.e. its *Frozen* state changes). Use **[isFrozen()](../../...md#isFrozen_int)** to define whether the body is frozen or unfrozen at the moment. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** Physics-based events are executed in the main thread, as they are mainly used for creation, destruction or modification of other objects.
 
@@ -1113,7 +1117,7 @@ publisher->getEventFrozen().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## Ptr < Body > createBody ( int type )
@@ -1505,7 +1509,7 @@ Returns the relative impulse at the given [contact](#contacts) point.
 Impulse value.
 ## float getContactTime ( int num ) const
 
-Returns the time when the given [contact](#contacts) occurs. By CCD (for spheres or capsules), it returns the time starting from the current physics simulation tick to the moment when the calculated contact is bound to happen. By non-continuous collision detection, **0** is always returned.
+Returns the time when the given [contact](#contacts) occurs. In case of [CCD](../../../api/library/physics/class.shape_cpp.md#isContinuous_int), it returns the time starting from the current physics simulation tick to the moment when the calculated contact is bound to happen. In case of non-continuous collision detection, **0** is always returned.
 ### Arguments
 
 - *int* **num** - [Contact](#contacts) number in the range from 0 to the [total number of contacts](#getNumContacts_int).

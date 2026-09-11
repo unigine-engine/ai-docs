@@ -19,31 +19,31 @@ This base class creates a draggable 3D manipulator.
 
 ## mat4 Modelview
 
-The current projection matrix of the handler.
+The model-view matrix of the handler.
 ## mat4 Projection
 
-The current model-view matrix of the handler.
+The projection matrix of the handler.
 ## mat4 Transform
 
-The current transformation matrix of the handler.
+The transformation matrix of the handler.
 ## mat4 Basis
 
-The current basis of the coordinate system for the handler. it can either be the world coordinates (the identity matrix) or coordinates of the parent node if the manipulated node is a child.
+The basis of the coordinate system for the handler. It can either be the world coordinates (the identity matrix) or coordinates of the parent node if the manipulated node is a child.
 ## vec4 Color
 
-The current color for a manipulator.
+The color for the manipulator. The provided value is clamped to a range **[0;1]**.
 ## int Size
 
-The current handle size of the manipulator. depending on the handle shape, this can be a radius or an altitude.
+The handle size of the manipulator, in pixels. Depending on the handle shape, this can be a radius or an altitude.
 ## float Step
 
-The step which is used to align objects.
+The step used to align objects, in units.
 ## int Mask
 
-The mask that hides axis arrows (along *X*, *Y* or *Z*) of the handler.
+The mask that hides axis arrows (along *X*, *Y*, or *Z*) of the handler.
 ## Gui RenderGui
 
-The current render gui.
+The render GUI for the manipulator.
 ## 🔒︎ bool IsFocusAxis
 
 The value indicating if any axis of the manipulator is currently in focus.
@@ -52,7 +52,12 @@ The value indicating if any axis of the manipulator is currently in focus.
 The value indicating if any axis of the manipulator is currently hovered.
 ## 🔒︎ int FocusedAxis
 
-The number of the manipulator axis, that is currently in focus.
+The number of the manipulator axis that is currently in focus. The values depend on the manipulator's type:
+- [WidgetManipulatorRotator](../../../api/library/gui/class.widgetmanipulatorrotator_cs.md): one of the [AXIS_*](../../../api/library/gui/class.widgetmanipulatorrotator_cs.md#AXIS_UNKNOWN) variables.
+- [WidgetManipulatorScaler](../../../api/library/gui/class.widgetmanipulatorscaler_cs.md): one of the [AXIS_*](../../../api/library/gui/class.widgetmanipulatorscaler_cs.md#AXIS_UNKNOWN) variables.
+- [WidgetManipulatorTranslator](../../../api/library/gui/class.widgetmanipulatortranslator_cs.md): one of the [AXIS_*](../../../api/library/gui/class.widgetmanipulatortranslator_cs.md#AXIS_UNKNOWN) variables.
+
+
 ### Members
 
 ---

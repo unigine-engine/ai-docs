@@ -40,6 +40,18 @@ Minimum capabilities:
 ## Launching Kinect2 Plugin
 
 
+To **add the plugin to a new project**, start by [creating a project](../../../sdk/projects/index.md#creation) from a template. In the project creation dialog, open *Advanced Settings > Plugins*, enable the *Kinect2* plugin, click *Add*, then select *Create New Project*.
+
+
+![](add_plugin.png)
+
+
+For **existing projects**, in the SDK Browser, open the *My Projects* tab, and click the three-dot menu on the project card. Select *Configure*, then click *Plugins*, enable the required plugin, click *Add*, and finish with *Configure Project*.
+
+
+![](../../../sdk/projects/other_actions.png)
+
+
 To use the plugin, you should perform the following:
 
 

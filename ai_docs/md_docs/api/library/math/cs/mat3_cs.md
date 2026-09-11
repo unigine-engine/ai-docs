@@ -234,7 +234,10 @@ Subtraction.
 
 ## void Set ( float m00_ , float m10_ , float m20_ , float m01_ , float m11_ , float m21_ , float m02_ , float m12_ , float m22_ )
 
+
 Sets the value using the specified argument(s).
+
+
 ```text
 Resulting matrix:
     | m00_	 m01_	m02_ |
@@ -384,7 +387,10 @@ Sets all matrix elements equal to **0**.
 Sets the matrix equal to the identity matrix.
 ## void SetSkewSymmetric ( vec3 v )
 
+
 Fills the skew-symmetric matrix using a given [vec3](../../../../api/library/math/cs/vec3_cs.md) source vector.
+
+
 ```text
 Skew-symmetric matrix:
     | 0.0f   	-v.z	   v.y |
@@ -429,7 +435,10 @@ Sets Z rotation matrix.
 
 ## void SetScale ( vec3 v )
 
+
 Fills the scaling matrix using a given [vec3](../../../../api/library/math/cs/vec3_cs.md) source vector.
+
+
 ```text
 Scaling matrix:
     | v.x   	0.0f	  0.0f |

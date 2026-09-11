@@ -31,7 +31,7 @@ These settings are common for most tabs of *Projection Setup*:
 | Resolution | The number of control points along the horizontal and vertical axes of the grid. A 2 x 2 grid is used by default. ![](control_points.png) > **Notice:** The maximum grid size is 32 x 32. For *[Blend Zones](#blend)*, this setting controls the number of horizontal lines only. |
 | Point | Index of the selected control point. In case of [Warp Grid](#warp), the control point has the horizontal and the vertical index values. Enumeration starts from the bottom left corner. In case of multiselection, typing the point index deselects all other points. If the value is outside the limits, the point with the closest index remains selected. |
 | Position | Coordinates of the selected control point along the X and Y axes. ![Coordinates for points and handles](points.png) *Coordinates for control points* In case of multiselection: - If selected points have the same X or Y coordinate, it is displayed in the corresponding position box. In case of different values, **-** is displayed. - Typing in the coordinate value sets this value for all selected points. |
-| Type | Type of line curving for the selected control point: - ![](auto_linear.png) — non-controllable linear handles with the offset equal to 0 - ![](manual_symmetric.png) — controllable smooth handles with transversely aligned offsets - ![](manual_asymmetric.png) — controllable break handles with individually configurable offsets - ![](auto_curve.png) — non-controllable handles with the automatically calculated offsets |
+| Type | Type of line curving for the selected control point: - ![](auto_linear.png) � non-controllable linear handles with the offset equal to 0 - ![](manual_symmetric.png) � controllable smooth handles with transversely aligned offsets - ![](manual_asymmetric.png) � controllable break handles with individually configurable offsets - ![](auto_curve.png) � non-controllable handles with the automatically calculated offsets |
 
 
 ## Warping
@@ -117,7 +117,7 @@ The screen-space blend area is not affected by warping.
 ![](blend_zone.jpg)
 
 
-To start creating the blending area, click the *[Add](#blend_add)* button, and in the grid, click to define one side of the area, then click to define the other side — the green line will appear. The third click shows the blending direction.
+To start creating the blending area, click the *[Add](#blend_add)* button, and in the grid, click to define one side of the area, then click to define the other side � the green line will appear. The third click shows the blending direction.
 
 
 ![](setup_blend.gif)
@@ -191,6 +191,7 @@ The *Render* block of settings is located at the bottom of the *Projection Setup
 
 | Debug Color | Temporarily set individual colors for different projections. This helps to visualize overlapping regions. |
 |---|---|
+| Debug Stereo | Tints the projection to verify the stereo output: the left eye is shown in green, the right eye in red. Applies to viewports rendered in the *[Stereo](../../../../../principles/render/output/multi_monitor/spidervision_plugin/displays_setup.md#render_mode)* mode. |
 | Show Grid | Display the warp grid in the viewport. |
 | Show Warp Points | Display the selected warp points and auxiliary lines showing the point location (useful if the point is outside the projection boundaries). |
 | Show Blend Points | Display blend zones with selected points and auxiliary lines showing the point location (useful if the point is outside the projection boundaries). The red and green lines marking the blend zone are used for correct mapping of overlapping projections. |

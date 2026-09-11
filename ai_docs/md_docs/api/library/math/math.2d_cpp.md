@@ -92,7 +92,10 @@ Returns the area of the given polygon in square units.
 
 ### Return value
 
+
 Polygon's area, in square units.
+
+
 > **Notice:** The negative value means that the polygon is oriented clockwise.
 
 
@@ -107,7 +110,10 @@ Returns the area of the given triangle in square units.
 
 ### Return value
 
+
 Triangle area, in square units.
+
+
 > **Notice:** The negative value means that the polygon is oriented clockwise.
 
 

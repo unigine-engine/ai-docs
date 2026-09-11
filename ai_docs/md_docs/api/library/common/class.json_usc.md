@@ -25,7 +25,8 @@ The Json node has a hierarchy structure: it can have child Json nodes and a pare
 
 The following code creates a Json node, adds child nodes with different types of values and saves the result to a `*.json` file:
 
-> **Notice:** When you add the *array*/*object* child nodes, you must call the *[setArray()](#setArray_void)*/*[setObject()](#setObject_void)* functions after *addChild()*.
+
+> **Notice:** When you add the *array*/*object* child nodes, you must call the *[setArray()](#setArray_void)/[setObject()](#setObject_void)* functions after *addChild()*.
 
 
 ```cpp
@@ -214,8 +215,6 @@ By using the *write()* methods of the class, you can also add a new child nodes 
 
 ## Json Class
 
-### Members
-
 ---
 
 ## static Json ( )
@@ -341,7 +340,7 @@ The result is:
 ```
 
 
-> **Notice:** The setObject() function alphabetizes child nodes by using their names.
+> **Notice:** The *setObject()* function alphabetizes child nodes by using their names.
 
 
 ## int isArray ( )
@@ -357,10 +356,10 @@ Sets a boolean value and type to the current Json node.
 
 - *variable* **var** - Argument of one of the following types:
 
-  - *string* **value** - all strings except "true", set "false".
-  - *int* **value** - all int values except 0, set "true".
-  - *double* **value** - all double values except 0.0, set "true".
-  - *float* **value** - all float values except 0.0f, set "true".
+  - *string* value - all strings except "true", set "false".
+  - *int* value - all int values except 0, set "true".
+  - *double* value - all double values except 0.0, set "true".
+  - *float* value - all float values except 0.0f, set "true".
 - *int* **arg1** - Integer value.
 
 ## int getBool ( )
@@ -383,8 +382,8 @@ Returns the child node of the current Json node.
 - *int* **num** - Number of the child of the Json node.
 - *variable* **var** - Argument of one of the following types:
 
-  - *string* **name** - Name of the Json node.
-  - *int* **number** - Number of the child of the Json node.
+  - *string* name - Name of the Json node.
+  - *int* number - Number of the child of the Json node.
 
 ### Return value
 
@@ -406,8 +405,8 @@ Adds a new name-value pair as a child node to the current Json node.
 
 - *variable* **var** - Argument of one of the following types:
 
-  - *Json* **json** - Json node.
-  - *string* **name** - Name of the Json node.
+  - *Json* json - Json node.
+  - *string* name - Name of the Json node.
 
 ### Return value
 
@@ -419,8 +418,8 @@ Adds a new name-value pair as a child node to the current Json node.
 
 - *variable* **var** - Argument of one of the following types:
 
-  - *Json* **json** - Json node.
-  - *string* **name** - Name of the Json node.
+  - *Json* json - Json node.
+  - *string* name - Name of the Json node.
 
 ### Return value
 
@@ -428,6 +427,8 @@ Child Json node.
 ## String getSubTree ( string name = 0 )
 
 Returns a subtree of a Json node as the non-formatted string.
+
+
 **Usage Example**
 
 
@@ -467,6 +468,8 @@ Non-formatted subtree.
 ## String getFormattedSubTree ( string name = 0 )
 
 Returns a subtree of a Json node as the formatted string.
+
+
 **Usage Example**
 
 
@@ -542,10 +545,10 @@ Sets a number value and type to the current Json node.
 
 - *variable* **var** - Argument of one of the following types:
 
-  - *int* **number** - integer value. For example, 5.
-  - *double* **number** - double value. For example, 5.0.
-  - *float* **number** - float value. For example, 5.0f.
-  - *string* **value** - string with value. For example, "5".
+  - *int* number - integer value. For example, 5.
+  - *double* number - double value. For example, 5.0.
+  - *float* number - float value. For example, 5.0f.
+  - *string* value - string with value. For example, "5".
 - *double* **arg1** - Double value.
 
 ## double getNumber ( )
@@ -576,6 +579,8 @@ Sets the reserved capacity of the Json node to store the specified number of chi
 ## void setObject ( )
 
 Sets object type to the current Json node and adds a given object as a child.
+
+
 **Usage Example**
 
 
@@ -611,7 +616,7 @@ The result is:
 ```
 
 
-> **Notice:** The setObject() function alphabetizes child nodes by using their names.
+> **Notice:** The *setObject()* function alphabetizes child nodes by using their names.
 
 
 **Adding an Array to the Object**
@@ -688,10 +693,10 @@ The result is:
 
 ## int isObject ( )
 
-Returns a value indicating if the Json node has an object type.
+Returns a value indicating if the Json node has an *object* type.
 ### Return value
 
-1 if the Json has an object type; otherwise, 0.
+1 if the Json has an *object* type; otherwise, 0.
 ## Json getParent ( )
 
 Returns the parent node of the current Json node.
@@ -705,17 +710,11 @@ Sets a string value and type to the current Json node. The function automaticall
 
 - *variable* **var** - Argument of one of the following types:
 
-  - *string* **value** - string value.
-  - *int* **number** - integer value.
-  - *double* **number** - double value.
-  - *float* **number** - float value.
+  - *string* value - string value.
+  - *int* number - integer value.
+  - *double* number - double value.
+  - *float* number - float value.
 
-## getString ( )
-
-Returns the value of the current Json node as string.
-### Return value
-
-Value of the current Json node.
 ## int isString ( )
 
 Returns a value indicating if the Json node has a string type.
@@ -732,8 +731,8 @@ Removes the child Json node.
 
 - *variable* **var** - Argument of one of the following types:
 
-  - *Json* **json** - Json node.
-  - *string* **name** - Name of the Json node.
+  - *Json* json - Json node.
+  - *string* name - Name of the Json node.
 
 ### Return value
 
@@ -771,6 +770,8 @@ Loads the data to the current Json node from the file with a given path.
 ## int parse ( string source )
 
 Parses a given string into the Json node.
+
+
 **Usage Example**
 
 
@@ -804,7 +805,7 @@ Now the json_2 node contains:
 1 if the string was parsed successfully; otherwise, 0.
 ## int save ( string path )
 
-Saves the Json node into a file with a given path. Creates the given file path if it doesn’t exist yet (including subdirectories).
+Saves the Json node into a file with a given path. Creates the given file path if it doesn�t exist yet (including subdirectories).
 ### Arguments
 
 - *string* **path** - Path to the file.

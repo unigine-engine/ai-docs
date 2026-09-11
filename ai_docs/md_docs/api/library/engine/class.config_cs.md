@@ -8,6 +8,7 @@ The **Config** class is used to read values (settings) from the [application con
 
 Use the appropriate methods depending on the type of the target item. For example, to get the values of the following items, you should use the *getInt()* and *getString()* methods respectively:
 
+
 ```xml
 ...
 <item name="show_fps" type="int">1</item>
@@ -20,7 +21,7 @@ Use the appropriate methods depending on the type of the target item. For exampl
 ### Usage Example
 
 
-By using the Config class, you can save custom settings to the configuration file and then restore it when required. For example:
+By using the *Config* class, you can save custom settings to the configuration file and then restore it when required. For example:
 
 
 <details>
@@ -86,10 +87,10 @@ public partial class ConfigClass : Component
 
 ## bool Autosave
 
-***Console*:**`config_autosave`The Value indicating if current Engine configuration settings are automatically saved to the corresponding config file on loading, closing, and saving the world, as well as on the Engine shutdown.
+The value indicating if current Engine configuration settings are automatically saved to the corresponding config file on loading, closing, and saving the world, as well as on the Engine shutdown.
 ## string Path
 
-***Console*:**`config`The Path to the Engine config file (default: `configs/default.config`). This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
+The path to the Engine configuration file (default: `configs/default.config`). The path can be specified as an absolute path or relative to the *[*-data_path*](../../../code/command_line.md#data_path)* or *<project_name>* folder if the *[*-project_name*](../../../code/command_line.md#project_name)* is set.
 ### Members
 
 ---

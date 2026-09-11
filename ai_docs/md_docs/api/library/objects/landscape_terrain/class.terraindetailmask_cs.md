@@ -10,25 +10,37 @@ This class is used to manage detail masks of the [Landscape Terrain Object](../.
 
 ## string Name
 
-The Current name of the detail mask.
+The name of the detail mask.
 ## bool Enabled
 
-The true if the terrain detail mask is enabled; otherwise, false.
+The value indicating if the terrain detail mask is enabled.
 ## 🔒︎ int RenderOrder
 
-The Rendering order of the detail mask in the **[0; 19]** range.
+The rendering order of the detail mask in the [0; 19] range. Rendering order of masks can be changed via the [*swapRenderOrder()*](#swapRenderOrder_TerrainDetailMask_void) method.
 ## 🔒︎ int NumDetails
 
-The Number of details of this detail mask.
+The number of details of this detail mask.
 ## 🔒︎ int Index
 
-The Index of the detail mask in the **[0; 19]** range.
+The index of the detail mask in the [0; 19] range.
 ## float Dithering
 
-The current dither amount for the detail mask of the [landscape terrain](../../../../objects/objects/terrain/landscape_terrain/index.md). Dithering enables reduction of graphical artefacts in case of increased Mask Contrast values set for details. This value is multiplied by the [global dither amount](../../../../api/library/rendering/class.render_cs.md#setLandscapeTerrainMaskDithering_float_void).
+The dither amount for the detail mask of the [landscape terrain](../../../../objects/objects/terrain/landscape_terrain/index.md), in the [0.0f; 1.0f] range. Dithering enables reduction of graphical artefacts in case of increased Mask Contrast values set for details. This value is multiplied by the [global dither amount](../../../../api/library/rendering/class.render_cs.md#setLandscapeTerrainMaskDithering_float_void).
 ## vec4 MaskByAlbedo
 
-The Albedo color currently used as a mask, as a four-component vector (R,G,B,A).
+The albedo color used as a mask, as a four-component vector (R,G,B,A).
+## bool ExperimentalNavigation
+
+The value indicating if the terrain covered by this detail mask is taken in when an [ExperimentalNavigationMesh](../../../../api/library/pathfinding/class.experimentalnavigationmesh_cs.md) is baked. It is how a landscape is made walkable selectively � grass and sand yes, cliffs and lava no � without any extra geometry.
+## int ExperimentalNavigationArea
+
+The area stamped onto the navigation mesh polygons baked from the terrain this mask covers. The name, cost, and flags behind the index come from the registry of the [ExperimentalNavigation](../../../../api/library/pathfinding/class.experimentalnavigation_cs.md) singleton, so a swamp mask can be made expensive to cross by setting the cost once.
+## int ExperimentalNavigationBakeMask
+
+The [Bake mask](../../../../principles/bit_masking/index.md#bake_mask) of the detail mask. The terrain it covers is taken in only by the navigation meshes whose own bake mask shares at least one bit with this one.
+## float ExperimentalNavigationMinValue
+
+The weakest value of the detail mask that still counts as navigable terrain. A detail mask fades out at its edges, and this threshold decides where the walkable surface ends: raising it pulls the navigable area towards the centre of the painted region, lowering it lets faint traces of the mask count.
 ## float DefaultValue
 
 The Value currently used for the mask as default.

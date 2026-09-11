@@ -22,6 +22,12 @@ The point of the whole animation timeline where this curve starts being applied,
 ## 🔒︎ float MaxTime
 
 The point of the whole animation timeline up to which this curve is applied, in units.
+## AnimationCurve.EXTRAPOLATION PreInfinity
+
+The way the curve behaves before its first key.
+## AnimationCurve.EXTRAPOLATION PostInfinity
+
+The way the curve behaves after its last key.
 ### Members
 
 ---
@@ -29,7 +35,7 @@ The point of the whole animation timeline up to which this curve is applied, in 
 ## AnimationCurveQuat ( )
 
 Constructor. Creates a new animation curve instance containing quaternion values.
-## void Copy ( AnimationCurveQuat curve )
+## void AssignFrom ( AnimationCurveQuat curve )
 
 Copies all data (key points and tangents) from the specified source curve.
 ### Arguments

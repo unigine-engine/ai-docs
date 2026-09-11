@@ -3,7 +3,7 @@
 **Header:** #include <UnigineCallback.h>
 
 
-This class stores the information on the link between the event and the callback (UnigineCallback.h).
+This class stores the information on the link between the event and the callback (`UnigineCallback.h`).
 
 
 ## EventConnection Class
@@ -22,13 +22,13 @@ Sets a new value indicating if the callback is enabled. If the callback is disab
 Returns the current value indicating if the callback is enabled. If the callback is disabled, it won't be called when the event is triggered.
 ### Return value
 
-**true** if callback is enabled; otherwise **false**.
+**true** if callback is enabled ; otherwise **false**.
 ## bool isValid () const
 
 Returns the current value indicating if the connection between the event and the callback is valid.
 ### Return value
 
-**true** if connection between the event and the callback is enabled; otherwise **false**.
+**true** if connection between the event and the callback is enabled ; otherwise **false**.
 ---
 
 ## void disconnect ( )

@@ -58,14 +58,14 @@ Positive number if collisions are taken into account; otherwise, **0**.
 Sets a collision mask for the persecutor's collision sphere. Two objects collide, if they both have matching masks.
 ### Arguments
 
-- *int* **mask** - An integer value, each bit of which is a mask.
+- *int* **mask** - An integer value, each bit of which is used to set a bit mask.
 
 ## int getCollisionMask ( )
 
 Returns a collision mask of the persecutor's collision sphere. Two objects collide, if they both have matching masks.
 ### Return value
 
-An integer value, each bit of which is a mask.
+An integer value, each bit of which is used to set a bit mask.
 ## void setCollisionRadius ( float radius )
 
 Sets the radius of the persecutor's collision sphere.

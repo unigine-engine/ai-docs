@@ -19,13 +19,13 @@ Option option_name = value(s)
 You can access options in the shader using the following defines:
 
 
-- `GET_OPTION_<`option name in uppercase> — available for all types of options.
+- `GET_OPTION_<`option name in uppercase> � available for all types of options.
 
 
 | Option name | Option's define | Possible values |
 |---|---|---|
-| Transparent | GET_OPTION_TRANSPARENT | 0 — opaque (*default*) 1 — alpha test 2 — blend 3 — water |
-| Order | GET_OPTION_ORDER | -128..127 0 — default order |
+| Transparent | GET_OPTION_TRANSPARENT | 0 � opaque (*default*) 1 � alpha test 2 � blend 3 � water |
+| Order | GET_OPTION_ORDER | -128..127 0 � default order |
 | Depth mask | GET_OPTION_DEPTH_MASK | 0 or 1 |
 | Depth test | GET_OPTION_DEPTH_TEST | 0 or 1 |
 | Two sided | GET_OPTION_TWO_SIDED | 0 or 1 |
@@ -34,19 +34,19 @@ You can access options in the shader using the following defines:
 | Overlap | GET_OPTION_OVERLAP | 0 or 1 |
 
 
-- `OPTION_<`option name in uppercase> — defined only if an option has a positive value.
+- `OPTION_<`option name in uppercase> � defined only if an option has a positive value.
 
 
 | Option name | Option's define | Additional define(s) |
 |---|---|---|
-| Transparent | OPTION_TRANSPARENT | 0 — OPAQUE 1 — ALPHA_TEST 2 — TRANSPARENT_BLEND 3 — TRANSPARENT_WATER |
-| Order | OPTION_ORDER | — |
-| Depth mask | OPTION_DEPTH_MASK | — |
-| Depth test | OPTION_DEPTH_TEST | — |
-| Two sided | OPTION_TWO_SIDED | 1 — TWO_SIDED |
-| Cast shadow | OPTION_CAST_PROJ_OMNI_SHADOW | — |
-| Cast world shadow | OPTION_CAST_WORLD_SHADOW | — |
-| Overlap | OPTION_OVERLAP | 1 — OVERLAP_RENDER |
+| Transparent | OPTION_TRANSPARENT | 0 � OPAQUE 1 � ALPHA_TEST 2 � TRANSPARENT_BLEND 3 � TRANSPARENT_WATER |
+| Order | OPTION_ORDER | � |
+| Depth mask | OPTION_DEPTH_MASK | � |
+| Depth test | OPTION_DEPTH_TEST | � |
+| Two sided | OPTION_TWO_SIDED | 1 � TWO_SIDED |
+| Cast shadow | OPTION_CAST_PROJ_OMNI_SHADOW | � |
+| Cast world shadow | OPTION_CAST_WORLD_SHADOW | � |
+| Overlap | OPTION_OVERLAP | 1 � OVERLAP_RENDER |
 
 
 For various **blend** modes the *[source](#blend_src)* and *[destination](#blend_dest)* defines are generated:
@@ -96,8 +96,8 @@ A flag indicating if option can be changed in the *[Parameters](../../../../edit
 Available values:
 
 
-- false — unchangeable
-- true — changeable (by default)
+- false � unchangeable
+- true � changeable (by default)
 
 
 ### hidden
@@ -112,8 +112,8 @@ A flag indicating if option is displayed in the *[Parameters](../../../../editor
 Available values:
 
 
-- false — displayed (by default)
-- true — hidden
+- false � displayed (by default)
+- true � hidden
 
 
 ## Types of Options
@@ -131,16 +131,16 @@ A node that allows you to set a [blending](../../../../principles/render/blendin
 Available values:
 
 
-- zero — *RGBA* components of the source/destination image color are multiplied by zero.
-- one — *RGBA* components of the source/destination image color are multiplied by one.
-- src_color — *RGBA* components of the source/destination image color are multiplied by the mR, mG, mB, mA components (per component).
-- one_minus_src_color — *RGBA* components of the source/destination image color are multiplied by the 1 - mR, 1 - mG, 1 - mB, 1 - mA components (per component).
-- src_alpha — *RGBA* components of the source/destination image color are multiplied by the mA component.
-- one_minus_src_alpha — *RGBA* components of the source/destination image color are multiplied by the 1 - mA component.
-- dest_color — *RGBA* components of the source/destination image color are multiplied by the bR, bG, bB, bA components (per component).
-- one_minus_dest_color — *RGBA* components of the source/destination image color are multiplied by the 1 - bR, 1 - bG, 1 - bB, 1 - bA components (per component).
-- dest_alpha — *RGBA* components of the source/destination image color are multiplied by the bA component.
-- one_minus_dest_alpha — *RGBA* components of the source/destination image color are multiplied by the 1 - bA component.
+- zero � *RGBA* components of the source/destination image color are multiplied by zero.
+- one � *RGBA* components of the source/destination image color are multiplied by one.
+- src_color � *RGBA* components of the source/destination image color are multiplied by the mR, mG, mB, mA components (per component).
+- one_minus_src_color � *RGBA* components of the source/destination image color are multiplied by the 1�-�mR, 1�-�mG, 1�-�mB, 1�-�mA components (per component).
+- src_alpha � *RGBA* components of the source/destination image color are multiplied by the mA component.
+- one_minus_src_alpha � *RGBA* components of the source/destination image color are multiplied by the 1�-�mA component.
+- dest_color � *RGBA* components of the source/destination image color are multiplied by the bR, bG, bB, bA components (per component).
+- one_minus_dest_color � *RGBA* components of the source/destination image color are multiplied by the 1�-�bR, 1�-�bG, 1�-�bB, 1�-�bA components (per component).
+- dest_alpha � *RGBA* components of the source/destination image color are multiplied by the bA component.
+- one_minus_dest_alpha � *RGBA* components of the source/destination image color are multiplied by the 1�-�bA component.
 
 
 mR, mG, mB, mA are normalized Red, Blue, Green and Alpha material image channels;
@@ -161,16 +161,16 @@ A node that allows you to set a [blending](../../../../principles/render/blendin
 Available values:
 
 
-- zero — *RGBA* components of the source/destination image color are multiplied by zero.
-- one — *RGBA* components of the source/destination image color are multiplied by one.
-- src_color — *RGBA* components of the source/destination image color are multiplied by the mR, mG, mB, mA components (per component).
-- one_minus_src_color — *RGBA* components of the source/destination image color are multiplied by the 1 - mR, 1 - mG, 1 - mB, 1 - mA components (per component).
-- src_alpha — *RGBA* components of the source/destination image color are multiplied by the mA component.
-- one_minus_src_alpha — *RGBA* components of the source/destination image color are multiplied by the 1 - mA component.
-- dest_color — *RGBA* components of the source/destination image color are multiplied by the bR, bG, bB, bA components (per component).
-- one_minus_dest_color — *RGBA* components of the source/destination image color are multiplied by the 1 - bR, 1 - bG, 1 - bB, 1 - bA components (per component).
-- dest_alpha — *RGBA* components of the source/destination image color are multiplied by the bA component.
-- one_minus_dest_alpha — *RGBA* components of the source/destination image color are multiplied by the 1 - bA component.
+- zero � *RGBA* components of the source/destination image color are multiplied by zero.
+- one � *RGBA* components of the source/destination image color are multiplied by one.
+- src_color � *RGBA* components of the source/destination image color are multiplied by the mR, mG, mB, mA components (per component).
+- one_minus_src_color � *RGBA* components of the source/destination image color are multiplied by the 1�-�mR, 1�-�mG, 1�-�mB, 1�-�mA components (per component).
+- src_alpha � *RGBA* components of the source/destination image color are multiplied by the mA component.
+- one_minus_src_alpha � *RGBA* components of the source/destination image color are multiplied by the 1�-�mA component.
+- dest_color � *RGBA* components of the source/destination image color are multiplied by the bR, bG, bB, bA components (per component).
+- one_minus_dest_color � *RGBA* components of the source/destination image color are multiplied by the 1�-�bR, 1�-�bG, 1�-�bB, 1�-�bA components (per component).
+- dest_alpha � *RGBA* components of the source/destination image color are multiplied by the bA component.
+- one_minus_dest_alpha � *RGBA* components of the source/destination image color are multiplied by the 1�-�bA component.
 
 
 mR, mG, mB, mA are normalized Red, Blue, Green and Alpha material image channels;
@@ -236,8 +236,8 @@ A flag indicating if writing in the [depth buffer](../../../../editor2/materials
 Available values:
 
 
-- false — not used
-- true — used (by default)
+- false � not used
+- true � used (by default)
 
 
 ### depth_test
@@ -252,8 +252,8 @@ A flag indicating if the *[Depth Test](../../../../editor2/materials_settings/in
 Available values:
 
 
-- false — disabled
-- true — enabled (by default)
+- false � disabled
+- true � enabled (by default)
 
 
 ### two_sided
@@ -268,8 +268,8 @@ A flag indicating if the *[Two Sided](../../../../editor2/materials_settings/ind
 Available values:
 
 
-- false — disabled (by default)
-- true — enabled
+- false � disabled (by default)
+- true � enabled
 
 
 ### cast_shadow
@@ -284,8 +284,8 @@ A flag indicating if the *[Cast Proj and Omni Shadow](../../../../editor2/materi
 Available values:
 
 
-- false — disabled
-- true — enabled (by default)
+- false � disabled
+- true � enabled (by default)
 
 
 ### cast_world_shadow
@@ -300,8 +300,8 @@ A flag indicating if the *[Cast World shadow](../../../../editor2/materials_sett
 Available values:
 
 
-- false — disabled
-- true — enabled (by default)
+- false � disabled
+- true � enabled (by default)
 
 
 ### transparent
@@ -316,10 +316,10 @@ Available values:
 **Integer**
 
 
-- 0 = `TRANSPARENT_NONE` — opaque geometry that renders in deferred pass into GBuffer
-- 1 = `TRANSPARENT_ALPHA_TEST` — opaque geometry with enabled alpha test that renders in the deferred pass into *GBuffer*
-- 2 = `TRANSPARENT_BLEND` — transparent geometry that renders in forward passes
-- 3 = `TRANSPARENT_WATER` — water objects that renders in the deferred pass
+- 0 = `TRANSPARENT_NONE` � opaque geometry that renders in deferred pass into GBuffer
+- 1 = `TRANSPARENT_ALPHA_TEST` � opaque geometry with enabled alpha test that renders in the deferred pass into *GBuffer*
+- 2 = `TRANSPARENT_BLEND` � transparent geometry that renders in forward passes
+- 3 = `TRANSPARENT_WATER` � water objects that renders in the deferred pass
 
 
 or a **String**
@@ -337,11 +337,11 @@ or a **String**
 ***Boolean***
 
 
-A flag indicating if the *[Overlap](../../../../editor2/materials_settings/index.md#overlap)* option is enabled for a material (only for *[Object](../../../../api/library/objects/class.object_cpp.md)*). This can be used for UI elements.
+A flag indicating if the *Overlap* option is enabled for a material (only for *[Object](../../../../api/library/objects/class.object_cpp.md)*). This can be used for UI elements.
 
 
 Available values:
 
 
-- false — disabled (by default)
-- true — enabled
+- false � disabled (by default)
+- true � enabled

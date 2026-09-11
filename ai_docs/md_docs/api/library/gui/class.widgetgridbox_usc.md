@@ -18,6 +18,19 @@ The object of this class looks as follows:
 
 ### Members
 
+## void setNumColumns ( int columns )
+
+Sets a new number of columns in the grid.
+### Arguments
+
+- *int* **columns** - The number of columns.
+
+## int getNumColumns () const
+
+Returns the current number of columns in the grid.
+### Return value
+
+Current number of columns.
 ---
 
 ## static WidgetGridBox ( Gui gui , int num = 2 , int x = 0 , int y = 0 )
@@ -57,16 +70,3 @@ Returns the current width-to-height ratio of the specified column.
 ### Return value
 
 Width-to-height ratio.
-## void setNumColumns ( int columns )
-
-Sets a number of columns in the grid.
-### Arguments
-
-- *int* **columns** - Number of columns.
-
-## int getNumColumns ( )
-
-Returns the number of columns in the grid.
-### Return value
-
-Number of columns.

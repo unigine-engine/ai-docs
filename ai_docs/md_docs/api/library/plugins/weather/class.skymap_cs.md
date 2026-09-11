@@ -21,22 +21,22 @@ The star field intensity value.
 The moon intensity value.
 ## float SunIntensity
 
-The sun intensity value.
+The Sun intensity value.
 ## float Timezone
 
-The time zone currently used for the simulation in the UTC format.
+The time zone used for the simulation in the UTC format. The Image Generator is configured to use Greenwhich time zone by default.
 ## bool ContinuousTime
 
-The value indicating if the time of day is continuously updated by the image generator ore remains static.
+The value indicating if the time of day is continuously updated by the image generator or remains static (time and date once set remain unchanged).
 ## 🔒︎ Node MoonNode
 
-The a pointer to the node currently used to represent the Moon. Nodes for the Sun and the Moon can be [assigned via the UnigineEditor](../../../../ig/weather/settings.md#celestial).
+The node used to represent the Moon. Nodes for the Sun and the Moon can be [assigned via the UnigineEditor](../../../../ig/weather/settings.md#celestial).
 ## bool MoonEnabled
 
 The value indicating if the Moon is rendered or not.
 ## 🔒︎ Node SunNode
 
-The a pointer to the node currently used to represent the Sun. Nodes for the Sun and the Moon can be [assigned via the UnigineEditor](../../../../ig/weather/settings.md#celestial).
+The node used to represent the Sun. Nodes for the Sun and the Moon can be [assigned via the UnigineEditor](../../../../ig/weather/settings.md#celestial).
 ## bool SunEnabled
 
 The value indicating if the Sun is rendered or not.
@@ -53,7 +53,7 @@ Sets the time of the simulation.
 ### Arguments
 
 - *long* **time_posix** - Time of the simulation to be set, number of seconds since January 1, 1970
-- *bool* **UTC** - true to set this time as the Coordinated Universal Time (UTC +0), false — to set this time as the current local time.
+- *bool* **UTC** - true to set this time as the Coordinated Universal Time (UTC +0), false � to set this time as the current local time.
 
 ## void SetDateTime ( int sec , int min , int hour , int day , int month , int year , bool UTC = false )
 
@@ -66,14 +66,14 @@ Sets the current date and time.
 - *int* **day** - An integer between 1 and 31 to be set as day value.
 - *int* **month** - An integer between 1 and 12 to be set as month value.
 - *int* **year** - An integer to be set as year value.
-- *bool* **UTC** - true to set this time as the Coordinated Universal Time (UTC +0), false — to set this time as the current local time.
+- *bool* **UTC** - true to set this time as the Coordinated Universal Time (UTC +0), false � to set this time as the current local time.
 
 ## long GetDateTime ( bool UTC = false )
 
 Returns the current time of the simulation.
 ### Arguments
 
-- *bool* **UTC** - true to return this time as the Coordinated Universal Time (UTC +0), false — to return this time as the current local time.
+- *bool* **UTC** - true to return this time as the Coordinated Universal Time (UTC +0), false � to return this time as the current local time.
 
 ### Return value
 

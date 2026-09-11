@@ -10,7 +10,7 @@
 ## Features
 
 
-*Superposition* presents top-notch visuals powered by UNIGINE 2 Engine and the unique SSRTGI technique, developed by UNIGINE. Being a non-synthetic benchmark, *Superposition* supports an interactive mode with more than 900 objects and [VR mode](../../start/vr/index.md) compatible with the most popular VR peripherals.
+*Superposition* presents top-notch visuals powered by UNIGINE 2 Engine and the unique SSRTGI technique, developed by UNIGINE. Being a non-synthetic benchmark, *Superposition* supports an interactive mode with more than 900 objects and [VR mode](../../vr_development/vr_template/index.md) compatible with the most popular VR peripherals.
 
 
 ## System Requirements

@@ -12,10 +12,10 @@ While the 3D geometry defines the shape of your content, **lighting** is the bas
 |---|---|---|---|
 | *[LightOmni](../../objects/lights/omni/index.md)* (omnidirectional point light) | [![](light_omni_sm.png)](light_omni.jpg) | Emits light from a point source in all directions. | Emits light from a point source in all directions and uses a prebaked shadow cubemap for static objects lit by *Omni Light*. |
 | *[LightProj](../../objects/lights/proj/index.md)* (projected light) | [![](light_proj_sm.png)](light_proj.jpg) | Emits light from a single point forming a focused beam aimed in a specific direction. | Emits light from a single point forming a focused beam aimed in a specific direction and uses a prebaked 2D depth texture to store shadows of static objects lit by *Projected Light*. |
-| *[LightWorld](../../objects/lights/world/index.md)* (sun light) | [![](light_world_sm.png)](light_world.jpg) | Casts parallel beams onto the scene from an infinitely remote point. | — |
+| *[LightWorld](../../objects/lights/world/index.md)* (sun light) | [![](light_world_sm.png)](light_world.jpg) | Casts parallel beams onto the scene from an infinitely remote point. | � |
 | *[LightEnvironmentProbe](../../objects/lights/envprobe/index.md)* (Environment Probe) | [![](envprobe_sm.png)](envprobe.jpg) | Grabs a cubemap each frame thus providing objects in the scene with dynamic reflections from a point source in all directions. | Uses a prebaked cubemap to provide objects in the scene with reflections from a point source in all directions. |
-| *[LightVoxelProbe](../../objects/lights/voxelprobe/index.md)* (Voxel Probe) | [![](voxelprobe_sm.png)](voxelprobe.png) | — | Provides volume to bake lighting. Uses a prebaked voxel map to provide objects in the scene with indirect lighting from any light source. |
-| *[LightPlanarProbe](../../objects/lights/planar/index.md)* (Planar Reflection Probe) | [![](planarprobe_sm.png)](planarprobe.png) | Сaptures and projects a reflection relative to the camera onto a surface like a mirror. Uses a temporary texture created every frame. | — |
+| *[LightVoxelProbe](../../objects/lights/voxelprobe/index.md)* (Voxel Probe) | [![](voxelprobe_sm.png)](voxelprobe.png) | � | Provides volume to bake lighting. Uses a prebaked voxel map to provide objects in the scene with indirect lighting from any light source. |
+| *[LightPlanarProbe](../../objects/lights/planar/index.md)* (Planar Reflection Probe) | [![](planarprobe_sm.png)](planarprobe.png) | Сaptures and projects a reflection relative to the camera onto a surface like a mirror. Uses a temporary texture created every frame. | � |
 
 
 ## Usage of Light Sources

@@ -20,7 +20,7 @@ In the **HeightField** node:
 
 
 - Recommended Division Mode is *By Axis*. It allows easily setting the traditional size of the texture (power of two) to be exported.
-- *Grid Samples* — texture size in pixels.
+- *Grid Samples* � texture size in pixels.
 - *Size* defines the terrain size in meters.
 
 
@@ -35,8 +35,8 @@ In the **HeightField Output** node:
 - Type: 16b or 32b Floating Point depending on your terrain
 - Output Range:
 
-  - For **unnormalized** heightmap — No Remapping
-  - For **normalized** heightmap — Manual Remap, and define the range using the [expressions](https://www.sidefx.com/docs/houdini/expressions/bbox.html) bbox (“./”, D_YMIN) and bbox (“./”, D_YMAX) to calculate the Min and Max height automatically, or take this data from the node info: ![](houdini_height_info_icon.png)
+  - For **unnormalized** heightmap � No Remapping
+  - For **normalized** heightmap � Manual Remap, and define the range using the [expressions](https://www.sidefx.com/docs/houdini/expressions/bbox.html) bbox (�./�, D_YMIN) and bbox (�./�, D_YMAX) to calculate the Min and Max height automatically, or take this data from the node info: ![](houdini_height_info_icon.png)
 
 
 ### Tiling

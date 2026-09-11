@@ -58,61 +58,59 @@ int update {
 
 ### Members
 
+## void setSurface ( int surface )
+
+Sets a new intersected surface number.
+### Arguments
+
+- *int* **surface** - The intersected surface number
+
+## int getSurface () const
+
+Returns the current intersected surface number.
+### Return value
+
+Current intersected surface number
+## void setPoint ( Vec3 point )
+
+Sets a new coordinates of the intersection point.
+### Arguments
+
+- *Vec3* **point** - The coordinates of the intersection point
+
+## Vec3 getPoint () const
+
+Returns the current coordinates of the intersection point.
+### Return value
+
+Current coordinates of the intersection point
+## void setShape ( Shape shape )
+
+Sets a new intersected shape.
+### Arguments
+
+- *[Shape](../../../api/library/physics/class.shape_usc.md)* **shape** - The intersected shape
+
+## Shape getShape () const
+
+Returns the current intersected shape.
+### Return value
+
+Current intersected shape
+## const char * getTypeName () const
+
+Returns the current name of the intersection object type.
+### Return value
+
+Current name of the intersection object type
+## int getType () const
+
+Returns the current intersection object type, one of the [PHYSICS_INTERSECTION*](#PHYSICS_INTERSECTION) values.
+### Return value
+
+Current intersection object type
 ---
 
 ## static PhysicsIntersection ( )
 
 The PhysicsIntersection constructor.
-## void setPoint ( Vec3 point )
-
-Sets new coordinates of the intersection point.
-### Arguments
-
-- *Vec3* **point** - Coordinates of the intersection point.
-
-## Vec3 getPoint ( )
-
-Returns coordinates of the intersection point.
-### Return value
-
-Coordinates of the intersection point.
-## void setShape ( Shape shape )
-
-Sets the new intersection shape.
-### Arguments
-
-- *[Shape](../../../api/library/physics/class.shape_usc.md)* **shape** - Intersection shape.
-
-## Shape getShape ( )
-
-Returns the intersection shape.
-### Return value
-
-Intersection shape.
-## void setSurface ( int surface )
-
-Sets the new intersection surface number.
-### Arguments
-
-- *int* **surface** - Intersection surface number.
-
-## int getSurface ( )
-
-Returns the intersected surface number.
-### Return value
-
-Intersected surface number.
-## int getType ( )
-
-Returns the type of physics intersection. The type defines information stored by the object (if the data on the normal at the intersection point is included or not).
-### Return value
-
-Physics intersection type, one of the [PHYSICS_INTERSECTION_*](#PHYSICS_INTERSECTION) values.
-## string getTypeName ( )
-
-Returns the name of the physics intersection type. The type defines information stored by the object (if the data on the normal at the intersection point is included or not).
-### Return value
-
-Name of the physics intersection type. One of the following values:
-- PhysicsIntersection
-- PhysicsIntersectionNormal

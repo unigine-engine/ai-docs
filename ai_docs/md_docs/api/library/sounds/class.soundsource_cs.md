@@ -204,6 +204,9 @@ The total length of the sound sample.
 ## float Gain
 
 The gain controlling the sound intensity.
+## float PitchShift
+
+The pitch shift of the played sample in semitones, clamped to the [-12; 12] range (one octave down to one octave up), with the default of 0 (no shift). Unlike the **[Pitch](../../...md#getPitch_float)** property, it changes the tone without changing the playback speed. The effect requires pitch-shifter support in the sound device; otherwise the value has no audible effect.
 ### Members
 
 ---

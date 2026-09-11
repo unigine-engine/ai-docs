@@ -102,10 +102,12 @@ The root tag *dictionary* contains the *msg* child tag, which is used to define 
 
 To add the dictionary, use the [*engine.gui.addDictionary()*](../../../api/library/gui/class.gui_cpp.md#addDictionary_cstr_cstr_int) function.  To save the last loaded dictionary, use the [*engine.gui.saveDictionary()*](../../../api/library/gui/class.gui_cpp.md#saveDictionary_cstr_cstr_int) function.  This function also allows you to save the currently loaded dictionary into another file.  If you want to modify the dictionary, you can edit the XML file manually or by using the [Xml](../../../api/library/common/class.xml_cpp.md) class functions and then load it.
 
+
 > **Notice:** Dictionaries cannot be changed in run-time.
 
 
 If you use a separate dictionary for each language, you should get access to translation as follows:
+
 
 ```cpp
 engine.gui.addDictionary("my_project/locale/my_project.ch"); // load English-Chinese dictionary
@@ -113,18 +115,25 @@ ui.updateWidgets();
 
 ```
 
- Otherwise, you should specify a tag that contains the required translation as the second argument of the [*engine.gui.addDictionary()*](../../../api/library/gui/class.gui_cpp.md#addDictionary_cstr_cstr_int) function:
+
+Otherwise, you should specify a tag that contains the required translation as the second argument of the [*engine.gui.addDictionary()*](../../../api/library/gui/class.gui_cpp.md#addDictionary_cstr_cstr_int) function:
+
+
 ```cpp
 engine.gui.addDictionary("my_project/locale/my_project.locale","ch"); // load the Chinese translation
 ui.updateWidgets();
 
 ```
 
- The [*updateWidgets()*](../../../api/library/gui/class.userinterface_cpp.md#updateWidgets_void) function is called to change the language after the required dictionary is added.
+
+The [*updateWidgets()*](../../../api/library/gui/class.userinterface_cpp.md#updateWidgets_void) function is called to change the language after the required dictionary is added.
+
+
 ## Input Methods
 
 
 Unigine supports IMEs (Input Method Editors) that allow entering Chinese, Japanese and Korean characters by using the Latin keyboard.
+
 
 > **Notice:** Unigine doesn't support right-to-left and top-to-bottom languages.
 

@@ -1,7 +1,7 @@
 # Using C# Component System
 
 
-The **[C# Component System](../../../../principles/component_system/component_system_cs/index.md)** enables you to implement your application's logic via a set of building blocks — **components**, and assign these blocks to nodes. A logic component integrates a node and a C# class containing logic implementation.
+The **[C# Component System](../../../../principles/component_system/component_system_cs/index.md)** enables you to implement your application's logic via a set of building blocks � **components**, and assign these blocks to nodes. A logic component integrates a node and a C# class containing logic implementation.
 
 
 This example demonstrates how to:
@@ -51,7 +51,7 @@ Before we can start creating components and implementing our game logic, we shou
 ## Decompose Application Logic into Building Blocks
 
 
-First of all, we should decompose our application logic in terms of building blocks — components. So, we should define parameters for each component (all these parameters will be described in a corresponding `.cs` file) and decide in which functions of the [execution sequence](../../../../code/fundamentals/execution_sequence/index.md) the component's logic will be implemented.
+First of all, we should decompose our application logic in terms of building blocks � components. So, we should define parameters for each component (all these parameters will be described in a corresponding `.cs` file) and decide in which functions of the [execution sequence](../../../../code/fundamentals/execution_sequence/index.md) the component's logic will be implemented.
 
 
 For our small game, we are going to use one component for each type of object. Thus, we need **3** components:
@@ -59,22 +59,22 @@ For our small game, we are going to use one component for each type of object. T
 
 - **Pawn** with the following parameters: We are going to initialize *Pawn*, do something with it each frame, and report a message, when *Pawn* dies. Therefore, this logic will be implemented inside the *Init()*, *Update()*, and *Shutdown()* methods.
 
-  - *name* — name of *Pawn*
-  - *moving speed* — how fast *Pawn* moves
-  - *rotation speed* — how fast *Pawn* rotates
-  - *health* — HP count for *Pawn*
+  - *name* � name of *Pawn*
+  - *moving speed* � how fast *Pawn* moves
+  - *rotation speed* � how fast *Pawn* rotates
+  - *health* � HP count for *Pawn*
 - **Spinner** with the following parameters: We are going to initialize *Spinner* and do something with it each frame. Therefore, this logic will go to the *Init()* and *Update()*.
 
-  - *rotation speed* — how fast *Spinner* rotates
-  - *acceleration* — how fast *Spinner*'s rotation rate increases
+  - *rotation speed* � how fast *Spinner* rotates
+  - *acceleration* � how fast *Spinner*'s rotation rate increases
   - *node* to be used as *Projectile*
   - *minimum spawn delay*
   - *maximum spawn delay*
 - **Projectile** with the following parameters: As for *Projectile*, it will be spawned and initialized by *Spinner*. The only thing we are going to do with it, is checking for a hit and controlling the life time left every frame. All this goes to *Update()*.
 
-  - *speed* — how fast *Projectile* moves
-  - *life time* — how long *Projectile* lives
-  - *damage* — how much damage *Projectile* causes to *Pawn* it hits
+  - *speed* � how fast *Projectile* moves
+  - *life time* � how long *Projectile* lives
+  - *damage* � how much damage *Projectile* causes to *Pawn* it hits
 
 
 ## Create a C# Component for Each Object
@@ -251,10 +251,10 @@ After making necessary declarations, we should implement logic for all our compo
 The *Pawn*'s logic is divided into the following elements:
 
 
-- **Initialization** — here we set necessary parameters, and *Pawn* reports its name: ```csharp Log.Message("PAWN: INIT \"{0}\"\n", name); ```
-- **Main loop** — here we implement the player's keyboard control using methods of the [Input](../../../../api/library/controls/class.input_cpp.md) class. > **Notice:** To access the node from the component, we can simply use **node**, e.g. to get the current [node's direction](../../../../api/library/nodes/class.node_cpp.md#getWorldDirection_int_vec3) we can write: > > > ```csharp > vec3 direction = node.GetWorldDirection(MathLib.AXIS.Y); > ```
-- **Shutdown** — here we implement actions to be performed when *Pawn* dies. We'll just print a message to the console.
-- **Auxiliary** — a method to be called when *Pawn* is hit, and some visual effects.
+- **Initialization** � here we set necessary parameters, and *Pawn* reports its name: ```csharp Log.Message("PAWN: INIT \"{0}\"\n", name); ```
+- **Main loop** � here we implement the player's keyboard control using methods of the [Input](../../../../api/library/controls/class.input_cpp.md) class. > **Notice:** To access the node from the component, we can simply use **node**, e.g. to get the current [node's direction](../../../../api/library/nodes/class.node_cpp.md#getWorldDirection_int_vec3) we can write: > > > ```csharp > vec3 direction = node.GetWorldDirection(MathLib.AXIS.Y); > ```
+- **Shutdown** � here we implement actions to be performed when *Pawn* dies. We'll just print a message to the console.
+- **Auxiliary** � a method to be called when *Pawn* is hit, and some visual effects.
 
 
 Implementation of the *Pawn*'s logic is given below:
@@ -395,7 +395,7 @@ public partial class Pawn : Component
 ### Projectile's Logic
 
 
-The *Projectile*'s logic is simpler — we just have to perform a check each frame whether we hit *Pawn* or not. This means that we have to access the *Pawn* component from the *Projectile* component.
+The *Projectile*'s logic is simpler � we just have to perform a check each frame whether we hit *Pawn* or not. This means that we have to access the *Pawn* component from the *Projectile* component.
 
 
 > **Notice:** To access certain component on a certain node (e.g. the one that was intersected in our case) we can use the ComponentSystem's *[GetComponent<T>()](../../../../api/library/common/logic/component_system/cs/class.componentsystem.md#getComponent_Node_bool_T)* or the Node's *[GetComponent<T>()](../../../../api/library/nodes/class.node_cpp.md)* functions:
@@ -504,9 +504,9 @@ public partial class Projectile : Component
 The *Spinner*'s logic is divided into the following elements:
 
 
-- **Initialization** — here we set necessary parameters to be used in the main loop.
-- **Main loop** — here we rotate our *Spinner* and spawn nodes with *Projectile* components. We also set some parameters of *Projectile*. You can change variables of another component directly: ```csharp component.int_parameter += 1; ```
-- **Auxiliary** — color conversion function.
+- **Initialization** � here we set necessary parameters to be used in the main loop.
+- **Main loop** � here we rotate our *Spinner* and spawn nodes with *Projectile* components. We also set some parameters of *Projectile*. You can change variables of another component directly: ```csharp component.int_parameter += 1; ```
+- **Auxiliary** � color conversion function.
 
 
 Implementation of the *Spinner*'s logic is given below:
@@ -632,7 +632,7 @@ As we implemented our game logic in the components, we can actually start using 
 1. Create a [World](../../../../objects/lights/world/index.md) light source to illuminate the whole scene.
 2. Add a [new camera](../../../../editor2/camera_settings/index.md#add_custom_camera) to the world and [adjust its position](../../../../editor2/navigation/index.md). This will be our default camera, so check on its [**Main Player**](../../../../objects/players/index.md#main_player) flag.
 3. Create a [Box](../../../../editor2/create_import_nodes/index.md#box) primitive to represent *Pawn*. Assign the **Pawn** component by clicking **Add New Component or Property** and dragging the asset to the corresponding field. You can also drag the component from the Asset Browser to the node in the Editor Viewport. Adjust the parameters of the player. ![](assign.png)
-4. Create another smaller box — a template for projectiles. We can disable it since its clones will be used.
+4. Create another smaller box � a template for projectiles. We can disable it since its clones will be used.
 5. Create the required number of objects for *Spinner*s at the same height as *Pawn*, assign the corresponding component to them and adjust the parameters. Specify the spawn node by dragging the *Projectile* node to the field. ![](projectile.png) On this step the scene looks as follows: ![](sample_scene.png)
 
 

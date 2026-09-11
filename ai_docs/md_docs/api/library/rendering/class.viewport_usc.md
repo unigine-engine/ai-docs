@@ -107,7 +107,10 @@ Sets a new type of lighting of the render node.
 Returns the current type of lighting of the render node.
 ### Return value
 
-Current lighting type. Can be one of the following:
+Current
+lighting type. Can be one of the following:
+
+
 - 0 - *[VIEWPORT_USAGE_WORLD_LIGHT()](../../...md#USAGE_WORLD_LIGHT)* (use lighting from the [LightWorld](../../../api/library/lights/class.lightworld_usc.md) set in the current loaded world).
 - 1 - *[VIEWPORT_USAGE_AUX_LIGHT()](../../...md#USAGE_AUX_LIGHT)* (use lighting from the auxiliary virtual scene containing one LightWorld with 45 degrees slope angles along all axes, scattering is not used).
 - 2 - *[VIEWPORT_USAGE_NODE_LIGHT()](../../...md#USAGE_NODE_LIGHT)* (use the node lighting).
@@ -128,14 +131,14 @@ Returns the current virtual camera offset (an offset after the perspective proje
 Current virtual camera offset in units.
 ## void setStereoRadius ( float radius )
 
-Sets a new radius for stereo — the half of the separation distance between the cameras (i.e. between eyes).
+Sets a new radius for stereo � the half of the separation distance between the cameras (i.e. between eyes).
 ### Arguments
 
 - *float* **radius** - The stereo radius in units. If a negative value is provided, 0 will be used instead.
 
 ## float getStereoRadius () const
 
-Returns the current radius for stereo — the half of the separation distance between the cameras (i.e. between eyes).
+Returns the current radius for stereo � the half of the separation distance between the cameras (i.e. between eyes).
 ### Return value
 
 Current stereo radius in units. If a negative value is provided, 0 will be used instead.
@@ -180,7 +183,10 @@ Sets a new render mode. The mode determines the set of buffers to be rendered.
 Returns the current render mode. The mode determines the set of buffers to be rendered.
 ### Return value
 
-Current render mode, one of the following:
+Current
+render mode, one of the following:
+
+
 - *[VIEWPORT_RENDER_DEPTH()](../../...md#RENDER_DEPTH)*
 - *[VIEWPORT_RENDER_DEPTH_GBUFFER()](../../...md#RENDER_DEPTH_GBUFFER)*
 - *[VIEWPORT_RENDER_DEPTH_GBUFFER_FINAL()](../../...md#RENDER_DEPTH_GBUFFER_FINAL)*
@@ -237,7 +243,7 @@ Sets a new value indicating if the aspect correction enabled for current viewpor
 Returns the current value indicating if the aspect correction enabled for current viewport.
 ### Return value
 
-**true** if the aspect correction is enabled; otherwise **false**.
+**true** if the aspect correction is enabled ; otherwise **false**.
 ## int getID () const
 
 Returns the current Viewport ID.
@@ -272,17 +278,21 @@ Returns the current cubemap defining the environment color.
 Current cubemap defining the environment color.
 ## void setUseTAAOffset ( bool taaoffset )
 
-Sets a new  value indicating if skipping render mode check is enabled for using TAA. Can be used to ensure proper TAA calculation when rendering mode for the *Viewport* is set to *[VIEWPORT_RENDER_DEPTH()](../../...md#RENDER_DEPTH)*.
+Sets a new  value indicating if skipping render mode check is enabled for using TAA.
+Can be used to ensure proper TAA calculation when rendering mode for the *Viewport* is set to *[VIEWPORT_RENDER_DEPTH()](../../...md#RENDER_DEPTH)*.
+
 ### Arguments
 
 - *bool* **taaoffset** - Set **true** to enable skipping render mode check when using TAA; **false** - to disable it.
 
 ## bool isUseTAAOffset () const
 
-Returns the current  value indicating if skipping render mode check is enabled for using TAA. Can be used to ensure proper TAA calculation when rendering mode for the *Viewport* is set to *[VIEWPORT_RENDER_DEPTH()](../../...md#RENDER_DEPTH)*.
+Returns the current  value indicating if skipping render mode check is enabled for using TAA.
+Can be used to ensure proper TAA calculation when rendering mode for the *Viewport* is set to *[VIEWPORT_RENDER_DEPTH()](../../...md#RENDER_DEPTH)*.
+
 ### Return value
 
-**true** if skipping render mode check when using TAA is enabled; otherwise **false**.
+**true** if skipping render mode check when using TAA is enabled ; otherwise **false**.
 ## void setLifetime ( int lifetime )
 
 Sets a new value indicating how many frames temporary viewport resources are available after the viewport stops rendering.
@@ -312,7 +322,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginEnvironment () const
 
 The event handler signature is as follows: *myhandler()*
@@ -329,7 +339,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndEnvironment () const
 
 The event handler signature is as follows: *myhandler()*
@@ -346,7 +356,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginShadows () const
 
 The event handler signature is as follows: *myhandler()*
@@ -363,7 +373,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginWorldShadow () const
 
 The event handler signature is as follows: *myhandler()*
@@ -380,7 +390,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndWorldShadow () const
 
 The event handler signature is as follows: *myhandler()*
@@ -397,7 +407,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginProjShadow () const
 
 The event handler signature is as follows: *myhandler()*
@@ -414,7 +424,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndProjShadow () const
 
 The event handler signature is as follows: *myhandler()*
@@ -431,7 +441,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginOmniShadow () const
 
 The event handler signature is as follows: *myhandler()*
@@ -448,7 +458,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndOmniShadow () const
 
 The event handler signature is as follows: *myhandler()*
@@ -465,7 +475,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndShadows () const
 
 The event handler signature is as follows: *myhandler()*
@@ -482,7 +492,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginScreen () const
 
 The event handler signature is as follows: *myhandler()*
@@ -499,7 +509,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginMixedRealityBlendMaskColor () const
 
 The event handler signature is as follows: *myhandler()*
@@ -516,7 +526,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndMixedRealityBlendMaskColor () const
 
 The event handler signature is as follows: *myhandler()*
@@ -533,7 +543,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginOpacityGBuffer () const
 
 The event handler signature is as follows: *myhandler()*
@@ -550,7 +560,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventBeginAuxiliarySurfaces () const
 
 The event handler signature is as follows: *myhandler()*
@@ -567,7 +577,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventEndAuxiliarySurfaces () const
 
 The event handler signature is as follows: *myhandler()*
@@ -584,7 +594,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndOpacityGBuffer () const
 
 The event handler signature is as follows: *myhandler()*
@@ -601,7 +611,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginOpacityDecals () const
 
 The event handler signature is as follows: *myhandler()*
@@ -618,7 +628,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndOpacityDecals () const
 
 The event handler signature is as follows: *myhandler()*
@@ -635,7 +645,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventBeginAuxiliaryDecals () const
 
 The event handler signature is as follows: *myhandler()*
@@ -652,7 +662,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventEndAuxiliaryDecals () const
 
 The event handler signature is as follows: *myhandler()*
@@ -669,7 +679,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginCurvature () const
 
 The event handler signature is as follows: *myhandler()*
@@ -686,7 +696,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndCurvature () const
 
 The event handler signature is as follows: *myhandler()*
@@ -703,7 +713,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginCurvatureComposite () const
 
 The event handler signature is as follows: *myhandler()*
@@ -720,7 +730,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndCurvatureComposite () const
 
 The event handler signature is as follows: *myhandler()*
@@ -737,7 +747,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginSSRTGI () const
 
 The event handler signature is as follows: *myhandler()*
@@ -754,7 +764,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndSSRTGI () const
 
 The event handler signature is as follows: *myhandler()*
@@ -771,7 +781,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginOpacityLights () const
 
 The event handler signature is as follows: *myhandler()*
@@ -788,7 +798,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndOpacityLights () const
 
 The event handler signature is as follows: *myhandler()*
@@ -805,7 +815,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginOpacityVoxelProbes () const
 
 The event handler signature is as follows: *myhandler()*
@@ -822,7 +832,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndOpacityVoxelProbes () const
 
 The event handler signature is as follows: *myhandler()*
@@ -839,7 +849,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginOpacityEnvironmentProbes () const
 
 The event handler signature is as follows: *myhandler()*
@@ -856,7 +866,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndOpacityEnvironmentProbes () const
 
 The event handler signature is as follows: *myhandler()*
@@ -873,7 +883,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginOpacityPlanarProbes () const
 
 The event handler signature is as follows: *myhandler()*
@@ -890,7 +900,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndOpacityPlanarProbes () const
 
 The event handler signature is as follows: *myhandler()*
@@ -907,7 +917,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginRefractionBuffer () const
 
 The event handler signature is as follows: *myhandler()*
@@ -924,7 +934,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndRefractionBuffer () const
 
 The event handler signature is as follows: *myhandler()*
@@ -941,7 +951,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginTransparentBlurBuffer () const
 
 The event handler signature is as follows: *myhandler()*
@@ -958,7 +968,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndTransparentBlurBuffer () const
 
 The event handler signature is as follows: *myhandler()*
@@ -975,7 +985,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginSSSS () const
 
 The event handler signature is as follows: *myhandler()*
@@ -992,7 +1002,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndSSSS () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1009,7 +1019,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginSSR () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1026,7 +1036,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndSSR () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1043,7 +1053,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginSSAO () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1060,7 +1070,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndSSAO () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1077,7 +1087,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginSSGI () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1094,7 +1104,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndSSGI () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1111,7 +1121,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginSky () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1128,7 +1138,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndSky () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1145,7 +1155,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginCompositeDeferred () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1162,7 +1172,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndCompositeDeferred () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1179,7 +1189,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginTransparent () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1196,7 +1206,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginClouds () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1213,7 +1223,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndClouds () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1230,7 +1240,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginWater () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1247,7 +1257,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginWaterGBuffer () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1264,7 +1274,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndWaterGBuffer () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1281,7 +1291,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginWaterDecals () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1298,7 +1308,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndWaterDecals () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1315,7 +1325,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginWaterLights () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1332,7 +1342,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndWaterLights () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1349,7 +1359,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginWaterVoxelProbes () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1366,7 +1376,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndWaterVoxelProbes () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1383,7 +1393,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginWaterEnvironmentProbes () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1400,7 +1410,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndWaterEnvironmentProbes () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1417,7 +1427,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginWaterPlanarProbes () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1434,7 +1444,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndWaterPlanarProbes () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1451,7 +1461,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndWater () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1468,7 +1478,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndTransparent () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1485,7 +1495,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginSrgbCorrection () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1502,7 +1512,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndSrgbCorrection () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1519,7 +1529,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginAdaptationColorAverage () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1536,7 +1546,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndAdaptationColorAverage () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1553,7 +1563,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginAdaptationColor () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1570,7 +1580,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndAdaptationColor () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1587,7 +1597,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginTAA () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1604,7 +1614,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndTAA () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1621,7 +1631,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginCameraEffects () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1638,7 +1648,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndCameraEffects () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1655,7 +1665,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginPostMaterials () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1672,7 +1682,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndPostMaterials () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1689,7 +1699,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginDebugMaterials () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1706,7 +1716,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndDebugMaterials () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1723,7 +1733,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBeginVisualizer () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1740,7 +1750,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndVisualizer () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1757,7 +1767,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndScreen () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1774,7 +1784,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEnd () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1791,7 +1801,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEndVRQuadComposeEyeSwapchains () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1808,12 +1818,158 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
+## void setPanoramaFisheyeKannalaBrandtCoefficients ( vec4 coefficients )
+
+Sets a new four radial distortion coefficients (k1, k2, k3, k4) of the Kannala-Brandt fisheye camera model used by the corresponding panorama mode. They define the polynomial mapping the angle between the incoming ray and the optical axis to the normalized image radius. The default value (1, 0, 0, 0) corresponds to the pure equidistant projection. This mode reproduces the image geometry of a real calibrated fisheye camera, with the coefficients taken from the camera calibration data.
+### Arguments
+
+- *vec4* **coefficients** - The radial distortion coefficients of the Kannala-Brandt model
+
+## vec4 getPanoramaFisheyeKannalaBrandtCoefficients () const
+
+Returns the current four radial distortion coefficients (k1, k2, k3, k4) of the Kannala-Brandt fisheye camera model used by the corresponding panorama mode. They define the polynomial mapping the angle between the incoming ray and the optical axis to the normalized image radius. The default value (1, 0, 0, 0) corresponds to the pure equidistant projection. This mode reproduces the image geometry of a real calibrated fisheye camera, with the coefficients taken from the camera calibration data.
+### Return value
+
+Current radial distortion coefficients of the Kannala-Brandt model
+## void setPanoramaFisheyeKannalaBrandtFocalLength ( vec2 length )
+
+Sets a new focal length intrinsics (fx, fy) of the calibrated fisheye camera, in pixels, used by the Kannala-Brandt panorama mode to convert pixel coordinates to normalized camera coordinates.
+### Arguments
+
+- *vec2* **length** - The focal length intrinsics of the calibrated fisheye camera
+
+## vec2 getPanoramaFisheyeKannalaBrandtFocalLength () const
+
+Returns the current focal length intrinsics (fx, fy) of the calibrated fisheye camera, in pixels, used by the Kannala-Brandt panorama mode to convert pixel coordinates to normalized camera coordinates.
+### Return value
+
+Current focal length intrinsics of the calibrated fisheye camera
+## void setPanoramaFisheyeKannalaBrandtImageCircleRadius ( float radius )
+
+Sets a new radius of the valid image circle of the fisheye lens in normalized radial coordinates, used by the Kannala-Brandt panorama mode: pixels outside this radius are masked out, reproducing the image circle of the real lens.
+### Arguments
+
+- *float* **radius** - The radius of the valid image circle of the fisheye lens
+
+## float getPanoramaFisheyeKannalaBrandtImageCircleRadius () const
+
+Returns the current radius of the valid image circle of the fisheye lens in normalized radial coordinates, used by the Kannala-Brandt panorama mode: pixels outside this radius are masked out, reproducing the image circle of the real lens.
+### Return value
+
+Current radius of the valid image circle of the fisheye lens
+## void setPanoramaFisheyeKannalaBrandtImageDimensions ( vec2 dimensions )
+
+Sets a new dimensions (width, height), in pixels, of the calibrated camera image the Kannala-Brandt intrinsics refer to. The viewport coordinates are mapped to this pixel space before the intrinsics are applied.
+### Arguments
+
+- *vec2* **dimensions** - The image dimensions the fisheye intrinsics refer to
+
+## vec2 getPanoramaFisheyeKannalaBrandtImageDimensions () const
+
+Returns the current dimensions (width, height), in pixels, of the calibrated camera image the Kannala-Brandt intrinsics refer to. The viewport coordinates are mapped to this pixel space before the intrinsics are applied.
+### Return value
+
+Current image dimensions the fisheye intrinsics refer to
+## void setPanoramaFisheyeKannalaBrandtPrincipalPoint ( vec2 point )
+
+Sets a new principal point intrinsics (cx, cy) of the calibrated fisheye camera, in pixels: the image position of the optical axis used by the Kannala-Brandt panorama mode.
+### Arguments
+
+- *vec2* **point** - The principal point intrinsics of the calibrated fisheye camera
+
+## vec2 getPanoramaFisheyeKannalaBrandtPrincipalPoint () const
+
+Returns the current principal point intrinsics (cx, cy) of the calibrated fisheye camera, in pixels: the image position of the optical axis used by the Kannala-Brandt panorama mode.
+### Return value
+
+Current principal point intrinsics of the calibrated fisheye camera
+## void setPanoramaFisheyeKannalaBrandtSkew ( float skew )
+
+Sets a new skew (axis non-orthogonality) coefficient of the calibration matrix used by the Kannala-Brandt panorama mode. The value of 0 (default) corresponds to orthogonal pixel axes.
+### Arguments
+
+- *float* **skew** - The skew intrinsic of the calibrated fisheye camera
+
+## float getPanoramaFisheyeKannalaBrandtSkew () const
+
+Returns the current skew (axis non-orthogonality) coefficient of the calibration matrix used by the Kannala-Brandt panorama mode. The value of 0 (default) corresponds to orthogonal pixel axes.
+### Return value
+
+Current skew intrinsic of the calibrated fisheye camera
+## void setPanoramaFisheyeKannalaBrandtTangentialDistortion ( vec2 distortion )
+
+Sets a new tangential (decentering) distortion coefficients (p1, p2) of the calibrated fisheye camera used by the Kannala-Brandt panorama mode. The value (0, 0) means no tangential distortion.
+### Arguments
+
+- *vec2* **distortion** - The tangential distortion coefficients of the calibrated fisheye camera
+
+## vec2 getPanoramaFisheyeKannalaBrandtTangentialDistortion () const
+
+Returns the current tangential (decentering) distortion coefficients (p1, p2) of the calibrated fisheye camera used by the Kannala-Brandt panorama mode. The value (0, 0) means no tangential distortion.
+### Return value
+
+Current tangential distortion coefficients of the calibrated fisheye camera
+## void setPanoramaForceDisableScreenSpaceEffects ( int effects )
+
+Sets a new value indicating if screen-space and screen-dependent camera effects (such as SSR, SSAO, SSGI, motion blur, DOF, bloom, lens flares, local tonemapper) are forcibly disabled while the viewport renders a panorama. These effects are computed per panorama face and would produce visible seams between the faces. Enabled by default; when disabled, the effects stay as configured at the cost of per-face artifacts.
+### Arguments
+
+- *int* **effects** - The forced disabling of screen-space effects in panorama modes
+
+## int isPanoramaForceDisableScreenSpaceEffects () const
+
+Returns the current value indicating if screen-space and screen-dependent camera effects (such as SSR, SSAO, SSGI, motion blur, DOF, bloom, lens flares, local tonemapper) are forcibly disabled while the viewport renders a panorama. These effects are computed per panorama face and would produce visible seams between the faces. Enabled by default; when disabled, the effects stay as configured at the cost of per-face artifacts.
+### Return value
+
+Current forced disabling of screen-space effects in panorama modes
+## void setPanoramaFisheyeKannalaBrandtChromaticAberration ( float aberration )
+
+Sets a new chromatic aberration intensity of the fisheye lens, used by the Kannala-Brandt panorama mode: the red channel is sampled at the radial distance scaled by (1 - value), the blue channel at (1 + value), reproducing lateral chromatic aberration of a real lens. 0 means no chromatic aberration.
+### Arguments
+
+- *float* **aberration** - The chromatic aberration intensity of the fisheye lens
+
+## float getPanoramaFisheyeKannalaBrandtChromaticAberration () const
+
+Returns the current chromatic aberration intensity of the fisheye lens, used by the Kannala-Brandt panorama mode: the red channel is sampled at the radial distance scaled by (1 - value), the blue channel at (1 + value), reproducing lateral chromatic aberration of a real lens. 0 means no chromatic aberration.
+### Return value
+
+Current chromatic aberration intensity of the fisheye lens
+## void setPanoramaFisheyeKannalaBrandtVignettingCoefficient5 ( float coefficient5 )
+
+Sets a new fifth coefficient of the fisheye vignetting polynomial, used by the Kannala-Brandt panorama mode: the coefficient at the 10th power of the normalized radial distance, kept separate because the coefficients vector holds only four components.
+### Arguments
+
+- *float* **coefficient5** - The fifth coefficient of the fisheye vignetting polynomial
+
+## float getPanoramaFisheyeKannalaBrandtVignettingCoefficient5 () const
+
+Returns the current fifth coefficient of the fisheye vignetting polynomial, used by the Kannala-Brandt panorama mode: the coefficient at the 10th power of the normalized radial distance, kept separate because the coefficients vector holds only four components.
+### Return value
+
+Current fifth coefficient of the fisheye vignetting polynomial
+## void setPanoramaFisheyeKannalaBrandtVignettingCoefficients ( vec4 coefficients )
+
+Sets a new first four coefficients of the fisheye vignetting polynomial, used by the Kannala-Brandt panorama mode: the vignetting intensity is an even-order polynomial of the radial distance normalized by the image circle radius, with these values as the coefficients at the 2nd, 4th, 6th, and 8th powers.
+### Arguments
+
+- *vec4* **coefficients** - The first four coefficients of the fisheye vignetting polynomial
+
+## vec4 getPanoramaFisheyeKannalaBrandtVignettingCoefficients () const
+
+Returns the current first four coefficients of the fisheye vignetting polynomial, used by the Kannala-Brandt panorama mode: the vignetting intensity is an even-order polynomial of the radial distance normalized by the image circle radius, with these values as the coefficients at the 2nd, 4th, 6th, and 8th powers.
+### Return value
+
+Current first four coefficients of the fisheye vignetting polynomial
 ---
 
 ## static Viewport ( )
 
+
 Creates a new viewport with default settings.
+
+
 > **Notice:** We don't recommend creating a viewport every frame, as such approach is unoptimal and exhaust GPU resources. Create viewports in  instead, to have them cached for further use.
 
 
@@ -1897,7 +2053,7 @@ Renders an image of the specified size from the camera to a 2D texture.
 - *[Texture](../../../api/library/rendering/class.texture_usc.md)* **texture** - Target 2D [texture](../../../api/library/rendering/class.texture_usc.md) to save the result to.
 - *int* **width** - Texture width, in pixels.
 - *int* **height** - Texture height, in pixels.
-- *int* **hdr** - HDR flag. > **Notice:** This parameter determines the format of the 2D texture: > - **1** - texture format will be set to [**RGBA16F**](../../../api/library/rendering/class.texture_usc.md#FORMAT_RGBA16F) > - **0** - texture format will be set to [**RGBA8**](../../../api/library/rendering/class.texture_usc.md#FORMAT_RGBA8)
+- *int* **hdr** - HDR flag. > **Notice:** This parameter determines the format of the 2D texture: > > > - **1** - texture format will be set to [**RGBA16F**](../../../api/library/rendering/class.texture_usc.md#FORMAT_RGBA16F) > - **0** - texture format will be set to [**RGBA8**](../../../api/library/rendering/class.texture_usc.md#FORMAT_RGBA8)
 
 ## void renderTextureCube ( Camera camera , Texture texture , int local_space = false )
 
@@ -1916,7 +2072,7 @@ Renders the image from the camera to the cube map of the specified size.
 - *[Camera](../../../api/library/rendering/class.camera_usc.md)* **camera** - Camera, an image from which should be rendered.
 - *[Texture](../../../api/library/rendering/class.texture_usc.md)* **texture** - Target cube map to save the result to.
 - *int* **size** - Cube map edge size.
-- *int* **hdr** - HDR flag. > **Notice:** This parameter determines the format of the 2D texture: > - **1** - texture format will be set to [**RGBA16F**](../../../api/library/rendering/class.texture_usc.md#FORMAT_RGBA16F) > - **0** - texture format will be set to [**RGBA8**](../../../api/library/rendering/class.texture_usc.md#FORMAT_RGBA8)
+- *int* **hdr** - HDR flag. > **Notice:** This parameter determines the format of the 2D texture: > > > - **1** - texture format will be set to [**RGBA16F**](../../../api/library/rendering/class.texture_usc.md#FORMAT_RGBA16F) > - **0** - texture format will be set to [**RGBA8**](../../../api/library/rendering/class.texture_usc.md#FORMAT_RGBA8)
 - *int* **local_space** - A flag indicating if the camera angle should be used for the cube map rendering.
 
 ## void renderNode ( Camera camera , Node node )
@@ -1947,7 +2103,7 @@ Renders the given node with all children to the 2D texture of the specified size
 - *[Texture](../../../api/library/rendering/class.texture_usc.md)* **texture** - Target 2D [texture](../../../api/library/rendering/class.texture_usc.md) to save the result to.
 - *int* **width** - Texture width, in pixels.
 - *int* **height** - Texture height, in pixels.
-- *int* **hdr** - HDR flag. > **Notice:** This parameter determines the format of the 2D texture: > - **1** - texture format will be set to [**RGBA16F**](../../../api/library/rendering/class.texture_usc.md#FORMAT_RGBA16F) > - **0** - texture format will be set to [**RGBA8**](../../../api/library/rendering/class.texture_usc.md#FORMAT_RGBA8)
+- *int* **hdr** - HDR flag. > **Notice:** This parameter determines the format of the 2D texture: > > > - **1** - texture format will be set to [**RGBA16F**](../../../api/library/rendering/class.texture_usc.md#FORMAT_RGBA16F) > - **0** - texture format will be set to [**RGBA8**](../../../api/library/rendering/class.texture_usc.md#FORMAT_RGBA8)
 
 ## void renderNodeTexture2D ( Camera camera , Node node , Texture texture )
 
@@ -1984,7 +2140,10 @@ Renders a stereo image for HMDs having context (peripheral) and focus displays. 
 
 ## void setStereoHiddenAreaMesh ( Mesh hidden_area_mesh_left , Mesh hidden_area_mesh_right )
 
+
 Sets custom meshes to be used for culling pixels, that are not visible in VR.
+
+
 > **Notice:** Requires [render_stereo_hidden_area](../../../code/console/index.md#render_stereo_hidden_area) = 2
 
 

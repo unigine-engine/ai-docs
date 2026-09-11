@@ -5,7 +5,7 @@
 
 This class represents a vector of 3 [half](../../../api/library/math/class.half_cpp.md) (16-bit float) components.
 
-> **Warning:** Do not use the fourth component in the structure (*align*) as it may be implicitly changed by the structure’s operations.
+> **Warning:** Do not use the fourth component in the structure (*align*) as it may be implicitly changed by the structure�s operations.
 
 
 ## hvec3 Struct

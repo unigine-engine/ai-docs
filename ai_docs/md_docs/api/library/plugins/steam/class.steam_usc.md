@@ -9,66 +9,90 @@
 
 ### Members
 
----
+## int getMyState () const
 
-## int steam. getAppID ( )
-
-Returns Steam AppID.
+Returns the current friend status of the current user. One of the [PERSONA_STATE_*](#PERSONA_STATE_OFFLINE) values.
 ### Return value
 
-Steam AppID.
-## int steam. isSubscribed ( )
+Current friend status of the current user
+## const char * getMyName () const
 
-Checks if the user is allowed to run the current app.
+Returns the current persona (display) name of the current user. This is the same name that is displayed on the user's community profile page.
 ### Return value
 
-**1** if the user is allowed to run the current app; otherwise **0**.
-## int steam. isLowViolence ( )
+Current persona (display) name of the current user
+## long getMyUserID () const
 
-Checks if the license owned by the user provides low violence depots.
+Returns the current ID of the current user.
 ### Return value
 
-**1** if the license owned by the user provides low violence depots; otherwise **0**.
-## int steam. isCybercafe ( )
+Current ID of the current user
+## int isOverlayShown () const
 
-Returns the value specifying if the current app is for Cyber Cafes.
+Returns the current value indicating if the Steam Overlay is running and the user can access it.
 ### Return value
 
-**1** if the current app is for Cyber Cafes; otherwise **0**.
-## int steam. isVACBanned ( )
+Current the Steam Overlay is running and the user can access it
+## const char * getUserDataFolder () const
 
-Checks if the user has a VAC ban on their account.
+Returns the current name of the user data folder.
 ### Return value
 
-**1** if the user has a VAC ban on their account; otherwise, **0**.
-## string steam. getCurrentGameLanguage ( )
+Current name of the user data folder
+## const char * getAvailableGameLanguages () const
+
+Returns the current comma-separated list of languages.
+### Return value
+
+Current comma-separated list of languages
+## const char * getCurrentGameLanguage () const
 
 Returns the current language that the user has set.
 ### Return value
 
-Language set by the user.
-## string steam. getAvailableGameLanguages ( )
+Current language that the user has set
+## int isVACBanned () const
 
-Returns a comma-separated list of languages.
+Returns the current value indicating if the user has a VAC ban on their account.
 ### Return value
 
-Comma-separated list of languages.
-## string steam. getUserDataFolder ( )
+Current the user has a VAC ban on their account
+## int isCybercafe () const
 
-Returns the name of the user data folder.
+Returns the current value specifying if the current app is for cyber cafes.
 ### Return value
 
-Name of the user data folder.
+Current the current app is for cyber cafes
+## int isLowViolence () const
+
+Returns the current value indicating if the license owned by the user provides low violence depots.
+### Return value
+
+Current the license owned by the user provides low violence depots
+## int isSubscribed () const
+
+Returns the current value indicating if the user is allowed to run the current app.
+### Return value
+
+Current the user is allowed to run the current app
+## getAppID () const
+
+Returns the current Steam AppID.
+### Return value
+
+Current Steam AppID
+---
+
 ## void steam. showOverlay ( string dialog )
 
-Opens the Steam overlay to the specified dialog.
+Opens the *Steam Overlay* to the specified dialog.
 ### Arguments
 
-- *string* **dialog** - The dialog to open. Valid options are: "friends", "community", "players", "settings", "officialgamegroup", "stats", "achievements".
+- *string* **dialog** - The dialog to open. Valid options are: *"friends", "community", "players", "settings", "officialgamegroup", "stats", "achievements"*.
 
 ## void steam. showOverlayToWebPage ( string url , int mode )
 
-Activates Steam Overlay web browser directly to the specified URL.
+Activates *Steam Overlay* web browser directly to the specified URL.
 ### Arguments
 
 - *string* **url** - The webpage to open (a fully qualified address with the protocol is required).
@@ -76,15 +100,15 @@ Activates Steam Overlay web browser directly to the specified URL.
 
 ## void steam. showOverlayToUser ( string dialog , long steam_id )
 
-Opens the Steam overlay to the specified dialog.
+Opens the *Steam Overlay* to the specified dialog.
 ### Arguments
 
-- *string* **dialog** - The dialog to open. Valid options are: "steamid", "chat", "jointrade", "stats", "achievements", "friendadd", "friendremove", "friendrequestaccept", "friendrequestignore".
+- *string* **dialog** - The dialog to open. Valid options are: *"steamid", "chat", "jointrade", "stats", "achievements", "friendadd", "friendremove", "friendrequestaccept", "friendrequestignore"*.
 - *long* **steam_id** - The Steam ID of the context to open this dialog to.
 
 ## void steam. showOverlayToStore ( int app_id , int store_flag )
 
-Activates the Steam Overlay to the Steam store page for the provided app.
+Activates the *Steam Overlay* to the Steam store page for the provided app.
 ### Arguments
 
 - *int* **app_id** - The app ID to show the store page of.
@@ -92,42 +116,18 @@ Activates the Steam Overlay to the Steam store page for the provided app.
 
 ## void steam. showOverlayInviteDialog ( long steam_id_lobby )
 
-Activates the Steam Overlay to open the invite dialog. Invitations sent from this dialog will be for the provided lobby.
+Activates the *Steam Overlay* to open the invite dialog. Invitations sent from this dialog will be for the provided lobby.
 ### Arguments
 
 - *long* **steam_id_lobby** - The Steam ID of the lobby that selected users will be invited to.
 
 ## void steam. setOverlayNotificationPosition ( int position )
 
-Sets which corner the Steam overlay notification popup should display itself in.
+Sets which corner the *Steam Overlay* notification popup should display itself in.
 ### Arguments
 
 - *int* **position** - The overlay notification popup position, one of the [STEAM_OVERLAY_POSITION_*](#OVERLAY_POSITION_TOP_LEFT) values.
 
-## int steam. isOverlayShown ( )
-
-Checks if the Steam Overlay is running and the user can access it.
-### Return value
-
-**1** if the overlay is running and the user can access it; otherwise **0**.
-## long steam. getMyUserID ( )
-
-Gets the current user's ID.
-### Return value
-
-The current user's ID.
-## string steam. getMyName ( )
-
-Gets the current user's persona (display) name. This is the same name that is displayed on the user's community profile page.
-### Return value
-
-The current user's persona (display) name.
-## int steam. getMyState ( )
-
-Returns the friend status of the current user.
-### Return value
-
-The friend state of the current user, one of the [STEAM_PERSONA_STATE_*](#PERSONA_STATE_OFFLINE) values.
 ## string steam. getUserName ( long steam_id_friend )
 
 Returns the specified user's persona (display) name.
@@ -150,14 +150,15 @@ Returns the number of users the client knows about who meet a specified criteria
 The number of users that meet the specified criteria. Returns -1 if the current user is not logged on.
 ## long steam. getFriendByIndex ( int ifriend , int ifriend_flags )
 
+Returns the Steam ID of the friend at the specified index in the list of users that meet the given criteria.
 ### Arguments
 
-- *int* **ifriend** - An index between 0 and GetFriendCountFromSource.
-- *int* **ifriend_flags** - .
+- *int* **ifriend** - Index of the friend, in the range from 0 to the value returned by [getNumFriends()](#getNumFriends_int_int) for the same flags.
+- *int* **ifriend_flags** - A combined union (binary "or") of one or more [STEAM_FRIEND_FLAG_*](#FRIEND_FLAG_NONE) values, matching the flags passed to [getNumFriends()](#getNumFriends_int_int).
 
 ### Return value
 
-.
+The Steam ID of the friend at the given index.
 ## int steam. getUserRelationship ( long steam_id_friend )
 
 Returns a relationship to a specified user.
@@ -208,29 +209,24 @@ Returns a handle to the large avatar for the specified user.
 ### Return value
 
 A Steam handle to the large (128*128 px) image. Returns 0 if no avatar is set for the user.
-## SteamLeaderboard steam. createLeaderboard ( string name )
+## void steam. setCallback ( int num , Variable name )
 
-Returns the leaderboard interface.
+Sets a callback function of the specified type.
 ### Arguments
 
-- *string* **name** - Name of the leaderboard to be created.
+- *int* **num** - Callback type. One of the [STEAM_CALLBACK_*](#CALLBACK_OVERLAY_SHOWN) values.
+- *Variable* **name** - Callback function to be set. There are two ways you can specify a callback function:
+
+  - **by name** - when you call a function declared globally.
+  - **by ID** - when you call a member function of a certain class. > **Notice:** An ID can be obtained via [functionid()](../../../../api/library/common/class.system_usc.md#functionid_variable_int).
+
+## Variable steam. getCallback ( int num )
+
+Returns the callback function set for the specified type.
+### Arguments
+
+- *int* **num** - Callback type. One of the [STEAM_CALLBACK_*](#CALLBACK_OVERLAY_SHOWN) values.
 
 ### Return value
 
-Leaderboard interface.
-## SteamLeaderboard steam. getLeaderboard ( int id )
-
-Returns the leaderboard interface.
-### Arguments
-
-- *int* **id** - ID of the leaderboard to view.
-
-### Return value
-
-Leaderboard interface.
-## void steam. deleteLeaderboard ( SteamLeaderboard * OUT_leaderboard )
-
-Deletes the leaderboard.
-### Arguments
-
-- *[SteamLeaderboard](../../../../api/library/plugins/steam/class.steamleaderboard_usc.md) ** **OUT_leaderboard** - Leaderboard interface. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
+Callback function set for the specified type.

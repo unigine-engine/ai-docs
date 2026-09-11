@@ -26,7 +26,7 @@ Use this license activation method if you have a USB with a license.
 3. Log in to SDK Browser using your credentials (they are the same as for the [https://developer.unigine.com](https://developer.unigine.com) portal).
 4. At the ***SDKs*** tab click the ***ADD SDK*** button. ![](../install.png) The *Add SDK* window will open.
 5. In the tab that opens, select ***UNIGINE 2 Editor for Sim SDK*** in the *Edition* dropdown: ![](add_editor_for_sim.jpg) And click ***Install***. ![](install_button.jpg)
-6. If the USB Key activation is successful, you’ll see ***UNIGINE 2 Editor for Sim*** activated in ***SDKs*** tab: ![](editor_for_sim_usb_hasp.png)
+6. If the USB Key activation is successful, you�ll see ***UNIGINE 2 Editor for Sim*** activated in ***SDKs*** tab: ![](editor_for_sim_usb_hasp.png)
 
 
 ## USB HASP License Activation Troubleshooting

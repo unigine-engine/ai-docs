@@ -232,25 +232,25 @@ Returns the current value indicating if collisions between the connected bodies 
 ### Return value
 
 Current value indicating if collisions between the connected bodies are enabled: positive number for enabled collisions between the bodies, **0** for disabled collisions.
-## bool isEnabledSelf () const
+## int isEnabledSelf () const
 
-Returns the current value indicating is the joint is enabled.
+Returns the current value indicating if the joint is enabled by its own flag, regardless of the effective enabled state derived from the connected bodies.
 ### Return value
 
-**true** if the joint is enabled; otherwise **false**.
-## void setEnabled ( bool enabled )
+Current the joint is enabled by its own flag
+## void setEnabled ( int enabled )
 
 Sets a new value indicating if the joint calculations are enabled.
 ### Arguments
 
-- *bool* **enabled** - Set **true** to enable the joint calculations; **false** - to disable it.
+- *int* **enabled** - The joint calculation
 
-## bool isEnabled () const
+## int isEnabled () const
 
 Returns the current value indicating if the joint calculations are enabled.
 ### Return value
 
-**true** if the joint calculations is enabled; otherwise **false**.
+Current joint calculation
 ## void setBody1 ( Body body1 )
 
 Sets a new second body connected using the joint.
@@ -331,7 +331,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## Joint createJoint ( int type )

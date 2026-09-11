@@ -206,7 +206,7 @@ UNIGINE allows **registering** any external window for rendering by using the fo
 
 
 - *[needRenderExternalWindow()](../../../../api/library/engine/class.customsystemproxy_cpp.md#needRenderExternalWindow_WIN_HANDLE_bool)* checks rendering of the external window. If the window is minimized, occluded by other windows and so on, you can pass this information to the engine (for example, to stop rendering).
-- *[onExternalWindowRender()](../../../../api/library/engine/class.customsystemproxy_cpp.md#onExternalWindowRender_WIN_HANDLE_void)* — a callback function, which is called on rendering of the external window. It receives the window handle, and you can render to the window at this point.
+- *[onExternalWindowRender()](../../../../api/library/engine/class.customsystemproxy_cpp.md#onExternalWindowRender_WIN_HANDLE_void)* � a callback function, which is called on rendering of the external window. It receives the window handle, and you can render to the window at this point.
 
 
 > **Notice:** As these methods are virtual, you will need to override them.

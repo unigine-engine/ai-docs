@@ -65,10 +65,10 @@ This section provides [lightmapping](../../../editor2/lighting/gi/lightmaps.md)-
 
 | Enabled | Flag indicating if lightmapping and related parameters are enabled for the surface. |
 |---|---|
-| Mode | Option indicating the lightmapping mode for the surface: - **Bake Unique Texture** — bake lighting into a new texture. - **Use Custom Texture** — specify a lightmap texture from assets. - **Reuse Texture From Other Surface** — use the lightmap texture from another surface. This option is intended for use with LODs having the same UV maps. |
+| Mode | Option indicating the lightmapping mode for the surface: - **Bake Unique Texture** � bake lighting into a new texture. - **Use Custom Texture** � specify a lightmap texture from assets. - **Reuse Texture From Other Surface** � use the lightmap texture from another surface. This option is intended for use with LODs having the same UV maps. |
 | Bake To | Target asset for baking and storing the lightmap texture in the *[Bake Unique Texture](#lightmaps_mode)* mode. If the value is empty, a new lightmap texture will be created and assigned to this parameter upon light baking. |
 | Texture | Lightmap texture assigned to the surface in the *[Use Custom Texture](#lightmaps_mode)* mode. |
-| Quality | Lightmap baking quality preset: - **Global** — the global quality preset set in the *[Bake Lighting](../../../editor2/lighting/gi/bake_lighting/index.md#lightmaps)* settings. - **Draft** option provides the highest iterativity with the lowest sampling quality and number of rays simulated. - **Low** option provides low sampling quality and number of light rays simulated. - **Medium** option corresponds to stable quality level which is good for most cases. - **High** option corresponds to high sampling quality and number of light rays simulated intended for release production. - **Ultra** baking quality might be useful to get rid of small inconsistencies on the release production. |
+| Quality | Lightmap baking quality preset: - **Global** � the global quality preset set in the *[Bake Lighting](../../../editor2/lighting/gi/bake_lighting/index.md#lightmaps)* settings. - **Draft** option provides the highest iterativity with the lowest sampling quality and number of rays simulated. - **Low** option provides low sampling quality and number of light rays simulated. - **Medium** option corresponds to stable quality level which is good for most cases. - **High** option corresponds to high sampling quality and number of light rays simulated intended for release production. - **Ultra** baking quality might be useful to get rid of small inconsistencies on the release production. |
 | Compression | Flag indicating if the baked lightmap texture should be compressed. > **Notice:** Compressed lightmaps are lightweight but can be subject to compression artifacts. |
 | Surface | The surface providing the lightmap texture when the *[Reuse Texture From Other Surface](#lightmaps_mode)* mode is selected. |
 
@@ -115,7 +115,7 @@ This texture gives you a wide range of opportunities for customization, and enab
 
 | Enabled | Flag indicating if surface custom texture and related parameters are enabled for the surface. |
 |---|---|
-| Mode | Defines the source of the custom texture for the surface: - **Unique Texture** — use a unique custom texture for this surface. You can specify an existing texture from your assets or create a new one and edit in the *[Texture Paint Mode](../../../editor2/texture_editor/index.md)*. - **Reuse Texture From Other Surface** — use the custom texture from another surface. This option is intended for use with LODs having the same UV maps. |
+| Mode | Defines the source of the custom texture for the surface: - **Unique Texture** � use a unique custom texture for this surface. You can specify an existing texture from your assets or create a new one and edit in the *[Texture Paint Mode](../../../editor2/texture_editor/index.md)*. - **Reuse Texture From Other Surface** � use the custom texture from another surface. This option is intended for use with LODs having the same UV maps. |
 | Texture | Custom texture asset assigned to the surface. Click ![](../../settings/render_settings/color/plus.png) to create a new one. |
 | Surface | The source surface providing the custom texture to be reused for this surface when the *[Reuse Texture From Other Surface](#surface_custom_texture_mode)* mode is selected. |
 
@@ -148,8 +148,8 @@ You can copy and paste all parameters from one surface to another using the foll
 The copy/paste option supports multi-selection. This can be especially useful, when [setting up LODs](../../../content/optimization/geometry/lods/index.md#setup) for several models, for example. Suppose you have 3 LODs in each model as separate surfaces, you just set up parent, visibility and fade distances for the three surfaces of one model, then select these surfaces and click **Copy Parameters** in the context menu shown above, then select three corresponding surfaces of another model and select one of the following options:
 
 
-- **Paste Parameters Sequentially** — in this case the parameters copied from source surfaces will be simply pasted to destination surfaces in the order they appear in the hierarchy.
-- **Paste Parameters By Surface Names** — in this case the parameters copied from source surfaces will be pasted to destination surfaces with matching names.
+- **Paste Parameters Sequentially** � in this case the parameters copied from source surfaces will be simply pasted to destination surfaces in the order they appear in the hierarchy.
+- **Paste Parameters By Surface Names** � in this case the parameters copied from source surfaces will be pasted to destination surfaces with matching names.
 
 
 ![](surface_copypaste.gif)

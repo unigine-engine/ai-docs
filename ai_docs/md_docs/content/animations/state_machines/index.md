@@ -33,7 +33,7 @@ An **Entry** node is automatically created inside every state machine. It serves
 ## States
 
 
-A state represents a single animation behavior. Each state contains its own nested graph where you build the animation logic using any combination of **[Animation Player](../../../content/animations/graph/node_library/animation/animation_player.md)**, **[Blend Poses](../../../content/animations/graph/node_library/blend/blend_poses.md)**, **[Blend Space](../../../content/animations/blend_spaces/index.md)**, and other nodes.
+A state represents a single animation behavior. Each state contains its own nested graph where you build the animation logic using any combination of **[Animation Player](../../../content/animations/graph/node_library/animation/animation_player.md), [Blend Poses](../../../content/animations/graph/node_library/blend/blend_poses.md), [Blend Space](../../../content/animations/blend_spaces/index.md)**, and other nodes.
 
 
 ![](create_new_state.png)
@@ -46,7 +46,7 @@ To add a state, right-click inside the state machine canvas and select **State**
 
 ![](inside_state_machine.png)
 
-*Inside a state machine: the Entry node is connected to a State that contains an Animation Player routed to the Output Pose. The Graph Hierarchy on the left shows the nesting structure.*
+*Inside a state machine: theEntrynode is connected to a State that contains anAnimation Playerrouted to theOutput Pose. The Graph Hierarchy on the left shows the nesting structure.*
 
 
 To edit the animation logic of a state, double-click it. The editor navigates into the state's subgraph, and the breadcrumb bar updates (e.g., *Root > Locomotion SM > Walk*). Inside, you build the animation logic the same way as in the main graph - place nodes, connect them, and route the result to the **Output Pose** node.
@@ -64,13 +64,13 @@ To create a transition, hover over the edge of a source state until a connection
 ![](creating_condition.png)
 
 
-The **Entry** node is the only node that connects directly to a state without a Condition - it always transitions to its target state immediately when the state machine starts.
+The **Entry** node is the only node that connects directly to a state without a *Condition* - it always transitions to its target state immediately when the state machine starts.
 
 
 You can create multiple transitions from the same state. When multiple outgoing transitions exist, they are evaluated in priority order (see [Condition Properties](#condition_properties)). The first transition whose condition is met fires, and the others are skipped.
 
 
-Condition nodes can be chained - a Condition can lead to other Conditions, creating multi-level decision trees for complex transition routing.
+*Condition* nodes can be chained - a *Condition* can lead to other Conditions, creating multi-level decision trees for complex transition routing.
 
 
 ![](condition_branching.png)
@@ -105,7 +105,7 @@ Every **Condition** node contains a condition graph - a small nested graph that 
 *Empty condition graph.*
 
 
-To edit a transition's condition, double-click the **Condition** node. The Editor navigates into the condition graph. Inside, you build the condition logic using any available nodes. Route the final boolean result to the Transition Result node's **Can Transition** input.
+To edit a transition's condition, double-click the **Condition** node. The Editor navigates into the condition graph. Inside, you build the condition logic using any available nodes. Route the final boolean result to the **Transition Result** node's **Can Transition** input.
 
 
 ![](condition_graph_example.png)
@@ -113,7 +113,7 @@ To edit a transition's condition, double-click the **Condition** node. The Edito
 *Example condition graph for a Walk -> Run transition: the transition fires when MoveSpeed is greater than 0.7 and the current animation has less than 5% remaining.*
 
 
-If the condition graph is empty (no nodes connected to the Transition Result), the transition always evaluates to true and fires immediately when the state becomes active.
+If the condition graph is empty (no nodes connected to the **Transition Result**), the transition always evaluates to true and fires immediately when the state becomes active.
 
 
 By default, when a transition fires, the target state's animation starts from the beginning. The **Transition Result** node has an optional **Enter Time** input (shown when *Use Enter Time* is enabled in its properties) that overrides this: provide a normalized time (0.0 to 1.0) to start the target animation at a specific point. For example, 0.5 starts the animation at its halfway point.

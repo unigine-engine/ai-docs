@@ -289,6 +289,42 @@ int AppSystemLogic::shutdown()
 
 ### Members
 
+## int getNumWidgets () const
+
+Returns the current number of associated widgets.
+### Return value
+
+Current number of associated widgets
+## void setGui ( const Ptr < Gui >& gui )
+
+Sets a new *[Gui](../../../api/library/gui/class.gui_cpp.md)* instance used for the UserInterface.
+### Arguments
+
+- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Gui](../../../api/library/gui/class.gui_cpp.md)>&* **gui** - The Gui instance used for the UserInterface
+
+## Ptr < Gui > getGui () const
+
+Returns the current *[Gui](../../../api/library/gui/class.gui_cpp.md)* instance used for the UserInterface.
+### Return value
+
+Current Gui instance used for the UserInterface
+## void setLifetime ( Widget::LIFETIME lifetime )
+
+Sets a new lifetime management type for the UserInterface. By default, the [LIFETIME_ENGINE](../../../api/library/gui/class.widget_cpp.md#LIFETIME) type is used.
+> **Notice:** Lifetime of each UserInterface in the hierarchy is defined by its root. Thus, a lifetime management type set for a child UserInterface that differs from the one set for the root is ignored.
+
+### Arguments
+
+- *[Widget::LIFETIME](../../../api/library/gui/class.widget_cpp.md#LIFETIME)* **lifetime** - The lifetime management type for the UserInterface
+
+## Widget::LIFETIME getLifetime () const
+
+Returns the current lifetime management type for the UserInterface. By default, the [LIFETIME_ENGINE](../../../api/library/gui/class.widget_cpp.md#LIFETIME) type is used.
+> **Notice:** Lifetime of each UserInterface in the hierarchy is defined by its root. Thus, a lifetime management type set for a child UserInterface that differs from the one set for the root is ignored.
+
+### Return value
+
+Current lifetime management type for the UserInterface
 ---
 
 ## static UserInterfacePtr create ( const Ptr < Gui > & gui , const char * name , const char * prefix = 0 )
@@ -376,12 +412,6 @@ Returns the total number of callbacks for a given widget.
 ### Return value
 
 Number of callbacks.
-## int getNumWidgets ( ) const
-
-Returns the number of associated widgets.
-### Return value
-
-Number of associated widgets.
 ## Ptr < Widget > getWidget ( int num ) const
 
 Returns a widget with the given ID.
@@ -445,27 +475,3 @@ Returns the number of the widget if exists; otherwise, -1.
 ## void updateWidgets ( ) const
 
 Updates all widgets belonging to the user interface. This function should be called, for example, after change of the interface language.
-## void setGui ( const Ptr < Gui > & gui )
-
-Sets a new *[Gui](../../../api/library/gui/class.gui_cpp.md)* instance to be used for the UserInterface.
-### Arguments
-
-- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Gui](../../../api/library/gui/class.gui_cpp.md)> &* **gui** - *[Gui](../../../api/library/gui/class.gui_cpp.md)* instance to be used for the UserInterface.
-
-## Ptr < Gui > getGui ( ) const
-
-Returns a *[Gui](../../../api/library/gui/class.gui_cpp.md)* instance for the UserInterface.
-### Return value
-
-*[Gui](../../../api/library/gui/class.gui_cpp.md)* instance currently used for the UserInterface.
-## void setLifetime ( Widget::LIFETIME lifetime )
-
-Sets the lifetime management type for the UserInterface. By default, the [LIFETIME_ENGINE](../../../api/library/gui/class.widget_cpp.md#LIFETIME) type is used.
-### Arguments
-
-- *[Widget::LIFETIME](../../../api/library/gui/class.widget_cpp.md#LIFETIME)* **lifetime**
-
-## Widget::LIFETIME getLifetime ( ) const
-
-Returns the lifetime management type for the root of the UserInterface, or for the UserInterface itself (if it is not a child for another UserInterface).
-> **Notice:** Lifetime of each UserInterface in the hierarchy is defined by it's root. Thus, lifetime management type set for a child UserInterface that differs from the one set for the root is ignored.

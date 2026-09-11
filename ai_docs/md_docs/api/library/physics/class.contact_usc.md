@@ -8,8 +8,6 @@ This class stores the result of a physical contact (coordinates of the point, co
 
 ## Contact Class
 
-### Members
-
 ---
 
 ## static Contact ( )
@@ -43,14 +41,14 @@ Returns the contact surface number.
 Contact surface number.
 ## void setTime ( float time )
 
-Sets the time when the contact occurs. In case of CCD (for spheres or capsules), it's the time starting from the current physics simulation tick to the moment when the calculated contact is bound to happen. In case of non-continuous collision detection, it is always 0.
+Sets the time when the contact occurs. In case of [CCD](../../../api/library/physics/class.shape_usc.md#isContinuous_int), it's the time starting from the current physics simulation tick to the moment when the calculated contact is bound to happen. In case of non-continuous collision detection, it is always 0.
 ### Arguments
 
 - *float* **time** - Contact time, in milliseconds.
 
 ## float getTime ( )
 
-Returns the time when the contact occurs. In case of CCD (for spheres or capsules), it returns the time starting from the current physics simulation tick to the moment when the calculated contact is bound to happen. In case of non-continuous collision detection, 0 is always returned.
+Returns the time when the contact occurs. In case of [CCD](../../../api/library/physics/class.shape_usc.md#isContinuous_int), it returns the time starting from the current physics simulation tick to the moment when the calculated contact is bound to happen. In case of non-continuous collision detection, 0 is always returned.
 ### Return value
 
 Contact time, in milliseconds.

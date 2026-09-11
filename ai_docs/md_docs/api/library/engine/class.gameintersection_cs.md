@@ -1,7 +1,7 @@
 # Unigine::GameIntersection Class (CS)
 
 
-Stores the result of the [*Game.getIntersection()*](../../../api/library/engine/class.game_cs.md#getIntersection_Vec3_Vec3_float_int_GameIntersection_Obstacle) function - the point where the intersection with an [obstacle](../../../api/library/pathfinding/class.obstacle_cs.md) has been occurred.
+Stores the result of the *[*Game.getIntersection()*](../../../api/library/engine/class.game_cs.md#getIntersection_Vec3_Vec3_float_int_GameIntersection_Obstacle)* function - the point where the intersection with an [obstacle](../../../api/library/pathfinding/class.obstacle_cs.md) has been occurred.
 
 
 ![](cylinder01.png)
@@ -16,7 +16,7 @@ The following example shows how you can get the intersection point (vec3) of the
 1. Define and initialize two points (p0 and p1) by using the *[Player.getDirectionFromScreen()](../../../api/library/players/class.player_cs.md#getDirectionFromScreen_Vec3_Vec3_int_int_int_int_int_int_void)*.
 2. Create an instance of the GameIntersection class to get the intersection point coordinates.
 3. Check, if there is an intersection with an obstacle. The *Game.getIntersection()* function returns an intersected obstacle when the obstacle appears in the area of the cylinder.
-4. After that GameIntersection instance gets the point of the nearest intersection point and you can get it by using the *getPoint()* function.
+4. After that *GameIntersection* instance gets the point of the nearest intersection point and you can get it by using the *getPoint()* function.
 
 
 ```csharp
@@ -68,7 +68,7 @@ if (obstacle != null)
 
 ## vec3 Point
 
-The Coordinates of the intersection point.
+The coordinates of the intersection point.
 ### Members
 
 ---

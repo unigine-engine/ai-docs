@@ -7,263 +7,264 @@
 
 ### Members
 
----
+## int isStatusConnected () const
 
-## int isStatusConnected ( )
-
-Returns a value indicating if the Ultraleap Controller device is connected.
+Returns the current value indicating if the *Ultraleap Controller* device is connected.
 ### Return value
 
-**1** if the device is connected; otherwise, **0**.
-## int isStatusStreaming ( )
+Current the *Ultraleap Controller* device is connected
+## int isStatusStreaming () const
 
-Returns a value indicating if the Ultraleap Controller device is sending out frames.
+Returns the current value indicating if the *Ultraleap Controller* device is sending out frames.
 ### Return value
 
-**1** if the device is sending out frames; otherwise, **0**.
-## int isStatusPaused ( )
+Current the *Ultraleap Controller* device is sending out frames
+## int isStatusPaused () const
 
-Returns a value indicating if the Ultraleap Controller device streaming has been paused.
+Returns the current value indicating if the *Ultraleap Controller* device streaming has been paused.
 ### Return value
 
-**1** if the device streaming has been paused; otherwise, **0**.
-## int isStatusRobust ( )
+Current the *Ultraleap Controller* device streaming has been paused
+## int isStatusRobust () const
 
-Returns a value indicating if the Ultraleap Controller device has transitioned to robust mode in order to compensate for known sources of infrared interference.
+Returns the current value indicating if the *Ultraleap Controller* device has transitioned to robust mode in order to compensate for known sources of infrared interference.
 ### Return value
 
-**1** if the device has transitioned to robust mode in order to compensate; otherwise, **0**.
-## int isStatusSmudged ( )
+Current the *Ultraleap Controller* device has transitioned to robust mode in order to compensate for known sources of infrared interference
+## int isStatusSmudged () const
 
-Returns a value indicating if the Ultraleap Controller device’s window is smudged. If the device’s window is smudged, tracking may be degraded.
+Returns the current value indicating if the *Ultraleap Controller* device�s window is smudged. If the device�s window is smudged, tracking may be degraded.
 ### Return value
 
-**1** if the device’s window is smudged; otherwise, **0**.
-## int isStatusLowResource ( )
+Current the *Ultraleap Controller* device�s window is smudged
+## int isStatusLowResource () const
 
-Returns a value indicating if the Ultraleap Controller device has entered low-resource mode.
+Returns the current value indicating if the *Ultraleap Controller* device has entered low-resource mode.
 ### Return value
 
-**1** if the device has entered low-resource mode; otherwise, **0**.
-## int isStatusUnknownFailure ( )
+Current the *Ultraleap Controller* device has entered low-resource mode
+## int isStatusUnknownFailure () const
 
-Returns a value indicating if the Ultraleap Controller device has failed, but the failure reason is not known.
+Returns the current value indicating if the *Ultraleap Controller* device has failed, but the failure reason is not known.
 ### Return value
 
-**1** if the device has failed, but the failure reason is not known; otherwise, **0**.
-## int isStatusBadCalibration ( )
+Current the *Ultraleap Controller* device has failed, but the failure reason is not known
+## int isStatusBadCalibration () const
 
-Returns a value indicating if the Ultraleap Controller device has a bad calibration record and cannot send frames.
+Returns the current value indicating if the *Ultraleap Controller* device has a bad calibration record and cannot send frames.
 ### Return value
 
-**1** if the device has a bad calibration record and cannot send frames; otherwise, **0**.
-## int isStatusBadFirmware ( )
+Current the *Ultraleap Controller* device has a bad calibration record and cannot send frames
+## int isStatusBadFirmware () const
 
-Returns a value indicating if the Ultraleap Controller device reports corrupt firmware or cannot install a required firmware update.
+Returns the current value indicating if the *Ultraleap Controller* device reports corrupt firmware or cannot install a required firmware update.
 ### Return value
 
-**1** if the device reports corrupt firmware or cannot install a required firmware update; otherwise, **0**.
-## int isStatusBadTransport ( )
+Current the *Ultraleap Controller* device reports corrupt firmware or cannot install a required firmware update
+## int isStatusBadTransport () const
 
-Returns a value indicating if the Ultraleap Controller device USB connection is faulty.
+Returns the current value indicating if the *Ultraleap Controller* device USB connection is faulty.
 ### Return value
 
-**1** if the device USB connection is faulty; otherwise, **0**.
-## int isStatusBadControl ( )
+Current the *Ultraleap Controller* device USB connection is faulty
+## int isStatusBadControl () const
 
-Returns a value indicating if the Ultraleap Controller device USB control interfaces failed to initialize.
+Returns the current value indicating if the *Ultraleap Controller* device USB control interfaces failed to initialize.
 ### Return value
 
-**1** if the device USB control interfaces failed to initialize; otherwise, **0**.
-## String getSerial ( )
+Current the *Ultraleap Controller* device USB control interfaces failed to initialize
+## String getSerial () const
 
-Returns the device serial number.
+Returns the current device serial number.
 ### Return value
 
-The device serial number.
-## float getHFov ( )
+Current device serial number
+## float getHFov () const
 
-Returns the horizontal field of view of this device in **radians**.
+Returns the current horizontal field of view of this device in **radians**.
 ### Return value
 
-The horizontal field of view of this device in **radians**.
-## float getVFov ( )
+Current horizontal field of view of this device in **radians**
+## float getVFov () const
 
-Returns the vertical field of view of this device in **radians**.
+Returns the current vertical field of view of this device in **radians**.
 ### Return value
 
-The vertical field of view of this device in **radians**.
-## double getRange ( )
+Current vertical field of view of this device in **radians**
+## double getRange () const
 
-Returns the maximum range for this device, in **meters**.
+Returns the current maximum range for this device, in **meters**.
 ### Return value
 
-The maximum range for this device, in **meters**.
-## double getDistanceBetweenCameras ( )
+Current maximum range for this device, in **meters**
+## double getDistanceBetweenCameras () const
 
-Returns the distance between the Ultraleap cameras, in meters.
+Returns the current distance between the Ultraleap cameras, in meters.
 ### Return value
 
-The distance between the Ultraleap cameras, in meters.
-## int getHardwareType ( )
+Current distance between the Ultraleap cameras, in meters
+## int getHardwareType () const
 
-Returns the recognized type of hardware.
+Returns the current recognized type of hardware. One of the [HARDWARE_TYPE_*](#HARDWARE_TYPE_UNKNOWN) values.
 ### Return value
 
-The hardware type. One of the [ULTRALEAP_HARDWARE_TYPE_*](#HARDWARE_TYPE_UNKNOWN) values.
-## unsigned int getLeapID ( )
+Current recognized type of hardware
+## unsigned int getLeapID () const
 
-Returns the ID of the current device.
+Returns the current ID of the current device.
 ### Return value
 
-The device ID.
-## int isSupportedColorImages ( )
+Current ID of the current device
+## int isSupportedColorImages () const
 
-Returns the value indicating if color images are supported for this device.
+Returns the current value indicating if color images are supported for this device.
 ### Return value
 
-**1** if color images are supported for this device; otherwise, **0**.
-## int isSupportedAccelerometer ( )
+Current color images are supported for this device
+## int isSupportedAccelerometer () const
 
-Returns the value indicating if the accelerometer is supported for this device.
+Returns the current value indicating if the accelerometer is supported for this device.
 ### Return value
 
-**1** if the accelerometer is supported for this device; otherwise, **0**.
-## int isSupportedGyroscope ( )
+Current the accelerometer is supported for this device
+## int isSupportedGyroscope () const
 
-Returns the value indicating if the gyroscope is supported for this device.
+Returns the current value indicating if the gyroscope is supported for this device.
 ### Return value
 
-**1** if the gyroscope is supported for this device; otherwise, **0**.
-## int isSupportedTemperature ( )
+Current the gyroscope is supported for this device
+## int isSupportedTemperature () const
 
-Returns the value indicating if temperature measuring is supported for this device.
+Returns the current value indicating if temperature measuring is supported for this device.
 ### Return value
 
-**1** if temperature measuring is supported for this device; otherwise, **0**.
-## vec3 getAccelerometer ( )
+Current temperature measuring is supported for this device
+## vec3 getAccelerometer () const
 
-Returns the accelerometer measurements, in **in m/s^2**.
+Returns the current accelerometer measurements, in **m/s^2**.
 ### Return value
 
-The accelerometer measurements, **in m/s^2**.
-## vec3 getGyroscope ( )
+Current accelerometer measurements, **in m/s^2**
+## vec3 getGyroscope () const
 
-Returns the gyroscope measurements, in **rad/s**.
+Returns the current gyroscope measurements, in **rad/s**.
 ### Return value
 
-The gyroscope measurements, in **rad/s**.
-## float getTemperature ( )
+Current gyroscope measurements, in **rad/s**
+## float getTemperature () const
 
-Returns the measured temperature, in **deg C**.
+Returns the current measured temperature, in **deg C**.
 ### Return value
 
-The measured temperature, in **deg C**.
+Current measured temperature, in **deg C**
 ## void setTrackingOffset ( Vec3 offset )
 
-Sets the default offset for the newly connected device. The Y value specifies the offset from the eyes to the frontal camera plane, in meters, and the Z value — the offset from the eye level up to the camera level, in meters. The X value should be set to 0. These settings can be used to match the physical position and orientation of the Tracking Hardware on a tracked device it is mounted on (such as a VR headset).
+Sets a new virtual offset of the tracking device. The Y value specifies the offset from the eyes to the frontal camera plane, in meters, and the Z value � the offset from the eye level up to the camera level, in meters. The X value should be set to 0. These settings can be used to match the physical position and orientation of the Tracking Hardware on a tracked device it is mounted on (such as a VR headset).
 ### Arguments
 
-- *Vec3* **offset** - The default offset for the newly connected device. The Y value specifies the offset from the eyes to the frontal camera plane, in meters, and the Z value — the offset from the eye level up to the camera level, in meters. The X value should be set to 0.
+- *Vec3* **offset** - The virtual offset of the tracking device. The Y value specifies the offset from the eyes to the frontal camera plane, in meters, and the Z value � the offset from the eye level up to the camera level, in meters
 
-## Vec3 getTrackingOffset ( )
+## Vec3 getTrackingOffset () const
 
-Returns the current virtual offset of the tracking device. The Y value specifies the offset from the eyes to the frontal camera plane, in meters, and the Z value — the offset from the eye level up to the camera level, in meters.
+Returns the current virtual offset of the tracking device. The Y value specifies the offset from the eyes to the frontal camera plane, in meters, and the Z value � the offset from the eye level up to the camera level, in meters. The X value should be set to 0. These settings can be used to match the physical position and orientation of the Tracking Hardware on a tracked device it is mounted on (such as a VR headset).
 ### Return value
 
-The default offset for the newly connected device. The Y value specifies the offset from the eyes to the frontal camera plane, in meters, and the Z value — the offset from the eye level up to the camera level, in meters. The X value should be set to 0.
-## float getTrackingFPS ( )
+Current virtual offset of the tracking device. The Y value specifies the offset from the eyes to the frontal camera plane, in meters, and the Z value � the offset from the eye level up to the camera level, in meters
+## float getTrackingFPS () const
 
-Returns the number of the tracking frames per second for this device.
+Returns the current number of the tracking frames per second for this device.
 ### Return value
 
-The tracking FPS value.
-## void setTransform ( Mat4 transform )
+Current number of the tracking frames per second for this device
+## void setTransform ( )
 
-Sets the transformation matrix for this device.
+Sets a new transformation matrix for this device.
 ### Arguments
 
-- *Mat4* **transform** - The transformation matrix.
+- **transform** - The transformation matrix for this device
 
-## Mat4 getTransform ( )
+## getTransform () const
 
 Returns the current transformation matrix for this device.
 ### Return value
 
-The transformation matrix.
+Current transformation matrix for this device
 ## void setTransformMode ( int mode )
 
-Sets the transform mode for this device.
+Sets a new transform mode for this device.
 > **Notice:** If the [HMD VARJO](#TRANSFORM_MODE_HMD_VARJO) transform mode has been set, but AppVarjo hasn't been found, the transform mode is switched to [MANUAL](#TRANSFORM_MODE_MANUAL).
 
 
 ### Arguments
 
-- *int* **mode** - The transform mode. One of the [ULTRALEAP_TRANSFORM_MODE_*](#TRANSFORM_MODE_HMD_VARJO) values.
+- *int* **mode** - The transform mode for this device
 
-## int getTransformMode ( )
+## int getTransformMode () const
 
 Returns the current transform mode for this device.
+> **Notice:** If the [HMD VARJO](#TRANSFORM_MODE_HMD_VARJO) transform mode has been set, but AppVarjo hasn't been found, the transform mode is switched to [MANUAL](#TRANSFORM_MODE_MANUAL).
+
+
 ### Return value
 
-The transform mode. One of the [ULTRALEAP_TRANSFORM_MODE_*](#TRANSFORM_MODE_HMD_VARJO) values.
-## UltraleapHand getLeftHand ( )
+Current transform mode for this device
+## UltraleapHand getLeftHand () const
 
-Returns the object for the left hand.
+Returns the current object for the left hand.
 ### Return value
 
-The object for the left hand.
-## UltraleapHand getRightHand ( )
+Current object for the left hand
+## UltraleapHand getRightHand () const
 
-Returns the object for the right hand.
+Returns the current object for the right hand.
 ### Return value
 
-The object for the right hand.
-## int isLeftDistortionReceived ( )
+Current object for the right hand
+## int isLeftDistortionReceived () const
 
-Returns a value indicating if the distortion calibration map for the left-eye image has been received.
+Returns the current value indicating if the distortion calibration map for the left-eye image has been received.
 ### Return value
 
-**1** if the distortion calibration map for the left-eye image has been received; otherwise, **0**.
-## Image getLeftDistortionImage ( )
+Current the distortion calibration map for the left-eye image has been received
+## Image getLeftDistortionImage () const
 
-Returns the distortion calibration map for the left-eye image.
+Returns the current distortion calibration map for the left-eye image.
 ### Return value
 
-The distortion calibration map for the left-eye image.
-## int isLeftColorReceived ( )
+Current distortion calibration map for the left-eye image
+## int isLeftColorReceived () const
 
-Returns a value indicating if the color image for the left eye image has been received.
+Returns the current value indicating if the color image for the left eye image has been received.
 ### Return value
 
-**1** if the color image for the left eye image has been received; otherwise, **0**.
-## Image getLeftColorImage ( )
+Current the color image for the left eye image has been received
+## Image getLeftColorImage () const
 
-Returns the color image for the left eye.
+Returns the current color image for the left eye.
 ### Return value
 
-The color image for the left eye.
-## int isRightDistortionReceived ( )
+Current color image for the left eye
+## int isRightDistortionReceived () const
 
-Returns a value indicating if the distortion calibration map for the right-eye image has been received.
+Returns the current value indicating if the distortion calibration map for the right-eye image has been received.
 ### Return value
 
-**1** if the distortion calibration map for the right-eye image has been received; otherwise, **0**.
-## Image getRightDistortionImage ( )
+Current the distortion calibration map for the right-eye image has been received
+## Image getRightDistortionImage () const
 
-Returns the distortion calibration map for the right-eye image.
+Returns the current distortion calibration map for the right-eye image.
 ### Return value
 
-The distortion calibration map for the right-eye image.
-## int isRightColorReceived ( )
+Current distortion calibration map for the right-eye image
+## int isRightColorReceived () const
 
-Returns a value indicating if the color image for the right eye image has been received.
+Returns the current value indicating if the color image for the right eye image has been received.
 ### Return value
 
-**1** if the color image for the right eye image has been received; otherwise, **0**.
-## Image getRightColorImage ( )
+Current the color image for the right eye image has been received
+## Image getRightColorImage () const
 
-Returns the color image for the right eye.
+Returns the current color image for the right eye.
 ### Return value
 
-The color image for the right eye.
+Current color image for the right eye

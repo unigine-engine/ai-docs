@@ -27,7 +27,7 @@ Current server frame time, in seconds
 Returns the current
 ### Return value
 
-**true** if is enabled; otherwise **false**.
+**true** if is enabled ; otherwise **false**.
 ---
 
 ## Server initServerBroadcast ( string broadcast_address , int udp_port )

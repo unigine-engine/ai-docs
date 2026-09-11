@@ -66,7 +66,7 @@ Returns a vector of axes of the left thumbstick. When a thumbstick is in the cen
 A vector of two values in the [-1;1] range.
 ## vec2 getAxesLeftDelta ( )
 
-Returns a vector of delta values of the [left thumbstick axes](../../../api/library/controls/class.inputgamepad_usc.md#getAxesLeft_vec2) — the difference between the values in the previous and the current frames.
+Returns a vector of delta values of the [left thumbstick axes](../../../api/library/controls/class.inputgamepad_usc.md#getAxesLeft_vec2) � the difference between the values in the previous and the current frames.
 ### Return value
 
 Vector of delta axes.
@@ -82,7 +82,7 @@ Returns a vector of axes of the right thumbstick. When a thumbstick is in the ce
 A vector of two values in the [-1;1] range.
 ## vec2 getAxesRightDelta ( )
 
-Returns a vector of delta values of the [right thumbstick axes](../../../api/library/controls/class.inputgamepad_usc.md#getAxesRight_vec2) — the difference between the values in the previous and the current frames.
+Returns a vector of delta values of the [right thumbstick axes](../../../api/library/controls/class.inputgamepad_usc.md#getAxesRight_vec2) � the difference between the values in the previous and the current frames.
 ### Return value
 
 Vector of delta axes.
@@ -94,7 +94,7 @@ Returns an axis state value (the position) of the left trigger. 0 means the trig
 Value in range [0; 1].
 ## float getTriggerLeftDelta ( )
 
-Returns the delta value of the left trigger — the difference between the values in the previous and the current frame.
+Returns the delta value of the left trigger � the difference between the values in the previous and the current frame.
 ### Return value
 
 Left trigger delta.
@@ -106,7 +106,7 @@ Returns an axis state value (the position) of the right trigger. 0 means the tri
 Value in range [0; 1].
 ## float getTriggerRightDelta ( )
 
-Returns the delta value of the right trigger — the difference between the values in the previous and the current frame.
+Returns the delta value of the right trigger � the difference between the values in the previous and the current frame.
 ### Return value
 
 Right trigger delta.
@@ -271,3 +271,9 @@ Returns the GUID created on the basis of vendor and product identifiers and prod
 ### Return value
 
 Device model GUID.
+## void setLightColor ( vec3 color )
+
+Sets the color of the controller's light. Has no effect if the controller has no application-controllable light (check the **[isLightSupported()()](../../...md#isLightSupported_int)** property).
+### Arguments
+
+- *vec3* **color** - RGB color of the light, with components in the [0; 1] range.

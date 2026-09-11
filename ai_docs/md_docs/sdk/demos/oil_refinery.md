@@ -30,7 +30,7 @@
 - Dynamic [sky](../../objects/objects/sky/index.md) with [volumetric clouds](../../objects/objects/cloud_layer/index.md) and ability to change the time of day
 - Adjustable weather and wind speed
 - Scalable quality settings
-- VR support ([Oculus Rift](../...md) and [HTC Vive/OpenVR](../...md))
+- VR support ([Oculus Rift / HTC Vive / OpenVR](../../vr_development/index.md))
 
 
 **SDK Path:***<SAMPLES_PROJECT_PATH>/demos\oil_refinery_2.21*

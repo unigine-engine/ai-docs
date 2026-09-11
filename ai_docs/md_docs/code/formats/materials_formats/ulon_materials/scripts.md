@@ -16,7 +16,7 @@ Script script_name =
 ```
 
 
-As a node’s value you must specify a *[UnigineScript](../../../../code/uniginescript/index.md)*-based code enclosed in **"#{"** and **"#}"**.
+As a node�s value you must specify a *[UnigineScript](../../../../code/uniginescript/index.md)*-based code enclosed in **"#{"** and **"#}"**.
 
 
 ## Usage Examples

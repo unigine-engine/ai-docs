@@ -3,7 +3,7 @@
 **Header:** #include <UnigineEllipsoid.h>
 
 
-The Ellipsoid class handles the geodetic transformations:
+The *Ellipsoid* class handles the geodetic transformations:
 
 
 - Specifies the Ellipsoid settings: semimajor axis, flattening coefficient
@@ -11,10 +11,10 @@ The Ellipsoid class handles the geodetic transformations:
 - Solves direct and inverse geodetic problems with different calculation mode (Great Circle and Vincenty algorithms)
 
 
-This class is used to create an Ellipsoid instance to the [GeodeticPivot](../../../api/library/geodetics/class.geodeticpivot_cpp.md) class.
+This class is used to create an Ellipsoid instance to the *[GeodeticPivot](../../../api/library/geodetics/class.geodeticpivot_cpp.md)* class.
 
 
-Here is a code snippet of the Ellipsoid class usage:
+Here is a code snippet of the *Ellipsoid* class usage:
 
 
 ```cpp
@@ -49,6 +49,69 @@ pivot->setEllipsoid(ellipsoid);
 
 ### Members
 
+## double getSemiminorEccentricitySqr () const
+
+Returns the current squared eccentricity calculated along the semiminor axis.
+### Return value
+
+Current squared eccentricity calculated along the semiminor axis
+## double getSemimajorEccentricitySqr () const
+
+Returns the current squared eccentricity calculated along the semimajor axis.
+### Return value
+
+Current squared eccentricity calculated along the semimajor axis
+## double getMeanRadius () const
+
+Returns the current mean radius of the ellipsoid.
+### Return value
+
+Current mean radius of the ellipsoid
+## double getSemiminorAxis () const
+
+Returns the current semiminor axis of the ellipsoid, in units.
+### Return value
+
+Current semiminor axis of the ellipsoid, in units
+## void setMode ( int mode )
+
+Sets a new calculation mode int value: 1 if the mode is [MODE_ACCURATE](#MODE_ACCURATE), 0 if the mode is [MODE_FAST](#MODE_FAST).
+### Arguments
+
+- *int* **mode** - The calculation mode
+
+## int getMode () const
+
+Returns the current calculation mode int value: 1 if the mode is [MODE_ACCURATE](#MODE_ACCURATE), 0 if the mode is [MODE_FAST](#MODE_FAST).
+### Return value
+
+Current calculation mode
+## void setFlattening ( double flattening )
+
+Sets a new flattening coefficient of the ellipsoid. If the value is 0, the ellipsoid has a sphere shape, for 1 the ellipsoid has a circle (completely flat) shape.
+### Arguments
+
+- *double* **flattening** - The flattening coefficient of the ellipsoid
+
+## double getFlattening () const
+
+Returns the current flattening coefficient of the ellipsoid. If the value is 0, the ellipsoid has a sphere shape, for 1 the ellipsoid has a circle (completely flat) shape.
+### Return value
+
+Current flattening coefficient of the ellipsoid
+## void setSemimajorAxis ( double axis )
+
+Sets a new semimajor axis length of the ellipsoid, in units.
+### Arguments
+
+- *double* **axis** - The semimajor axis length of the ellipsoid, in units
+
+## double getSemimajorAxis () const
+
+Returns the current semimajor axis length of the ellipsoid, in units.
+### Return value
+
+Current semimajor axis length of the ellipsoid, in units
 ---
 
 ## static EllipsoidPtr create ( double semimajor_axis , double flattening )
@@ -65,6 +128,7 @@ Constructor. Creates a new Ellipsoid class instance (WGS84 Ellipsoid).
 ## Math:: dvec3 getENUSurfacePoint ( const Math:: dvec3 & geodetic_origin , const Math:: dvec3 & tangent_point )
 
 Returns surface point by using tangent point coordinates.
+
 > **Notice:** The Up-axis (Z+) direction in ENU points upward along the ellipsoid normal, while in UNIGINE implementation of ENU it goes from the Earth's center.
 
 ### Arguments
@@ -78,6 +142,7 @@ Surface point coordinates.
 ## Math:: dvec3 getENUTangentPoint ( const Math:: dvec3 & geodetic_origin , const Math:: dvec3 & surface_point )
 
 Returns tangent point ENU coordinates based on the geographical coordinates.
+
 > **Notice:** The Up-axis (Z+) direction in ENU points upward along the ellipsoid normal, while in UNIGINE implementation of ENU it goes from the Earth's center.
 
 ### Arguments
@@ -91,6 +156,7 @@ Tangent point coordinates.
 ## Math:: quat getENUWorldRotation ( const Math:: dvec3 & geodetic_origin )
 
 Returns the world rotation quaternion in ENU coordinates.
+
 > **Notice:** The Up-axis (Z+) direction in ENU points upward along the ellipsoid normal, while in UNIGINE implementation of ENU it goes from the Earth's center.
 
 ### Arguments
@@ -103,6 +169,7 @@ World rotation in ENU coordinates.
 ## Math:: dmat4 getENUWorldTransform ( const Math:: dvec3 & geodetic_origin )
 
 Returns the world transformation matrix in ENU coordinates.
+
 > **Notice:** The Up-axis (Z+) direction in ENU points upward along the ellipsoid normal, while in UNIGINE implementation of ENU it goes from the Earth's center.
 
 ### Arguments
@@ -112,50 +179,16 @@ Returns the world transformation matrix in ENU coordinates.
 ### Return value
 
 World transformation matrix in ENU coordinates.
-## void setFlattening ( double flattening )
-
-Sets new flattening for the ellipsoid.
-### Arguments
-
-- *double* **flattening** - Flattening coefficient of the ellipsoid. If the value is 0, the ellipsoid has a sphere shape, for 1 the ellipsoid has a circle (completely flat) shape.
-
-## double getFlattening ( )
-
-Returns flattening coefficient of the ellipsoid.
-### Return value
-
-Flattening coefficient of the ellipsoid.
-## double getMeanRadius ( )
-
-Returns the mean radius of the ellipsoid.
-### Return value
-
-The mean radius of the ellipsoid.
 ## int isSupported ( )
 
 Returns a value indicating if the geodetics feature is enabled.
 ### Return value
 
 1 if the geodetics feature is enabled; otherwise, 0.
-## void setMode ( int mode )
-
-Sets the calculation mode.
-### Arguments
-
-- *int* **mode** - The variable of the calculation mode. It can be one of the following:
-
-  - [MODE_FAST](#MODE_FAST)
-  - [MODE_ACCURATE](#MODE_ACCURATE)
-
-## int getMode ( )
-
-Returns the calculation mode int value: 1 if the mode is MODE_ACCURATE, 0 if the mode is MODE_FAST.
-### Return value
-
-1 if the mode is MODE_ACCURATE, 0 if the mode is MODE_FAST.
 ## Math:: dvec3 getNEDSurfacePoint ( const Math:: dvec3 & geodetic_origin , const Math:: dvec3 & tangent_point )
 
 Returns surface point by using tangent point coordinates.
+
 > **Notice:** The Down-axis direction in NED points downward along the ellipsoid normal, while in UNIGINE implementation of NED it goes through the Earth's center.
 
 ### Arguments
@@ -169,6 +202,7 @@ Surface point coordinates.
 ## Math:: dvec3 getNEDTangentPoint ( const Math:: dvec3 & geodetic_origin , const Math:: dvec3 & surface_point )
 
 Returns tangent point NED coordinates based on the geographical coordinates.
+
 > **Notice:** The Down-axis direction in NED points downward along the ellipsoid normal, while in UNIGINE implementation of NED it goes through the Earth's center.
 
 ### Arguments
@@ -182,6 +216,7 @@ Tangent point coordinates.
 ## Math:: quat getNEDWorldRotation ( const Math:: dvec3 & geodetic_origin )
 
 Returns the world rotation quaternion in NED coordinates.
+
 > **Notice:** The Down-axis direction in NED points downward along the ellipsoid normal, while in UNIGINE implementation of NED it goes through the Earth's center.
 
 ### Arguments
@@ -194,6 +229,7 @@ World rotation in NED coordinates.
 ## Math:: dmat4 getNEDWorldTransform ( const Math:: dvec3 & geodetic_origin )
 
 Returns the world transformation matrix in NED coordinates.
+
 > **Notice:** The Down-axis direction in NED points downward along the ellipsoid normal, while in UNIGINE implementation of NED it goes through the Earth's center.
 
 ### Arguments
@@ -203,37 +239,6 @@ Returns the world transformation matrix in NED coordinates.
 ### Return value
 
 World transformation matrix in NED coordinates.
-## void setSemimajorAxis ( double axis )
-
-Sets new semimajor axis of the ellipsoid.
-### Arguments
-
-- *double* **axis** - Semimajor axis length in units.
-
-## double getSemimajorAxis ( )
-
-Returns semimajor axis length of the ellipsoid in units.
-### Return value
-
-Semimajor axis of the ellipsoid.
-## double getSemimajorEccentricitySqr ( )
-
-Returns the squared eccentricity calculated along the semimajor axis.
-### Return value
-
-Squared eccentricity calculated along the semimajor axis.
-## double getSemiminorAxis ( )
-
-Returns semiminor axis of the ellipsoid in units.
-### Return value
-
-Semiminor axis of the ellipsoid in units.
-## double getSemiminorEccentricitySqr ( )
-
-Returns the squared eccentricity calculated along the semiminor axis.
-### Return value
-
-Squared eccentricity calculated along the semiminor axis.
 ## Math:: dvec3 solveGeodeticDirect ( const Math:: dvec3 & geodetic_start , double bearing , double distance )
 
 Solves the direct geodetic problem: calculates end point coordinates on the ellipsoid by using given start point, distance between points, and bearing value.
@@ -266,6 +271,7 @@ Cartesian coordinates.
 ## Math:: dvec3 toENU ( const Math:: dvec3 & geodetic_origin , const Math:: dvec3 & geodetic_coords )
 
 Converts geodetic coordinates to ENU (East, North, Up).
+
 > **Notice:** The Up-axis (Z+) direction in ENU points upward along the ellipsoid normal, while in UNIGINE implementation of ENU it goes from the Earth's center.
 
 ### Arguments
@@ -290,6 +296,7 @@ Ellipsoid coordinates (latitude (degrees), longitude (degrees) and altitude (met
 ## Math:: dvec3 toNED ( const Math:: dvec3 & geodetic_origin , const Math:: dvec3 & geodetic_coords )
 
 Converts geodetics coordinates to NED (North, East, Down).
+
 > **Notice:** The Down-axis direction in NED points downward along the ellipsoid normal, while in UNIGINE implementation of NED it goes through the Earth's center.
 
 ### Arguments

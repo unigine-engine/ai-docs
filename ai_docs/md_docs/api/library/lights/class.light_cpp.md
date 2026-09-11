@@ -14,21 +14,23 @@ This base class is used to create light sources and shadows from them. The light
 
 ## SHADOW_RESOLUTION
 
+Resolution of the shadow map created for the light source. The higher the resolution, the smoother and more true to life the shadows, at the cost of higher memory consumption.
 | Name | Description |
 |---|---|
-| **SHADOW_RESOLUTION_MODE_DEFAULT** = -1 | Default shadow map resolution (512×512). |
-| **SHADOW_RESOLUTION_MODE_64** = MODE_DEFAULT + 1 | Shadow map resolution equals 64×64. |
-| **SHADOW_RESOLUTION_MODE_128** = MODE_64 + 1 | Shadow map resolution equals 128×128. |
-| **SHADOW_RESOLUTION_MODE_256** = MODE_128 + 1 | Shadow map resolution equals 256×256. |
-| **SHADOW_RESOLUTION_MODE_512** = MODE_256 + 1 | Shadow map resolution equals 512×512. |
-| **SHADOW_RESOLUTION_MODE_1024** = MODE_512 + 1 | Shadow map resolution equals 1024×1024. |
-| **SHADOW_RESOLUTION_MODE_2048** = MODE_1024 + 1 | Shadow map resolution equals 2048×2048. |
-| **SHADOW_RESOLUTION_MODE_4096** = MODE_2048 + 1 | Shadow map resolution equals 4096×4096. |
-| **SHADOW_RESOLUTION_MODE_8192** = MODE_4096 + 1 | Shadow map resolution equals 8192×8192. |
-| **SHADOW_RESOLUTION_MODE_16384** = MODE_8192 + 1 | Shadow map resolution equals 16384×16384. |
+| **SHADOW_RESOLUTION_MODE_DEFAULT** = -1 | Default shadow map resolution (512�512). |
+| **SHADOW_RESOLUTION_MODE_64** = MODE_DEFAULT + 1 | Shadow map resolution equals 64�64. |
+| **SHADOW_RESOLUTION_MODE_128** = MODE_64 + 1 | Shadow map resolution equals 128�128. |
+| **SHADOW_RESOLUTION_MODE_256** = MODE_128 + 1 | Shadow map resolution equals 256�256. |
+| **SHADOW_RESOLUTION_MODE_512** = MODE_256 + 1 | Shadow map resolution equals 512�512. |
+| **SHADOW_RESOLUTION_MODE_1024** = MODE_512 + 1 | Shadow map resolution equals 1024�1024. |
+| **SHADOW_RESOLUTION_MODE_2048** = MODE_1024 + 1 | Shadow map resolution equals 2048�2048. |
+| **SHADOW_RESOLUTION_MODE_4096** = MODE_2048 + 1 | Shadow map resolution equals 4096�4096. |
+| **SHADOW_RESOLUTION_MODE_8192** = MODE_4096 + 1 | Shadow map resolution equals 8192�8192. |
+| **SHADOW_RESOLUTION_MODE_16384** = MODE_8192 + 1 | Shadow map resolution equals 16384�16384. |
 
 ## SHADOW_PENUMBRA
 
+Quality mode of the penumbra rendered for the light source. A penumbra simulates real-world shadows by keeping sharp contact shadows closer to the base and softening the farther the shadow stretches away; higher modes produce softer shadows.
 | Name | Description |
 |---|---|
 | **SHADOW_PENUMBRA_GLOBAL** = -1 | Quality mode of shadow penumbra that is [set globally](../../../api/library/rendering/class.render_cpp.md#setShadowsPenumbraMode_int_void) for all light sources is applied. |
@@ -40,6 +42,7 @@ This base class is used to create light sources and shadows from them. The light
 
 ## SHADOW_FILTER
 
+Quality mode of the filtering used for shadows from the light source. Filtering reduces the stair-step effect at the edges of shadows; higher modes produce smoother edges.
 | Name | Description |
 |---|---|
 | **SHADOW_FILTER_GLOBAL** = -1 | Quality mode of shadow filtering that is [set globally](../../../api/library/rendering/class.render_cpp.md#setShadowsFilterMode_int_void) is applied. |
@@ -51,6 +54,7 @@ This base class is used to create light sources and shadows from them. The light
 
 ## COLOR_MODE
 
+Color calculation mode of the light source: the color is either set directly, or computed from the color temperature and multiplied by the color filter.
 | Name | Description |
 |---|---|
 | **COLOR_MODE_CLASSIC** = 0 | Classic color calculation mode, resulting color is defined by [Color](#setColor_vec4_void). |
@@ -58,6 +62,7 @@ This base class is used to create light sources and shadows from them. The light
 
 ## SHADOW_MODE
 
+Shadow casting mode for a light source with the static light mode enabled: either only baked shadows are rendered, or baked shadows from static surfaces are combined with a real-time shadow map for dynamic ones.
 | Name | Description |
 |---|---|
 | **SHADOW_MODE_MIXED** = 0 | Shadow mode for omni and projected light sources with the static light mode enabled to render both static and dynamic shadows. |
@@ -65,6 +70,7 @@ This base class is used to create light sources and shadows from them. The light
 
 ## SHADOW_COLOR_MODE
 
+Mode defining how the texture of an omni or projected light source is interpreted: either as an IES photometric profile defining the light distribution, or as a plain texture.
 | Name | Description |
 |---|---|
 | **SHADOW_COLOR_MODE_IES** = 0 | Light distibution is defined by the IES profile. |
@@ -72,6 +78,7 @@ This base class is used to create light sources and shadows from them. The light
 
 ## MODE
 
+Mode of the light source defining its role in light baking: a dynamic light provides direct real-time lighting only and is turned off while light baking is being calculated, while a static light contributes to light baking and remains enabled all the time. For a static light, the types of shadows to be rendered are defined by the shadow mode.
 | Name | Description |
 |---|---|
 | **MODE_DYNAMIC** = 0 | Real-time light rendering mode. The light source with this mode enabled is turned off while light baking is being calculated. Objects lit by such light cast only dynamic shadows. |
@@ -79,6 +86,7 @@ This base class is used to create light sources and shadows from them. The light
 
 ## SHAPE
 
+Shape of the emitter of an omni or projected light source. A non-point shape turns the source into an area light that illuminates objects in different directions at once and provides a physically correct highlight on illuminated surfaces.
 | Name | Description |
 |---|---|
 | **SHAPE_DEFAULT** = -1 | A point light source (light is emitted by an infinitely small point) set by default. |
@@ -230,7 +238,7 @@ Sets a new value indicating if screen-space shadows for the light source are ena
 Returns the current value indicating if screen-space shadows for the light source are enabled. With this option enabled, penumbras from the light source are calculated using the ray tracing algorithm.
 ### Return value
 
-**true** if screen-space shadows for the light source is enabled; otherwise **false**.
+**true** if screen-space shadows for the light source is enabled ; otherwise **false**.
 ## Ptr < Texture > getShadowTexture () const
 
 Returns the current depth texture (shadow map) of the light source.
@@ -439,7 +447,7 @@ Sets a new value indicating if the light source casts shadows from surfaces with
 Returns the current value indicating if the light source casts shadows from surfaces with the [Cast Shadow](../../../api/library/rendering/class.material_cpp.md#setCastShadow_int_void) material.
 ### Return value
 
-**true** if shadow casting is enabled; otherwise **false**.
+**true** if shadow casting is enabled ; otherwise **false**.
 ## void setAttenuationPower ( float power = 1.0 )
 
 Sets a new attenuation power of the light. This parameter determines how fast the intensity decreases up to the attenuation distance set for the light source. If the attenuation equals to zero or is close to it, the edge between illuminated and non-illuminated areas is sharp.
@@ -596,7 +604,7 @@ Sets a new value indicating if the light from the source is rendered on transpar
 Returns the current value indicating if the light from the source is rendered on transparent objects.
 ### Return value
 
-**true** if rendering the light from the source on transparent objects is enabled; otherwise **false**.
+**true** if rendering the light from the source on transparent objects is enabled ; otherwise **false**.
 ## void setRenderOnWater ( bool water )
 
 Sets a new value indicating if the light from the source is rendered on water objects.
@@ -609,7 +617,7 @@ Sets a new value indicating if the light from the source is rendered on water ob
 Returns the current value indicating if the light from the source is rendered on water objects.
 ### Return value
 
-**true** if rendering the light from the source on water objects is enabled; otherwise **false**.
+**true** if rendering the light from the source on water objects is enabled ; otherwise **false**.
 ## void setFadeDistance ( float distance )
 
 Sets a new distance, at which the light source gradually disappears. This parameter enables to render the light with decreasing radiance after the [Visible distance](#setVisibleDistance_float_void) is past.
@@ -676,7 +684,7 @@ Returns the current value indicating if light color modulation is enabled for pe
 
 ### Return value
 
-**true** if light color modulation for the per-light lens flare effect is enabled; otherwise **false**.
+**true** if light color modulation for the per-light lens flare effect is enabled ; otherwise **false**.
 ## void setLensFlaresWorldPositionOffset ( const Math:: vec3 & offset )
 
 Sets a new offset from the world position of the light source for the per-light lens flares. offset is not available for [World Lights](../../../api/library/lights/class.lightworld_cpp.md).
@@ -792,7 +800,7 @@ Returns the current value indicating if the per-light lens flare effect is enabl
 
 ### Return value
 
-**true** if per-light lens flare effect for the light source is enabled; otherwise **false**.
+**true** if per-light lens flare effect for the light source is enabled ; otherwise **false**.
 ## void setShadowScreenSpaceThresholdFar ( float far )
 
 Sets a new threshold value used to calculate screen-space shadows for the light source ([long distance range](#setShadowScreenSpaceThresholdFarDistance_float_void)). You can set different Step Size and Threshold values for objects located near the camera and far away from it. Thus, full-scale shadows will be rendered for large objects located far away, while within the close distance range only shadows cast by small objects will be rendered. This feature is especially useful for locations where details are required for both short and long-distance ranges.
@@ -980,6 +988,19 @@ Returns the current light's [priority](../../../objects/lights/parameters/index.
 ### Return value
 
 Current light's priority value for affecting transparent objects.
+## void setSpecularRoughnessOffset ( float offset )
+
+Sets a new offset applied to the surface roughness when computing this light's specular contribution, in the [0; 1] range: the value acts as the minimum effective roughness for this light, making very glossy surfaces respond as if they were rougher. Raising it softens and spreads the light's specular highlights, which suppresses specular aliasing (bright specular flickering) caused by the light on glossy materials. The default value is 0.
+### Arguments
+
+- *float* **offset** - The roughness offset for the specular contribution of the light
+
+## float getSpecularRoughnessOffset () const
+
+Returns the current offset applied to the surface roughness when computing this light's specular contribution, in the [0; 1] range: the value acts as the minimum effective roughness for this light, making very glossy surfaces respond as if they were rougher. Raising it softens and spreads the light's specular highlights, which suppresses specular aliasing (bright specular flickering) caused by the light on glossy materials. The default value is 0.
+### Return value
+
+Current roughness offset for the specular contribution of the light
 ---
 
 ## void allocateLensFlares ( int num )

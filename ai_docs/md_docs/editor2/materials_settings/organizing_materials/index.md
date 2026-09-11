@@ -221,6 +221,7 @@ Materials in the hierarchy can also be displayed depending on the specified filt
 
 The filters are divided into several groups, so you can:
 
+
 - Filter the materials *by types of objects*, to which they can be applied. For example, you can toggle on the *Grass* filter to show materials that can cover the Grass object.
 - Display or hide the materials implemented programmatically (the *Code-Based* filter) and/or created via [Materials Editor](../../../content/materials/graph/index.md) (the *Material Graph* filter).
 - Display or hide the *Built-In Engine Base Materials* and/or *Users Created Base Materials*.
@@ -230,6 +231,7 @@ The filters are divided into several groups, so you can:
 
 
 To filter the materials, toggle checkboxes in the *Visibility* column. Each filter can have one of the following values:
+
 
 - enabled - all materials that match the filter are displayed in the hierarchy.
 - NOT enabled - all materials that don't match the filter are displayed.

@@ -37,7 +37,7 @@ The **Symbol State** specified in the packet.
 The value of the **Attach State** parameter specified in the packet. Determines whether the symbol will be attached as a child to a parent symbol.
 ## 🔒︎ int FlashControl
 
-The value of the **Flash Control** parameter specified in the packet. Defines whether the IG shall continue the symbol’s flash cycle from its present state or restart it from the beginning.
+The value of the **Flash Control** parameter specified in the packet. Defines whether the IG shall continue the symbol�s flash cycle from its present state or restart it from the beginning.
 ## 🔒︎ int InheritColor
 
 The value of the **Inherit Color** parameter specified in the packet. Specifies whether this symbol inherits its color from the symbol to which it is attached.

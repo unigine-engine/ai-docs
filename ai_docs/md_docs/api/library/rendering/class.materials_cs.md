@@ -27,7 +27,7 @@ The value indicating if shader precompilation is enabled.
 The number of materials loaded for the current project.
 ## 🔒︎ Event EventEndReload
 
-The event triggered after all materials are reloaded (i. e. execution of [ReloadMaterials()](#reloadMaterials_void) is finished), if the `materials_reload_event` console variable is enabled. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after all materials are reloaded (i. e. execution of [ReloadMaterials()](#reloadMaterials_void) is finished), if the `materials_reload_event` console variable is enabled. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -121,7 +121,7 @@ Materials.EventEndReload.Enabled = true;
 
 ## 🔒︎ Event EventBeginReload
 
-The event triggered before reloading all loaded materials (i. e. when [ReloadMaterials()](#reloadMaterials_void) is called), if the `materials_reload_event` console variable is enabled. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before reloading all loaded materials (i. e. when [ReloadMaterials()](#reloadMaterials_void) is called), if the `materials_reload_event` console variable is enabled. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -216,6 +216,9 @@ Materials.EventBeginReload.Enabled = true;
 ## 🔒︎ bool IsShadersCompiling
 
 The value indicating if asynchronous compilation is being performed.
+## 🔒︎ CustomParameterLayout MaterialParameters
+
+The layout of custom material parameters (the *[CustomParameterLayout](../../../api/library/common/class.customparameterlayout_cs.md)* instance shared by all materials). Each parameter defined in this layout exists on every material.
 ### Members
 
 ---
@@ -433,12 +436,35 @@ Creates all shaders for all loaded materials.
 ## void CreateRenderMaterials ( )
 
 Creates render materials (internal materials required for rendering). For example, you can create all necessary render materials during initialization to avoid spikes that may occur later.
-## void CreateShaderCache ( )
+## void CreateShaderCacheAsync ( )
 
-Creates shader cache for all loaded materials.
+Creates the shader cache for all loaded materials in asynchronous mode: missing shader permutations are queued for background compilation. A loading screen with progress is displayed while the materials are iterated.
+## void CreateShaderCacheForce ( )
+
+Creates the shader cache for all loaded materials immediately: every missing shader permutation is compiled in a blocking multithreaded batch while a loading screen with progress is displayed.
 ## void CreateShadersFromCache ( )
 
 Compiles the shaders available in the shader cache.
 ## void FlushShadersCompiling ( )
 
 Force-compiles all shaders that are queued for the asynchronous compilation.
+## uint GetMaterialFeatureBits ( uint material_id )
+
+Returns the screen-space effect feature bits of the material with the given runtime ID. This makes it possible to query the flags by a material ID obtained from the GPU buffers without having the material itself.
+### Arguments
+
+- *uint* **material_id** - Runtime material ID.
+
+### Return value
+
+Material feature bits, or 0 if no material with this ID exists.
+## uint GetMaterialMask ( uint material_id )
+
+Returns the material mask of the material with the given runtime ID.
+### Arguments
+
+- *uint* **material_id** - Runtime material ID.
+
+### Return value
+
+Material mask, or 0 if no material with this ID exists.

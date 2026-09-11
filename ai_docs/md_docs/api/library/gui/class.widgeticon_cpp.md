@@ -25,6 +25,71 @@ The object of this class looks as follows:
 
 ### Members
 
+## void setText ( const char * text )
+
+Sets a new floating text placed over the icon.
+### Arguments
+
+- *const char ** **text** - The floating text placed over the icon
+
+## const char * getText () const
+
+Returns the current floating text placed over the icon.
+### Return value
+
+Current floating text placed over the icon
+## void setTextAlign ( int align )
+
+Sets a new alignment flag set for the floating text over the icon. One of the [GUI_ALIGN_*](../../../api/library/gui/class.gui_cpp.md) variables. The default is *ALIGN_CENTER*.
+### Arguments
+
+- *int* **align** - The alignment flag set for the floating text over the icon
+
+## int getTextAlign () const
+
+Returns the current alignment flag set for the floating text over the icon. One of the [GUI_ALIGN_*](../../../api/library/gui/class.gui_cpp.md) variables. The default is *ALIGN_CENTER*.
+### Return value
+
+Current alignment flag set for the floating text over the icon
+## void setTexture ( const char * texture )
+
+Sets a new path to the icon image.
+### Arguments
+
+- *const char ** **texture** - The path to the icon image
+
+## const char * getTexture () const
+
+Returns the current path to the icon image.
+### Return value
+
+Current path to the icon image
+## void setToggled ( bool toggled )
+
+Sets a new value indicating if the icon serving as a toggle button is pressed.
+### Arguments
+
+- *bool* **toggled** - true if the toggle icon is pressed, false if it is released
+
+## bool isToggled () const
+
+Returns the current value indicating if the icon serving as a toggle button is pressed.
+### Return value
+
+true if the toggle icon is pressed, false if it is released
+## void setToggleable ( bool toggleable )
+
+Sets a new value indicating if the icon is a toggle button or a simple button. The default is 0.
+### Arguments
+
+- *bool* **toggleable** - true if the icon is a toggle button, false if it is a simple one
+
+## bool isToggleable () const
+
+Returns the current value indicating if the icon is a toggle button or a simple button. The default is 0.
+### Return value
+
+true if the icon is a toggle button, false if it is a simple one
 ---
 
 ## static WidgetIconPtr create ( const Ptr < Gui > & gui , const char * str = 0 , int width = 0 , int height = 0 )
@@ -59,68 +124,3 @@ Returns the icon image.
 ### Return value
 
 Icon image.
-## void setText ( const char * text )
-
-Sets the floating text over the icon.
-### Arguments
-
-- *const char ** **text** - Floating text.
-
-## const char * getText ( ) const
-
-Returns the current floating text set to be over the icon.
-### Return value
-
-Floating text.
-## void setTextAlign ( int align )
-
-Sets the alignment flag for the floating text over the icon. The default is ALIGN_CENTER.
-### Arguments
-
-- *int* **align** - Alignment flag: one of the Gui Enumeration with ALIGN_* prefixes.
-
-## int getTextAlign ( ) const
-
-Returns the current alignment flag set for the floating text over the icon.
-### Return value
-
-Alignment flag: one of the Gui Enumeration with ALIGN_* prefixes.
-## void setTexture ( const char * texture )
-
-Sets a texture to be used as the icon image.
-### Arguments
-
-- *const char ** **texture** - to a texture file.
-
-## const char * getTexture ( ) const
-
-Returns path to the icon image.
-### Return value
-
-Path to a texture file.
-## void setToggleable ( bool toggleable )
-
-Sets a value indicating if the icon is a toggle button or a simple button. The default is 0.
-### Arguments
-
-- *bool* **toggleable** - Positive number to make the icon a toggle button, 0 to make it a simple button.
-
-## bool isToggleable ( ) const
-
-Returns a value indicating if the icon is a toggle button or a simple button. The default is 0.
-### Return value
-
-Positive number if the icon is a toggle button; otherwise, 0.
-## void setToggled ( bool toggled )
-
-Sets a state of the icon as a toggle button.
-### Arguments
-
-- *bool* **toggled** - Positive number to press the button, 0 to release it.
-
-## bool isToggled ( ) const
-
-Returns a value indicating if the icon serving as a toggle button is pressed.
-### Return value
-
-Returns 1 if the button is pressed; otherwise, 0.

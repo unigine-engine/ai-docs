@@ -59,8 +59,8 @@ Enables the identical named groups merging for inheritance. The group in the chi
 Available values:
 
 
-- **false** — disable (*by default*)
-- **true** — enable
+- **false** � disable (*by default*)
+- **true** � enable
 
 
 ### toggle_state

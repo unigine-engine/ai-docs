@@ -24,6 +24,76 @@ ObjectDynamic class allows to create a dynamic object, which can be rendered by 
 
 ### Members
 
+## void setNumIndices ( int indices )
+
+Sets a new number of vertex indices used by the object.
+### Arguments
+
+- *int* **indices** - The number of vertex indices used by the object
+
+## int getNumIndices () const
+
+Returns the current number of vertex indices used by the object.
+### Return value
+
+Current number of vertex indices used by the object
+## void setNumVertex ( int vertex )
+
+Sets a new number of vertices composing the object.
+### Arguments
+
+- *int* **vertex** - The number of vertices composing the object
+
+## int getNumVertex () const
+
+Returns the current number of vertices composing the object.
+### Return value
+
+Current number of vertices composing the object
+## int getNumAttributes () const
+
+Returns the current number of vertex attributes.
+### Return value
+
+Current number of vertex attributes
+## int getVertexSize () const
+
+Returns the current size of the current vertex, bytes.
+### Return value
+
+Current size of the current vertex, in bytes
+## void setInstancing ( bool instancing )
+
+Sets a new value indicating if the hardware [instancing](../../../editor2/instancing_nodes/index.md) flag is enabled.
+### Arguments
+
+- *bool* **instancing** - Set **true** to enable hardware instancing; **false** - to disable it.
+
+## bool getInstancing () const
+
+Returns the current value indicating if the hardware [instancing](../../../editor2/instancing_nodes/index.md) flag is enabled.
+### Return value
+
+**true** if hardware instancing is enabled ; otherwise **false**.
+## void setMaterialNodeType ( Node::TYPE type )
+
+Sets a new [node type](../../../api/library/nodes/class.node_cpp.md) to be used by the renderer to determine which materials can be applied to the object. One of the [node type identifiers](../../../api/library/nodes/class.node_cpp.md#DECAL_BEGIN).
+> **Notice:** As ObjectDynamic is a custom user-defined object, so the user should determine the node type for the renderer to treat this object properly. Setting inappropriate node type may lead to system crashes.
+
+
+### Arguments
+
+- *[Node::TYPE](../../../api/library/nodes/class.node_cpp.md#TYPE)* **type** - The node type to be used by the renderer to determine which materials can be applied to the object
+
+## Node::TYPE getMaterialNodeType () const
+
+Returns the current [node type](../../../api/library/nodes/class.node_cpp.md) to be used by the renderer to determine which materials can be applied to the object. One of the [node type identifiers](../../../api/library/nodes/class.node_cpp.md#DECAL_BEGIN).
+> **Notice:** As ObjectDynamic is a custom user-defined object, so the user should determine the node type for the renderer to treat this object properly. Setting inappropriate node type may lead to system crashes.
+
+
+### Return value
+
+Current node type to be used by the renderer to determine which materials can be applied to the object
 ---
 
 ## static ObjectDynamicPtr create ( int flags = 0 )
@@ -83,70 +153,6 @@ Updates the specified indices array.
 - *const int ** **indices** - Array of indices to be set.
 - *int* **indices_size** - Number of indices to be set.
 
-## void setInstancing ( bool instancing )
-
-Activates the hardware [instancing technique](../../../editor2/instancing_nodes/index.md).
-### Arguments
-
-- *bool* **instancing** - Instancing flag. **1** to enable hardware [instancing](../../../editor2/instancing_nodes/index.md), **0** to disable it.
-
-## bool getInstancing ( ) const
-
-Returns a value indicating if the hardware [instancing](../../../editor2/instancing_nodes/index.md) flag is enabled.
-### Return value
-
-**1** if the hardware [instancing flag](#setInstancing_int_void) is enabled; otherwise, **0**.
-## int getNumAttributes ( ) const
-
-Returns the number of vertex attributes.
-### Return value
-
-Number of vertex attributes.
-## void setNumIndices ( int indices )
-
-Sets the number of vertex indices.
-### Arguments
-
-- *int* **indices** - Number of indices.
-
-## int getNumIndices ( ) const
-
-Returns the number of vertex indices used by the object.
-### Return value
-
-Number of indices.
-## void setNumVertex ( int vertex )
-
-Sets the number of mesh vertices.
-### Arguments
-
-- *int* **vertex** - Number of mesh vertices.
-
-## int getNumVertex ( ) const
-
-Returns the number of vertices composing the object.
-### Return value
-
-Number of vertices.
-## void setMaterialNodeType ( Node::TYPE type )
-
-Sets the node type to be used by the renderer to determine which materials can be applied to the object.
-> **Notice:** As ObjectDynamic is a custom user-defined object, so the user should determine the node type for the renderer to treat this object properly. Setting inappropriate node type may lead to system crashes.
-
-
-### Arguments
-
-- *[Node::TYPE](../../../api/library/nodes/class.node_cpp.md#TYPE)* **type** - Node type ID. One of the [node type identifiers](../../../api/library/nodes/class.node_cpp.md#DECAL_BEGIN).
-
-## Node::TYPE getMaterialNodeType ( ) const
-
-Returns the node type to be used by the renderer to determine which materials can be applied to the object.
-> **Notice:** As ObjectDynamic is a custom user-defined object, so the user should determine the node type for the renderer to treat this object properly. Setting inappropriate node type may lead to system crashes.
-
-
-### Return value
-
-Node type ID. One of the [node type identifiers](../../../api/library/nodes/class.node_cpp.md#DECAL_BEGIN).
 ## void setParameterBool ( const char * name , bool value )
 
 Sets boolean shader parameter of the specified value.
@@ -336,12 +342,6 @@ Updates the last added vertex to the vertex of the half-float type with the give
 - *const float ** **value** - Vertex coordinates.
 - *int* **value_size** - Number of values to be set.
 
-## int getVertexSize ( ) const
-
-Returns the size of the current vertex, bytes.
-### Return value
-
-Vertex size.
 ## void setVertexUChar ( int attribute , const unsigned char * value , int value_size )
 
 Updates the last added vertex with the vertex of the unsigned char type with the given parameters.

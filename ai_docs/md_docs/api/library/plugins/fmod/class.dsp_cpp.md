@@ -18,7 +18,7 @@ The Digital Signal Processor transforms input audio signals to an output stream.
 Returns the current value specifying if idle state is enabled. A DSP is considered idle when it stops receiving input signal and all internal processing of stored input has been exhausted. Each DSP type has the potential to have differing idle behaviour based on the type of effect. A reverb or echo may take a longer time to go idle after it stops receiving a valid signal, compared to an effect with a shorter tail length like an EQ filter.
 ### Return value
 
-**true** if idle state is enabled; otherwise **false**.
+**true** if idle state is enabled ; otherwise **false**.
 ## void setBypass ( bool bypass )
 
 Sets a new processing bypass state. If bypass is set, processing of this unit is skipped but it continues to process its inputs.
@@ -31,7 +31,7 @@ Sets a new processing bypass state. If bypass is set, processing of this unit is
 Returns the current processing bypass state. If bypass is set, processing of this unit is skipped but it continues to process its inputs.
 ### Return value
 
-**true** if processing bypass is enabled; otherwise **false**.
+**true** if processing bypass is enabled ; otherwise **false**.
 ## void setActive ( bool active )
 
 Sets a new processing active state. If active state is disabled, processing of this unit and its inputs are stopped. When created, a DSP is inactive. If [addDSP](../../../../api/library/plugins/fmod/class.channelgroup_cpp.md#addDSP_int_int_DSP) is used it will automatically be activated, otherwise it must be set to active manually.
@@ -44,7 +44,7 @@ Sets a new processing active state. If active state is disabled, processing of t
 Returns the current processing active state. If active state is disabled, processing of this unit and its inputs are stopped. When created, a DSP is inactive. If [addDSP](../../../../api/library/plugins/fmod/class.channelgroup_cpp.md#addDSP_int_int_DSP) is used it will automatically be activated, otherwise it must be set to active manually.
 ### Return value
 
-**true** if active state is enabled; otherwise **false**.
+**true** if active state is enabled ; otherwise **false**.
 ---
 
 ## void getInfo ( char * name , unsigned int * version , int * channels , int * configwidth , int * configheight )

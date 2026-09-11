@@ -51,19 +51,19 @@ Returns the current window title.
 ### Return value
 
 Current window title.
-## void setTextAlign ( )
+## void setTextAlign ( int align )
 
-Sets a new alignment of the window title.
+Sets a new alignment of the window title. One of the **[GUI_ALIGN_()](../../../api/library/gui/class.gui_usc.md#ALIGN_BACKGROUND)** pre-defined variables.
 ### Arguments
 
-- **align** - The one of the **[GUI_ALIGN_()](../../../api/library/gui/class.gui_usc.md#ALIGN_BACKGROUND)** pre-defined variables.
+- *int* **align** - The alignment of the window title
 
-## getTextAlign () const
+## int getTextAlign () const
 
-Returns the current alignment of the window title.
+Returns the current alignment of the window title. One of the **[GUI_ALIGN_()](../../../api/library/gui/class.gui_usc.md#ALIGN_BACKGROUND)** pre-defined variables.
 ### Return value
 
-Current one of the **[GUI_ALIGN_()](../../../api/library/gui/class.gui_usc.md#ALIGN_BACKGROUND)** pre-defined variables.
+Current alignment of the window title
 ## int getPaddingBottom () const
 
 Returns the current bottom padding for the widget content.
@@ -139,19 +139,19 @@ Returns the current global widget transformation matrix.
 ### Return value
 
 Current transformation matrix.
-## void setColor ( )
+## void setColor ( vec4 color )
 
 Sets a new color for the global color multiplier. The default is equivalent to **#ffffff** (white).
 ### Arguments
 
-- **color** - The multiplier color.
+- *vec4* **color** - The color of the global color multiplier
 
-## getColor () const
+## vec4 getColor () const
 
 Returns the current color for the global color multiplier. The default is equivalent to **#ffffff** (white).
 ### Return value
 
-Current multiplier color.
+Current color of the global color multiplier
 ## void setSnapDistance ( int distance )
 
 Sets a new distance, at which the window snaps to another window or screen edge. The default is 0 (do not snap).
@@ -170,105 +170,105 @@ Current distance in pixels.
 Sets a new value indicating if the window is animated when changing to the minimized state and back. By default this option is disabled.
 ### Arguments
 
-- *int* **floatable** - The value 1 for the window animation, 0 — disable.
+- *int* **floatable** - The value 1 for the window animation, 0 � disable.
 
 ## int isFloatable () const
 
 Returns the current value indicating if the window is animated when changing to the minimized state and back. By default this option is disabled.
 ### Return value
 
-Current value 1 for the window animation, 0 — disable.
+Current value 1 for the window animation, 0 � disable.
 ## void setBlendable ( int blendable )
 
 Sets a new value indicating if the window can fade in and out when changing to the minimized state and back. By default this option is disabled.
 ### Arguments
 
-- *int* **blendable** - The value 1 for the window ability to fade in and out, 0 — disable.
+- *int* **blendable** - The fading of the window in and out when its visibility changesvalue 1 for the window ability to fade in and out, 0 � disable.
 
 ## int isBlendable () const
 
 Returns the current value indicating if the window can fade in and out when changing to the minimized state and back. By default this option is disabled.
 ### Return value
 
-Current value 1 for the window ability to fade in and out, 0 — disable.
+Current fading of the window in and out when its visibility changesvalue 1 for the window ability to fade in and out, 0 � disable.
 ## void setTitleable ( int titleable )
 
 Sets a new value indicating if the window is minimized when double-clicking on it. By default this option is disabled.
 ### Arguments
 
-- *int* **titleable** - The value 1 for the window minimization on double click, 0 — disable.
+- *int* **titleable** - The minimization of the window on a double click of the titlevalue 1 for the window minimization on double click, 0 � disable.
 
 ## int isTitleable () const
 
 Returns the current value indicating if the window is minimized when double-clicking on it. By default this option is disabled.
 ### Return value
 
-Current value 1 for the window minimization on double click, 0 — disable.
+Current minimization of the window on a double click of the titlevalue 1 for the window minimization on double click, 0 � disable.
 ## void setSizeable ( int sizeable )
 
 Sets a new value indicating if the window is resizeable. By default this option is disabled.
 ### Arguments
 
-- *int* **sizeable** - The value 1 for the ability to resize the window, 0 — disable.
+- *int* **sizeable** - The resizing of the windowvalue 1 for the ability to resize the window, 0 � disable.
 
 ## int isSizeable () const
 
 Returns the current value indicating if the window is resizeable. By default this option is disabled.
 ### Return value
 
-Current value 1 for the ability to resize the window, 0 — disable.
+Current resizing of the windowvalue 1 for the ability to resize the window, 0 � disable.
 ## void setMoveable ( int moveable )
 
 Sets a new value indicating if the window is movable. By default this option is disabled.
 ### Arguments
 
-- *int* **moveable** - The value 1 for the ability to move the window, 0 — disable.
+- *int* **moveable** - The moving of the windowvalue 1 for the ability to move the window, 0 � disable.
 
 ## int isMoveable () const
 
 Returns the current value indicating if the window is movable. By default this option is disabled.
 ### Return value
 
-Current value 1 for the ability to move the window, 0 — disable.
-## void setBorderColor ( )
+Current moving of the windowvalue 1 for the ability to move the window, 0 � disable.
+## void setBorderColor ( vec4 color )
 
 Sets a new border color for the widget.
 ### Arguments
 
-- **color** - The four-component vector specifying the color in the RGBA format.
+- *vec4* **color** - The border color for the widget
 
-## getBorderColor () const
+## vec4 getBorderColor () const
 
 Returns the current border color for the widget.
 ### Return value
 
-Current four-component vector specifying the color in the RGBA format.
-## void setBackgroundColor ( )
+Current border color for the widget
+## void setBackgroundColor ( vec4 color )
 
 Sets a new background color used for the widget.
 ### Arguments
 
-- **color** - The four-component vector specifying the color in the RGBA format.
+- *vec4* **color** - The background color used for the widget
 
-## getBackgroundColor () const
+## vec4 getBackgroundColor () const
 
 Returns the current background color used for the widget.
 ### Return value
 
-Current four-component vector specifying the color in the RGBA format.
+Current background color used for the widget
 ## void setDragAreaEnabled ( bool enabled )
 
 Sets a new value indicating if the drag area of the window is enabled.
 ### Arguments
 
-- *bool* **enabled** - Set **true** to enable the drag area; **false** - to disable it.
+- *bool* **enabled** - Set **true** to enable the drag area of the window; **false** - to disable it.
 
 ## bool isDragAreaEnabled () const
 
 Returns the current value indicating if the drag area of the window is enabled.
 ### Return value
 
-**true** if the drag area is enabled; otherwise **false**.
+**true** if the drag area of the window is enabled ; otherwise **false**.
 ## int getDragAreaPaddingTop () const
 
 Returns the current top padding for the drag area.
@@ -331,10 +331,10 @@ Sets a new value specifying if the window can be moved across the whole GUI or o
 Returns the current value specifying if the window can be moved across the whole GUI or only within the parent widget. By default, this option is set to false, and the window can be moved only relevant to its parent.
 ### Return value
 
-**true** if moving the window across the whole GUI is enabled; otherwise **false**.
+**true** if moving the window across the whole GUI is enabled ; otherwise **false**.
 ## int getMinTextureWidth () const
 
-Returns the current minimum width of the window render — the width of the window texture from the GUI skin.
+Returns the current minimum width of the window render � the width of the window texture from the GUI skin.
 ### Return value
 
 Current minimum width of the window render, in pixels.
@@ -362,10 +362,10 @@ Sets a new value specifying if the callback processing for the window child widg
 Returns the current value specifying if the callback processing for the window child widgets is enabled when the cursor is outside the window.
 ### Return value
 
-**true** if callback processing for the child widgets if the cursor is outside the window is enabled; otherwise **false**.
+**true** if callback processing for the child widgets if the cursor is outside the window is enabled ; otherwise **false**.
 ## int getMinTextureHeight () const
 
-Returns the current minimum height of the window render — the height of the window texture from the GUI skin.
+Returns the current minimum height of the window render � the height of the window texture from the GUI skin.
 ### Return value
 
 Current minimum height of the window render, in pixels.
@@ -374,14 +374,14 @@ Current minimum height of the window render, in pixels.
 Sets a new value indicating if a widget cuts off its children along its set [bounds](../../../api/library/gui/class.widget_usc.md#setWidth_int_void). Everything that lies outside of them, is not rendered. This option works only if children have [ALIGN_OVERLAP](../../../api/library/gui/class.gui_usc.md#ALIGN_OVERLAP) flag set (otherwise, they will expand the box widget bounds and no cutting will be done).
 ### Arguments
 
-- *int* **stencil** - The **1** if cutting is enabled; otherwise, **0**.
+- *int* **stencil** - The value indicating if a widget cuts off its children along its set bounds
 
 ## int getStencil () const
 
 Returns the current value indicating if a widget cuts off its children along its set [bounds](../../../api/library/gui/class.widget_usc.md#setWidth_int_void). Everything that lies outside of them, is not rendered. This option works only if children have [ALIGN_OVERLAP](../../../api/library/gui/class.gui_usc.md#ALIGN_OVERLAP) flag set (otherwise, they will expand the box widget bounds and no cutting will be done).
 ### Return value
 
-Current **1** if cutting is enabled; otherwise, **0**.
+Current value indicating if a widget cuts off its children along its set bounds
 ---
 
 ## static WidgetWindow ( Gui gui , string str = 0 , int x = 0 , int y = 0 )

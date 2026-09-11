@@ -15,6 +15,7 @@ The default RC file for system GUI is `data/core/gui/gui.rc`.
 
 As a correct XML file, an RC file must start with a standard declaration. The second required element is a root tag *resource*. This root element can contain zero or more other elements (tags) specifying the resources.
 
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <resource version="1.0">
@@ -31,6 +32,7 @@ As a correct XML file, an RC file must start with a standard declaration. The se
 
 If an RC file is not syntactically correct, Unigine will log the error to the console and the main log file.
 
+
 > **Notice:** All RC files are treated as having the UTF-8 encoding, even if you specify another one in the declaration.
 
 
@@ -45,6 +47,7 @@ This tag handles windows animation.
 
 Parameters:
 
+
 - *expose* Duration of animation played when the object appears. Measured in cycles per second, for example, *expose="6"* means that the duration is a 1/6 of a second.
 - *fade_in* Duration of fading in animation played when the object gets focused. Measured in cycles per second.
 - *fade_out* Duration of fading out animation played when the object loses focus. Measured in cycles per second.
@@ -57,6 +60,7 @@ Default options for all widgets.
 
 
 Parameters:
+
 
 - *size* Font size.
 - *color* Font color, in #RRGGBBAA format (hexadecimal).
@@ -71,6 +75,7 @@ Options for widgets in focus.
 
 Parameters:
 
+
 - *color* Modulation color, in #RRGGBBAA format (hexadecimal).
 - *alpha* Alpha value, **0.0** means completely transparent.
 
@@ -82,6 +87,7 @@ Options for disabled widgets.
 
 
 Parameters:
+
 
 - *color* Modulation color, in #RRGGBBAA format (hexadecimal).
 - *alpha* Alpha value, **0.0** means completely transparent.
@@ -95,6 +101,7 @@ Options for semi-transparent widgets like windows with *blendable="yes"* and com
 
 Parameters:
 
+
 - *color* Modulation color, in #RRGGBBAA format (hexadecimal).
 - *alpha* Alpha value, **0.0** means completely transparent.
 
@@ -106,6 +113,7 @@ Options for tooltips.
 
 
 Parameters:
+
 
 - *size* Font size.
 - *color* Font color, in #RRGGBBAA format (hexadecimal).

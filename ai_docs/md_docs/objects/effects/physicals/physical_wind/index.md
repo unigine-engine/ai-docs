@@ -48,7 +48,7 @@ To add a *Physical Wind* to the scene via UnigineEditor:
 3. Click somewhere in the world to place the *Physical Wind* node. ![](added_physical_wind.png)
 
 
-A new *Physical Wind* node will be added to UnigineEditor, and you will be able to edit it via the *Parameters* window. By default, the size of the node is 1×1×1 unit.
+A new *Physical Wind* node will be added to UnigineEditor, and you will be able to edit it via the *Parameters* window. By default, the size of the node is 1�1�1 unit.
 
 
 ## Editing Physical Wind

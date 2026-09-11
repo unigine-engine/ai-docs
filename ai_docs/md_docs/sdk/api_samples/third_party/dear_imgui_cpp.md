@@ -42,7 +42,7 @@ Starting the ***Dear ImGui*** C++ sample requires you to perform the following s
 3. Add the sample project to SDK Browser:
 
   - Go to the *My Projects* tab.
-  - Click *Add Existing* then select the `*.project` file located in the cloned sample folder corresponding to your setup (OS, SDK edition, and precision), and click *Import Project*. ![](photon/add_project.png) > **Notice:** If you're using **UNIGINE SDK *Sim***, select the ***Engineering*** `*.project` file when importing the sample. After import, you can upgrade the project to the **Sim** version directly in SDK Browser - just click *Upgrade*, choose the SDK **Sim** version, and adjust any additional settings you want to use in the configuration window that opens. > ![](project_upgrade.png)
+  - Click *Add Existing* then select the `*.project` file located in the cloned sample folder corresponding to your setup (OS, SDK edition, and precision), and click *Import Project*. ![](photon/add_project.png)
 4. Repair the project.
 
   - After importing, you'll see a **Repair** warning - this is expected, as only essential files are stored in the Git repository. SDK Browser will restore the rest. ![](repair_project.png)

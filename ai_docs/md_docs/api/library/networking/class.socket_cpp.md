@@ -13,6 +13,7 @@ This class provides basic functionality for network interaction using stream soc
 
 In this example we create UDP sockets: server and five clients.
 
+
 - The server sends broadcast packets containing the ID of the receiving client.
 - Each client processes only the messages, that were addressed to it.
 - In the world's *update()* method the server sends messages addressed to clients **2** and **5**.
@@ -280,8 +281,6 @@ API examples demonstrating how to manage sockets via API.
 |---|---|
 | **SOCKET_TYPE_STREAM** = 0 | Socket for TCP packets. |
 | **SOCKET_TYPE_DGRAM** = 1 | Socket for UDP packets. |
-
-### Members
 
 ---
 

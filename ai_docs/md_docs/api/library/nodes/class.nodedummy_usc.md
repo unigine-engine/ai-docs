@@ -74,8 +74,6 @@ int init() {
 
 ## NodeDummy Class
 
-### Members
-
 ---
 
 ## static NodeDummy ( )

@@ -41,6 +41,114 @@ The following code illustrates how to create a button widget and set its paramet
 
 ### Members
 
+## void setStyleTexture ( string texture )
+
+Sets a new path to the button skin texture.
+### Arguments
+
+- *string* **texture** - The path to the button skin texture
+
+## const char * getStyleTexture () const
+
+Returns the current path to the button skin texture.
+### Return value
+
+Current path to the button skin texture
+## void setText ( string text )
+
+Sets a new button text label.
+### Arguments
+
+- *string* **text** - The button text label
+
+## const char * getText () const
+
+Returns the current button text label.
+### Return value
+
+Current button text label
+## void setTextAlign ( int align )
+
+Sets a new alignment of the button label. One of the [GUI_ALIGN_*](../../../api/library/gui/class.gui_usc.md) variables.
+### Arguments
+
+- *int* **align** - The alignment of the button label
+
+## int getTextAlign () const
+
+Returns the current alignment of the button label. One of the [GUI_ALIGN_*](../../../api/library/gui/class.gui_usc.md) variables.
+### Return value
+
+Current alignment of the button label
+## void setTexture ( string texture )
+
+Sets a new path to the button image texture.
+> **Notice:** The button is automatically stretched or shrinked to match the size of the current texture. When you resize the button the size of the image does not change. In case you need to create a type of button widget with an auto-adjusted image size, or image rotation, please consider *[Widget Sprite](../../../api/library/gui/class.widgetsprite_usc.md)* instead.
+
+### Arguments
+
+- *string* **texture** - The path to the button image texture
+
+## const char * getTexture () const
+
+Returns the current path to the button image texture.
+> **Notice:** The button is automatically stretched or shrinked to match the size of the current texture. When you resize the button the size of the image does not change. In case you need to create a type of button widget with an auto-adjusted image size, or image rotation, please consider *[Widget Sprite](../../../api/library/gui/class.widgetsprite_usc.md)* instead.
+
+### Return value
+
+Current path to the button image texture
+## void setButtonColor ( vec4 color )
+
+Sets a new color for the button.
+### Arguments
+
+- *vec4* **color** - The color for the button, as a four-component RGBA vector
+
+## vec4 getButtonColor () const
+
+Returns the current color for the button.
+### Return value
+
+Current color for the button, as a four-component RGBA vector
+## void setToggled ( int toggled )
+
+Sets a new value indicating if the toggle button is pressed.
+### Arguments
+
+- *int* **toggled** - The true if the toggle button is pressed, false if it is released
+
+## int isToggled () const
+
+Returns the current value indicating if the toggle button is pressed.
+### Return value
+
+Current true if the toggle button is pressed, false if it is released
+## void setToggleable ( int toggleable )
+
+Sets a new value indicating if the button is a toggle button or a simple one. The default is 0.
+### Arguments
+
+- *int* **toggleable** - The true if the button is a toggle button, false if it is a simple one
+
+## int isToggleable () const
+
+Returns the current value indicating if the button is a toggle button or a simple one. The default is 0.
+### Return value
+
+Current true if the button is a toggle button, false if it is a simple one
+## void setBackground ( int background )
+
+Sets a new value indicating if a background texture is rendered for the button. The default is 1.
+### Arguments
+
+- *int* **background** - The flag indicating whether a background texture is rendered for the button
+
+## int getBackground () const
+
+Returns the current value indicating if a background texture is rendered for the button. The default is 1.
+### Return value
+
+Current flag indicating whether a background texture is rendered for the button
 ---
 
 ## static WidgetButton ( Gui gui , string str = 0 )
@@ -58,19 +166,6 @@ Constructor. Creates a button with a given label and adds it to the Engine GUI.
 
 - *string* **str** - Button label. This is an optional parameter.
 
-## void setBackground ( int background )
-
-Sets a value indicating if a background texture should be rendered for the button.
-### Arguments
-
-- *int* **background** - Positive number to render a background texture, **0** not to render.
-
-## int getBackground ( )
-
-Returns a value indicating if a background texture is rendered for the button.
-### Return value
-
-Positive number if a background texture is rendered; otherwise, **0**.
 ## void setImage ( Image image )
 
 Sets a new image for the button.
@@ -88,88 +183,6 @@ Returns the current button image.
 ### Return value
 
 Button image.
-## void setText ( string text )
-
-Sets a button text label.
-### Arguments
-
-- *string* **text** - Button label.
-
-## string getText ( )
-
-Returns the button text label.
-### Return value
-
-Button label.
-## void setTextAlign ( int align )
-
-Sets alignment of the button label.
-### Arguments
-
-- *int* **align** - One of the [*GUI_ALIGN_**](../../../api/library/gui/class.gui_usc.md) pre-defined variables.
-
-## int getTextAlign ( )
-
-Returns the alignment of the button label.
-### Return value
-
-One of the [*GUI_ALIGN_**](../../../api/library/gui/class.gui_usc.md) pre-defined variables.
-## void setTexture ( string texture )
-
-Sets a new texture to be used as the button image.
-> **Notice:** The button is automatically stretched or shrinked to match the size of the current image. When you resize the button the size of the image does not change. In case you need to create a type of button widget with an auto-adjusted image size, or image rotation, please consider *[Widget Sprite](../../../api/library/gui/class.widgetsprite_usc.md)* instead.
-
-### Arguments
-
-- *string* **texture** - Path to a texture file.
-
-## string getTexture ( )
-
-Returns the path to the current button image texture.
-> **Notice:** The button is automatically stretched or shrinked to match the size of the current image. When you resize the button the size of the image does not change. In case you need to create a type of button widget with an auto-adjusted image size, or image rotation, please consider *[Widget Sprite](../../../api/library/gui/class.widgetsprite_usc.md)* instead.
-
-### Return value
-
-Path to the button image.
-## void setToggleable ( int toggleable )
-
-Sets a value indicating if the button is a toggle button or a simple one.
-### Arguments
-
-- *int* **toggleable** - Positive number to make the button a toggle button, **0** to make it a simple one.
-
-## int isToggleable ( )
-
-Returns a value indicating if the button is a toggle button or a simple one.
-### Return value
-
-Positive number if the button is a toggle button; otherwise, **0**.
-## void setToggled ( int toggled )
-
-Sets a state of the toggle button.
-### Arguments
-
-- *int* **toggled** - Positive number to press the button, **0** to release it.
-
-## int isToggled ( )
-
-Returns a value indicating if the toggle button is pressed.
-### Return value
-
-**1** if the button is pressed; otherwise, **0**.
-## void setButtonColor ( vec4 color )
-
-Sets the color to be used for the button.
-### Arguments
-
-- *vec4* **color** - Four-component vector specifying the color in the RGBA format.
-
-## vec4 getButtonColor ( )
-
-Returns the current color for the button.
-### Return value
-
-Four-component vector specifying the color in the RGBA format.
 ## void setStyleImage ( Image image )
 
 Sets a button skin image.
@@ -183,16 +196,3 @@ Returns the button skin image.
 ### Return value
 
 Button skin image.
-## void setStyleTexture ( string texture )
-
-Sets a button skin texture.
-### Arguments
-
-- *string* **texture** - Path to a texture file.
-
-## string getStyleTexture ( )
-
-Returns the path to the button skin texture.
-### Return value
-
-Path to a texture file.

@@ -19,7 +19,7 @@ The workflow is as follows:
 
 1. Implement your GPU-based terrain modification logic in a function.
 2. Set this handler function when subscribing for the *Texture Draw* event (when GPU-based terrain modification operation is performed) via *[getEventTextureDraw()](#getEventTextureDraw_Event)*.
-3. Commence a GPU drawing operation by calling the [*asyncTextureDraw()*](#asyncTextureDraw_UGUID_ivec2_ivec2_int_void) method. Here you should specify the GUID of an `.lmap` file [landscape layer map](../../../../api/library/objects/landscape_terrain/class.landscapelayermap_cpp.md) to be modified, the coordinates of the upper-left corner and the resolution of the segment of data to be modified, you should also define which data layers are to be affected (heights, albedo, masks) via a set of [flags](#FLAGS_FILE_DATA_HEIGHT) > **Notice:** In case your modification requires additional data beyond the specified area as well as the data of other landscape layer maps (e.g. a copy brush) you can enable force loading of required data, in this case you should use [this overload of the *asyncTextureDraw()* method](#asyncTextureDraw_UGUID_ivec2_ivec2_int_VECWorldBoundBox_void).
+3. Commence a GPU drawing operation by calling the [*asyncTextureDraw()*](#asyncTextureDraw_UGUID_ivec2_ivec2_int_void) method. Here you should specify the GUID of an `.lmap` file [landscape layer map](../../../../api/library/objects/landscape_terrain/class.landscapelayermap_cpp.md) to be modified, the coordinates of the upper-left corner and the resolution of the segment of data to be modified, you should also define which data layers are to be affected (heights, albedo, masks) via a set of [flags](#FLAGS_FILE_DATA_HEIGHT). > **Notice:** In case your modification requires additional data beyond the specified area as well as the data of other landscape layer maps (e.g. a copy brush) you can enable force loading of required data, in this case you should use [this overload of the *asyncTextureDraw()* method](#asyncTextureDraw_UGUID_ivec2_ivec2_int_VECWorldBoundBox_void).
 
 
 ```cpp
@@ -408,7 +408,7 @@ Blending mode used for the layer map.
 Returns the current value indicating if `.lmap` files for all [landscape layer maps](../../../../api/library/objects/landscape_terrain/class.landscapelayermap_cpp.md) are closed. Call this method before making any changes (modification, deletion, renaming) to `.lmap` files of the landscape terrain object to ensure that these files are not currently used by the Engine to avoid conflicts. If not, you can use the [*filesClose()*](#filesClose_void) method co close them.
 ### Return value
 
-**true** if `.lmap` files for all landscape layer maps are closed is enabled; otherwise **false**.
+**true** if `.lmap` files for all landscape layer maps are closed is enabled ; otherwise **false**.
 ## static Event<const UGUID &, int, const char *, const char *> getEventSaveFile () const
 
 Event triggered when applying changes made to a landscape layer map file and saving old and new states to temporary files. The signature of the event handler must be as follows:
@@ -417,7 +417,7 @@ void savefile_event_handler(const UGUID & guid,  int operation_id,  const char *
 
 ```
 
- You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+ You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -553,7 +553,7 @@ Landscape::getEventSaveFile().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const UGUID &, int, const char *> getEventApplyDiff () const
 
 Event triggered when applying a diff to the landscape layer map file. The signature of the event handler must be as follows:
@@ -562,7 +562,7 @@ void applydiff_event_handler(const UGUID & guid,  int operation_id,  const char 
 
 ```
 
- You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+ You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -698,7 +698,7 @@ Landscape::getEventApplyDiff().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const UGUID &, int, const Ptr < LandscapeTextures > &, const Math:: ivec2 &, int> getEventTextureDraw () const
 
 Event triggered when a Texture Draw (GPU-based terrain modification) operation is performed. The signature of the event handler must be as follows:
@@ -707,7 +707,7 @@ void texturedraw_event_handler(const UGUID & guid,  int operation_id,  const Ptr
 
 ```
 
- You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+ You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -843,7 +843,7 @@ Landscape::getEventTextureDraw().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## bool terrainLoad ( const Math:: WorldBoundBox & bb )

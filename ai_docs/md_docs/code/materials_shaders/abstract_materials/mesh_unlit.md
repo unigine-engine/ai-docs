@@ -1,7 +1,7 @@
 # Mesh Unlit
 
 
-Implements the basic render functionality for an unlit mesh. Doesn’t cast or receive shadows, that’s why it can be the base for a custom lighting implementation (e.g., raymarching). Can be used for the following objects (inherited from parent abstract material — *[Mesh](../../../code/materials_shaders/abstract_materials/mesh.md)*):
+Implements the basic render functionality for an unlit mesh. Doesn�t cast or receive shadows, that�s why it can be the base for a custom lighting implementation (e.g., raymarching). Can be used for the following objects (inherited from parent abstract material � *[Mesh](../../../code/materials_shaders/abstract_materials/mesh.md)*):
 
 
 - [ObjectMeshStatic](../../../api/library/objects/class.objectmeshstatic_cpp.md)
@@ -38,7 +38,7 @@ The *Mesh Unlit* abstract material has features implemented as internal states t
 
 | Name | Default | Description |
 |---|---|---|
-| static_shadow | true | Overrides Unigine::Mesh’s state value. |
+| static_shadow | true | Overrides Unigine::Mesh�s state value. |
 | gbuffer | false | Enables writing of deferred buffers for the material. |
 | transparent_blur | false | Enables rendering of transparent blur effect. |
 | refraction | false | Enables rendering of post-processing refraction. |
@@ -50,7 +50,7 @@ The *Mesh Unlit* abstract material has features implemented as internal states t
 ### fragment
 
 
-Input data and functions are the same as for *[Mesh](../../../code/materials_shaders/abstract_materials/mesh.md#shader_fragment)* abstract material. The *Unlit* material implements its “unlit” functionality by using the emission buffer as an output for the resulting color and skipping deferred pipeline.
+Input data and functions are the same as for *[Mesh](../../../code/materials_shaders/abstract_materials/mesh.md#shader_fragment)* abstract material. The *Unlit* material implements its �unlit� functionality by using the emission buffer as an output for the resulting color and skipping deferred pipeline.
 
 
 #### Output Data

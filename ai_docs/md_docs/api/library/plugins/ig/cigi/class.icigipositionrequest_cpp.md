@@ -59,7 +59,7 @@ Returns the value of the **Coordinate System** parameter specified in the packet
 Coordinate System parameter value. The following values are supported:
 - 0 - Geodetic. Position shall be specified as a geodetic latitude, longitude, and altitude. Orientation shall be given with respect to the reference plane.
 - 1 - Parent Entity. Position and orientation shall be with respect to the entity to which the specified entity or view is attached. This value shall be invalid for top-level entities.
-- 2 - Submodel. Position and orientation shall be specified with respect to the articulated part’s reference coordinate system. This value shall be valid only when [Object Class](#getObjectClass_int) is set to Articulated Part (1).
+- 2 - Submodel. Position and orientation shall be specified with respect to the articulated part�s reference coordinate system. This value shall be valid only when [Object Class](#getObjectClass_int) is set to Articulated Part (1).
 
 
 > **Notice:** If Object Class is set to Motion Tracker (4), the coordinate system is defined by the tracking device and this parameter

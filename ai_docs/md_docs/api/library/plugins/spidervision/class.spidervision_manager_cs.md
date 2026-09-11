@@ -16,9 +16,6 @@ The *[DisplaysConfig](../../../../api/library/plugins/spidervision/class.display
 ## string ComputerName
 
 The name of the computer on which the viewport is to be displayed. If this parameter is not set, the viewport can be displayed on any PC. If set, the viewport is only displayed on the PC that has a matching name.
-## bool Enabled
-
-The value indicating if the SpiderVision plugin is enabled.
 ## bool ConfiguratorEnabled
 
 The value indicating if the configurator window is open.
@@ -156,14 +153,6 @@ Assigns a player to the specified viewport.
 - *int* **viewport_id** - ID of the viewport window.
 - *[Player](../../../../api/library/players/class.player_cs.md)* **player** - The player camera.
 
-## void SetViewportViewOffset ( int viewport_id , vec3 offset )
-
-Sets a camera view offset (eye position) for the viewport with the specified ID.
-### Arguments
-
-- *int* **viewport_id** - ID of the viewport window.
-- *vec3* **offset** - Camera view offset coordinates along the corresponding axes.
-
 ## void SetGroupCustomPlayer ( int group_id , Player player )
 
 Assigns a player to the specified group of viewports.
@@ -171,14 +160,6 @@ Assigns a player to the specified group of viewports.
 
 - *int* **group_id** - ID of the viewport group.
 - *[Player](../../../../api/library/players/class.player_cs.md)* **player** - The player camera.
-
-## void SetGroupViewOffset ( int group_id , vec3 offset )
-
-Sets a camera view offset (eye position) for the viewport group with the specified ID.
-### Arguments
-
-- *int* **group_id** - ID of the viewport group.
-- *vec3* **offset** - Camera view offset coordinates along the corresponding axes.
 
 ## EngineWindowViewport GetEngineWindow ( int viewport_id )
 
@@ -190,3 +171,13 @@ Returns the engine window viewport for the specified viewport.
 ### Return value
 
 The engine window viewport.
+## Player GetViewportCustomPlayer ( int viewport_id )
+
+Returns the custom player previously assigned to the given viewport's window via **[SetViewportCustomPlayer()](../../../...md#setViewportCustomPlayer_int_Player_void)**.
+### Arguments
+
+- *int* **viewport_id** - ID of the viewport.
+
+### Return value
+
+Custom player assigned to the viewport's window, or null if the viewport does not exist or no custom player is set (rendering then falls back to the game player).

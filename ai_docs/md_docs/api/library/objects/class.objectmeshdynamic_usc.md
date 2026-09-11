@@ -149,12 +149,12 @@ Returns the current value indicating if the mesh used by the object is unique (d
 ### Return value
 
 **true** if the object uses a unique mesh; otherwise **false**.
-## bool isUsageShared () const
+## int isUsageShared () const
 
 Returns the current value indicating if the dynamic mesh object has the [USAGE_MISC_SHARED](#USAGE_MISC_SHARED) flag enabled.
 ### Return value
 
-**true** if the [USAGE_MISC_SHARED](#USAGE_MISC_SHARED) flag for the dynamic mesh object is enabled; otherwise **false**.
+Current the dynamic mesh object has the [USAGE_MISC_SHARED](#USAGE_MISC_SHARED) flag enabled
 ---
 
 ## static ObjectMeshDynamic ( Mesh mesh , int flags = 0 )

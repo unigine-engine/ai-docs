@@ -38,6 +38,141 @@ A sprite has a background layer which is used to calculate a bounding box of the
 
 ### Members
 
+## void setTexture ( string texture )
+
+Sets a new texture from a file set for the first (bottom) layer of the sprite.
+### Arguments
+
+- *string* **texture** - The texture from a file set for the first (bottom) layer of the sprite
+
+## const char * getTexture () const
+
+Returns the current texture from a file set for the first (bottom) layer of the sprite.
+### Return value
+
+Current texture from a file set for the first (bottom) layer of the sprite
+## void setTransform ( mat4 transform )
+
+Sets a new transformation matrix set for the first (bottom) layer of the sprite.
+### Arguments
+
+- *mat4* **transform** - The transformation matrix set for the first (bottom) layer of the sprite
+
+## mat4 getTransform () const
+
+Returns the current transformation matrix set for the first (bottom) layer of the sprite.
+### Return value
+
+Current transformation matrix set for the first (bottom) layer of the sprite
+## void setTexCoord ( vec4 coord )
+
+Sets a new coordinates of the texture set for the first (bottom) layer of the sprite.
+### Arguments
+
+- *vec4* **coord** - The coordinates of the texture set for the first (bottom) layer of the sprite
+
+## vec4 getTexCoord () const
+
+Returns the current coordinates of the texture set for the first (bottom) layer of the sprite.
+### Return value
+
+Current coordinates of the texture set for the first (bottom) layer of the sprite
+## int getBlendDestFunc () const
+
+Returns the current blending mode of the destination widget colour set for the first (bottom) layer of the sprite. One of the [BLEND_*](../../../api/library/gui/class.gui_usc.md) values.
+### Return value
+
+Current blending mode of the destination widget colour for the first (bottom) layer
+## int getBlendSrcFunc () const
+
+Returns the current blending mode of the source screen buffer colour set for the first (bottom) layer of the sprite. One of the [BLEND_*](../../../api/library/gui/class.gui_usc.md) values.
+### Return value
+
+Current blending mode of the source screen buffer colour for the first (bottom) layer
+## void setBufferMask ( int mask )
+
+Sets a new channel mask for the whole sprite. One of the [GUI_BUFFER_*](../../../api/library/gui/class.gui_usc.md) values.
+### Arguments
+
+- *int* **mask** - The channel mask for the whole sprite
+
+## int getBufferMask () const
+
+Returns the current channel mask for the whole sprite. One of the [GUI_BUFFER_*](../../../api/library/gui/class.gui_usc.md) values.
+### Return value
+
+Current channel mask for the whole sprite
+## void setWrapRepeat ( int repeat )
+
+Sets a new value indicating if texture tiling is enabled for the first (bottom) layer of the sprite. This layer always exists in the sprite. The default is 0 (no tiling). To see tiling in effect, you need to transform sprite texture coordinates via [setTexCoord()](#setTexCoord_vec4_void).
+### Arguments
+
+- *int* **repeat** - The flag indicating whether texture tiling is enabled for the first (bottom) layer of the sprite
+
+## int getWrapRepeat () const
+
+Returns the current value indicating if texture tiling is enabled for the first (bottom) layer of the sprite. This layer always exists in the sprite. The default is 0 (no tiling). To see tiling in effect, you need to transform sprite texture coordinates via [setTexCoord()](#setTexCoord_vec4_void).
+### Return value
+
+Current flag indicating whether texture tiling is enabled for the first (bottom) layer of the sprite
+## void setColor ( vec4 color )
+
+Sets a new color set for the first (bottom) layer of the sprite.
+### Arguments
+
+- *vec4* **color** - The color set for the first (bottom) layer of the sprite
+
+## vec4 getColor () const
+
+Returns the current color set for the first (bottom) layer of the sprite.
+### Return value
+
+Current color set for the first (bottom) layer of the sprite
+## int getNumLayers () const
+
+Returns the current total number of layers in the sprite.
+### Return value
+
+Current total number of layers in the sprite
+## void setIntersectionImageThreshold ( float threshold )
+
+Sets a new threshold value for the pixel. If the pixel value in the intersection mask is higher than the threshold, the intersection is detected.
+### Arguments
+
+- *float* **threshold** - The threshold value for the pixel
+
+## float getIntersectionImageThreshold () const
+
+Returns the current threshold value for the pixel. If the pixel value in the intersection mask is higher than the threshold, the intersection is detected.
+### Return value
+
+Current threshold value for the pixel
+## void setIntersectionImageTransform ( mat4 transform )
+
+Sets a new transformation for the image used as a mask for defining intersections with the mouse.
+### Arguments
+
+- *mat4* **transform** - The transformation for the image used as an intersection mask
+
+## mat4 getIntersectionImageTransform () const
+
+Returns the current transformation for the image used as a mask for defining intersections with the mouse.
+### Return value
+
+Current transformation for the image used as an intersection mask
+## void setIntersectionImageEnabled ( int enabled )
+
+Sets a new value indicating if the intersection image is used as a mask for detecting intersections with the mouse.
+### Arguments
+
+- *int* **enabled** - The use of the intersection image as a mask for detecting intersections with the mouse
+
+## int isIntersectionImageEnabled () const
+
+Returns the current value indicating if the intersection image is used as a mask for detecting intersections with the mouse.
+### Return value
+
+Current use of the intersection image as a mask for detecting intersections with the mouse
 ---
 
 ## static WidgetSprite ( Gui gui , string name = 0 )
@@ -55,12 +190,6 @@ Constructor. Creates a sprite with a given texture and adds it to the Engine GUI
 
 - *string* **name** - Path to the texture. This is an optional parameter.
 
-## int getBlendDestFunc ( )
-
-Returns the blending mode of the destination widget colour set for the first (bottom) layer of the sprite.
-### Return value
-
-Blending mode (one of the *[GUI_BLEND_*](../../../api/library/gui/class.gui_usc.md#BLEND_DEST_ALPHA)* variables).
 ## void setBlendFunc ( int src , int dest )
 
 Sets blending coefficients for the first (bottom) layer of the sprite. This layer always exists in the sprite.
@@ -69,38 +198,6 @@ Sets blending coefficients for the first (bottom) layer of the sprite. This laye
 - *int* **src** - Blending mode for the source screen buffer color (one of the *[GUI_BLEND_*](../../../api/library/gui/class.gui_usc.md#BLEND_DEST_ALPHA)* variables).
 - *int* **dest** - Blending mode for the destination widget color (one of the *[GUI_BLEND_*](../../../api/library/gui/class.gui_usc.md#BLEND_DEST_ALPHA)* variables).
 
-## int getBlendSrcFunc ( )
-
-Returns the blending mode of the source screen buffer colour set for the first (bottom) layer of the sprite.
-### Return value
-
-Blending mode (one of the *[GUI_BLEND_*](../../../api/library/gui/class.gui_usc.md#BLEND_DEST_ALPHA)* variables).
-## void setBufferMask ( int mask )
-
-Sets a channel mask for the whole sprite. If a mask for a channel exists, one can draw in this channel. The default is [*GUI_BUFFER_ALL*](../../../api/library/gui/class.gui_usc.md#BUFFER_ALL).
-### Arguments
-
-- *int* **mask** - Current channel mask (one of the *[GUI_BUFFER_*](../../../api/library/gui/class.gui_usc.md#BUFFER_ALL)* pre-defined variables).
-
-## int getBufferMask ( )
-
-Returns the current channel mask for the whole sprite.
-### Return value
-
-Current channel mask (one of the *[GUI_BUFFER_*](../../../api/library/gui/class.gui_usc.md#BUFFER_ALL)* pre-defined variables).
-## void setColor ( vec4 color )
-
-Sets a color for the first (bottom) layer of the sprite. This layer always exists in the sprite.
-### Arguments
-
-- *vec4* **color** - Modulation color.
-
-## vec4 getColor ( )
-
-Returns the current color set for the first (bottom) layer of the sprite.
-### Return value
-
-Modulation color.
 ## void setImage ( int dynamic = 0 )
 
 Sets a loaded into memory image for the first (bottom) layer of the sprite. This layer always exists in the sprite. An additional flag can be set in case the sprite image is going to be updated often or even each frame (for optimized memory management).
@@ -333,12 +430,6 @@ Returns a value indicating if texture tiling is enabled for a given layer of the
 ### Return value
 
 **1** if texture tiling is enabled; **0** if disabled.
-## int getNumLayers ( )
-
-Returns the total number of layers in the sprite.
-### Return value
-
-Number of layers.
 ## void setRender ( Texture texture , int flipped = 0 )
 
 Sets a texture to be rendered for the first (bottom) layer of the sprite.
@@ -357,61 +448,6 @@ Returns the pointer to the texture that is currently set for the first (bottom) 
 ### Return value
 
 Pointer to the texture.
-## void setTexCoord ( vec4 coord )
-
-Sets the coordinates of the texture for the first (bottom) layer of the sprite. This layer always exists in the sprite.
-### Arguments
-
-- *vec4* **coord** - Texture coordinates. The first pair of coordinates (x and y) is for the upper left corner, the second pair (z and w) is for the lower right corner.
-
-## vec4 getTexCoord ( )
-
-Returns the current coordinates of the texture set for the first (bottom) layer of the sprite.
-### Return value
-
-Texture coordinates. The first pair of coordinates (x and y) is for the upper left corner, the second pair (z and w) is for the lower right corner.
-## void setTexture ( string texture )
-
-Sets a texture from a file for the first (bottom) layer of the sprite. This layer always exists in the sprite.
-### Arguments
-
-- *string* **texture** - Path to the texture.
-
-## string getTexture ( )
-
-Returns the texture from a file that is currently set for the first (bottom) layer of the sprite.
-### Return value
-
-Path to the texture.
-## void setTransform ( mat4 transform )
-
-Sets a transformation matrix for the first (bottom) layer of the sprite. This layer always exists in the sprite.
-### Arguments
-
-- *mat4* **transform** - Transformation matrix.
-
-## mat4 getTransform ( )
-
-Returns the current transformation matrix set for the first (bottom) layer of the sprite.
-### Return value
-
-Transformation matrix.
-## void setWrapRepeat ( int repeat )
-
-Sets texture tiling for the first (bottom) layer of the sprite. This layer always exists in the sprite.
-> **Notice:** To see tiling in effect, you need to transform sprite texture coordinates via *[setTexCoord()](#setTexCoord_vec4_void)*.
-
-
-### Arguments
-
-- *int* **repeat** - Positive number to enable texture tiling; **0** to disable it.
-
-## int getWrapRepeat ( )
-
-Returns a value indicating if texture tiling is enabled for the first (bottom) layer of the sprite.
-### Return value
-
-**1** if texture tiling is enabled; **0** if disabled.
 ## int addLayer ( )
 
 Adds an empty layer with default properties to the sprite.
@@ -454,42 +490,3 @@ Returns the image used as a mask for defining intersections with the mouse.
 ### Return value
 
 Image to be used as a mask for defining intersections.
-## void setIntersectionImageTransform ( mat4 transform )
-
-Sets the transformation for the image used as a mask for defining intersections with the mouse.
-### Arguments
-
-- *mat4* **transform** - Image transformation.
-
-## mat4 getIntersectionImageTransform ( )
-
-Returns the transformation for the image used as a mask for defining intersections with the mouse.
-### Return value
-
-Image transformation.
-## void setIntersectionImageThreshold ( float threshold )
-
-Sets the threshold value for the pixel. If the pixel value in the intersection mask is higher that the threshold, the intersection is detected.
-### Arguments
-
-- *float* **threshold** - Threshold value for the pixel.
-
-## float getIntersectionImageThreshold ( )
-
-Sets the threshold value for the pixel. If the pixel value in the intersection mask is higher that the threshold, the intersection is detected.
-### Return value
-
-Threshold value for the pixel.
-## void setIntersectionImageEnabled ( int enabled = false )
-
-Sets the flag defining if the intersection image is used as a mask for detecting intersections with the mouse.
-### Arguments
-
-- *int* **enabled** - **1** to enable the intersection image; **0** to disable it.
-
-## int isIntersectionImageEnabled ( )
-
-Returns the value showing if the intersection image is used as a mask for detecting intersections with the mouse.
-### Return value
-
-**1** if the intersection image is enabled; otherwise **0**.

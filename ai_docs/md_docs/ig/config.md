@@ -131,19 +131,19 @@ This group contains configuration parameters of the [Adaptive Quality System](..
 The following items are available for the Adaptive Quality System:
 
 
-- **mode** — one of the modes in which the Adaptive Quality System operates:
+- **mode** � one of the modes in which the Adaptive Quality System operates:
 
-  - 0 — the system is disabled
-  - 1 — the system operates in the *degrading* mode (without re-improving the quality when the conditions are back to normal)
-  - 2 — the system in *normal* mode, degrading the image if the CPU budget is exceeded and restoring better quality when the conditions are back to normal.
-- **debug** — 0 to disable the debug mode, 1 to enable displaying the debug info.
-- **sleep_period_after_world_load** — idle time of the Adaptive Quality System, in seconds, after the world is loaded.
-- **cpu_budget** — target CPU Total Time value, in milliseconds. -1 sets the default value of 10 milliseconds.
-- **threshold** — a threshold value, in milliseconds. If CPU Total Time has changed less than this value, no adaptation is performed. -1 sets the default value of 3 milliseconds.
-- **change_period** — update period, in seconds. This period enables you to ignore spikes, not to treat them as degrading performance. -1 sets the default value of 0.5 milliseconds.
-- **min_scale** — minimum scale value defining the lower limit of the range of adjustment of the distance scale ([global rendering](../editor2/settings/render_settings/visibility_distances/index.md#distance_scale) and *[Simplifier](../ig/properties_setup.md#model_simplification)*).
-- **max_scale** — maximum scale value defining the upper limit of the range of adjustment of the distance scale ([global rendering](../editor2/settings/render_settings/visibility_distances/index.md#distance_scale) and *[Simplifier](../ig/properties_setup.md#model_simplification)*).
-- **scale_step** — the Adaptive Quality System shall use this step when adjusting distance scale.
+  - 0 � the system is disabled
+  - 1 � the system operates in the *degrading* mode (without re-improving the quality when the conditions are back to normal)
+  - 2 � the system in *normal* mode, degrading the image if the CPU budget is exceeded and restoring better quality when the conditions are back to normal.
+- **debug** � 0 to disable the debug mode, 1 to enable displaying the debug info.
+- **sleep_period_after_world_load** � idle time of the Adaptive Quality System, in seconds, after the world is loaded.
+- **cpu_budget** � target CPU Total Time value, in milliseconds. -1 sets the default value of 10 milliseconds.
+- **threshold** � a threshold value, in milliseconds. If CPU Total Time has changed less than this value, no adaptation is performed. -1 sets the default value of 3 milliseconds.
+- **change_period** � update period, in seconds. This period enables you to ignore spikes, not to treat them as degrading performance. -1 sets the default value of 0.5 milliseconds.
+- **min_scale** � minimum scale value defining the lower limit of the range of adjustment of the distance scale ([global rendering](../editor2/settings/render_settings/visibility_distances/index.md#distance_scale) and *[Simplifier](../ig/properties_setup.md#model_simplification)*).
+- **max_scale** � maximum scale value defining the upper limit of the range of adjustment of the distance scale ([global rendering](../editor2/settings/render_settings/visibility_distances/index.md#distance_scale) and *[Simplifier](../ig/properties_setup.md#model_simplification)*).
+- **scale_step** � the Adaptive Quality System shall use this step when adjusting distance scale.
 
 
 ## Connector Parameters
@@ -166,20 +166,20 @@ Configuration parameters for [connectors](../ig/index.md#connector) are added to
 The following items are available for CIGI:
 
 
-- **version** — CIGI protocol version
-- **host** — CIGI Host IP-address
-- **send_port** — TCP port number to be used for sending packets to the CIGI Host
-- **recv_port** — TCP port number to be used for receiving packets from the CIGI Host
-- **packet_size** — maximum size of the packet
+- **version** � CIGI protocol version
+- **host** � CIGI Host IP-address
+- **send_port** � TCP port number to be used for sending packets to the CIGI Host
+- **recv_port** � TCP port number to be used for receiving packets from the CIGI Host
+- **packet_size** � maximum size of the packet
 
 
 The following items are available for DIS:
 
 
-- **broadcast_address** — a broadcast address of the server computer that is used to broadcast messages to IG over the network
-- **site** — the Site ID of this application instance
-- **exercise** — the Exercise ID of the DIS
-- **app** — the Application ID of this application instance
+- **broadcast_address** � a broadcast address of the server computer that is used to broadcast messages to IG over the network
+- **site** � the Site ID of this application instance
+- **exercise** � the Exercise ID of the DIS
+- **app** � the Application ID of this application instance
 
 
 ## Configuration File Settings
@@ -199,10 +199,13 @@ The following parameters are available to control automatic update of the config
 ```
 
 
-- **autoload_database** — [ID of the database](#config_databases) to be loaded automatically.
-- **config_read_only** — set this parameter to 1 to avoid automatic re-writing of the configuration file with deletion of all your comments.
-- **default_view_id** — [ID of the view](#config_cameras) to be used by default.
-- **terrain_intersection_mask** — intersection mask specifying which surface is considered the ground surface (HAT/HOT requests, entity clamp, etc.).
+- **autoload_database** � [ID of the database](#config_databases) to be loaded automatically. Set it to -1 to load nothing on start-up and wait for a host to command the load instead.
+- **config_read_only** � set this parameter to 1 to avoid automatic re-writing of the configuration file with deletion of all your comments.
+- **default_view_id** � [ID of the view](#config_cameras) to be used by default.
+- **terrain_intersection_mask** � intersection mask specifying which surface is considered the ground surface (HAT/HOT requests, entity clamp, etc.).
+
+
+> **Notice:** With **autoload_database** set to -1 the IG shows an empty scene until a host loads a database � and a host reports the RESET mode until it has one loaded, so nothing in the simulation runs either. See [Adding and Loading the World](../ig/ig_host.md#load) for how that is done from *IG Host*.
 
 
 ## Databases
@@ -224,9 +227,12 @@ The list of [databases](../ig/index.md#database) (worlds with terrains) is enclo
 The following attributes are available:
 
 
-- **id** — ID of the database (used when loading databases)
-- **world_name** — name of the corresponding `*.world` file
-- **geodetic_origin** — geodetic origin in ellipsoid coordinates: **latitude** (degrees), **longitude** (degrees), and **altitude** (meters).
+- **id** � ID of the database (used when loading databases)
+- **world_name** � name of the corresponding `*.world` file
+- **geodetic_origin** � geodetic origin in ellipsoid coordinates: **latitude** (degrees), **longitude** (degrees), and **altitude** (meters).
+
+
+> **Notice:** With the *[Cesium](../code/plugins/cesium/index_cpp.md)* plugin the georeference of the world is not static: the live origin is the [anchor](../code/plugins/cesium/index_cpp.md#anchor), which the plugin moves as the camera travels the globe. **geodetic_origin** is then only the value the world starts from, and reading it back as the current origin gives a wrong answer everywhere except at the start.
 
 
 ## Entity Definitions
@@ -362,7 +368,7 @@ Each entity may have an arbitrary number of articulated parts (e.g. flaps, slats
 ```
 
 
-> **Notice:** Options invert_roll, invert_pitch, and invert_yaw are used to indicate that the corresponding rotation direction (Y — roll, X — pitch, Z — yaw) of the articulated part element is inverted.
+> **Notice:** Options invert_roll, invert_pitch, and invert_yaw are used to indicate that the corresponding rotation direction (Y � roll, X � pitch, Z � yaw) of the articulated part element is inverted.
 
 
 For each articulated part a corresponding node should be specified using the <node/> tag. Paths are specified relative to the root node, the same way as [for components](#component_node).
@@ -396,9 +402,9 @@ To define an [entity volume](../ig/properties_setup.md#properties_volumes) use t
 The following attributes are available:
 
 
-- **id** — the volume identifier in CIGI/IG.
-- **name** — the name of the volume. You can use it for debugging or when writing your own collision handler.
-- **shape** — the shape order in the [physics/shapes](../principles/physics/shapes/index.md#shape_params) tab.
+- **id** � the volume identifier in CIGI/IG.
+- **name** � the name of the volume. You can use it for debugging or when writing your own collision handler.
+- **shape** � the shape order in the [physics/shapes](../principles/physics/shapes/index.md#shape_params) tab.
 
 
 Using this tag requires creating ObjectDummy and BodyDummy inside the entity NodeReference. The value indicated inside this tag is a path to the ObjectDummy inside the entity *NodeReference*.
@@ -425,9 +431,9 @@ To define a [collision detection segment](../ig/properties_setup.md#properties_s
 The following attributes are available:
 
 
-- **id** — the segment identifier in CIGI/IG.
-- **name** — the name of the segment. You can use it for debugging or when writing your own collision handler.
-- **path** — path to the node with the *CollisionSegmentDef* component assigned. The path is relative to the entity root node.
+- **id** � the segment identifier in CIGI/IG.
+- **name** � the name of the segment. You can use it for debugging or when writing your own collision handler.
+- **path** � path to the node with the *CollisionSegmentDef* component assigned. The path is relative to the entity root node.
 
 
 Using this tag requires the following to be done in UnigineEditor:
@@ -453,7 +459,7 @@ Cameras in IG are synchronized in a special way. A **View** is an IG wrapper for
 - *void setSlaveView(int slave_index, int view_id);*
 
 
-The list of available views is enclosed in the **<syncker_channels/>** tag. Here you can set the desired view for each Slave and specify if it is affected by the Syncker’s projections:
+The list of available views is enclosed in the **<syncker_channels/>** tag. Here you can set the desired view for each Slave and specify if it is affected by the Syncker�s projections:
 
 
 ```xml
@@ -469,9 +475,9 @@ The list of available views is enclosed in the **<syncker_channels/>** tag. Here
 The following attributes are available:
 
 
-- **view_id** — ID of the view to be used
-- **use_syncker_projection** — flag indicating if the view is affected by the [Syncker’s projections](../code/plugins/syncker/index.md#screen_configs)
-- **syncker_name** — name of the view used in the Syncker
+- **view_id** � ID of the view to be used
+- **use_syncker_projection** � flag indicating if the view is affected by the [Syncker�s projections](../code/plugins/syncker/index.md#screen_configs)
+- **syncker_name** � name of the view used in the Syncker
 
 
 ## View Types
@@ -493,8 +499,8 @@ The list of post effect materials available for the camera is enclosed in the **
 The following attributes are available:
 
 
-- **id** — ID of the database (used when loading databases)
-- **post_materials** — list of post effects to be applied
+- **id** � ID of the database (used when loading databases)
+- **post_materials** � list of post effects to be applied
 
 
 ## Weather Layers

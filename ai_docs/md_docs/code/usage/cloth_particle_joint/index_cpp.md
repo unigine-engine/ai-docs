@@ -21,7 +21,7 @@ We are going to create functions for each participant of the example and then us
 ## Creating a Cloth
 
 
-We create a plane that will represent a [cloth](../../../principles/physics/bodies/cloth/index.md) — the *[Dynamic Mesh](../../../objects/objects/mesh_dynamic/index.md)* should be used to allow the cloth change at run time. Here we use the *[Primitives](../../../api/library/rendering/class.primitives_cpp.md)* class to create a plane. You can also try to use your mesh instead, just make sure it complies with the [triangulation requirements](../../../principles/physics/bodies/cloth/index.md#requirements).
+We create a plane that will represent a [cloth](../../../principles/physics/bodies/cloth/index.md) � the *[Dynamic Mesh](../../../objects/objects/mesh_dynamic/index.md)* should be used to allow the cloth change at run time. Here we use the *[Primitives](../../../api/library/rendering/class.primitives_cpp.md)* class to create a plane. You can also try to use your mesh instead, just make sure it complies with the [triangulation requirements](../../../principles/physics/bodies/cloth/index.md#requirements).
 
 
 Then we assign the *Cloth* body to the created *Dynamic Mesh* and specify the required *Cloth* body parameters (mass, friction, restitution, etc) and the object parameters (transformation, color, name).

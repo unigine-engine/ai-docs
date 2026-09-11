@@ -38,7 +38,10 @@ The implementation of the API-dependent functions is available in the correspond
 
 ## INIT_TEXTURE ( value NUM , value NAME )
 
+
 Initializes a sampler with the 2D texture.
+
+
 **Equivalent**
 
 
@@ -55,7 +58,10 @@ Texture2D s_texture_ ## NAME : register(t ## NUM); SAMPLER(NUM,NAME)
 
 ## INIT_TEXTURE_INT ( value NUM , value NAME )
 
+
 Initializes a sampler with the 2D texture of int type.
+
+
 **Equivalent**
 
 
@@ -72,7 +78,10 @@ Texture2D<int> s_texture_ ## NAME : register(t ## NUM); SAMPLER(NUM,NAME)
 
 ## INIT_TEXTURE_UINT ( value NUM , value NAME )
 
+
 Initializes a sampler with the 2D texture of uint type.
+
+
 **Equivalent**
 
 
@@ -89,7 +98,10 @@ Texture2D<uint> s_texture_ ## NAME : register(t ## NUM); SAMPLER(NUM,NAME)
 
 ## INIT_TEXTURE_CUBE ( value NUM , value NAME )
 
+
 Initializes a sampler with the cubemap texture.
+
+
 **Equivalent**
 
 
@@ -106,7 +118,10 @@ TextureCube s_texture_ ## NAME : register(t ## NUM); SAMPLER(NUM,NAME)
 
 ## INIT_TEXTURE_MSAA ( value NUM , value NAME )
 
+
 Initializes a sampler with the multi-sampled texture.
+
+
 **Equivalent**
 
 
@@ -123,7 +138,10 @@ Texture2DMS<float4> s_texture_ ## NAME : register(t ## NUM);
 
 ## INIT_TEXTURE_3D ( value NUM , value NAME )
 
+
 Initializes a sampler with the texture3D.
+
+
 **Equivalent**
 
 
@@ -140,7 +158,10 @@ Texture3D s_texture_ ## NAME : register(t ## NUM); SAMPLER(NUM,NAME)
 
 ## INIT_TEXTURE_ARRAY ( value NUM , value NAME )
 
+
 Initializes a sampler with the array of 2D textures.
+
+
 **Equivalent**
 
 
@@ -157,7 +178,10 @@ Texture2DArray s_texture_ ## NAME : register(t ## NUM); SAMPLER(NUM,NAME)
 
 ## INIT_TEXTURE_ARRAY_INT2 ( value NUM , value NAME )
 
+
 Initializes a sampler with the array of 2D textures of int2 type.
+
+
 **Equivalent**
 
 
@@ -174,7 +198,10 @@ Texture2DArray<int2> s_texture_ ## NAME : register(t ## NUM); SAMPLER(NUM,NAME)
 
 ## INIT_TEXTURE_ARRAY_UINT2 ( value NUM , value NAME )
 
+
 Initializes a sampler with the array of 2D textures of uint2 type.
+
+
 **Equivalent**
 
 
@@ -191,7 +218,10 @@ Texture2DArray<uint2> s_texture_ ## NAME : register(t ## NUM); SAMPLER(NUM,NAME)
 
 ## INIT_W_TEXTURE ( value NUM , value NAME , value TYPE , value FORMAT )
 
+
 Initializes input 2D write texture.
+
+
 **Equivalent**
 
 
@@ -210,7 +240,10 @@ RWTexture2D<FORMAT> s_rw_texture_ ## NAME : register(u ## NUM);
 
 ## INIT_W_TEXTURE_INT ( value NUM , value NAME , value TYPE , value FORMAT )
 
+
 Initializes input 2D write int texture.
+
+
 **Equivalent**
 
 
@@ -229,7 +262,10 @@ RWTexture2D<FORMAT> s_rw_texture_ ## NAME : register(u ## NUM);
 
 ## INIT_W_TEXTURE_3D ( value NUM , value NAME , value TYPE , value FORMAT )
 
+
 Initializes input 3D write texture.
+
+
 **Equivalent**
 
 
@@ -248,7 +284,10 @@ RWTexture3D<FORMAT> s_rw_texture_ ## NAME : register(u ## NUM);
 
 ## INIT_RW_TEXTURE_R32U ( value NUM , value NAME )
 
+
 Initializes a 2D input read-write texture that has R32U format type.
+
+
 **Equivalent**
 
 
@@ -265,7 +304,10 @@ RWTexture2D<uint> s_rw_texture_ ## NAME : register(u ## NUM);
 
 ## INIT_RW_TEXTURE_R32F ( value NUM , value NAME )
 
+
 Initializes a 2D input read-write texture that has R32F format type.
+
+
 **Equivalent**
 
 
@@ -282,7 +324,10 @@ RWTexture2D<float> s_rw_texture_ ## NAME : register(u ## NUM);
 
 ## INIT_RW_TEXTURE_RGBA8 ( value NUM , value NAME )
 
+
 Initializes a 2D input read-write texture that has RGBA8 format type.
+
+
 **Equivalent**
 
 
@@ -299,7 +344,10 @@ RWTexture2D<rgba8> s_rw_texture_ ## NAME : register(u ## NUM);
 
 ## INIT_RW_TEXTURE_R32U_3D ( value NUM , value NAME )
 
+
 Initializes a 3D input read-write texture that has R32U format type.
+
+
 **Equivalent**
 
 
@@ -316,7 +364,10 @@ RWTexture3D<uint> s_rw_texture_ ## NAME : register(u ## NUM);
 
 ## INIT_RW_TEXTURE_R32F_3D ( value NUM , value NAME )
 
+
 Initializes a 3D input read-write texture that has R32F format type.
+
+
 **Equivalent**
 
 
@@ -333,7 +384,10 @@ RWTexture3D<float> s_rw_texture_ ## NAME : register(u ## NUM);
 
 ## INIT_RW_TEXTURE_RGBA8_3D ( value NUM , value NAME )
 
+
 Initializes a 3D input read-write texture that has RGBA8 format type.
+
+
 **Equivalent**
 
 
@@ -350,7 +404,10 @@ RWTexture3D<rgba8> s_rw_texture_ ## NAME : register(u ## NUM);
 
 ## INIT_RW_STRUCTURED_BUFFER ( value NUM , value STRUCTURE , value NAME )
 
+
 Initializes a read-write structured buffer.
+
+
 **Equivalent**
 
 
@@ -368,7 +425,10 @@ RWStructuredBuffer<STRUCTURE> NAME : register(u ## NUM);
 
 ## INIT_STRUCTURED_BUFFER ( value NUM , value STRUCTURE , value NAME )
 
+
 Initializes a structure buffer.
+
+
 **Equivalent**
 
 
@@ -502,7 +562,10 @@ Returns the cubically interpolated value of the specified 3D texture.
 Cubically interpolated value of 3D texture.
 ## TEXTURE ( value NAME , value COORD )
 
+
 Samples a texture.
+
+
 **Equivalent**
 
 
@@ -519,7 +582,10 @@ s_texture_ ## NAME.Sample(s_sampler_ ## NAME ,COORD)
 
 ## TEXTURE_BIAS ( value NAME , value COORD , value BIAS )
 
+
 Samples a texture using a mipmap-level offset (performs a texture lookup with explicit level-of-detail).
+
+
 **Equivalent**
 
 
@@ -537,7 +603,10 @@ s_texture_ ## NAME.SampleLevel(s_sampler_ ## NAME,COORD,BIAS)
 
 ## TEXTURE_OFFSET_BIAS ( value NAME , value COORD , value OFFSET , value BIAS )
 
+
 Samples a texture using a mipmap-level offset.
+
+
 **Equivalent**
 
 
@@ -556,7 +625,10 @@ s_texture_ ## NAME.SampleLevel(s_sampler_ ## NAME,COORD,BIAS,OFFSET)
 
 ## TEXTURE_BIAS_ZERO ( value NAME , value COORDS )
 
+
 Samples a texture using a mipmap-level offset on mipmap level 0 only.
+
+
 **Equivalent**
 
 
@@ -573,7 +645,10 @@ s_texture_ ## NAME.SampleLevel(s_sampler_ ## NAME,COORDS,0.0f)
 
 ## TEXTURE_OFFSET ( value NAME , value COORD , value OFFSET )
 
+
 Samples a texture using a offset on mipmap level 0 only (performs a texture lookup with offset).
+
+
 **Equivalent**
 
 
@@ -591,7 +666,10 @@ s_texture_ ## NAME.SampleLevel(s_sampler_ ## NAME,COORD,0,OFFSET)
 
 ## TEXTURE_GRAD ( value NAME , value COORD , value DDX , value DDY )
 
+
 Samples a texture using a gradient to influence the way the sample location is calculated.
+
+
 **Equivalent**
 
 
@@ -610,7 +688,10 @@ s_texture_ ## NAME.SampleGrad(s_sampler_ ## NAME,COORD,DDX,DDY)
 
 ## TEXTURE_MIP_OFFSET ( value NAME , value COORD , value OFFSET )
 
+
 Samples a texture using a negative mipmap offset.
+
+
 **Equivalent**
 
 
@@ -628,7 +709,10 @@ s_texture_ ## NAME.SampleBias(s_sampler_ ## NAME, COORD, -OFFSET)
 
 ## TEXTURE_FETCH ( value NAME , value COORD )
 
+
 Reads texel data from the first level-of-detail without any filtering or sampling.
+
+
 **Equivalent**
 
 
@@ -645,7 +729,10 @@ s_texture_ ## NAME.Load(uint3(COORD, 0))
 
 ## TEXTURE_FETCH_LOD ( value NAME , value COORD , value LOD )
 
+
 Reads texel data without any filtering or sampling.
+
+
 **Equivalent**
 
 
@@ -663,7 +750,10 @@ s_texture_ ## NAME.Load(uint3(COORD, LOD))
 
 ## TEXTURE_ARRAY ( value NAME , value COORDS , value LAYER , value LOD )
 
+
 Samples a texture array using a mipmap-level.
+
+
 **Equivalent**
 
 
@@ -682,7 +772,10 @@ s_texture_ ## NAME.SampleLevel(s_sampler_ ## NAME,float3(COORDS,LAYER),LOD)
 
 ## TEXTURE_ARRAY_FETCH ( value NAME , value COORD , value INDEX )
 
+
 Reads texel data from a texture array from the first level-of-detail without any filtering or sampling.
+
+
 **Equivalent**
 
 
@@ -700,7 +793,10 @@ s_texture_ ## NAME.Load(uint4(COORD, INDEX, 0))
 
 ## TEXTURE_ARRAY_FETCH_LOD ( value NAME , value COORD , value INDEX , value LOD )
 
+
 Reads texel data from a texture array without any filtering or sampling.
+
+
 **Equivalent**
 
 
@@ -719,7 +815,10 @@ s_texture_ ## NAME.Load(uint4(COORD, INDEX, LOD))
 
 ## TEXTURE_ARRAY_LOAD ( value NAME , value COORD , value INDEX )
 
+
 Reads texel data without any filtering or sampling with zero offset.
+
+
 **Equivalent**
 
 
@@ -737,7 +836,10 @@ s_texture_ ## NAME.Load(uint3(COORD,0))
 
 ## TEXTURE_ARRAY_LOAD_LOD ( value NAME , value COORD , value INDEX , value LOD )
 
+
 Reads texel data without any filtering or sampling.
+
+
 **Equivalent**
 
 
@@ -756,7 +858,10 @@ TEXTURE_ARRAY_FETCH_LOD(NAME, (COORD) * textureResolution(NAME).xy * (1.0f / pow
 
 ## TEXTURE_LOAD ( value NAME , value COORD )
 
+
 Reads texel data without any filtering or sampling with zero offset.
+
+
 **Equivalent**
 
 
@@ -773,7 +878,10 @@ s_texture_ ## NAME.Load(uint3(COORD,0))
 
 ## TEXTURE_LOAD_LOD ( value NAME , value COORD , value LOD )
 
+
 Reads texel data without any filtering or sampling.
+
+
 **Equivalent**
 
 
@@ -791,7 +899,10 @@ s_texture_ ## NAME.Load(uint3(COORD,LOD))
 
 ## TEXTURE_3D_FETCH ( value NAME , value COORD , value INDEX )
 
+
 Reads texel data from a texture array from the first level-of-detail without any filtering or sampling.
+
+
 **Equivalent**
 
 
@@ -809,7 +920,10 @@ s_texture_ ## NAME.Load(uint4(COORD, INDEX, 0))
 
 ## TEXTURE_3D_FETCH_LOD ( value NAME , value COORD , value INDEX , value LOD )
 
+
 Reads texel data from a texture array without any filtering or sampling.
+
+
 **Equivalent**
 
 
@@ -828,7 +942,10 @@ s_texture_ ## NAME.Load(uint4(COORD, INDEX, LOD))
 
 ## TEXTURE_3D_LOAD ( value NAME , value COORD )
 
+
 Reads texel data of a 3D texture without any filtering or sampling with zero offset.
+
+
 **Equivalent**
 
 
@@ -845,7 +962,10 @@ TEXTURE_3D_LOAD_LOD(NAME, COORD, 0)
 
 ## TEXTURE_3D_LOAD_LOD ( value NAME , value COORD , value LOD )
 
+
 Reads texel data of a single level of detail of a 3D texture without any filtering or sampling.
+
+
 **Equivalent**
 
 
@@ -863,7 +983,10 @@ s_texture_ ## NAME.Load(uint4((COORD) * textureResolution(NAME).xyz * (1.0f / po
 
 ## float4 TEXTURE_RW_LOAD_RGBA8 ( value NAME , value COORD )
 
+
 Reads the RW RGBA8 texture and returns a float4 value.
+
+
 **Equivalent**
 
 
@@ -882,7 +1005,10 @@ pack32To8888(s_rw_texture_ ## NAME[ ## COORD ## ])
 Texture value.
 ## uint TEXTURE_RW_LOAD_R32U ( value NAME , value COORD )
 
+
 Reads the RW R32U texture and returns a uint value.
+
+
 **Equivalent**
 
 
@@ -901,7 +1027,10 @@ s_rw_texture_ ## NAME[ ## COORD ## ]
 Texture value.
 ## float TEXTURE_RW_LOAD_R32F ( value NAME , value COORD )
 
+
 Reads the RW R32F texture and returns a float value.
+
+
 **Equivalent**
 
 
@@ -923,7 +1052,10 @@ Texture value.
 
 ## TEXTURE_RW_STORE_RGBA8 ( value NAME , value COORD , value VALUE )
 
+
 Stores the value to RW RGBA8 texture.
+
+
 **Equivalent**
 
 
@@ -941,7 +1073,10 @@ s_rw_texture_ ## NAME[COORD] = pack8888To32(VALUE)
 
 ## TEXTURE_RW_STORE_R32U ( value NAME , value COORD , value VALUE )
 
+
 Stores the value to RW R32U texture.
+
+
 **Equivalent**
 
 
@@ -959,7 +1094,10 @@ s_rw_texture_ ## NAME[COORD] = VALUE
 
 ## TEXTURE_RW_STORE_R32F ( value NAME , value COORD , value VALUE )
 
+
 Stores the value to RW R32F texture.
+
+
 **Equivalent**
 
 
@@ -977,7 +1115,10 @@ s_rw_texture_ ## NAME[COORD] = VALUE
 
 ## TEXTURE_W_STORE ( value NAME , value COORD , value VALUE )
 
+
 Stores the value to W texture.
+
+
 **Equivalent**
 
 
@@ -1014,7 +1155,10 @@ float4 new_color = func_name(color,uv,TEXTURE_OUT_2(TEX_COLOR_0,TEX_COLOR_1));
 
 ## TEXTURE_OUT ( value NAME )
 
+
 Allows to pass a texture to function.
+
+
 **Equivalent**
 
 
@@ -1030,7 +1174,10 @@ s_texture_ ## NAME,s_sampler_ ## NAME
 
 ## TEXTURE_OUT_2 ( value NAME0 , value NAME1 )
 
+
 Allows to pass two textures to a function.
+
+
 **Equivalent**
 
 
@@ -1047,7 +1194,10 @@ TEXTURE_OUT(NAME0),TEXTURE_OUT(NAME1)
 
 ## TEXTURE_OUT_3 ( value NAME0 , value NAME1 , value NAME2 )
 
+
 Allows to pass three textures to a function.
+
+
 **Equivalent**
 
 
@@ -1065,7 +1215,10 @@ TEXTURE_OUT_2(NAME0,NAME1),TEXTURE_OUT(NAME2)
 
 ## TEXTURE_OUT_4 ( value NAME0 , value NAME1 , value NAME2 , value NAME3 )
 
+
 Allows to pass four textures to a function.
+
+
 **Equivalent**
 
 
@@ -1084,7 +1237,10 @@ TEXTURE_OUT_3(NAME0,NAME1,NAME2),TEXTURE_OUT(NAME3)
 
 ## TEXTURE_IN ( value NAME )
 
+
 Specifies the 2D texture for passing to function.
+
+
 **Equivalent**
 
 
@@ -1100,7 +1256,10 @@ Texture2D s_texture_ ## NAME,SamplerState s_sampler_ ## NAME
 
 ## TEXTURE_IN_2 ( value NAME0 , value NAME1 )
 
+
 Specifies two 2D textures for passing to function.
+
+
 **Equivalent**
 
 
@@ -1117,7 +1276,10 @@ TEXTURE_IN(NAME0),TEXTURE_IN(NAME1)
 
 ## TEXTURE_IN_3 ( value NAME0 , value NAME1 , value NAME2 )
 
+
 Specifies three 2D textures for passing to function.
+
+
 **Equivalent**
 
 
@@ -1135,7 +1297,10 @@ TEXTURE_IN_2(NAME0,NAME1),TEXTURE_IN(NAME2)
 
 ## TEXTURE_IN_4 ( value NAME0 , value NAME1 , value NAME2 , value NAME3 )
 
+
 Specifies four 2D textures for passing to function.
+
+
 **Equivalent**
 
 
@@ -1154,7 +1319,10 @@ TEXTURE_IN_3(NAME0,NAME1,NAME2),TEXTURE_IN(NAME3)
 
 ## TEXTURE_IN_CUBE ( value NAME )
 
+
 Specifies the cube texture for passing to function.
+
+
 **Equivalent**
 
 
@@ -1170,7 +1338,10 @@ TextureCube s_texture_ ## NAME,SamplerState s_sampler_ ## NAME
 
 ## TEXTURE_IN_3D ( value NAME )
 
+
 Specifies the 3D texture for passing to function.
+
+
 **Equivalent**
 
 
@@ -1186,7 +1357,10 @@ Texture3D s_texture_ ## NAME,SamplerState s_sampler_ ## NAME
 
 ## TEXTURE_IN_ARRAY ( value NAME )
 
+
 Specifies the texture array for passing to function.
+
+
 **Equivalent**
 
 
@@ -1202,7 +1376,10 @@ Texture2DArray s_texture_ ## NAME,SamplerState s_sampler_ ## NAME
 
 ## TEXTURE_IN_ARRAY_INT2 ( value NAME )
 
+
 Specifies the int2 texture array for passing to function.
+
+
 **Equivalent**
 
 
@@ -1221,7 +1398,10 @@ Texture2DArray s_texture_ ## NAME,SamplerState s_sampler_ ## NAME
 
 ## int2 textureResolution ( value TEXTURE )
 
+
 Returns the texture resolution in pixels of the specified texture. This function supports 2D and Cube textures only.
+
+
 **This function is [API-dependent](#api_dependent).**
 
 
@@ -1234,7 +1414,10 @@ Returns the texture resolution in pixels of the specified texture. This function
 Texture width and height.
 ## int3 textureResolution ( value TEXTURE )
 
+
 Returns the texture resolution in pixels of the specified texture. This function supports 2D Array, 3D and Cube Array textures only.
+
+
 **This function is [API-dependent](#api_dependent).**
 
 
@@ -1247,7 +1430,10 @@ Returns the texture resolution in pixels of the specified texture. This function
 Texture width, height, and depth.
 ## float2 textureIResolution ( value TEXTURE )
 
+
 Returns texel size of specified texture. This function supports 2D and Cube textures only.
+
+
 **This function is [API-dependent](#api_dependent).**
 
 
@@ -1260,7 +1446,10 @@ Returns texel size of specified texture. This function supports 2D and Cube text
 Texel size of specified texture.
 ## float3 textureIResolution ( value TEXTURE )
 
+
 Returns texel size of specified texture. This function supports 2D Array, 3D and Cube Array textures only.
+
+
 **This function is [API-dependent](#api_dependent).**
 
 
@@ -1273,7 +1462,10 @@ Returns texel size of specified texture. This function supports 2D Array, 3D and
 Texel size of specified texture.
 ## int2 textureRWResolution ( value TEXTURE )
 
+
 Returns texture resolution in pixels of the specified RW texture. This function supports 2D RW textures only.
+
+
 **This function is [API-dependent](#api_dependent).**
 
 
@@ -1286,7 +1478,10 @@ Returns texture resolution in pixels of the specified RW texture. This function 
 Texture width and height.
 ## float2 textureRWIResolution ( value TEXTURE )
 
+
 Returns texel size of specified RW texture. This function supports 2D RW textures only.
+
+
 **This function is [API-dependent](#api_dependent).**
 
 
@@ -1299,7 +1494,10 @@ Returns texel size of specified RW texture. This function supports 2D RW texture
 Texel size of specified RW texture.
 ## int2 textureResolutionMip ( value TEXTURE , int LOD )
 
+
 Returns the resolution in pixels of the specified texture Mip level. This function supports 2D and Cube textures only.
+
+
 **This function is [API-dependent](#api_dependent).**
 
 
@@ -1313,7 +1511,10 @@ Returns the resolution in pixels of the specified texture Mip level. This functi
 Texture width and height.
 ## int3 textureResolutionMip ( value TEXTURE , int LOD )
 
+
 Returns the resolution in pixels of the specified texture Mip level. This function supports 2D Array, 3D and Cube Array textures only.
+
+
 **This function is [API-dependent](#api_dependent).**
 
 
@@ -1327,7 +1528,10 @@ Returns the resolution in pixels of the specified texture Mip level. This functi
 Texture width, height, and depth.
 ## float2 textureIResolutionMip ( value TEXTURE , int LOD )
 
+
 Returns the texel size of the specified texture Mip level. This function supports 2D and Cube textures only.
+
+
 **This function is [API-dependent](#api_dependent).**
 
 
@@ -1341,7 +1545,10 @@ Returns the texel size of the specified texture Mip level. This function support
 Texel size of the specified texture Mip level.
 ## float3 textureIResolutionMip ( value TEXTURE , int LOD )
 
+
 Returns the texel size of the specified texture Mip level. This function supports 2D Array, 3D and Cube Array textures only.
+
+
 **This function is [API-dependent](#api_dependent).**
 
 

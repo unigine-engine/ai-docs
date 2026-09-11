@@ -24,25 +24,25 @@ The box title.
 The value indicating if a background texture is rendered for the box.
 ## vec4 Color
 
-The color of the global color multiplier.
+The color of the global color multiplier. The default is equivalent to vec4(1,1,1,1) (white).
 ## int Stencil
 
-The value indicating if a widget cuts off its children along its set bounds. everything that lies outside of them, is not rendered. this option works only if children have align_overlap flag set (otherwise, they will expand the box widget bounds and no cutting will be done).
+The value indicating if a widget cuts off its children along its set [bounds](../../../api/library/gui/class.widget_cs.md#setWidth_int_void). Everything that lies outside of them is not rendered. This option works only if children have the *[ALIGN_OVERLAP](../../../api/library/gui/class.gui_cs.md#ALIGN_OVERLAP)* flag set (otherwise, they will expand the box widget bounds and no cutting will be done). The default is 0.
 ## int Border
 
-The flag indicating if a one-pixel border is rendered around the widget content (in a shape of a box). the default is 1 (use a border).
+The flag indicating if a one-pixel border is rendered around the widget content (in a shape of a box). The default is 1 (use a border).
 ## 🔒︎ int PaddingBottom
 
-The current bottom padding for the widget content.
+The bottom padding for the widget content.
 ## 🔒︎ int PaddingTop
 
-The current top padding for the widget content.
+The top padding for the widget content.
 ## 🔒︎ int PaddingRight
 
-The current right-side padding for the widget content.
+The right-side padding for the widget content.
 ## 🔒︎ int PaddingLeft
 
-The current left-side padding for the widget content.
+The left-side padding for the widget content.
 ## 🔒︎ int SpaceY
 
 The vertical space between the widgets in the box and between them and the box border.
@@ -51,10 +51,10 @@ The vertical space between the widgets in the box and between them and the box b
 The horizontal space between the widgets in the box and between them and the box border.
 ## vec4 BorderColor
 
-The four-component vector specifying the color in the RGBA format.
+The border color of the box.
 ## vec4 BackgroundColor
 
-The four-component vector specifying the color in the RGBA format.
+The background color of the box.
 ### Members
 
 ---

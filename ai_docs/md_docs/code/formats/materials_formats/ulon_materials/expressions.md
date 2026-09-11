@@ -45,7 +45,7 @@ Expression name = "some/path/to/your/script.h"		// script.h consists of some Uni
 When the name of an expression specified as `RENDER_*` (where * is a name of a [render callback](../../../../api/library/rendering/class.render_cpp.md)) and the current material is set globally or assigned to the main camera, the expression code will be executed automatically at the corresponding stage of the [rendering sequence](../../../../principles/render/sequence/index.md). Materials containing such expressions are called [scriptable](../../../../content/materials/scriptable.md).
 
 
-It is possible to call an expression via the *[runExpression()](../../../../api/library/rendering/class.material_cpp.md#runExpression_cstr_int_int_int_int)* function of the *Material* class. The expression’s name must be unique.
+It is possible to call an expression via the *[runExpression()](../../../../api/library/rendering/class.material_cpp.md#runExpression_cstr_int_int_int_int)* function of the *Material* class. The expression�s name must be unique.
 
 
 ## Usage Examples

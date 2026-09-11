@@ -66,6 +66,19 @@ int update() {
 
 ### Members
 
+## void setIMEEnabled ( int imeenabled )
+
+Sets a new value indicating if the system IME (Input Method Editor, used for composed text input such as CJK) is enabled. When enabled, the OS can open its composition and candidate window, and the engine receives *[text editing](../../../api/library/controls/class.inputeventtextediting_usc.md)* (preedit) events while the user composes text. Disabled by default.
+### Arguments
+
+- *int* **imeenabled** - The IME text composition
+
+## int isIMEEnabled () const
+
+Returns the current value indicating if the system IME (Input Method Editor, used for composed text input such as CJK) is enabled. When enabled, the OS can open its composition and candidate window, and the engine receives *[text editing](../../../api/library/controls/class.inputeventtextediting_usc.md)* (preedit) events while the user composes text. Disabled by default.
+### Return value
+
+Current IME text composition
 ## int getNumJoysticks () const
 
 Returns the current number of joysticks.
@@ -95,7 +108,7 @@ Current mouse scroll value. Negative values correspond to scrolling downwards; p
 Returns the current vector containing delta values of the mouse cursor position.
 ### Return value
 
-Current vector containing screen position change of the mouse pointer along the X and Y axes — the difference between the values in the previous and the current frames.
+Current vector containing screen position change of the mouse pointer along the X and Y axes � the difference between the values in the previous and the current frames.
 ## void setMousePosition ( ivec2 position )
 
 Sets a new vector containing integer values of the mouse cursor position.
@@ -245,7 +258,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventJoyPovMotion () const
 
 The event handler signature is as follows: *myhandler()*
@@ -262,7 +275,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int, int> getEventJoyAxisMotion () const
 
 The event handler signature is as follows: *myhandler()*
@@ -279,7 +292,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int, int> getEventJoyButtonUp () const
 
 The event handler signature is as follows: *myhandler()*
@@ -296,7 +309,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int, int> getEventJoyButtonDown () const
 
 The event handler signature is as follows: *myhandler()*
@@ -313,7 +326,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int> getEventJoyDisconnected () const
 
 The event handler signature is as follows: *myhandler()*
@@ -330,7 +343,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int> getEventJoyConnected () const
 
 The event handler signature is as follows: *myhandler()*
@@ -347,7 +360,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int, int> getEventVrDeviceAxisMotion () const
 
 The event handler signature is as follows: *myhandler()*
@@ -364,7 +377,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventVrDeviceButtonTouchUp () const
 
 The event handler signature is as follows: *myhandler()*
@@ -381,7 +394,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventVrDeviceButtonTouchDown () const
 
 The event handler signature is as follows: *myhandler()*
@@ -398,7 +411,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventVrDeviceButtonUp () const
 
 The event handler signature is as follows: *myhandler()*
@@ -415,7 +428,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventVrDeviceButtonDown () const
 
 The event handler signature is as follows: *myhandler()*
@@ -432,7 +445,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int> getEventVrDeviceDisconnected () const
 
 The event handler signature is as follows: *myhandler()*
@@ -449,7 +462,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int> getEventVrDeviceConnected () const
 
 The event handler signature is as follows: *myhandler()*
@@ -466,7 +479,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int, int, int> getEventGamepadTouchMotion () const
 
 The event handler signature is as follows: *myhandler()*
@@ -483,7 +496,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int, int, int> getEventGamepadTouchUp () const
 
 The event handler signature is as follows: *myhandler()*
@@ -500,7 +513,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int, int, int> getEventGamepadTouchDown () const
 
 The event handler signature is as follows: *myhandler()*
@@ -517,7 +530,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventGamepadAxisMotion () const
 
 The event handler signature is as follows: *myhandler()*
@@ -534,7 +547,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventGamepadButtonUp () const
 
 The event handler signature is as follows: *myhandler()*
@@ -551,7 +564,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventGamepadButtonDown () const
 
 The event handler signature is as follows: *myhandler()*
@@ -568,7 +581,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int> getEventGamepadDisconnected () const
 
 The event handler signature is as follows: *myhandler()*
@@ -585,7 +598,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int> getEventGamepadConnected () const
 
 The event handler signature is as follows: *myhandler()*
@@ -602,7 +615,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int> getEventTouchMotion () const
 
 The event handler signature is as follows: *myhandler()*
@@ -619,7 +632,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int> getEventTouchUp () const
 
 The event handler signature is as follows: *myhandler()*
@@ -636,7 +649,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int> getEventTouchDown () const
 
 The event handler signature is as follows: *myhandler()*
@@ -653,7 +666,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventTextPress () const
 
 The event handler signature is as follows: *myhandler()*
@@ -670,7 +683,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventKeyRepeat () const
 
 The event handler signature is as follows: *myhandler()*
@@ -687,7 +700,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventKeyUp () const
 
 The event handler signature is as follows: *myhandler()*
@@ -704,7 +717,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventKeyDown () const
 
 The event handler signature is as follows: *myhandler()*
@@ -721,7 +734,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int, int> getEventMouseMotion () const
 
 The event handler signature is as follows: *myhandler()*
@@ -738,7 +751,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int> getEventMouseWheelHorizontal () const
 
 The event handler signature is as follows: *myhandler()*
@@ -755,7 +768,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<int> getEventMouseWheel () const
 
 The event handler signature is as follows: *myhandler()*
@@ -772,7 +785,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventMouseUp () const
 
 The event handler signature is as follows: *myhandler()*
@@ -789,7 +802,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventMouseDown () const
 
 The event handler signature is as follows: *myhandler()*
@@ -806,7 +819,24 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
+## static getEventTextEditing () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event instance.
 ---
 
 ## InputGamePad engine.input. getGamePad ( int num )
@@ -979,7 +1009,7 @@ Returns a vector containing integer values of touch position.
 The touch position.
 ## ivec2 engine.input. getTouchDelta ( int index )
 
-Returns a vector containing screen position change of the touch along the X and Y axes — the difference between the values in the previous and the current frames.
+Returns a vector containing screen position change of the touch along the X and Y axes � the difference between the values in the previous and the current frames.
 ### Arguments
 
 - *int* **index** - Touch input index.
@@ -1196,3 +1226,12 @@ Returns the VR device by its number.
 ### Return value
 
 VR device.
+## void engine.input. setIMETextInputRect ( int position_x , int position_y , int width , int height )
+
+Tells the operating system where the text caret or edit area is located, so that the IME composition and candidate window can be positioned next to it. Has no effect if text input is not currently active.
+### Arguments
+
+- *int* **position_x** - Horizontal position of the top-left corner of the text input rectangle, in render pixels relative to the engine window.
+- *int* **position_y** - Vertical position of the top-left corner of the text input rectangle, in render pixels relative to the engine window.
+- *int* **width** - Width of the text input rectangle, in pixels.
+- *int* **height** - Height of the text input rectangle, in pixels.

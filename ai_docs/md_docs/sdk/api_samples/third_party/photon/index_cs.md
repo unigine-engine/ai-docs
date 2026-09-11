@@ -48,7 +48,7 @@ By studying this sample, you'll gain a foundation for building your own UNIGINE-
 
 
 - **UNIGINE SDK Browser** (latest version)
-- **UNIGINE SDK Community** or **Engineering** edition (**Sim** upgrade supported)
+- **UNIGINE SDK**
 - **Visual Studio 2022** (recommended)
 - **GitHub access** to clone the repository.
 
@@ -64,7 +64,7 @@ Starting the ***Photon*** C# sample requires you to perform the following steps:
 3. Add the sample project to SDK Browser:
 
   - Go to the *My Projects* tab.
-  - Click *Add Existing* then select the `*.project` file located in the cloned sample folder corresponding to your setup (OS, SDK edition, and precision), and click *Import Project*. ![](add_project.png) > **Notice:** If you're using **UNIGINE SDK *Sim***, select the ***Engineering*** `*.project` file when importing the sample. After import, you can upgrade the project to the **Sim** version directly in SDK Browser - just click *Upgrade*, choose the SDK **Sim** version, and adjust any additional settings you want to use in the configuration window that opens. > ![](../project_upgrade.png)
+  - Click *Add Existing* then select the `*.project` file located in the cloned sample folder corresponding to your setup (OS, SDK edition, and precision), and click *Import Project*. ![](add_project.png)
 4. Repair the project.
 
   - After importing, you'll see a **Repair** warning - this is expected, as only essential files are stored in the Git repository. SDK Browser will restore the rest. ![](photon_repair.png)
@@ -73,7 +73,7 @@ Starting the ***Photon*** C# sample requires you to perform the following steps:
 5. Download and set up the ***Photon Realtime SDK***:
 
   - Register at *[www.photonengine.com](https://www.photonengine.com/)* if you haven't done it before.
-  - Download ***Photon Realtime C# .NET SDK***, version **4.1.8.12** or **4.1.8.15**. ![](sdks.jpg)
+  - Download ***Photon Realtime C# .NET SDK***, version **4.1.8.17**. ![](sdks.jpg)
 6. Copy ***Photon SDK*** files to the sample project. From the downloaded SDK's ***/source*** folder, copy the following folders into ***source/PhotonSDK*** of your project: ![](photon_folder_example_cs.png) > **Notice:** You can quickly access your project via SDK Browser by clicking the three dots next to your project's name and selecting *Open Folder*. > > > ![](project_folder.png)
 7. Build the Photon libraries:
 
@@ -90,11 +90,7 @@ Starting the ***Photon*** C# sample requires you to perform the following steps:
   - Create two applications for this sample: ***Realtime Photon SDK*** and ***Chat Photon SDK***. ![](realtime_app.png) *Creating a Realtime Photon App.* ![](chat_app.png) *Creating a Chat Photon App.*
   - Use the generated **App IDs** in your sample project. The same ID is used for every instance (i.e. other participants don't need to create their own apps). ![](photon_app_id.png)
 9. Add App IDs to the sample project. Open the file `data/application_params.json` in your project folder and paste the App IDs to the corresponding fields. ```text { "realtime_application_id": "______________", "realtime_application_version": "1.0", "chat_application_id": "_________________", "chat_application_version": "1.0" } ```
-10. Open the project in your IDE.
-
-  - Start Visual Studio 2022.
-  - Load the `.sln` file of your project and if everything is set up correctly, the project is ready to build.
-  - Click **Build** and then **Run** to launch the application.
+10. Open the project **in UnigineEditor** via the SDK Browser, and click *Run* to launch the application. ![](cs_run.png)
 
 
 If you're still having trouble running the application, revisit the steps above to ensure nothing was skipped. If you encounter missing assembly errors, verify that all required ***Photon SDK*** folders and libraries are correctly placed in the corresponding ***source/PhotonSDK*** and ***bin*** folders. If build issues persist, try rebuilding the project by right-clicking on it and selecting **Rebuild**.

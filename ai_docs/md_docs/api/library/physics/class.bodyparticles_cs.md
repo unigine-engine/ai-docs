@@ -31,56 +31,52 @@ Iterations mode. Determines the way the number of iterations for solving the con
 The total number of particles that constitute the body.
 ## float Rigidity
 
-The current rigidity of the body's inner joints movement, i.e. how much interpolated linear and angular velocities of all joints affect velocities of each separate joint.
+The rigidity of the body's inner joints movement, i.e. how much interpolated linear and angular positions of inner joints affect the result.
 ## float Restitution
 
-The current restitution of the body by bouncing.
+The restitution of the body by bouncing.
 ## float Radius
 
-The current radius of the particles forming the body and represented as sphere shapes.
+The radius of the particles forming the body and represented as sphere shapes.
 ## int NumIterations
 
-The current number of iterations used to solve inner joints between particles.
+The number of iterations used to solve inner joints between particles.
 ## float Mass
 
-The current mass of the body.
+The mass of the body.
 ## float LinearThreshold
 
-The current linear stretching of the body's inner joints. when passing this threshold, the joints tear up.
+The linear stretching of the body's inner joints. when passing this threshold, the joints break.
 ## float LinearStretch
 
-The current scale for the length of linear joints (relative the source mesh topology).
+The scale for the length of linear joints (relative the source mesh topology).
 ## float LinearRestitution
 
-The current restitution of the body's inner joints by linear stretching.
+The restitution of the body's inner joints by linear stretching.
 ## float LinearDamping
 
-The A value indicating how much the linear velocity of the particles decreases over time.
+The value indicating how much the linear velocity of the particles decreases over time.
 ## float Friction
 
-The current friction of the body by its contact with other surfaces.
+The friction of the body by its contact with other surfaces.
 ## float Distance
 
-The current distance of body simulation.
+The distance of body simulation.
 ## int Collision
 
-The A value indicating if collision with a body is enabled or not.
+The value indicating if collision with a body is enabled or not.
 ## int CollisionMask
 
-The A collision bit mask for the body. two objects collide, if they both have matching masks.
+The collision bit mask for the body. two objects collide, if they both have matching masks.
 ## float AngularThreshold
 
-The current threshold for angular folding of particles triangles connected by inner joints. when passing this threshold, the joints tear up.
+The threshold for angular folding of particles triangles connected by inner joints. when passing this threshold, the joints break.
 ## float AngularRestitution
 
-The current restitution of the body's inner joints, when triangles formed by particles are folded angularly relative to each other.
+The restitution of the body's inner joints, when triangles formed by particles are folded relative to each other.
 ## BodyParticles.ITERATIONS_MODE IterationsMode
 
-The Current iteration mode of the particles body:
-- **OVERRIDE** - the resulting number of iterations is equal to the [value set for the body](#setNumIterations_int_void).
-- **MULTIPLICATION** - the resulting number of iterations is equal to the [value set for the body](#setNumIterations_int_void) multiplied by the [global physics iterations number](../../../editor2/settings/physics_global/index.md#iterations).
-
-
+The mode used to calculate the number of iterations for solving inner joints between particles: one of the [ITERATIONS_MODE_*](#ITERATIONS_MODE_OVERRIDE) values.
 ### Members
 
 ---
@@ -154,22 +150,3 @@ Applies an impulse to the given particle. Impulses immediately affect particles 
 
 - *int* **num** - Particle number.
 - *vec3* **impulse** - Amount of impulse to apply.
-
-## void SetIterationsMode ( BodyParticles.ITERATIONS_MODE mode )
-
-Sets iteration mode to be used for the particles body. The mode determines how the number of iterations for solving the constraints of the particles body is calculated. This method adds flexibility in fine-tuning of performance and simulation quality for each particles body.
-### Arguments
-
-- *[BodyParticles.ITERATIONS_MODE](../../../api/library/physics/class.bodyparticles_cs.md#ITERATIONS_MODE)* **mode** - Iteration mode to be used for the particles body:
-
-  - **OVERRIDE** - the resulting number of iterations is equal to the [value set for the body](#setNumIterations_int_void).
-  - **MULTIPLICATION** - the resulting number of iterations is equal to the [value set for the body](#setNumIterations_int_void) multiplied by the [global physics iterations number](../../../editor2/settings/physics_global/index.md#iterations).
-
-## BodyParticles.ITERATIONS_MODE GetIterationsMode ( )
-
-Returns the current iteration mode to be used for the particles body. The mode determines how the number of iterations for solving the constraints of the particles body is calculated. This method adds flexibility in fine-tuning of performance and simulation quality for each particles body.
-### Return value
-
-Current iteration mode of the particles body:
-- **OVERRIDE** - the resulting number of iterations is equal to the [value set for the body](#setNumIterations_int_void).
-- **MULTIPLICATION** - the resulting number of iterations is equal to the [value set for the body](#setNumIterations_int_void) multiplied by the [global physics iterations number](../../../editor2/settings/physics_global/index.md#iterations).

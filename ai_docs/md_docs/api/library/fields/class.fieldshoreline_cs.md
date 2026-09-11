@@ -5,6 +5,7 @@
 
 This class is used to create and modify a [field shoreline](../../../objects/effects/fields/field_shoreline/index.md). The field is applied to [global water](../../../api/library/objects/class.objectwaterglobal_cs.md) and helps to create swashes near the shores and applies the wetness effect on objects near the shoreline.
 
+
 > **Notice:** A field shoreline object will affect water only if the *FieldShoreline interaction* option is enabled on the *States* tab of the [water_global_base](../../../content/materials/library/water_global_base/index.md) material.
 
 
@@ -41,7 +42,7 @@ The path to the FieldShoreline's texture.
 The vec3 size vector of FieldShoreline.
 ## 🔒︎ Event EventProgress
 
-The event triggered when shoreline is baked ([BakeWaterLevel](#bakeWaterLevel_Image_int) is called). This event is called for each baking iteration, and the value from 0 to 1 (where 1 equals to 100%) is passed to the event. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when shoreline is baked ([BakeWaterLevel](#bakeWaterLevel_Image_int) is called). This event is called for each baking iteration, and the value from 0 to 1 (where 1 equals to 100%) is passed to the event. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 

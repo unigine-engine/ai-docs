@@ -1,428 +1,43 @@
 # Unigine::Animations Class (CS)
 
-> **Notice:** This class is a singleton.
+
+This class gives access to what the animation system knows about itself: which parameters of the engine can be animated at all, what kind of [channel](../../../api/library/animations/timeline/class.animationchannel_cs.md) each of them needs, and how a parameter is shown and edited. A tool that builds a [sequence](../../../api/library/animations/timeline/class.animationsequence_cs.md) from code asks these questions before it creates a channel.
 
 
-This class is the central manager for the animation system. It provides functionality for two animation subsystems:
+The same singleton also drives the animation scripts: it rebuilds them, reports whether the build succeeded and tells when a custom library has been built.
 
 
-- **Timeline Animation** - managing [animation tracks](../../../principles/animations/index.md#animation_track) (`.utrack`) and [animation playbacks](../../../principles/animations/index.md#animation_playback) (`.uplay`), querying animatable classes and their parameters, and converting legacy animation formats.
-- **Animation Scripts** - working with [animation scripts](../../../api/library/animations/skeletal/class.animscript_cs.md) (compiled animation graphs that can be interacted with via code), querying graph types, and monitoring the build process.
+Every parameter the engine allows to animate has an identifier of its own, and those identifiers make up a registry generated from the engine classes. It holds thousands of entries and is not meant to be typed out by hand: look an identifier up by name with *[GetParameterByName()](../../...md#getParameterByName_cstr_int)* or *[GetParameterByReflectionName()](../../...md#getParameterByReflectionName_cstr_cstr_int)*, and ask this class about everything else it carries, from the channel type it needs to the title it is shown under.
 
 
 ## Animations Class
 
-### Enums
-
-## RESULT
-
-| Name | Description |
-|---|---|
-| **TRACK_ERROR** = 0 | A track-related error has occurred. |
-| **NEW_TRACK_LOADED** = 1 | A new [animation track](../../../principles/animations/index.md#animation_track) is loaded. |
-| **TRACK_IS_ALREADY_LOADED** = 2 | The [animation track](../../../principles/animations/index.md#animation_track) is already loaded. |
-| **TRACK_RELOADED** = 3 | The [animation track](../../../principles/animations/index.md#animation_track) is reloaded. |
-| **TRACK_SAVED** = 4 | The [animation track](../../../principles/animations/index.md#animation_track) is saved. |
-| **TRACK_UNLOADED** = 5 | The [animation track](../../../principles/animations/index.md#animation_track) is unloaded. |
-| **PLAYBACK_ERROR** = 6 | A playback-related error has occurred. |
-| **NEW_PLAYBACK_LOADED** = 7 | A new [animation playback](../../../principles/animations/index.md#animation_playback) is loaded. |
-| **PLAYBACK_IS_ALREADY_LOADED** = 8 | The [animation playback](../../../principles/animations/index.md#animation_playback) is already loaded. |
-| **PLAYBACK_SAVED** = 9 | The [animation playback](../../../principles/animations/index.md#animation_playback) is saved. |
-
 ### Properties
 
-## 🔒︎ int NumObjects
+## 🔒︎ size_t MemoryUsage
 
-The total number of animated objects.
-## 🔒︎ int NumTracks
+The amount of memory taken by the animation system, in bytes.
+## 🔒︎ bool AnimScriptsLoaded
 
-The total number of [animation tracks](../../../principles/animations/index.md#animation_track).
-## 🔒︎ int NumPlaybacks
+The value indicating if the animation scripts are loaded.
+## 🔒︎ bool AnimScriptsRebuilding
 
-The total number of [animation playbacks](../../../principles/animations/index.md#animation_playback).
-## 🔒︎ Event< AnimationTrack > EventTrackRemoved
+The value indicating if the animation scripts are being rebuilt right now.
+## 🔒︎ bool AnimScriptsSuccessBuild
 
-The Event triggered when an [animation track](../../../principles/animations/index.md#animation_track) is removed. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The value indicating if the last build of the animation scripts succeeded.
+## bool AnimScriptsPreviewBuild
 
-> **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
+The value indicating if the animation scripts are built in the preview mode.
+## 🔒︎ int NumAnimScriptTypes
 
- The event handler signature is as follows: *myhandler(AnimationTrack **anim_track**)*
-<details>
-<summary>See Example | Close</summary>
-
-**Usage Example**
-
-```csharp
-// implement the TrackRemoved event handler
-void trackremoved_event_handler(AnimationTrack anim_track)
-{
-	Log.Message("\Handling TrackRemoved event\n");
-}
-
-//////////////////////////////////////////////////////////////////////////////
-//  1. Multiple subscriptions can be linked to an EventConnections instance
-//  class that you can use later to remove all these subscriptions at once
-//////////////////////////////////////////////////////////////////////////////
-
-// create an instance of the EventConnections class
-EventConnections trackremoved_event_connections = new EventConnections();
-
-// link to this instance when subscribing to an event (subscription to various events can be linked)
-Animations.EventTrackRemoved.Connect(trackremoved_event_connections, trackremoved_event_handler);
-
-// other subscriptions are also linked to this EventConnections instance
-// (e.g. you can subscribe using lambdas)
-Animations.EventTrackRemoved.Connect(trackremoved_event_connections, (AnimationTrack anim_track) => {
-		Log.Message("Handling TrackRemoved event lambda\n");
-		}
-	);
-
-// later all of these linked subscriptions can be removed with a single line
-trackremoved_event_connections.DisconnectAll();
-
-//////////////////////////////////////////////////////////////////////////////
-//  2. You can subscribe and unsubscribe via the handler function directly
-//////////////////////////////////////////////////////////////////////////////
-
-// subscribe to the TrackRemoved event with a handler function
-Animations.EventTrackRemoved.Connect(trackremoved_event_handler);
-
-// remove subscription to the TrackRemoved event later by the handler function
-Animations.EventTrackRemoved.Disconnect(trackremoved_event_handler);
-
-//////////////////////////////////////////////////////////////////////////////
-//   3. Subscribe to an event and unsubscribe later via an EventConnection instance
-//////////////////////////////////////////////////////////////////////////////
-
-// define a connection to be used to unsubscribe later
-EventConnection trackremoved_event_connection;
-
-// subscribe to the TrackRemoved event with a lambda handler function and keeping the connection
-trackremoved_event_connection = Animations.EventTrackRemoved.Connect((AnimationTrack anim_track) => {
-		Log.Message("Handling TrackRemoved event lambda\n");
-	}
-);
-
-// ...
-
-// you can temporarily disable a particular event connection
-trackremoved_event_connection.Enabled = false;
-
-// ... perform certain actions
-
-// and enable it back when necessary
-trackremoved_event_connection.Enabled = true;
-
-// ...
-
-// remove the subscription later using the saved connection
-trackremoved_event_connection.Disconnect();
-
-//////////////////////////////////////////////////////////////////////////////
-//   4. Ignoring TrackRemoved events when necessary
-//////////////////////////////////////////////////////////////////////////////
-
-// you can temporarily disable the event to perform certain actions without triggering it
-Animations.EventTrackRemoved.Enabled = false;
-
-// ... actions to be performed
-
-// and enable it back when necessary
-Animations.EventTrackRemoved.Enabled = true;
-
-```
-
-</details>
-
-## 🔒︎ Event< AnimationTrack > EventTrackAdded
-
-The Event triggered when a new [animation track](../../../principles/animations/index.md#animation_track) is added. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
-
-> **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
-
- The event handler signature is as follows: *myhandler(AnimationTrack **anim_track**)*
-<details>
-<summary>See Example | Close</summary>
-
-**Usage Example**
-
-```csharp
-// implement the TrackAdded event handler
-void trackadded_event_handler(AnimationTrack anim_track)
-{
-	Log.Message("\Handling TrackAdded event\n");
-}
-
-//////////////////////////////////////////////////////////////////////////////
-//  1. Multiple subscriptions can be linked to an EventConnections instance
-//  class that you can use later to remove all these subscriptions at once
-//////////////////////////////////////////////////////////////////////////////
-
-// create an instance of the EventConnections class
-EventConnections trackadded_event_connections = new EventConnections();
-
-// link to this instance when subscribing to an event (subscription to various events can be linked)
-Animations.EventTrackAdded.Connect(trackadded_event_connections, trackadded_event_handler);
-
-// other subscriptions are also linked to this EventConnections instance
-// (e.g. you can subscribe using lambdas)
-Animations.EventTrackAdded.Connect(trackadded_event_connections, (AnimationTrack anim_track) => {
-		Log.Message("Handling TrackAdded event lambda\n");
-		}
-	);
-
-// later all of these linked subscriptions can be removed with a single line
-trackadded_event_connections.DisconnectAll();
-
-//////////////////////////////////////////////////////////////////////////////
-//  2. You can subscribe and unsubscribe via the handler function directly
-//////////////////////////////////////////////////////////////////////////////
-
-// subscribe to the TrackAdded event with a handler function
-Animations.EventTrackAdded.Connect(trackadded_event_handler);
-
-// remove subscription to the TrackAdded event later by the handler function
-Animations.EventTrackAdded.Disconnect(trackadded_event_handler);
-
-//////////////////////////////////////////////////////////////////////////////
-//   3. Subscribe to an event and unsubscribe later via an EventConnection instance
-//////////////////////////////////////////////////////////////////////////////
-
-// define a connection to be used to unsubscribe later
-EventConnection trackadded_event_connection;
-
-// subscribe to the TrackAdded event with a lambda handler function and keeping the connection
-trackadded_event_connection = Animations.EventTrackAdded.Connect((AnimationTrack anim_track) => {
-		Log.Message("Handling TrackAdded event lambda\n");
-	}
-);
-
-// ...
-
-// you can temporarily disable a particular event connection
-trackadded_event_connection.Enabled = false;
-
-// ... perform certain actions
-
-// and enable it back when necessary
-trackadded_event_connection.Enabled = true;
-
-// ...
-
-// remove the subscription later using the saved connection
-trackadded_event_connection.Disconnect();
-
-//////////////////////////////////////////////////////////////////////////////
-//   4. Ignoring TrackAdded events when necessary
-//////////////////////////////////////////////////////////////////////////////
-
-// you can temporarily disable the event to perform certain actions without triggering it
-Animations.EventTrackAdded.Enabled = false;
-
-// ... actions to be performed
-
-// and enable it back when necessary
-Animations.EventTrackAdded.Enabled = true;
-
-```
-
-</details>
-
-## 🔒︎ Event< AnimationObject > EventObjectRemoved
-
-The Event triggered when an [animation object](../../../principles/animations/index.md#animation_object) is removed. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
-
-> **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
-
- The event handler signature is as follows: *myhandler(AnimationObject **anim_object**)*
-<details>
-<summary>See Example | Close</summary>
-
-**Usage Example**
-
-```csharp
-// implement the ObjectRemoved event handler
-void objectremoved_event_handler(AnimationObject anim_object)
-{
-	Log.Message("\Handling ObjectRemoved event\n");
-}
-
-//////////////////////////////////////////////////////////////////////////////
-//  1. Multiple subscriptions can be linked to an EventConnections instance
-//  class that you can use later to remove all these subscriptions at once
-//////////////////////////////////////////////////////////////////////////////
-
-// create an instance of the EventConnections class
-EventConnections objectremoved_event_connections = new EventConnections();
-
-// link to this instance when subscribing to an event (subscription to various events can be linked)
-Animations.EventObjectRemoved.Connect(objectremoved_event_connections, objectremoved_event_handler);
-
-// other subscriptions are also linked to this EventConnections instance
-// (e.g. you can subscribe using lambdas)
-Animations.EventObjectRemoved.Connect(objectremoved_event_connections, (AnimationObject anim_object) => {
-		Log.Message("Handling ObjectRemoved event lambda\n");
-		}
-	);
-
-// later all of these linked subscriptions can be removed with a single line
-objectremoved_event_connections.DisconnectAll();
-
-//////////////////////////////////////////////////////////////////////////////
-//  2. You can subscribe and unsubscribe via the handler function directly
-//////////////////////////////////////////////////////////////////////////////
-
-// subscribe to the ObjectRemoved event with a handler function
-Animations.EventObjectRemoved.Connect(objectremoved_event_handler);
-
-// remove subscription to the ObjectRemoved event later by the handler function
-Animations.EventObjectRemoved.Disconnect(objectremoved_event_handler);
-
-//////////////////////////////////////////////////////////////////////////////
-//   3. Subscribe to an event and unsubscribe later via an EventConnection instance
-//////////////////////////////////////////////////////////////////////////////
-
-// define a connection to be used to unsubscribe later
-EventConnection objectremoved_event_connection;
-
-// subscribe to the ObjectRemoved event with a lambda handler function and keeping the connection
-objectremoved_event_connection = Animations.EventObjectRemoved.Connect((AnimationObject anim_object) => {
-		Log.Message("Handling ObjectRemoved event lambda\n");
-	}
-);
-
-// ...
-
-// you can temporarily disable a particular event connection
-objectremoved_event_connection.Enabled = false;
-
-// ... perform certain actions
-
-// and enable it back when necessary
-objectremoved_event_connection.Enabled = true;
-
-// ...
-
-// remove the subscription later using the saved connection
-objectremoved_event_connection.Disconnect();
-
-//////////////////////////////////////////////////////////////////////////////
-//   4. Ignoring ObjectRemoved events when necessary
-//////////////////////////////////////////////////////////////////////////////
-
-// you can temporarily disable the event to perform certain actions without triggering it
-Animations.EventObjectRemoved.Enabled = false;
-
-// ... actions to be performed
-
-// and enable it back when necessary
-Animations.EventObjectRemoved.Enabled = true;
-
-```
-
-</details>
-
-## 🔒︎ Event< AnimationObject > EventObjectAdded
-
-The Event triggered when a new [animation object](../../../principles/animations/index.md#animation_object) is added. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
-
-> **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
-
- The event handler signature is as follows: *myhandler(AnimationObject **anim_object**)*
-<details>
-<summary>See Example | Close</summary>
-
-**Usage Example**
-
-```csharp
-// implement the ObjectAdded event handler
-void objectadded_event_handler(AnimationObject anim_object)
-{
-	Log.Message("\Handling ObjectAdded event\n");
-}
-
-//////////////////////////////////////////////////////////////////////////////
-//  1. Multiple subscriptions can be linked to an EventConnections instance
-//  class that you can use later to remove all these subscriptions at once
-//////////////////////////////////////////////////////////////////////////////
-
-// create an instance of the EventConnections class
-EventConnections objectadded_event_connections = new EventConnections();
-
-// link to this instance when subscribing to an event (subscription to various events can be linked)
-Animations.EventObjectAdded.Connect(objectadded_event_connections, objectadded_event_handler);
-
-// other subscriptions are also linked to this EventConnections instance
-// (e.g. you can subscribe using lambdas)
-Animations.EventObjectAdded.Connect(objectadded_event_connections, (AnimationObject anim_object) => {
-		Log.Message("Handling ObjectAdded event lambda\n");
-		}
-	);
-
-// later all of these linked subscriptions can be removed with a single line
-objectadded_event_connections.DisconnectAll();
-
-//////////////////////////////////////////////////////////////////////////////
-//  2. You can subscribe and unsubscribe via the handler function directly
-//////////////////////////////////////////////////////////////////////////////
-
-// subscribe to the ObjectAdded event with a handler function
-Animations.EventObjectAdded.Connect(objectadded_event_handler);
-
-// remove subscription to the ObjectAdded event later by the handler function
-Animations.EventObjectAdded.Disconnect(objectadded_event_handler);
-
-//////////////////////////////////////////////////////////////////////////////
-//   3. Subscribe to an event and unsubscribe later via an EventConnection instance
-//////////////////////////////////////////////////////////////////////////////
-
-// define a connection to be used to unsubscribe later
-EventConnection objectadded_event_connection;
-
-// subscribe to the ObjectAdded event with a lambda handler function and keeping the connection
-objectadded_event_connection = Animations.EventObjectAdded.Connect((AnimationObject anim_object) => {
-		Log.Message("Handling ObjectAdded event lambda\n");
-	}
-);
-
-// ...
-
-// you can temporarily disable a particular event connection
-objectadded_event_connection.Enabled = false;
-
-// ... perform certain actions
-
-// and enable it back when necessary
-objectadded_event_connection.Enabled = true;
-
-// ...
-
-// remove the subscription later using the saved connection
-objectadded_event_connection.Disconnect();
-
-//////////////////////////////////////////////////////////////////////////////
-//   4. Ignoring ObjectAdded events when necessary
-//////////////////////////////////////////////////////////////////////////////
-
-// you can temporarily disable the event to perform certain actions without triggering it
-Animations.EventObjectAdded.Enabled = false;
-
-// ... actions to be performed
-
-// and enable it back when necessary
-Animations.EventObjectAdded.Enabled = true;
-
-```
-
-</details>
-
+The number of animation script types the engine knows.
 ## 🔒︎ Event<string, string, string> EventCustomLibBuild
 
-The Event triggered when a custom animation script library build is performed. The handler receives paths to the generated C++ source file, the compiled library, and the build log. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
-
+The event triggered when a custom animation library has been built. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience.
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
- The event handler signature is as follows: *myhandler(string **cpp_path**, string **lib_path**, string **log_path**)*
+The event handler signature is as follows: *myhandler(string **name**, string **path**, string **message**)*
 <details>
 <summary>See Example | Close</summary>
 
@@ -430,7 +45,7 @@ The Event triggered when a custom animation script library build is performed. T
 
 ```csharp
 // implement the CustomLibBuild event handler
-void customlibbuild_event_handler(string cpp_path,  string lib_path,  string log_path)
+void customlibbuild_event_handler(string name, string path, string message)
 {
 	Log.Message("\Handling CustomLibBuild event\n");
 }
@@ -448,7 +63,7 @@ publisher.EventCustomLibBuild.Connect(customlibbuild_event_connections, customli
 
 // other subscriptions are also linked to this EventConnections instance
 // (e.g. you can subscribe using lambdas)
-publisher.EventCustomLibBuild.Connect(customlibbuild_event_connections, (string cpp_path,  string lib_path,  string log_path) => {
+publisher.EventCustomLibBuild.Connect(customlibbuild_event_connections, (string name, string path, string message) => {
 		Log.Message("Handling CustomLibBuild event lambda\n");
 		}
 	);
@@ -474,7 +89,7 @@ publisher.EventCustomLibBuild.Disconnect(customlibbuild_event_handler);
 EventConnection customlibbuild_event_connection;
 
 // subscribe to the CustomLibBuild event with a lambda handler function and keeping the connection
-customlibbuild_event_connection = publisher.EventCustomLibBuild.Connect((string cpp_path,  string lib_path,  string log_path) => {
+customlibbuild_event_connection = publisher.EventCustomLibBuild.Connect((string name, string path, string message) => {
 		Log.Message("Handling CustomLibBuild event lambda\n");
 	}
 );
@@ -510,385 +125,475 @@ publisher.EventCustomLibBuild.Enabled = true;
 
 </details>
 
-## 🔒︎ int NumAnimScriptTypes
-
-The total number of registered [animation script](../../../api/library/animations/skeletal/class.animscript_cs.md) types.
-## 🔒︎ bool IsAnimScriptsSuccessBuild
-
-The Returns a value indicating if the last [animation script](../../../api/library/animations/skeletal/class.animscript_cs.md) build completed successfully.
-## 🔒︎ bool IsAnimScriptsRebuilding
-
-The Returns a value indicating if [animation scripts](../../../api/library/animations/skeletal/class.animscript_cs.md) are currently being rebuilt.
-## 🔒︎ bool IsAnimScriptsLoaded
-
-The Returns a value indicating if [animation scripts](../../../api/library/animations/skeletal/class.animscript_cs.md) are loaded.
 ### Members
 
 ---
 
-## AnimationObject GetObjectByIndex ( int index )
+## void RestoreEachFrame ( )
 
-Returns an [animation object](../../../principles/animations/index.md#animation_object) by its index in the common list of animation objects.
+Restores the original values of every player that is set to give them back each frame. The engine calls it on its own, once per frame.
+## void SetComponentWritesCollecting ( bool enabled )
+
+Starts or stops collecting the writes made to component fields, which is how the editor learns what a running component changes.
 ### Arguments
 
-- *int* **index** - Animation object index.
+- *bool* **enabled** - true to start collecting, false to stop.
 
-### Return value
+## void FetchComponentWrites ( Blob blob )
 
-Animation object with the specified index
-## AnimationObject GetObjectByID ( int id )
-
-Returns an [animation object](../../../principles/animations/index.md#animation_object) by its ID.
+Takes the writes collected so far and puts them into the specified blob.
 ### Arguments
 
-- *int* **id** - Animation object ID.
+- *[Blob](../../../api/library/common/class.blob_cs.md)* **blob** - Blob to put the collected writes into.
 
-### Return value
+## void SetSequencerMusicMuted ( bool muted )
 
-Animation object with the specified ID.
-## bool ContainsObject ( int id )
-
-Returns a value indicating if an [animation object](../../../principles/animations/index.md#animation_object) with the specified ID exists.
+Mutes the music channels of every sequence that is playing.
 ### Arguments
 
-- *int* **id** - Animation object ID.
+- *bool* **muted** - true to mute the music, false to let it play.
 
-### Return value
-
-true if the animation object with the specified ID exists; otherwise, false.
-## int GetObjectIndex ( AnimationObject obj )
-
-Returns an index of the specified [animation object](../../../principles/animations/index.md#animation_object) in the common list.
-### Arguments
-
-- *[AnimationObject](../../../api/library/animations/timeline/class.animationobject_cs.md)* **obj** - Animation object for which an index is to be found.
-
-### Return value
-
-Animation object index in the common list of animation objects if it is found; otherwise, -1.
-## void LoadTracks ( )
-
-Loads all [animation tracks](../../../principles/animations/index.md#animation_track).
-## void UnloadTracks ( )
-
-Unloads all [animation tracks](../../../principles/animations/index.md#animation_track).
-## void ReloadTracks ( )
-
-Reloads all [animation tracks](../../../principles/animations/index.md#animation_track).
-## Animations.RESULT LoadTrack ( string path )
-
-Loads an [animation track](../../../principles/animations/index.md#animation_track) from the specified file path.
-### Arguments
-
-- *string* **path** - Path to the source track file (`.utrack`).
-
-### Return value
-
-Result of loading operation.
-## Animations.RESULT ReloadTrack ( string path )
-
-Reloads an [animation track](../../../principles/animations/index.md#animation_track) from the specified file path.
-### Arguments
-
-- *string* **path** - Path to the source track file (`.utrack`).
-
-### Return value
-
-Result of reloading operation.
-## Animations.RESULT SaveTrack ( AnimationTrack track , string path )
-
-Saves the specified [animation track](../../../principles/animations/index.md#animation_track) to the specified file path.
-### Arguments
-
-- *[AnimationTrack](../../../api/library/animations/timeline/class.animationtrack_cs.md)* **track** - Animation track to be saved.
-- *string* **path** - Path to which the specified animation track is to be saved.
-
-### Return value
-
-Result of saving operation.
-## Animations.RESULT SaveTrackPrecomputed ( AnimationTrack track , int num_frames , bool is_looped_frames , string path )
-
-Saves the precomputed version of the specified [animation track](../../../principles/animations/index.md#animation_track) to the specified file path.
-### Arguments
-
-- *[AnimationTrack](../../../api/library/animations/timeline/class.animationtrack_cs.md)* **track** - Animation track to be saved.
-- *int* **num_frames** - Number of frames to be saved.
-- *bool* **is_looped_frames** - Set true if the animation track should be looped; otherwise, false.
-- *string* **path** - Path to which the specified animation track is to be saved.
-
-### Return value
-
-Result of saving operation.
-## AnimationTrack GetTrackByIndex ( int index )
-
-Returns an [animation track](../../../principles/animations/index.md#animation_track) by its index in the common list of tracks.
-### Arguments
-
-- *int* **index** - Animation track index in the common list of tracks.
-
-### Return value
-
-Animation track with the specified index.
-## AnimationTrack GetTrackByGUID ( UGUID guid )
-
-Returns an [animation track](../../../principles/animations/index.md#animation_track) by its GUID.
-### Arguments
-
-- *[UGUID](../../../api/library/filesystem/class.uguid_cs.md)* **guid** - GUID of the animation track.
-
-### Return value
-
-Animation track with the specified GUID.
-## AnimationTrack GetTrackByFileGUID ( UGUID guid )
-
-Returns an [animation track](../../../principles/animations/index.md#animation_track) by the GUID of the animation track file (`.utrack`).
-### Arguments
-
-- *[UGUID](../../../api/library/filesystem/class.uguid_cs.md)* **guid** - GUID of the animation track file (`.utrack`).
-
-### Return value
-
-Animation track with the specified file GUID.
-## AnimationTrack GetTrackByPath ( string path )
-
-Returns an [animation track](../../../principles/animations/index.md#animation_track) by the path to the animation track file (`.utrack`).
-### Arguments
-
-- *string* **path** - Path to the animation track file (`.utrack`).
-
-### Return value
-
-Animation track with the specified file GUID.
-## bool ContainsTrack ( UGUID guid )
-
-Returns a value indicating if an [animation track](../../../principles/animations/index.md#animation_track) with the specified GUID exists.
-### Arguments
-
-- *[UGUID](../../../api/library/filesystem/class.uguid_cs.md)* **guid** - GUID of the animation track.
-
-### Return value
-
-true if the animation track with the specified GUID exists; otherwise, false.
-## int GetTrackIndex ( AnimationTrack track )
-
-Returns an index of the specified [animation track](../../../principles/animations/index.md#animation_track) in the common list.
-### Arguments
-
-- *[AnimationTrack](../../../api/library/animations/timeline/class.animationtrack_cs.md)* **track** - Animation track for which an index is to be found.
-
-### Return value
-
-Animation track index in the common list of animation tracks if it is found; otherwise, -1.
-## void LoadPlaybacks ( )
-
-Loads all [animation playbacks](../../../principles/animations/index.md#animation_playback).
-## Animations.RESULT LoadPlayback ( string path )
-
-Loads an [animation playback](../../../principles/animations/index.md#animation_playback) from the specified file path.
-### Arguments
-
-- *string* **path** - Path to the source animation playback file (`.uplay`).
-
-### Return value
-
-Result of loading operation.
-## Animations.RESULT SavePlayback ( AnimationPlayback playback , string path )
-
-Saves the specified [animation playback](../../../principles/animations/index.md#animation_playback) to the specified file path.
-### Arguments
-
-- *[AnimationPlayback](../../../api/library/animations/timeline/class.animationplayback_cs.md)* **playback** - Animation playback to be saved.
-- *string* **path** - Path to which the specified animation playback is to be saved.
-
-### Return value
-
-Result of saving operation.
-## AnimationPlayback GetPlaybackByIndex ( int index )
-
-Returns an [animation playback](../../../principles/animations/index.md#animation_playback) by its index in the common list of tracks.
-### Arguments
-
-- *int* **index** - Animation playback index in the common list of playbacks.
-
-### Return value
-
-Animation playback with the specified index.
-## AnimationPlayback GetPlaybackByGUID ( UGUID guid )
-
-Returns an [animation playback](../../../principles/animations/index.md#animation_playback) by its GUID.
-### Arguments
-
-- *[UGUID](../../../api/library/filesystem/class.uguid_cs.md)* **guid** - GUID of the animation playback.
-
-### Return value
-
-Animation playback with the specified GUID.
-## AnimationPlayback GetPlaybackByFileGUID ( UGUID guid )
-
-Returns an [animation playback](../../../principles/animations/index.md#animation_playback) by the GUID of the animation track file (`.uplay`).
-### Arguments
-
-- *[UGUID](../../../api/library/filesystem/class.uguid_cs.md)* **guid** - GUID of the animation playback file (`.uplay`).
-
-### Return value
-
-Animation track with the specified file GUID.
-## AnimationPlayback GetPlaybackByPath ( string path )
-
-Returns an [animation playback](../../../principles/animations/index.md#animation_playback) by the path to the animation track file (`.uplay`).
-### Arguments
-
-- *string* **path** - Path to the animation playback file (`.uplay`).
-
-### Return value
-
-Animation playback with the specified path.
-## bool ContainsPlayback ( UGUID guid )
-
-Returns a value indicating if an [animation playback](../../../principles/animations/index.md#animation_playback) with the specified GUID exists.
-### Arguments
-
-- *[UGUID](../../../api/library/filesystem/class.uguid_cs.md)* **guid** - GUID of the animation playback.
-
-### Return value
-
-true if the animation playback with the specified GUID exists; otherwise, false.
-## int GetPlaybackIndex ( AnimationPlayback playback )
-
-Returns an index of the specified [animation playback](../../../principles/animations/index.md#animation_playback) in the common list.
-### Arguments
-
-- *[AnimationPlayback](../../../api/library/animations/timeline/class.animationplayback_cs.md)* **playback** - Animation playback for which an index is to be found.
-
-### Return value
-
-Animation track index in the common list of animation tracks if it is found; otherwise, -1.
 ## int GetClasses ( string[] OUT_out_classes )
 
-Obtains the list of names of all available classes that can be animated and puts it to the specified output buffer.
+Collects the names of every class the animation system knows and puts them to the **out_classes** buffer.
 ### Arguments
 
-- *string[]* **OUT_out_classes** - Output buffer for the list of the Engine's classes that can be animated. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
+- *string[]* **OUT_out_classes** - Output buffer for the class names. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
 
 ### Return value
 
-Number of the Engine's classes that can be animated.
+Number of class names put to the buffer.
+## int GetBaseClasses ( string[] OUT_out_classes )
+
+Collects the names of the base classes of the animation system and puts them to the **out_classes** buffer.
+### Arguments
+
+- *string[]* **OUT_out_classes** - Output buffer for the class names. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
+
+### Return value
+
+Number of class names put to the buffer.
 ## int GetSingletonClasses ( string[] OUT_out_classes )
 
-Obtains the list of names of all Engine's singleton-classes and puts it to the specified output buffer.
+Collects the names of the singleton classes that can be animated and puts them to the **out_classes** buffer.
 ### Arguments
 
-- *string[]* **OUT_out_classes** - Output buffer for the list of the Engine's singleton-classes. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
+- *string[]* **OUT_out_classes** - Output buffer for the class names. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
 
 ### Return value
 
-Number of the Engine's singleton-classes.
+Number of class names put to the buffer.
 ## string GetParentClass ( string class_name )
 
-Returns the name of the parent class for the specified class.
+Returns the class the specified one inherits from.
 ### Arguments
 
-- *string* **class_name** - Name of the class for which the parent class is to be found.
+- *string* **class_name** - Name of the class.
 
 ### Return value
 
 Name of the parent class.
 ## int GetDerivedClasses ( string class_name , string[] OUT_out_classes )
 
-Obtains the list of all classes derived from the specified one and puts it to the specified output buffer.
+Collects the classes that inherit from the specified one.
 ### Arguments
 
-- *string* **class_name** - Name of the class for which derived classes are to be found.
-- *string[]* **OUT_out_classes** - Output buffer for the list of classes derived from the specified class. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
+- *string* **class_name** - Name of the class.
+- *string[]* **OUT_out_classes** - Output buffer for the class names. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
 
 ### Return value
 
-Number of derived classes.
+Number of class names put to the buffer.
 ## int GetClassParameters ( string class_name , int[] OUT_out_parameters )
 
-Obtains the list of all [animation parameter](../../../principles/animations/index.md#animation_parameters) for the specified class and puts it to the specified output buffer.
+Collects the parameters the specified class exposes to animation.
 ### Arguments
 
-- *string* **class_name** - Name of the class for which the list of animation parameters is to be found.
-- *int[]* **OUT_out_parameters** - Output buffer for the list of parameters of the specified class. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
+- *string* **class_name** - Name of the class.
+- *int[]* **OUT_out_parameters** - Output buffer for the parameters. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
 
 ### Return value
 
-Number of animation parameters for the specified class.
+Number of parameters put to the buffer.
+## string GetParameterClass ( AnimParams.PARAM param )
+
+Returns the class the specified parameter belongs to.
+### Arguments
+
+- *AnimParams.PARAM* **param** - Parameter to be asked about.
+
+### Return value
+
+Name of the class the parameter belongs to.
+## AnimationBind.TYPE GetParameterBindType ( AnimParams.PARAM param )
+
+Returns the kind of binding a channel needs to animate the specified parameter.
+### Arguments
+
+- *AnimParams.PARAM* **param** - Parameter to be asked about.
+
+### Return value
+
+Kind of binding the parameter needs.
+## bool IsParameterTarget ( AnimParams.PARAM param , Node node )
+
+Returns a value indicating if the specified node is a target the parameter can be written into, that is, if the node is of the class the parameter belongs to. It answers whether a target may be accepted before a channel is pointed at it.
+### Arguments
+
+- *AnimParams.PARAM* **param** - Parameter to be asked about.
+- *[Node](../../../api/library/nodes/class.node_cs.md)* **node** - Node to be checked as the target.
+
+### Return value
+
+true if the specified parameter can be animated on the specified node; otherwise, false.
 ## string GetParameterName ( AnimParams.PARAM param )
 
-Returns the name of the specified the specified [animation parameter](../../../principles/animations/index.md#animation_parameters).
+Returns the name of the specified parameter.
 ### Arguments
 
-- *AnimParams.PARAM* **param** - Animation parameter.
+- *AnimParams.PARAM* **param** - Parameter to be asked about.
 
 ### Return value
 
-Animation parameter name.
-## AnimationModifier.TYPE GetParameterModifierType ( AnimParams.PARAM param )
+Name of the parameter.
+## AnimationChannel.TYPE GetParameterChannelType ( AnimParams.PARAM param )
 
-Returns the type of modifier used for the specified [animation parameter](../../../principles/animations/index.md#animation_parameters).
+Returns the type of channel that animates the specified parameter.
 ### Arguments
 
-- *AnimParams.PARAM* **param** - Animation parameter.
+- *AnimParams.PARAM* **param** - Parameter to be asked about.
 
 ### Return value
 
-Modifier type for the specified parameter.
+Type of the channel that animates the parameter.
+## AnimParams.WIDGET GetParameterWidget ( AnimParams.PARAM param )
+
+Returns the widget the specified parameter is edited with in the interface.
+### Arguments
+
+- *AnimParams.PARAM* **param** - Parameter to be asked about.
+
+### Return value
+
+Widget the parameter is edited with.
+## string GetParameterItems ( AnimParams.PARAM param )
+
+Returns the items of the specified parameter, which is what an enumeration offers to choose from.
+### Arguments
+
+- *AnimParams.PARAM* **param** - Parameter to be asked about.
+
+### Return value
+
+Items of the parameter, when it is an enumeration.
+## string GetParameterNodeType ( AnimParams.PARAM param )
+
+Returns the node type the specified parameter accepts.
+### Arguments
+
+- *AnimParams.PARAM* **param** - Parameter to be asked about.
+
+### Return value
+
+Node type the parameter accepts.
+## AnimParams.ACCESS GetParameterAccess ( AnimParams.PARAM param )
+
+Returns the way the specified parameter is reached on its object.
+### Arguments
+
+- *AnimParams.PARAM* **param** - Parameter to be asked about.
+
+### Return value
+
+Way the parameter is reached.
+## AnimParams.VEC_COMPONENT GetParameterVecComponent ( AnimParams.PARAM param )
+
+Returns the component of a vector the specified parameter stands for.
+### Arguments
+
+- *AnimParams.PARAM* **param** - Parameter to be asked about.
+
+### Return value
+
+Component of the vector the parameter stands for.
+## string GetParameterLogicalName ( AnimParams.PARAM param )
+
+Returns the logical name of the specified parameter, which groups the components of one value together.
+### Arguments
+
+- *AnimParams.PARAM* **param** - Parameter to be asked about.
+
+### Return value
+
+Logical name of the parameter.
+## string GetParameterKeyName ( AnimParams.PARAM param )
+
+Returns the key name the specified parameter is stored under.
+### Arguments
+
+- *AnimParams.PARAM* **param** - Parameter to be asked about.
+
+### Return value
+
+Key name of the parameter.
+## string GetParameterTitle ( AnimParams.PARAM param )
+
+Returns the title the specified parameter is shown under in the interface.
+### Arguments
+
+- *AnimParams.PARAM* **param** - Parameter to be asked about.
+
+### Return value
+
+Title of the parameter.
+## string GetParameterMinValue ( AnimParams.PARAM param )
+
+Returns the lower bound of the specified parameter.
+### Arguments
+
+- *AnimParams.PARAM* **param** - Parameter to be asked about.
+
+### Return value
+
+Lower bound of the parameter.
+## string GetParameterMaxValue ( AnimParams.PARAM param )
+
+Returns the upper bound of the specified parameter.
+### Arguments
+
+- *AnimParams.PARAM* **param** - Parameter to be asked about.
+
+### Return value
+
+Upper bound of the parameter.
+## string GetParameterAssetExtension ( AnimParams.PARAM param )
+
+Returns the extension of the assets the specified parameter accepts.
+### Arguments
+
+- *AnimParams.PARAM* **param** - Parameter to be asked about.
+
+### Return value
+
+Extension of the assets the parameter accepts.
+## string GetParameterSlotKindName ( AnimParams.PARAM param )
+
+Returns the name of the kind of slot the specified parameter is indexed by, such as a surface or a bone.
+### Arguments
+
+- *AnimParams.PARAM* **param** - Parameter to be asked about.
+
+### Return value
+
+Name of the slot kind of the parameter.
 ## AnimParams.PARAM GetParameterByName ( string param_name )
 
-Returns an [animation parameter](../../../principles/animations/index.md#animation_parameters) by its name.
+Returns the parameter that goes by the specified name.
 ### Arguments
 
-- *string* **param_name** - Animation parameter name.
+- *string* **param_name** - Name of the parameter.
 
 ### Return value
 
-Animation parameter with the specified name.
-## void ConvertToUanims ( string folder_path , string[] playbacks )
+Parameter that goes by the specified name.
+## AnimParams.PARAM GetParameterByReflectionName ( string class_name , string prop_name )
 
-Converts all track-files in the old *Tracker* format ( `.track`) from the specfied folder to the new animation formats (`.utrack` / `.uplay`).
+Returns the parameter a class member is animated through, addressed the way the reflection names it.
 ### Arguments
 
-- *string* **folder_path** - Path to the folder containing track-files in the old *Tracker* format ( `.track`) to be converted to the new track format (`.utrack`).
-- *string[]* **playbacks** - List of *Tracker* animation tracks in old format ( `.track`) to be converted to the new playback format(`.uplay`).
-
-## void ConvertToUanims ( string[] tracks , string[] playbacks )
-
-Converts the specified lists of tracks in the old *Tracker* format ( `.track`) to the new animation formats (`.utrack` / `.uplay`).
-### Arguments
-
-- *string[]* **tracks** - List of *Tracker* animation tracks in old format ( `.track`) to be converted to the new track format (`.utrack`).
-- *string[]* **playbacks** - List of *Tracker* animation tracks in old format ( `.track`) to be converted to the new playback format(`.uplay`).
-
-## void CheckUtrackTypes ( )
-
-Checks all old-style animation parameter types (used in the *Tracker* tool) versus their equivalents in the new Animation System and outputs them to the console. In case of unknown parameter types the corresponding message is displayed.
-## bool AnimToBonesModifier ( string anim_path , AnimationModifierBones out_modifier , float duration )
-
-Converts the specified mesh animation file (`.anim`) to a [modifier](../../../principles/animations/index.md#animation_modifier) for [ObjectMeshSkinnedLegacy](../../../api/library/objects/class.objectmeshskinnedlegacy_cs.md) bones ( *AnimationModifierBones*) and puts it to the specified *AnimationModifierBones* instance.
-### Arguments
-
-- *string* **anim_path** - Path to the mesh animation file (`.anim`) to be converted.
-- *[AnimationModifierBones](../../../api/library/animations/timeline/class.animationmodifierbones_cs.md)* **out_modifier** - Resulting animation modifier.
-- *float* **duration** - Target animation duration, in seconds.
+- *string* **class_name** - Name of the class.
+- *string* **prop_name** - Name of the property as the reflection reports it.
 
 ### Return value
 
-true if the specified mesh animation file was successfully converted; otherwise, false.
+Parameter that answers to the specified names.
+## bool ReadParameterValueFloat ( Node target , AnimParams.PARAM param , int param_index , int component , string param_name , out float out_value )
+
+Reads the current value of an animatable parameter straight from a node, which is what recording a key from the scene is built on.
+### Arguments
+
+- *[Node](../../../api/library/nodes/class.node_cs.md)* **target** - Node to read the value from.
+- *AnimParams.PARAM* **param** - Parameter to be asked about.
+- *int* **param_index** - Slot of the parameter, or -1 when it has none.
+- *int* **component** - Component of the value to be read.
+- *string* **param_name** - Name that addresses the parameter when a number is not enough.
+- *out float* **out_value** - Output buffer for the value.
+
+### Return value
+
+true if the value was read; otherwise, false.
+## bool ReadChannelParameterValueFloat ( AnimationChannel channel , int component , out float out_value )
+
+Reads the current value of the parameter the specified channel animates.
+### Arguments
+
+- *[AnimationChannel](../../../api/library/animations/timeline/class.animationchannel_cs.md)* **channel** - Channel to be asked about.
+- *int* **component** - Component of the value to be read.
+- *out float* **out_value** - Output buffer for the value.
+
+### Return value
+
+true if the value was read; otherwise, false.
+## string ReadChannelParameterValueString ( AnimationChannel channel )
+
+Reads the current value of the parameter the specified channel animates.
+### Arguments
+
+- *[AnimationChannel](../../../api/library/animations/timeline/class.animationchannel_cs.md)* **channel** - Channel to be asked about.
+
+### Return value
+
+Current value of the parameter.
+## UGUID ReadChannelParameterValueUGUID ( AnimationChannel channel )
+
+Reads the current value of the parameter the specified channel animates.
+### Arguments
+
+- *[AnimationChannel](../../../api/library/animations/timeline/class.animationchannel_cs.md)* **channel** - Channel to be asked about.
+
+### Return value
+
+Current value of the parameter.
+## Node ReadChannelParameterValueNode ( AnimationChannel channel )
+
+Reads the current value of the parameter the specified channel animates.
+### Arguments
+
+- *[AnimationChannel](../../../api/library/animations/timeline/class.animationchannel_cs.md)* **channel** - Channel to be asked about.
+
+### Return value
+
+Current value of the parameter.
+## int GetChannelSlotCount ( AnimationChannel channel )
+
+Returns how many slots the parameter of the specified channel offers, such as the surfaces of an object or the bones of a skeleton.
+### Arguments
+
+- *[AnimationChannel](../../../api/library/animations/timeline/class.animationchannel_cs.md)* **channel** - Channel to be asked about.
+
+### Return value
+
+Number of slots the parameter of the channel offers.
+## int GetChannelSlotNames ( AnimationChannel channel , string[] OUT_out_names )
+
+Collects the names of the slots the parameter of the specified channel offers.
+### Arguments
+
+- *[AnimationChannel](../../../api/library/animations/timeline/class.animationchannel_cs.md)* **channel** - Channel to be asked about.
+- *string[]* **OUT_out_names** - Output buffer for the slot names. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
+
+### Return value
+
+Number of slot names put to the buffer.
+## int GetChannelSlotIndex ( AnimationChannel channel , string name )
+
+Looks a slot of the channel parameter up by name and returns the number it takes on the object the channel is currently bound to. It is the counterpart of [getChannelSlotNames()](#getChannelSlotNames_AnimationChannel_VECString_int) for a channel that addresses its slot by name, see [SlotAccess](../../../api/library/animations/timeline/class.animationchannel_cs.md#SlotAccess).
+### Arguments
+
+- *[AnimationChannel](../../../api/library/animations/timeline/class.animationchannel_cs.md)* **channel** - Channel to be asked about.
+- *string* **name** - Name of the slot to be looked up.
+
+### Return value
+
+Number of the slot, or -1 if the parameter offers no slots or the object the channel is bound to has none under that name.
+## bool IsChannelParameterReadable ( AnimationChannel channel )
+
+Returns a value indicating if the current value of the channel parameter can be read from the scene. It cannot when the object the channel is bound to is not there to be resolved, or when the channel addresses a slot that object does not have.
+### Arguments
+
+- *[AnimationChannel](../../../api/library/animations/timeline/class.animationchannel_cs.md)* **channel** - Channel to be checked.
+
+### Return value
+
+true if the current value of the channel parameter can be read; otherwise, false.
+## int GetChannelSupportedProperties ( AnimationChannel.TYPE channel_type , int[] OUT_out_kinds )
+
+Collects the playback properties a channel of the specified type offers, such as the pitch and the fades of a sound.
+### Arguments
+
+- *[AnimationChannel.TYPE](../../../api/library/animations/timeline/class.animationchannel_cs.md#TYPE)* **channel_type** - Type of the channel.
+- *int[]* **OUT_out_kinds** - Output buffer for the playback property kinds. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
+
+### Return value
+
+Number of kinds put to the buffer.
+## string GetChannelPropertyName ( AnimationChannel.PROPERTY kind )
+
+Returns the name of the specified playback property.
+### Arguments
+
+- *[AnimationChannel.PROPERTY](../../../api/library/animations/timeline/class.animationchannel_cs.md#PROPERTY)* **kind** - Kind of the playback property.
+
+### Return value
+
+Name of the playback property.
+## float GetChannelPropertyDefaultValue ( AnimationChannel.PROPERTY kind )
+
+Returns the value the specified playback property holds until it is animated.
+### Arguments
+
+- *[AnimationChannel.PROPERTY](../../../api/library/animations/timeline/class.animationchannel_cs.md#PROPERTY)* **kind** - Kind of the playback property.
+
+### Return value
+
+Default value of the playback property.
+## float GetChannelPropertyMinValue ( AnimationChannel.PROPERTY kind )
+
+Returns the lower bound of the specified playback property.
+### Arguments
+
+- *[AnimationChannel.PROPERTY](../../../api/library/animations/timeline/class.animationchannel_cs.md#PROPERTY)* **kind** - Kind of the playback property.
+
+### Return value
+
+Lower bound of the playback property.
+## float GetChannelPropertyMaxValue ( AnimationChannel.PROPERTY kind )
+
+Returns the upper bound of the specified playback property.
+### Arguments
+
+- *[AnimationChannel.PROPERTY](../../../api/library/animations/timeline/class.animationchannel_cs.md#PROPERTY)* **kind** - Kind of the playback property.
+
+### Return value
+
+Upper bound of the playback property.
+## bool AnimToBonesChannel ( string anim_path , AnimationChannelBones out_channel , float duration )
+
+Bakes a skeletal animation file into a bones channel, so that its pose can be edited key by key in the Sequencer.
+### Arguments
+
+- *string* **anim_path** - Path to the animation file.
+- *[AnimationChannelBones](../../../api/library/animations/timeline/class.animationchannelbones_cs.md)* **out_channel** - Channel to receive the baked keys.
+- *float* **duration** - Length the animation is baked over, in seconds.
+
+### Return value
+
+true if the animation was baked; otherwise, false.
+## String ConvertLegacyTrackToSequence ( string track_path , string seq_path = "" , bool overwrite = false )
+
+Converts a track authored in the legacy Tracker into a sequence. A track that plays other tracks inside itself is converted whole: every nested track becomes a sequence file of its own and the parent receives a sub-sequence channel whose clips point at them, so overwriting rebuilds the entire tree rather than the file that was named. Everything the conversion could not carry over is reported to the console, one line per parameter. The whole picture is in the [Converting Legacy Tracks](../../../editor2/tools/sequencer/track_import/index.md) article.
+### Arguments
+
+- *string* **track_path** - Path to the legacy `*.track` file to be converted.
+- *string* **seq_path** - Path the `*.seq` file is to be written to. Left empty, the sequence is written beside the track under the same name. The default value is an empty string.
+- *bool* **overwrite** - true to convert the track again and replace a `*.seq` that is already there, false to keep the existing file and write nothing. The default value is false.
+
+### Return value
+
+Path of the sequence file, or an empty string if nothing was written.
 ## void RebuildAnimScripts ( )
 
-Triggers a rebuild of all [animation scripts](../../../api/library/animations/skeletal/class.animscript_cs.md). This recompiles the animation graph source files into a runtime library. Use  to check if the rebuild process is still in progress, and  to check if it completed successfully.
+Rebuilds the animation scripts of the project.
+## void WaitAnimScriptsRebuilding ( )
+
+Blocks until the rebuild of the animation scripts is over.
 ## string GetAnimScriptTypeName ( int type_index )
 
-Returns the name of the [animation script](../../../api/library/animations/skeletal/class.animscript_cs.md) type by its index.
+Returns the name of an animation script type by its number.
 ### Arguments
 
-- *int* **type_index** - Index of the animation script type in the range from 0 to the  of types.
+- *int* **type_index** - Number of the animation script type.
 
 ### Return value
 
 Name of the animation script type.
-## static void WaitAnimScriptsRebuilding ( )
-
-Blocks execution until the current animation scripts rebuild is complete. If a rebuild is in progress, this method waits for the background build task to finish and then loads the updated library. If no rebuild is in progress, returns immediately.

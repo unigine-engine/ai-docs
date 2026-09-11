@@ -22,9 +22,9 @@ Per-function analysis can be output into the console or logged to a file (if its
 Data logged by the analyzer includes the following:
 
 
-- *total seconds* — the total number of seconds the interpreter spent executing this function.
-- *self seconds* — the number of seconds accounted for by this function alone, without internal calls of other functions.
-- *calls* — the total number of times the function was called.
-- *total ms/call* — the average number of milliseconds spent in this function and its descendants per call.
-- *self ms/call* — the average number of milliseconds spent in this function per call.
-- *name* — function name.
+- *total seconds* � the total number of seconds the interpreter spent executing this function.
+- *self seconds* � the number of seconds accounted for by this function alone, without internal calls of other functions.
+- *calls* � the total number of times the function was called.
+- *total ms/call* � the average number of milliseconds spent in this function and its descendants per call.
+- *self ms/call* � the average number of milliseconds spent in this function per call.
+- *name* � function name.

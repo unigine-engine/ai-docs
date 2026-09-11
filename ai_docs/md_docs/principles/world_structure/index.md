@@ -27,7 +27,7 @@ You can also generate and manage content via [world logic](../../code/fundamenta
 *Relationship between the main components of the world*
 
 
-Worlds can be as large as a level designer wishes, because UNIGINE supports data streaming, and required resources — meshes, textures, animations, sounds — are dynamically loaded at run time. Resources that are no longer needed are unloaded from memory.
+Worlds can be as large as a level designer wishes, because UNIGINE supports data streaming, and required resources � meshes, textures, animations, sounds � are dynamically loaded at run time. Resources that are no longer needed are unloaded from memory.
 
 
 > **Notice:** Coordinates of objects in a world are stored as *floats*, therefore accuracy of the float data type may be insufficient. However, visual artifacts are noticeable for small objects starting from the distance of 50 thousand units.
@@ -40,7 +40,7 @@ To make the large-world designing and editing process easier, you can split your
 ## Coordinate System
 
 
-UNIGINE uses the right-handed Cartesian coordinate system: **X** and **Y** axes form a horizontal plane, **Z** axis points up. When [exporting](../../tools/plugins/index.md) animation from 3D editors, **Y** is considered a forward direction.
+UNIGINE uses the right-handed Cartesian coordinate system: **X** and **Y** axes form a horizontal plane, **Z** axis points up. When exporting animation from 3D editors, **Y** is considered a forward direction.
 
 
 ![](coordinates.gif)
@@ -67,7 +67,7 @@ UNIGINE provides a set of [built-in objects](../../objects/index.md) that allow 
 
 A world can store both nodes themselves and/or [references](../../objects/nodes/reference/index.md) to nodes stored in external files with the `.node` extension.
 
-> **Notice:** No matter how a node is stored — in a world or in an external file, it consists of the same entities.
+> **Notice:** No matter how a node is stored � in a world or in an external file, it consists of the same entities.
 
  A node can refer to a mesh (`*.mesh`), an audio file (`*.oga`), or a path (`*.path`) depending on the node type.
 Nodes of [object-related types](../../api/library/objects/index.md) may have **surfaces** and physical [bodies](../../principles/physics/bodies/index.md) (including collision [shapes](../../principles/physics/shapes/index.md) connected using [joints](../../principles/physics/joints/index.md)). Surfaces contain references to particular materials and properties. Such references are created automatically when you assign a material or a property to a surface.
@@ -151,7 +151,7 @@ Objects can either be just non-interactive environment or take part in [physical
 To participate in collisions, an object should have a [body](../../principles/physics/bodies/index.md) that describes how it can behave and what physical properties it possesses. For example, an object with a [rigid body](../../principles/physics/bodies/rigid/index.md) always stays solid and undeformed, and an object with a [cloth](../../principles/physics/bodies/cloth/index.md) body can be folded and torn.
 
 
-However, the body is not enough for an object to start interacting. Its volume should be approximated using some kind of a physical primitive (or a set of them) — a *shape*. UNIGINE provides several types of such primitives: [box](../../principles/physics/shapes/index.md#box), [sphere](../../principles/physics/shapes/index.md#sphere), [capsule](../../principles/physics/shapes/index.md#capsule), [cylinder](../../principles/physics/shapes/index.md#cylinder), [convex hull](../../principles/physics/shapes/index.md#convex), or an arbitrary mesh shape. The shape is used to compute collisions between objects.
+However, the body is not enough for an object to start interacting. Its volume should be approximated using some kind of a physical primitive (or a set of them) � a *shape*. UNIGINE provides several types of such primitives: [box](../../principles/physics/shapes/index.md#box), [sphere](../../principles/physics/shapes/index.md#sphere), [capsule](../../principles/physics/shapes/index.md#capsule), [cylinder](../../principles/physics/shapes/index.md#cylinder), [convex hull](../../principles/physics/shapes/index.md#convex), or an arbitrary mesh shape. The shape is used to compute collisions between objects.
 
 
 Two shapes can be connected with one of the [joints](../../principles/physics/joints/index.md): fixed, ball, hinge, prismatic, cylindrical, wheel or suspension. Joints define how two shapes can move relative to each other.
@@ -198,7 +198,7 @@ A set of base material properties may include:
 A set of user material properties cannot differ from the base material ones: the user material inherited from the base material only overrides all its options, states, textures and parameters.
 
 
-> **Notice:** The user material cannot refer to a shader — it can only override properties sent to shaders used by the base material from which the user material is inherited.
+> **Notice:** The user material cannot refer to a shader � it can only override properties sent to shaders used by the base material from which the user material is inherited.
 
 
 UNIGINE allows creating **manual materials**. These materials are created and edited manually: changes made via UnigineEditor at run time won't be saved. All base materials (both built-in and custom ones) are manual. However, not every manual material is the base one: user materials can be manual, too.

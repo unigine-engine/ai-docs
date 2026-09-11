@@ -246,7 +246,7 @@ In the following example, we create a plane by adding vertices to the mesh:
 
 1. Create a Mesh class instance, add a surface and 4 vertices to it.
 2. Add 6 indices to create a plane. > **Notice:** You can add indices explicitly as in the example below, or you can create indices for recently added vertices by using the [*createIndices()*](../../../api/library/rendering/class.mesh_usc.md#createIndices_int_int) function.
-3. Create tangents and normals by using the *[createTangents()()](../../../api/library/rendering/class.mesh_usc.md#createTangents_int_int_int)* and *[createNormals()()](../../../api/library/rendering/class.mesh_usc.md#createNormals_int_int_int)* functions.
+3. Create tangents and normals by using the *[createTangents()()](../../../api/library/rendering/class.mesh_usc.md#createTangents_int_int)* and *[createNormals()()](../../../api/library/rendering/class.mesh_usc.md#createNormals_int_int)* functions.
 4. Update bounds of the mesh to include all new vertices via the *[createBounds()()](../../../api/library/rendering/class.mesh_usc.md#createBounds_int_void)* function.
 5. Create an ObjectMeshDynamic instance using the mesh to check the result.
 
@@ -268,7 +268,7 @@ In the following example, we create two meshes with different surfaces. The firs
 
 
 - Create 2 instances of the Mesh class and add the capsule and box surfaces to them.
-- Add the box surface from the second mesh (*mesh_1*) to the first mesh (*mesh_0*) by using the *[addMeshSurface()()](../../../api/library/rendering/class.mesh_usc.md#addMeshSurface_int_ConstMesh_int_int_int_int)* function.
+- Add the box surface from the second mesh (*mesh_1*) to the first mesh (*mesh_0*) by using the *[addMeshSurface()()](../../../api/library/rendering/class.mesh_usc.md#addMeshSurface_cstr_ConstMesh_int_int_int)* function.
 - Create a new *[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_usc.md)* mesh from the *mesh_0* instance.
 
 
@@ -298,7 +298,7 @@ dynamicMesh.setName("Dynamic Mesh");
 
 In the result, the Mesh will have 2 surfaces.
 
-> **Notice:** You can copy a surface from the source mesh and add it to the existing surface of the current mesh without creating a new surface by using the overloaded *[addMeshSurface()()](../../../api/library/rendering/class.mesh_usc.md#addMeshSurface_int_ConstMesh_int_int_int_int)* function.
+> **Notice:** You can copy a surface from the source mesh and add it to the existing surface of the current mesh without creating a new surface by using the overloaded *[addMeshSurface()()](../../../api/library/rendering/class.mesh_usc.md#addMeshSurface_cstr_ConstMesh_int_int_int)* function.
 
 
 The ObjectMeshDynamic mesh will appear in the editor:

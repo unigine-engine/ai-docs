@@ -66,10 +66,10 @@ Returns the current texture flags.
 Current texture flags.
 ## isDefaultAll () const
 
-Returns the current
+Returns the current value indicating if the values of all curve channels are the default ones which were previously set via *[setDefaultCurve()()](../../...md#setDefaultCurve_int_Curve2d_void)*.
 ### Return value
 
-Current
+Current the values of all curve channels are the default ones which were previously set via *[setDefaultCurve()()](../../...md#setDefaultCurve_int_Curve2d_void)*
 ## getEventChanged () const
 
 The event handler signature is as follows: *myhandler()*
@@ -86,7 +86,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## static TextureRamp ( int num_channels , int resolution , int flags )
@@ -164,8 +164,11 @@ Loads the ramp texture data from the given [Xml](../../../api/library/common/cla
 
 ## void saveState ( const Stream stream )
 
+
 Saves the state of the ramp texture into a binary stream.
-**Example** using saveState() and [restoreState()](#restoreState_Stream_void) methods:
+
+
+**Example** using *saveState()* and *[restoreState()](#restoreState_Stream_void)* methods:
 
 
 ```cpp
@@ -192,8 +195,11 @@ ramp.restoreState(blob_state);
 
 ## void restoreState ( const Stream stream )
 
+
 Restores the state of the ramp texture from the binary stream.
-**Example** using [saveState()](#saveState_Stream_void) and restoreState() methods:
+
+
+**Example** using *[saveState()](#saveState_Stream_void)* and *restoreState()* methods:
 
 
 ```cpp

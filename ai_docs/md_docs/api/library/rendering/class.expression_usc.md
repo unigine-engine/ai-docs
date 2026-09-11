@@ -1,4 +1,4 @@
-# Unigine.EngineExpression Class (USC)
+# EngineExpression Class (USC)
 
 > **Warning:** The scope of applications for UnigineScript is limited to implementing materials-related logic (material expressions, scriptable materials, brush materials). Do not use UnigineScript as a language for application logic, please consider C#/C++ instead, as these APIs are the preferred ones. Availability of new Engine features in UnigineScript (beyond its scope of applications) is not guaranteed, as the current level of support assumes only fixing critical issues.
 
@@ -55,7 +55,7 @@ Returns the parent node of the current node.
 The parent node of the current node, if it exists; otherwise, NULL.
 ## int getNumChildren ( )
 
-Returns the number of node’s children.
+Returns the number of node�s children.
 ### Return value
 
 The number of children for the node, if it exists; otherwise, 0.

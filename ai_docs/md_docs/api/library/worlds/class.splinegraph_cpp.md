@@ -9,7 +9,7 @@ This class is used to manage vertices and segments of spline graphs. UNIGINE's 3
 ![](../../../code/formats/spline.png)
 
 
-A spline graph is determined by a set of points **p0, p 1, ... p n** and a set of segments (cubic Bezier splines), that connect some or all of these points.
+A spline graph is determined by a set of points **p0, p1, ... pn** and a set of segments (cubic Bezier splines), that connect some or all of these points.
 
 
 Each **segment** is determined by the indices of the starting (**pSTART**) and ending (**pEND**) points and tangent vector coordinates at these points, which determine the form of the segment (**tSTART** and **tEND** respectively).
@@ -19,6 +19,7 @@ Coordinates of the **"up" vector** are additionally stored for each point of the
 
 
 It is possible to obtain an interpolated value for any point belonging to a segment, this can be used for various purposes (e.g. to change road profile). Interpolated "up" vector can be calculated as follows (pseudocode):
+
 
 ```cpp
 vec3 lerpUpVector(vec3 start_up, vec3 end_up, float t) const
@@ -45,6 +46,18 @@ vec3 lerpUpVector(vec3 start_up, vec3 end_up, float t) const
 
 ### Members
 
+## int getNumSegments () const
+
+Returns the current total number of segments in the spline graph.
+### Return value
+
+Current total number of segments in the spline graph.
+## int getNumPoints () const
+
+Returns the current total number of points in the spline graph.
+### Return value
+
+Current total number of points in the spline graph.
 ---
 
 ## static SplineGraphPtr create ( )
@@ -74,18 +87,6 @@ Returns the length of the segment with a given index.
 ### Return value
 
 Segment length.
-## int getNumPoints ( ) const
-
-Returns the total number of points in the spline graph.
-### Return value
-
-Number of points.
-## int getNumSegments ( ) const
-
-Returns the total number of segments in the spline graph.
-### Return value
-
-Number of segments.
 ## void setPoint ( int index , const Math:: Vec3 & point )
 
 Sets new coordinates for the point with a given index.
@@ -259,42 +260,51 @@ Adds a segment to the spline graph.
 Number of segments in the spline graph if a segment was adds successfully; otherwise, -1
 ## Math:: Vec3 calcSegmentPoint ( int index , float t ) const
 
+
 Returns the coordinates of the point at the parametrically specified position on the segment (along the T axis).
+
+
 ![](../math/cubic_bezier.gif)
 
 
 ### Arguments
 
 - *int* **index** - Segment index.
-- *float* **t** - Position of the point on the segment, specified parametrically along the T (times axis) in the **[0.0f, 1.0f]** range.
+- *float* **t** - Position of the point on the segment, specified parametrically along the T (times axis) in the [0.0f, 1.0f] range.
 
 ### Return value
 
 Coordinates of the point on the given segment.
 ## Math:: vec3 calcSegmentTangent ( int index , float t ) const
 
+
 Returns the tangent coordinates for the point at the parametrically specified position on the segment (along the T axis).
+
+
 ![](../math/cubic_bezier.gif)
 
 
 ### Arguments
 
 - *int* **index** - Segment index.
-- *float* **t** - Position of the point on the segment, specified parametrically along the T (times axis) in the **[0.0f, 1.0f]** range.
+- *float* **t** - Position of the point on the segment, specified parametrically along the T (times axis) in the [0.0f, 1.0f] range.
 
 ### Return value
 
 Tangent coordinates for the point on the given segment.
 ## Math:: vec3 calcSegmentUpVector ( int index , float t ) const
 
+
 Returns the "up" vector coordinates for the point at the parametrically specified position on the segment (along the T axis).
+
+
 ![](../math/cubic_bezier.gif)
 
 
 ### Arguments
 
 - *int* **index** - Segment index.
-- *float* **t** - Position of the point on the segment, specified parametrically along the T (times axis) in the **[0.0f, 1.0f]** range.
+- *float* **t** - Position of the point on the segment, specified parametrically along the T (times axis) in the [0.0f, 1.0f] range.
 
 ### Return value
 
@@ -311,7 +321,7 @@ Loads the spline graph from the specified XML-file.
 
 ### Return value
 
-**true** if the spline graph was successfully loaded; otherwise, **false**.
+true if the spline graph was successfully loaded; otherwise, false.
 ## void removePoint ( int index , bool merge = 0 )
 
 Removes a point with a given index from the spline graph.
@@ -329,7 +339,10 @@ Splits the point with the specified index into **N** points, where **N** is the 
 
 ## void weldPoints ( Vector < int > & OUT_indices )
 
+
 Merges all points with given indices into one.
+
+
 > **Notice:** All common segments between these points shall be removed. All points with given indices are removed from the graph, except for the one having the minimum index value, all segments shall be attached to this point. Resulting point shall be moved to the position of the first point in the given array.
 
 
@@ -354,16 +367,19 @@ Saves the spline graph to the specified XML-file.
 
 ### Return value
 
-**true** if the spline graph was successfully saved; otherwise, **false**.
+true if the spline graph was successfully saved; otherwise, false.
 ## void insertPointToSegment ( int segment_index , float new_point_t )
 
-Inserts a new point into the given segment. The point is parametrically specified on the T (times axis) in the **[0.0f, 1.0f]** range from the segment's start point.
+
+Inserts a new point into the given segment. The point is parametrically specified on the T (times axis) in the [0.0f, 1.0f] range from the segment's start point.
+
+
 ![](../math/cubic_bezier.gif)
 
 ### Arguments
 
 - *int* **segment_index** - Segment index.
-- *float* **new_point_t** - Coordinate of the new point to be added along the horizontal *T* (times) axis in the range **[0.0f, 1.0f]**.
+- *float* **new_point_t** - Coordinate of the new point to be added along the horizontal *T* (times) axis in the range [0.0f, 1.0f].
 
 ## void getPointSegmentsIndices ( int index , Vector < int > & OUT_indices ) const
 

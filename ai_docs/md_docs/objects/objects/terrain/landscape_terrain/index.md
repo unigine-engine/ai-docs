@@ -30,7 +30,8 @@ The *Landscape Terrain* system is based on the principle of decomposing terrain 
 > **Notice:** To simulate overhangs and caves, use [static meshes](../../../../objects/objects/mesh/index.md).
 
 
-> **Warning:** DirectX is the recommended graphic API for projects that use the *Landscape Terrain* system..
+> **Warning:** - DirectX is the recommended graphic API for projects that use the *Landscape Terrain* system.
+> - *Landscape Terrain* uses complex shaders that rely on double-precision floating-point calculations. Many **Intel GPUs (particularly on Windows) do not support double-precision math** in shaders under DirectX 12. As a result, terrain rendering may behave incorrectly or not function as expected on these systems.
 
 
 ### See Also
@@ -60,9 +61,9 @@ The *Landscape Terrain* system is represented by two types of nodes:
 Graphic data from *Landscape Layer Maps* and details (original full-size textures and generated mipmaps) are [asynchronously streamed](#tiling) and transferred to the main Virtual Texture, based on which the *Landscape Terrain* is rendered. The Virtual Texture consists of 3 components:
 
 
-- **Albedo** — an RGBA8 texture defining the landscape color data,
-- **Normal** — an RGBA8 texture, which stands for small details on the landscape surface,
-- **Height** — an R32F texture defining the height data, according to which the landscape geometry is tessellated.
+- **Albedo** � an RGBA8 texture defining the landscape color data,
+- **Normal** � an RGBA8 texture, which stands for small details on the landscape surface,
+- **Height** � an R32F texture defining the height data, according to which the landscape geometry is tessellated.
 
 
 > **Notice:** The Normal texture is based on the Height data.
@@ -109,9 +110,9 @@ Depending on the size and resolution of your landscape, the size of the data can
 
 Compression method options:
 
-- **Our Method** — recommended. UNIGINE compression method optimized for compressing 2D and 3D textures. It provides better results than **LZ4** and **Zlib** without quality reduction.
-- **Zlib** — for high compression ratio (can provide up to 2 times higher compression ratio, but takes up to 20 times longer).
-- **LZ4** — temporary option, planned to be removed in the upcoming releases.
+- **Our Method** � recommended. UNIGINE compression method optimized for compressing 2D and 3D textures. It provides better results than **LZ4** and **Zlib** without quality reduction.
+- **Zlib** � for high compression ratio (can provide up to 2 times higher compression ratio, but takes up to 20 times longer).
+- **LZ4** � temporary option, planned to be removed in the upcoming releases.
 
 
 All components of a *Landscape Layer Map* can be edited via [Brush Editor](../../../../editor2/brush_editor/index.md).
@@ -174,10 +175,10 @@ Each mask can be represented by a single-channel image. For optimization purpose
 When overlapping each other, *Landscape Layer Maps* are blended per component providing convenient development workflow. The following [blending modes](../../../../objects/objects/terrain/landscape_terrain/landscape_layer_map.md#height_blending_mode) can be set for each [texture of a Landscape Layer Map](#layer_maps) individually:
 
 
-- *[Additive](../../../../principles/render/blending/index.md#id_8)* — data of the layer map is added atop.
-- *[Alpha Blend](../../../../principles/render/blending/index.md#id_2)* — the colors of this layer map and the underlying one are blended.
-- *[Overlay](../../../../principles/render/blending/index.md#id_1)* — added data replaces the data below it.
-- *[Multiplicative](../../../../principles/render/blending/index.md#id_9)* — the albedo colors are multiplied.
+- *[Additive](../../../../principles/render/blending/index.md#id_8)* � data of the layer map is added atop.
+- *[Alpha Blend](../../../../principles/render/blending/index.md#id_2)* � the colors of this layer map and the underlying one are blended.
+- *[Overlay](../../../../principles/render/blending/index.md#id_1)* � added data replaces the data below it.
+- *[Multiplicative](../../../../principles/render/blending/index.md#id_9)* � the albedo colors are multiplied.
 
 
 > **Notice:** Heightmap supports only the *Additive* and the *Alpha Blend* modes.
@@ -242,13 +243,13 @@ Adjust [streaming settings](../../../../objects/objects/terrain/landscape_terrai
 ## Tiling and Streaming
 
 
-A scene may contain thousands of *Landscape Layer Maps*, so the full-size graphic data of the *Landscape Terrain* may be too large to fit in the video memory in its entirety. Instead all resources are decomposed into smaller rectangular sections — **tiles** of variable density depending on the distance to the camera.
+A scene may contain thousands of *Landscape Layer Maps*, so the full-size graphic data of the *Landscape Terrain* may be too large to fit in the video memory in its entirety. Instead all resources are decomposed into smaller rectangular sections � **tiles** of variable density depending on the distance to the camera.
 
 
 ![](visible_tiles.png)
 
 
-Individual tiles are asynchronously loaded into the main virtual texture when necessary — only if currently seen by the camera — from the lowest to the highest available MIP-level. All tiles have the fixed resolution in video memory - 128×128 px.
+Individual tiles are asynchronously loaded into the main virtual texture when necessary � only if currently seen by the camera � from the lowest to the highest available MIP-level. All tiles have the fixed resolution in video memory - 128�128 px.
 
 
 ![](streaming_tiles_low.gif)

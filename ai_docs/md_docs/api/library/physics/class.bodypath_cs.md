@@ -26,7 +26,7 @@ This class represents a path along which an arbitrary rigid body can be moved. F
 The path along which physical objects are moving. by using this function, you can change velocity of the objects moving along the path, their transformation, etc.
 ## 🔒︎ string PathName
 
-The A name of the path along which physical objects are moving.
+The name of the path along which physical objects are moving.
 ### Members
 
 ---
@@ -61,3 +61,13 @@ Finds the point on the path which is the closest to the given reference point an
 ### Return value
 
 Rotation set by the path in the found point, if the path is exists; otherwise, the (0 0 0 1) quaternion is returned.
+## void SetPathName ( string name , int unique = 0 )
+
+Reloads the internal path transformation.
+### Arguments
+
+- *string* **name** - Path to the path file to be set.
+- *int* **unique** - The dynamic flag:
+
+  - **0** - If the reloaded path is changed at run time, paths loaded from the same file will be also changed.
+  - **1** - If the reloaded path is changed at run time, paths loaded from the same file won't be changed.

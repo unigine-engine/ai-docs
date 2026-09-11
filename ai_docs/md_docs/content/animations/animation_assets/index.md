@@ -122,7 +122,7 @@ Usually, the source and shared skeletons are identical (they come from the same 
 ## Importing Animation Assets
 
 
-When you import an `*.fbx`, `*.glb`, or `*.usd` file that contains a rigged and animated character, the UnigineEditor automatically extracts and creates separate `*.mesh_skinned`, `*.skeleton`, and `*.anim` assets. A single source file can produce multiple assets of each type - skeletons, meshes, and animation clips. See the **[FBX Import](../../../editor2/fbx/index.md)** article for import settings details.
+When you import an `*.fbx, *.glb`, or `*.usd` file that contains a rigged and animated character, the UnigineEditor automatically extracts and creates separate `*.mesh_skinned, *.skeleton`, and `*.anim` assets. A single source file can produce multiple assets of each type - skeletons, meshes, and animation clips. See the **[FBX Import](../../../editor2/fbx/index.md)** article for import settings details.
 
 
 After import, each asset is independent - you can modify skeleton settings (blend masks, retarget data) or animation settings (sync markers) without reimporting the source file.
@@ -134,7 +134,7 @@ After import, each asset is independent - you can modify skeleton settings (blen
 **NodeSkeletonPose** ![](NodeSkeletonPose.png) is the scene node that brings everything together: you assign a skeleton, attach skinned meshes, and connect an **animation graph** (`*.agraph`). Each frame, the animation graph decides the current pose, and the **NodeSkeletonPose** applies it to the attached meshes.
 
 
-The quickest way to set up a character is to drag a `*.mesh_skinned`, `*.fbx`, `*.glb`, or `*.usd` asset from the Asset Browser into the viewport and choose *Skeleton Pose + Skinned Mesh* in the popup menu. This automatically creates a **NodeSkeletonPose** with the correct skeleton and a child **ObjectMeshSkinned**. After that, assign an **animation graph** to start animating.
+The quickest way to set up a character is to drag a `*.mesh_skinned, *.fbx, *.glb`, or `*.usd` asset from the Asset Browser into the viewport and choose *Skeleton Pose + Skinned Mesh* in the popup menu. This automatically creates a **NodeSkeletonPose** with the correct skeleton and a child **ObjectMeshSkinned**. After that, assign an **animation graph** to start animating.
 
 
 ![](mesh_skinned_drag_and_drop.png)

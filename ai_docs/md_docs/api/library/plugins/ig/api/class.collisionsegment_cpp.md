@@ -5,15 +5,17 @@
 
 This class is used to manage collision segments that are assigned to [entities](../../../../../api/library/plugins/ig/api/class.entity_cpp.md) and used for collision detection.
 
+
 > **Notice:** IG plugin must be loaded.
 
 
 A collision detection segment is a line segment along which collision testing is performed by the IG. When a collision detection segment intersects a polygon, the IG registers a collision by sending the corresponding notification.
 
+
 > **Notice:** Collision detection testing is performed by the IG every frame.
 
 
-The segment is defined by specifying the locations of its endpoints with respect to the associated entity’s body coordinate system. Figure below illustrates five segments defined for an aircraft.
+The segment is defined by specifying the locations of its endpoints with respect to the associated entity�s body coordinate system. Figure below illustrates five segments defined for an aircraft.
 
 
 ![](collision_segments.jpg)

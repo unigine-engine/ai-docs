@@ -11,21 +11,23 @@ Controls [console](../../../code/console/index.md)-related parameters.
 ### Onscreen Console Overlay
 
 
-By default the console overlay is disabled. To make it output console messages to the application screen it should be [enabled](#isOnscreen_int). You can adjust the overlay’s behavior and appearance as well as specify the messages that will be printed exclusively to the onscreen overlay and will not be written to the console.
- ![](overlay.png)
+By default the console overlay is disabled. To make it output console messages to the application screen it should be [enabled](#isOnscreen_int). You can adjust the overlay�s behavior and appearance as well as specify the messages that will be printed exclusively to the onscreen overlay and will not be written to the console.
+
+
+![](overlay.png)
 
 *Onscreen Overlay with custom parameters and colored text*
 
 
-You can customize the console font by using the [setFontSize()](#setFontSize_int_void), [setMessageColor()](#setMessageColor_vec4_void), [setWarningColor()](#setWarningColor_vec4_void), and [setErrorColor()](#setErrorColor_vec4_void) methods. See the following example:
+You can customize the console font by using the *[setFontSize()](#setFontSize_int_void), [setMessageColor()](#setMessageColor_vec4_void), [setWarningColor()](#setWarningColor_vec4_void)*, and *[setErrorColor()](#setErrorColor_vec4_void)* methods. See the following example:
 
 
 ### Adding Console Command with Several Arguments
 
 
-The Console class can be used to create custom user console commands with a different number of arguments. This section provides an example of how to create a custom console command with several arguments.
+The *Console* class can be used to create custom user console commands with a different number of arguments. This section provides an example of how to create a custom console command with several arguments.
 
-  Prior KnowledgeIt is supposed that you have already [created an empty UnigineScript project](../../../code/uniginescript/application.md#empty_application) by using UNIGINE SDK Browser.
+  Prior KnowledgeIt is supposed that you have already [created an empty UnigineScript project](../../../code/uniginescript/application.md#empty_application) by using UNIGINE *SDK Browser*.
 In the example below, we perform the following actions:
 
 
@@ -148,7 +150,7 @@ Sets a new value indicating if the console is opened or closed.
 Returns the current value indicating if the console is opened or closed.
 ### Return value
 
-**true** if the active (opened) state of the console is enabled; otherwise **false**.
+**true** if the active (opened) state of the console is enabled ; otherwise **false**.
 ## const char * getLastError () const
 
 Returns the current last error message printed to the console.
@@ -365,7 +367,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## int engine.console. isCommand ( string name )
@@ -688,3 +690,25 @@ Removes a custom console command.
 
 Runs the specified console command.
 ### Arguments
+
+## int engine.console. getNumPresetNames ( string name )
+
+Returns the number of presets registered for the given preset console variable (for example, render_aa_preset), including the trailing custom preset that is always reserved for user-overridden settings.
+### Arguments
+
+- *string* **name** - Name of the console variable.
+
+### Return value
+
+Number of presets, or 0 if the variable does not exist or is not a preset variable.
+## string engine.console. getPresetName ( string name , int num )
+
+Returns the name of the preset with the given number for the specified preset console variable. The last preset is always named custom.
+### Arguments
+
+- *string* **name** - Name of the console variable.
+- *int* **num** - Preset number, in the [0; **[getNumPresetNames()()](../../...md#getNumPresetNames_cstr_int)**) range.
+
+### Return value
+
+Name of the preset, or an empty string if the variable is not found, is not a preset variable, or the number is out of range.

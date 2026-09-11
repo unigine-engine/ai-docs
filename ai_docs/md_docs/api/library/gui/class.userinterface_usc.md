@@ -51,6 +51,42 @@ The console shows whether the window and UserInterface are deleted or not, wheth
 
 ### Members
 
+## int getNumWidgets () const
+
+Returns the current number of associated widgets.
+### Return value
+
+Current number of associated widgets
+## void setGui ( Gui gui )
+
+Sets a new *[Gui](../../../api/library/gui/class.gui_usc.md)* instance used for the UserInterface.
+### Arguments
+
+- *[Gui](../../../api/library/gui/class.gui_usc.md)* **gui** - The Gui instance used for the UserInterface
+
+## Gui getGui () const
+
+Returns the current *[Gui](../../../api/library/gui/class.gui_usc.md)* instance used for the UserInterface.
+### Return value
+
+Current Gui instance used for the UserInterface
+## void setLifetime ( int lifetime )
+
+Sets a new lifetime management type for the UserInterface. By default, the [LIFETIME_ENGINE](../../../api/library/gui/class.widget_usc.md#LIFETIME) type is used.
+> **Notice:** Lifetime of each UserInterface in the hierarchy is defined by its root. Thus, a lifetime management type set for a child UserInterface that differs from the one set for the root is ignored.
+
+### Arguments
+
+- *int* **lifetime** - The lifetime management type for the UserInterface
+
+## int getLifetime () const
+
+Returns the current lifetime management type for the UserInterface. By default, the [LIFETIME_ENGINE](../../../api/library/gui/class.widget_usc.md#LIFETIME) type is used.
+> **Notice:** Lifetime of each UserInterface in the hierarchy is defined by its root. Thus, a lifetime management type set for a child UserInterface that differs from the one set for the root is ignored.
+
+### Return value
+
+Current lifetime management type for the UserInterface
 ---
 
 ## int getCallback ( int num , int callback )
@@ -124,12 +160,6 @@ Returns the total number of callbacks for a given widget.
 ### Return value
 
 Number of callbacks.
-## int getNumWidgets ( )
-
-Returns the number of associated widgets.
-### Return value
-
-Number of associated widgets.
 ## Widget getWidget ( int num )
 
 Returns a widget with the given ID.
@@ -193,27 +223,3 @@ Returns the number of the widget if exists; otherwise, -1.
 ## void updateWidgets ( )
 
 Updates all widgets belonging to the user interface. This function should be called, for example, after change of the interface language.
-## void setGui ( Gui gui )
-
-Sets a new *[Gui](../../../api/library/gui/class.gui_usc.md)* instance to be used for the UserInterface.
-### Arguments
-
-- *[Gui](../../../api/library/gui/class.gui_usc.md)* **gui** - *[Gui](../../../api/library/gui/class.gui_usc.md)* instance to be used for the UserInterface.
-
-## Gui getGui ( )
-
-Returns a *[Gui](../../../api/library/gui/class.gui_usc.md)* instance for the UserInterface.
-### Return value
-
-*[Gui](../../../api/library/gui/class.gui_usc.md)* instance currently used for the UserInterface.
-## void setLifetime ( int lifetime )
-
-Sets the lifetime management type for the UserInterface. By default, the [LIFETIME_ENGINE](../../../api/library/gui/class.widget_usc.md#LIFETIME) type is used.
-### Arguments
-
-- *int* **lifetime**
-
-## int getLifetime ( )
-
-Returns the lifetime management type for the root of the UserInterface, or for the UserInterface itself (if it is not a child for another UserInterface).
-> **Notice:** Lifetime of each UserInterface in the hierarchy is defined by it's root. Thus, lifetime management type set for a child UserInterface that differs from the one set for the root is ignored.

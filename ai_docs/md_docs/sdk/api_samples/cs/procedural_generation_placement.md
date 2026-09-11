@@ -33,7 +33,7 @@ Adjust grid dimensions, cell size, and toggle between spawning from corner or ce
 **SDK Path:***<SAMPLES_PROJECT_PATH>/data/csharp_component_samples/procedural_generation_placement/grid_based_node_spawning*
 ## Procedural Mesh Generation
 
-This sample demonstrates how to generate static mesh geometry at runtime using different procedural mesh generation methods. A grid of *ObjectMeshStatic* objects is created, each receiving its geometry from a user-defined callback that builds a box-shaped mesh surface via the *[Mesh API](../../../api/library/rendering/class.mesh_cpp.md#addBoxSurface_cstr_vec3_int)*.
+This sample demonstrates how to generate static mesh geometry at runtime using different procedural mesh generation methods. A grid of *ObjectMeshStatic* objects is created, each receiving its geometry from a user-defined callback that builds a box-shaped mesh surface via the *[Mesh API](../../../api/library/rendering/class.mesh_cpp.md#addBoxSurface_cstr_vec3_int_int)*.
 
 
 You can experiment with various [procedural modes](../../../api/library/objects/class.objectmeshstatic_cpp.md#PROCEDURAL_MODE) (such as *Dynamic, File*, or *Blob*), as well as configure how geometry is stored and accessed by selecting different [MeshRender usage flags](../../../api/library/rendering/class.meshrender_cpp.md#Flags) (DirectX 12 only). These flags determine whether vertex and/or index data is kept in RAM instead of VRAM, allowing the GPU to render directly from system memory.

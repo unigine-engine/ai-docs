@@ -33,7 +33,7 @@ Enables and disables connection of the last point with the first point that make
 
 ## void setVertexOrderStrip ( bool value )
 
-Toggles on and off creation of a triangle strip — a connected series of filled triangles formed from an ordered set of vertices. The first triangle is formed from the first three vertices. Each successive triangle is formed from the last two vertices and the next vertex in the set.
+Toggles on and off creation of a triangle strip � a connected series of filled triangles formed from an ordered set of vertices. The first triangle is formed from the first three vertices. Each successive triangle is formed from the last two vertices and the next vertex in the set.
 ### Arguments
 
 - *bool* **value** - true to enable a triangle strip, false to disable it.

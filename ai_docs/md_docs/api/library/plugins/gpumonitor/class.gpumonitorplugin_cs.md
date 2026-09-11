@@ -19,7 +19,7 @@ The number of monitors.
 Returns the number of updates per second for the selected monitor.
 ### Arguments
 
-- *int* **num** - Ordinal number that denotes the monitor. The minimum value for this parameter is 0, and the maximum value for this parameter is one less than the value returned by [getNumMonitors()](#getNumMonitors_int).
+- *int* **num** - Ordinal number that denotes the monitor. The minimum value for this parameter is 0, and the maximum value for this parameter is one less than the value returned by *[getNumMonitors()](#getNumMonitors_int)*.
 
 ### Return value
 
@@ -36,7 +36,7 @@ Sets the number of updates per second.
 Returns the interface of the selected GPUMonitor.
 ### Arguments
 
-- *int* **num** - Ordinal number that denotes the monitor. The minimum value for this parameter is 0, and the maximum value for this parameter is one less than the value returned by [getNumMonitors()](#getNumMonitors_int).
+- *int* **num** - Ordinal number that denotes the monitor. The minimum value for this parameter is 0, and the maximum value for this parameter is one less than the value returned by *[getNumMonitors()](#getNumMonitors_int)*.
 
 ### Return value
 

@@ -119,7 +119,7 @@ Sets a new value indicating if the Field Animation is of an ellipse or a cube sh
 Returns the current value indicating if the Field Animation is of an ellipse or a cube shape.
 ### Return value
 
-**true** if ellipse-shaped Field Animation is enabled; otherwise **false**.
+**true** if ellipse-shaped Field Animation is enabled ; otherwise **false**.
 ---
 
 ## static FieldAnimationPtr create ( const Math:: vec3 & size )

@@ -8,6 +8,7 @@ The class represents an [environment preset](../../../editor2/settings/render_se
 
 To get an instance of the class, use the *[engine.render.getEnvironmentPreset()](../../../api/library/rendering/class.render_usc.md#getEnvironmentPreset_int_RenderEnvironmentPreset)* function:
 
+
 ```cpp
 // get the second environment preset
 RenderEnvironmentPreset preset = engine.render.getEnvironmentPreset(1);
@@ -29,7 +30,10 @@ Returns the number of the preset.
 Preset number. Available values: **0**, **1**, **2**.
 ## void setIntensity ( float intensity )
 
+
 Sets the intensity of the given preset. The preset intensity is used to blend the given environment preset with the other ones.
+
+
 > **Notice:** Presets overlay each other: the first preset overlays the zero one, the second overlays the first and the zero ones.
 
 
@@ -39,7 +43,10 @@ Sets the intensity of the given preset. The preset intensity is used to blend th
 
 ## float getIntensity ( )
 
+
 Returns the intensity of the preset. The preset intensity is used to blend the environment preset with the other ones.
+
+
 > **Notice:** Presets overlay each other: the first preset overlays the zero one, the second overlays the first and the zero ones.
 
 
@@ -107,7 +114,10 @@ Sets the [color of the haze](../../../editor2/settings/render_settings/environme
 
 ## vec4 getHazeColor ( )
 
+
 Returns the [haze color](../../../editor2/settings/render_settings/environment/index.md#haze_color) for the preset.
+
+
 > **Notice:** This function will return color only if the [RENDER_HAZE_SOLID](../../../api/library/rendering/class.render_usc.md#HAZE_SOLID) mode is set via *[setEnvironmentHazeMode()](../../../api/library/rendering/class.render_usc.md#setEnvironmentHazeMode_int_void)*.
 
 
@@ -129,7 +139,10 @@ Returns the [haze density](../../../editor2/settings/render_settings/environment
 Haze density.
 ## void setReflectionIntensity ( float intensity )
 
+
 Sets intensity of the environment reflection for the preset. **0** value means no environment reflection for the preset.
+
+
 > **Notice:** It is recommended to use the default value of the parameter to keep the image realistic.
 
 
@@ -145,7 +158,10 @@ Returns the intensity of the environment reflections for the preset. **0** value
 The intensity value of the environment reflections.
 ## void setSkyIntensity ( float intensity )
 
+
 Sets intensity of the environment sky for the preset. **0.0f** value means no environment sky for the preset.
+
+
 > **Notice:** It is recommended to use the default value of the parameter to keep the image realistic. If, for example, the sky looks too dark in contrast with lighting from it, you should check exposure and tone mapping settings before changing the environment intensity.
 
 
@@ -161,7 +177,10 @@ Returns the intensity of the environment sky set for the preset.
 Intensity value of the environment sky.
 ## void setAmbientIntensity ( float intensity )
 
+
 Sets the intensity of the environment ambient lighting for the preset. **0** value means no environment ambient lighting for the preset. The higher the value, the more ambient lighting affects environment.
+
+
 > **Notice:** It is recommended to use the default value of the parameter to keep the image realistic.
 
 
@@ -229,7 +248,10 @@ Returns rotation of the environment texture along three axes, in degrees.
 Rotation of the texture along X, Y, Z axes, in degrees.
 ## void setTextureBlur ( float blur )
 
+
 Sets the blur intensity for the environment texture. This value can be used to make blurred panorama at the background.
+
+
 > **Notice:** Reflections and ambient lighting aren't blurred.
 
 
@@ -239,7 +261,10 @@ Sets the blur intensity for the environment texture. This value can be used to m
 
 ## float getTextureBlur ( )
 
+
 Returns the blur intensity for the environment texture.
+
+
 > **Notice:** Reflections and ambient lighting aren't blurred.
 
 
@@ -430,7 +455,10 @@ Returns the current intensity of the impact of the sunlight on haze defining how
 Current value of intensity of the sunlight impact.
 ## void setHazePhysicalSunColorSaturation ( float saturation )
 
+
 Sets the new intensity of the impact of the sunlight on haze (how much the sunlight affects the haze).
+
+
 > **Notice:** "Sunlight color" here does not simply mean the color multiplier of the [*WorldLight*](../../../api/library/lights/class.lightworld_usc.md) source, but rather the [*Scattering LUT Light Color*](#setScatteringLightColorLUTName_cstr_void).
 
 

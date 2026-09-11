@@ -375,7 +375,7 @@ connections.disconnectAll();
 ```
 
 
-If *a class handles the event*, you can declare the *EventConnections* instance as a class member and use it for events subscription. In this case, all linked subscriptions will be automatically removed when the class destructor is called. See the example provided [above](#handler_class) — the same applies to *EventConnections*.
+If *a class handles the event*, you can declare the *EventConnections* instance as a class member and use it for events subscription. In this case, all linked subscriptions will be automatically removed when the class destructor is called. See the example provided [above](#handler_class) � the same applies to *EventConnections*.
 
 
 #### Inheriting from EventConnections

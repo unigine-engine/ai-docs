@@ -100,7 +100,7 @@ Returns the value of the **Size Y** parameter specified in the packet. Determine
 **Size Y** parameter value.
 ## float getRadius ( ) const
 
-Returns the value of the **Corner Radius** parameter specified in the packet. Determines the radius of the corner of the rounded rectangle. The smaller the radius, the “tighter” the corner.
+Returns the value of the **Corner Radius** parameter specified in the packet. Determines the radius of the corner of the rounded rectangle. The smaller the radius, the �tighter� the corner.
 ### Return value
 
 **Corner Radius** parameter value.

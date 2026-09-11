@@ -23,12 +23,15 @@ Composes a rotation matrix from the corresponding Euler angles. The Euler angles
 
 When we talk about axes in UNIGINE we assume that:
 
+
 - **X** axis points to the *right* giving us a **pitch** angle.
 - **Y** axis points *forward* giving us a **roll** angle.
 - **Z** axis points *up* giving us a **yaw** (heading) angle.
 
 
 > **Notice:** Players have a different coordinate system:
+>
+>
 > - **X** axis points to the *right* giving us a **pitch** angle.
 > - **Y** axis points *up* giving us a **yaw** (heading) angle.
 > - **Z** axis points *backward* giving us a **-roll** angle.
@@ -49,12 +52,15 @@ Composes a rotation matrix from the corresponding Euler angles. The Euler angles
 
 When we talk about axes in UNIGINE we assume that:
 
+
 - **X** axis points to the *right* giving us a **pitch** angle.
 - **Y** axis points *forward* giving us a **roll** angle.
 - **Z** axis points *up* giving us a **yaw** (heading) angle.
 
 
 > **Notice:** Players have a different coordinate system:
+>
+>
 > - **X** axis points to the *right* giving us a **pitch** angle.
 > - **Y** axis points *up* giving us a **yaw** (heading) angle.
 > - **Z** axis points *backward* giving us a **-roll** angle.
@@ -75,12 +81,15 @@ Composes a rotation matrix from the corresponding Euler angles. The Euler angles
 
 When we talk about axes in UNIGINE we assume that:
 
+
 - **X** axis points to the *right* giving us a **pitch** angle.
 - **Y** axis points *forward* giving us a **roll** angle.
 - **Z** axis points *up* giving us a **yaw** (heading) angle.
 
 
 > **Notice:** Players have a different coordinate system:
+>
+>
 > - **X** axis points to the *right* giving us a **pitch** angle.
 > - **Y** axis points *up* giving us a **yaw** (heading) angle.
 > - **Z** axis points *backward* giving us a **-roll** angle.
@@ -101,12 +110,15 @@ Composes a rotation matrix from the corresponding Euler angles. The Euler angles
 
 When we talk about axes in UNIGINE we assume that:
 
+
 - **X** axis points to the *right* giving us a **pitch** angle.
 - **Y** axis points *forward* giving us a **roll** angle.
 - **Z** axis points *up* giving us a **yaw** (heading) angle.
 
 
 > **Notice:** Players have a different coordinate system:
+>
+>
 > - **X** axis points to the *right* giving us a **pitch** angle.
 > - **Y** axis points *up* giving us a **yaw** (heading) angle.
 > - **Z** axis points *backward* giving us a **-roll** angle.
@@ -127,12 +139,15 @@ Composes a rotation matrix from the corresponding Euler angles. The Euler angles
 
 When we talk about axes in UNIGINE we assume that:
 
+
 - **X** axis points to the *right* giving us a **pitch** angle.
 - **Y** axis points *forward* giving us a **roll** angle.
 - **Z** axis points *up* giving us a **yaw** (heading) angle.
 
 
 > **Notice:** Players have a different coordinate system:
+>
+>
 > - **X** axis points to the *right* giving us a **pitch** angle.
 > - **Y** axis points *up* giving us a **yaw** (heading) angle.
 > - **Z** axis points *backward* giving us a **-roll** angle.
@@ -153,12 +168,15 @@ Composes a rotation matrix from the corresponding Euler angles. The Euler angles
 
 When we talk about axes in UNIGINE we assume that:
 
+
 - **X** axis points to the *right* giving us a **pitch** angle.
 - **Y** axis points *forward* giving us a **roll** angle.
 - **Z** axis points *up* giving us a **yaw** (heading) angle.
 
 
 > **Notice:** Players have a different coordinate system:
+>
+>
 > - **X** axis points to the *right* giving us a **pitch** angle.
 > - **Y** axis points *up* giving us a **yaw** (heading) angle.
 > - **Z** axis points *backward* giving us a **-roll** angle.
@@ -269,12 +287,15 @@ Decomposes a given rotation matrix to the corresponding Euler angles. The Euler 
 
 When we talk about axes in UNIGINE we assume that:
 
+
 - **X** axis points to the *right* giving us a **pitch** angle.
 - **Y** axis points *forward* giving us a **roll** angle.
 - **Z** axis points *up* giving us a **yaw** (heading) angle.
 
 
 > **Notice:** Players have a different coordinate system:
+>
+>
 > - **X** axis points to the *right* giving us a **pitch** angle.
 > - **Y** axis points *up* giving us a **yaw** (heading) angle.
 > - **Z** axis points *backward* giving us a **-roll** angle.
@@ -295,12 +316,15 @@ Decomposes a given rotation matrix to the corresponding Euler angles. The Euler 
 
 When we talk about axes in UNIGINE we assume that:
 
+
 - **X** axis points to the *right* giving us a **pitch** angle.
 - **Y** axis points *forward* giving us a **roll** angle.
 - **Z** axis points *up* giving us a **yaw** (heading) angle.
 
 
 > **Notice:** Players have a different coordinate system:
+>
+>
 > - **X** axis points to the *right* giving us a **pitch** angle.
 > - **Y** axis points *up* giving us a **yaw** (heading) angle.
 > - **Z** axis points *backward* giving us a **-roll** angle.
@@ -321,12 +345,15 @@ Decomposes a given rotation matrix to the corresponding Euler angles. The Euler 
 
 When we talk about axes in UNIGINE we assume that:
 
+
 - **X** axis points to the *right* giving us a **pitch** angle.
 - **Y** axis points *forward* giving us a **roll** angle.
 - **Z** axis points *up* giving us a **yaw** (heading) angle.
 
 
 > **Notice:** Players have a different coordinate system:
+>
+>
 > - **X** axis points to the *right* giving us a **pitch** angle.
 > - **Y** axis points *up* giving us a **yaw** (heading) angle.
 > - **Z** axis points *backward* giving us a **-roll** angle.
@@ -347,12 +374,15 @@ Decomposes a given rotation matrix to the corresponding Euler angles. The Euler 
 
 When we talk about axes in UNIGINE we assume that:
 
+
 - **X** axis points to the *right* giving us a **pitch** angle.
 - **Y** axis points *forward* giving us a **roll** angle.
 - **Z** axis points *up* giving us a **yaw** (heading) angle.
 
 
 > **Notice:** Players have a different coordinate system:
+>
+>
 > - **X** axis points to the *right* giving us a **pitch** angle.
 > - **Y** axis points *up* giving us a **yaw** (heading) angle.
 > - **Z** axis points *backward* giving us a **-roll** angle.
@@ -373,12 +403,15 @@ Decomposes a given rotation matrix to the corresponding Euler angles. The Euler 
 
 When we talk about axes in UNIGINE we assume that:
 
+
 - **X** axis points to the *right* giving us a **pitch** angle.
 - **Y** axis points *forward* giving us a **roll** angle.
 - **Z** axis points *up* giving us a **yaw** (heading) angle.
 
 
 > **Notice:** Players have a different coordinate system:
+>
+>
 > - **X** axis points to the *right* giving us a **pitch** angle.
 > - **Y** axis points *up* giving us a **yaw** (heading) angle.
 > - **Z** axis points *backward* giving us a **-roll** angle.
@@ -399,12 +432,15 @@ Decomposes a given rotation matrix to the corresponding Euler angles. The Euler 
 
 When we talk about axes in UNIGINE we assume that:
 
+
 - **X** axis points to the *right* giving us a **pitch** angle.
 - **Y** axis points *forward* giving us a **roll** angle.
 - **Z** axis points *up* giving us a **yaw** (heading) angle.
 
 
 > **Notice:** Players have a different coordinate system:
+>
+>
 > - **X** axis points to the *right* giving us a **pitch** angle.
 > - **Y** axis points *up* giving us a **yaw** (heading) angle.
 > - **Z** axis points *backward* giving us a **-roll** angle.
@@ -498,7 +534,10 @@ Returns the determinant of the given matrix.
 Matrix determinant.
 ## mat4 frustum ( float left , float right , float bottom , float top , float znear , float zfar )
 
+
 Returns perspective projection matrix:
+
+
 | 2.0 * znear / (right - left) | 0.0 | (right + left) / (right - left) | 0.0 |
 |---|---|---|---|
 | 0.0 | 2.0 * znear / (top - bottom) | (top + bottom) / (top - bottom) | 0.0 |
@@ -590,7 +629,10 @@ Returns inverse of a quaternion. The inverse of a quaternion is a quaternion tha
 Inverse of the quaternion.
 ## mat4 inverse4 ( const mat4 & m )
 
-Inverts a matrix that consists of a 3×4 sub-matrix (upper left) and a translation vector. The last row of the matrix is ignored. Compared to the [inverse()](#inverse_constmat4n) function, this one is a bit faster and, which is more important, more stable. A matrix suitable for such inversion looks like this:
+
+Inverts a matrix that consists of a 3�4 sub-matrix (upper left) and a translation vector. The last row of the matrix is ignored. Compared to the [inverse()](#inverse_constmat4n) function, this one is a bit faster and, which is more important, more stable. A matrix suitable for such inversion looks like this:
+
+
 | *m00* | *m10* | *m20* | *m30* |
 |---|---|---|---|
 | *m01* | *m11* | *m21* | *m31* |
@@ -610,7 +652,10 @@ Inverts a matrix that consists of a 3×4 sub-matrix (upper left) and a translati
 Inverse of the matrix.
 ## dmat4 inverse4 ( const dmat4 & m )
 
-Inverts a matrix that consists of a 3×4 sub-matrix (upper left) and a translation vector. The last row of the matrix is ignored. Compared to the [inverse()](#inverse_constmat4n) function, this one is a bit faster and, which is more important, more stable. A matrix suitable for such inversion looks like this:
+
+Inverts a matrix that consists of a 3�4 sub-matrix (upper left) and a translation vector. The last row of the matrix is ignored. Compared to the [inverse()](#inverse_constmat4n) function, this one is a bit faster and, which is more important, more stable. A matrix suitable for such inversion looks like this:
+
+
 | *m00* | *m10* | *m20* | *m30* |
 |---|---|---|---|
 | *m01* | *m11* | *m21* | *m31* |
@@ -630,7 +675,10 @@ Inverts a matrix that consists of a 3×4 sub-matrix (upper left) and a translati
 Inverse of the matrix.
 ## dmat4 & inverse4 ( dmat4 & ret , const dmat4 & m )
 
-Inverts a matrix that consists of a 3×4 sub-matrix (upper left) and a translation vector. The last row of the matrix is ignored. Compared to the [inverse()](#inverse_constmat4n) function, this one is a bit faster and, which is more important, more stable. A matrix suitable for such inversion looks like this:
+
+Inverts a matrix that consists of a 3�4 sub-matrix (upper left) and a translation vector. The last row of the matrix is ignored. Compared to the [inverse()](#inverse_constmat4n) function, this one is a bit faster and, which is more important, more stable. A matrix suitable for such inversion looks like this:
+
+
 | *m00* | *m10* | *m20* | *m30* |
 |---|---|---|---|
 | *m01* | *m11* | *m21* | *m31* |
@@ -722,7 +770,10 @@ Creates the ortho triangle tangent space basis.
 The tangent basis.
 ## mat4 ortho ( float left , float right , float bottom , float top , float znear , float zfar )
 
+
 Returns parallel projection matrix:
+
+
 | 2.0 / (right - left) | 0.0 | 0.0 | -(right + left) / (right - left) |
 |---|---|---|---|
 | 0.0 | 2.0 / (top - bottom) | 0.0 | -(top + bottom) / (top - bottom) |
@@ -948,7 +999,10 @@ Resets the transformation scale by replacing the scale component of the transfor
 Output matrix.
 ## mat4 rotateX ( float angle )
 
+
 Returns rotation matrix for the given angle around X axis:
+
+
 | 1.0 | 0.0 | 0.0 | 0.0 |
 |---|---|---|---|
 | 0.0 | cos | -sin | 0.0 |
@@ -975,7 +1029,10 @@ Returns the X rotation matrix.
 Rotation matrix.
 ## mat4 rotateY ( float angle )
 
+
 Returns rotation matrix for the given angle around Y axis:
+
+
 | cos | 0.0 | sin | 0.0 |
 |---|---|---|---|
 | 0.0 | 1.0 | 0.0 | 0.0 |
@@ -1002,7 +1059,10 @@ Returns the Y rotation matrix.
 Rotation matrix.
 ## mat4 rotateZ ( float angle )
 
+
 Returns rotation matrix for the given angle around Z axis:
+
+
 | cos | -sin | 0.0 | 0.0 |
 |---|---|---|---|
 | sin | cos | 0.0 | 0.0 |
@@ -1185,7 +1245,10 @@ Returns the rotation quaternion for the specified source and target directions. 
 Rotation quaternion.
 ## mat4 scale ( float x , float y , float z )
 
+
 Returns scaling matrix for the specified scaling vector (X, Y, Z):
+
+
 | X | 0.0 | 0.0 | 0.0 |
 |---|---|---|---|
 | 0.0 | Y | 0.0 | 0.0 |
@@ -1204,7 +1267,10 @@ Returns scaling matrix for the specified scaling vector (X, Y, Z):
 Scaling matrix.
 ## dmat4 scale ( double x , double y , double z )
 
+
 Returns scaling matrix for the specified scaling vector (X, Y, Z):
+
+
 | X | 0.0 | 0.0 | 0.0 |
 |---|---|---|---|
 | 0.0 | Y | 0.0 | 0.0 |
@@ -1223,7 +1289,10 @@ Returns scaling matrix for the specified scaling vector (X, Y, Z):
 Scaling matrix.
 ## mat4 scale ( const vec3 & v )
 
+
 Returns the scaling matrix for the specified scaling vector (X, Y, Z):
+
+
 | X | 0.0 | 0.0 | 0.0 |
 |---|---|---|---|
 | 0.0 | Y | 0.0 | 0.0 |
@@ -1240,7 +1309,10 @@ Returns the scaling matrix for the specified scaling vector (X, Y, Z):
 Scaling matrix.
 ## dmat4 scale ( const dvec3 & v )
 
+
 Returns the scaling matrix for the specified scaling vector (X, Y, Z):
+
+
 | X | 0.0 | 0.0 | 0.0 |
 |---|---|---|---|
 | 0.0 | Y | 0.0 | 0.0 |
@@ -1293,7 +1365,10 @@ Returns a symmetric projection matrix for the specified input projection matrix.
 Symmetric projection matrix.
 ## mat4 translate ( float x , float y , float z )
 
+
 Returns the translation matrix for the specified translation vector (X, Y, Z):
+
+
 | 1.0 | 0.0 | 0.0 | X |
 |---|---|---|---|
 | 0.0 | 1.0 | 0.0 | Y |
@@ -1312,7 +1387,10 @@ Returns the translation matrix for the specified translation vector (X, Y, Z):
 Translation matrix.
 ## dmat4 translate ( double x , double y , double z )
 
+
 Returns the translation matrix for the specified translation vector (X, Y, Z):
+
+
 | 1.0 | 0.0 | 0.0 | X |
 |---|---|---|---|
 | 0.0 | 1.0 | 0.0 | Y |
@@ -1331,7 +1409,10 @@ Returns the translation matrix for the specified translation vector (X, Y, Z):
 Translation matrix.
 ## mat4 translate ( const vec3 & v )
 
+
 Returns the translation matrix for the specified translation vector (X, Y, Z):
+
+
 | 1.0 | 0.0 | 0.0 | X |
 |---|---|---|---|
 | 0.0 | 1.0 | 0.0 | Y |
@@ -1348,7 +1429,10 @@ Returns the translation matrix for the specified translation vector (X, Y, Z):
 Translation matrix.
 ## dmat4 translate ( const dvec3 & v )
 
+
 Returns the translation matrix for the specified translation vector (X, Y, Z):
+
+
 | 1.0 | 0.0 | 0.0 | X |
 |---|---|---|---|
 | 0.0 | 1.0 | 0.0 | Y |
@@ -1425,17 +1509,17 @@ Transposes a given 4x4 matrix.
 Transposed matrix.
 ## mat4 transpose3 ( const mat4 & m )
 
-Transposes the upper left 3×3 sub-matrix of a matrix.
+Transposes the upper left 3�3 sub-matrix of a matrix.
 ### Arguments
 
 - *const [mat4](../../../api/library/math/class.mat4_cpp.md) &* **m** - Matrix, a part of which will be transposed.
 
 ### Return value
 
-*Matrix*, in which the upper left 3×3 sub-matrix is transposed.
+*Matrix*, in which the upper left 3�3 sub-matrix is transposed.
 ## mat4 & transpose3 ( mat4 & ret , const mat4 & m )
 
-Transposes the upper left 3×3 sub-matrix of a matrix.
+Transposes the upper left 3�3 sub-matrix of a matrix.
 ### Arguments
 
 - *[mat4](../../../api/library/math/class.mat4_cpp.md) &* **ret** - Output matrix, to which the resulting matrix will be put.
@@ -1443,4 +1527,4 @@ Transposes the upper left 3×3 sub-matrix of a matrix.
 
 ### Return value
 
-*Matrix*, in which the upper left 3×3 sub-matrix is transposed.
+*Matrix*, in which the upper left 3�3 sub-matrix is transposed.

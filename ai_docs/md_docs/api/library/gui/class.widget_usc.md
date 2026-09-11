@@ -20,9 +20,9 @@ The example below demonstrates how to create a single widget, a hierarchy of wid
 
 By default each new widget's lifetime matches the lifetime of the **[Engine](#LIFETIME_ENGINE)** (i.e. the widget shall be deleted on Engine shutdown). But you can choose widget's lifetime to be managed:
 
-- By a separate **[window](#LIFETIME_WINDOW)** — in this case the widget is deleted automatically on deleting the window.
-- By the **[world](#LIFETIME_WORLD)** — in this case the widget is deleted when the world is closed.
-- **[Manually](#LIFETIME_MANUAL)** — in this case the widget should be deleted manually.
+- By a separate **[window](#LIFETIME_WINDOW)** � in this case the widget is deleted automatically on deleting the window.
+- By the **[world](#LIFETIME_WORLD)** � in this case the widget is deleted when the world is closed.
+- **[Manually](#LIFETIME_MANUAL)** � in this case the widget should be deleted manually.
 
 
 The examples below show how the different lifetime management types work.
@@ -214,14 +214,14 @@ Returns the current size of the font used by the widget.
 Current Font size in pixels.
 ## void setMouseCursor ( int cursor )
 
-Sets a new
+Sets a new mouse pointer set for the widget.
 ### Arguments
 
 - *int* **cursor** - The mouse pointer, one of the [*CURSOR_**](../../../api/library/gui/class.gui_usc.md) pre-defined variables.
 
 ## int getMouseCursor () const
 
-Returns the current
+Returns the current mouse pointer set for the widget.
 ### Return value
 
 Current mouse pointer, one of the [*CURSOR_**](../../../api/library/gui/class.gui_usc.md) pre-defined variables.
@@ -340,40 +340,40 @@ Returns the current
 ### Return value
 
 Current rendering order (z-order) for the widget, in the range **[-128;127]**. (126 for the Profiler, 127 for the Console).
-## void setHidden ( )
+## void setHidden ( int hidden )
 
-Sets a new
+Sets a new value indicating if the widget is hidden.
 ### Arguments
 
-- **hidden** - The the hidden status for the widget
+- *int* **hidden** - The true if the widget is hidden, false if it is shown
 
-## isHidden () const
+## int isHidden () const
 
-Returns the current
+Returns the current value indicating if the widget is hidden.
 ### Return value
 
-Current the hidden status for the widget
-## void setEnabled ( )
+Current true if the widget is hidden, false if it is shown
+## void setEnabled ( int enabled )
 
-Sets a new
+Sets a new value indicating if the widget is enabled (the user can interact with the widget).
 ### Arguments
 
-- **enabled** - The the enabled (interactable) status for the widget
+- *int* **enabled** - The interaction with the widget
 
-## isEnabled () const
+## int isEnabled () const
 
-Returns the current
+Returns the current value indicating if the widget is enabled (the user can interact with the widget).
 ### Return value
 
-Current the enabled (interactable) status for the widget
-## void setIntersectionEnabled ( )
+Current interaction with the widget
+## void setIntersectionEnabled ( int enabled )
 
 Sets a new value indicating if intersection detection is enabled for the widget.
 ### Arguments
 
-- **enabled** - The intersection detection for the widget
+- *int* **enabled** - The intersection detection for the widget
 
-## isIntersectionEnabled () const
+## int isIntersectionEnabled () const
 
 Returns the current value indicating if intersection detection is enabled for the widget.
 ### Return value
@@ -464,7 +464,7 @@ Returns the current value indicating if the widget is expanded.
 Sets a new lifetime management type for the root of the widget, or for the widget itself (if it is not a child for another widget).
 > **Notice:** Lifetime of each widget in the hierarchy is defined by its root. Thus, lifetime management type set for a child widget that differs from the one set for the root is ignored.
 
-
+. One of the [LIFETIME_*](#LIFETIME) variables.
 ### Arguments
 
 - **lifetime** - The lifetime management type.
@@ -474,7 +474,7 @@ Sets a new lifetime management type for the root of the widget, or for the widge
 Returns the current lifetime management type for the root of the widget, or for the widget itself (if it is not a child for another widget).
 > **Notice:** Lifetime of each widget in the hierarchy is defined by its root. Thus, lifetime management type set for a child widget that differs from the one set for the root is ignored.
 
-
+. One of the [LIFETIME_*](#LIFETIME) variables.
 ### Return value
 
 Current lifetime management type.
@@ -512,7 +512,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventDragDrop () const
 
 The event handler signature is as follows: *myhandler()*
@@ -529,7 +529,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventDragMove () const
 
 The event handler signature is as follows: *myhandler()*
@@ -546,7 +546,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventLeave () const
 
 The event handler signature is as follows: *myhandler()*
@@ -563,7 +563,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEnter () const
 
 The event handler signature is as follows: *myhandler()*
@@ -580,7 +580,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventTextPressed () const
 
 The event handler signature is as follows: *myhandler()*
@@ -597,7 +597,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventKeyPressed () const
 
 The event handler signature is as follows: *myhandler()*
@@ -614,7 +614,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventReleased () const
 
 The event handler signature is as follows: *myhandler()*
@@ -631,7 +631,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventPressed () const
 
 The event handler signature is as follows: *myhandler()*
@@ -648,7 +648,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventDoubleClicked () const
 
 The event handler signature is as follows: *myhandler()*
@@ -665,7 +665,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventClicked () const
 
 The event handler signature is as follows: *myhandler()*
@@ -682,7 +682,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventChanged () const
 
 The event handler signature is as follows: *myhandler()*
@@ -699,7 +699,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventFocusOut () const
 
 The event handler signature is as follows: *myhandler()*
@@ -716,7 +716,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventFocusIn () const
 
 The event handler signature is as follows: *myhandler()*
@@ -733,7 +733,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventHide () const
 
 The event handler signature is as follows: *myhandler()*
@@ -750,7 +750,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventShow () const
 
 The event handler signature is as follows: *myhandler()*
@@ -767,7 +767,20 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
+## void setTextDirection ( int direction )
+
+Sets a new base paragraph direction for this widget's text, one of the *Gui::TEXT_DIRECTION_** values. With *TEXT_DIRECTION_AUTO* (default) the direction is inherited from the **[getGlobalTextDirection()()](../../../api/library/gui/class.gui_usc.md#getGlobalTextDirection_int)** property of the GUI, and if that is also set to auto, it is detected from the text content.
+### Arguments
+
+- *int* **direction** - The base direction of the widget text
+
+## int getTextDirection () const
+
+Returns the current base paragraph direction for this widget's text, one of the *Gui::TEXT_DIRECTION_** values. With *TEXT_DIRECTION_AUTO* (default) the direction is inherited from the **[getGlobalTextDirection()()](../../../api/library/gui/class.gui_usc.md#getGlobalTextDirection_int)** property of the GUI, and if that is also set to auto, it is detected from the text content.
+### Return value
+
+Current base direction of the widget text
 ---
 
 ## Widget getChild ( int num )
@@ -855,7 +868,7 @@ Sets a tooltip for the widget.
 ### Arguments
 
 - *string* **str** - Tooltip text.
-- *int* **reset** - **1** to recalculate a tooltip location if the mouse cursor was relocated; otherwise — **0**(by default).
+- *int* **reset** - **1** to recalculate a tooltip location if the mouse cursor was relocated; otherwise � **0**(by default).
 
 ## string getToolTip ( )
 

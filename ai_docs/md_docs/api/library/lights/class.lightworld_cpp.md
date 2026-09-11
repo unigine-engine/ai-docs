@@ -207,6 +207,22 @@ int AppWorldLogic::init()
 | **SHADOW_CASCADE_MODE_DYNAMIC** = 0 | Dynamic shadow cascade generation mode. In this mode shadow cascades are built dynamically relative to the camera's position. All shadows are calculated dynamically making it possible to change the time of day (day-night cycle). |
 | **SHADOW_CASCADE_MODE_STATIC** = 1 | Static shadow cascade generation mode. In this mode shadow cascades are built and baked relative to the light source's position. This mode is suitable as a performance optimization technique for small-area ArchViz projects where shadow cascades can be divided into 2 sections: walkable area with high-resolution shadows (as they're observed closely) and non-walkable area with low-resolution shadows (as they're observed from a distance). > **Notice:** Changing the time of day is not available in this mode, as shadow cascades are baked. |
 
+## SHADOW_CASCADE_ORIGIN_MODE
+
+Mode defining what position is used as the origin around which the shadow cascades of the world light are built.
+| Name | Description |
+|---|---|
+| **SHADOW_CASCADE_ORIGIN_MODE_AUTO** = 0 | The cascades follow the camera position (default). |
+| **SHADOW_CASCADE_ORIGIN_MODE_MANUAL** = 1 | The cascades are anchored at a user-provided world point set via the **[getShadowCascadeOriginPosition()](../../...md#getShadowCascadeOriginPosition_Vec3)** property. |
+
+## SHADOW_CASCADE_PLACEMENT_MODE
+
+Mode defining how the shadow cascades of the world light are sized and placed.
+| Name | Description |
+|---|---|
+| **SHADOW_CASCADE_PLACEMENT_MODE_UNIFORM** = 0 | The cascades are fixed-size boxes around the origin, independent of the view direction (default). |
+| **SHADOW_CASCADE_PLACEMENT_MODE_VIEW_FITTED** = 1 | The cascades are sized and positioned along the view ray to fit the camera frustum slices, giving better shadow resolution in front of the camera. |
+
 ### Members
 
 ## void setMode ( int mode )
@@ -355,7 +371,59 @@ Returns the current value indicating if the One Cascade Per Frame mode is enable
 
 ### Return value
 
-**true** if the One Cascade Per Frame mode is enabled; otherwise **false**.
+**true** if the One Cascade Per Frame mode is enabled ; otherwise **false**.
+## void setShadowCascadeOriginMode ( LightWorld::SHADOW_CASCADE_ORIGIN_MODE mode )
+
+Sets a new mode defining what position is used as the origin of the shadow cascades, one of the *SHADOW_CASCADE_ORIGIN_MODE_** values: following the camera (default) or anchored at a manually set world point.
+### Arguments
+
+- *[LightWorld::SHADOW_CASCADE_ORIGIN_MODE](../../../api/library/lights/class.lightworld_cpp.md#SHADOW_CASCADE_ORIGIN_MODE)* **mode** - The origin mode of the shadow cascades
+
+## LightWorld::SHADOW_CASCADE_ORIGIN_MODE getShadowCascadeOriginMode () const
+
+Returns the current mode defining what position is used as the origin of the shadow cascades, one of the *SHADOW_CASCADE_ORIGIN_MODE_** values: following the camera (default) or anchored at a manually set world point.
+### Return value
+
+Current origin mode of the shadow cascades
+## void setShadowCascadeOriginPosition ( const Math:: Vec3 & position )
+
+Sets a new world-space anchor point for the shadow cascades, used when the cascade origin mode is set to manual. Ignored in the automatic mode.
+### Arguments
+
+- *const  Math::[Vec3](../../../api/library/math/class.vec3_cpp.md)&* **position** - The world-space anchor point of the shadow cascades
+
+## Math:: Vec3 getShadowCascadeOriginPosition () const
+
+Returns the current world-space anchor point for the shadow cascades, used when the cascade origin mode is set to manual. Ignored in the automatic mode.
+### Return value
+
+Current world-space anchor point of the shadow cascades
+## void setShadowCascadePlacementMode ( LightWorld::SHADOW_CASCADE_PLACEMENT_MODE mode )
+
+Sets a new mode defining how the shadow cascades of the light are sized and placed, one of the *SHADOW_CASCADE_PLACEMENT_MODE_** values. The default is the uniform mode.
+### Arguments
+
+- *[LightWorld::SHADOW_CASCADE_PLACEMENT_MODE](../../../api/library/lights/class.lightworld_cpp.md#SHADOW_CASCADE_PLACEMENT_MODE)* **mode** - The placement mode of the shadow cascades
+
+## LightWorld::SHADOW_CASCADE_PLACEMENT_MODE getShadowCascadePlacementMode () const
+
+Returns the current mode defining how the shadow cascades of the light are sized and placed, one of the *SHADOW_CASCADE_PLACEMENT_MODE_** values. The default is the uniform mode.
+### Return value
+
+Current placement mode of the shadow cascades
+## void setShadowFilterFar ( float far )
+
+Sets a new intensity of shadow filtering (blurring) for the far shadow cascades of the light, complementing the base shadow filter that acts on the near cascades. The higher the value, the less noticeable the stair-step effect at the edges of distant shadows. The effective filter width is interpolated per cascade between the near and far values. The default value is 1.
+### Arguments
+
+- *float* **far** - The intensity of shadow filtering for the far cascades
+
+## float getShadowFilterFar () const
+
+Returns the current intensity of shadow filtering (blurring) for the far shadow cascades of the light, complementing the base shadow filter that acts on the near cascades. The higher the value, the less noticeable the stair-step effect at the edges of distant shadows. The effective filter width is interpolated per cascade between the near and far values. The default value is 1.
+### Return value
+
+Current intensity of shadow filtering for the far cascades
 ---
 
 ## static LightWorldPtr create ( const Math:: vec4 & color )

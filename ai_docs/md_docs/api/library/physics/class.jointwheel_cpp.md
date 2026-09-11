@@ -77,13 +77,13 @@ joint->setNumIterations(8);
 Returns the current ratio of wheel spin to ground speed.
 ### Return value
 
-Current current slip ratio, in percent. **0** means that the velocities are equal. If the throttle is pressed, the value will be positive. If the brake is pressed, the value will be negative.
+Current slip ratio, in percent. **0** means that the velocities are equal. If the throttle is pressed, the value will be positive. If the brake is pressed, the value will be negative.
 ## float getCurrentSlipAngle () const
 
 Returns the current angle between the wheel direction and the frame direction.
 ### Return value
 
-Current current slip angle in degrees.
+Current slip angle in degrees.
 ## void setWheelThreshold ( float threshold )
 
 Sets a new threshold difference between the wheel and ground velocities. When it is too small, the longitudinal force is scaled down to prevent unnatural vibrations.
@@ -235,14 +235,14 @@ Returns the current angular damping of the joint (wheel rotation damping).
 Current angular damping. If a negative value is provided, **0** will be used instead.
 ## void setCurrentLinearDistance ( float distance )
 
-Sets a new The current suspension compression (i.e. the length of the suspension).
+Sets a new suspension compression (i.e. the length of the suspension).
 ### Arguments
 
 - *float* **distance** - The suspension length, in units.
 
 ## float getCurrentLinearDistance () const
 
-Returns the current The current suspension compression (i.e. the length of the suspension).
+Returns the current suspension compression (i.e. the length of the suspension).
 ### Return value
 
 Current suspension length, in units.
@@ -313,17 +313,17 @@ Returns the current linear damping of the suspension.
 Current linear damping. If a negative value is provided, **0** will be used instead.
 ## void setPhysicsIntersectionMask ( int mask )
 
-Sets a new [physics intersection mask](../../../principles/bit_masking/index.md#physics_intersection_mask) for the joint.integer, each bit of which is a mask.
+Sets a new [physics intersection mask](../../../principles/bit_masking/index.md#physics_intersection_mask) of the joint.
 ### Arguments
 
-- *int* **mask** - The
+- *int* **mask** - The physics intersection mask of the joint
 
 ## int getPhysicsIntersectionMask () const
 
-Returns the current [physics intersection mask](../../../principles/bit_masking/index.md#physics_intersection_mask) for the joint.integer, each bit of which is a mask.
+Returns the current [physics intersection mask](../../../principles/bit_masking/index.md#physics_intersection_mask) of the joint.
 ### Return value
 
-Current
+Current physics intersection mask of the joint
 ## void setWorldAxis0 ( const Math:: vec3 & axis0 )
 
 Sets a new suspension axis in the world coordinates.

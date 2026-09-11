@@ -13,50 +13,50 @@ A single `*.skeleton` file acts as a shared resource: multiple `*.mesh_skinned` 
 
 ### Members
 
-## isEditingHierarchy () const
+## int isEditingHierarchy () const
 
 Returns the current value indicating whether the skeleton hierarchy is currently being edited.
 ### Return value
 
-Current the skeleton is in hierarchy editing mode.
-## getNumJoints () const
+Current the skeleton is in hierarchy editing mode
+## int getNumJoints () const
 
 Returns the current total number of joints in the skeleton.
 ### Return value
 
 Current number of joints.
-## getNumBlendMasks () const
+## int getNumBlendMasks () const
 
 Returns the current total number of blend masks defined for the skeleton.
 ### Return value
 
 Current number of blend masks.
-## getNumBlendTimeProfiles () const
+## int getNumBlendTimeProfiles () const
 
 Returns the current total number of blend time profiles defined for the skeleton.
 ### Return value
 
 Current number of blend time profiles.
-## getNumBlendWeightProfiles () const
+## int getNumBlendWeightProfiles () const
 
 Returns the current total number of blend weight profiles defined for the skeleton.
 ### Return value
 
 Current number of blend weight profiles.
-## void setRetargetDataEnabled ( )
+## void setRetargetDataEnabled ( int enabled )
 
 Sets a new value indicating whether retarget data is enabled for this skeleton. Retarget data defines per-joint translation modes used when transferring animations between different skeletons.
 ### Arguments
 
-- **enabled** - The retarget data is enabled.
+- *int* **enabled** - The retarget data
 
-## isRetargetDataEnabled () const
+## int isRetargetDataEnabled () const
 
 Returns the current value indicating whether retarget data is enabled for this skeleton. Retarget data defines per-joint translation modes used when transferring animations between different skeletons.
 ### Return value
 
-Current retarget data is enabled.
-## getFileGUID () const
+Current retarget data
+## UGUID getFileGUID () const
 
 Returns the current GUID of the skeleton file.
 ### Return value

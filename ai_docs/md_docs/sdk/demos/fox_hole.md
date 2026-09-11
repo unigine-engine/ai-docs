@@ -4,20 +4,20 @@
 ![](foxhole_001.png)
 
 
-***Fox Hole*** demo with interactive desktop and [VR](../../start/vr/index.md) ([HTC Vive/Vive PRO/OpenVR](../...md) by default) modes is designed to showcase capabilities of the engine for real-time architectural visualization and BIM (Building Information Model) applications.
+***Fox Hole*** demo with interactive desktop and [VR](../../vr_development/vr_template/index.md) ([HTC Vive/Vive PRO/OpenVR](../../vr_development/index.md) by default) modes is designed to showcase capabilities of the engine for real-time architectural visualization and BIM (Building Information Model) applications.
 
 
 Top-notch visuals with realistic lighting, reflections, and true-to-life materials in combination with audio effects creating a fully immersive environment in VR can bring presentation of architectural design to a whole new level.
 
 
-You can examine all architectural elements of the house as well as engineering systems (ventilation and heating), view object-specific BIM data tagged to these elements, look at the floor plan, make measurements to see if a particular piece of furniture fits well in a room, change flooring or use another wall paint, and check out every corner of the house like you live in it. But beware of thinking about making yourself comfortable in the hanging chair by the fireplace — it's not real!
+You can examine all architectural elements of the house as well as engineering systems (ventilation and heating), view object-specific BIM data tagged to these elements, look at the floor plan, make measurements to see if a particular piece of furniture fits well in a room, change flooring or use another wall paint, and check out every corner of the house like you live in it. But beware of thinking about making yourself comfortable in the hanging chair by the fireplace � it's not real!
 
 
 ## Features
 
 
 - Interactive desktop and VR modes with several indoor and outdoor locations to be explored
-- Set of controller models displayed in VR — for each HMD type (HTC Vive, Valve Index, Oculus Rift / Rift S, Windows Mixed Reality) the appropriate controllers identical to real ones are available
+- Set of controller models displayed in VR � for each HMD type (HTC Vive, Valve Index, Oculus Rift / Rift S, Windows Mixed Reality) the appropriate controllers identical to real ones are available
 - Fly mode to survey the outdoor area
 - Time of day and video settings configurable via UI
 - Interactive tutorial mode

@@ -14,7 +14,7 @@ switch(expression) {
 	case constant:
 		// some_code;
 		break;
-	// …;
+	// �;
 	default:
 		// some_code;
 		break;

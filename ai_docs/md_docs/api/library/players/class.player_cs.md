@@ -8,11 +8,15 @@ This class is used to create cameras that view the world. When you create a new 
 
 Players' viewing frustum is defined by a [near clipping plane](#setZNear_float_void), [far clipping plane](#setZFar_float_void) and the [field of view](#setFov_float_void). Note that if you set up a custom [projection](#setProjection_mat4_void) matrix and after that call any of these functions:
 
+
 - [*setFov()*](#setFov_float_void)
 - [*setZFar()*](#setZFar_float_void)
 - [*setZNear()*](#setZNear_float_void)
 
+
 your custom matrices will be overwritten.
+
+
 Players cannot have a parent node; they always use the world coordinates for their transformations. The only exception is [PlayerDummy](../../../api/library/players/class.playerdummy_cs.md).
 
 
@@ -21,6 +25,7 @@ Players cannot have a parent node; they always use the world coordinates for the
 
 Objects, decals and lights can be selectively displayed in the player viewport. To be displayed, their viewport mask should be matching with the player's [viewport mask](#setViewportMask_int_void) (one matching bit is enough):
 
+
 - Object [surface viewport mask](../../../api/library/objects/class.object_cs.md#setViewportMask_int_int_void) or [decal viewport mask](../../../api/library/decals/class.decal_cs.md#setViewportMask_int_void)
 - [Light viewport mask](../../../api/library/lights/class.light_cs.md#setViewportMask_int_void) to light the object/decal
 - [Material viewport mask](../../../api/library/rendering/class.material_cs.md#setViewportMask_int_void) to render the object/decal material
@@ -28,17 +33,21 @@ Objects, decals and lights can be selectively displayed in the player viewport. 
 
 Reflections can also be selectively rendered into the viewport: an object can be rendered without reflection or reflection without an object. For that, the player's [reflection viewport mask](#setReflectionViewportMask_int_void) should match:
 
+
 - Reflection mask of the reflecting material
 - [Viewport mask](../../../api/library/rendering/class.material_cs.md#setViewportMask_int_void) of the reflecting material
 - Object [surface viewport mask](../../../api/library/objects/class.object_cs.md#setViewportMask_int_int_void)
 - [Material viewport mask](../../../api/library/rendering/class.material_cs.md#setViewportMask_int_void) of the reflected material
 - [Light viewport mask](../../../api/library/lights/class.light_cs.md#setViewportMask_int_void)
 
+
 That is enough to render reflection from the object without an object itself. If an object needs to be present as well, all these conditions should simply go together with above mentioned ones.
+
+
 To render an object without reflection, simply either its [material viewport mask](../../../api/library/rendering/class.material_cs.md#setViewportMask_int_void) or object [surface viewport mask](../../../api/library/objects/class.object_cs.md#setViewportMask_int_int_void) should not match the player's [reflection viewport mask](#setReflectionViewportMask_int_void).
 
 
-Players also can have sound source and sound reverberation masks. As well as for viewports, corresponding masks of the Player object should match with [SoundReverb](../../../api/library/sounds/class.soundreverb_cs.md#setReverbMask_int_void) and [SoundSource](../../../api/library/sounds/class.soundsource_cs.md#setSourceMask_int_void) masks.
+Players also can have sound source and sound reverberation masks. As well as for viewports, corresponding masks of the *Player* object should match with [SoundReverb](../../../api/library/sounds/class.soundreverb_cs.md#setReverbMask_int_void) and [SoundSource](../../../api/library/sounds/class.soundsource_cs.md#setSourceMask_int_void) masks.
 
 
 ### Perspective and Orthographic Projection
@@ -125,6 +134,7 @@ private void Init()
 
 Sometimes it might be necessary to get current rotation of the active camera as a set of Euler angles. When we talk about axes in UNIGINE we assume that:
 
+
 |  |  |
 |---|---|
 | - **X** axis points to the *right* giving us a **pitch** angle. - **Y** axis points *forward* giving us a **roll** angle. - **Z** axis points *up* giving us a **yaw** (heading) angle. | ![](../../../code/fundamentals/matrices/object_directions.png) *Object Direction Vectors* |
@@ -132,11 +142,15 @@ Sometimes it might be necessary to get current rotation of the active camera as 
 
 To get the Euler angles we should use [*decomposeRotationZXY()*](../../../api/library/math/math.matrix_cs.md#decomposeRotationZXY_const_mat3_ref_vec3) also known as Cardan angles (**yaw** is independent, then we get **pitch** and in the end, **roll**). But, there is one thing to be taken into account - cameras have a different system:
 
+
 |  |  |
 |---|---|
 | - **X** axis points to the *right* giving us a **pitch** angle. - **Y** axis points *up* giving us a **yaw** (heading) angle. - **Z** axis points *backward* giving us a **-roll** angle. | ![](../../../code/fundamentals/matrices/camera_directions.png) *Camera Direction Vectors* |
 
+
 To compensate it, we need to rotate our camera **-90** degrees around **X** axis.
+
+
 ```csharp
 #if UNIGINE_DOUBLE
 using Mat4 = Unigine.dmat4;
@@ -249,7 +263,10 @@ The current viewport mask. object surfaces, materials, decals, lights and gui ob
 The A value indicating if the viewing frustum is oblique.
 ## vec4 ObliqueFrustumPlane
 
+The
 The oblique near clipping plane of the viewing frustum.
+
+
 ```csharp
 #if UNIGINE_DOUBLE
 using Vec4 = Unigine.dvec4;
@@ -309,7 +326,7 @@ Current vertical field of view of the player.
 > **Notice:** Horizontal FOV cannot be used since it varies depending on the viewport's aspect ratio. Setting FOV recalculates projection matrix with **aspect ratio = 1**.
 
 
-You can use the following formula to calculate horizontal FOV from the vertical one for the given aspect ratio (width/height): **FOV_h = 2 × atan ( (width / height) × tan(FOV_v / 2))**.
+You can use the following formula to calculate horizontal FOV from the vertical one for the given aspect ratio (width/height): **FOV_h = 2 � atan ( (width / height) � tan(FOV_v / 2))**.
 
 
 ## 🔒︎ Camera.FOV_FIXED FovFixed
@@ -336,7 +353,10 @@ The projection mode, *[PROJECTION_MODE.ORTHOGRAPHIC](../../../api/library/render
 
 ## void GetDirectionFromScreen ( out Vec3 p0 , out Vec3 p1 , int mouse_x , int mouse_y , int screen_x , int screen_y , int screen_width , int screen_height )
 
+
 Casts the ray to a certain position on the screen and returns coordinates of the start (p0) and end (p1) points of the ray.
+
+
 ```csharp
 Vec3 p0, p1;
 
@@ -379,7 +399,10 @@ player.GetDirectionFromScreen(out p0, out p1, mouse_x, mouse_y, 0, 0, main_size.
 
 ## vec3 GetDirectionFromScreen ( int mouse_x , int mouse_y , int screen_x , int screen_y , int screen_width , int screen_height )
 
+
 Casts the ray to a certain position on the screen and returns a vector in the direction of this position.
+
+
 ```csharp
 // get width and height of the current application window
 EngineWindow main_window = WindowManager.MainWindow;
@@ -428,6 +451,8 @@ Projection matrix.
 ## int GetScreenPosition ( out int x , out int y , vec3 point , int screen_width , int screen_height )
 
 Projects the point in world coordinates to the screen. Screen coordinates are written into the first 2 variables passed to the method (in pixels).
+
+
 ```csharp
 // get relative screen position of a world-space point (world_point_position)
 EngineWindowViewport mainWindow = WindowManager.MainWindow;
@@ -451,10 +476,10 @@ vec2 relative_pos = new vec2(screenX, screenY) / clientRenderSize;
 1 if the point has been projected successfully; otherwise, 0.
 ## void FlushTransform ( )
 
-Forces to immediately set transformations to the player. This function should be called manually after user input has been updated via updateControls().
+Forces to immediately set transformations to the player. This function should be called manually after user input has been updated via *updateControls()*.
 ## void UpdateControls ( float ifps )
 
-Gets the current player's parameters (impulse, direction, velocity etc) according to user input. After the input has been updated, flushTransform() should be called manually to apply it to the player.
+Gets the current player's parameters (impulse, direction, velocity etc) according to user input. After the input has been updated, *flushTransform()* should be called manually to apply it to the player.
 ### Arguments
 
 - *float* **ifps** - Frame duration in seconds.
@@ -472,7 +497,10 @@ Returns projection matrix after correction for the specified aspect ratio (**scr
 Projection matrix after correction for the specified aspect ratio (**screen width** / **screen height**).
 ## void AddScriptableMaterial ( Material material )
 
-Attaches a new [scriptable material](../../../content/materials/scriptable.md) to the player. To apply a scriptable material globally, use the **[AddScriptableMaterial()](../../../api/library/rendering/class.render_cs.md#addScriptableMaterial_Material_void)** method of the Render class. The order of execution for scripts assigned to scriptable materials is defined by material's number in the list of the player.
+
+Attaches a new [scriptable material](../../../content/materials/scriptable.md) to the player. To apply a scriptable material globally, use the **[AddScriptableMaterial()](../../../api/library/rendering/class.render_cs.md#addScriptableMaterial_Material_void)** method of the *Render* class. The order of execution for scripts assigned to scriptable materials is defined by material's number in the list of the player.
+
+
 > **Notice:** Scriptable materials [applied globally](../../../api/library/rendering/class.render_cs.md#addScriptableMaterial_Material_void) have their expressions executed before the ones that are applied per-player.
 
 
@@ -482,7 +510,10 @@ Attaches a new [scriptable material](../../../content/materials/scriptable.md) t
 
 ## void InsertScriptableMaterial ( int num , Material material )
 
-Inserts a new [scriptable material](../../../content/materials/scriptable.md) into the list of the ones assigned to the player. To apply a scriptable material globally, use the [*insertScriptableMaterial()*](../../../api/library/rendering/class.render_cs.md#insertScriptableMaterial_int_Material_void) method of the Render class. The order of execution for scripts assigned to scriptable materials is defined by material's number in the player's list.
+
+Inserts a new [scriptable material](../../../content/materials/scriptable.md) into the list of the ones assigned to the player. To apply a scriptable material globally, use the [*insertScriptableMaterial()*](../../../api/library/rendering/class.render_cs.md#insertScriptableMaterial_int_Material_void) method of the *Render* class. The order of execution for scripts assigned to scriptable materials is defined by material's number in the player's list.
+
+
 > **Notice:** Scriptable materials [applied globally](../../../api/library/rendering/class.render_cs.md#addScriptableMaterial_Material_void) have their expressions executed before the ones that are applied per-player.
 
 ### Arguments
@@ -499,7 +530,10 @@ Removes the [scriptable material](../../../content/materials/scriptable.md) with
 
 ## int FindScriptableMaterial ( Material material )
 
+
 Returns the number of the specified [scriptable material](../../../content/materials/scriptable.md) for the player. This number is player-specific (valid for this player only) and determines the order in which the assigned expressions are executed.
+
+
 > **Notice:** Scriptable materials [applied globally](../../../api/library/rendering/class.render_cs.md#addScriptableMaterial_Material_void) have their expressions executed before the ones that are applied per-player.
 
 
@@ -512,7 +546,10 @@ Returns the number of the specified [scriptable material](../../../content/mater
 Scriptable material number in the range from 0 to the [total number of scriptable materials](#getNumScriptableMaterials_int), or -1 if the specified material was not found.
 ## void SetScriptableMaterial ( int num , Material material )
 
+
 Replaces the [scriptable material](../../../content/materials/scriptable.md) with the specified number with the new scriptable material specified. The number of material determines the order in which the expressions assigned to it are executed. This number is player-specific (valid for this player only).
+
+
 > **Notice:** Scriptable materials [applied globally](../../../api/library/rendering/class.render_cs.md#addScriptableMaterial_Material_void) have their expressions executed before the ones that are applied per-player.
 
 
@@ -551,7 +588,10 @@ Returns a value indicating if the [scriptable material](../../../content/materia
 true if the scriptable material with the specified number is enabled; otherwise, false.
 ## void SwapScriptableMaterials ( int num_0 , int num_1 )
 
+
 Swaps two [scriptable materials](../../../content/materials/scriptable.md) with specified numbers. The number of material determines the order in which the expressions assigned to it are executed.
+
+
 > **Notice:** The number is player-specific (valid for this player only).
 
 
@@ -636,7 +676,10 @@ Creates a projection matrix out of 2 screen positions relative to the specified 
 Projection matrix.
 ## int GetMainWindowPosition ( out int x , out int y , vec3 point )
 
+
 Projects the point in world coordinates relative to the main window. The coordinates are written into the first 2 variables passed to the method (in pixels).
+
+
 ```csharp
 // get relative screen position of a world-space point (worldPointPosition)
 ivec2 clientRenderSize = WindowManager.MainWindow.ClientRenderSize;
@@ -657,7 +700,10 @@ vec2 relative_pos = new vec2(screenX, screenY) / clientRenderSize;
 1 if the point has been projected successfully; otherwise, 0.
 ## int GetWindowPosition ( out int x , out int y , vec3 point , EngineWindowViewport window )
 
+
 Projects the point in world coordinates relative to the specified window viewport. The coordinates are written into the first 2 variables passed to the method (in pixels).
+
+
 ```csharp
 // get relative screen position of a world-space point (world_point_position)
 EngineWindowViewport mainWindow = WindowManager.MainWindow;

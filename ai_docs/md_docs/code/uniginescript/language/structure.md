@@ -109,4 +109,4 @@ In UnigineScript, statements are typically grouped into units called functions. 
 ## Libraries
 
 
-**Libraries** are groups of functions that have been “packaged up” for reuse in many different programs. The core UnigineScript language is actually very small and minimalistic — however, UnigineScript comes with a bunch of [libraries](../../../api/index.md), that provide programmers with lots of extra functionality. To include the library in your program use [Preprocessor Directives](../../../code/uniginescript/language/preprocessor.md).
+**Libraries** are groups of functions that have been �packaged up� for reuse in many different programs. The core UnigineScript language is actually very small and minimalistic � however, UnigineScript comes with a bunch of [libraries](../../../api/index.md), that provide programmers with lots of extra functionality. To include the library in your program use [Preprocessor Directives](../../../code/uniginescript/language/preprocessor.md).

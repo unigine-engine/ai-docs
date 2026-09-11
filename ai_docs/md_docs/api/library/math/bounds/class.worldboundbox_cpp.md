@@ -302,7 +302,10 @@ Checks if the given bounding box is inside the current bounding box.
 **1** if the bounding box is inside the bounding box; otherwise, **0**.
 ## int insideValid ( const Math:: Vec3 & point ) const
 
+
 Checks if the given point is inside the current bounding box.
+
+
 > **Notice:** The method doesn't check if the bounding box is valid (has a positive radius).
 
 
@@ -315,7 +318,10 @@ Checks if the given point is inside the current bounding box.
 **1** if the given point is inside the bounding box; otherwise, **0**.
 ## int insideValid ( const Math:: Vec3 & point , Math::Scalar radius ) const
 
+
 Checks if the given sphere is inside the current bounding box.
+
+
 > **Notice:** The method doesn't check if the bounding box is valid (has a positive radius).
 
 
@@ -329,7 +335,10 @@ Checks if the given sphere is inside the current bounding box.
 **1** if the sphere is inside the bounding box; otherwise, **0**.
 ## int insideValid ( const Math:: Vec3 & min , const Math:: Vec3 & max ) const
 
+
 Checks if the box is inside the bounding box.
+
+
 > **Notice:** The method doesn't check if the bounding box is valid (has a positive radius).
 
 
@@ -343,7 +352,10 @@ Checks if the box is inside the bounding box.
 **1** if the box is inside the bounding box; otherwise, **0**.
 ## bool insideValid ( const Math:: Vec3 * points , int num_points ) const
 
+
 Checks if any of the given points is inside the bounding box.
+
+
 > **Notice:** The method doesn't check if the minimum and maximum coordinates of the current bounding box are valid.
 
 
@@ -357,7 +369,10 @@ Checks if any of the given points is inside the bounding box.
 **true** if any of the given points is inside the bounding box; otherwise, **false**.
 ## int insideValid ( const WorldBoundSphere & bs ) const
 
+
 Checks if the bounding sphere is inside the bounding box.
+
+
 > **Notice:** The method doesn't check if the bounding box is valid (has a positive radius).
 
 
@@ -370,7 +385,10 @@ Checks if the bounding sphere is inside the bounding box.
 **1** if the bounding sphere is inside the bounding box; otherwise, **0**.
 ## int insideValid ( const WorldBoundBox & bb ) const
 
+
 Checks if the given bounding box is inside the current bounding box.
+
+
 > **Notice:** The method doesn't check if the bounding box is valid (has a positive radius).
 
 
@@ -403,7 +421,10 @@ Checks if the whole given bounding box is inside the current bounding box.
 **1** if the whole box is inside the bounding box; otherwise, **0**.
 ## int insideAllValid ( const WorldBoundSphere & bs ) const
 
+
 Checks if the whole given bounding sphere is inside the current bounding box.
+
+
 > **Notice:** The method doesn't check if the bounding box is valid (has a positive radius).
 
 
@@ -416,7 +437,10 @@ Checks if the whole given bounding sphere is inside the current bounding box.
 **1** if the whole bounding sphere is inside the bounding box; otherwise, **0**.
 ## int insideAllValid ( const WorldBoundBox & bb ) const
 
+
 Checks if the whole given bounding box is inside the current bounding box.
+
+
 > **Notice:** The method doesn't check if the bounding box is valid (has a positive radius).
 
 
@@ -429,7 +453,10 @@ Checks if the whole given bounding box is inside the current bounding box.
 **1** if the whole given bounding box is inside the bounding box; otherwise, **0**.
 ## bool insideAllValid ( const Math::Vec3* points , int num_points ) const
 
+
 Checks if all specified points are inside the current bounding box.
+
+
 > **Notice:** The method doesn't check if the minimum and maximum coordinates of the current bounding box are valid.
 
 
@@ -487,7 +514,10 @@ Checks for an intersection between a line and the current bounding box.
 **1** if the given line intersects the bounding box; otherwise, **0**.
 ## int rayIntersectionValid ( const Math:: Vec3 & point , const Math:: Vec3 & direction ) const
 
+
 Checks for an intersection between a ray and the current bounding box.
+
+
 > **Notice:** This function doesn't check if the minimum and maximum coordinates of the bounding box are valid.
 
 
@@ -512,7 +542,10 @@ Checks for an intersection between a ray and the current bounding box. This func
 **1** if the given ray intersects the bounding box; otherwise, **0**.
 ## int getIntersectionValid ( const Math:: Vec3 & p0 , const Math:: vec3 & p1 ) const
 
+
 Checks for an intersection between a line and the current bounding box.
+
+
 > **Notice:** This function doesn't check if the minimum and maximum coordinates of the bounding box are valid.
 
 

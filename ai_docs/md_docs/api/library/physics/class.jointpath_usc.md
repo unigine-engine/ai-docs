@@ -53,7 +53,7 @@ joint.setNumIterations(4);
 Returns the current velocity of the linear motor.
 ### Return value
 
-Current current velocity of the attached motor, in units per second.
+Current velocity of the attached motor, in units per second.
 ## void setWorldRotation ( mat3 rotation )
 
 Sets a new rotation matrix of the anchor point in the world system of coordinates.

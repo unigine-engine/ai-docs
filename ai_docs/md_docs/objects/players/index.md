@@ -4,10 +4,10 @@
 Players are cameras creating viewports into the world. The cameras available in UnigineEditor are:
 
 
-- **[![](player.png)](../../objects/players/actor/index.md)   [Player Actor](../../objects/players/actor/index.md)** is a player with a rigid physical body that can only walk on the ground.
-- **[![](player.png)](../../objects/players/dummy/index.md)   [Player Dummy](../../objects/players/dummy/index.md)** is a simple viewport into the world that has no physical properties and cannot collide with objects.
-- **[![](player.png)](../../objects/players/persecutor/index.md)   [Player Persecutor](../../objects/players/persecutor/index.md)** is a free flying camera without a physical body that follows the target node at the specified distance. It can collide with objects but cannot interact with them.
-- **[![](player.png)](../../objects/players/spectator/index.md)   [Player Spectator](../../objects/players/spectator/index.md)** is a free flying camera without a physical body that is used to create a *spectator mode*. It can collide with objects but cannot push or interact with them.
+- **[![](player.png)](../../objects/players/actor/index.md) � [Player Actor](../../objects/players/actor/index.md)** is a player with a rigid physical body that can only walk on the ground.
+- **[![](player.png)](../../objects/players/dummy/index.md) � [Player Dummy](../../objects/players/dummy/index.md)** is a simple viewport into the world that has no physical properties and cannot collide with objects.
+- **[![](player.png)](../../objects/players/persecutor/index.md) � [Player Persecutor](../../objects/players/persecutor/index.md)** is a free flying camera without a physical body that follows the target node at the specified distance. It can collide with objects but cannot interact with them.
+- **[![](player.png)](../../objects/players/spectator/index.md) � [Player Spectator](../../objects/players/spectator/index.md)** is a free flying camera without a physical body that is used to create a *spectator mode*. It can collide with objects but cannot push or interact with them.
 
 
 There are other types of cameras not present in the Editor. These camera types can be controlled via code.

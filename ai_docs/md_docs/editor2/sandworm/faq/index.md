@@ -8,8 +8,8 @@ There is a number of **general tips** that may be useful for overall understandi
 
 
 - Open the Editor console (*Windows -> Console*). If something goes wrong, a console message might be useful in explaining the situation. ![Console errors](console_errors.png) *Example of console errors*
-- If you suspect that the height data have some issues, you can enable the debug mode to check: *[Rendering Debug](../../../editor2/using_visual_helpers/index.md) -> Opacity World Normal*.
-- Don’t worry about the number of [triangles](../../../objects/objects/terrain/landscape_terrain/index.md#tiling) in *ObjectLandscapeTerrain*. This object was designed in a way that millions of polygons wouldn’t affect the framerate that much.
+- If you suspect that the heightmap has some issues, you can enable the debug mode to check: *[Rendering Debug](../../../editor2/using_visual_helpers/index.md) -> Opacity World Normal*.
+- Don�t worry about the number of [triangles](../../../objects/objects/terrain/landscape_terrain/index.md#tiling) in *ObjectLandscapeTerrain*. This object was designed in a way that millions of polygons wouldn�t affect the framerate that much.
 - [Clear cache](../../../editor2/sandworm/generation/output_dir_files/index.md#clear_cache) before you start terrain generation: click the ![](../interface/trash_bin.png) button near the cache address line in the bottom left corner of the *Sandworm* window.
 
 
@@ -45,13 +45,13 @@ As a rule, access to private TMS servers is not free, however, there are free da
 For example, you can try the [mapbox](https://www.mapbox.com/) service. Register there in order to obtain your own token and access, for more details see [this page](https://docs.mapbox.com/help/troubleshooting/access-elevation-data/).
 
 
-Free access limits the number of requests per minute, but that doesn’t affect the overall workflow and is enough for general overview.
+Free access limits the number of requests per minute, but that doesn�t affect the overall workflow and is enough for general overview.
 
 
-As soon as you register, you’ll receive a token which is a string of various symbols. Add this token to the following URL after the equality sign (=): **https://api.mapbox.com/v4/mapbox.terrain-rgb/{z}/{x}/{y}.pngraw?access_token=YOUR_ACCESS_TOKEN**, and use this URL in *Sandworm* to obtain the data for the corresponding level.
+As soon as you register, you�ll receive a token which is a string of various symbols. Add this token to the following URL after the equality sign (=): **https://api.mapbox.com/v4/mapbox.terrain-rgb/{z}/{x}/{y}.pngraw?access_token=YOUR_ACCESS_TOKEN**, and use this URL in *Sandworm* to obtain the data for the corresponding level.
 
 
-> **Notice:** To avoid jaggies (stair-step artifact), export the height data into a 32-bit texture.
+> **Notice:** To avoid jaggies (stair-step artifact), export the heightmap into a 32-bit texture.
 
 
 **Imagery**
@@ -60,7 +60,7 @@ As soon as you register, you’ll receive a token which is a string of various s
 Here's an example of an imagery TMS server you can use for general overview:
 
 
-- **http://a.tile.openstreetmap.org/{z}/{x}/{y}.png** — OSM topographic data with a legend
+- **http://a.tile.openstreetmap.org/{z}/{x}/{y}.png** � OSM topographic data with a legend
 
 
 **Vector**
@@ -69,7 +69,7 @@ Here's an example of an imagery TMS server you can use for general overview:
 As a free source of vector data for a basic overview, you can check [https://www.openstreetmap.org](https://www.openstreetmap.org) and use [https://extract.bbbike.org/](https://extract.bbbike.org/) as an aggregator for it.
 
 
-The mentioned links and sources are provided as a quick start for an overview. You can use them and the *Sandworm* documentation if you don’t have any georeferenced data at hand. Exporting data from third-party tools is a huge topic for research in itself, and would take much more time than getting along with our tool.
+The mentioned links and sources are provided as a quick start for an overview. You can use them and the *Sandworm* documentation if you don�t have any georeferenced data at hand. Exporting data from third-party tools is a huge topic for research in itself, and would take much more time than getting along with our tool.
 
 </details>
 
@@ -80,7 +80,7 @@ The mentioned links and sources are provided as a quick start for an overview. Y
 **Which projection should I select to have the minimum surface distortion?**
 
 
-Unfortunately an all-fitting universal projection doesn’t exist, because every projection is a flat representation of a curved area, and the farther a point is from the center (origin) of the projection, the higher the data corruption is. You can find more on [Wikipedia](https://en.wikipedia.org/wiki/Map_projection) or search for other explanations on projections. The output projection should be chosen based on source data at hand or the project requirements.
+Unfortunately an all-fitting universal projection doesn�t exist, because every projection is a flat representation of a curved area, and the farther a point is from the center (origin) of the projection, the higher the data corruption is. You can find more on [Wikipedia](https://en.wikipedia.org/wiki/Map_projection) or search for other explanations on projections. The output projection should be chosen based on source data at hand or the project requirements.
 
 
 You can use [https://epsg.org/](https://epsg.org/search/map) to find the best-fitting projection with minimum inaccuracy for the selected area.
@@ -90,10 +90,10 @@ You can use [https://epsg.org/](https://epsg.org/search/map) to find the best-fi
 
 
 1. Go to *EPSG Dataset -> Map Search*: ![](epsg_menu.png) > **Notice:** If the website doesn't display any map, consider disabling adblock or using a VPN.
-2. Set the area boundaries and click *Search*. You’ll receive a table — sort it by type (click on the *TYPE* heading) and select one of the data sources that is marked as ***Projected***. ![](epsg_projection.gif)
+2. Set the area boundaries and click *Search*. You�ll receive a table � sort it by type (click on the *TYPE* heading) and select one of the data sources that is marked as ***Projected***. ![](epsg_projection.gif)
 
 
-Again, for a start, you can use **EPSG:3857** — this is a projection widely used by such services as *Google, OpenStreetMap, Navitel*, etc.
+Again, for a start, you can use **EPSG:3857** � this is a projection widely used by such services as *Google, OpenStreetMap, Navitel*, etc.
 
 </details>
 
@@ -104,7 +104,7 @@ Again, for a start, you can use **EPSG:3857** — this is a projection widely us
 **A heightmap/imagery tile is not placed as required. How to locate it properly on the map?**
 
 
-If your data is not georeferenced, it won’t be located on the map (check the editor console, there also shall be a message).
+If your data is not georeferenced, it won�t be located on the map (check the editor console, there also shall be a message).
 
 </details>
 
@@ -115,10 +115,10 @@ If your data is not georeferenced, it won’t be located on the map (check the e
 **Are tiles loading or not?**
 
 
-The more detailed the tiles are, the more time is required to load them. The *Generating Preview* pop-up will give you a hint — it is displayed in the bottom right corner of *Sandworm* while the data is downloaded. In addition, in the Editor console there’ll be a message looking like *"ImportCacheTile 465.162000 ms"* when a tile is loaded.
+The more detailed the tiles are, the more time is required to load them. The *Generating Preview* pop-up will give you a hint � it is displayed in the bottom right corner of *Sandworm* while the data is downloaded. In addition, in the Editor console there�ll be a message looking like *"ImportCacheTile 465.162000 ms"* when a tile is loaded.
 
 
-We recommend attempting with low *Zoom* values first. This will give you an overall understanding about the data you add, then you can increase the *[Zoom](../../../editor2/sandworm/sources/index.md#zoom)* value and click *Reimport*. The higher the *Zoom* value is, the more detailed is the data (and the more time it takes to download from a server). If the data is too heavy, you’ll see a notification.
+We recommend attempting with low *Zoom Level* values first. This will give you an overall understanding about the data you add, then you can increase the *[Zoom Level](../../../editor2/sandworm/sources/index.md#zoom)* value and click *[Update Elevation Layer](../../../editor2/sandworm/sources/elevation_imagery/index.md#update_layer)*. The higher the *Zoom Level* value is, the more detailed is the data (and the more time it takes to download from a server). If the data is too heavy, you�ll see a notification.
 
 </details>
 
@@ -132,7 +132,7 @@ We recommend attempting with low *Zoom* values first. This will give you an over
 This can happen when you take data from TMS servers. Better data usually costs money.
 
 
-You can try to change *[Zoom](../../../editor2/sandworm/sources/index.md#zoom)* for a certain area. One more solution is to make insets using other TMS sources: for example, you generate the whole area with *Zoom = 10*, and for the problem area — create another layer, use another source for it, and set *Zoom = 14* (the given zoom values are just an example, try your own values).
+You can try to change *[Zoom Level](../../../editor2/sandworm/sources/index.md#zoom)* for a certain area. One more solution is to make insets using other TMS sources: for example, you generate the whole area with *Zoom Level* = 10, and for the problem area � create another layer, use another source for it, and set *Zoom Level* = 14 (the given zoom values are just an example, try your own values).
 
 </details>
 
@@ -146,10 +146,10 @@ You can try to change *[Zoom](../../../editor2/sandworm/sources/index.md#zoom)* 
 Check that the output projection is set correctly.
 
 
-If the data is outside the selected output projection, it won’t be used for the terrain generation — only the part that is inside will be generated. The corresponding message will be also shown in the Editor console.
+If the data is outside the selected output projection, it won�t be used for the terrain generation � only the part that is inside will be generated. The corresponding message will be also shown in the Editor console.
 
 
-A quick check: re-generate the project without defining the *Export Area* (select the *Export Area* option and click the *Press to Clear* button in the Parameters tab). *Sandworm* will generate only the areas for which the data is available.
+A quick check: regenerate the project with no *Export Area* � select *Export Area* and click the trash-bin icon to remove its boundaries. *Sandworm* will generate only the areas for which the data is available.
 
 
 Preview generation is also helpful in defining if you have data for the area that is missing. If you canceled the preview generation, restart it by right-clicking on a layer and selecting *Generate Preview*.
@@ -180,7 +180,7 @@ Adjust the visibility distance for *ObjectLandscapeTerrain*. It is set in the Ed
 **When I click Run, I see the black screen after the world is loaded, although there are cameras in the scene.**
 
 
-The scene contains a camera by default, which has the *[Main Player](../../../objects/players/index.md#main_player)* parameter enabled. This parameter defines the image from which camera is displayed when the world is run. Enable this parameter for the camera that you want to control at runtime, for example *Sandworm* camera — it is spawned right above the terrain, and disable all other cameras.
+The scene contains a camera by default, which has the *[Main Player](../../../objects/players/index.md#main_player)* parameter enabled. This parameter defines the image from which camera is displayed when the world is run. Enable this parameter for the camera that you want to control at runtime, for example *Sandworm* camera � it is spawned right above the terrain, and disable all other cameras.
 
 </details>
 
@@ -202,7 +202,7 @@ We have the IG plugin for this task. This plugin is enabled by default in the IG
 **How to position an object using its geo coordinates?**
 
 
-For ***ObjectTerrainGlobal***, you can use *[Geodetic Pivot](../../../objects/geodetics/geodeticpivot/index.md)* in the Editor — every object added as its child can be positioned on the terrain using geographical coordinates set in latitude/longitude.
+For ***ObjectTerrainGlobal***, you can use *[Geodetic Pivot](../../../objects/geodetics/geodeticpivot/index.md)* in the Editor � every object added as its child can be positioned on the terrain using geographical coordinates set in latitude/longitude.
 
 
 As for ***ObjectLandscapeTerrain***, the positioning tool is still in development, meanwhile you can transform coordinates using third-party sources, such as [https://products.aspose.app/gis/transformation](https://products.aspose.app/gis/transformation).
@@ -212,14 +212,14 @@ Here is a description of the workflow:
 
 
 - Transform the object and the origin coordinates to the world coordinates (mind the input and output projections). ![Source coordinates of the object](object_coordinates.jpg) *Source coordinates of the object (screen capture from Google Maps)* ![Source coordinates of the origin](origin_coordinates.png) *Source coordinates of the origin (Export Area parameter in Sandworm)* ![Transforming coordinates using aspose.app](transform_coordinates_aspose.png) *Transforming coordinates using aspose.app*
-- Take the origin position from the object position: **Object.X — Origin.X; Object.Y — Origin.Y**. ![Calculating the world coordinates](coordinates_calculation.png) *Calculating the world coordinates*
+- Take the origin position from the object position: **Object.X � Origin.X; Object.Y � Origin.Y**. ![Calculating the world coordinates](coordinates_calculation.png) *Calculating the world coordinates*
 - Use the outcome as the X and Y coordinates of the object in the world. ![Object positioned in the world](positioned_object.jpg) *Object positioned in the world*
 
 
-Developers can also use *[Geodetics Plugin](../../../code/plugins/geodetics/index.md)* and position objects via code.
+Developers can also use *[Geodetics Plugin](../../../code/plugins/geodetics/index_cpp.md)* and position objects via code.
 
 
-IG has the *[worldToGeodetic()](../../../api/library/geodetics/geodetics_plugin/class.converter_cpp.md#worldToGeodetic_dvec3_dvec3)* method and *[Unigine::Plugins::Geodetics::Transformer](../../../api/library/geodetics/geodetics_plugin/class.transformer_cpp.md)* class to position objects.
+IG has the *[worldToGeodetic()](../../../api/library/geodetics/geodetics_plugin/class.converter_cpp.md#worldToGeodetic_Vec3_dvec3)* method and *[Unigine::Plugins::Geodetics::Transformer](../../../api/library/geodetics/geodetics_plugin/class.transformer_cpp.md)* class to position objects.
 
 </details>
 

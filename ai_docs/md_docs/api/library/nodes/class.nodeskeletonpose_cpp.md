@@ -94,6 +94,12 @@ Returns the current number of controlled ObjectMeshSkinned objects.
 ### Return value
 
 Current number of controlled ObjectMeshSkinned objects.
+## Ptr < AnimScript > getAnimScript () const
+
+Returns the current [AnimScript](../../../api/library/animations/skeletal/class.animscript_cpp.md) instance used by this node in [MODE_ANIM_SCRIPT](#MODE_ANIM_SCRIPT) mode, or null if the node is in another mode or has no AnimScript assigned.
+### Return value
+
+Current AnimScript instance used by this node.
 ## void setAnimScriptFileGUID ( const UGUID & guid )
 
 Sets a new GUID of the AnimGraph asset file (`.agraph`) used in MODE_ANIM_SCRIPT mode.
@@ -525,7 +531,7 @@ Returns the scale of the specified joint in the given animation layer.
 Joint scale.
 ## void setLayerFrameUsesEnabled ( int layer , bool enabled )
 
-Enables or disables per-joint frame component masking for the specified layer. When enabled, you can control which transform components (position, rotation, scale) are used per joint via [setLayerJointFrameUses()](#setLayerJointFrameUses_int_int_int_void).
+Enables or disables per-joint frame component masking for the specified layer. When enabled, you can control which transform components (position, rotation, scale) are used per joint via *[setLayerJointFrameUses()](../../...md#setLayerJointFrameUses_int_int_int_void)*.
 ### Arguments
 
 - *int* **layer** - Animation layer index.
@@ -879,3 +885,237 @@ Returns the [AnimScript](../../../api/library/animations/skeletal/class.animscri
 ### Return value
 
 AnimScript instance, or null if not in MODE_ANIM_SCRIPT mode or no AnimGraph is assigned to this node.
+## bool isLayerAnimationStreaming ( int layer ) const
+
+Returns a value indicating if the animation on the specified layer is currently being loaded by the [data streaming](../../../principles/data_streaming/index.md) system. While the animation is streaming, the layer holds the first frame of this animation.
+### Arguments
+
+- *int* **layer** - Layer number.
+
+### Return value
+
+true if the animation assigned to the specified layer is still being streamed in; otherwise, false.
+## Math:: mat4 getLayerJointObjectTransform ( int layer , int joint ) const
+
+Returns the object-space transformation matrix of the specified joint on the specified layer.
+### Arguments
+
+- *int* **layer** - Layer number.
+- *int* **joint** - Joint index.
+
+### Return value
+
+Object-space transformation matrix of the joint on the specified layer.
+## void setLayerJointObjectTransform ( int layer , int joint , const Math:: mat4 & transform )
+
+Sets the object-space transformation matrix of the specified joint on the specified layer.
+### Arguments
+
+- *int* **layer** - Layer number.
+- *int* **joint** - Joint index.
+- *const  Math::[mat4](../../../api/library/math/class.mat4_cpp.md) &* **transform** - Object-space transformation matrix.
+
+## void setLayerJointObjectTransformPreserveChildren ( int layer , int joint , const Math:: mat4 & transform )
+
+Sets the object-space transformation matrix of the specified joint on the specified layer, preserving the object-space transformations of its child joints.
+### Arguments
+
+- *int* **layer** - Layer number.
+- *int* **joint** - Joint index.
+- *const  Math::[mat4](../../../api/library/math/class.mat4_cpp.md) &* **transform** - Object-space transformation matrix.
+
+## void solveLayerTwoBoneIK ( int layer , Ptr < IKInfoTwoBone > info )
+
+Solves and applies a two-bone IK solver on the specified layer using the given [IKInfoTwoBone](../../../api/library/animations/skeletal/class.ikinfotwobone_cpp.md) parameters.
+### Arguments
+
+- *int* **layer** - Layer number.
+- *[Ptr](../../../api/library/common/class.ptr_cpp.md)<[IKInfoTwoBone](../../../api/library/animations/skeletal/class.ikinfotwobone_cpp.md)>* **info** - Parameters instance.
+
+## void solveLayerLookAt ( int layer , Ptr < LookAtInfo > info )
+
+Solves and applies a single-joint Look At solver on the specified layer using the given [LookAtInfo](../../../api/library/animations/skeletal/class.lookatinfo_cpp.md) parameters.
+### Arguments
+
+- *int* **layer** - Layer number.
+- *[Ptr](../../../api/library/common/class.ptr_cpp.md)<[LookAtInfo](../../../api/library/animations/skeletal/class.lookatinfo_cpp.md)>* **info** - Parameters instance.
+
+## void solveLayerJointHingeLimit ( int layer , Ptr < JointLimitInfoHinge > info )
+
+Solves and applies a hinge joint limit on the specified layer using the given [JointLimitInfoHinge](../../../api/library/animations/skeletal/class.jointlimitinfohinge_cpp.md) parameters.
+### Arguments
+
+- *int* **layer** - Layer number.
+- *[Ptr](../../../api/library/common/class.ptr_cpp.md)<[JointLimitInfoHinge](../../../api/library/animations/skeletal/class.jointlimitinfohinge_cpp.md)>* **info** - Parameters instance.
+
+## void solveLayerJointConeLimit ( int layer , Ptr < JointLimitInfoCone > info )
+
+Solves and applies a cone joint limit on the specified layer using the given [JointLimitInfoCone](../../../api/library/animations/skeletal/class.jointlimitinfocone_cpp.md) parameters.
+### Arguments
+
+- *int* **layer** - Layer number.
+- *[Ptr](../../../api/library/common/class.ptr_cpp.md)<[JointLimitInfoCone](../../../api/library/animations/skeletal/class.jointlimitinfocone_cpp.md)>* **info** - Parameters instance.
+
+## void solveLayerJointConeAsymLimit ( int layer , Ptr < JointLimitInfoConeAsym > info )
+
+Solves and applies an asymmetric cone joint limit on the specified layer using the given [JointLimitInfoConeAsym](../../../api/library/animations/skeletal/class.jointlimitinfoconeasym_cpp.md) parameters.
+### Arguments
+
+- *int* **layer** - Layer number.
+- *[Ptr](../../../api/library/common/class.ptr_cpp.md)<[JointLimitInfoConeAsym](../../../api/library/animations/skeletal/class.jointlimitinfoconeasym_cpp.md)>* **info** - Parameters instance.
+
+## void solveLayerJointTwistLimit ( int layer , Ptr < JointLimitInfoTwist > info )
+
+Solves and applies a twist joint limit on the specified layer using the given [JointLimitInfoTwist](../../../api/library/animations/skeletal/class.jointlimitinfotwist_cpp.md) parameters.
+### Arguments
+
+- *int* **layer** - Layer number.
+- *[Ptr](../../../api/library/common/class.ptr_cpp.md)<[JointLimitInfoTwist](../../../api/library/animations/skeletal/class.jointlimitinfotwist_cpp.md)>* **info** - Parameters instance.
+
+## void solveLayerJointHingeTwistLimit ( int layer , Ptr < JointLimitInfoHingeTwist > info )
+
+Solves and applies a combined hinge-twist joint limit on the specified layer using the given [JointLimitInfoHingeTwist](../../../api/library/animations/skeletal/class.jointlimitinfohingetwist_cpp.md) parameters.
+### Arguments
+
+- *int* **layer** - Layer number.
+- *[Ptr](../../../api/library/common/class.ptr_cpp.md)<[JointLimitInfoHingeTwist](../../../api/library/animations/skeletal/class.jointlimitinfohingetwist_cpp.md)>* **info** - Parameters instance.
+
+## void solveLayerJointConeTwistLimit ( int layer , Ptr < JointLimitInfoConeTwist > info )
+
+Solves and applies a combined cone-twist joint limit on the specified layer using the given [JointLimitInfoConeTwist](../../../api/library/animations/skeletal/class.jointlimitinfoconetwist_cpp.md) parameters.
+### Arguments
+
+- *int* **layer** - Layer number.
+- *[Ptr](../../../api/library/common/class.ptr_cpp.md)<[JointLimitInfoConeTwist](../../../api/library/animations/skeletal/class.jointlimitinfoconetwist_cpp.md)>* **info** - Parameters instance.
+
+## void solveLayerJointConeAsymTwistLimit ( int layer , Ptr < JointLimitInfoConeAsymTwist > info )
+
+Solves and applies a combined asymmetric cone-twist joint limit on the specified layer using the given [JointLimitInfoConeAsymTwist](../../../api/library/animations/skeletal/class.jointlimitinfoconeasymtwist_cpp.md) parameters.
+### Arguments
+
+- *int* **layer** - Layer number.
+- *[Ptr](../../../api/library/common/class.ptr_cpp.md)<[JointLimitInfoConeAsymTwist](../../../api/library/animations/skeletal/class.jointlimitinfoconeasymtwist_cpp.md)>* **info** - Parameters instance.
+
+## void solveLayerIKChain ( int layer , Ptr < IKInfoChain > info )
+
+Solves and applies an iterative IK solver for a chain of arbitrary length on the specified layer using the given [IKInfoChain](../../../api/library/animations/skeletal/class.ikinfochain_cpp.md) parameters.
+### Arguments
+
+- *int* **layer** - Layer number.
+- *[Ptr](../../../api/library/common/class.ptr_cpp.md)<[IKInfoChain](../../../api/library/animations/skeletal/class.ikinfochain_cpp.md)>* **info** - Parameters instance.
+
+## void solveLayerLookAtChain ( int layer , Ptr < LookAtChainInfo > info )
+
+Solves and applies a multi-joint Look At solver on the specified layer using the given [LookAtChainInfo](../../../api/library/animations/skeletal/class.lookatchaininfo_cpp.md) parameters.
+### Arguments
+
+- *int* **layer** - Layer number.
+- *[Ptr](../../../api/library/common/class.ptr_cpp.md)<[LookAtChainInfo](../../../api/library/animations/skeletal/class.lookatchaininfo_cpp.md)>* **info** - Parameters instance.
+
+## void renderLayerTwoBoneIKDebug ( int layer , Ptr < IKInfoTwoBone > info , Math:: Mat4 world_offset )
+
+Renders the debug visualization of the two-bone IK solver for the specified layer using the given [IKInfoTwoBone](../../../api/library/animations/skeletal/class.ikinfotwobone_cpp.md) parameters.
+### Arguments
+
+- *int* **layer** - Layer number.
+- *[Ptr](../../../api/library/common/class.ptr_cpp.md)<[IKInfoTwoBone](../../../api/library/animations/skeletal/class.ikinfotwobone_cpp.md)>* **info** - Parameters instance.
+- *Math::[Mat4](../../../api/library/math/class.mat4_cpp.md)* **world_offset** - World transformation offset applied to the debug visualization.
+
+## void renderLayerLookAtDebug ( int layer , Ptr < LookAtInfo > info , Math:: Mat4 world_offset )
+
+Renders the debug visualization of the single-joint Look At solver for the specified layer using the given [LookAtInfo](../../../api/library/animations/skeletal/class.lookatinfo_cpp.md) parameters.
+### Arguments
+
+- *int* **layer** - Layer number.
+- *[Ptr](../../../api/library/common/class.ptr_cpp.md)<[LookAtInfo](../../../api/library/animations/skeletal/class.lookatinfo_cpp.md)>* **info** - Parameters instance.
+- *Math::[Mat4](../../../api/library/math/class.mat4_cpp.md)* **world_offset** - World transformation offset applied to the debug visualization.
+
+## void renderLayerJointHingeLimitDebug ( int layer , Ptr < JointLimitInfoHinge > info , Math:: Mat4 world_offset )
+
+Renders the debug visualization of the hinge joint limit for the specified layer using the given [JointLimitInfoHinge](../../../api/library/animations/skeletal/class.jointlimitinfohinge_cpp.md) parameters.
+### Arguments
+
+- *int* **layer** - Layer number.
+- *[Ptr](../../../api/library/common/class.ptr_cpp.md)<[JointLimitInfoHinge](../../../api/library/animations/skeletal/class.jointlimitinfohinge_cpp.md)>* **info** - Parameters instance.
+- *Math::[Mat4](../../../api/library/math/class.mat4_cpp.md)* **world_offset** - World transformation offset applied to the debug visualization.
+
+## void renderLayerJointConeLimitDebug ( int layer , Ptr < JointLimitInfoCone > info , Math:: Mat4 world_offset )
+
+Renders the debug visualization of the cone joint limit for the specified layer using the given [JointLimitInfoCone](../../../api/library/animations/skeletal/class.jointlimitinfocone_cpp.md) parameters.
+### Arguments
+
+- *int* **layer** - Layer number.
+- *[Ptr](../../../api/library/common/class.ptr_cpp.md)<[JointLimitInfoCone](../../../api/library/animations/skeletal/class.jointlimitinfocone_cpp.md)>* **info** - Parameters instance.
+- *Math::[Mat4](../../../api/library/math/class.mat4_cpp.md)* **world_offset** - World transformation offset applied to the debug visualization.
+
+## void renderLayerJointConeAsymLimitDebug ( int layer , Ptr < JointLimitInfoConeAsym > info , Math:: Mat4 world_offset )
+
+Renders the debug visualization of the asymmetric cone joint limit for the specified layer using the given [JointLimitInfoConeAsym](../../../api/library/animations/skeletal/class.jointlimitinfoconeasym_cpp.md) parameters.
+### Arguments
+
+- *int* **layer** - Layer number.
+- *[Ptr](../../../api/library/common/class.ptr_cpp.md)<[JointLimitInfoConeAsym](../../../api/library/animations/skeletal/class.jointlimitinfoconeasym_cpp.md)>* **info** - Parameters instance.
+- *Math::[Mat4](../../../api/library/math/class.mat4_cpp.md)* **world_offset** - World transformation offset applied to the debug visualization.
+
+## void renderLayerJointTwistLimitDebug ( int layer , Ptr < JointLimitInfoTwist > info , Math:: Mat4 world_offset )
+
+Renders the debug visualization of the twist joint limit for the specified layer using the given [JointLimitInfoTwist](../../../api/library/animations/skeletal/class.jointlimitinfotwist_cpp.md) parameters.
+### Arguments
+
+- *int* **layer** - Layer number.
+- *[Ptr](../../../api/library/common/class.ptr_cpp.md)<[JointLimitInfoTwist](../../../api/library/animations/skeletal/class.jointlimitinfotwist_cpp.md)>* **info** - Parameters instance.
+- *Math::[Mat4](../../../api/library/math/class.mat4_cpp.md)* **world_offset** - World transformation offset applied to the debug visualization.
+
+## void renderLayerJointHingeTwistLimitDebug ( int layer , Ptr < JointLimitInfoHingeTwist > info , Math:: Mat4 world_offset )
+
+Renders the debug visualization of the combined hinge-twist joint limit for the specified layer using the given [JointLimitInfoHingeTwist](../../../api/library/animations/skeletal/class.jointlimitinfohingetwist_cpp.md) parameters.
+### Arguments
+
+- *int* **layer** - Layer number.
+- *[Ptr](../../../api/library/common/class.ptr_cpp.md)<[JointLimitInfoHingeTwist](../../../api/library/animations/skeletal/class.jointlimitinfohingetwist_cpp.md)>* **info** - Parameters instance.
+- *Math::[Mat4](../../../api/library/math/class.mat4_cpp.md)* **world_offset** - World transformation offset applied to the debug visualization.
+
+## void renderLayerJointConeTwistLimitDebug ( int layer , Ptr < JointLimitInfoConeTwist > info , Math:: Mat4 world_offset )
+
+Renders the debug visualization of the combined cone-twist joint limit for the specified layer using the given [JointLimitInfoConeTwist](../../../api/library/animations/skeletal/class.jointlimitinfoconetwist_cpp.md) parameters.
+### Arguments
+
+- *int* **layer** - Layer number.
+- *[Ptr](../../../api/library/common/class.ptr_cpp.md)<[JointLimitInfoConeTwist](../../../api/library/animations/skeletal/class.jointlimitinfoconetwist_cpp.md)>* **info** - Parameters instance.
+- *Math::[Mat4](../../../api/library/math/class.mat4_cpp.md)* **world_offset** - World transformation offset applied to the debug visualization.
+
+## void renderLayerJointConeAsymTwistLimitDebug ( int layer , Ptr < JointLimitInfoConeAsymTwist > info , Math:: Mat4 world_offset )
+
+Renders the debug visualization of the combined asymmetric cone-twist joint limit for the specified layer using the given [JointLimitInfoConeAsymTwist](../../../api/library/animations/skeletal/class.jointlimitinfoconeasymtwist_cpp.md) parameters.
+### Arguments
+
+- *int* **layer** - Layer number.
+- *[Ptr](../../../api/library/common/class.ptr_cpp.md)<[JointLimitInfoConeAsymTwist](../../../api/library/animations/skeletal/class.jointlimitinfoconeasymtwist_cpp.md)>* **info** - Parameters instance.
+- *Math::[Mat4](../../../api/library/math/class.mat4_cpp.md)* **world_offset** - World transformation offset applied to the debug visualization.
+
+## void renderLayerIKChainDebug ( int layer , Ptr < IKInfoChain > info , Math:: Mat4 world_offset )
+
+Renders the debug visualization of the iterative IK solver for chain of arbitrary length for the specified layer using the given [IKInfoChain](../../../api/library/animations/skeletal/class.ikinfochain_cpp.md) parameters.
+### Arguments
+
+- *int* **layer** - Layer number.
+- *[Ptr](../../../api/library/common/class.ptr_cpp.md)<[IKInfoChain](../../../api/library/animations/skeletal/class.ikinfochain_cpp.md)>* **info** - Parameters instance.
+- *Math::[Mat4](../../../api/library/math/class.mat4_cpp.md)* **world_offset** - World transformation offset applied to the debug visualization.
+
+## void renderLayerLookAtChainDebug ( int layer , Ptr < LookAtChainInfo > info , Math:: Mat4 world_offset )
+
+Renders the debug visualization of the multi-joint Look At solver for the specified layer using the given [LookAtChainInfo](../../../api/library/animations/skeletal/class.lookatchaininfo_cpp.md) parameters.
+### Arguments
+
+- *int* **layer** - Layer number.
+- *[Ptr](../../../api/library/common/class.ptr_cpp.md)<[LookAtChainInfo](../../../api/library/animations/skeletal/class.lookatchaininfo_cpp.md)>* **info** - Parameters instance.
+- *Math::[Mat4](../../../api/library/math/class.mat4_cpp.md)* **world_offset** - World transformation offset applied to the debug visualization.
+
+## void renderLayerJointLimitSetDebug ( int layer , Ptr < JointLimitSetInfo > info , Math:: Mat4 world_offset )
+
+Renders the debug visualization of a set of joint limits for the specified layer using the given [JointLimitSetInfo](../../../api/library/animations/skeletal/class.jointlimitsetinfo_cpp.md) parameters.
+### Arguments
+
+- *int* **layer** - Layer number.
+- *[Ptr](../../../api/library/common/class.ptr_cpp.md)<[JointLimitSetInfo](../../../api/library/animations/skeletal/class.jointlimitsetinfo_cpp.md)>* **info** - Parameters instance.
+- *Math::[Mat4](../../../api/library/math/class.mat4_cpp.md)* **world_offset** - World transformation offset applied to the debug visualization.

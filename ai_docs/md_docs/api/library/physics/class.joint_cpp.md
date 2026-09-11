@@ -223,7 +223,7 @@ Sets a new value indicating if the joint is frozen.
 Returns the current value indicating if the joint is frozen.
 ### Return value
 
-**true** if the joint frozen state is enabled; otherwise **false**.
+**true** if the joint frozen state is enabled ; otherwise **false**.
 ## void setBroken ( bool broken )
 
 Sets a new value indicating if the joint is broken or intact.
@@ -236,7 +236,7 @@ Sets a new value indicating if the joint is broken or intact.
 Returns the current value indicating if the joint is broken or intact.
 ### Return value
 
-**true** if the joint broken state is enabled; otherwise **false**.
+**true** if the joint broken state is enabled ; otherwise **false**.
 ## void setCollision ( int collision )
 
 Sets a new value indicating if collisions between the connected bodies are enabled.
@@ -252,23 +252,23 @@ Returns the current value indicating if collisions between the connected bodies 
 Current value indicating if collisions between the connected bodies are enabled: positive number for enabled collisions between the bodies, **0** for disabled collisions.
 ## bool isEnabledSelf () const
 
-Returns the current value indicating is the joint is enabled.
+Returns the current value indicating if the joint is enabled by its own flag, regardless of the effective enabled state derived from the connected bodies.
 ### Return value
 
-**true** if the joint is enabled; otherwise **false**.
+**true** if the joint is enabled by its own flag; otherwise **false**.
 ## void setEnabled ( bool enabled )
 
 Sets a new value indicating if the joint calculations are enabled.
 ### Arguments
 
-- *bool* **enabled** - Set **true** to enable the joint calculations; **false** - to disable it.
+- *bool* **enabled** - Set **true** to enable joint calculation; **false** - to disable it.
 
 ## bool isEnabled () const
 
 Returns the current value indicating if the joint calculations are enabled.
 ### Return value
 
-**true** if the joint calculations is enabled; otherwise **false**.
+**true** if joint calculation is enabled ; otherwise **false**.
 ## void setBody1 ( const Ptr < Body >& body1 )
 
 Sets a new second body connected using the joint.
@@ -335,7 +335,7 @@ Returns the current node possessing the first body connected to the joint.
 Current node possessing the first body connected to the joint is assigned. The node must be an object and must have a body assigned.
 ## Event<const Ptr < Joint > &> getEventBroken () const
 
-Event triggered when the joint breaks. The event handler must receive a *Joint* as an argument. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+Event triggered when the joint breaks. The event handler must receive a *Joint* as an argument. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -471,7 +471,7 @@ publisher->getEventBroken().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## Ptr < Joint > createJoint ( int type )

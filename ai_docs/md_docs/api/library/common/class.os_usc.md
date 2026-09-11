@@ -75,7 +75,10 @@ Gets a value of an environment variable.
 Variable value.
 ## Variable system ( string command , int wait = 1 )
 
+
 Executes a shell command or commands.
+
+
 > **Notice:** On Windows, this function returns **0** if the *wait* argument is **0**.
 
 

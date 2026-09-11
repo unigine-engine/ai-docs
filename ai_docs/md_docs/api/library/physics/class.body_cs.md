@@ -9,11 +9,15 @@ This class is used to simulate [physical bodies](../../../principles/physics/bod
 
 To transform a body, one of the following can be used:
 
+
 - **[Transform](../../...md#setTransform_Mat4_void)**
 - **[SetPreserveTransform()](../../...md#setPreserveTransform_Mat4_void)**
 - **[SetVelocityTransform()](../../...md#setVelocityTransform_Mat4_void)**
 
+
 All of these functions take effect when physics calculations are over and **[UpdatePhysics()](../../../code/fundamentals/execution_sequence/main_loop.md#physics)** is performed. Only after that transformations of the body are applied to the rendered node. If a node needs to be transformed immediately after its physical body, **[FlushTransform()](../../...md#flushTransform_void)** is to be called.
+
+
 The simulation of the body can be [frozen](../../../principles/physics/bodies/index.md#freezing) (if the *[Frozen](#setFrozen_int_void)* flag is set).
 
 
@@ -100,13 +104,13 @@ The name of the body.
 The value indicating if [gravity](../../../api/library/physics/class.physics_cs.md#setGravity_vec3_void) is affecting the body.
 ## bool Immovable
 
-The value indicating if the body is immovable (static).
+The value indicating if the body is immovable (static), i.e. not affected by any forces or collisions.
 ## bool Frozen
 
-The value indicating if the body is [frozen](../../../principles/physics/bodies/index.md#frozen_velocities). When a body is frozen, it is not simulated (though its contacts are still calculated), until a collision with a frozen body occurs or some force is applied.
+The value indicating if the body is frozen. When a body is frozen, it is not simulated (though its contacts are still calculated) until a collision with a non-frozen body occurs or a force is applied.
 ## 🔒︎ bool IsEnabledSelf
 
-The value indicating if the body is enabled.
+The value indicating if the body is enabled by its own flag, regardless of the enabled state it may inherit from its node or the physics simulation.
 ## bool Enabled
 
 The value indicating if physical interactions with the body are enabled.
@@ -130,7 +134,7 @@ The parent of the body.
 The normalized direction vector of the body (in world coordinates). By default, a direction vector points along **-Z** axis. It always has an unit length.
 ## 🔒︎ Event< Body > EventContacts
 
-The event triggered after adding new contacts and before removing the ones that cease to exist. This event can be used to get **all contacts** of the body including new ones (*enter*) and the ending ones (*leave*). *Leave* contacts are removed after the event is triggered, so this is the only point where you can still get them. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after adding new contacts and before removing the ones that cease to exist. This event can be used to get **all contacts** of the body including new ones (*enter*) and the ending ones (*leave*). *Leave* contacts are removed after the event is triggered, so this is the only point where you can still get them. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** Physics-based events are executed in the main thread, as they are mainly used for creation, destruction or modification of other objects.
 
@@ -227,7 +231,7 @@ publisher.EventContacts.Enabled = true;
 
 ## 🔒︎ Event< Body , int> EventContactLeave
 
-The event triggered when a contact with the body ends (the body stops touching another body). You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a contact with the body ends (the body stops touching another body). You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** Physics-based events are executed in the main thread, as they are mainly used for creation, destruction or modification of other objects.
 
@@ -324,7 +328,7 @@ publisher.EventContactLeave.Enabled = true;
 
 ## 🔒︎ Event< Body , int> EventContactEnter
 
-The event triggered when a contact with the body occurs (the body begins touching another body). You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a contact with the body occurs (the body begins touching another body). You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** Physics-based events are executed in the main thread, as they are mainly used for creation, destruction or modification of other objects.
 
@@ -421,7 +425,7 @@ publisher.EventContactEnter.Enabled = true;
 
 ## 🔒︎ Event< Body > EventPosition
 
-The event triggered when a given body moves a certain distance (rotation is not taken into account). You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a given body moves a certain distance (rotation is not taken into account). You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** Physics-based events are executed in the main thread, as they are mainly used for creation, destruction or modification of other objects.
 
@@ -518,7 +522,7 @@ publisher.EventPosition.Enabled = true;
 
 ## 🔒︎ Event< Body > EventFrozen
 
-The event triggered when a given body [freezes/unfreezes](#isFrozen_int) (i.e. its *Frozen* state changes). Use **[Frozen](../../...md#isFrozen_int)** to define whether the body is frozen or unfrozen at the moment. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a given body [freezes/unfreezes](#isFrozen_int) (i.e. its *Frozen* state changes). Use **[Frozen](../../...md#isFrozen_int)** to define whether the body is frozen or unfrozen at the moment. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** Physics-based events are executed in the main thread, as they are mainly used for creation, destruction or modification of other objects.
 
@@ -1006,7 +1010,7 @@ Returns the relative impulse at the given [contact](#contacts) point.
 Impulse value.
 ## float GetContactTime ( int num )
 
-Returns the time when the given [contact](#contacts) occurs. By CCD (for spheres or capsules), it returns the time starting from the current physics simulation tick to the moment when the calculated contact is bound to happen. By non-continuous collision detection, **0** is always returned.
+Returns the time when the given [contact](#contacts) occurs. In case of [CCD](../../../api/library/physics/class.shape_cs.md#isContinuous_int), it returns the time starting from the current physics simulation tick to the moment when the calculated contact is bound to happen. In case of non-continuous collision detection, **0** is always returned.
 ### Arguments
 
 - *int* **num** - [Contact](#contacts) number in the range from 0 to the [total number of contacts](#getNumContacts_int).

@@ -4,8 +4,8 @@
 **Joints** provide constraints removing degrees of freedom from a [body](../../../principles/physics/bodies/index.md) and are used to connect pairs of bodies. Each joint has an anchor point, which is by default placed between the centers of mass of connected bodies. The properties of each connection depend on the selected joint type and its parameters. Joint parameters can be divided into two groups:
 
 
-- **[Common parameters](#joint_params)** — basic set of parameters shared by all joints.
-- **Type-specific parameters** — a set of specific parameters for each joint type.
+- **[Common parameters](#joint_params)** � basic set of parameters shared by all joints.
+- **Type-specific parameters** � a set of specific parameters for each joint type.
 
 
 ### See also
@@ -522,11 +522,11 @@ This is a very simple model of real life motors. However, is it quite useful whe
 To **activate an angular motor** perform the following steps:
 
 
-1. Set **angular velocity** — target angular velocity of the motor, This value determines how fast the motor can rotate.
+1. Set **angular velocity** � target angular velocity of the motor, This value determines how fast the motor can rotate.
 
-  - **positive value** — the motor rotates counterclockwise.
-  - **negative value** — the motor rotates clockwise.
-2. Set **angular torque** — maximum torque applied by the motor to reach target velocity. This value determines how fast the motor reaches maximum velocity.
+  - **positive value** � the motor rotates counterclockwise.
+  - **negative value** � the motor rotates clockwise.
+2. Set **angular torque** � maximum torque applied by the motor to reach target velocity. This value determines how fast the motor reaches maximum velocity.
 
   - 0 disables the motor.
   - If a negative value is provided, 0 will be used instead.
@@ -535,11 +535,11 @@ To **activate an angular motor** perform the following steps:
 To **activate a linear motor** perform the following steps:
 
 
-1. Set **linear velocity** — target linear velocity of the motor, This value determines how fast the motor can push.
+1. Set **linear velocity** � target linear velocity of the motor, This value determines how fast the motor can push.
 
-  - **positive value** — the motor pushes forward.
-  - **negative value** — the motor pulls backward.
-2. Set **linear force** — maximum force applied by the motor to reach target velocity. This value determines how fast the motor reaches maximum velocity.
+  - **positive value** � the motor pushes forward.
+  - **negative value** � the motor pulls backward.
+2. Set **linear force** � maximum force applied by the motor to reach target velocity. This value determines how fast the motor reaches maximum velocity.
 
   - 0 disables the motor.
   - If a negative value is provided, 0 will be used instead.

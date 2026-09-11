@@ -70,7 +70,7 @@ When you create a component you should declare all parameters to be used. The li
 #### Basic Parameters
 
 
-Parameters of basic types (Int, Float, Node, Material, etc.) are declared using the **PROP_PARAM** macro, which has the following format:
+Parameters of basic types (*Int, Float, Node, Material*, etc.) are declared using the **PROP_PARAM** macro, which has the following format:
 
 
 ```cpp
@@ -83,7 +83,7 @@ The arguments except *type, name* are optional:
 
 
 - *mask_type* - for Mask parameters only; available mask types are listed [here](../../../../../../code/formats/property_format.md#mask_flags).
-- *default_value* - available for all parameter types, but may be omitted for Vec*, Color, Property, Material, Node and Curve2d. For example: ```cpp // for int value it should be set in the following way PROP_PARAM(Int, name, 0, "title", "tooltip") // for Vec*, Color, Property, Material, Node and Curve2d it may be like this PROP_PARAM(Color, name, vec4_black, "title", ...) // or even like this PROP_PARAM(Color, name, "title", ...) ```
+- *default_value* - available for all parameter types, but may be omitted for *Vec*, Color, Property, Material, Node* and *Curve2d*. For example: ```cpp // for int value it should be set in the following way PROP_PARAM(Int, name, 0, "title", "tooltip") // for Vec*, Color, Property, Material, Node and Curve2d it may be like this PROP_PARAM(Color, name, vec4_black, "title", ...) // or even like this PROP_PARAM(Color, name, "title", ...) ```
 - *items* - for the [*switch*](../../../../../../code/formats/property_format.md#parameter_type) parameter only.
 
 
@@ -94,6 +94,7 @@ Each structure, that you want to use in your component, must be inherited from t
 
 
 To declare a structured parameter use the following macro (the last three arguments are optional, see [above](#parameters)):
+
 
 ```cpp
 PROP_STRUCT(type, name, title, tooltip, group, args);
@@ -386,10 +387,11 @@ class B: public class A
 ### Usage Example
 
 
-Below you'll find an example of declaration of a logic component (**MyComponent.h**) along with logic implementation (**MyComponent.cpp**).
+Below you'll find an example of declaration of a logic component (`MyComponent.h`) along with logic implementation (`MyComponent.cpp`).
 
 
 The implementation file of the component (`*.cpp`) must contain the following macro to ensure its automatic registration by C++ Component System, when it is [initialized](../../../../../../api/library/common/logic/component_system/cpp/class.componentsystem_cpp.md#initialize_void):
+
 
 ```cpp
 REGISTER_COMPONENT ( your_component_name );
@@ -543,13 +545,14 @@ void MyComponent::update2()
 
 ## ComponentBase Class
 
-### Members
-
 ---
 
 ## virtual void on_ready ( )
 
-This method is called **immediately** after the component was created and attached to a node. You can override this method and use it instead of the constructor for initialization, as the component is in an "undefined" state at construction time.
+This method is called **immediately** after the component was created and attached to a node.
+You can override this method and use it instead of the constructor for initialization, as the component is in an "undefined" state at construction time.
+
+
 > **Notice:** The *init()* method is called only on [initializing a world](../../../../../../code/fundamentals/execution_sequence/main_loop.md#world_init). Implementing component initialization in *on_ready()* enables you to do all necessary preparations beforehand, if your component is to be accessed by other components on world initialization.
 
 ## virtual void on_enable ( )
@@ -572,7 +575,10 @@ Returns the component description. The description can be specified in the *COMP
 Component description.
 ## const char * getPropertyName ( )
 
+
 Returns the name of the property associated with the component.
+
+
 > **Notice:** The name is automatically generated if you use the *COMPONENT_DEFINE* macro: in this case, the property name will be same as the class name. To specify a custom name, use the *COMPONENT* and *PROP_NAME* macros instead.
 
 
@@ -581,7 +587,10 @@ Returns the name of the property associated with the component.
 Property name.
 ## const char * getParentPropertyName ( )
 
+
 Returns the name of the parent property from which the current property associated with the component is inherited.
+
+
 > **Notice:** The name is automatically generated if you use the *COMPONENT_DEFINE* macro: in this case, the property name will be same as the class name. To specify a custom name, use the *COMPONENT* and *PROP_NAME* macros instead.
 
 ### Return value
@@ -608,8 +617,13 @@ Returns a value indicating whether the component is initialized (its *init()* me
 **1** if the component is initialized; otherwise **0**.
 ## int isAutoSaveProperty ( )
 
-Returns a value indicating whether the property file associated with the component should be automatically generated each time C++ Component System is [initialized](../../../../../../api/library/common/logic/component_system/cpp/class.componentsystem_cpp.md#initialize_void) or [createPropertyFiles()](../../../../../../api/library/common/logic/component_system/cpp/class.componentsystem_cpp.md#createPropertyFiles_void) method is called.
+
+Returns a value indicating whether the property file associated with the component should be automatically generated each time C++ Component System is [initialized](../../../../../../api/library/common/logic/component_system/cpp/class.componentsystem_cpp.md#initialize_void) or *[createPropertyFiles()](../../../../../../api/library/common/logic/component_system/cpp/class.componentsystem_cpp.md#createPropertyFiles_void)* method is called.
+
+
 > **Notice:** By default all components have their property files re-generated automatically, this behavior might not be suitable, when you modify properties manually after creation. In this case you can add the following macro to the header file containing your component's declaration:
+>
+>
 > ```cpp
 > PROP_AUTOSAVE(0);
 > ```
@@ -617,7 +631,7 @@ Returns a value indicating whether the property file associated with the compone
 
 ### Return value
 
-**1** if the property file associated with the component should be automatically generated each time C++ Component System is [initialized](../../../../../../api/library/common/logic/component_system/cpp/class.componentsystem_cpp.md#initialize_void) or [createPropertyFiles()](../../../../../../api/library/common/logic/component_system/cpp/class.componentsystem_cpp.md#createPropertyFiles_void) method is called; otherwise **0**.
+**1** if the property file associated with the component should be automatically generated each time C++ Component System is [initialized](../../../../../../api/library/common/logic/component_system/cpp/class.componentsystem_cpp.md#initialize_void) or *[createPropertyFiles()](../../../../../../api/library/common/logic/component_system/cpp/class.componentsystem_cpp.md#createPropertyFiles_void)* method is called; otherwise **0**.
 ## const Node Ptr & getNode ( )
 
 Returns the node, to which the component is attached.
@@ -640,7 +654,7 @@ Number of the property in the list of properties assigned to the node.
 
 ## C * addComponent ( const Node Ptr & node )
 
-Adds the component to the specified node. This method is equivalent to [ComponentSystem::addComponent()](../../../../../../api/library/common/logic/component_system/cpp/class.componentsystem_cpp.md#addComponent_const_NodePtr_ref_C_ptr) method.
+Adds the component to the specified node. This method is equivalent to *[ComponentSystem::addComponent()](../../../../../../api/library/common/logic/component_system/cpp/class.componentsystem_cpp.md#addComponent_const_NodePtr_ref_C_ptr)* method.
 ### Arguments
 
 - *const [Node](../../../../../../api/library/nodes/class.node_cpp.md)Ptr &* **node** - Node, to which the component is to be added.
@@ -652,7 +666,7 @@ Pointer to the new added component, if it was successfully added to the specifie
 
 ## int removeComponent ( const Node Ptr & node )
 
-Removes the component from the specified node. This method is equivalent to [ComponentSystem::removeComponent()](../../../../../../api/library/common/logic/component_system/cpp/class.componentsystem_cpp.md#removeComponent_const_NodePtr_ref_int) method.
+Removes the component from the specified node. This method is equivalent to *[ComponentSystem::removeComponent()](../../../../../../api/library/common/logic/component_system/cpp/class.componentsystem_cpp.md#removeComponent_const_NodePtr_ref_int)* method.
 ### Arguments
 
 - *const [Node](../../../../../../api/library/nodes/class.node_cpp.md)Ptr &* **node** - Node, from which the component is to be removed.
@@ -664,7 +678,7 @@ Removes the component from the specified node. This method is equivalent to [Com
 
 ## C * getComponent ( const Node Ptr & node , bool enabled_only = false )
 
-Returns the first component of the specified type associated with the specified node. This method is equivalent to [ComponentSystem::getComponent()](../../../../../../api/library/common/logic/component_system/cpp/class.componentsystem_cpp.md#getComponent_const_NodePtr_ref_C_ptr) method.
+Returns the first component of the specified type associated with the specified node. This method is equivalent to *[ComponentSystem::getComponent()](../../../../../../api/library/common/logic/component_system/cpp/class.componentsystem_cpp.md#getComponent_const_NodePtr_ref_C_ptr)* method.
 ### Arguments
 
 - *const [Node](../../../../../../api/library/nodes/class.node_cpp.md)Ptr &* **node** - Node, for which the component of this type is to be found.
@@ -677,7 +691,7 @@ Pointer to the component if it exists; otherwise, nullptr.
 
 ## void getComponents ( const Node Ptr & node , Vector <C *> & components )
 
-Returns all components of this type assigned to the specified node and puts them to the specified buffer vector. This method is equivalent to [ComponentSystem::getComponents()](../../../../../../api/library/common/logic/component_system/cpp/class.componentsystem_cpp.md#getComponents_const_NodePtr_ref_Vectortmplargs_ref_int_void) method.
+Returns all components of this type assigned to the specified node and puts them to the specified buffer vector. This method is equivalent to *[ComponentSystem::getComponents()](../../../../../../api/library/common/logic/component_system/cpp/class.componentsystem_cpp.md#getComponents_const_NodePtr_ref_Vectortmplargs_ref_int_void)* method.
 ### Arguments
 
 - *const [Node](../../../../../../api/library/nodes/class.node_cpp.md)Ptr &* **node** - Node, whose components are to be retrieved.
@@ -687,13 +701,19 @@ Returns all components of this type assigned to the specified node and puts them
 
 ## C * getComponentInChildren ( const Node Ptr & node , bool enabled_only = false )
 
+
 Returns the first component of this type found among all the children of the specified node (including the node itself). This method searches for the component in the following order:
+
+
 - node itself
 - node reference
 - node's children
 - children of node's children
 
-This method is equivalent to [ComponentSystem::getComponentInChildren()](../../../../../../api/library/common/logic/component_system/cpp/class.componentsystem_cpp.md#getComponentInChildren_const_NodePtr_ref_C_ptr) method.
+
+This method is equivalent to *[ComponentSystem::getComponentInChildren()](../../../../../../api/library/common/logic/component_system/cpp/class.componentsystem_cpp.md#getComponentInChildren_const_NodePtr_ref_C_ptr)* method.
+
+
 ### Arguments
 
 - *const [Node](../../../../../../api/library/nodes/class.node_cpp.md)Ptr &* **node** - Node, whose hierarchy is to be checked for the components of this type.
@@ -706,7 +726,7 @@ Pointer to the component if it exists; otherwise, nullptr.
 
 ## void getComponentsInChildren ( const Node Ptr & node , Vector <C *> & components )
 
-Searches for all components of this type down the hierarchy of the specified node and puts them to the given buffer vector. This method is equivalent to [ComponentSystem::getComponentsInChildren()](../../../../../../api/library/common/logic/component_system/cpp/class.componentsystem_cpp.md#getComponentsInChildren_const_NodePtr_ref_Vectortmplargs_ref_int_void) method.
+Searches for all components of this type down the hierarchy of the specified node and puts them to the given buffer vector. This method is equivalent to *[ComponentSystem::getComponentsInChildren()](../../../../../../api/library/common/logic/component_system/cpp/class.componentsystem_cpp.md#getComponentsInChildren_const_NodePtr_ref_Vectortmplargs_ref_int_void)* method.
 ### Arguments
 
 - *const [Node](../../../../../../api/library/nodes/class.node_cpp.md)Ptr &* **node** - Node, whose hierarchy is to be checked for the components of this type.
@@ -716,7 +736,7 @@ Searches for all components of this type down the hierarchy of the specified nod
 
 ## C * getComponentInParent ( const Node Ptr & node , bool enabled_only = false )
 
-Returns the first component of this type found among all predecessors and [posessors](../../../../../../api/library/nodes/class.node_cpp.md#getPossessor_Node) of the specified node. This method is equivalent to [ComponentSystem::getComponentInParent()](../../../../../../api/library/common/logic/component_system/cpp/class.componentsystem_cpp.md#getComponentInParent_const_NodePtr_ref_C_ptr) method.
+Returns the first component of this type found among all predecessors and [posessors](../../../../../../api/library/nodes/class.node_cpp.md#getPossessor_Node) of the specified node. This method is equivalent to *[ComponentSystem::getComponentInParent()](../../../../../../api/library/common/logic/component_system/cpp/class.componentsystem_cpp.md#getComponentInParent_const_NodePtr_ref_C_ptr)* method.
 ### Arguments
 
 - *const [Node](../../../../../../api/library/nodes/class.node_cpp.md)Ptr &* **node** - Node, whose hierarchy is to be checked for the components of this type.
@@ -729,7 +749,7 @@ Pointer to the component if it exists; otherwise, nullptr.
 
 ## void getComponentsInParent ( const Node Ptr & node , Vector <C *> & components )
 
-Searches for all components of this type up the hierarchy of the specified node and puts them to the given buffer vector. This method is equivalent to [ComponentSystem::getComponentsInParent()](../../../../../../api/library/common/logic/component_system/cpp/class.componentsystem_cpp.md#getComponentsInParent_const_NodePtr_ref_Vectortmplargs_ref_int_void) method.
+Searches for all components of this type up the hierarchy of the specified node and puts them to the given buffer vector. This method is equivalent to *[ComponentSystem::getComponentsInParent()](../../../../../../api/library/common/logic/component_system/cpp/class.componentsystem_cpp.md#getComponentsInParent_const_NodePtr_ref_Vectortmplargs_ref_int_void)* method.
 ### Arguments
 
 - *const [Node](../../../../../../api/library/nodes/class.node_cpp.md)Ptr &* **node** - Node, whose hierarchy is to be checked for the components of this type.
@@ -744,7 +764,7 @@ Sets a callback function to be called before destroying the component. This func
 
 ## void clearDestroyCallback ( )
 
-Removes a destroy callback function previously set by the [setDestroyCallback()](#setDestroyCallback_CallbackBase_ptr_void) method. This callback function can be used to implement certain actions to be performed when a component is destroyed.
+Removes a destroy callback function previously set by the *[setDestroyCallback()](#setDestroyCallback_CallbackBase_ptr_void)* method. This callback function can be used to implement certain actions to be performed when a component is destroyed.
 ## void save_property ( const char * name )
 
 Saves all parameters of the property associated with the component to the specified `prop`-file.
@@ -763,7 +783,7 @@ Engine calls this function before updating each render frame. You can specify he
 Engine calls this function after updating each render frame. You can correct behavior after the state of the node has been updated.
 ## void updatePhysics ( )
 
-Engine calls this function before updating each physics frame. Here you can control physics, perform continuous physics-related operations (pushing a car forward depending on current motor's RPM, simulating a wind blowing constantly, perform immediate collision response, etc.). The engine calls *updatePhysics()* with the fixed rate (60 times per second by default) regardless of the fps number. Similar to the world script's updatePhysics() function.
+Engine calls this function before updating each physics frame. Here you can control physics, perform continuous physics-related operations (pushing a car forward depending on current motor's RPM, simulating a wind blowing constantly, perform immediate collision response, etc.). The engine calls *updatePhysics()* with the fixed rate (60 times per second by default) regardless of the fps number. Similar to the world script's *updatePhysics()* function.
 ## void shutdown ( )
 
 Engine calls this function on world shutdown. Here you can clean up resources that were created during world script execution to avoid memory leaks.

@@ -185,7 +185,7 @@ Sets a new value specifying if GPU compression is used at converting the image.
 Returns the current value specifying if GPU compression is used at converting the image.
 ### Return value
 
-**true** if image compression on GPU is enabled; otherwise **false**.
+**true** if image compression on GPU is enabled ; otherwise **false**.
 ## void setMipmapsMode ( ImageConverter::MIPMAPS_MODE mode )
 
 Sets a new filtering type for the image mipmaps.
@@ -289,7 +289,7 @@ Sets a new value specifying if the image is to be flipped horizontally.
 Returns the current value specifying if the image is to be flipped horizontally.
 ### Return value
 
-**true** if horizontal flipping of the image is enabled; otherwise **false**.
+**true** if horizontal flipping of the image is enabled ; otherwise **false**.
 ## void setFlipY ( bool y )
 
 Sets a new value specifying if the image is to be flipped vertically.
@@ -302,7 +302,7 @@ Sets a new value specifying if the image is to be flipped vertically.
 Returns the current value specifying if the image is to be flipped vertically.
 ### Return value
 
-**true** if vertical flipping of the image is enabled; otherwise **false**.
+**true** if vertical flipping of the image is enabled ; otherwise **false**.
 ## void setBlur ( int blur )
 
 Sets a new amount of blur in pixels.
@@ -343,7 +343,10 @@ Constructor. Creates an image converter by copying a given source image converte
 
 ## void setRange ( int channel , const Math:: dvec4 & value )
 
+
 Sets the range to be applied at the image conversion.
+
+
 > **Notice:** The range of the final image will be clamped, if the set range values exceed the maximum values of the image conversion format.
 
 

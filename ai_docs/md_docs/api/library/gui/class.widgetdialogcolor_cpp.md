@@ -15,6 +15,45 @@ This class creates a dialog with clickable color field, RGB value sliders, color
 
 ### Members
 
+## void setPaletteColors ( const char * colors )
+
+Sets a new palette colors of the dialog, as a list of colors in the web format separated with semicolons.
+### Arguments
+
+- *const char ** **colors** - The palette colors of the dialog, as a list of colors in the web format separated with semicolons
+
+## const char * getPaletteColors () const
+
+Returns the current palette colors of the dialog, as a list of colors in the web format separated with semicolons.
+### Return value
+
+Current palette colors of the dialog, as a list of colors in the web format separated with semicolons
+## void setWebColor ( const char * color )
+
+Sets a new color selected in the dialog, in the web (hexadecimal) format.
+### Arguments
+
+- *const char ** **color** - The color selected in the dialog, in the web (hexadecimal) format
+
+## const char * getWebColor () const
+
+Returns the current color selected in the dialog, in the web (hexadecimal) format.
+### Return value
+
+Current color selected in the dialog, in the web (hexadecimal) format
+## void setColor ( const Math:: vec4 & color )
+
+Sets a new color selected in the dialog.
+### Arguments
+
+- *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md)&* **color** - The color selected in the dialog
+
+## Math:: vec4 getColor () const
+
+Returns the current color selected in the dialog.
+### Return value
+
+Current color selected in the dialog
 ---
 
 ## static WidgetDialogColorPtr create ( const Ptr < Gui > & gui , const char * str = 0 )
@@ -31,43 +70,3 @@ Constructor. Creates a color picker dialog with given parameters and adds it to 
 ### Arguments
 
 - *const char ** **str** - Dialog title. This is an optional parameter.
-
-## void setColor ( const Math:: vec4 & color )
-
-Selects a given color.
-### Arguments
-
-- *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md) &* **color** - Color.
-
-## Math:: vec4 getColor ( ) const
-
-Returns the currently selected color.
-### Return value
-
-Current color.
-## void setPaletteColors ( const char * colors )
-
-Fills the palette with given colors.
-### Arguments
-
-- *const char ** **colors** - A list of colors in the Web format separated with semicolons.
-
-## const char * getPaletteColors ( ) const
-
-Returns the current palette colors.
-### Return value
-
-List of colors in the Web format separated with semicolons.
-## void setWebColor ( const char * color )
-
-Selects a color in the web format.
-### Arguments
-
-- *const char ** **color** - Color in the web format.
-
-## const char * getWebColor ( ) const
-
-Returns the currently selected color in the web format.
-### Return value
-
-Current color.

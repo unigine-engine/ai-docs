@@ -1,23 +1,33 @@
-# Trigger
+# Node Trigger
 
 
-![](../node_trigger.png) **Trigger** is a zero-sized node that has no visual representation and triggers events when:
+Trigger types available in UNIGINE:
+
+
+| Node Trigger | [World Trigger](../../../objects/worlds/world_trigger/index.md) | [Physical Trigger](../../../objects/effects/physicals/physical_trigger/index.md) |
+|---|---|---|
+| **Catches changes in the parent node state** (enabled/disabled, transforms changed) ![](../../triggers_images/node_trigger.png) | **Catches nodes with bounds** entering/leaving the trigger area ![](../../triggers_images/world_trigger.png) | **Catches physical objects** (with [body](../../../principles/physics/bodies/index.md) and [shape](../../../principles/physics/shapes/index.md)) entering/leaving the trigger area (detected by physical contact) ![](../../triggers_images/physical_trigger.png) |
+| ![](../../../vr_development/yes.png) **Used with:** Any node except [Dummy Node](../../../objects/nodes/dummy/index.md) | ![](../../../vr_development/yes.png) **Used with:** - All nodes having bounds (such nodes have the **[Triggers Interaction](../../../editor2/node_parameters/transformation_common/index.md#common_params)** option in the Editor interface which should be enabled, **by default it is disabled**) - [Dummy Object](../../../objects/objects/dummy/index.md) with [body](../../../principles/physics/bodies/index.md) | ![](../../../vr_development/yes.png) **Used with:** Physical objects (with [body](../../../principles/physics/bodies/index.md) and [shape](../../../principles/physics/shapes/index.md) assigned), such as: *[Dummy Object](../../../objects/objects/dummy/index.md), [Static Mesh](../../../objects/objects/mesh/index.md), [Skinned Mesh](../../../objects/objects/mesh_skinned/index.md), [Dynamic Mesh](../../../objects/objects/mesh_dynamic/index.md), [Billboards](../../../objects/objects/billboards/index.md)* |
+| ![](../../../vr_development/no.png) **Doesn't work with:** - [Dummy Node](../../../objects/nodes/dummy/index.md) | ![](../../../vr_development/no.png) **Doesn't work with:** [Dummy Node](../../../objects/nodes/dummy/index.md), [Node Reference](../../../objects/nodes/reference/index.md), [Node Layer](../../../objects/nodes/layer/index.md), [World Switcher](../../../objects/worlds/world_switcher/index.md), [World Transform Path](../../../objects/worlds/world_transforms/transform_path/index.md), [World Transform Joint](../../../objects/worlds/world_transforms/transform_bone/index.md), [World Expression](../../../objects/worlds/world_expression/index.md) [Dummy Object](../../../objects/objects/dummy/index.md) with no [body](../../../principles/physics/bodies/index.md) assigned | ![](../../../vr_development/no.png) **Doesn't work with:** - Non-physical [objects](../../../objects/objects/index.md) (no [physical body](../../../principles/physics/bodies/index.md) and [shape](../../../principles/physics/shapes/index.md)) - Nodes that are not [objects](../../../objects/objects/index.md) |
+
+
+![](../node_trigger.png) **Node Trigger** is a zero-sized node that has no visual representation and triggers events when:
 
 
 - It is enabled/disabled (the *Enabled* event is triggered).
 - Its transformation is changed (the *Position* event is triggered).
 
 
-The *Node Trigger* node is usually added as a child node to another node, so that the handler functions were executed on the parent node enabling/disabling or transforming.
+*Node Trigger* node is usually added as a child node to another node, so that the handler functions were executed on the parent node enabling/disabling or transforming.
 
 
 > **Notice:** The *Enabled* and *Position* event handlers should be implemented in the World script.
 
 
-The *Node Trigger* can work with procedurally created *[World Clutter](../../../objects/worlds/world_clutter/index.md)* objects.
+*Node Trigger* can work with procedurally created *[World Clutter](../../../objects/worlds/world_clutter/index.md)* objects.
 
 
-The *Node Trigger* can be used, for example, to play a sound of thunder when a lightning flashes: when the lightning node is enabled, the *Enabled* event handler that plays a sound is executed.
+*Node Trigger* can be used, for example, to play a sound of thunder when a lightning flashes: when the lightning node is enabled, the *Enabled* event handler that plays a sound is executed.
 
 
 ![](node_trigger_usage.jpg)
@@ -46,7 +56,7 @@ To add a new *Node Trigger* via UnigineEditor do the following:
 ## Editing a Node Trigger
 
 
-To edit the *Node Trigger*, select it and go to the *Node* tab of the *[Parameters](../../../editor2/node_parameters/index.md)* window.
+To edit *Node Trigger*, select it and go to the *Node* tab of the *[Parameters](../../../editor2/node_parameters/index.md)* window.
 
 
 ![](edit_trigger_node.png)

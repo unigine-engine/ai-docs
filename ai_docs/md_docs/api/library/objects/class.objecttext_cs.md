@@ -125,6 +125,9 @@ The text aspect value, the proportional relationship between the text width and 
 ## 🔒︎ int TextNumLines
 
 The number of lines in the text.
+## Gui.TextDirection TextDirection
+
+The base paragraph direction of the object's text, matching the *Gui::TEXT_DIRECTION_** values: automatic detection from the text content (default), left-to-right, or right-to-left.
 ### Members
 
 ---

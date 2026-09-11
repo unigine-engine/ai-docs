@@ -25,6 +25,71 @@ The object of this class looks as follows:
 
 ### Members
 
+## void setText ( string text )
+
+Sets a new floating text placed over the icon.
+### Arguments
+
+- *string* **text** - The floating text placed over the icon
+
+## const char * getText () const
+
+Returns the current floating text placed over the icon.
+### Return value
+
+Current floating text placed over the icon
+## void setTextAlign ( int align )
+
+Sets a new alignment flag set for the floating text over the icon. One of the [GUI_ALIGN_*](../../../api/library/gui/class.gui_usc.md) variables. The default is *ALIGN_CENTER*.
+### Arguments
+
+- *int* **align** - The alignment flag set for the floating text over the icon
+
+## int getTextAlign () const
+
+Returns the current alignment flag set for the floating text over the icon. One of the [GUI_ALIGN_*](../../../api/library/gui/class.gui_usc.md) variables. The default is *ALIGN_CENTER*.
+### Return value
+
+Current alignment flag set for the floating text over the icon
+## void setTexture ( string texture )
+
+Sets a new path to the icon image.
+### Arguments
+
+- *string* **texture** - The path to the icon image
+
+## const char * getTexture () const
+
+Returns the current path to the icon image.
+### Return value
+
+Current path to the icon image
+## void setToggled ( int toggled )
+
+Sets a new value indicating if the icon serving as a toggle button is pressed.
+### Arguments
+
+- *int* **toggled** - The true if the toggle icon is pressed, false if it is released
+
+## int isToggled () const
+
+Returns the current value indicating if the icon serving as a toggle button is pressed.
+### Return value
+
+Current true if the toggle icon is pressed, false if it is released
+## void setToggleable ( int toggleable )
+
+Sets a new value indicating if the icon is a toggle button or a simple button. The default is 0.
+### Arguments
+
+- *int* **toggleable** - The true if the icon is a toggle button, false if it is a simple one
+
+## int isToggleable () const
+
+Returns the current value indicating if the icon is a toggle button or a simple button. The default is 0.
+### Return value
+
+Current true if the icon is a toggle button, false if it is a simple one
 ---
 
 ## static WidgetIcon ( Gui gui , string str = 0 , int width = 0 , int height = 0 )
@@ -59,68 +124,3 @@ Returns the icon image.
 ### Return value
 
 Icon image.
-## void setText ( string text )
-
-Sets the floating text over the icon.
-### Arguments
-
-- *string* **text** - Floating text.
-
-## string getText ( )
-
-Returns the current floating text set to be over the icon.
-### Return value
-
-Floating text.
-## void setTextAlign ( int align )
-
-Sets the alignment flag for the floating text over the icon. The default is *GUI_ALIGN_CENTER*.
-### Arguments
-
-- *int* **align** - Alignment flag (see *GUI_ALIGN_** variables).
-
-## int getTextAlign ( )
-
-Returns the current alignment flag set for the floating text over the icon.
-### Return value
-
-Alignment flag (one of the *GUI_ALIGN_** variables).
-## void setTexture ( string texture )
-
-Sets a texture to be used as the icon image.
-### Arguments
-
-- *string* **texture** - Path to a texture file.
-
-## string getTexture ( )
-
-Returns path to the icon image.
-### Return value
-
-Path to the icon image.
-## void setToggleable ( int toggleable )
-
-Sets a value indicating if the icon is a toggle button or a simple button.
-### Arguments
-
-- *int* **toggleable** - Positive number to make the icon a toggle button, 0 to make it a simple button.
-
-## int isToggleable ( )
-
-Returns a value indicating if the icon is a toggle button or a simple button.
-### Return value
-
-Positive number if the icon is a toggle button; otherwise, 0.
-## void setToggled ( int toggled )
-
-Sets a state of the icon as a toggle button.
-### Arguments
-
-- *int* **toggled** - Positive number to press the button, 0 to release it.
-
-## int isToggled ( )
-
-Returns a value indicating if the icon serving as a toggle button is pressed.
-### Return value
-
-**1** if the button is pressed; otherwise, **0**.

@@ -1,7 +1,7 @@
 # Light Omni
 
 
-*Light Omni* is a point source emitting light in all directions (360 degrees) and realistically reproducing shadow cast. This type of light serves to simulate light sources with bright center and equal roll-off of intensity. An example of such a light is an ordinary household lightbulb, uncovered and hanging from the ceiling. *Light Omni* proves useful for general lighting purposes in indoor scenes because of its nondirectional qualities.
+*Light Omni* is a point source emitting light in all directions (360�degrees) and realistically reproducing shadow cast. This type of light serves to simulate light sources with bright center and equal roll-off of intensity. An example of such a light is an ordinary household lightbulb, uncovered and hanging from the ceiling. *Light Omni* proves useful for general lighting purposes in indoor scenes because of its nondirectional qualities.
 
 
 Please note that as *Light Omni* uses cubemap modulation, the shadowing by this source requires **6 passes** and can be expensive.
@@ -44,7 +44,7 @@ Parameters of *Light Omni* can be adjusted on the *Node* tab of the *[Parameters
 ### Light Settings
 
 
-| Mode | The type of texture used to define light's distribution: - **IES** — light distibution is defined by the IES profile, a lighting industry standard of describing how the light is cast based on real-world measured light fixtures. ![](ies_comparison.png) *Light Omnisources without and with IES profile* - **Simple** — a cubemap texture is projected by *Light Omni*. Such modulations allow you to re-light the affected scene area in a new way at the same performance cost, create variegated light scattering patterns and, for example, imitate several light sources. ![](cubemap_texture.png) *Cubemap texture* ![](omni_texture_0.png) *Modulation by texture* |
+| Mode | The type of texture used to define light's distribution: - **IES** � light distibution is defined by the IES profile, a lighting industry standard of describing how the light is cast based on real-world measured light fixtures. ![](ies_comparison.png) *Light Omnisources without and with IES profile* - **Simple** � a cubemap texture is projected by *Light Omni*. Such modulations allow you to re-light the affected scene area in a new way at the same performance cost, create variegated light scattering patterns and, for example, imitate several light sources. ![](cubemap_texture.png) *Cubemap texture* ![](omni_texture_0.png) *Modulation by texture* |
 |---|---|
 | Texture | A cubemap or *IES* texture projected by *Light Omni*. |
 

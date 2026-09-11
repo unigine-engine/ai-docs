@@ -47,7 +47,7 @@ For optimization purposes you can increase the **[Subpixel Reduction](../../../.
 ![](../../../../editor2/settings/render_settings/landscape/geometry_subpixel_1.png) ![](../../../../editor2/settings/render_settings/landscape/geometry_subpixel_2.png)
 
 
-The **[Detail Max Height](../../../../editor2/settings/render_settings/landscape/index.md#detail_max_height)** parameter enables you to set the maximum height for detail displacement. By default, it equals to 1 — the maximum possible value. In case of artifacts of stepped geometry caused by insufficient bit depth, you can adjust this parameter to a lower value, set it to the highest height value used in details. Make note that geometry will be clamped to this maximum height if details use higher values, however, normals will be affected appropriately.
+The **[Detail Max Height](../../../../editor2/settings/render_settings/landscape/index.md#detail_max_height)** parameter enables you to set the maximum height for detail displacement. By default, it equals to 1 � the maximum possible value. In case of artifacts of stepped geometry caused by insufficient bit depth, you can adjust this parameter to a lower value, set it to the highest height value used in details. Make note that geometry will be clamped to this maximum height if details use higher values, however, normals will be affected appropriately.
 
 
 ![](../../../../editor2/settings/render_settings/landscape/detail_max_height_0.png) ![](../../../../editor2/settings/render_settings/landscape/detail_max_height_1.png)
@@ -59,9 +59,9 @@ The **[Culling Parameters](#culling)** provide additional optimization technique
 During rasterization the renderer selects the mip-level of textures according to the distance to the camera, as well as to the angle of the surface to the camera, i.e. the screen size of the polygon: distant polygons and polygons that are not faced right to the camera are rendered at a lower quality. The **[Texture Filtering](../../../../editor2/settings/render_settings/landscape/index.md#texture_filtering)** mode controls the way of treating such situations, it has the following presets:
 
 
-- **Low** — use the lower mip-level. This option has the best performance but low quality: there is a noticeable edge of mip-levels change.
-- **Medium** — use the higher mip-level. Though the quality is better, the edge still remains. This option has a moderate effect on the performance.
-- **High** — linearly interpolate adjacent mip-levels. This option uses appropriate mip-levels and interpolates pixels, so the edge between mip-levels disappears. This is the most performance-consuming mode.
+- **Low** � use the lower mip-level. This option has the best performance but low quality: there is a noticeable edge of mip-levels change.
+- **Medium** � use the higher mip-level. Though the quality is better, the edge still remains. This option has a moderate effect on the performance.
+- **High** � linearly interpolate adjacent mip-levels. This option uses appropriate mip-levels and interpolates pixels, so the edge between mip-levels disappears. This is the most performance-consuming mode.
 
 
 ![](filtering_all.png)
@@ -87,9 +87,9 @@ You can force selecting a higher-quality mip-level by using the **[Detail Level 
 The final quality of [details](../../../../objects/objects/terrain/landscape_terrain/details.md) (if there are some on the *Landscape Terrain* object) is defined by the [**resolution of detail textures**](../../../../editor2/settings/render_settings/landscape/index.md#detail_albedo_resolution): albedo, height, and additional masks. The available range is as follows:
 
 
-- 64×64 pixels,
+- 64�64 pixels,
 - ...
-- 16384×16384 pixels.
+- 16384�16384 pixels.
 
 
 Amount of video memory currently consumed by detail textures is available in [Rendering Performance Profiler](../../../../tools/profiling/profiler/index.md#vram_terrain_detail_textures) and using the *[Render Textures](../../../../editor2/using_visual_helpers/index.md#render_textures)* helper:
@@ -148,8 +148,8 @@ Streaming is based on using previously loaded geometry to define the visible are
 The overall terrain memory consumption and intensity of data streaming depend on the size of the *Virtual Texture* components (*Albedo, Normal, Height*). Higher **[Texture Memory Size](../../../../editor2/settings/render_settings/landscape/index.md#texture_memory_size)** lets more [tiles](#streaming_tiles) to be presented in video memory enabling you to have more tiles loaded at a moment. This parameter has the highest effect on the amount of VRAM consumption and is defined in the [0, 1] range, where:
 
 
-- The lowest value of 0 corresponds to the size of *3072×3072* pixels for each of 3 *Landscape Terrain* textures (~140 MB of VRAM),
-- The highest value of 1 stands for the size of *16384×16384* pixels for each of 3 *Landscape Terrain* textures (~3.1 GB of VRAM).
+- The lowest value of 0 corresponds to the size of *3072�3072* pixels for each of 3 *Landscape Terrain* textures (~140 MB of VRAM),
+- The highest value of 1 stands for the size of *16384�16384* pixels for each of 3 *Landscape Terrain* textures (~3.1 GB of VRAM).
 
 
 With lower size the Virtual Texture requires less video memory but doesn't provide enough capacity for high-detail mip-levels resulting in poor performance, low detail level and fast flickering of the *Landscape Terrain* surface due to continuous reloading of tiles. Check video memory consumption using the **[VRAM Terrain Virtual Texture](../../../../tools/profiling/profiler/index.md#vram_terrain_virtual_texture)** counter of Rendering Performance Profiler.
@@ -158,8 +158,8 @@ With lower size the Virtual Texture requires less video memory but doesn't provi
 To precisely map the tile's spatial position to its location in the *Virtual Texture*, a hash function is used. Use these console commands to control its operation and accuracy but the default values are suitable for most cases:
 
 
-- [`render_landscape_terrain_vt_hash_size`](../../../../code/console/index.md#render_landscape_terrain_vt_hash_size) — the upper limit for the hash function values. The value must be high enough to cover all variety of world-space positions of tiles being used and streamed.
-- [`render_landscape_terrain_vt_hash_number_mistakes`](../../../../code/console/index.md#render_landscape_terrain_vt_hash_number_mistakes) — the number of mistakes for the hash function. This value represents the number of iterations to compute a new unique hash value that determines a tile being streamed. Too low values may introduce hash collisions and, therefore, wrong terrain data at certain areas.
+- [`render_landscape_terrain_vt_hash_size`](../../../../code/console/index.md#render_landscape_terrain_vt_hash_size) � the upper limit for the hash function values. The value must be high enough to cover all variety of world-space positions of tiles being used and streamed.
+- [`render_landscape_terrain_vt_hash_number_mistakes`](../../../../code/console/index.md#render_landscape_terrain_vt_hash_number_mistakes) � the number of mistakes for the hash function. This value represents the number of iterations to compute a new unique hash value that determines a tile being streamed. Too low values may introduce hash collisions and, therefore, wrong terrain data at certain areas.
 
 
 ### Cache Settings
@@ -248,15 +248,15 @@ You can use the [**Advanced**](../../../../editor2/settings/render_settings/land
 > **Notice:** The default values are best suitable for the default camera FoV of 60 degrees. Using much more narrow fields may require fine tuning for the best performance.
 
 
-1. **CPU Culling Patches** — initial patches (tiles) tested for occlusion and visibility on the CPU side. Among other culling techniques, these patches support occlusion culling by [Occluders](../../../../objects/worlds/world_occluders/index.md). ![](culling_occluder.png) *Occluders support.* The CPU patches are to be subdivided and passed to the next stage — **GPU Patches**. The [**Culling Patch Resolution CPU**](../../../../editor2/settings/render_settings/landscape/index.md#culling_patch_resolution_cpu) value defines the number of subdivisions for CPU patches: Another important parameter is [**Culling Patch Batching**](../../../../editor2/settings/render_settings/landscape/index.md#culling_patch_batching) defining the size of batches for culling patches. Batched culling of patches enables skipping large areas at once making it possible to operate on patches of smaller size for better culling quality and performance.
+1. **CPU Culling Patches** � initial patches (tiles) tested for occlusion and visibility on the CPU side. Among other culling techniques, these patches support occlusion culling by [Occluders](../../../../objects/worlds/world_occluders/index.md). ![](culling_occluder.png) *Occluders support.* The CPU patches are to be subdivided and passed to the next stage � **GPU Patches**. The [**Culling Patch Resolution CPU**](../../../../editor2/settings/render_settings/landscape/index.md#culling_patch_resolution_cpu) value defines the number of subdivisions for CPU patches: Another important parameter is [**Culling Patch Batching**](../../../../editor2/settings/render_settings/landscape/index.md#culling_patch_batching) defining the size of batches for culling patches. Batched culling of patches enables skipping large areas at once making it possible to operate on patches of smaller size for better culling quality and performance.
 
   - The lowest value of 2 corresponds to no subdivisions at all, i.e. all patches will be culled on the CPU side. Stick with lower values if you intend to use [Occluders](../../../../objects/worlds/world_occluders/index.md) for polygon reduction.
   - Higher values reduce the load on CPU as more patches will be checked for visibility on the GPU side.
-2. **GPU Culling Patches** — Landscape Terrain patches, visibility of which is tested on the GPU side. The GPU patches are to be subdivided one more time before tessellation. The [**Culling Patch Resolution GPU**](../../../../editor2/settings/render_settings/landscape/index.md#culling_patch_resolution_gpu) value defines the number of subdivisions for GPU patches: The point is to use these parameters to find a trade-off between loads on processing units in the given conditions on the target hardware. Use the [Rendering Profiler](../../../../tools/profiling/profiler/index.md#generic) to track the number of rendered primitives and triangles and achieve the best CPU and GPU timings: ![](profiler_gpu_cpu.png)
+2. **GPU Culling Patches** � Landscape Terrain patches, visibility of which is tested on the GPU side. The GPU patches are to be subdivided one more time before tessellation. The [**Culling Patch Resolution GPU**](../../../../editor2/settings/render_settings/landscape/index.md#culling_patch_resolution_gpu) value defines the number of subdivisions for GPU patches: The point is to use these parameters to find a trade-off between loads on processing units in the given conditions on the target hardware. Use the [Rendering Profiler](../../../../tools/profiling/profiler/index.md#generic) to track the number of rendered primitives and triangles and achieve the best CPU and GPU timings: ![](profiler_gpu_cpu.png)
 
   - By lowering this value you reduce the load on CPU, more loading GPU due to less efficient culling of patches of larger size.
   - By increasing it you move more computations to CPU (more rendered primitives), reducing the load on GPU (less polygons).
-3. **Tessellation Quads** — this is where Adaptive Hardware Tessellation comes into play, subdividing polygons to the target density. The last **Frustum Culling** optimization is applied to polygons.
+3. **Tessellation Quads** � this is where Adaptive Hardware Tessellation comes into play, subdividing polygons to the target density. The last **Frustum Culling** optimization is applied to polygons.
 
 
 All patches are constructed for all geometry LODs. Since it is impossible to match edges of culled patches of adjacent LODs, it is needed to introduce overlapping edges. In case of geometry gaps, use the following settings to increase the distance of overlap between LODs:
@@ -285,11 +285,11 @@ By default, tiles are loaded from the lowest to the highest available mip-level 
 ![](stream_per_lods_0.gif) ![](stream_per_lods_1.gif)
 
 
-Internally, Asynchronous Data Streaming system adopts the concept of *Sampler Feedback* — a set of structures for capturing visible tiles and mip-levels to be loaded and passing the data from GPU back to CPU. Adjustment of these settings is a rare task and must be performed with complete understanding:
+Internally, Asynchronous Data Streaming system adopts the concept of *Sampler Feedback* � a set of structures for capturing visible tiles and mip-levels to be loaded and passing the data from GPU back to CPU. Adjustment of these settings is a rare task and must be performed with complete understanding:
 
 
-- [**Sampler Feedback Screen Resolution**](../../../../editor2/settings/render_settings/landscape/index.md#sampler_feedback_screen_resolution) — resolution of the screen buffer used to detect visible tiles and determine MIP-levels non-resident in video memory, expressed as a fraction of the viewport size. Fetching values from the buffer of lower sizes is faster but may cause artifacts.
-- [**Sampler Feedback Buffer Resolution**](../../../../editor2/settings/render_settings/landscape/index.md#sampler_feedback_buffer_resolution) — resolution of the buffer used to transfer data about what tiles and MIP-levels to be loaded. With bigger buffers more data can be transferred at once but fetching data is also slower, so to set the best buffer resolution is to find a trade-off.
+- [**Sampler Feedback Screen Resolution**](../../../../editor2/settings/render_settings/landscape/index.md#sampler_feedback_screen_resolution) � resolution of the screen buffer used to detect visible tiles and determine MIP-levels non-resident in video memory, expressed as a fraction of the viewport size. Fetching values from the buffer of lower sizes is faster but may cause artifacts.
+- [**Sampler Feedback Buffer Resolution**](../../../../editor2/settings/render_settings/landscape/index.md#sampler_feedback_buffer_resolution) � resolution of the buffer used to transfer data about what tiles and MIP-levels to be loaded. With bigger buffers more data can be transferred at once but fetching data is also slower, so to set the best buffer resolution is to find a trade-off.
 
 
 ### Making It Run-Time

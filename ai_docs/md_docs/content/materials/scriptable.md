@@ -62,6 +62,6 @@ Let's write a material in the [ULON file format](../../code/formats/ulon_format.
 4. Check *Multiply* to make a colorful final image. Adjust the *Threshold* and *Scale* values to customize the effect. ![](Sobel.jpg) *The applied post process outline effect.*
 
 
-That's it! You have just created a scriptable material for all of the application’s cameras. To apply the post process effect only to a specific camera, go to the *Parameters* tab of the corresponding *[Player](../../objects/players/index.md)* node and assign the material to it.
+That's it! You have just created a scriptable material for all of the application�s cameras. To apply the post process effect only to a specific camera, go to the *Parameters* tab of the corresponding *[Player](../../objects/players/index.md)* node and assign the material to it.
 
  ![](PlayerAddNew.png)

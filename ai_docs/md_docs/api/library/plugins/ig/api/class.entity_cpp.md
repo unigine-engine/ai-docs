@@ -5,6 +5,7 @@
 
 This class represents the IG Entity interface.
 
+
 > **Notice:** IG plugin must be loaded.
 
 
@@ -62,8 +63,8 @@ This class represents the IG Entity interface.
 
 | Name | Description |
 |---|---|
-| **COORDINATE_SYSTEM_WORLD** = 0 | If the reference coordinate system is set to this value, and the entity is a top-level (non-child) entity, the velocity and acceleration are defined relative to the database. Linear velocity and acceleration describe a path along and above the surface of the geoid. Angular velocity and acceleration describe a rotation relative to a reference plane. If the entity is a child entity, the velocity and acceleration are defined relative to the parent’s local coordinate system. |
-| **COORDINATE_SYSTEM_LOCAL** = 1 | If the reference coordinate system is set to this value, the velocity and acceleration are defined relative to the entity’s local coordinate system. |
+| **COORDINATE_SYSTEM_WORLD** = 0 | If the reference coordinate system is set to this value, and the entity is a top-level (non-child) entity, the velocity and acceleration are defined relative to the database. Linear velocity and acceleration describe a path along and above the surface of the geoid. Angular velocity and acceleration describe a rotation relative to a reference plane. If the entity is a child entity, the velocity and acceleration are defined relative to the parent�s local coordinate system. |
+| **COORDINATE_SYSTEM_LOCAL** = 1 | If the reference coordinate system is set to this value, the velocity and acceleration are defined relative to the entity�s local coordinate system. |
 
 ### Members
 
@@ -101,7 +102,7 @@ Returns the current entity position in geo-coordinates (lat, lon, alt).
 ### Return value
 
 Entity position coordinates.
-> **Notice:** Geo-coordinates will be returned if there is no parent entity assigned, otherwise — local coordinates will be returned.
+> **Notice:** Geo-coordinates will be returned if there is no parent entity assigned, otherwise � local coordinates will be returned.
 
 
 ## void setRotationEuler ( const Math::vec3& euler , double timestamp )
@@ -174,7 +175,7 @@ Internal entity type.
 Sets the value indicating if automatic type matching shall be enabled for the entity. When enabled, prevents from setting a non-existent type to the entity.
 ### Arguments
 
-- *bool* **enabled** - true to enable automatic type matching for the entity; false — to disable.
+- *bool* **enabled** - true to enable automatic type matching for the entity; false � to disable.
 
 ## bool isAutoTypeMatchEnabled ( ) const
 
@@ -200,14 +201,14 @@ Current entity state.
 Sets the value indicating if collision detecton shall be enabled for the entity.
 ### Arguments
 
-- *bool* **enabled** - true to enable collision detecton for the entity; false — to disable.
+- *bool* **enabled** - true to enable collision detecton for the entity; false � to disable.
 
 ## bool isCollision ( ) const
 
 Returns the value indicating if collision detecton shall be enabled for the entity.
 ### Return value
 
-**Collision Detection Enable** parameter value. true collision detecton for the entity shall be enabled; false — collision detecton for the entity shall be enabled.
+**Collision Detection Enable** parameter value. true collision detecton for the entity shall be enabled; false � collision detecton for the entity shall be enabled.
 ## void setParent ( Entity * entity )
 
 Attaches the entity as a child to the specified parent entity.
@@ -229,7 +230,7 @@ Entity parent ID.
 Returns the value of the **Attach State** parameter. It specifies whether the entity is be attached as a child to a [parent](#getParentID_llong).
 ### Return value
 
-**Attach State** parameter value. 1 the entity shall be or remain attached to the entity specified by the [Parent ID parameter](#getParentID_llong); 0 — the entity shall be detached from its parent.
+**Attach State** parameter value. 1 the entity shall be or remain attached to the entity specified by the [Parent ID parameter](#getParentID_llong); 0 � the entity shall be detached from its parent.
 ## void setAlpha ( int byte_value )
 
 Sets the alpha value, that determines transparency of entity geometry.
@@ -248,7 +249,7 @@ Alpha value.
 Sets the value indicating if the entity uses the alpha value of its [parent](#getParentID_llong).
 ### Arguments
 
-- *bool* **enabled** - true the entity shall use the alpha value of its [parent](#getParentID_llong); false — the entity shall use its own alpha value.
+- *bool* **enabled** - true the entity shall use the alpha value of its [parent](#getParentID_llong); false � the entity shall use its own alpha value.
 
 ## bool isInheritAlpha ( ) const
 
@@ -271,14 +272,14 @@ Returns the value of the **Ground/Ocean Clamp** parameter.
 **Ground/Ocean Clamp** parameter value.
 ## void setGroundClampHeightMode ( Entity::CLAMP_HEIGHT_MODE height_mode )
 
-Sets the value of the **clamp height mode** parameter used for [clamping](#setGroundClamp_int_void). By default, the Ground Clamp Height Mode is set to RELATIVE — the entity is clamped to the ground and the height is calculated from the ground. With the mode set to IGNORE, the entity is clamped to the ground and the height is ignored.
+Sets the value of the **clamp height mode** parameter used for [clamping](#setGroundClamp_int_void). By default, the Ground Clamp Height Mode is set to RELATIVE � the entity is clamped to the ground and the height is calculated from the ground. With the mode set to IGNORE, the entity is clamped to the ground and the height is ignored.
 ### Arguments
 
 - *[Entity::CLAMP_HEIGHT_MODE](../../../../../api/library/plugins/ig/api/class.entity_cpp.md#CLAMP_HEIGHT_MODE)* **height_mode** - **Clamp height mode** parameter value.
 
 ## Entity::CLAMP_HEIGHT_MODE getGroundClampHeightMode ( ) const
 
-Returns the value of the **clamp height mode** parameter used for [clamping](#setGroundClamp_int_void). By default, the Ground Clamp Height Mode is set to RELATIVE — the entity is clamped to the ground and the height is calculated from the ground. With the mode set to IGNORE, the entity is clamped to the ground and the height is ignored.
+Returns the value of the **clamp height mode** parameter used for [clamping](#setGroundClamp_int_void). By default, the Ground Clamp Height Mode is set to RELATIVE � the entity is clamped to the ground and the height is calculated from the ground. With the mode set to IGNORE, the entity is clamped to the ground and the height is ignored.
 ### Return value
 
 **Clamp height mode** parameter value.
@@ -329,7 +330,7 @@ State of the entity's animation playback.
 Sets a value indicating if interpolation and extrapolation are enabled.
 ### Arguments
 
-- *bool* **id** - true to enable interpolation and extrapolation; false — to disable.
+- *bool* **id** - true to enable interpolation and extrapolation; false � to disable.
 
 ## bool isInterpolation ( ) const
 
@@ -342,14 +343,14 @@ true if interpolation and extrapolation are enabled; otherwise, false.
 Clears all interpolation data for the entity.
 ## void setExtrapolationCoordSystem ( Entity::COORDINATE_SYSTEM animation_state )
 
-Sets the reference coordinate system to which the linear and angular velocity and acceleration are applied. If the reference coordinate system is set to [WORLD](#COORDINATE_SYSTEM_WORLD), and the entity is a top-level (non-child) entity, the velocity and acceleration are defined relative to the database. Linear velocity and acceleration describe a path along and above the surface of the geoid. Angular velocity and acceleration describe a rotation relative to a reference plane. If the entity is a child entity, the velocity and acceleration are defined relative to the parent’s local coordinate system. If the reference coordinate system is set to [LOCAL](#COORDINATE_SYSTEM_LOCAL), the velocity and acceleration are defined relative to the entity’s local coordinate system.
+Sets the reference coordinate system to which the linear and angular velocity and acceleration are applied. If the reference coordinate system is set to [WORLD](#COORDINATE_SYSTEM_WORLD), and the entity is a top-level (non-child) entity, the velocity and acceleration are defined relative to the database. Linear velocity and acceleration describe a path along and above the surface of the geoid. Angular velocity and acceleration describe a rotation relative to a reference plane. If the entity is a child entity, the velocity and acceleration are defined relative to the parent�s local coordinate system. If the reference coordinate system is set to [LOCAL](#COORDINATE_SYSTEM_LOCAL), the velocity and acceleration are defined relative to the entity�s local coordinate system.
 ### Arguments
 
 - *[Entity::COORDINATE_SYSTEM](../../../../../api/library/plugins/ig/api/class.entity_cpp.md#COORDINATE_SYSTEM)* **animation_state** - Coordinate system used for extrapolation.
 
 ## Entity::COORDINATE_SYSTEM getExtrapolationCoordSystem ( ) const
 
-Returns the current reference coordinate system to which the linear and angular velocity and acceleration are applied. If the reference coordinate system is set to [WORLD](#COORDINATE_SYSTEM_WORLD), and the entity is a top-level (non-child) entity, the velocity and acceleration are defined relative to the database. Linear velocity and acceleration describe a path along and above the surface of the geoid. Angular velocity and acceleration describe a rotation relative to a reference plane. If the entity is a child entity, the velocity and acceleration are defined relative to the parent’s local coordinate system. If the reference coordinate system is set to [LOCAL](#COORDINATE_SYSTEM_LOCAL), the velocity and acceleration are defined relative to the entity’s local coordinate system.
+Returns the current reference coordinate system to which the linear and angular velocity and acceleration are applied. If the reference coordinate system is set to [WORLD](#COORDINATE_SYSTEM_WORLD), and the entity is a top-level (non-child) entity, the velocity and acceleration are defined relative to the database. Linear velocity and acceleration describe a path along and above the surface of the geoid. Angular velocity and acceleration describe a rotation relative to a reference plane. If the entity is a child entity, the velocity and acceleration are defined relative to the parent�s local coordinate system. If the reference coordinate system is set to [LOCAL](#COORDINATE_SYSTEM_LOCAL), the velocity and acceleration are defined relative to the entity�s local coordinate system.
 ### Return value
 
 Extrapolation coordinate system.

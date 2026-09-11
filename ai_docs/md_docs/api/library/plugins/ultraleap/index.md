@@ -24,9 +24,9 @@ This section contains functions available when the [Ultraleap](../../../../code/
 
 - [UltraleapArm Class (CPP)](../../../../api/library/plugins/ultraleap/class.ultraleaparm_cpp.md)
 
-- [UltraleapBone Class (CS)](../../../../api/library/plugins/ultraleap/class.ultraleapbone_cs.md)
-
 - [UltraleapBone Class (USC)](../../../../api/library/plugins/ultraleap/class.ultraleapbone_usc.md)
+
+- [UltraleapBone Class (CS)](../../../../api/library/plugins/ultraleap/class.ultraleapbone_cs.md)
 
 - [UltraleapBone Class (CPP)](../../../../api/library/plugins/ultraleap/class.ultraleapbone_cpp.md)
 

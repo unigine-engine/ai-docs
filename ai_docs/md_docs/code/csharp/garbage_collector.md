@@ -19,7 +19,7 @@ Here are the benefits the Garbage Collector provides:
 UNIGINE's Garbage Collector offers you the following set of modes (*Engine.GCMode*) making the process of garbage collection management flexible:
 
 
-- **DEFAULT** (default) - default C# garbage collector mode. In this case heavy spikes and excessive memory consumption are imminent if you don’t manage your objects properly and do not use the *Dispose()* method.
+- **DEFAULT** (default) - default C# garbage collector mode. In this case heavy spikes and excessive memory consumption are imminent if you don�t manage your objects properly and do not use the *Dispose()* method.
 - **USE_MEMORY_PRESSURE** - passes the information about C++ memory consumption to C#. This results in more frequent GC calls preventing the application from eating too much memory right after startup and removing heavy spikes.
 - **EVERY_FRAME** - the garbage collector is called every frame. This results in overall performance reduction, but removes heavy spikes.
 - **WORLD_SHUTDOWN** - the garbage collector is called on closing the world. This mode is ideal if the number of memory allocations is your code is insignificant.

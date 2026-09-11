@@ -9,6 +9,72 @@
 
 ### Members
 
+## getLastDataError () const
+
+Returns the current data on the last received error.
+### Return value
+
+Current Last received error, one of the [A_R_T_TRACKER_ERROR_](#ERROR_NONE) values.
+## int getNumInertial () const
+
+Returns the current Returns the number of all tracked standard 6DOF bodies (i.e. all 6DOF bodies except Flysticks, Measurement Tools, etc.) and all hybrid bodies.
+### Return value
+
+Current number of all tracked standard 6DOF bodies and all hybrid bodies.
+## int getNumHuman () const
+
+Returns the current number of human models.
+### Return value
+
+Current number of human models.
+## int getNumHand () const
+
+Returns the current number of tracked hand bodies.
+### Return value
+
+Current number of tracked hand bodies.
+## int getNumMarker () const
+
+Returns the current number of tracked additional Markers.
+### Return value
+
+Current number of additional Marker bodies.
+## int getNumMeaRef () const
+
+Returns the current number of defined reference bodies of the Measurement Tool.
+### Return value
+
+Current number of defined reference bodies of the Measurement Tool.
+## int getNumMeaTool () const
+
+Returns the current number of defined (calibrated) Measurement Tools.
+### Return value
+
+Current number of defined (calibrated) Measurement Tools.
+## int getNumFlyStick () const
+
+Returns the current number of defined (calibrated) Flystick bodies.
+### Return value
+
+Current number of Flystick bodies.
+## int getNumBody () const
+
+Returns the current number of DTrack bodies.
+### Return value
+
+Current number of defined (calibrated) DTrack bodies.
+## double getTimeStamp () const
+
+Returns the current time at the measurement of the current frame, i.e. the time when the infrared flash of the cameras is fired. the timestamp uses the internal clock of the controller, giving back the seconds (with an accuracy of 1μs) since 00:00 UTC (midnight). this implies that the timestamp value is reset to zero when passing midnight (UTC).
+### Return value
+
+Current time at the measurement of the current frame.
+## int getFrameCounter () const
+
+Returns the current frame counter (counting with synchronization frequency).
+### Return value
+
+Current frame counter value (counting with synchronization frequency).
 ---
 
 ## int engine.dtrack. receive ( )
@@ -17,15 +83,6 @@ Receives and processes one DTrack data packet.
 ### Return value
 
 **1** if a DTrack data packet is received successfully, otherwise **0**.
-## int engine.dtrack. getFrameCounter ( )
-
-Returns a frame counter (counting with synchronization frequency).
-## double engine.dtrack. getTimeStamp ( )
-
-Returns the time at the measurement of the current frame, i.e. the time when the infrared flash of the cameras is fired. The timestamp uses the internal clock of the controller, giving back the seconds (with an accuracy of 1μs) since 00:00 UTC (midnight). This implies that the timestamp value is reset to zero when passing midnight (UTC).
-### Return value
-
-Time at the measurement of the current frame.
 ## int engine.dtrack. init ( string ip = "192.168.1.100" , int port = 5000 )
 
 Initializes communication with DTrack.
@@ -49,12 +106,6 @@ Stops communication with DTrack.
 ### Return value
 
 **1** if communication stopped successfully, otherwise **0**.
-## int engine.dtrack. getNumBody ( )
-
-Returns the number of DTrack bodies.
-### Return value
-
-Number of defined (calibrated) DTrack bodies.
 ## int engine.dtrack. getBodyID ( int index )
 
 Returns DTrack body ID.
@@ -95,12 +146,6 @@ Returns the specified DTrack body rotation matrix.
 ### Return value
 
 Body rotation matrix (column-wise).
-## int engine.dtrack. getNumFlyStick ( )
-
-Returns the number of defined (calibrated) Flystick bodies.
-### Return value
-
-Number of Flystick bodies.
 ## int engine.dtrack. getFlyStickID ( int index )
 
 Returns the specified Flystick ID.
@@ -141,7 +186,7 @@ Returns the status of the given Flystick button.
 
 ### Return value
 
-Button state: 1 - if the button is pressed, 0 — if not pressed.
+Button state: 1 - if the button is pressed, 0 � if not pressed.
 ## int engine.dtrack. getFlyStickNumJoyStick ( int index )
 
 Returns the number of joystick values of a specified Flystick.
@@ -183,12 +228,6 @@ Returns the FlyStick rotation matrix (column-wise).
 ### Return value
 
 Rotation matrix (column-wise).
-## int engine.dtrack. getNumMeaTool ( )
-
-Returns the number of defined (calibrated) Measurement tools.
-### Return value
-
-Number of defined (calibrated) Measurement tools.
 ## int engine.dtrack. getMeaToolID ( int index )
 
 Returns the Measurement Tool ID (starting from 0).
@@ -229,7 +268,7 @@ Returns the button state for the specified Measurement Tool.
 
 ### Return value
 
-Button state: 1 — pressed, 0 — not pressed.
+Button state: 1 � pressed, 0 � not pressed.
 ## dvec3 engine.dtrack. getMeaToolLocation ( int index )
 
 Returns the Measurement Tool location.
@@ -270,12 +309,6 @@ Returns the covariance of the tool tip location, in mm2.
 ### Return value
 
 Covariance matrix of the position of the tool tip.
-## int engine.dtrack. getNumMeaRef ( )
-
-Returns the number of defined reference bodies of the Measurement Tool.
-### Return value
-
-Number of defined reference bodies of the Measurement Tool.
 ## int engine.dtrack. getMeaRefID ( int index )
 
 Returns the ID of the reference body of the Measurement Tool.
@@ -316,12 +349,6 @@ Returns the rotation matrix of the reference body of the Measurement Tool.
 ### Return value
 
 Rotation matrix.
-## int engine.dtrack. getNumMarker ( )
-
-Returns the number of tracked additional markers.
-### Return value
-
-Number of additional Marker bodies.
 ## int engine.dtrack. getMarkID ( int index )
 
 Returns the marker ID number.
@@ -352,12 +379,6 @@ Returns the marker location.
 ### Return value
 
 Marker location (in mm).
-## int engine.dtrack. getNumHand ( )
-
-Returns the number of tracked hand bodies.
-### Return value
-
-Number of tracked hand bodies.
 ## int engine.dtrack. getHandID ( int index )
 
 Returns the hand ID number.
@@ -391,7 +412,7 @@ The value to distinguish between the left (0) and right (1) hand.
 ## int engine.dtrack. getHandNumFinger ( int index )
 
 Returns the number of fingers for the specified hand. The maximum number of fingers is 5.
-> **Notice:** Based on this number, each finger can be addressed using its index starting from the thumb — 0, index finger — 1, etc.
+> **Notice:** Based on this number, each finger can be addressed using its index starting from the thumb � 0, index finger � 1, etc.
 
 
 ### Arguments
@@ -476,12 +497,6 @@ Returns the angles between the phalanxes of a finger.
 ### Return value
 
 Angles between phalanxes of a finger.
-## int engine.dtrack. getNumHuman ( )
-
-Returns the number of human models.
-### Return value
-
-Number of human models.
 ## int engine.dtrack. getHumanID ( int index )
 
 Returns the ID of the human model (starting with 0).
@@ -557,12 +572,6 @@ Returns the rotation matrix of the joint (column-wise) in relation to room coord
 ### Return value
 
 Rotation matrix of the joint (column-wise) in relation to room coordinate system.
-## int engine.dtrack. getNumInertial ( )
-
-Returns the number of all tracked standard 6DOF bodies (i.e. all 6DOF bodies except Flysticks, Measurement Tools, etc.) and all hybrid bodies.
-### Return value
-
-Number of all tracked standard 6DOF bodies and all hybrid bodies.
 ## int engine.dtrack. getInertialID ( int index )
 
 Returns the ID number of the standard 6DOF body.
@@ -583,9 +592,9 @@ Returns the data tracking status.
 ### Return value
 
 Tracking status of the sensor:
-- 0 — no tracking.
-- 1 — inertial tracking.
-- 2 — optical tracking.
+- 0 � no tracking.
+- 1 � inertial tracking.
+- 2 � optical tracking.
 
 
 ## double engine.dtrack. getInertialError ( int index )
@@ -622,9 +631,3 @@ Returns the rotation matrix of the Body's orientation.
 ### Return value
 
 Rotation matrix (column-wise) of the Body's orientation.
-## int engine.dtrack. getLastDataError ( )
-
-Returns the data on the last received error.
-### Return value
-
-Last received error, one of the [A_R_T_TRACKER_ERROR_](#ERROR_NONE) values.

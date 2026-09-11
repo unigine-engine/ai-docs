@@ -93,7 +93,7 @@ When importing assets, some of them may already exist in the project. If duplica
 |---|---|
 | Keep Existing | Existing assets in the project are preserved. New assets are not imported. |
 | Import New Asset (Preserve Existing Path) | The existing asset in the project is replaced with the imported one, while keeping the original project path. |
-| Import New Asset (Use New Path) | The existing asset is replaced, and the imported asset’s path from the package is used. |
+| Import New Asset (Use New Path) | The existing asset is replaced, and the imported asset�s path from the package is used. |
 | Resolve File Duplicates |  |
 | Keep Existing | Existing files are preserved. New files are not copied. |
 | Replace With New Files | Existing files are replaced with the imported ones. |
@@ -135,7 +135,7 @@ This window provides the following details and options:
 
 | Imported Packages | The list of packages from Add-On Store that have been imported to this project. |
 |---|---|
-| File Hierarchy | The hierarchy of files available in the selected package. If some package files have not been imported, they still be displayed in the *File Hierarchy* list but in grey color, as they are unavailable. The following options are available on this tab: ![](file_hierarchy_tab.png) 1. **Unlink Files From Package** — removes all links from assets to the package. Assets remain in the project, however cannot be managed via the *Add-On Store Package History* window anymore. This process cannot be reverted. To restore the package file hierarchy, import the package once again. 2. **Delete Package With Files** — removes all assets listed in *File Hierarchy* from the project. This process cannot be reverted. To restore the files, import the package once again. 3. **Show In Editor Plugin Manager** — the button that opens the plugin in *[Editor Plugin Manager](../../editor2/extensions/index.md#locating_plugins)*. It is available in *File Hierarchy* if the imported package contains the Editor plugin. |
+| File Hierarchy | The hierarchy of files available in the selected package. If some package files have not been imported, they still be displayed in the *File Hierarchy* list but in grey color, as they are unavailable. The following options are available on this tab: ![](file_hierarchy_tab.png) 1. **Unlink Files From Package** � removes all links from assets to the package. Assets remain in the project, however cannot be managed via the *Add-On Store Package History* window anymore. This process cannot be reverted. To restore the package file hierarchy, import the package once again. 2. **Delete Package With Files** � removes all assets listed in *File Hierarchy* from the project. This process cannot be reverted. To restore the files, import the package once again. 3. **Show In Editor Plugin Manager** � the button that opens the plugin in *[Editor Plugin Manager](../../editor2/extensions/index.md#locating_plugins)*. It is available in *File Hierarchy* if the imported package contains the Editor plugin. |
 | Description | Displays the description of the package as provided by the package creator on Add-On Store including the package version. |
 
  Best PracticeWhen performing any operations via the *Add-On Store Package History* window, check the Editor Console window.

@@ -10,11 +10,15 @@ This class is used to create cameras that view the world. When you create a new 
 
 Players' viewing frustum is defined by a [near clipping plane](#setZNear_float_void), [far clipping plane](#setZFar_float_void) and the [field of view](#setFov_float_void). Note that if you set up a custom [projection](#setProjection_mat4_void) matrix and after that call any of these functions:
 
+
 - [*setFov()*](#setFov_float_void)
 - [*setZFar()*](#setZFar_float_void)
 - [*setZNear()*](#setZNear_float_void)
 
+
 your custom matrices will be overwritten.
+
+
 Players cannot have a parent node; they always use the world coordinates for their transformations. The only exception is [PlayerDummy](../../../api/library/players/class.playerdummy_cpp.md).
 
 
@@ -23,6 +27,7 @@ Players cannot have a parent node; they always use the world coordinates for the
 
 Objects, decals and lights can be selectively displayed in the player viewport. To be displayed, their viewport mask should be matching with the player's [viewport mask](#setViewportMask_int_void) (one matching bit is enough):
 
+
 - Object [surface viewport mask](../../../api/library/objects/class.object_cpp.md#setViewportMask_int_int_void) or [decal viewport mask](../../../api/library/decals/class.decal_cpp.md#setViewportMask_int_void)
 - [Light viewport mask](../../../api/library/lights/class.light_cpp.md#setViewportMask_int_void) to light the object/decal
 - [Material viewport mask](../../../api/library/rendering/class.material_cpp.md#setViewportMask_int_void) to render the object/decal material
@@ -30,17 +35,21 @@ Objects, decals and lights can be selectively displayed in the player viewport. 
 
 Reflections can also be selectively rendered into the viewport: an object can be rendered without reflection or reflection without an object. For that, the player's [reflection viewport mask](#setReflectionViewportMask_int_void) should match:
 
+
 - Reflection mask of the reflecting material
 - [Viewport mask](../../../api/library/rendering/class.material_cpp.md#setViewportMask_int_void) of the reflecting material
 - Object [surface viewport mask](../../../api/library/objects/class.object_cpp.md#setViewportMask_int_int_void)
 - [Material viewport mask](../../../api/library/rendering/class.material_cpp.md#setViewportMask_int_void) of the reflected material
 - [Light viewport mask](../../../api/library/lights/class.light_cpp.md#setViewportMask_int_void)
 
+
 That is enough to render reflection from the object without an object itself. If an object needs to be present as well, all these conditions should simply go together with above mentioned ones.
+
+
 To render an object without reflection, simply either its [material viewport mask](../../../api/library/rendering/class.material_cpp.md#setViewportMask_int_void) or object [surface viewport mask](../../../api/library/objects/class.object_cpp.md#setViewportMask_int_int_void) should not match the player's [reflection viewport mask](#setReflectionViewportMask_int_void).
 
 
-Players also can have sound source and sound reverberation masks. As well as for viewports, corresponding masks of the Player object should match with [SoundReverb](../../../api/library/sounds/class.soundreverb_cpp.md#setReverbMask_int_void) and [SoundSource](../../../api/library/sounds/class.soundsource_cpp.md#setSourceMask_int_void) masks.
+Players also can have sound source and sound reverberation masks. As well as for viewports, corresponding masks of the *Player* object should match with [SoundReverb](../../../api/library/sounds/class.soundreverb_cpp.md#setReverbMask_int_void) and [SoundSource](../../../api/library/sounds/class.soundsource_cpp.md#setSourceMask_int_void) masks.
 
 
 ### Perspective and Orthographic Projection
@@ -134,6 +143,7 @@ int AppWorldLogic::init()
 
 Sometimes it might be necessary to get current rotation of the active camera as a set of Euler angles. When we talk about axes in UNIGINE we assume that:
 
+
 |  |  |
 |---|---|
 | - **X** axis points to the *right* giving us a **pitch** angle. - **Y** axis points *forward* giving us a **roll** angle. - **Z** axis points *up* giving us a **yaw** (heading) angle. | ![](../../../code/fundamentals/matrices/object_directions.png) *Object Direction Vectors* |
@@ -141,11 +151,15 @@ Sometimes it might be necessary to get current rotation of the active camera as 
 
 To get the Euler angles we should use [*decomposeRotationZXY()*](../../../api/library/math/math.matrix_cpp.md#decomposeRotationZXY_const_mat3_ref_vec3) also known as Cardan angles (**yaw** is independent, then we get **pitch** and in the end, **roll**). But, there is one thing to be taken into account - cameras have a different system:
 
+
 |  |  |
 |---|---|
 | - **X** axis points to the *right* giving us a **pitch** angle. - **Y** axis points *up* giving us a **yaw** (heading) angle. - **Z** axis points *backward* giving us a **-roll** angle. | ![](../../../code/fundamentals/matrices/camera_directions.png) *Camera Direction Vectors* |
 
+
 To compensate it, we need to rotate our camera **-90** degrees around **X** axis.
+
+
 ```cpp
 #include "AppWorldLogic.h"
 #include <UnigineGame.h>
@@ -212,9 +226,9 @@ In the `AppWorldLogic.cpp` implementation file do the following:
 
 - Include the `UnigineGame.h` header to set a new player by using *[setPlayer()](../../../api/library/engine/class.game_cpp.md#setPlayer_Player_void)* method.
 - Use **using namespace Unigine** directive: names of the Unigine namespace will be injected into global namespace.
-- Specify the necessary parameters of the created Player instance.
-- Set our recently created Player as a current game player.
-- Clear the pointer to the PlayerSpectator to avoid memory leaks.
+- Specify the necessary parameters of the created *Player* instance.
+- Set our recently created *Player* as a current game player.
+- Clear the pointer to the *PlayerSpectator* to avoid memory leaks.
 
 
 Here are the necessary parts of code:
@@ -296,7 +310,7 @@ Returns a value indicating whether player controls are disabled (player does not
 true if player controls are enabled; otherwise, false.
 ## void setControls ( const Ptr < Controls > & controls )
 
-Sets a [Controls](../../../api/library/controls/class.controls_cpp.md) object that will hold settings of input controls relevant to the player.
+Sets a *[Controls](../../../api/library/controls/class.controls_cpp.md)* object that will hold settings of input controls relevant to the player.
 ### Arguments
 
 - *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Controls](../../../api/library/controls/class.controls_cpp.md)> &* **controls** - [Controls](../../../api/library/controls/class.controls_cpp.md) object used to handle input controls.
@@ -306,10 +320,13 @@ Sets a [Controls](../../../api/library/controls/class.controls_cpp.md) object th
 Returns a [Controls](../../../api/library/controls/class.controls_cpp.md) object that holds settings of input controls relevant to the player.
 ### Return value
 
-[Controls](../../../api/library/controls/class.controls_cpp.md) object used to handle input controls.
+*[Controls](../../../api/library/controls/class.controls_cpp.md)* object used to handle input controls.
 ## void getDirectionFromScreen ( Math:: Vec3 & p0 , Math:: Vec3 & p1 , int mouse_x , int mouse_y , int screen_x , int screen_y , int screen_width , int screen_height ) const
 
+
 Casts the ray to a certain position on the screen and returns coordinates of the start (p0) and end (p1) points of the ray.
+
+
 ```cpp
 Vec3 p0, p1;
 
@@ -348,7 +365,10 @@ player->getDirectionFromScreen(p0, p1, mouse_x, mouse_y, 0, 0, width, height);
 
 ## Math:: vec3 getDirectionFromScreen ( int mouse_x , int mouse_y , int screen_x , int screen_y , int screen_width , int screen_height ) const
 
+
 Casts the ray to a certain position on the screen and returns a vector in the direction of this position.
+
+
 ```cpp
 // get width and height of the current application window's client area
 Math::ivec2 winsize = WindowManager::getMainWindow()->getClientSize();
@@ -381,15 +401,15 @@ Vector coordinates.
 Sets a vertical field of view of the player.
 
 
-> **Notice:** Horizontal FOV cannot be used since it varies depending on the viewport's aspect ratio. Setting FOV recalculates projection matrix with **aspect ratio = 1**.
+> **Notice:** Horizontal FOV cannot be used since it varies depending on the viewport's aspect ratio. Setting FOV recalculates projection matrix with aspect ratio = 1.
 
 
-You can use the following formula to calculate horizontal FOV from the vertical one for the given aspect ratio (width/height): **FOV_h = 2 × atan ( (width / height) × tan(FOV_v / 2))**.
+You can use the following formula to calculate horizontal FOV from the vertical one for the given aspect ratio (width/height): FOV_h = 2 � atan ( (width / height) � tan(FOV_v / 2)).
 
 
 ### Arguments
 
-- *float* **fov** - New vertical field of view in degrees. The provided value will be saturated in the range **[0; 180]**. The default is 60 degrees.
+- *float* **fov** - New vertical field of view in degrees. The provided value will be saturated in the range [0; 180]. The default is 60 degrees.
 
 ## float getFov ( ) const
 
@@ -400,7 +420,7 @@ Returns the current vertical field of view of the player.
 > **Notice:** Horizontal FOV cannot be used since it varies depending on the viewport's aspect ratio.
 
 
-You can use the following formula to calculate horizontal FOV from the vertical one for the given aspect ratio (width/height): **FOV_h = 2 × atan ( (width / height) × tan(FOV_v / 2))**.
+You can use the following formula to calculate horizontal FOV from the vertical one for the given aspect ratio (width/height): FOV_h = 2 � atan ( (width / height) � tan(FOV_v / 2)).
 
 
 ### Return value
@@ -408,8 +428,11 @@ You can use the following formula to calculate horizontal FOV from the vertical 
 Vertical field of view in degrees. The default is 60 degrees.
 ## void setObliqueFrustum ( bool frustum )
 
+
 Enables or disables obliqueness of the viewing frustum.
-> **Notice:** It is recommended to set oblique viewing frustum using this method, as it doesn't affect the projection matrix. To specify the near clipping plane use the [setObliqueFrustumPlane()](#setObliqueFrustumPlane_Vec4_void) method.
+
+
+> **Notice:** It is recommended to set oblique viewing frustum using this method, as it doesn't affect the projection matrix. To specify the near clipping plane use the *[setObliqueFrustumPlane()](#setObliqueFrustumPlane_Vec4_void)* method.
 
 
 ### Arguments
@@ -424,8 +447,11 @@ Returns a value indicating if the viewing frustum is oblique.
 true if the viewing frustum is oblique; otherwise, false.
 ## void setObliqueFrustumPlane ( const Math:: Vec4 & plane )
 
+
 Sets the oblique near clipping plane of the viewing frustum.
-> **Notice:** This method does not affect the projection matrix. To enable the oblique frustum use the [setObliqueFrustum()](#setObliqueFrustum_int_void) method.
+
+
+> **Notice:** This method does not affect the projection matrix. To enable the oblique frustum use the *[setObliqueFrustum()](#setObliqueFrustum_int_void)* method.
 
 
 ```cpp
@@ -476,7 +502,10 @@ Returns the oblique near clipping plane of the viewing frustum.
 World coordinates of the oblique near clipping plane to set (Nx, Ny, Nz, D), where Nx, Ny, Nz - coordinates of the plane normal, D - distance from the origin to the plane.
 ## void setProjection ( const Math:: mat4 & projection )
 
+
 Updates the current projection matrix.
+
+
 > **Notice:** It is not recommended to use this method for setting obliqueness of the near clipping plane of the frustum, as in this case a number of features (such as clouds, shadows, TAA, a number of engine optimizations, etc.) will not function properly. Please, use the [setObliqueFrustum()](#setObliqueFrustum_int_void) method instead.
 
 
@@ -520,20 +549,22 @@ Returns the current bit mask for rendering reflections into the viewport. Reflec
 Reflection viewport mask (an integer, each bit of which is a mask).
 ## void setReverbMask ( int mask )
 
-Sets a reverb mask that determines reverberation zones, which can be heard. For sound to reverberate, at least one bit of this mask should match with a reverb mask of the sound source and a reverb mask of the reverberation zone. Masks of a sound source and reverberation zone can match with the player's one in different bits, not necessarily one.
+Sets a bit mask that determines what [reverberation zones](../../../api/library/sounds/class.soundreverb_cpp.md) can be heard. For sound to reverberate, at least one bit of this mask should match with a [reverb mask of the sound source](../../../api/library/sounds/class.soundsource_cpp.md#setReverbMask_int_void) and a [reverb mask of the reverberation zone](../../../api/library/sounds/class.soundreverb_cpp.md#setReverbMask_int_void). (Masks of a sound source and reverberation zone can match with the player's one in different bits, not necessarily one).
 ### Arguments
 
-- *int* **mask** - Reverb mask (integer, each bit of which is a mask for reverberating sound sources and reverberation zones).
+- *int* **mask** - Integer, each bit of which is a mask for reverberating sound sources and reverberation zones.
 
 ## int getReverbMask ( ) const
 
 Returns the current bit mask that determines what [reverberation zones](../../../api/library/sounds/class.soundreverb_cpp.md) can be heard. For sound to reverberate, at least one bit of this mask should match with a [reverb mask of the sound source](../../../api/library/sounds/class.soundsource_cpp.md#setReverbMask_int_void) and a [reverb mask of the reverberation zone](../../../api/library/sounds/class.soundreverb_cpp.md#setReverbMask_int_void). (Masks of a sound source and reverberation zone can match with the player's one in different bits, not necessarily one).
 ### Return value
 
-Reverb mask (integer, each bit of which is a mask for reverberating sound sources and reverberation zones).
+Integer, each bit of which is a mask for reverberating sound sources and reverberation zones.
 ## int getScreenPosition ( int & x , int & y , const Math:: Vec3 & point , int screen_width , int screen_height ) const
 
 Projects the point in world coordinates to the screen. Screen coordinates are written into the first 2 variables passed to the method (in pixels).
+
+
 ```cpp
 // get relative screen position of a world-space point (world_point_position)
 EngineWindowViewportPtr main_window = WindowManager::getMainWindow();
@@ -558,20 +589,23 @@ vec2 relative_pos = vec2(screen_x, screen_y) / client_render_size;
 1 if the point has been projected successfully; otherwise, 0.
 ## void setSourceMask ( int mask )
 
-Sets a source mask that determines sound sources, which can be heard. For a sound source to be heard, its mask should match with this one in at least one bit. Plus, the volume of sound channel in which the sound plays (its number also depends on this mask) should not be equal to 0.
+Sets a bit mask that determines what sound sources can be heard. For a sound source to be heard, [its mask](../../../api/library/sounds/class.soundsource_cpp.md#setSourceMask_int_void) should match with this one in at least one bit. Plus, the volume of [sound channel](../../../api/library/engine/class.sound_cpp.md#setSourceVolume_int_float_void) in which the sound plays (its number also depends on this mask) should not be equal to 0.
 ### Arguments
 
 - *int* **mask** - Source mask (integer, each bit of which specifies a sound channel).
 
 ## int getSourceMask ( ) const
 
-Returns the source mask that determines sound sources, which can be heard. For a sound source to be heard, its mask should match with this one in at least one bit. Plus, the volume of sound channel in which the sound plays (its number also depends on this mask) should not be equal to 0.
+Returns a bit mask that determines what [sound channels](../../../api/library/engine/class.sound_cpp.md#setSourceVolume_int_float_void) can be heard. For a sound source to be heard, [its mask](../../../api/library/sounds/class.soundsource_cpp.md#setSourceMask_int_void) should match with this one in at least one bit. Plus, the volume of [sound channel](../../../api/library/engine/class.sound_cpp.md#setSourceVolume_int_float_void) in which the sound plays (its number also depends on this mask) should not be equal to 0.
 ### Return value
 
 Source mask (integer, each bit of which specifies a sound channel).
 ## void setUp ( const Math:: vec3 & up )
 
+
 Sets an up direction of the player's viewport (i.e. tilt of the player's viewport).
+
+
 > **Notice:** In case of [PlayerActor](../../../api/library/players/class.playeractor_cpp.md), its transformation forces it to recalculate its inner state (position, direction, angles and so on), so the up direction of the player's viewport may become "negative forward". And then transformation will be recalculated by using this direction, causing flip of the basis of the player actor. To avoid such flipping, the theta and phi angles should be [recalculated](../../../api/library/players/class.playeractor_cpp.md#setViewDirection_vec3_void) by using the [current viewing orientation](../../../api/library/players/class.playeractor_cpp.md#getViewDirection_vec3) of the player.
 
 
@@ -587,7 +621,10 @@ Returns the current up direction of the player's viewport (i.e. tilt of the play
 Upward direction vector.
 ## void setVelocity ( const Math:: vec3 & velocity )
 
+
 Sets a player's velocity.
+
+
 > **Notice:** In case of [PlayerActor](../../../api/library/players/class.playeractor_cpp.md), this function is valid only when the player is not simulated physically ([*setPhysical()*](../../../api/library/players/class.playeractor_cpp.md#setPhysical_int_void) is set to 0). If it is, moving PlayerActor is done via accessing its body.
 
 
@@ -616,14 +653,14 @@ Returns Player's view direction vector.
 A view direction vector.
 ## void setViewportMask ( int mask )
 
-Sets a viewport mask. Object surfaces, materials, decals, lights and GUI objects will be rendered into the viewport only if their viewport mask matches the player's one (one matching bit is enough).
+Sets a bit mask for rendering into the viewport. Object surfaces, materials, decals, lights and GUI objects will be rendered into the viewport only if their viewport mask matches the player's one (one matching bit is enough).
 ### Arguments
 
 - *int* **mask** - Viewport mask (integer, each bit of which is a mask).
 
 ## int getViewportMask ( ) const
 
-Returns the current viewport mask. Object surfaces, materials, decals, lights and GUI objects will be rendered into the viewport only if their viewport mask matches the player's one (one matching bit is enough).
+Returns the current bit mask for rendering into the viewport. Object surfaces, materials, decals, lights and GUI objects will be rendered into the viewport only if their viewport mask matches the player's one (one matching bit is enough).
 ### Return value
 
 Viewport mask (integer, each bit of which is a mask).
@@ -655,17 +692,20 @@ Returns the distance to the near clipping plane of the player's viewing frustum.
 Distance to the near clipping plane in units.
 ## void flushTransform ( ) const
 
-Forces to immediately set transformations to the player. This function should be called manually after user input has been updated via updateControls().
+Forces to immediately set transformations to the player. This function should be called manually after user input has been updated via *updateControls()*.
 ## void updateControls ( float ifps ) const
 
-Gets the current player's parameters (impulse, direction, velocity etc) according to user input. After the input has been updated, flushTransform() should be called manually to apply it to the player.
+Gets the current player's parameters (impulse, direction, velocity etc) according to user input. After the input has been updated, *flushTransform()* should be called manually to apply it to the player.
 ### Arguments
 
 - *float* **ifps** - Frame duration in seconds.
 
 ## void setFovMode ( Camera::FOV_MODE mode )
 
+
 Sets the value indicating the type of FOV that is used for the player:
+
+
 - For the standard player, the vertical FOV should be set. In this case, FOV is directly set in [degrees](#setFov_float_void).
 - For the physically-based player, the horizontal FOV should be set. In this case, FOV is calculated depending on the [film gate](#setFilmGate_float_void) and [focal length](#setFocalLength_float_void) of the player.
 
@@ -725,7 +765,10 @@ Returns a value indicating which FOV component (horizontal or vertical) is curre
 Current fixed FOV component, one of the [Camera::FOV_FIXED_*](../../../api/library/rendering/class.camera_cpp.md#FOV_FIXED_HORIZONTAL) values.
 ## void addScriptableMaterial ( const Ptr < Material > & material )
 
-Attaches a new [scriptable material](../../../content/materials/scriptable.md) to the player. To apply a scriptable material globally, use the **[addScriptableMaterial()](../../../api/library/rendering/class.render_cpp.md#addScriptableMaterial_Material_void)** method of the Render class. The order of execution for scripts assigned to scriptable materials is defined by material's number in the list of the player.
+
+Attaches a new [scriptable material](../../../content/materials/scriptable.md) to the player. To apply a scriptable material globally, use the **[addScriptableMaterial()](../../../api/library/rendering/class.render_cpp.md#addScriptableMaterial_Material_void)** method of the *Render* class. The order of execution for scripts assigned to scriptable materials is defined by material's number in the list of the player.
+
+
 > **Notice:** Scriptable materials [applied globally](../../../api/library/rendering/class.render_cpp.md#addScriptableMaterial_Material_void) have their expressions executed before the ones that are applied per-player.
 
 
@@ -735,7 +778,10 @@ Attaches a new [scriptable material](../../../content/materials/scriptable.md) t
 
 ## void insertScriptableMaterial ( int num , const Ptr < Material > & material )
 
-Inserts a new [scriptable material](../../../content/materials/scriptable.md) into the list of the ones assigned to the player. To apply a scriptable material globally, use the [*insertScriptableMaterial()*](../../../api/library/rendering/class.render_cpp.md#insertScriptableMaterial_int_Material_void) method of the Render class. The order of execution for scripts assigned to scriptable materials is defined by material's number in the player's list.
+
+Inserts a new [scriptable material](../../../content/materials/scriptable.md) into the list of the ones assigned to the player. To apply a scriptable material globally, use the [*insertScriptableMaterial()*](../../../api/library/rendering/class.render_cpp.md#insertScriptableMaterial_int_Material_void) method of the *Render* class. The order of execution for scripts assigned to scriptable materials is defined by material's number in the player's list.
+
+
 > **Notice:** Scriptable materials [applied globally](../../../api/library/rendering/class.render_cpp.md#addScriptableMaterial_Material_void) have their expressions executed before the ones that are applied per-player.
 
 ### Arguments
@@ -758,7 +804,10 @@ Returns the total number of [scriptable materials](../../../content/materials/sc
 Total number of scriptable materials attached to the player.
 ## int findScriptableMaterial ( const Ptr < Material > & material ) const
 
+
 Returns the number of the specified [scriptable material](../../../content/materials/scriptable.md) for the player. This number is player-specific (valid for this player only) and determines the order in which the assigned expressions are executed.
+
+
 > **Notice:** Scriptable materials [applied globally](../../../api/library/rendering/class.render_cpp.md#addScriptableMaterial_Material_void) have their expressions executed before the ones that are applied per-player.
 
 
@@ -771,7 +820,10 @@ Returns the number of the specified [scriptable material](../../../content/mater
 Scriptable material number in the range from 0 to the [total number of scriptable materials](#getNumScriptableMaterials_int), or -1 if the specified material was not found.
 ## void setScriptableMaterial ( int num , const Ptr < Material > & material )
 
+
 Replaces the [scriptable material](../../../content/materials/scriptable.md) with the specified number with the new scriptable material specified. The number of material determines the order in which the expressions assigned to it are executed. This number is player-specific (valid for this player only).
+
+
 > **Notice:** Scriptable materials [applied globally](../../../api/library/rendering/class.render_cpp.md#addScriptableMaterial_Material_void) have their expressions executed before the ones that are applied per-player.
 
 
@@ -810,7 +862,10 @@ Returns a value indicating if the [scriptable material](../../../content/materia
 true if the scriptable material with the specified number is enabled; otherwise, false.
 ## void swapScriptableMaterials ( int num_0 , int num_1 )
 
+
 Swaps two [scriptable materials](../../../content/materials/scriptable.md) with specified numbers. The number of material determines the order in which the expressions assigned to it are executed.
+
+
 > **Notice:** The number is player-specific (valid for this player only).
 
 
@@ -921,7 +976,10 @@ Creates a projection matrix out of 2 screen positions relative to the specified 
 Projection matrix.
 ## int getMainWindowPosition ( int & x , int & y , const Math:: Vec3 & point ) const
 
+
 Projects the point in world coordinates relative to the main window. The coordinates are written into the first 2 variables passed to the method (in pixels).
+
+
 ```cpp
 
 // get relative screen position of a world-space point (world_point_position)
@@ -944,7 +1002,10 @@ vec2 relative_pos = vec2(screen_x, screen_y) / client_render_size;
 1 if the point has been projected successfully; otherwise, 0.
 ## int getWindowPosition ( int & x , int & y , const Math:: Vec3 & point , const Ptr < EngineWindowViewport > & window ) const
 
+
 Projects the point in world coordinates relative to the specified window viewport. The coordinates are written into the first 2 variables passed to the method (in pixels).
+
+
 ```cpp
 
 // get relative screen position of a world-space point (world_point_position)

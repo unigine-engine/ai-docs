@@ -10,7 +10,7 @@ The *Textures* tab of *Content Profiler* allows monitoring textures, checking th
 ## Available Options
 
 
-| Location | **From Video Memory** — lists only the textures that are currently loaded to the video memory, i. e. with the state "loaded". **From Viewport** — lists only the textures displayed in the Editor viewport at the moment, i. e. with the state "loaded", *Texture Memory Limit = 0, and Destroy Duration = 1.* |
+| Location | **From Video Memory** � lists only the textures that are currently loaded to the video memory, i. e. with the state "loaded". **From Viewport** � lists only the textures displayed in the Editor viewport at the moment, i. e. with the state "loaded", *Texture Memory Limit = 0, and Destroy Duration = 1.* |
 |---|---|
 | Display Core Assets | Enables or disables displaying of assets from the `core/` folder. |
 

@@ -44,5 +44,5 @@ This parameter indicates whether the collision occurred with another entity or w
 
 - *int* **type** - Type of collision. Available values:
 
-  - 0 — for collisions with a non-entity object.
-  - 1 — for collisions with other entities.
+  - 0 � for collisions with a non-entity object.
+  - 1 � for collisions with other entities.

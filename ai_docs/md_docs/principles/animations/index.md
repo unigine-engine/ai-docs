@@ -1,120 +1,183 @@
 # Animation System
 
 
-> **Warning:** The functionality described here is **EXPERIMENTAL** and is **not recommended for production use**. Future releases may bring significant changes to API and features. Backward compatibility of the final production-ready version is not guaranteed.
+Almost anything in a UNIGINE world can be animated, and two systems do most of the work.
 
 
-UNIGINE Animation System (Animations) enables you to create in-game cinematics with a specialized multi-track editor. Animation sequences are defined by creating [Playbacks](#animation_playback), adding [Layers](#animation_layer) to them, and adding *[Tracks](#animation_track)* to these layers with the ability to control the track sequence and blending between different layers. Users can define the makeup of each [Track](#animation_track) by adding [Objects](#animation_object) and [Modifiers](#animation_object) to define changes of objects and their parameters over time based on key frames.
+An **[Animation Graph](../../content/animations/index.md)** decides what a character's body does while the game runs - walking, aiming, planting a foot on a slope. The **[Sequencer](../../editor2/tools/sequencer/index.md)** plays back a timeline laid out in advance - a lift running its cycle, a lamp dimming at dusk, a full cutscene. The rest comes from physics, from a material, or from a few lines in a component.
 
+   Sorry, your browser does not support embedded videos.
+*The Sequencer: parameters keyed on a timeline*
 
-### See Also
 
+## Choosing an Approach
 
-- [Animation System API Reference](../../api/library/animations/index.md) for more information on managing animations via code.
 
+| What you want to animate | Where to go |
+|---|---|
+| A character's body, reacting to gameplay | [Animation Graph](../../content/animations/index.md) |
+| A cutscene: shots, sound, music, action | [Sequencer](../../editor2/tools/sequencer/index.md) |
+| One parameter over time, on a single object or on a whole set | [Sequencer](../../editor2/tools/sequencer/index.md) |
+| A character's body in a staged scene | [Sequencer](../../editor2/tools/sequencer/index.md) |
+| A value that follows from runtime state | Code in a [component](../../principles/component_system/index.md) |
+| Motion that comes out of a simulation | [Physics](../../principles/physics/index.md): bodies, joints, forces |
+| Surface-level motion: sway, scroll, ripple | [Material graph](../../content/materials/graph/index.md) and [scriptable materials](../../content/materials/scriptable.md) |
+| Facial expressions and blend shapes | [Morph targets](../../content/tutorials/morph/index_cpp.md) on a skinned mesh |
+| Movement along a fixed route | [Transform Path](../../objects/worlds/world_transforms/transform_path/index.md) |
+| Massed small-scale motion | [Particle systems](../../objects/effects/particles/index.md) |
 
-## Animation Parameters
 
+## Skeletal Animation
 
-Animation System enables you to animate nodes, parameters, widgets, application windows, global rendering and physics parameters, etc. The following data types are supported:
 
+Everything with a skeleton goes through this path, from a player character to a rigged machine.
 
-- *int / bool / scalar / float / double*
-- *quat*
-- *string / uguid*
-- *ivec2 / ivec3 / ivec4*
-- *Vec2 / vec2 / dvec2*
-- *Vec3 / vec3 / dvec3*
-- *Vec4 / vec4 / dvec4*
-- *Mat4*
-- *Node*
 
+Such a character is a `*.skeleton`, a `*.mesh_skinned` and a set of `*.anim` clips, split out of an `FBX`, `glTF` or `USD` file on import. In the scene a *[Skeleton Pose](../../objects/animations/nodeskeletonpose/index.md)* node computes the pose and a *[Skinned Mesh](../../objects/objects/mesh_skinned/index.md)* shows it. See [Preparing Animation Assets](../../content/animations/animation_assets/index.md).
 
-The *[Animations](../../api/library/animations/class.animations_cpp.md)* class enables you to get the complete list of classes with parameters available for animation via API, for each parameter you can get its name and data type.
 
+![](../../content/animations/animation_assets/mesh_skinned_drag_and_drop.png)
 
-You can also find all parameters available for animation in the `UnigineAnimationParameters.h` file.
+*Dropping a skinned mesh into the viewport sets up both nodes at once*
 
 
-## Animation Object
+### The Animation Graph
 
 
-**Animation Object** is an abstract dummy object (proxy) that is modified by a track; it can be a node, material, property, or an arbitrary object from UNIGINE API (like widgets, windows, etc.). Animation Object serves as a bridge connecting tracks with actual objects (certain nodes in the world, certain materials, UI widgets, and windows, etc.) that will be animated. Bindings to the actual objects are stored by the *Animation Objects* themselves.
+The pose comes from an `*.agraph` - a node network you build in a visual editor and preview on the character as you work. Your code writes a handful of parameters into it - a movement speed, a jump trigger - and the graph works out the rest. One graph built this way serves a whole cast.
 
 
-In order to use a modifier, we should know to which object we are applying it (if it is not a parameter of some singleton class of the engine, like *Game, Render, Physics*, etc.). But we can't use actual objects directly, as this will stick modifiers in tracks to them and will kill flexibility making it impossible to use modifiers and tracks to animate arbitrary objects. Moreover, some objects of the Engine cannot be saved (such as widgets, windows, etc.) as they are created and assigned at run-time.
+It is compiled into a native library on save, so what runs each frame is machine code.
 
+   Sorry, your browser does not support embedded videos.
+*The Animation Graph editor*
 
-## Animation Tracks
 
+**[State machines](../../content/animations/state_machines/index.md)** organize behaviour into states with conditional transitions between them: idle, walk, run, jump. Each state holds its own graph, each transition its own condition, so the character picks its own animation from the numbers gameplay hands it.
 
-**Animation Track** is a set of data describing animation of a certain *[Animation Object](#animation_object)* or some global parameters like render or physics settings in case there is no Animation Object assigned.
 
+![](../../content/animations/state_machines/state_machine_example.png)
 
-Each Track has the speed parameter that determines the rate of fetching frames values from the track.
+*A locomotion state machine*
 
 
-## Animation Modifier
+**[Blend spaces](../../content/animations/blend_spaces/index.md)** blend a set of clips by two continuous inputs. A single stick drives the whole locomotion set through them, and the switching between its clips disappears.
 
+   Sorry, your browser does not support embedded videos.
+*Previewing a blend at a position in the space*
 
-**Animation Modifier** is a modifier for basic types (*INT, FLAG, QUAT, SCALAR, FLOAT, DOUBLE, IVEC2, IVEC3, IVEC4, VEC2, VEC3, VEC4, FVEC2, FVEC3, FVEC4, DVEC2, DVEC3, DVEC4, BONES*). Modifiers use Curves (*[AnimationCurve](../../api/library/animations/timeline/class.animationcurve_cpp.md)*) to change their components over time. A modifier can have a set of 1 to 7 curves depending on the number of its components and their types (e.g. *[AnimationModifierInt](../../api/library/animations/timeline/class.animationmodifierint_cpp.md)* has a single curve, while *[AnimationModifierBones](../../api/library/animations/timeline/class.animationmodifierbones_cpp.md)* has 7: 3 curves for position, 1 for rotation, and 3 for scale).
 
+**[Blend masks](../../content/animations/blend_masks/index.md)** restrict a blend to part of the skeleton, so a character reloads or waves while its legs keep walking.
 
-Parameter description is stored as a pair: **`param_name + access_key`** (index or name). For example to set node position it is enough to store only the parameter name (**node.position**), while for a material parameter a name or index is required to apply a value. The modifier also stores information about the object to which it is applied.
+   Sorry, your browser does not support embedded videos.
+*Waving on the upper body while the legs keep walking*
 
 
-For some modifiers *uniform* time can be used — in this case modifier value changes with a constant rate. For example, normally if a node's position is changed via a wave curve, it'll move with positive and negative acceleration within the different parts of the timeline, but in case of using uniform time the node will move at a constant speed.
+**[Root motion](../../content/animations/root_motion/index.md)** takes the movement authored into a clip out of the pose and hands it to your code as a per-frame delta. The animator sets the exact distance and timing of every step, which is what makes an attack land where it was animated to land and a vault clear its obstacle.
 
+   Sorry, your browser does not support embedded videos.
+*Left: the character snaps back on each loop. Right: the movement is extracted as a delta*
 
-## Animation Curves
 
+**[Procedural control](../../content/animations/procedural_control/index.md)** poses joints from the state of the scene. A raycast finds the real ground and IK bends the leg to it, so the foot lands on the slope instead of hovering over it; a look-at keeps the head on a moving target, and joint limits keep the result anatomically possible.
 
-**Animation Curves** define the dynamics of change of values over time. There are dedicated curves available for basic types: *int, float, double, scalar, flag, quat, string, GUID*.
+   Sorry, your browser does not support embedded videos.
+*Two Bone IK reaching a target*
 
 
-Each curve is represented by a set of key frames, for each pair of keys an individual interpolation mode can be assigned (if applicable to current values):
+**[Retargeting](../../content/animations/retargeting/index.md)** scales joint translations to the body that receives them, so one animation library serves the whole cast whatever their build.
 
+  ![](../../content/animations/retargeting/wrong_retargeting.png)
+*Without retargeting: the child plays the adult's animation as authored, and the proportions come out wrong*
 
-- **CONSTANT** - the value of the left key is used for the whole interval between the keys (constant).
-- **LINEAR** - the value between the keys is interpolated linearly.
-- **SMOOTH** - the value between the keys is interpolated smoothly according to the Bezier curve with symmetrical left and right tangents for each key.
-- **BREAK** - the value between the keys is interpolated according to the Bezier curve with left and right tangents for each key controlled independently.
+  ![](../../content/animations/retargeting/correct_retargeting.png)
+*With retargeting: the same animation is scaled to the child's proportions*
 
 
-## Animation Playback
+## Timeline Animation
 
 
-**Animation Playback** controls the whole animation and operates with *[Animation Tracks](#animation_track)*. The playback timeline has layers (the higher the layer the greater priority), you can add any number of tracks to these layers. The tracks that belong to the same layer are played sequentially according to their positions on the timeline, while the tracks from different layers are either switched abruptly according to the layer priority or blended together to obtain the final result. For each track you can specify its impact on the final result (weight). The total weight at any point of the timeline of blended tracks is equal to 1.
+Anything that has to happen on cue goes here, from a door that opens when the player arrives to a cutscene with cameras, sound and music on it.
 
 
-Playback refers to *[tracks](#animation_playback)* sorted by layers, and defines their sequence and blending.
+A sequence is one `*.seq` file playing a set of **[channels](../../editor2/tools/sequencer/channels/index.md)** on a shared timeline. A channel animates one parameter, on one object or on a whole set of them, and holds either keys or clips.
 
 
-Each frame we get all modifiers of the track, then take all current values of curves and calculate current parameter values in accordance with key values and interpolation types.
+![](../../editor2/tools/sequencer/sequence_structure.png)
 
+*A sequence with a clip channel and a keyed channel*
 
-### Animation Playback Node
 
+**[Keys and curves](../../editor2/tools/sequencer/keys/index.md)** set the value at a few moments and the Engine fills in between. The curve running from one key to the next is the path the value takes, shaped by the key type and its tangents - the difference between a lift that slams to a halt and one that settles.
 
-For your convenience we have added a new **Animation Playback** node (*NodeAnimationPlayback*) to demonstrate the functionality of the new Animation System. This node enables you to:
 
+![](../../editor2/tools/sequencer/keys/key_types.png)
 
-- **Play** [animation track](#animation_track) files in the new `.utrack` format. You can change playback speed and set a particular time to see the corresponding [animation frame](#animation_frame) applied to the scene. It is also possible to play animations from a predefined start time (*TimeFrom*) to a predefined end time (*TimeTo*).
-- **Convert** all old [animation track](#animation_track) files (`.track` format) in the specified folder (or in the whole `data` directory) into the new `.utrack` format. You can also convert an old [animation track](#animation_track) file (`.track`) to the new `.uplay` format to be used directly via code (intermediate `.utrack` file will also be created next to the original).
+*The six key types*
 
 
-![](nodeanimationplayback.jpg)
+**[Clips](../../editor2/tools/sequencer/clips/index.md)** cover a span instead of a moment, carrying a sound, a character animation, a camera or a nested sequence. Trim them, retime them, blend them by weight: a character's walk is laid under the line of dialogue that plays over it, and both are moved around until the shot reads.
 
 
-## Animation Masks
+![](../../editor2/tools/sequencer/channels/clips.png)
 
+*Clip channels and a keyed channel in one sequence*
 
-**Animation Mask** is represented by a set of [modifiers](#animation_modifier), but without animation curves, i.e.:
-**`Animation Mask = Animation Object ID + Animation Parameter Description`**
- This combination is enough to define a modifier for a particular object. Such masks can be used to identify identical parameters in different tracks and perform partial or complete interpolation between tracks with different structures.
 
+**[Cinematic channels](../../editor2/tools/sequencer/channel_reference/cinematic/index.md)** are the pieces a cutscene is assembled from, each built for its own job. Cut between cameras, and fire a named event at the frame the explosion goes off so your code spawns the debris on cue.
 
-## Animation Frames
 
+![](../../editor2/tools/sequencer/channel_reference/cinematic/cinematic_channels.png)
 
-**Animation Frame** is a combination of an animation mask and a set of values of modifiers calculated for this mask. These frames are passed from tracks to the playback and are blended to obtain the final resulting frame that is finally applied to objects. A frame can be thought of as a vertical slice of values of all tracks and modifiers played at the specified moment.
+*The cinematic half of the channel picker*
+
+
+**[Targets](../../editor2/tools/sequencer/targets/index.md)** keep the animation and the objects apart. Point a channel at one node, or describe a set of them by name, tag, component or type - the rule keeps matching while the sequence plays, so one curve dims a whole street of lamps, including the ones that were not there when it was drawn. The same file also runs on a hundred identical doors, each playing it on its own.
+
+
+![](../../editor2/tools/sequencer/targets/multiple_targets.png)
+
+*Two lamps driven by the same keys*
+
+
+**[Component channels](../../editor2/tools/sequencer/channel_reference/component/index.md)** animate a field of one of your own components, C++ or C# alike, so a value that lives in your game code goes on a curve like any engine parameter.
+
+
+A finished sequence is played by a *[Sequence Player](../../objects/animations/sequence_player/index.md)* node with no code at all, or from your own code - see [Runtime Playback](../../editor2/tools/sequencer/runtime/index_cpp.md).
+
+
+> **Notice:** The *Tools* menu also holds the **[Tracker](../../editor2/tools/tracker/index.md)**, the keyframe tool the Sequencer replaces. It sits right above the Sequencer in that menu and is kept for projects already built around it; new work belongs in the Sequencer.
+>
+>
+> Work already done in the Tracker carries over: its `*.track` files convert into sequences, as described in [Converting Legacy Tracks](../../editor2/tools/sequencer/track_import/index.md).
+
+
+## Where the Two Systems Meet
+
+
+A cutscene reaches a character in one of two ways. A [Skeletal Animation](../../editor2/tools/sequencer/channel_reference/skeletal_animation/index.md) channel lays `*.anim` clips over it and poses the body directly. An [Animation Graph Parameter](../../editor2/tools/sequencer/channel_reference/anim_graph_parameters/index.md) channel leaves the graph in charge and moves its inputs instead, so the character keeps blending and reacting while the sequence tells it what it is doing.
+
+
+![](../../editor2/tools/sequencer/channel_reference/skeletal_animation/anim_transitions.png)
+
+*Clips crossfading on a Skeletal Animation channel*
+
+
+## Animation Without a Timeline or a Graph
+
+
+- **Code** - a [component](../../principles/component_system/index.md) writes the value every frame, when it follows from runtime state no curve could anticipate.
+- **Physics** - a [ragdoll body](../../principles/physics/bodies/ragdoll/index.md) for a character that has lost control, a [cloth body](../../principles/physics/bodies/cloth/index.md) for fabric, joints and forces for machinery.
+- **Materials** - vertex animation, UV motion and flowmaps run in the shader and reach every instance at once. See the [material graph](../../content/materials/graph/index.md) and [scriptable materials](../../content/materials/scriptable.md); vegetation is driven locally by a [Field Animation](../../objects/effects/fields/field_animation/index.md) node.
+- **Morph targets** - blend shapes on a skinned mesh, the usual route for facial expressions. See [Adding Morph Targets](../../content/tutorials/morph/index_cpp.md).
+- **Fixed routes** - a [Transform Path](../../objects/worlds/world_transforms/transform_path/index.md) carries its children along a path.
+- **Particles** - a [particle system](../../objects/effects/particles/index.md) animates a great many short-lived things at once.
+
+
+## See Also
+
+
+- [Animation Graph Overview](../../content/animations/index.md) - building character animation
+- [Sequencer](../../editor2/tools/sequencer/index.md) - authoring timeline animation
+- [Animations-Related Classes](../../api/library/animations/index.md) - the API reference
+- [Animations File Formats](../../code/formats/animations_formats.md) - `*.anim`, `*.skeleton` and the rest on disk

@@ -44,7 +44,7 @@ To add a *Physical Water* to the scene via UnigineEditor:
 3. Click somewhere in the world to place the *Physical Water*. ![](added_physical_water.png)
 
 
-A new *Physical Water* node will be added to UnigineEditor, and you will be able to edit it via the *Parameters* window. By default, the size of the node is 1×1×1 unit.
+A new *Physical Water* node will be added to UnigineEditor, and you will be able to edit it via the *Parameters* window. By default, the size of the node is 1�1�1 unit.
 
 
 ## Editing Physical Water

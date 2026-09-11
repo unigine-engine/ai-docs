@@ -49,7 +49,7 @@ Implementation causing a spike:
 MaterialPtr mat = obj->getMaterial(surface);
 MaterialPtr mat_inherited = mat->inherit();
 obj->setMaterial(mat_inherited, surface);
-…
+�
 obj.deleteLater();
 mat_inherited.deleteLater();
 
@@ -61,7 +61,7 @@ Recommended implementation:
 
 ```cpp
 MaterialPtr mat_inherited = obj->getMaterialInherit(surface);
-…
+�
 obj.deleteLater();
 
 ```
@@ -236,90 +236,416 @@ int AppWorldLogic::init()
 | **DATA_TYPE_TEXTURE** = 3 | Material texture. |
 | **DATA_TYPE_GROUP** = 4 | Material group. |
 
+## TRANSPARENT_ORDER
+
+Point of the rendering sequence at which the surfaces of a transparent (alpha-blend) material are rendered.
+| Name | Description |
+|---|---|
+| **TRANSPARENT_ORDER_BEFORE_SSR** = 0 | Transparent surfaces are rendered before the SSR (Screen-Space Reflections) pass (*Before SSR*). |
+| **TRANSPARENT_ORDER_BEFORE_POST** = 1 | Transparent surfaces are rendered before the post-processing pass (*Before Post*). |
+| **TRANSPARENT_ORDER_AFTER_POST** = 2 | Transparent surfaces are rendered after the post-processing pass, over the final image (*After Post*). Can be used for UI elements. |
+
+## MATERIAL_ID
+
+Reserved material ID values. A material ID is a runtime index of the row storing the parameters of a material (material mask, feature bits, custom material parameters) in the global GPU buffer. IDs are assigned to materials by the engine on demand; the values below *MATERIAL_ID_RESERVED_NUM* are reserved.
+| Name | Description |
+|---|---|
+| **MATERIAL_ID_NONE** = 0 | No material. The buffer row with this ID is zeroed. |
+| **MATERIAL_ID_SKY** = 1 | Sky. This ID marks sky pixels in the material ID buffers. |
+| **MATERIAL_ID_RESERVED_NUM** = 2 | Number of reserved material ID values. Materials are assigned IDs starting from this value. |
+
 ### Members
 
+## bool isEmpty () const
+
+Returns the current value indicating if an empty shader is used as a vertex shader in the current material.
+### Return value
+
+**true** if an empty shader is used as a vertex shader in the current material; otherwise **false**.
+## bool isFileEngine () const
+
+Returns the current value indicating if the material is a core Engine or UnigineEditor material (i.e. required for Engine/Editor operation).
+Such materials are stored in the `core`, `editor` and `editor2` folders/packages.
+
+> **Notice:** It is not recommended to delete files of non-core materials (e.g., created by plugins or otherwise) at run-time, as this may affect materials caching and result in a crash.
+
+### Return value
+
+**true** if the material is a core Engine or UnigineEditor material; otherwise **false**.
+## bool isAutoSave () const
+
+Returns the current value indicating if the material can be saved automatically (automatic material saving is performed, for example, on world saving).
+The value is 0 in the following cases:
+
+
+- The *[canSave()](#canSave_int)* function returns 0 for the material.
+- The material is [non-editable](#isEditable_int).
+- The material [GUID](../../../api/library/filesystem/class.uguid_cpp.md) is not a valid one.
+
+
+### Return value
+
+**true** if the material can be saved automatically; otherwise **false**.
+## bool isManual () const
+
+Returns the current value indicating if the current material is [manual](../../../content/materials/index.md#manual_internal_materials).
+### Return value
+
+**true** if the current material is manual; otherwise **false**.
+## bool isInternal () const
+
+Returns the current value indicating if the current material is [internal](../../../content/materials/index.md#manual_internal_materials).
+### Return value
+
+**true** if the current material is internal; otherwise **false**.
+## bool isReflection2D () const
+
+Returns the current value indicating if the material has a 2D reflection texture.
+### Return value
+
+**true** if the material has a 2D reflection texture; otherwise **false**.
+## bool isBrush () const
+
+Returns the current value indicating if the material is used for brushes (`*.brush` or `*.basebrush` file extension).
+### Return value
+
+**true** if the material is used for brushes; otherwise **false**.
+## bool isBase () const
+
+Returns the current value indicating if the material is the [base](../../../content/materials/index.md#base_materials) one.
+### Return value
+
+**true** if the material is the base one; otherwise **false**.
+## bool isHidden () const
+
+Returns the current value indicating if the material is hidden.
+### Return value
+
+**true** if the material is hidden; otherwise **false**.
+## bool isEditable () const
+
+Returns the current value indicating if the material can be edited.
+### Return value
+
+**true** if the material can be edited; otherwise **false**.
+## void setViewportMask ( int mask )
+
+Sets a new bit mask for rendering into the viewport. The material is rendered if its mask matches the player's one.
+### Arguments
+
+- *int* **mask** - The bit mask for rendering into the viewport
+
+## int getViewportMask () const
+
+Returns the current bit mask for rendering into the viewport. The material is rendered if its mask matches the player's one.
+### Return value
+
+Current bit mask for rendering into the viewport
+## void setTwoSided ( bool sided )
+
+Sets a new value indicating if the material is two-sided.
+### Arguments
+
+- *bool* **sided** - Set **true** to enable the material is two-sided; **false** - to disable it.
+
+## bool isTwoSided () const
+
+Returns the current value indicating if the material is two-sided.
+### Return value
+
+**true** if the material is two-sided; otherwise **false**.
+## bool isAlphaTest () const
+
+Returns the current value indicating if the material has an alpha test option enabled.
+### Return value
+
+**true** if the material has an alpha test option enabled; otherwise **false**.
+## bool isForward () const
+
+Returns the current value indicating if the material is rendered in the forward pass.
+### Return value
+
+**true** if the material is rendered in the forward pass; otherwise **false**.
+## bool isDeferred () const
+
+Returns the current value indicating if the material is rendered in the deferred pass.
+### Return value
+
+**true** if the material is rendered in the deferred pass; otherwise **false**.
+## bool isWater () const
+
+Returns the current value indicating if the material is rendered in the water pass.
+### Return value
+
+**true** if the material is rendered in the water pass; otherwise **false**.
+## void setTransparent ( int transparent )
+
+Sets a new transparency type of the material. One of the [TRANSPARENT_*](#TRANSPARENT_NONE) values. If it is set to [TRANSPARENT_NONE](#TRANSPARENT_NONE) or *TRANSPARENT_DEFERRED*, the [source](#setBlendSrcFunc_int_void) and [destination](#setBlendDestFunc_int_void) blending functions are not used.
+### Arguments
+
+- *int* **transparent** - The transparency type of the material
+
+## int getTransparent () const
+
+Returns the current transparency type of the material. One of the [TRANSPARENT_*](#TRANSPARENT_NONE) values. If it is set to [TRANSPARENT_NONE](#TRANSPARENT_NONE) or *TRANSPARENT_DEFERRED*, the [source](#setBlendSrcFunc_int_void) and [destination](#setBlendDestFunc_int_void) blending functions are not used.
+### Return value
+
+Current transparency type of the material
+## void setTransparentOrder ( Material::TRANSPARENT_ORDER order )
+
+Sets a new rendering order of transparent surfaces relative to SSR and post-effects. One of the [TRANSPARENT_ORDER_*](#TRANSPARENT_ORDER_BEFORE_SSR) values.
+### Arguments
+
+- *[Material::TRANSPARENT_ORDER](../../../api/library/rendering/class.material_cpp.md#TRANSPARENT_ORDER)* **order** - The rendering order of transparent surfaces relative to SSR and post-effects
+
+## Material::TRANSPARENT_ORDER getTransparentOrder () const
+
+Returns the current rendering order of transparent surfaces relative to SSR and post-effects. One of the [TRANSPARENT_ORDER_*](#TRANSPARENT_ORDER_BEFORE_SSR) values.
+### Return value
+
+Current rendering order of transparent surfaces relative to SSR and post-effects
+## int getNumTextures () const
+
+Returns the current number of textures used by the material.
+### Return value
+
+Current number of textures used by the material
+## int getNumStates () const
+
+Returns the current number of the material's states.
+### Return value
+
+Current number of the material's states
+## int getNumParameters () const
+
+Returns the current number of the material's parameters.
+### Return value
+
+Current number of the material's parameters
+## String getFilePath () const
+
+Returns the current path to the current material file.
+### Return value
+
+Current path to the current material file
+## UGUID getFileGUID () const
+
+Returns the current GUID of the current material file.
+### Return value
+
+Current GUID of the current material file
+## UGUID getGUID () const
+
+Returns the current [GUID](../../../content/materials/inheritance.md#material_guid) of the material.
+### Return value
+
+Current GUID of the material
+## int getNumChildren () const
+
+Returns the current number of child materials.
+### Return value
+
+Current number of child materials
+## Ptr < Material > getBaseMaterial () const
+
+Returns the current base material of the current material.
+### Return value
+
+Current base material of the current material
+## void setOrder ( int order )
+
+Sets a new [rendering order](#setOrder_int_void) of materials, in the range from -128 to 127. The higher the rendering order, the lower the rendering priority (the material with the -128 order is rendered first).
+### Arguments
+
+- *int* **order** - The rendering order of materials
+
+## int getOrder () const
+
+Returns the current [rendering order](#setOrder_int_void) of materials, in the range from -128 to 127. The higher the rendering order, the lower the rendering priority (the material with the -128 order is rendered first).
+### Return value
+
+Current rendering order of materials
+## void setOrderClouds ( int clouds )
+
+Sets a new rendering order of transparent surfaces relative to clouds.
+Takes effect only when the render_clouds_transparent_order console variable is set to 2 (Sort Transparent). One of the [*ORDER_CLOUDS_**](#ORDER_CLOUDS_DEFAULT) values.
+
+
+> **Notice:** To render a transparent surface behind clouds, [Depth Test](#isDepthTest_int) should be disabled for the material, otherwise the surface will be rendered in front of clouds regardless of the OrderClouds value.
+
+### Arguments
+
+- *int* **clouds** - The rendering order of transparent surfaces relative to clouds
+
+## int getOrderClouds () const
+
+Returns the current rendering order of transparent surfaces relative to clouds.
+Takes effect only when the render_clouds_transparent_order console variable is set to 2 (Sort Transparent). One of the [*ORDER_CLOUDS_**](#ORDER_CLOUDS_DEFAULT) values.
+
+
+> **Notice:** To render a transparent surface behind clouds, [Depth Test](#isDepthTest_int) should be disabled for the material, otherwise the surface will be rendered in front of clouds regardless of the OrderClouds value.
+
+### Return value
+
+Current rendering order of transparent surfaces relative to clouds
+## void setDepthTest ( bool test )
+
+Sets a new value indicating if depth testing is enabled for the material. This option can be used to render certain objects, that are behind other ones.
+### Arguments
+
+- *bool* **test** - Set **true** to enable depth testing is enabled for the material; **false** - to disable it.
+
+## bool isDepthTest () const
+
+Returns the current value indicating if depth testing is enabled for the material. This option can be used to render certain objects, that are behind other ones.
+### Return value
+
+**true** if depth testing is enabled for the material; otherwise **false**.
+## void setShadowMask ( int mask )
+
+Sets a new shadow mask of the material.
+For the shadow to be rendered for a light source from an object's surface having this material assigned, this mask must match the following ones (one bit, at least):
+
+
+- [Shadow mask of the light source](../../../api/library/lights/class.light_cpp.md#setShadowMask_int_void)
+- [Shadow mask of the surface](../../../api/library/objects/class.object_cpp.md#setShadowMask_int_int_void) of the object having this material assigned
+
+
+### Arguments
+
+- *int* **mask** - The shadow mask of the material
+
+## int getShadowMask () const
+
+Returns the current shadow mask of the material.
+For the shadow to be rendered for a light source from an object's surface having this material assigned, this mask must match the following ones (one bit, at least):
+
+
+- [Shadow mask of the light source](../../../api/library/lights/class.light_cpp.md#setShadowMask_int_void)
+- [Shadow mask of the surface](../../../api/library/objects/class.object_cpp.md#setShadowMask_int_int_void) of the object having this material assigned
+
+
+### Return value
+
+Current shadow mask of the material
+## void setCastWorldShadow ( bool shadow )
+
+Sets a new value indicating if an object with the material applied casts shadows from the world light.
+### Arguments
+
+- *bool* **shadow** - Set **true** to enable an object with the material applied casts shadows from the world light; **false** - to disable it.
+
+## bool isCastWorldShadow () const
+
+Returns the current value indicating if an object with the material applied casts shadows from the world light.
+### Return value
+
+**true** if an object with the material applied casts shadows from the world light; otherwise **false**.
+## void setCastShadow ( bool shadow )
+
+Sets a new value indicating if an object with the material applied casts shadows.
+### Arguments
+
+- *bool* **shadow** - Set **true** to enable an object with the material applied casts shadows; **false** - to disable it.
+
+## bool isCastShadow () const
+
+Returns the current value indicating if an object with the material applied casts shadows.
+### Return value
+
+**true** if an object with the material applied casts shadows; otherwise **false**.
+## bool isPreviewHidden () const
+
+Returns the current value indicating if preview in UnigineEditor is disabled for the material. This is used for custom materials (e.g., landscape terrain brushes).
+### Return value
+
+**true** if preview in UnigineEditor is disabled for the material; otherwise **false**.
+## bool isLegacy () const
+
+Returns the current value indicating if the material is a legacy one. A legacy material is a non-ULON base material described in an XML file.
+### Return value
+
+**true** if the material is a legacy one; otherwise **false**.
+## void setBlendSrcFunc ( int func )
+
+Sets a new source [blending](../../../principles/render/blending/index.md) function. One of the [BLEND_*](../../../api/library/rendering/class.renderstate_cpp.md#BLEND_NONE) values.
+### Arguments
+
+- *int* **func** - The source blending function
+
+## int getBlendSrcFunc () const
+
+Returns the current source [blending](../../../principles/render/blending/index.md) function. One of the [BLEND_*](../../../api/library/rendering/class.renderstate_cpp.md#BLEND_NONE) values.
+### Return value
+
+Current source blending function
+## void setBlendDestFunc ( int func )
+
+Sets a new destination [blending](../../../principles/render/blending/index.md) function. One of the [BLEND_*](../../../api/library/rendering/class.renderstate_cpp.md#BLEND_NONE) values.
+### Arguments
+
+- *int* **func** - The destination blending function
+
+## int getBlendDestFunc () const
+
+Returns the current destination [blending](../../../principles/render/blending/index.md) function. One of the [BLEND_*](../../../api/library/rendering/class.renderstate_cpp.md#BLEND_NONE) values.
+### Return value
+
+Current destination blending function
+## void setBlendAlphaSrcFunc ( int func )
+
+Sets a new source alpha [blending](../../../principles/render/blending/index.md) function. One of the [BLEND_*](../../../api/library/rendering/class.renderstate_cpp.md#BLEND_NONE) values.
+### Arguments
+
+- *int* **func** - The source alpha blending function
+
+## int getBlendAlphaSrcFunc () const
+
+Returns the current source alpha [blending](../../../principles/render/blending/index.md) function. One of the [BLEND_*](../../../api/library/rendering/class.renderstate_cpp.md#BLEND_NONE) values.
+### Return value
+
+Current source alpha blending function
+## Ptr < Material > getParent () const
+
+Returns the current parent material, or NULL (0) if the current material has no parent.
+### Return value
+
+Current parent material
+## int getNumUIItems () const
+
+Returns the current number of UI items. UI items represent material parameters, options, states, textures, and groups in UnigineEditor.
+### Return value
+
+Current number of UI items
+## const char * getManualName () const
+
+Returns the current name of the manual material.
+### Return value
+
+Current name of the manual material
+## const char * getNamespaceName () const
+
+Returns the current namespace where this material is defined.
+### Return value
+
+Current namespace where this material is defined
+## unsigned int getFeatureBits () const
+
+Returns the current bit mask of screen-space effect features enabled for the material (screen-space shadows, shoreline wetness, motion blur, SSAO, SSR, SSSSS, DOF). The bits are computed from the corresponding material states and are available to shaders in the material parameters structure.
+### Return value
+
+Current bit mask of screen-space effect features enabled for the material
+## unsigned int getMaterialID () const
+
+Returns the current runtime ID of the material. The ID is assigned by the engine on demand when the material is first rendered, is unique among live materials, and indexes the row of this material in the global GPU buffer of material parameters. IDs of removed materials are recycled. IDs below **[MATERIAL_ID_RESERVED_NUM](../../...md#MATERIAL_ID_RESERVED_NUM)** are reserved.
+### Return value
+
+Current runtime ID of the material
 ---
 
 ## static MaterialPtr create ( )
 
 Constructor. Creates a new material instance.
-## bool isAlphaTest ( ) const
-
-Returns a value indicating if the material has an alpha test option enabled.
-### Return value
-
-true if the material has alpha test option enabled; otherwise, false.
-## bool isBrush ( ) const
-
-Returns a value indicating if the material is used for brushes (`*.brush` or `*.basebrush` file extension).
-### Return value
-
-true if the material is used for brushes; otherwise, false.
-## void setBlendDestFunc ( int func )
-
-Sets the destination [blending](../../../principles/render/blending/index.md) function.
-### Arguments
-
-- *int* **func** - Destination blending function to be set (one of the [*BLEND_**](../../../api/library/rendering/class.renderstate_cpp.md#BLEND_NONE) variables).
-
-## int getBlendDestFunc ( ) const
-
-Returns the destination [blending](../../../principles/render/blending/index.md) function.
-### Return value
-
-Destination blending function (one of the [*BLEND_**](../../../api/library/rendering/class.renderstate_cpp.md#BLEND_NONE) variables).
-## void setBlendSrcFunc ( int func )
-
-Sets the source [blending](../../../principles/render/blending/index.md) function.
-### Arguments
-
-- *int* **func** - Source blending function to be set (one of the [*BLEND_**](../../../api/library/rendering/class.renderstate_cpp.md#BLEND_NONE)values described in the *RenderState* class).
-
-## int getBlendSrcFunc ( ) const
-
-Returns the source [blending](../../../principles/render/blending/index.md) function.
-### Return value
-
-Source blending function (one of the [*BLEND_**](../../../api/library/rendering/class.renderstate_cpp.md#BLEND_NONE)values described in the *RenderState* class).
-## void setBlendAlphaSrcFunc ( int func )
-
-Sets the source alpha [blending](../../../principles/render/blending/index.md) function.
-### Arguments
-
-- *int* **func** - Source alpha blending function to be set (one of the [*BLEND_**](../../../api/library/rendering/class.renderstate_cpp.md#BLEND_NONE) variables).
-
-## int getBlendAlphaSrcFunc ( ) const
-
-Returns the source alpha [blending](../../../principles/render/blending/index.md) function.
-### Return value
-
-Source alpha blending function (one of the [*BLEND_**](../../../api/library/rendering/class.renderstate_cpp.md#BLEND_NONE) variables).
-## void setCastShadow ( bool shadow )
-
-Enables or disables the cast shadow option for an object with the material applied.
-### Arguments
-
-- *bool* **shadow** - true to enable casting of shadows, false to disable it.
-
-## bool isCastShadow ( ) const
-
-Returns a value indicating if an object with the material applied casts shadows.
-### Return value
-
-true if casting of shadows is enabled; otherwise, false.
-## void setCastWorldShadow ( bool shadow )
-
-Enables or disables casting of shadows from the world light for an object with the material applied.
-### Arguments
-
-- *bool* **shadow** - true to enable casting of shadows from the world light, false to disable it.
-
-## bool isCastWorldShadow ( ) const
-
-Returns a value indicating if an object with the material applied casts shadows from the world light.
-### Return value
-
-true if casting of shadows from the world light is enabled; otherwise, false.
 ## Ptr < Material > getChild ( int num ) const
 
 Returns a child material with a given number.
@@ -330,136 +656,9 @@ Returns a child material with a given number.
 ### Return value
 
 The child material smart pointer.
-## bool isDeferred ( ) const
-
-Returns a value indicating if the material is rendered in the deferred pass.
-### Return value
-
-true if the material is rendered in the deferred pass (non-transparent); otherwise, false.
-## void setDepthTest ( bool test )
-
-Enables or disables the depth testing option for the material. This option can be used to render certain objects, that are behind other ones.
-### Arguments
-
-- *bool* **test** - true to enable depth testing for the material, false to disable it.
-
-## bool isDepthTest ( ) const
-
-Returns a value indicating if depth testing is enabled for the material. This option can be used to render certain objects, that are behind other ones.
-### Return value
-
-true if depth testing is enabled for the material; otherwise, false.
-## bool isEditable ( ) const
-
-Returns a value indicating if the material can be edited.
-### Return value
-
-true if the material is editable; otherwise, false.
-## bool isForward ( ) const
-
-Returns a value indicating if the material is rendered in the forward pass.
-### Return value
-
-true if the material is rendered in the forward pass (transparent with blending func); otherwise, false.
-## bool isHidden ( ) const
-
-Returns a value indicating if the material is hidden.
-### Return value
-
-true if the material is hidden; otherwise, false.
-## void setShadowMask ( int mask )
-
-Sets a shadow mask for the material.
-For the shadow to be rendered for a light source from an object's surface having this material assigned, this mask must match the following ones (one bit, at least):
-
-- [Shadow mask of the light source](../../../api/library/lights/class.light_cpp.md#setShadowMask_int_void)
-- [Shadow mask of the surface](../../../api/library/objects/class.object_cpp.md#setShadowMask_int_int_void) of the object having this material assigned
-
- The surface with the assigned material lit by a light source casts shadow if the shadow mask of the light source matches the corresponding masks of the surface and its material.
-### Arguments
-
-- *int* **mask** - Integer value, each bit of which is a mask.
-
-## int getShadowMask ( ) const
-
-Returns a shadow mask of the material.
-For the shadow to be rendered for a light source from an object's surface having this material assigned, this mask must match the following ones (one bit, at least):
-
-- [Shadow mask of the light source](../../../api/library/lights/class.light_cpp.md#setShadowMask_int_void)
-- [Shadow mask of the surface](../../../api/library/objects/class.object_cpp.md#setShadowMask_int_int_void) of the object having this material assigned
-
-
-### Return value
-
-Integer value, each bit of which is a mask.
-## int getNumChildren ( ) const
-
-Returns the number of child materials.
-### Return value
-
-Number of child materials.
-## int getNumParameters ( ) const
-
-Returns the number of material's parameters.
-### Return value
-
-Number of material's parameters.
-## int getNumStates ( ) const
-
-Returns the number of material's states.
-### Return value
-
-Number of material's states.
-## int getNumTextures ( ) const
-
-Returns the number of textures used by the material.
-### Return value
-
-Number of used textures.
-## void setOrder ( int order )
-
-Sets the rendering order of material. The higher the rendering order, the lower the rendering priority (the material with the -128 order will be rendered first).
-### Arguments
-
-- *int* **order** - Rendering order, in the range from -128 to 127.
-
-## int getOrder ( ) const
-
-Returns the [rendering order](#setOrder_int_void) of materials.
-### Return value
-
-Rendering order, in the range from -128 to 127.
-## void setOrderClouds ( int clouds )
-
-Sets the rendering order of transparent surfaces relative to clouds. Takes effect only when the render_clouds_transparent_order console variable is set to 2 (Sort Transparent).
-> **Notice:** To render a transparent surface behind clouds, [Depth Test](#isDepthTest_int) should be disabled for the material, otherwise the surface will be rendered in front of clouds regardless of the OrderClouds value.
-
-### Arguments
-
-- *int* **clouds** - Rendering order of transparent surfaces relative to clouds. One of the [*ORDER_CLOUDS_**](#ORDER_CLOUDS_DEFAULT) values.
-
-## int getOrderClouds ( ) const
-
-Returns the rendering order of transparent surfaces relative to clouds.
-### Return value
-
-Rendering order of transparent surfaces relative to clouds. One of the [*ORDER_CLOUDS_**](#ORDER_CLOUDS_DEFAULT) values.
-## void setOverlap ( bool overlap )
-
-Enables or disables the overlap option for the material. This option enables rendering the material over the final image and can be used for UI elements.
-### Arguments
-
-- *bool* **overlap** - true to enable the overlap option for the material, false to disable it.
-
-## bool isOverlap ( ) const
-
-Returns a value indicating if the overlap option is enabled for the material. This option enables rendering the material over the final image and can be used for UI elements.
-### Return value
-
-true if the overlap option is enabled for the material; otherwise, false.
 ## bool isParameterExpressionEnabled ( int num ) const
 
-Returns a value indicating if the value of the specified material parameter is represented by an expression in UnigineScript. Values of certain parameters can be calculated by an arbitrary expression, written in [UnigineScript](../../../code/uniginescript/index.md). .
+Returns a value indicating if the value of the specified material parameter is represented by an expression in UnigineScript. Values of certain parameters can be calculated by an arbitrary expression, written in [UnigineScript](../../../code/uniginescript/index.md).
 ### Arguments
 
 - *int* **num** - Parameter number in the range from 0 to the [total number of parameters](#getNumParameters_int).
@@ -469,7 +668,7 @@ Returns a value indicating if the value of the specified material parameter is r
 true if the value of the specified material parameter is represented by an expression in UnigineScript; otherwise, false.
 ## void setParameterExpressionEnabled ( int num , bool enabled )
 
-Sets a value indicating if the value of the specified material parameter is represented by an expression in UnigineScript. Values of certain parameters can be calculated by an arbitrary expression, written in [UnigineScript](../../../code/uniginescript/index.md). .
+Sets a value indicating if the value of the specified material parameter is represented by an expression in UnigineScript. Values of certain parameters can be calculated by an arbitrary expression, written in [UnigineScript](../../../code/uniginescript/index.md).
 ### Arguments
 
 - *int* **num** - Parameter number in the range from 0 to the [total number of parameters](#getNumParameters_int).
@@ -598,6 +797,8 @@ Number of elements of the specified array parameter.
 ## bool isParameterArray ( int num ) const
 
 Returns a value indicating if the parameter with the specified number is an array-type parameter, i.e., one of the following:
+
+
 - [PARAMETER_ARRAY_FLOAT](#PARAMETER_ARRAY_FLOAT)
 - [PARAMETER_ARRAY_FLOAT2](#PARAMETER_ARRAY_FLOAT2)
 - [PARAMETER_ARRAY_FLOAT4](#PARAMETER_ARRAY_FLOAT4)
@@ -958,12 +1159,6 @@ Returns the type of a given parameter.
 ### Return value
 
 One of the [*PARAMETER_**](#PARAMETER_FLOAT) pre-defined variables or **-1**, if an error has occurred.
-## Ptr < Material > getParent ( ) const
-
-Returns the parent material.
-### Return value
-
-Parent material or **NULL** (**0**), if the current material has no parent.
 ## bool isParent ( const UGUID & guid ) const
 
 Returns a value indicating if the material with the given GUID is a parent of the current material.
@@ -1151,51 +1346,6 @@ Returns the texture used in the material by its name. You should be aware that s
 ### Return value
 
 Texture used with the given name if it exists; otherwise *nullptr*.
-## void setTransparent ( int transparent )
-
-Sets a value indicating the transparency type of the material. If the transparent option is set to *TRANSPARENT_NONE* or *TRANSPARENT_DEFERRED*, the *[setBlendSrcFunc()](../../../api/library/rendering/class.material_cpp.md#setBlendSrcFunc_int_void)* and *[setBlendDestFunc()](../../../api/library/rendering/class.material_cpp.md#setBlendDestFunc_int_void)* blending functions won't be used.
-### Arguments
-
-- *int* **transparent** - The transparency option (one of the *[TRANSPARENT_*](#TRANSPARENT_ALPHA_TEST)* variables).
-
-## int getTransparent ( ) const
-
-Returns a value indicating the transparency type of the material.
-### Return value
-
-One of the [*TRANSPARENT_**](#TRANSPARENT_ALPHA_TEST) variables.
-## void setTwoSided ( bool sided )
-
-Enables or disables the two sided option for the material.
-### Arguments
-
-- *bool* **sided** - true to make the material two-sided, false to make it one-sided.
-
-## bool isTwoSided ( ) const
-
-Returns a value indicating if the material is two-sided.
-### Return value
-
-true if the material is two-sided; otherwise, false.
-## void setViewportMask ( int mask )
-
-Sets a bit mask for rendering into the viewport. The material is rendered, if its mask matches the player's one.
-### Arguments
-
-- *int* **mask** - Integer, each bit of which is a mask.
-
-## int getViewportMask ( ) const
-
-Returns the current bit mask for rendering into the viewport. The material is rendered, if its mask matches the player's one.
-### Return value
-
-Integer, each bit of which is a mask.
-## bool isWater ( ) const
-
-Returns a value indicating if the material is rendered in the water pass.
-### Return value
-
-true if the material is rendered in the water pass; otherwise, false.
 ## int findParameter ( const char * name ) const
 
 Searches for a parameter by a given [name](#copy_name) among all parameters of the current material.
@@ -1229,6 +1379,8 @@ Texture number, if it is found; otherwise, **-1**.
 ## bool saveState ( const Ptr < Stream > & stream , bool forced = 0 ) const
 
 Saves the settings of a given material (all of its options, states and parameters) into a binary stream.
+
+
 Saving into the stream requires creating a blob to save into. To restore the saved state the [restoreState()](#restoreState_Stream_int_int) method is used:
 
 
@@ -1262,6 +1414,8 @@ true if the material settings are saved successfully; otherwise, true.
 ## bool restoreState ( const Ptr < Stream > & stream , bool forced = 0 )
 
 Restores the state of a given material (all of its options, states and parameters) from a binary stream.
+
+
 Restoring from the stream requires creating a blob to save into and saving the state using the [saveState()](#saveState_Stream_int_int) method:
 
 
@@ -1361,6 +1515,8 @@ true if the node type is supported; otherwise, false.
 ## bool setParent ( const Ptr < Material > & material , bool save_all_values = 1 )
 
 Sets the given material as the parent for this material and saves the material's properties values (if the corresponding flag is set).
+
+
 > **Notice:** The method isn't available for the [manual](#isManual_int) and [base](#isBase_int) materials.
 
 
@@ -1382,12 +1538,6 @@ Checks if [conditions](../../../code/formats/materials_formats/ulon_materials/co
 ### Return value
 
 true if conditions are met; otherwise, false.
-## bool isInternal ( ) const
-
-Returns a value indicating if the current material is [internal](../../../content/materials/index.md#manual_internal_materials).
-### Return value
-
-true if the material is internal; otherwise, false.
 ## int loadXml ( const Ptr < Xml > & xml )
 
 Loads material settings from the specified Xml source.
@@ -1430,35 +1580,6 @@ Checks if [conditions](../../../code/formats/materials_formats/ulon_materials/st
 ### Return value
 
 true if conditions are met; otherwise, false.
-## bool isManual ( ) const
-
-Returns a value indicating if the current material is [manual](../../../content/materials/index.md#manual_internal_materials).
-### Return value
-
-true if the material is manual; otherwise, false.
-## bool isAutoSave ( ) const
-
-Returns a value indicating if the material can be saved automatically (automatic material saving is performed, for example, on world's saving). The function will return 0 in the following cases:
-- The *[canSave()](#canSave_int)* function returns 0 for the material.
-- The material is [non-editable](#isEditable_int).
-- The material [GUID](../../../api/library/filesystem/class.uguid_cpp.md) is not a valid one.
-
-
-### Return value
-
-true if the material can be saved automatically; otherwise, false.
-## bool isLegacy ( ) const
-
-Returns a value indicating if the material is a legacy one. A legacy material is a non-ULON [base material](../../../content/materials/index.md#base_materials) described in an XML file.
-### Return value
-
-true if the material is a legacy one; otherwise, false.
-## bool isPreviewHidden ( ) const
-
-Returns a value indicating if preview in the UnigineEditor is disabled for the material. This method is used for custom materials (e.g., landscape terrain brushes).
-### Return value
-
-true if preview in the UnigineEditor is disabled for the material; otherwise, false.
 ## bool checkParameterConditions ( int num ) const
 
 Checks if [conditions](../../../code/formats/materials_formats/ulon_materials/parameters.md) set for the given parameter are met.
@@ -1472,6 +1593,8 @@ true if conditions are met; othersiwe, false.
 ## bool save ( )
 
 Save the material to the [current path](#getFilePath_String) used for this material.
+
+
 > **Notice:** The method isn't available for the [manual](#isManual_int) and [base](#isBase_int) materials.
 
 
@@ -1491,6 +1614,8 @@ true if the material is loaded successfully; otherwise, false.
 ## bool saveXml ( const Ptr < Xml > & xml ) const
 
 Saves the material into the given Xml.
+
+
 > **Notice:** The method isn't available for the [manual](#isManual_int) and [base](#isBase_int) materials.
 
 
@@ -1501,12 +1626,6 @@ Saves the material into the given Xml.
 ### Return value
 
 true if the material is saved successfully; otherwise, **false**.
-## bool isBase ( ) const
-
-Returns a value indicating if the material is the [base](../../../content/materials/index.md#base_materials) one.
-### Return value
-
-true if the material is the base one; otherwise, false.
 ## bool isNodeSupported ( const Ptr < Node > & node ) const
 
 Returns a value indicating if the material can be applied to the given node.
@@ -1517,15 +1636,11 @@ Returns a value indicating if the material can be applied to the given node.
 ### Return value
 
 true if the given node is supported; otherwise, false.
-## Ptr < Material > getBaseMaterial ( ) const
-
-Returns the base material of the current material.
-### Return value
-
-A base material.
 ## void setTexture ( int num , const Ptr < Texture > & texture )
 
 Sets the given texture to the texture with the specified number.
+
+
 > **Notice:** This method only sets a pointer to the texture, so mind the scope of the source texture pointer.
 
 
@@ -1537,6 +1652,8 @@ Sets the given texture to the texture with the specified number.
 ## void setTexture ( const char * name , const Ptr < Texture > & texture )
 
 Sets the given texture to the texture slot with the specified [name](#copy_name).
+
+
 > **Notice:** This method only sets a pointer to the texture, so mind the scope of the source texture pointer.
 
 
@@ -1555,12 +1672,6 @@ Returns a texture set for the current material. You should be aware that states,
 ### Return value
 
 Texture used with the given number if it exists; otherwise *nullptr*.
-## String getFilePath ( ) const
-
-Returns a path to the current material file.
-### Return value
-
-Path to the material.
 ## UGUID getFileGUID ( ) const
 
 Returns a GUID of the current material file.
@@ -1605,6 +1716,8 @@ Reads a given texture into a given image.
 ## Ptr < TextureRamp > getTextureRamp ( int num )
 
 Returns a [ramp texture](../../../api/library/rendering/class.textureramp_cpp.md) instance for the data stored in the specified ramp texture (gradient).
+
+
 > **Notice:** Modifications made to the ramp shall propagate to the parent and sibling materials. To modify an overridden ramp for this material only use the [*getTextureRampOverride()*](#getTextureRampOverride_int_TextureRamp) method.
 
 
@@ -1618,6 +1731,8 @@ Returns a [ramp texture](../../../api/library/rendering/class.textureramp_cpp.md
 ## Ptr < TextureRamp > getTextureRampOverride ( int num )
 
 Returns a new [ramp texture](../../../api/library/rendering/class.textureramp_cpp.md) instance for the data stored in the specified ramp texture (gradient) overriding the default one. This method enables you to set individual RGBA curves, adjusting color values of the resulting ramp texture (gradient).
+
+
 > **Notice:** Modifications made to the ramp shall not propagate to the parent and sibling materials.
 
 
@@ -1628,20 +1743,6 @@ Returns a new [ramp texture](../../../api/library/rendering/class.textureramp_cp
 ### Return value
 
 New [TextureRamp](../../../api/library/rendering/class.textureramp_cpp.md) class instance overriding the data stored in the specified ramp texture (gradient).
-## UGUID getGUID ( ) const
-
-Returns the [GUID](../../../content/materials/inheritance.md#material_guid) of the material.
-### Return value
-
-GUID of the material.
-## bool isFileEngine ( ) const
-
-Returns a value indicating if the material is a core Engine or UnigineEditor material (i.e. required for Engine/Editor operation). Such materials are stored in the `core`, `editor` and `editor2` folders/packages.
-> **Notice:** It is not recommended to delete files of non-core materials (e.g., created by plugins or otherwise) at run-time, as this may affect materials caching and result in a crash.
-
-### Return value
-
-true if the material is a core Engine or UnigineEditor material; otherwise, false.
 ## void createShaders ( bool recursive = 0 )
 
 Creates all shaders for the current material and its children (if specified).
@@ -1652,12 +1753,6 @@ Creates all shaders for the current material and its children (if specified).
 ## void destroyTextures ( )
 
 Deletes all textures used by the current material and its children.
-## bool isEmpty ( ) const
-
-Returns a value indicating if an empty shader is used as a vertex shader in the current material.
-### Return value
-
-true if an empty vertex shader is used; otherwise, false.
 ## Render::PASS getRenderPass ( const char * pass_name ) const
 
 Returns the type of the rendering pass by its name (including custom passes).
@@ -1681,6 +1776,8 @@ Rendering pass name if it exists; otherwise nullptr.
 ## bool runExpression ( const char * name , int w , int h , int d = 1 )
 
 Runs the material's expression with the specified name. An expression is a reference to a file containing code in UnigineScript, that can generate various elements used in the material (e.g., textures, texture arrays, unstructured buffers, etc.) or contain other logic. Expressions can be defined in the [`*.basemat` file](../../../code/formats/materials_formats/ulon_base_material_format.md) as follows:
+
+
 ```cpp
 Expression name = "expression.usc";
 
@@ -1717,6 +1814,7 @@ in_material->setTexture("albedo", texture);
 
 
 To execute this expression the following code can be used:
+
 
 ```cpp
 // ...
@@ -1783,12 +1881,6 @@ Renders the material using a compute shader. The material must have a compute sh
 - *int* **group_threads_y** - Local Y work-group size of the compute shader.
 - *int* **group_threads_z** - Local Z work-group size of the compute shader.
 
-## int getNumUIItems ( ) const
-
-Returns the number of UI items. UI items represent material parameters, options, states, textures, and groups in UnigineEditor.
-### Return value
-
-Total number of UI items availeble in UnigineEditor for the material.
 ## Material::DATA_TYPE getUIItemDataType ( int item ) const
 
 Returns the type of data of the specified UI item. UI items represent material parameters, options, states, textures, and groups in UnigineEditor.
@@ -1862,6 +1954,8 @@ Global index of the parent UI element in the range from 0 to the [total number o
 ## int getUIItemNumChildren ( int item ) const
 
 Returns the number of child items for the group UI item with the specified number.
+
+
 > **Notice:** This method is to be used for UI item groups only ([DATA_TYPE_GROUP](#DATA_TYPE_GROUP)), other items cannot have children!
 
 
@@ -1875,6 +1969,8 @@ Number of child items for the specified group UI item.
 ## int getUIItemChild ( int item , int num ) const
 
 Returns the index of a child UI item that belongs to the specified group by the item number within the group.
+
+
 > **Notice:** This method is to be used for UI item groups only ([DATA_TYPE_GROUP](#DATA_TYPE_GROUP)), other items cannot have children!
 
 
@@ -1929,6 +2025,8 @@ Maximum value of the slider.
 ## int getUIItemGroupToggleStateID ( int item ) const
 
 Returns the global index of the state toggle UI element turning the specified group on and off.
+
+
 > **Notice:** This method is to be used for UI item groups only ([DATA_TYPE_GROUP](#DATA_TYPE_GROUP))!
 
 
@@ -1942,6 +2040,8 @@ Global index of the state toggle UI element in the range from 0 to the [total nu
 ## bool isUIItemGroupCollapsed ( int item ) const
 
 Returns a value indicating if the specified group of UI items is currently collapsed in the UI of the Unigine Editor.
+
+
 > **Notice:** This method is to be used for UI item groups only ([DATA_TYPE_GROUP](#DATA_TYPE_GROUP))!
 
 
@@ -2031,18 +2131,6 @@ Inherits a new material from the current one and assigns the specified GUID to i
 ### Return value
 
 Inhereted material.
-## const char * getNamespaceName ( ) const
-
-Returns the namespace where this material is defined.
-### Return value
-
-Material namespace.
-## const char * getManualName ( ) const
-
-Returns the name of the manual material.
-### Return value
-
-Manual material name.
 ## const char * widgetToString ( Material::WIDGET widget )
 
 Returns the name of the widget by its type.
@@ -2101,15 +2189,11 @@ Creates a file and saves the [internal](../../../content/materials/index.md#manu
 ### Return value
 
 The value indicating if the material was successful saved.
-## bool isReflection2D ( ) const
-
-Returns a value indicating if the material has a 2d reflection texture.
-### Return value
-
-true if the material has a 2d reflection texture; otherwise, false.
 ## Ptr < Shader > getShaderAsync ( Render::PASS pass , int node )
 
 Returns the [rendering shader](../../../api/library/rendering/class.shader_cpp.md) for the specified rendering pass and [node type](../../../api/library/nodes/class.node_cpp.md#TYPE):
+
+
 - If the shader has been compiled previously, the function will return it immediately.
 - If the shader hasn't been compiled yet, the function will initiate its asynchronous compilation in another thread and return the successfully compiled shader. > **Notice:** The function will keep returning nullptr until the shader is compiled.
 
@@ -2128,6 +2212,8 @@ Shader for the specified rendering pass and node type, if compiled successfully.
 ## Ptr < Shader > getShaderAsync ( Render::PASS pass )
 
 Returns the [rendering shader](../../../api/library/rendering/class.shader_cpp.md) for the specified rendering pass:
+
+
 - If the shader has been compiled previously, the function will return it immediately.
 - If the shader hasn't been compiled yet, the function will initiate its asynchronous compilation in another thread and return the successfully compiled shader. > **Notice:** The function will keep returning nullptr until the shader is compiled.
 
@@ -2145,6 +2231,8 @@ Shader for the specified rendering pass, if compiled successfully. Otherwise, nu
 ## Ptr < Shader > getShaderAsync ( const char * pass , int node )
 
 Returns the [rendering shader](../../../api/library/rendering/class.shader_cpp.md) for the specified rendering pass and [node type](../../../api/library/nodes/class.node_cpp.md#TYPE):
+
+
 - If the shader has been compiled previously, the function will return it immediately.
 - If the shader hasn't been compiled yet, the function will initiate its asynchronous compilation in another thread and return the successfully compiled shader. > **Notice:** The function will keep returning nullptr until the shader is compiled.
 
@@ -2182,6 +2270,8 @@ Shader for the specified rendering pass and node type, if compiled successfully.
 ## Ptr < Shader > getShaderAsync ( const char * pass )
 
 Returns the [rendering shader](../../../api/library/rendering/class.shader_cpp.md) for the specified rendering pass:
+
+
 - If the shader has been compiled previously, the function will return it immediately.
 - If the shader hasn't been compiled yet, the function will initiate its asynchronous compilation in another thread and return the successfully compiled shader. > **Notice:** The function will keep returning nullptr until the shader is compiled.
 
@@ -2218,6 +2308,8 @@ Shader for the specified rendering pass, if compiled successfully. Otherwise, nu
 ## Ptr < Shader > getShaderForce ( Render::PASS pass , int node )
 
 Returns the [rendering shader](../../../api/library/rendering/class.shader_cpp.md) for the specified rendering pass and [node type](../../../api/library/nodes/class.node_cpp.md#TYPE):
+
+
 - If the shader has been compiled previously, the function will return it immediately.
 - If the shader hasn't been compiled yet, the function will immediately compile and return it.
 
@@ -2236,6 +2328,8 @@ Shader for the specified rendering pass and node type, if compiled successfully.
 ## Ptr < Shader > getShaderForce ( Render::PASS pass )
 
 Returns the [rendering shader](../../../api/library/rendering/class.shader_cpp.md) for the specified rendering pass:
+
+
 - If the shader has been compiled previously, the function will return it immediately.
 - If the shader hasn't been compiled yet, the function will immediately compile and return it.
 
@@ -2253,6 +2347,8 @@ Shader for the specified rendering pass, if compiled successfully. Otherwise, nu
 ## Ptr < Shader > getShaderForce ( const char * pass , int node )
 
 Returns the [rendering shader](../../../api/library/rendering/class.shader_cpp.md) for the specified rendering pass and [node type](../../../api/library/nodes/class.node_cpp.md#TYPE):
+
+
 - If the shader has been compiled previously, the function will return it immediately.
 - If the shader hasn't been compiled yet, the function will immediately compile and return it.
 
@@ -2290,6 +2386,8 @@ Shader for the specified rendering pass and node type, if compiled successfully.
 ## Ptr < Shader > getShaderForce ( const char * pass )
 
 Returns the [rendering shader](../../../api/library/rendering/class.shader_cpp.md) for the specified rendering pass:
+
+
 - If the shader has been compiled previously, the function will return it immediately.
 - If the shader hasn't been compiled yet, the function will immediately compile and return it.
 
@@ -2388,12 +2486,13 @@ Compiles shader combination for the given rendering pass and node type. Shaders 
 ## void createRenderMaterials ( )
 
 Creates render materials (internal materials required for rendering). For example, you can create all necessary render materials during initialization to avoid spikes that may occur later.
-## void createShaderCache ( bool recursive = false )
+## void createShaderCache ( bool recursive = false , bool force = false )
 
-Compiles all shaders for the current material and its children (if any).
+Compiles and caches all shader permutations needed by this material for every render pass and node type. With asynchronous compilation the material may render with a fallback until the shaders are ready.
 ### Arguments
 
-- *bool* **recursive** - true to compile shaders for child materials; otherwise, false.
+- *bool* **recursive** - Flag defining whether the shader cache is also created for all inherited (child) materials, recursively.
+- *bool* **force** - Flag defining whether missing shaders are compiled immediately (blocking); otherwise the compilation is queued to run asynchronously in the background.
 
 ## void createShadersFromCache ( bool recursive = false )
 
@@ -2401,3 +2500,148 @@ Compiles all shaders available in shader cache for the current material and its 
 ### Arguments
 
 - *bool* **recursive** - true to compile shaders for child materials; otherwise, false.
+
+## Ptr < Texture > getTexture ( int num , float density )
+
+Returns the texture of the given material slot, initiating streaming of its mip levels according to the specified density instead of the material's current frame density.
+### Arguments
+
+- *int* **num** - Texture slot number.
+- *float* **density** - Requested mipmap density relative to the screen resolution, used to choose the mip level to stream: values up to 1.0 request the full resolution, higher values request coarser mips.
+
+### Return value
+
+Texture of the slot (possibly still streaming at a coarser mip level).
+## float getCustomParameterFloat ( const char * name ) const
+
+Returns the current value of the custom material parameter with the given name: the overridden value, or the value inherited from the material hierarchy, bottoming out at the default value defined in the *[material parameters layout](../../../api/library/rendering/class.materials_cpp.md#getMaterialParameters_CustomParameterLayout)*.
+### Arguments
+
+- *const char ** **name** - Parameter name.
+
+### Return value
+
+Current parameter value, or 0 if no parameter with this name exists.
+## float getCustomParameterFloat ( int num ) const
+
+Returns the current value of the custom material parameter with the given number: the overridden value, or the value inherited from the material hierarchy, bottoming out at the default value defined in the *[material parameters layout](../../../api/library/rendering/class.materials_cpp.md#getMaterialParameters_CustomParameterLayout)*.
+### Arguments
+
+- *int* **num** - Parameter number.
+
+### Return value
+
+Current parameter value.
+## int getCustomParameterInt ( const char * name ) const
+
+Returns the current value of the custom material parameter with the given name: the overridden value, or the value inherited from the material hierarchy, bottoming out at the default value defined in the *[material parameters layout](../../../api/library/rendering/class.materials_cpp.md#getMaterialParameters_CustomParameterLayout)*.
+### Arguments
+
+- *const char ** **name** - Parameter name.
+
+### Return value
+
+Current parameter value, or 0 if no parameter with this name exists.
+## int getCustomParameterInt ( int num ) const
+
+Returns the current value of the custom material parameter with the given number: the overridden value, or the value inherited from the material hierarchy, bottoming out at the default value defined in the *[material parameters layout](../../../api/library/rendering/class.materials_cpp.md#getMaterialParameters_CustomParameterLayout)*.
+### Arguments
+
+- *int* **num** - Parameter number.
+
+### Return value
+
+Current parameter value.
+## unsigned int getCustomParameterUInt ( const char * name ) const
+
+Returns the current value of the custom material parameter with the given name: the overridden value, or the value inherited from the material hierarchy, bottoming out at the default value defined in the *[material parameters layout](../../../api/library/rendering/class.materials_cpp.md#getMaterialParameters_CustomParameterLayout)*.
+### Arguments
+
+- *const char ** **name** - Parameter name.
+
+### Return value
+
+Current parameter value, or 0 if no parameter with this name exists.
+## unsigned int getCustomParameterUInt ( int num ) const
+
+Returns the current value of the custom material parameter with the given number: the overridden value, or the value inherited from the material hierarchy, bottoming out at the default value defined in the *[material parameters layout](../../../api/library/rendering/class.materials_cpp.md#getMaterialParameters_CustomParameterLayout)*.
+### Arguments
+
+- *int* **num** - Parameter number.
+
+### Return value
+
+Current parameter value.
+## bool isCustomParameterOverridden ( int num ) const
+
+Checks if the value of the custom material parameter with the given number is overridden by this material rather than inherited. For a material without a parent, this method always returns false.
+### Arguments
+
+- *int* **num** - Parameter number.
+
+### Return value
+
+true if the parameter value is overridden by this material; otherwise, false.
+## bool isCustomParametersSupported ( ) const
+
+Checks if custom material parameters are supported for this material. Custom parameters are available only for materials that can be assigned to nodes (e.g. post-process and scriptable materials do not support them).
+### Return value
+
+true if custom material parameters are supported for the material; otherwise, false.
+## void resetCustomParameter ( int num )
+
+Resets the override of the custom material parameter with the given number: the value is inherited from the parent material again. This method has no effect on base materials.
+### Arguments
+
+- *int* **num** - Parameter number.
+
+## void resetCustomParameters ( )
+
+Resets the overrides of all custom material parameters of the material.
+## void setCustomParameterFloat ( const char * name , float value )
+
+Sets a new value of the custom material parameter with the given name. The material overrides the value inherited from its parent; child materials that do not override the parameter receive the new value. If no parameter with this name exists in the layout, the method does nothing.
+### Arguments
+
+- *const char ** **name** - Parameter name.
+- *float* **value** - New parameter value.
+
+## void setCustomParameterFloat ( int num , float value )
+
+Sets a new value of the custom material parameter with the given number. The material overrides the value inherited from its parent; child materials that do not override the parameter receive the new value.
+### Arguments
+
+- *int* **num** - Parameter number.
+- *float* **value** - New parameter value.
+
+## void setCustomParameterInt ( const char * name , int value )
+
+Sets a new value of the custom material parameter with the given name. The material overrides the value inherited from its parent; child materials that do not override the parameter receive the new value. If no parameter with this name exists in the layout, the method does nothing.
+### Arguments
+
+- *const char ** **name** - Parameter name.
+- *int* **value** - New parameter value.
+
+## void setCustomParameterInt ( int num , int value )
+
+Sets a new value of the custom material parameter with the given number. The material overrides the value inherited from its parent; child materials that do not override the parameter receive the new value.
+### Arguments
+
+- *int* **num** - Parameter number.
+- *int* **value** - New parameter value.
+
+## void setCustomParameterUInt ( const char * name , unsigned int value )
+
+Sets a new value of the custom material parameter with the given name. The material overrides the value inherited from its parent; child materials that do not override the parameter receive the new value. If no parameter with this name exists in the layout, the method does nothing.
+### Arguments
+
+- *const char ** **name** - Parameter name.
+- *unsigned int* **value** - New parameter value.
+
+## void setCustomParameterUInt ( int num , unsigned int value )
+
+Sets a new value of the custom material parameter with the given number. The material overrides the value inherited from its parent; child materials that do not override the parameter receive the new value.
+### Arguments
+
+- *int* **num** - Parameter number.
+- *unsigned int* **value** - New parameter value.

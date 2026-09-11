@@ -1,7 +1,7 @@
 # Licensing and License Types
 
 
-In UNIGINE, licenses are available for the use of Engineering and Sim SDK editions to develop an application, and in some cases — to use instances of created applications.
+In UNIGINE, licenses are available for the use of Engineering and Sim SDK editions to develop an application, and in some cases � to use instances of created applications.
 
 
 To have a clear understanding of license products in UNIGINE, we need to adopt the following notions:
@@ -9,7 +9,7 @@ To have a clear understanding of license products in UNIGINE, we need to adopt t
 
 | [Seat](#seat) | Major version used by developers to create a new project, write code, add content in the Editor, compile and build the project, run debug and release versions, i.e. the full application programming cycle. |
 |---|---|
-| [Editor Seat](#editor_seat) | Stripped-down version that allows only **running an already created project in the Editor**. It is designed for artists, who don't work with code and only create scenes in the Editor — add 3D models and configure them, set the environment, shadows, reflections, etc. |
+| [Editor Seat](#editor_seat) | Stripped-down version that allows only **running an already created project in the Editor**. It is designed for artists, who don't work with code and only create scenes in the Editor � add 3D models and configure them, set the environment, shadows, reflections, etc. |
 | [Channel](#channel) | Permission to **run one instance of a final application** (a finished product that doesn't require running any developer tools). Channels are required for applications that use networking, IG, VR, or any multi-window implementation. Regular desktop applications that don't use any additional features do not require a channel for running. |
 
 
@@ -25,10 +25,13 @@ To install SDK to be used with the Seat license, see [this guide](../../sdk/inde
 To activate the Seat license, see [this article](../../sdk/licenses/index.md).
 
 
+Instead of per-machine activation, Seat licenses can also be served to your whole local network from a single machine by the [Licensing Server](../../sdk/licenses/licensing_server.md).
+
+
 ## Editor Seat
 
 
-Editor Seat allows only working in Editor with already existing projects. You cannot create a new project with this type of license — you can only modify an already existing project. This type of license is designed for artists who won't perform any programming and debugging, but just modify a project in Editor (add or delete 3D models, configure light and use other options available in Editor).
+Editor Seat allows only working in Editor with already existing projects. You cannot create a new project with this type of license � you can only modify an already existing project. This type of license is designed for artists who won't perform any programming and debugging, but just modify a project in Editor (add or delete 3D models, configure light and use other options available in Editor).
 
 
 Installation and activation instructions for the *Editor Seat* are provided here:
@@ -62,7 +65,7 @@ The table below lists the plugins available in the base configuration of Sim Per
 | Base (no channel required) | VR Channel | IG Channel |
 |---|---|---|
 |  | **Base** plugins | **Base + VR** plugins and modes |
-| *[CadImporter](../../code/plugins/cadimporter/index.md) [FbxImporter](../../code/plugins/fbximporter/index.md) [FbxExporter](../../principles/export_system/index.md) [UsdExchanger](../../code/plugins/usdexporter/index.md) GLTFImporter [GPUMonitor](../../code/plugins/gpumonitor/index.md) [VCS Integration](../../editor2/assets_workflow/version_control/vcs_plugin/index.md) [Steam](../../api/library/plugins/steam/index.md) [WebStream](../../code/plugins/webstream/index.md) [FMOD](../../code/plugins/fmod/index.md)* | *[VR Mode: OpenVR](../../vr_development/index.md#integration_openvr) [VR Mode: OpenXR](../../vr_development/index.md#integration_openxr) [VR Mode: Varjo](../../vr_development/index.md#integration_varjo) [Ultraleap](../../code/plugins/ultraleap/index_cpp.md) [Kinect](../../code/plugins/kinect2/index_cpp.md) [ARTTracker](../../code/plugins/arttrack/index.md) [VrpnClient](../../code/plugins/vrpn/index_cpp.md)* | *[Separate](../../principles/render/output/stereo/appseparate/index.md) [Surround](../../principles/render/output/multi_monitor/appsurround/index.md) [Syncker](../../code/plugins/syncker/index.md) [IG](../../api/library/plugins/ig/api/index.md) [CIGIConnector](../../api/library/plugins/ig/cigi/index.md) [DISConnector](../../api/library/plugins/ig/dis/index.md) [HLAConnector](../../api/library/plugins/ig/hla/index.md) [SpiderVision](../../principles/render/output/multi_monitor/spidervision_plugin/index.md) [Geodetics](../../code/plugins/geodetics/index.md)* |
+| *[CadImporter](../../code/plugins/cadimporter/index.md) [FbxImporter](../../code/plugins/fbximporter/index.md) [FbxExporter](../../principles/export_system/index.md) [UsdExchanger](../../code/plugins/usdexporter/index.md) GLTFImporter [GPUMonitor](../../code/plugins/gpumonitor/index.md) [VCS Integration](../../editor2/assets_workflow/version_control/vcs_plugin/index.md) [Steam](../../api/library/plugins/steam/index.md) [WebStream](../../code/plugins/webstream/index.md) [FMOD](../../code/plugins/fmod/index.md)* | *[VR Mode: OpenVR](../../vr_development/index.md#backend_openvr) [VR Mode: OpenXR](../../vr_development/index.md#backend_openxr) [VR Mode: Varjo](../../vr_development/index.md#backend_varjo) [Ultraleap](../../code/plugins/ultraleap/index_cpp.md) [Kinect](../../code/plugins/kinect2/index_cpp.md) [ARTTracker](../../code/plugins/arttrack/index.md) [VrpnClient](../../code/plugins/vrpn/index_cpp.md)* | *[Separate](../../principles/render/output/stereo/appseparate/index.md) [Surround](../../principles/render/output/multi_monitor/appsurround/index.md) [Syncker](../../code/plugins/syncker/index.md) [IG](../../api/library/plugins/ig/api/index.md) [CIGIConnector](../../api/library/plugins/ig/cigi/index.md) [DISConnector](../../api/library/plugins/ig/dis/index.md) [HLAConnector](../../api/library/plugins/ig/hla/index.md) [SpiderVision](../../principles/render/output/multi_monitor/spidervision_plugin/index.md) [Geodetics](../../code/plugins/geodetics/index_cpp.md)* |
 
 
 > **Notice:** - All per-channel licenses purchased prior to UNIGINE 2.12 shall be treated as IG Channels.
@@ -72,6 +75,9 @@ The table below lists the plugins available in the base configuration of Sim Per
 
 
 See [here](../../sdk/licenses/activation.md#usb) how to activate the Per-Channel license.
+
+
+Channels can also be served to all machines on the site from a single machine by the [Licensing Server](../../sdk/licenses/licensing_server.md) � no per-machine activation or Internet connection is required on the machines running the application.
 
 
 ## Third-Party Components

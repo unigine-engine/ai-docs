@@ -1,0 +1,119 @@
+# Unigine::AnimationChannelScalar Class (CPP)
+
+**Header:** #include <UnigineAnimation.h>
+
+**Inherits from:** AnimationChannel
+
+
+This channel animates a scalar parameter, which is a float or a double depending on the build over time. It is one row of a [sequence](../../../../api/library/animations/timeline/class.animationsequence_cpp.md), while everything the channels share, such as the animated parameter, the binding and the clips, comes from the [AnimationChannel](../../../../api/library/animations/timeline/class.animationchannel_cpp.md) base class.
+
+
+A scalar is a float in a single precision build and a double in a double precision one, which is what world coordinates are measured in.
+
+
+## AnimationChannelScalar Class
+
+### Members
+
+## Math::Scalar getDefaultValue () const
+
+Returns the current value the channel falls back to where it has no keys of its own.
+### Return value
+
+Current value the channel falls back to
+## void setCurve ( const Ptr < AnimationCurveScalar >& curve )
+
+Sets a new curve that holds the keys of the channel.
+### Arguments
+
+- *const [Ptr](../../../../api/library/common/class.ptr_cpp.md)<[AnimationCurveScalar](../../../../api/library/animations/timeline/class.animationcurvescalar_cpp.md)>&* **curve** - The curve that holds the keys of the channel
+
+## Ptr < AnimationCurveScalar > getCurve () const
+
+Returns the current curve that holds the keys of the channel.
+### Return value
+
+Current curve that holds the keys of the channel
+---
+
+## AnimationChannelScalar ( AnimParams::PARAM param )
+
+Constructor. Creates a channel that animates the specified parameter.
+### Arguments
+
+- *AnimParams::PARAM* **param** - Parameter to be animated by the channel. Identifiers are looked up through the [Animations](../../../../api/library/animations/class.animations_cpp.md) class rather than written out by hand.
+
+## AnimationChannelScalar ( AnimParams::PARAM param , int param_index )
+
+Constructor. Creates a channel that animates the specified parameter.
+### Arguments
+
+- *AnimParams::PARAM* **param** - Parameter to be animated by the channel. Identifiers are looked up through the [Animations](../../../../api/library/animations/class.animations_cpp.md) class rather than written out by hand.
+- *int* **param_index** - Slot of the parameter for parameters that come as an array, such as a surface or a bone.
+
+## AnimationChannelScalar ( AnimParams::PARAM param , const char * param_name )
+
+Constructor. Creates a channel that animates the specified parameter.
+### Arguments
+
+- *AnimParams::PARAM* **param** - Parameter to be animated by the channel. Identifiers are looked up through the [Animations](../../../../api/library/animations/class.animations_cpp.md) class rather than written out by hand.
+- *const char ** **param_name** - Name that addresses the parameter when a number is not enough, such as the name of a property parameter or of a surface.
+
+## AnimationChannelScalar ( const char * param )
+
+Constructor. Creates a channel that animates the specified parameter.
+### Arguments
+
+- *const char ** **param** - Name of the parameter to be animated by the channel.
+
+## AnimationChannelScalar ( const char * param , int param_index )
+
+Constructor. Creates a channel that animates the specified parameter.
+### Arguments
+
+- *const char ** **param** - Name of the parameter to be animated by the channel.
+- *int* **param_index** - Slot of the parameter for parameters that come as an array, such as a surface or a bone.
+
+## AnimationChannelScalar ( const char * param , const char * param_name )
+
+Constructor. Creates a channel that animates the specified parameter.
+### Arguments
+
+- *const char ** **param** - Name of the parameter to be animated by the channel.
+- *const char ** **param_name** - Name that addresses the parameter when a number is not enough, such as the name of a property parameter or of a surface.
+
+## void assignFrom ( const Ptr < AnimationChannelScalar > & channel )
+
+Copies the content of the specified channel into this one.
+### Arguments
+
+- *const [Ptr](../../../../api/library/common/class.ptr_cpp.md)<[AnimationChannelScalar](../../../../api/library/animations/timeline/class.animationchannelscalar_cpp.md)> &* **channel** - Source channel to copy the content from.
+
+## Math::Scalar getValueByTime ( float time )
+
+Returns the value the channel holds at the given moment.
+### Arguments
+
+- *float* **time** - Moment to be sampled, in seconds.
+
+### Return value
+
+Value the channel holds at the specified moment.
+## Math::Scalar getValueByNormalizedTime ( float normalized_time )
+
+Returns the value the channel holds at the given moment, addressed as a share of its time span rather than in seconds.
+### Arguments
+
+- *float* **normalized_time** - Moment to be sampled, given as a share of the channel time span in the [0.0f, 1.0f] range.
+
+### Return value
+
+Value the channel holds at the specified moment.
+## void addValue ( float time , Math::Scalar value , AnimationCurve::KEY_TYPE type = AnimationCurve::KEY_TYPE_LINEAR )
+
+Adds a key holding the specified value.
+### Arguments
+
+- *float* **time** - Moment the key is to sit at, in seconds.
+- *Math::Scalar* **value** - Value to be held by the key.
+- *[AnimationCurve::KEY_TYPE](../../../../api/library/animations/timeline/class.animationcurve_cpp.md#KEY_TYPE)* **type** - Interpolation type of the key. The default value is [KEY_TYPE_LINEAR](../../../../api/library/animations/timeline/class.animationcurve_cpp.md#KEY_TYPE_LINEAR).

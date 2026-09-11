@@ -28,7 +28,7 @@ This class allows you to create and modify field spacer objects.
 Sets a new attenuation factor for the Field Spacer.
 ### Arguments
 
-- *float* **attenuation** - The attenuation factor value. This factor indicates how much geometry is cut off gradually starting from the center of the Field Spacer:  If too small a value is provided, 1E-6 will be used instead.
+- *float* **attenuation** - The attenuation factor value. This factor indicates how much geometry is cut off gradually starting from the center of the Field Spacer: If too small a value is provided, 1E-6 will be used instead.
 
   - By the minimum value of 0, all geometry inside the Field Spacer will be rendered.
   - The higher the value, the less geometry will be rendered inside the Field Spacer.
@@ -38,11 +38,17 @@ Sets a new attenuation factor for the Field Spacer.
 Returns the current attenuation factor for the Field Spacer.
 ### Return value
 
-Current attenuation factor value. This factor indicates how much geometry is cut off gradually starting from the center of the Field Spacer:
+Current
+attenuation factor value. This factor indicates how much geometry is cut off gradually starting from the center of the Field Spacer:
+
+
 - By the minimum value of 0, all geometry inside the Field Spacer will be rendered.
 - The higher the value, the less geometry will be rendered inside the Field Spacer.
 
- If too small a value is provided, 1E-6 will be used instead.
+
+If too small a value is provided, 1E-6 will be used instead.
+
+
 ## void setSize ( vec3 size )
 
 Sets a new size of the Field Spacer. For the cube-shaped field the cube size is set, for the ellipse-shaped field - the radius.
@@ -73,7 +79,10 @@ Current ellipse-shaped Field Spacer
 
 ## static FieldSpacer ( vec3 size )
 
+
 Creates a new Field Spacer of the specified size:
+
+
 - If the Field Spacer is of an ellipse shape, its radius values along the axes must be specified.
 - Otherwise, dimensions of the cube must be specified.
 

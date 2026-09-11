@@ -109,7 +109,7 @@ Returns Bayer noise generated based on the source coordinates using a 4x4 consta
 Bayer noise.
 ## float2 vogelDisk ( uint i , uint count , float noise )
 
-Returns a generated set of points with X and Y coordinates in the [-1; 1] range that describe a circle with uniform distribution of samples inside. This method is suitable for getting uniform distribution of coordinates for a circle. For example you can use it is a loop to generate UV coordinates offset for making the uniform circular blur effect. You can use the current loop iteration index as the i argument and the maximum number of iterations — as count.
+Returns a generated set of points with X and Y coordinates in the [-1; 1] range that describe a circle with uniform distribution of samples inside. This method is suitable for getting uniform distribution of coordinates for a circle. For example you can use it is a loop to generate UV coordinates offset for making the uniform circular blur effect. You can use the current loop iteration index as the i argument and the maximum number of iterations � as count.
 ### Arguments
 
 - *uint* **i** - Index of the current point for the disk.
@@ -121,7 +121,7 @@ Returns a generated set of points with X and Y coordinates in the [-1; 1] range 
 Set of points with X and Y coordinates in the [-1; 1] range that describe a circle with uniform distribution of samples inside.
 ## float2 vogelDisk ( uint i , uint count )
 
-Returns a generated set of points with X and Y coordinates in the [-1; 1] range that describe a circle with uniform distribution of samples inside. This method is suitable for getting uniform distribution of coordinates for a circle. For example you can use it is a loop to generate UV coordinates offset for making the uniform circular blur effect. You can use the current loop iteration index as the i argument and the maximum number of iterations — as count.
+Returns a generated set of points with X and Y coordinates in the [-1; 1] range that describe a circle with uniform distribution of samples inside. This method is suitable for getting uniform distribution of coordinates for a circle. For example you can use it is a loop to generate UV coordinates offset for making the uniform circular blur effect. You can use the current loop iteration index as the i argument and the maximum number of iterations � as count.
 ### Arguments
 
 - *uint* **i** - Index of the current point for the disk.

@@ -279,13 +279,13 @@ You can also use GUIDs database ignore filters (**guidsdb_ignore_filters**) prev
 > **Notice:** Use only **forward slashes for paths** (Unix convention) as backslashes in JSON files are used as escape characters.
 
 
-Each mount point has its own independent set of rules (filters). Rules are not inherited — a **nested mount point does not reuse the rules from its parent mount point**.
+Each mount point has its own independent set of rules (filters). Rules are not inherited � a **nested mount point does not reuse the rules from its parent mount point**.
 
 
 All folders inside the mount point are treated by the file system as usual folders with assets inside the `data` directory.
 
 
-Inside each mount point, there is a `.runtimes` folder that stores runtime files generated for assets of the external directory. Note that they aren’t added to the runtimes stored inside the `data/.runtimes` folder. If you move an asset from one mount point to another, its runtime will be moved as well.
+Inside each mount point, there is a `.runtimes` folder that stores runtime files generated for assets of the external directory. Note that they aren�t added to the runtimes stored inside the `data/.runtimes` folder. If you move an asset from one mount point to another, its runtime will be moved as well.
 
 
 GUIDs for external files aren't written to `data/guids.db`.
@@ -294,7 +294,7 @@ GUIDs for external files aren't written to `data/guids.db`.
 If several team members work with a single mount point, it should be **read-only** to avoid issues.
 
 
-The **read-only** mount point doesn’t allow any changes in the folder or package it is referenced to. It means that such folder must store assets with already generated `.meta` files and runtimes. Otherwise, they won’t be available in the Asset Browser. The workflow here should be as follows:
+The **read-only** mount point doesn�t allow any changes in the folder or package it is referenced to. It means that such folder must store assets with already generated `.meta` files and runtimes. Otherwise, they won�t be available in the Asset Browser. The workflow here should be as follows:
 
 
 1. The `.meta` and runtime files for assets are generated once and saved/committed to the folder/repository (if any).
@@ -312,7 +312,7 @@ When working with mount points, there are rules to be followed:
 - `*.umount` file should have a unique name. If the `data` folder contains a folder with the same name as the mount point, this mount point will be ignored.
 
 
-When UnigineEditor is loaded, [automatic resource reloading](#reloading) isn’t available for mount points. Each mount point is updated manually on demand: in the Asset Browser, right-click the mount point and choose *Refresh Mount Point*. When UnigineEditor isn't loaded, the Engine reloads all resources, **including the ones stored inside mount points**, after [reloading the world](../../code/console/index.md#world_reload) if resources are added to the virtual file system.
+When UnigineEditor is loaded, [automatic resource reloading](#reloading) isn�t available for mount points. Each mount point is updated manually on demand: in the Asset Browser, right-click the mount point and choose *Refresh Mount Point*. When UnigineEditor isn't loaded, the Engine reloads all resources, **including the ones stored inside mount points**, after [reloading the world](../../code/console/index.md#world_reload) if resources are added to the virtual file system.
 
 
 ## Paths
@@ -501,7 +501,7 @@ Generated runtime files have constant GUIDs and are named as follows:
 These files are stored in sub-folders of the [`data/.runtimes`](../../editor2/assets_workflow/project_files.md#data_runtimes_folder) folder. The structure of this folder is optimized for the file system.
 
 
-> **Notice:** Inside each **mount point**, there is also a `.runtimes` folder that stores runtime files generated for assets of the external directory. These runtimes aren’t added to the runtimes stored inside the `data/.runtimes` folder. If you move an asset from one mount point to another, its runtime will be moved as well.
+> **Notice:** Inside each **mount point**, there is also a `.runtimes` folder that stores runtime files generated for assets of the external directory. These runtimes aren�t added to the runtimes stored inside the `data/.runtimes` folder. If you move an asset from one mount point to another, its runtime will be moved as well.
 
 
 A runtime file generated for a non-native asset with a certain [GUID](#guids) is placed in a folder that has a name equal to the first two bytes of this GUID.

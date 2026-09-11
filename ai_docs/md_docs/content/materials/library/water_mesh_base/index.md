@@ -140,7 +140,7 @@ This set of parameters is enabled by toggling on the [Planar Reflection](#state_
 
 | Planar Reflection | If enabled, this option allows using planar reflections on the water surface instead of SSR. |
 |---|---|
-| Map Size | The size of the planar reflection map, in pixels: the higher the value, the better the quality is. Available sizes of the map are: - **128** — creates a reflection image with 128x128 resolution. - **256** — creates a reflection image with 256x256 resolution. - **512** — creates a reflection image with 512x512 resolution. - **1024** — creates a reflection image with 1024x1024 resolution. - **2048** — creates a reflection image with 2048x2048 resolution. - **4096** — creates a reflection image with 4096x4096 resolution. - **Quart height** — creates a reflection image with the resolution *height/4 x height/4*, where height is an application window height. - **Half height** — creates a reflection image with the resolution *height/2 x height/2*, where height is an application window height. - **Height** — creates a reflection image with the resolution *height x height*, where height is an application window height. |
+| Map Size | The size of the planar reflection map, in pixels: the higher the value, the better the quality is. Available sizes of the map are: - **128** � creates a reflection image with 128x128 resolution. - **256** � creates a reflection image with 256x256 resolution. - **512** � creates a reflection image with 512x512 resolution. - **1024** � creates a reflection image with 1024x1024 resolution. - **2048** � creates a reflection image with 2048x2048 resolution. - **4096** � creates a reflection image with 4096x4096 resolution. - **Quart height** � creates a reflection image with the resolution *height/4 x height/4*, where height is an application window height. - **Half height** � creates a reflection image with the resolution *height/2 x height/2*, where height is an application window height. - **Height** � creates a reflection image with the resolution *height x height*, where height is an application window height. |
 | Show Pivot | Displays the pivot plane that shows the direction of reflective surface. By specifying the direction of planar reflection, you can create a reflection surface even if it was exported at an angle. |
 | Viewport Mask | [Viewport mask](../../../../principles/bit_masking/index.md#viewport) of the reflection camera. |
 | Distance | **Distance** from the reflection camera to the reflected object. In other words, the distance equals the distance from camera to the reflective surface plus the distance from object to reflective surface. ![](../mesh_base/planar_scheme.png) |
@@ -213,5 +213,5 @@ Caustics is the effect of light rays refraction by the water surface.
 Post processing effects available for the material:
 
 
-- **DOF** — enables the depth of field effect.
-- **Motion blur** — enables the motion blur effect.
+- **DOF** � enables the depth of field effect.
+- **Motion blur** � enables the motion blur effect.

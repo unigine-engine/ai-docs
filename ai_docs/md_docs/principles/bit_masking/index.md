@@ -35,7 +35,7 @@ Default names of bits can be changed. The name entered in a field is assigned to
 ## Comparing Masks
 
 
-Masks are compared bitwise using binary operator **and**. As a result, the first bit of the first mask is compared to the first bit of the second mask, the second bit — to the second one, and so on.
+Masks are compared bitwise using binary operator **and**. As a result, the first bit of the first mask is compared to the first bit of the second mask, the second bit � to the second one, and so on.
 
 > **Notice:** If two masks have **at least one matching bit**, the masks match. Values of other bits won't affect the result.
 
@@ -70,7 +70,7 @@ See a part of our [video tutorial on bit masking](https://youtu.be/nI8Q3bANsM8?t
 ### Usage Example
 
 
-Suppose, we have two objects with the same material. To make one of them to be rendered into viewport and the other one — not to be rendered, we should change the *Viewport* mask of the second object.
+Suppose, we have two objects with the same material. To make one of them to be rendered into viewport and the other one � not to be rendered, we should change the *Viewport* mask of the second object.
 
 | ![](viewport_0.png) | ![](viewport_1.png) |
 |---|---|
@@ -316,6 +316,51 @@ Using the *Navigation* mask, you can limit the number of navigation areas, insid
 A usage example of the *Navigation* mask is provided in our [video tutorial on bit masking](https://youtu.be/nI8Q3bANsM8?t=601).
 
 
+In the experimental navigation system the *Navigation* mask does the same job, with the baked [navigation mesh](../../objects/navigations/experimental/navigation_mesh/index.md) in place of a navigation area. A navigation mesh carries a mask, and so does everything that works with it. The ground of a mesh is taken into account only while the two masks share at least one bit.
+
+
+Four things carry a mask of their own:
+
+
+- The *[query filter](../../api/library/pathfinding/class.experimentalnavigationmeshfilter_cpp.md)*. A path search walks a navigation mesh only while their masks match. This is how one world holds a navigation mesh baked for infantry and another baked for vehicles, and each unit searches its own.
+- The [invoker](../../objects/navigations/experimental/invoker/index.md). It loads tiles only for the navigation meshes its mask matches. A navigation mesh with streaming on and no matching invoker holds no tiles at all, and every query over it fails for lack of data.
+- The *[avoidance](../../api/library/pathfinding/class.experimentalnavigationavoidance_cpp.md)* solver. It reads the walls of the navigation meshes its mask matches, so that an agent pushed aside by its neighbors is not pushed off the walkable ground.
+- Baking. *[ExperimentalBakeNavigation](../../api/library/pathfinding/class.experimentalbakenavigation_cpp.md)* takes a mask instead of a list of nodes, which bakes or rebuilds a whole group in one call. This form picks up the navigation meshes of the experimental system only, and the enabled ones only.
+
+
+> **Notice:** A mask of 0 matches nothing. An avoidance solver left with it keeps the agents apart from each other and knows about no walls at all, so a crowd squeezed into a corner walks through them.
+
+
+Both systems use this one mask, and the names given to its bits are shared: a bit named in the mask of a navigation area is the same bit under the same name in the mask of a baked navigation mesh. What is not shared is the comparing. A route is matched against navigation areas, a query filter against baked navigation meshes, and neither is ever matched against the other, so the same value on both sides means nothing by itself.
+
+
+The mask of the ground itself is a different one: which surfaces and terrains a navigation mesh takes in is decided by the [Bake](#bake_mask) mask, not by this one.
+
+
+## Bake Mask
+
+
+The *Bake* mask decides which geometry is taken in when a navigation mesh is baked. Geometry contributes only when its own bake mask shares at least one bit with the mask the bake runs with.
+
+
+It is carried by both sides of that comparison:
+
+
+- A surface of an object, in the *Experimental Navigation* section of the surface. A surface with the section disabled is out of every bake, whatever its mask says.
+- A terrain, and separately every detail mask of it. The terrain is taken in when the mask of the node matches, or when at least one of its detail masks does, and a detail mask that matches also brings its own area and its own threshold with it.
+- An [area volume](../../objects/navigations/experimental/area_volume/index.md). Its mask picks the navigation meshes the volume marks, so one volume can raise the cost for one navigation mesh and leave the rest untouched.
+- The bake settings of the navigation mesh itself, which is what everything above is matched against.
+
+
+Both node types are baked by the same pipeline, so the mask works the same way for a [Navigation Mesh](../../objects/navigations/navigation/navigation_mesh/index.md) and for an [Experimental Navigation Mesh](../../objects/navigations/experimental/navigation_mesh/index.md): each of them carries bake settings with a mask of its own.
+
+
+Two masks are therefore in play at different times, and they are easy to confuse. The *Bake* mask acts while the navigation mesh is being built, and decides what the walkable ground is made of. The *[Navigation](#navigation_mask)* mask acts on every query afterwards, and decides who may use the result. They are two separate sets of named bits: the names given to the bits of one say nothing about the bits of the other.
+
+
+A partial rebuild is filtered by the same mask: a region sent for rebuilding reaches a navigation mesh only while the two bake masks match.
+
+
 ## Obstacle Mask
 
 
@@ -333,6 +378,9 @@ Similar to the navigation mask, the obstacle mask can be specified via:
 
 
 A usage example of the *Obstacle* mask is provided in our [video tutorial on bit masking](https://youtu.be/nI8Q3bANsM8?t=629).
+
+
+The experimental navigation system reuses the very same [Obstacle](../../api/library/pathfinding/class.obstacle_cpp.md) nodes and the same mask. It is carried by the [query filter](../../api/library/pathfinding/class.experimentalnavigationmeshfilter_cpp.md), by the [corridor](../../api/library/pathfinding/class.experimentalnavigationmeshcorridor_cpp.md) that follows a path, and by [local avoidance](../../api/library/pathfinding/class.experimentalnavigationavoidance_cpp.md), each of which can be told to consider a different set of obstacles. Setting the mask to 0 there means the obstacles are ignored altogether rather than that none of them match.
 
 
 ## Field Mask

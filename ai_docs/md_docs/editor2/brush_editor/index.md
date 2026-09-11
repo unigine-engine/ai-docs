@@ -99,8 +99,8 @@ Depending on the selected tool, the following brush settings may be available:
 | Color Srgb | Convert the brush color to SRGB. |
 | Color | Color of the brush. You can pick a screen color, if necessary. |
 | Color Intensity | Intensity of the color applied to the terrain. The value in the range from 0 to 1. |
-| Masks Override | Override detail masks: - **Enabled** — erase the rest (unselected) detail masks so the current mask becomes visible when drawing. - **Disabled** — don't modify the rest detail masks. |
-| Height Blend Mode | Blending mode for the Height brush: - **Alpha Blend** — override the existing height with the current height. - **Additive** — add the current height to the existing value. |
+| Masks Override | Override detail masks: - **Enabled** � erase the rest (unselected) detail masks so the current mask becomes visible when drawing. - **Disabled** � don't modify the rest detail masks. |
+| Height Blend Mode | Blending mode for the Height brush: - **Alpha Blend** � override the existing height with the current height. - **Additive** � add the current height to the existing value. |
 | Height | Height value for the brush. |
 | Opacity | Strength of the brush when applying the layer color. *Lower* values create a more translucent brush, and *higher* values create a more opaque brush. Multiple applications of the brush with low opacity to the same place create a more opaque image. |
 | Contrast | Hardness of the brush. *Lower* values create a softer brush. |

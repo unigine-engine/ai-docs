@@ -20,7 +20,6 @@ The Blending mode used for heights data. One of the following *[Landscape.BLENDI
 - Alpha Blend
 - Additive
 
-
 ## Landscape.BLENDING_MODE AlbedoBlending
 
 The Blending mode used for albedo data. One of the following *[Landscape.BLENDING_MODE](../../../../api/library/objects/landscape_terrain/class.landscape_cs.md#BLENDING_MODE)* values:
@@ -28,7 +27,6 @@ The Blending mode used for albedo data. One of the following *[Landscape.BLENDIN
 - Additive
 - Overlay
 - Multiplicative
-
 
 ## bool EnabledHeight
 
@@ -53,7 +51,7 @@ The Two-component vector (X, Y) representing landscape layer map resolution alon
 The [GUID](../../../../api/library/filesystem/class.uguid_cs.md) of the `.lmap` file.
 ## 🔒︎ bool IsLoaded
 
-The Value indicating if the landscape map file (`.lmap`) is loaded.
+The value indicating if the landscape map file (`.lmap`) is loaded.
 ## vec2 AlbedoFadeAttenuation
 
 The Two-component vector **(X, Y)** defining the fade attenuation of the albedo data along X and Y axes.
@@ -207,24 +205,6 @@ Returns the type of compression currently used for the opacity data of the mask 
 ### Return value
 
 Type of compression currently used for the opacity data of the mask with the specified number.
-## bool IsEnabledAlbedoTextureCompression ( )
-
-Returns a value indicating if albedo texture compression is enabled.
-### Return value
-
-true if albedo texture compression is enabled; otherwise, false.
-## bool IsEnabledHeightTextureCompression ( )
-
-Returns a value indicating if height texture compression is enabled.
-### Return value
-
-true if height texture compression is enabled; otherwise, false.
-## bool IsEnabledOpacityHeightTextureCompression ( )
-
-Returns a value indicating if opacity height texture compression is enabled.
-### Return value
-
-true if opacity height texture compression is enabled; otherwise, false.
 ## bool IsEnabledMaskTextureCompression ( int mask )
 
 Returns a value indicating if compression of the mask texture for the mask with the specified number is enabled.

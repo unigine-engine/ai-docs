@@ -25,19 +25,19 @@ The object of this class looks as follows:
 
 ### Members
 
-## getNumItems () const
+## int getNumItems () const
 
 Returns the current number of items in the menu bar.
 ### Return value
 
 Current number of items in the menu bar.
-## getSpaceY () const
+## int getSpaceY () const
 
 Returns the current vertical space between menu items and menu borders.
 ### Return value
 
 Current vertical space between menu items and menu borders, in pixels.
-## getSpaceX () const
+## int getSpaceX () const
 
 Returns the current horizontal space between menu items and menu borders.
 ### Return value

@@ -9,7 +9,7 @@
 
 ## 🔒︎ int NumMeshes
 
-The Number of meshes.
+The total number of meshes handled by the mesh spline cluster.
 ## 🔒︎ string MeshPath
 
 The path to the source *.mesh*-file used for the object.

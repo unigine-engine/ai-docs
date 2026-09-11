@@ -15,7 +15,7 @@ This class contains functions to control the game logic of the application. It p
 ### Usage Example
 
 
-The example below creates a PlayerSpectator and sets it as the active Engine Camera. The player is rotated around Y axis with the specified speed, which is set via *[setScale()](#setScale_float_void)*:
+The example below creates a *PlayerSpectator* and sets it as the active Engine Camera. The player is rotated around Y axis with the specified speed, which is set via *[setScale()](#setScale_float_void)*:
 
 
 - Pressing F slows down the game logic, so player's rotation slows down too.
@@ -81,99 +81,149 @@ int update() {
 
 ### Members
 
----
+## void setPlayer ( Player player )
 
-## void engine.game. setData ( string data )
-
-Sets user data associated with the game logic. This string is written directly into a `*.world` file. Namely, into the *data* child tag of the *game* tag, for example:
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<world version="2.16.0.2">
-
-	<game>
-		<data>User data</data>
-	</game>
-
-</world>
-
-
-```
-
-
-### Arguments
-
-- *string* **data** - User data. Data can contain an XML formatted string.
-
-## string engine.game. getData ( )
-
-Returns user data associated with the game logic. This string is written directly into a `*.world` file. Namely, into the *data* child tag of the *game* tag, for example:
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<world version="2.16.0.2">
-
-	<game>
-		<data>User data</data>
-	</game>
-
-</world>
-
-
-```
-
-
-### Return value
-
-User data. Data can contain an XML formatted string.
-## void engine.game. setEnabled ( int enabled )
-
-Pauses or resumes the game logic.
-### Arguments
-
-- *int* **enabled** - **1** to resume the game logic, **0** to pause it.
-
-## int engine.game. isEnabled ( )
-
-Returns a value indicating if the game is paused or not.
-### Return value
-
-**1** if the game logic is not paused; otherwise, **0**.
-## void engine.game. setFrame ( int frame )
-
-Sets the game frame with the given number as the current one.
-### Arguments
-
-- *int* **frame** - Frame number.
-
-## int engine.game. getFrame ( )
-
-Returns the number of the current game frame.
+Sets a new player assigned to the *Engine Camera* viewport.
 ```cpp
-// get the current game frame
-int loading_frames = engine.game.getFrame();
-// perform asynchronous nodes loading
-// ...
-// calculate the number of game frames required for nodes loading
-loading_frames = engine.game.getFrame() - loading_frames;
+// create a new player
+PlayerDummy dummy = new PlayerDummy();
+
+// set necessary parameters
+dummy.setPosition(Vec3(-20.0f,0.0f,15.0f));
+dummy.setDirection(vec3(1.0f,0.0f,-0.8f));
+// set the player to the Engine Camera viewport
+engine.game.setPlayer(dummy);
+
+```
+
+
+### Arguments
+
+- *[Player](../../../api/library/players/class.player_usc.md)* **player** - The
+
+## Player getPlayer () const
+
+Returns the current player assigned to the *Engine Camera* viewport.
+```cpp
+// create a new player
+PlayerDummy dummy = new PlayerDummy();
+
+// set necessary parameters
+dummy.setPosition(Vec3(-20.0f,0.0f,15.0f));
+dummy.setDirection(vec3(1.0f,0.0f,-0.8f));
+// set the player to the Engine Camera viewport
+engine.game.setPlayer(dummy);
 
 ```
 
 
 ### Return value
 
-Frame number.
-## void engine.game. setIFps ( float ifps )
+Current
+## void setPlayerListener ( Player listener )
 
-Sets the [scaled](#setScale_float_void) inverse FPS value (the time in seconds it took to complete the last frame). This function sets a fixed FPS that does not depend on the real FPS the hardware is capable of. That is, it forces constant frame time increments between rendered frames, used for animation/expression update etc. To remove the FPS limitation, use -1.
-The function is useful when grabbing the video reel with a fixed FPS value (for example, 25 frames per second).
+Sets a new *Player* used as sound listener.
+### Arguments
+
+- *[Player](../../../api/library/players/class.player_usc.md)* **listener** - The *Player* used as sound listener.
+
+## Player getPlayerListener () const
+
+Returns the current *Player* used as sound listener.
+### Return value
+
+Current *Player* used as sound listener.
+## void setSeed ( int seed )
+
+Sets a new seed for pseudo-random number generator.
+### Arguments
+
+- *int* **seed** - The number used to initialize a pseudo-random sequence of numbers.
+
+## int getSeed () const
+
+Returns the current seed for pseudo-random number generator.
+### Return value
+
+Current number used to initialize a pseudo-random sequence of numbers.
+## void setTime ( float time )
+
+Sets a new time spent in the game. The time is measured off starting from the world loading and does not take game pauses into account.
+### Arguments
+
+- *float* **time** - The time, in seconds.
+
+## float getTime () const
+
+Returns the current time spent in the game. The time is measured off starting from the world loading and does not take game pauses into account.
+### Return value
+
+Current time, in seconds.
+## void setScale ( float scale )
+
+Sets a new value used to scale frame duration.
+It scales up or down the speed of rendering, physics and game logic. This function can be used to create effects of slow/accelerated motion.
+
+
+For example, if the scale equals **2**, the rate of simulation of all effects (such as particles) speeds up to two times faster. As for physics, in reality it will be simulated with the same fixed physics FPS, but the number of iterations will be two times higher. It is possible to scale the physics FPS separately via **[engine.physics.setScale()()](../../../api/library/physics/class.physics_usc.md#setScale_float_void)**.
+
+
+This function scales the value set by the **[setIFps()()](../../...md#setIFps_float_void)**.
 
 
 ### Arguments
 
-- *float* **ifps** - Inverse FPS value (1/FPS) in seconds.**-1** removes the FPS limitation.
+- *float* **scale** - The value used to scale the frame duration. The provided value is clamped within the range [0;32].
 
-## float engine.game. getIFps ( )
+## float getScale () const
 
-Returns the [scaled](#setScale_float_void) inverse FPS value (the time in seconds it took to complete the last frame). This value does not depend on the real FPS the hardware is capable of. -1 means no Inverse FPS value is set.
+Returns the current value used to scale frame duration.
+It scales up or down the speed of rendering, physics and game logic. This function can be used to create effects of slow/accelerated motion.
+
+
+For example, if the scale equals **2**, the rate of simulation of all effects (such as particles) speeds up to two times faster. As for physics, in reality it will be simulated with the same fixed physics FPS, but the number of iterations will be two times higher. It is possible to scale the physics FPS separately via **[engine.physics.setScale()()](../../../api/library/physics/class.physics_usc.md#setScale_float_void)**.
+
+
+This function scales the value set by the **[setIFps()()](../../...md#setIFps_float_void)**.
+
+
+### Return value
+
+Current value used to scale the frame duration. The provided value is clamped within the range [0;32].
+## void setIFps ( float ifps )
+
+Sets a new [scaled](#setScale_float_void) inverse FPS value (the time in seconds it took to complete the last frame).
+This value does not depend on the real FPS the hardware is capable of. It enables you to force constant frame time increments between rendered frames, used for animation/expression update etc. Setting -1 removes the FPS limitation. Getting **0** means the game is paused.
+
+
+This value is useful when grabbing a video reel with a fixed FPS value (for example, 25 frames per second).
+
+
+```cpp
+Node node;
+// ...
+// get an inverse FPS value
+float ifps = engine.game.getIFps();
+
+// move the node up by 0.1 unit every second instead of every frame
+node.worldTranslate(Vec3(0.0f, 0.0f, 0.1f*ifps));
+
+```
+
+
+### Arguments
+
+- *float* **ifps** - The inverse FPS value (1/FPS) in seconds.**-1** means that FPS limitation is removed.
+
+## float getIFps () const
+
+Returns the current [scaled](#setScale_float_void) inverse FPS value (the time in seconds it took to complete the last frame).
+This value does not depend on the real FPS the hardware is capable of. It enables you to force constant frame time increments between rendered frames, used for animation/expression update etc. Setting -1 removes the FPS limitation. Getting **0** means the game is paused.
+
+
+This value is useful when grabbing a video reel with a fixed FPS value (for example, 25 frames per second).
+
+
 ```cpp
 Node node;
 // ...
@@ -188,10 +238,122 @@ node.worldTranslate(Vec3(0.0f, 0.0f, 0.1f*ifps));
 
 ### Return value
 
-Scaled inverse FPS value (1/FPS) in seconds. If the game is paused, **0** is returned.
+Current inverse FPS value (1/FPS) in seconds.**-1** means that FPS limitation is removed.
+## void setFrame ( int frame )
+
+Sets a new number of the current game frame.
+```cpp
+// get the current game frame
+int loading_frames = engine.game.getFrame();
+// perform asynchronous nodes loading
+// ...
+// calculate the number of game frames required for nodes loading
+loading_frames = engine.game.getFrame() - loading_frames;
+
+```
+
+
+### Arguments
+
+- *int* **frame** - The number of the current game frame.
+
+## int getFrame () const
+
+Returns the current number of the current game frame.
+```cpp
+// get the current game frame
+int loading_frames = engine.game.getFrame();
+// perform asynchronous nodes loading
+// ...
+// calculate the number of game frames required for nodes loading
+loading_frames = engine.game.getFrame() - loading_frames;
+
+```
+
+
+### Return value
+
+Current number of the current game frame.
+## void setData ( string data )
+
+Sets a new user data associated with the game logic.
+Data can contain an XML formatted string. This string is written directly into a `*.world` file. Namely, into the *data* child tag of the *game* tag, for example:
+
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<world version="2.21.0.0">
+
+	<game>
+		<data>User data</data>
+	</game>
+
+</world>
+
+
+```
+
+
+### Arguments
+
+- *string* **data** - The
+
+## const char * getData () const
+
+Returns the current user data associated with the game logic.
+Data can contain an XML formatted string. This string is written directly into a `*.world` file. Namely, into the *data* child tag of the *game* tag, for example:
+
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<world version="2.21.0.0">
+
+	<game>
+		<data>User data</data>
+	</game>
+
+</world>
+
+
+```
+
+
+### Return value
+
+Current
+## void setEnabled ( bool enabled )
+
+Sets a new value indicating if the game is paused or not.
+### Arguments
+
+- *bool* **enabled** - true if the game logic is not paused; otherwise, false.
+
+## bool isEnabled () const
+
+Returns the current value indicating if the game is paused or not.
+### Return value
+
+true if the game logic is not paused; otherwise, false.
+## vec4 getRandomColor () const
+
+Returns the current random generated color vector: (R, G, B, A).
+### Return value
+
+Current random four-component [vec4](../../../api/library/math/class.vec4_usc.md) vector representing a color: (R, G, B, A).
+## unsigned int getRandom () const
+
+Returns the current pseudo-random unsigned integer number.
+### Return value
+
+Current pseudo-random unsigned integer number.
+---
+
 ## Obstacle engine.game. getIntersection ( Vec3 p0 , Vec3 p1 , float radius , int mask , int[] exclude , GameIntersection OUT_intersection )
 
-Performs intersection to find if a pathfinding Obstacle is located within the cylinder between two points. The specified obstacles will be ignored.
+Performs intersection search to find if a pathfinding Obstacle is located within the cylinder between two specified points.
+The specified obstacles will be ignored.
+
+
 > **Notice:** World space coordinates are used for this function.
 
 
@@ -203,7 +365,7 @@ Performs intersection to find if a pathfinding Obstacle is located within the cy
 - *Vec3* **p0** - Start point.
 - *Vec3* **p1** - End point.
 - *float* **radius** - Radius of the intersection cylinder.
-- *int* **mask** - Obstacle intersection mask. The obstacle is ignored if its mask does not match.
+- *int* **mask** - Obstacle *Intersection* mask. The obstacle is ignored if its mask does not match.
 - *int[]* **exclude** - Array with excluded obstacles. These obstacle nodes are ignored when performing intersection.
 - *[GameIntersection](../../../api/library/engine/class.gameintersection_usc.md)* **OUT_intersection** - [GameIntersection](../../../api/library/engine/class.gameintersection_usc.md) class instance to put the result into. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
 
@@ -213,7 +375,7 @@ Intersected obstacle.
 ## Obstacle engine.game. getIntersection ( Vec3 p0 , Vec3 p1 , float radius , int mask , GameIntersection intersection )
 
 
-Performs intersection to find if a pathfinding obstacle is located within the cylinder between two points.
+Performs an intersection search to determine whether a pathfinding obstacle is located within the cylinder defined by two specified points.
 
 
 > **Notice:** World space coordinates are used for this function.
@@ -223,6 +385,7 @@ Performs intersection to find if a pathfinding obstacle is located within the cy
 
 
 The following example shows how you can get the intersection point (vec3) of the cylinder between two points with an obstacle. In this example the cylinder is an invisible traced cylinder from the point of the camera (vec3 p0) to the point of the mouse pointer (vec3 p1) with the specific radius. The executing sequence is the following:
+
 
 - Define and initialize two points (p0 and p1) by using the *getPlayerMouseDirection()* function from `core/scripts/utils.h`.
 - Create an instance of the GameIntersection class to get the intersection point coordinates.
@@ -242,7 +405,7 @@ getPlayerMouseDirection(p0,p1);
 GameIntersection intersection = new GameIntersection();
 
 // try to get the intersection with an obstacle.
-// cylinder has radius 0.1f, intersection mask equals to 1
+// cylinder has radius 0.1f, Intersection mask equals to 1
 Obstacle obstacle = engine.game.getIntersection(p0,p1,0.1f, 1, intersection);
 
 // check, if the intersection of mouse direction with any obstacle was occurred;
@@ -261,7 +424,7 @@ if(obstacle !=NULL)
 - *Vec3* **p0** - Start point.
 - *Vec3* **p1** - End point.
 - *float* **radius** - Radius of the intersection cylinder.
-- *int* **mask** - Obstacle intersection mask. The obstacle is ignored if its mask does not match.
+- *int* **mask** - Obstacle *Intersection* mask. The obstacle is ignored if its mask does not match.
 - *[GameIntersection](../../../api/library/engine/class.gameintersection_usc.md)* **intersection** - [GameIntersection](../../../api/library/engine/class.gameintersection_usc.md) class instance to put the result into.
 
 ### Return value
@@ -269,7 +432,10 @@ if(obstacle !=NULL)
 Intersected obstacle.
 ## Variable engine.game. getNoise ( Variable pos , Variable size , int frequency )
 
+
 Returns a noise value calculated using a Perlin noise function. Variable can be of the *int* or *vec3* type.
+
+
 ```cpp
 Image image;
 int size = 64;
@@ -334,52 +500,12 @@ Returns a 3D noise value calculated using a Perlin noise function.
 ### Return value
 
 3D noise value.
-## void engine.game. setPlayer ( Player player )
-
-Assigns a new player to the *Engine Camera* viewport.
-```cpp
-// create a new player
-PlayerDummy dummy = new PlayerDummy();
-
-// set necessary parameters
-dummy.setPosition(Vec3(-20.0f,0.0f,15.0f));
-dummy.setDirection(vec3(1.0f,0.0f,-0.8f));
-// set the player to the Engine Camera viewport
-engine.game.setPlayer(dummy);
-
-```
-
-
-### Arguments
-
-- *[Player](../../../api/library/players/class.player_usc.md)* **player** - Player to set as a current one.
-
-## Player engine.game. getPlayer ( )
-
-Returns the current player assigned to the *Engine Camera* viewport.
-```cpp
-// get the current player (engine camera)
-Player player = engine.game.getPlayer();
-// correct player position
-player.setPosition(Vec3(-92.0f,94.0f,190.0f));
-// set the updated player to the Engine Camera viewport
-engine.game.setPlayer(player);
-
-```
-
-
-### Return value
-
-Current player.
-## unsigned int engine.game. getRandom ( )
-
-Returns a pseudo-random integer number.
-### Return value
-
-Random integer number.
 ## Variable engine.game. getRandom ( Variable from , Variable to )
 
-Returns a pseudo-random number of the given type (end-point not included). Variable can be of one of the following types: *int*, *float*, *vec3*, *vec4*, *dvec3*, *dvec4*, *ivec3*, *ivec4*.
+
+Returns a pseudo-random number of the given type (end-point not included). Variable can be of one of the following types: *int, float, vec3, vec4, dvec3, dvec4, ivec3, ivec4*.
+
+
 ```cpp
 // create a WidgetLabel
 label = new WidgetLabel(gui,"Text sample");
@@ -406,7 +532,7 @@ label.setPosition(x,y);
 Random number.
 ## double engine.game. getRandomDouble ( double from , double to )
 
-Returns a pseudo-random double number within a given range (end-point not included).
+Returns a pseudo-random *double* number within a given range (end-point not included).
 ### Arguments
 
 - *double* **from** - The initial point of the range.
@@ -414,10 +540,10 @@ Returns a pseudo-random double number within a given range (end-point not includ
 
 ### Return value
 
-Random double integer number.
+Random *double* integer number.
 ## float engine.game. getRandomFloat ( float from , float to )
 
-Returns a pseudo-random float number within a given range (end-point not included).
+Returns a pseudo-random *float* number within a given range (end-point not included).
 ### Arguments
 
 - *float* **from** - The initial point of the range.
@@ -425,7 +551,7 @@ Returns a pseudo-random float number within a given range (end-point not include
 
 ### Return value
 
-Random float number.
+Random *float* number.
 ## int engine.game. getRandomInt ( int from , int to )
 
 Returns a pseudo-random integer number within a given range (end-point not included).
@@ -437,70 +563,3 @@ Returns a pseudo-random integer number within a given range (end-point not inclu
 ### Return value
 
 Random integer number.
-## void engine.game. setScale ( float scale )
-
-
-Sets a value that is used to scale frame duration. It scales up or down the speed of rendering, physics and game logic. This function can be used to create effects of slow/accelerated motion.
-
-
-For example, if the scale equals **2**, the rate of simulation of all effects (such as particles) speeds up to two times faster. As for physics, in reality it will be simulated with the same fixed physics FPS, but the number of iterations will be two times higher. It is possible to scale the physics FPS separately via [*engine.physics.setScale()*](../../../api/library/physics/class.physics_usc.md#setScale_float_void) function.
-
-
-This function scales the value set by the [*setIFps()*](#setIFps_float_void).
-
-
-### Arguments
-
-- *float* **scale** - Scaling factor. The provided values is clamped within the range **[0;32]**.
-
-## float engine.game. getScale ( )
-
-Returns a value used to scale the frame duration.
-### Return value
-
-Value to scale the frame duration.
-## void engine.game. setSeed ( int seed )
-
-Sets the seed for pseudo-random number generator.
-### Arguments
-
-- *int* **seed** - Number used to initialize a pseudo-random sequence of numbers.
-
-## int engine.game. getSeed ( )
-
-Returns the seed for pseudo-random number generator.
-### Return value
-
-Number used to initialize a pseudo-random sequence of numbers.
-## void engine.game. setTime ( float time )
-
-Sets the time value for the game. The time is counted off starting from the world loading and does not take game pauses into account.
-### Arguments
-
-- *float* **time** - Time in seconds.
-
-## float engine.game. getTime ( )
-
-Returns the current time spent in the game. It is counted off starting from the world loading and does not take game pauses into account.
-### Return value
-
-Time in seconds.
-## vec4 engine.game. getRandomColor ( )
-
-Returns a random generated color vector: (R, G, B, A).
-### Return value
-
-Four-component [vec4](../../../api/library/math/class.vec4_usc.md) vector representing a color: (R, G, B, A).
-## void engine.game. setPlayerListener ( Player listener )
-
-Sets the player as listener.
-### Arguments
-
-- *[Player](../../../api/library/players/class.player_usc.md)* **listener** - Player to be set as listener.
-
-## Player engine.game. getPlayerListener ( )
-
-Returns the player which is currently the listener.
-### Return value
-
-The player that is set as listener.

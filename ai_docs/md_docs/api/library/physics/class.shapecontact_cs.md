@@ -22,13 +22,13 @@ The first shape participating in the contact.
 The normal coordinates at the contact point.
 ## vec3 Point
 
-The coordinates of the contact point.
+The coordinates of the contact point, in world coordinates.
 ## float Depth
 
-The penetration depth of the contact. this distance is measured along the contact [normal](#getNormal_vec3).
+The penetration depth of the contact. This distance is measured along the contact [normal](#getNormal_vec3).
 ## float Time
 
-The time when the contact occurs. in case of ccd (for spheres or capsules), it returns the time starting from the current physics simulation tick to the moment when the calculated contact is bound to happen. in case of non-continuous collision detection, 0 is always returned.
+The time when the contact occurs. In case of [CCD](../../../api/library/physics/class.shape_cs.md#isContinuous_int), it returns the time starting from the current physics simulation tick to the moment when the calculated contact is bound to happen. In case of non-continuous collision detection, 0 is always returned.
 ## int Surface
 
 The contact surface number.

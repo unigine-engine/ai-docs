@@ -6,7 +6,7 @@
 Interface for path loading, manipulating and saving.
 
 
-The **path** is a spline along which an object can be moved. Such splines can be created, for example, in 3ds Max and then [exported](../../../tools/plugins/3dsmax/index.md#path_export) to a `*.path` file. Or, they can be created in the code by means of the *Path* class and then saved to the `*.path` file.
+The **path** is a spline along which an object can be moved. Such splines can be created, for example, in 3ds Max and then exported to a `*.path` file. Or, they can be created in the code by means of the *Path* class and then saved to the `*.path` file.
 
 
 > **Warning:** There is no connection between functions of the *Path* class and pathfinding-related functions.
@@ -60,11 +60,11 @@ Constructor. Creates an empty path of the specified name.
 
 ## vec3 getAngularVelocity ( float time , int loop = 0 )
 
- Returns the angular velocity of the object moving along the path at the specified time.  If the path is non-looped and the specified time is bigger than the current path time, the last path position will be returned.  If the path is looped, several loops can be used to count off time.
+Returns the angular velocity of the object moving along the path at the specified time. If the path is non-looped and the specified time is bigger than the current path time, the last path position will be returned. If the path is looped, several loops can be used to count off time.
 ### Arguments
 
 - *float* **time** - Time in seconds.
-- *int* **loop** - Flag indicating if the path is close.
+- *int* **loop** - Flag indicating if the path is looped. The default is 0 (path isn't looped).
 
 ### Return value
 
@@ -181,59 +181,59 @@ Returns the transformation matrix of the path frame.
 Frame transformation matrix.
 ## Vec3 getLinearVelocity ( float time , int loop = 0 )
 
- Returns the linear velocity of the object moving along the path at the specified time. If the path is non-looped and the specified time is bigger than the current path time, the last path position will be returned.  If the path is looped, several loops can be used to count off time.
+Returns the linear velocity of the object moving along the path at the specified time. If the path is non-looped and the specified time is bigger than the current path time, the last path position will be returned. If the path is looped, several loops can be used to count off time.
 ### Arguments
 
 - *float* **time** - Time in seconds.
-- *int* **loop** - Flag indicating if the path is looped.
+- *int* **loop** - Flag indicating if the path is looped. The default is 0 (path isn't looped).
 
 ### Return value
 
 Linear velocity. If the amount of frames is equal to 0 or 1, the function returns the (0,0,0) vector.
 ## Vec3 getPosition ( float time , int loop = 0 )
 
- Returns the position of the object moving along the path at the specified time. If the path transformation is non-looped and the specified time is bigger than path transformation, the last path position will be returned.  If the path transformation is looped, several loops can be used to count off time.
+Returns the position of the object moving along the path at the specified time. If the path transformation is non-looped and the specified time is bigger than path transformation, the last path position will be returned. If the path transformation is looped, several loops can be used to count off time.
 ### Arguments
 
 - *float* **time** - Time in seconds.
-- *int* **loop** - Flag indicating if the path is looped.
+- *int* **loop** - Flag indicating if the path is looped. The default is 0 (path isn't looped).
 
 ### Return value
 
-Object position coordinates.
+Object position coordinates at the specified time.
 ## quat getRotation ( float time , int loop = 0 )
 
- Returns the rotation of the object moving along the path at the specified time. If the path is non-looped and the specified time is bigger than the current path time, the last path position will be returned.  If the path is looped, several loops can be used to count off time.
+Returns the rotation of the object moving along the path at the specified time. If the path is non-looped and the specified time is bigger than the current path time, the last path position will be returned. If the path is looped, several loops can be used to count off time.
 ### Arguments
 
 - *float* **time** - Time in seconds.
-- *int* **loop** - Flag indicating if the path is looped.
+- *int* **loop** - Flag indicating if the path is looped. The default is 0 (path isn't looped).
 
 ### Return value
 
-Object rotation.
+Object rotation at the specified time.
 ## vec3 getScale ( float time , int loop = 0 )
 
- Returns the scale of the object moving along the path at the specified time. If the path is non-looped and the specified time is bigger than the current path transformation, the last path position will be returned.  If the path is looped, several loops can be used to count off time.
+Returns the scale of the object moving along the path at the specified time. If the path is non-looped and the specified time is bigger than the current path transformation, the last path position will be returned. If the path is looped, several loops can be used to count off time.
 ### Arguments
 
 - *float* **time** - Time in seconds.
-- *int* **loop** - Flag indicating if the path is looped.
+- *int* **loop** - Flag indicating if the path is looped. The default is 0 (path isn't looped).
 
 ### Return value
 
-Object scale.
+Object scale at the specified time.
 ## Mat4 getTransform ( float time , int loop = 0 )
 
- Returns the transformation of the object moving along the path at the specified time.  If the path is non-looped and the specified time is bigger than the current path time, the last path position will be returned.  If the path is looped, several loops can be used to count off time.
+Returns the transformation of the object moving along the path at the specified time. If the path is non-looped and the specified time is bigger than the current path time, the last path position will be returned. If the path is looped, several loops can be used to count off time.
 ### Arguments
 
 - *float* **time** - Time in seconds.
-- *int* **loop** - Flag indicating if the path is looped.
+- *int* **loop** - Flag indicating if the path is looped. The default is 0 (path isn't looped).
 
 ### Return value
 
-Object transformation matrix.
+Object transformation matrix at the specified time.
 ## int addFrame ( )
 
 Creates a new frame and appends it to the array of path frames.
@@ -258,7 +258,7 @@ Loads the path with the given name and *.path extension.
 Removes the specified frame.
 ### Arguments
 
-- *int* **num** - The frame number.
+- *int* **num** - Frame number.
 
 ## int save ( string name )
 

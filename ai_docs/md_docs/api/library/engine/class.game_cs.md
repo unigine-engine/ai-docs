@@ -13,7 +13,7 @@ This class contains functions to control the game logic of the application. It p
 ### Usage Example
 
 
-The example below creates a PlayerSpectator and sets it as the active Engine Camera. The player is rotated around Y axis with the specified speed, which is set via *[setScale()](#setScale_float_void)*:
+The example below creates a *PlayerSpectator* and sets it as the active Engine Camera. The player is rotated around Y axis with the specified speed, which is set via *[setScale()](#setScale_float_void)*:
 
 
 - Pressing F slows down the game logic, so player's rotation slows down too.
@@ -76,7 +76,7 @@ private void Update()
 
 ## Player Player
 
-The current player assigned to the *Engine Camera* viewport.
+The player assigned to the *Engine Camera* viewport.
 ```csharp
 Vec3 p0, p1;
 
@@ -107,19 +107,34 @@ player.GetDirectionFromScreen(out p0, out p1, mouse_x, mouse_y, 0, 0, main_size.
 
 ## Player PlayerListener
 
-The player that is set as listener.
+The *Player* used as sound listener.
 ## int Seed
 
 The seed for pseudo-random number generator.
 ## float Time
 
-The current time spent in the game. it is counted off starting from the world loading and does not take game pauses into account.
+The time spent in the game. The time is measured off starting from the world loading and does not take game pauses into account.
 ## float Scale
 
-The value used to scale the frame duration.
+The value used to scale frame duration.
+It scales up or down the speed of rendering, physics and game logic. This function can be used to create effects of slow/accelerated motion.
+
+
+For example, if the scale equals **2**, the rate of simulation of all effects (such as particles) speeds up to two times faster. As for physics, in reality it will be simulated with the same fixed physics FPS, but the number of iterations will be two times higher. It is possible to scale the physics FPS separately via **[Physics.Scale](../../../api/library/physics/class.physics_cs.md#setScale_float_void)**.
+
+
+This function scales the value set by the **[IFps](../../...md#setIFps_float_void)**.
+
+
 ## float IFps
 
-The [scaled](#setScale_float_void) inverse FPS value (the time in seconds it took to complete the last frame). This value does not depend on the real FPS the hardware is capable of. -1 means no Inverse FPS value is set.
+The [scaled](#setScale_float_void) inverse FPS value (the time in seconds it took to complete the last frame).
+This value does not depend on the real FPS the hardware is capable of. It enables you to force constant frame time increments between rendered frames, used for animation/expression update etc. Setting -1 removes the FPS limitation. Getting **0** means the game is paused.
+
+
+This value is useful when grabbing a video reel with a fixed FPS value (for example, 25 frames per second).
+
+
 ```csharp
 Node node;
 // ...
@@ -150,10 +165,13 @@ loading_frames = Game.Frame - loading_frames;
 
 ## string Data
 
-The user data associated with the game logic. this string is written directly into a `*.world` file. Namely, into the *data* child tag of the *game* tag, for example:
+The user data associated with the game logic.
+Data can contain an XML formatted string. This string is written directly into a `*.world` file. Namely, into the *data* child tag of the *game* tag, for example:
+
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<world version="2.16.0.2">
+<world version="2.21.0.0">
 
 	<game>
 		<data>User data</data>
@@ -170,7 +188,7 @@ The user data associated with the game logic. this string is written directly in
 The value indicating if the game is paused or not.
 ## 🔒︎ vec4 RandomColor
 
-The random generated color vector: (r, g, b, a).
+The random generated color vector: (R, G, B, A).
 ## 🔒︎ uint Random
 
 The pseudo-random unsigned integer number.
@@ -180,7 +198,10 @@ The pseudo-random unsigned integer number.
 
 ## Obstacle GetIntersection ( vec3 p0 , vec3 p1 , float radius , int mask , Node [] exclude , vec3[] OUT_intersection )
 
-Performs intersection to find if a pathfinding Obstacle is located within the cylinder between two points. The specified obstacles will be ignored.
+Performs intersection search to find if a pathfinding Obstacle is located within the cylinder between two specified points.
+The specified obstacles will be ignored.
+
+
 > **Notice:** World space coordinates are used for this function.
 
 
@@ -192,7 +213,7 @@ Performs intersection to find if a pathfinding Obstacle is located within the cy
 - *vec3* **p0** - Start point.
 - *vec3* **p1** - End point.
 - *float* **radius** - Radius of the intersection cylinder.
-- *int* **mask** - Obstacle intersection mask. The obstacle is ignored if its mask does not match.
+- *int* **mask** - Obstacle *Intersection* mask. The obstacle is ignored if its mask does not match.
 - *[Node](../../../api/library/nodes/class.node_cs.md)[]* **exclude** - Array with excluded obstacles. These obstacle nodes are ignored when performing intersection.
 - *vec3[]* **OUT_intersection** - Intersection point. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
 
@@ -202,7 +223,7 @@ Intersected obstacle.
 ## Obstacle GetIntersection ( vec3 p0 , vec3 p1 , float radius , int mask , GameIntersection intersection )
 
 
-Performs intersection to find if a pathfinding obstacle is located within the cylinder between two points.
+Performs an intersection search to determine whether a pathfinding obstacle is located within the cylinder defined by two specified points.
 
 
 > **Notice:** World space coordinates are used for this function.
@@ -250,7 +271,7 @@ player.GetDirectionFromScreen(out p0, out p1, 0, 0, mouse_x, mouse_y, main_size.
 GameIntersection intersection = new GameIntersection();
 
 // try to get the intersection with an obstacle
-// cylinder has radius 1.5f, intersection mask equals to 1
+// cylinder has radius 1.5f, Intersection mask equals to 1
 Obstacle obstacle = Game.GetIntersection(p0, p1, 1.5f, 1, intersection);
 
 // check, if the intersection of mouse direction with any obstacle was occurred;
@@ -270,7 +291,7 @@ if (obstacle != null)
 - *vec3* **p0** - Start point.
 - *vec3* **p1** - End point.
 - *float* **radius** - Radius of the intersection cylinder.
-- *int* **mask** - Obstacle intersection mask. The obstacle is ignored if its mask does not match.
+- *int* **mask** - Obstacle *Intersection* mask. The obstacle is ignored if its mask does not match.
 - *[GameIntersection](../../../api/library/engine/class.gameintersection_cs.md)* **intersection** - [GameIntersection](../../../api/library/engine/class.gameintersection_cs.md) class instance to put the result into.
 
 ### Return value
@@ -314,7 +335,7 @@ Returns a 3D noise value calculated using a Perlin noise function.
 3D noise value.
 ## double GetRandomDouble ( double from , double to )
 
-Returns a pseudo-random double number within a given range (end-point not included).
+Returns a pseudo-random *double* number within a given range (end-point not included).
 ### Arguments
 
 - *double* **from** - The initial point of the range.
@@ -322,10 +343,10 @@ Returns a pseudo-random double number within a given range (end-point not includ
 
 ### Return value
 
-Random double integer number.
+Random *double* integer number.
 ## float GetRandomFloat ( float from , float to )
 
-Returns a pseudo-random float number within a given range (end-point not included).
+Returns a pseudo-random *float* number within a given range (end-point not included).
 ### Arguments
 
 - *float* **from** - The initial point of the range.
@@ -333,7 +354,7 @@ Returns a pseudo-random float number within a given range (end-point not include
 
 ### Return value
 
-Random float number.
+Random *float* number.
 ## int GetRandomInt ( int from , int to )
 
 Returns a pseudo-random integer number within a given range (end-point not included).
@@ -352,19 +373,6 @@ Returns the array of pointers to players that are set as [main players](../../..
 
 - *[Player](../../../api/library/players/class.player_cs.md)[]* **players** - Array of pointers to main players.
 
-## void SetPlayerListener ( Player listener )
-
-Sets the player as listener.
-### Arguments
-
-- *[Player](../../../api/library/players/class.player_cs.md)* **listener** - Player to be set as listener.
-
-## Player GetPlayerListener ( )
-
-Returns the player which is currently the listener.
-### Return value
-
-The player that is set as listener.
 ## void GetListeners ( Player [] OUT_players )
 
 Adds all potential listeners to the specified array.

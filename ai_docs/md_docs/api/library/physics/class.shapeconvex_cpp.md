@@ -25,8 +25,6 @@ UnigineScript samples:
 
 ## ShapeConvex Class
 
-### Members
-
 ---
 
 ## static ShapeConvexPtr create ( )

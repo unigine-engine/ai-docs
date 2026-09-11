@@ -15,7 +15,7 @@ This class contains functions to control the game logic of the application. It p
 ### Usage Example
 
 
-The example below creates a PlayerSpectator and sets it as the active Engine Camera. The player is rotated around Y axis with the specified speed, which is set via *[setScale()](#setScale_float_void)*:
+The example below creates a *PlayerSpectator* and sets it as the active Engine Camera. The player is rotated around Y axis with the specified speed, which is set via *[setScale()](#setScale_float_void)*:
 
 
 - Pressing F slows down the game logic, so player's rotation slows down too.
@@ -98,79 +98,61 @@ int AppWorldLogic::shutdown()
 
 ### Members
 
----
+## void setPlayer ( const const Ptr < Player > && player )
 
-## void setData ( const char * data )
-
-Sets user data associated with the game logic. This string is written directly into a `*.world` file. Namely, into the *data* child tag of the *game* tag, for example:
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<world version="2.16.0.2">
-
-	<game>
-		<data>User data</data>
-	</game>
-
-</world>
-
-
-```
-
-
-### Arguments
-
-- *const char ** **data** - User data. Data can contain an XML formatted string.
-
-## const char * getData ( ) const
-
-Returns user data associated with the game logic. This string is written directly into a `*.world` file. Namely, into the *data* child tag of the *game* tag, for example:
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<world version="2.16.0.2">
-
-	<game>
-		<data>User data</data>
-	</game>
-
-</world>
-
-
-```
-
-
-### Return value
-
-User data. Data can contain an XML formatted string.
-## void setEnabled ( bool enabled )
-
-Pauses or resumes the game logic.
-### Arguments
-
-- *bool* **enabled** - **1** to resume the game logic, **0** to pause it.
-
-## bool isEnabled ( ) const
-
-Returns a value indicating if the game is paused or not.
-### Return value
-
-true if the game logic is not paused; otherwise, false.
-## void setFrame ( int frame )
-
-Sets the game frame with the given number as the current one.
-### Arguments
-
-- *int* **frame** - Frame number.
-
-## int getFrame ( ) const
-
-Returns the number of the current game frame.
+Sets a new player assigned to the *Engine Camera* viewport.
 ```cpp
-// get the current game frame
-int loading_frames = Game::getFrame();
-// perform asynchronous nodes loading
-// ...
-// calculate the number of game frames required for nodes loading
-loading_frames = Game::getFrame() - loading_frames;
+Vec3 p0, p1;
+
+// get the current player (camera)
+PlayerPtr player = Game::getPlayer();
+
+if (player.get() == NULL)
+	return 0;
+
+// get width and height of the current application window's client area
+Math::ivec2 winsize = WindowManager::getMainWindow()->getClientSize();
+int width = winsize.x;
+int height = winsize.y;
+
+// get the current X and Y coordinates of the mouse pointer
+int mouse_x = Gui::getCurrent()->getMouseX();
+int mouse_y = Gui::getCurrent()->getMouseY();
+
+// get the mouse direction from the player's position (p0) to the mouse cursor pointer (p1)
+player->getDirectionFromScreen(p0, p1, mouse_x, mouse_y, 0, 0, width, height);
+
+
+```
+
+
+### Arguments
+
+- *const const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Player](../../../api/library/players/class.player_cpp.md)> &&* **player** - The
+
+## const Ptr < Player > & getPlayer () const
+
+Returns the current player assigned to the *Engine Camera* viewport.
+```cpp
+Vec3 p0, p1;
+
+// get the current player (camera)
+PlayerPtr player = Game::getPlayer();
+
+if (player.get() == NULL)
+	return 0;
+
+// get width and height of the current application window's client area
+Math::ivec2 winsize = WindowManager::getMainWindow()->getClientSize();
+int width = winsize.x;
+int height = winsize.y;
+
+// get the current X and Y coordinates of the mouse pointer
+int mouse_x = Gui::getCurrent()->getMouseX();
+int mouse_y = Gui::getCurrent()->getMouseY();
+
+// get the mouse direction from the player's position (p0) to the mouse cursor pointer (p1)
+player->getDirectionFromScreen(p0, p1, mouse_x, mouse_y, 0, 0, width, height);
 
 
 ```
@@ -178,20 +160,112 @@ loading_frames = Game::getFrame() - loading_frames;
 
 ### Return value
 
-Frame number.
+Current
+## void setPlayerListener ( const const Ptr < Player > && listener )
+
+Sets a new *Player* used as sound listener.
+### Arguments
+
+- *const const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Player](../../../api/library/players/class.player_cpp.md)> &&* **listener** - The *Player* used as sound listener.
+
+## const Ptr < Player > & getPlayerListener () const
+
+Returns the current *Player* used as sound listener.
+### Return value
+
+Current *Player* used as sound listener.
+## void setSeed ( int seed )
+
+Sets a new seed for pseudo-random number generator.
+### Arguments
+
+- *int* **seed** - The number used to initialize a pseudo-random sequence of numbers.
+
+## int getSeed () const
+
+Returns the current seed for pseudo-random number generator.
+### Return value
+
+Current number used to initialize a pseudo-random sequence of numbers.
+## void setTime ( float time )
+
+Sets a new time spent in the game. The time is measured off starting from the world loading and does not take game pauses into account.
+### Arguments
+
+- *float* **time** - The time, in seconds.
+
+## float getTime () const
+
+Returns the current time spent in the game. The time is measured off starting from the world loading and does not take game pauses into account.
+### Return value
+
+Current time, in seconds.
+## void setScale ( float scale )
+
+Sets a new value used to scale frame duration.
+It scales up or down the speed of rendering, physics and game logic. This function can be used to create effects of slow/accelerated motion.
+
+
+For example, if the scale equals **2**, the rate of simulation of all effects (such as particles) speeds up to two times faster. As for physics, in reality it will be simulated with the same fixed physics FPS, but the number of iterations will be two times higher. It is possible to scale the physics FPS separately via **[Physics::setScale()](../../../api/library/physics/class.physics_cpp.md#setScale_float_void)**.
+
+
+This function scales the value set by the **[setIFps()](../../...md#setIFps_float_void)**.
+
+
+### Arguments
+
+- *float* **scale** - The value used to scale the frame duration. The provided value is clamped within the range [0;32].
+
+## float getScale () const
+
+Returns the current value used to scale frame duration.
+It scales up or down the speed of rendering, physics and game logic. This function can be used to create effects of slow/accelerated motion.
+
+
+For example, if the scale equals **2**, the rate of simulation of all effects (such as particles) speeds up to two times faster. As for physics, in reality it will be simulated with the same fixed physics FPS, but the number of iterations will be two times higher. It is possible to scale the physics FPS separately via **[Physics::setScale()](../../../api/library/physics/class.physics_cpp.md#setScale_float_void)**.
+
+
+This function scales the value set by the **[setIFps()](../../...md#setIFps_float_void)**.
+
+
+### Return value
+
+Current value used to scale the frame duration. The provided value is clamped within the range [0;32].
 ## void setIFps ( float ifps )
 
-Sets the [scaled](#setScale_float_void) inverse FPS value (the time in seconds it took to complete the last frame). This function sets a fixed FPS that does not depend on the real FPS the hardware is capable of. That is, it forces constant frame time increments between rendered frames, used for animation/expression update etc. To remove the FPS limitation, use -1.
-The function is useful when grabbing the video reel with a fixed FPS value (for example, 25 frames per second).
+Sets a new [scaled](#setScale_float_void) inverse FPS value (the time in seconds it took to complete the last frame).
+This value does not depend on the real FPS the hardware is capable of. It enables you to force constant frame time increments between rendered frames, used for animation/expression update etc. Setting -1 removes the FPS limitation. Getting **0** means the game is paused.
+
+
+This value is useful when grabbing a video reel with a fixed FPS value (for example, 25 frames per second).
+
+
+```cpp
+NodePtr node;
+// ...
+// get an inverse FPS value
+float ifps = Game::getIFps();
+
+// move the node up by 0.1 unit every second instead of every frame
+node->worldTranslate(Math::Vec3(0.0f, 0.0f, 0.1f * ifps));
+
+
+```
 
 
 ### Arguments
 
-- *float* **ifps** - Inverse FPS value (1/FPS) in seconds.**-1** removes the FPS limitation.
+- *float* **ifps** - The inverse FPS value (1/FPS) in seconds.**-1** means that FPS limitation is removed.
 
-## float getIFps ( ) const
+## float getIFps () const
 
-Returns the [scaled](#setScale_float_void) inverse FPS value (the time in seconds it took to complete the last frame). This value does not depend on the real FPS the hardware is capable of. -1 means no Inverse FPS value is set.
+Returns the current [scaled](#setScale_float_void) inverse FPS value (the time in seconds it took to complete the last frame).
+This value does not depend on the real FPS the hardware is capable of. It enables you to force constant frame time increments between rendered frames, used for animation/expression update etc. Setting -1 removes the FPS limitation. Getting **0** means the game is paused.
+
+
+This value is useful when grabbing a video reel with a fixed FPS value (for example, 25 frames per second).
+
+
 ```cpp
 NodePtr node;
 // ...
@@ -207,10 +281,124 @@ node->worldTranslate(Math::Vec3(0.0f, 0.0f, 0.1f * ifps));
 
 ### Return value
 
-Scaled inverse FPS value (1/FPS) in seconds. If the game is paused, **0** is returned.
+Current inverse FPS value (1/FPS) in seconds.**-1** means that FPS limitation is removed.
+## void setFrame ( int frame )
+
+Sets a new number of the current game frame.
+```cpp
+// get the current game frame
+int loading_frames = Game::getFrame();
+// perform asynchronous nodes loading
+// ...
+// calculate the number of game frames required for nodes loading
+loading_frames = Game::getFrame() - loading_frames;
+
+
+```
+
+
+### Arguments
+
+- *int* **frame** - The number of the current game frame.
+
+## int getFrame () const
+
+Returns the current number of the current game frame.
+```cpp
+// get the current game frame
+int loading_frames = Game::getFrame();
+// perform asynchronous nodes loading
+// ...
+// calculate the number of game frames required for nodes loading
+loading_frames = Game::getFrame() - loading_frames;
+
+
+```
+
+
+### Return value
+
+Current number of the current game frame.
+## void setData ( const char * data )
+
+Sets a new user data associated with the game logic.
+Data can contain an XML formatted string. This string is written directly into a `*.world` file. Namely, into the *data* child tag of the *game* tag, for example:
+
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<world version="2.21.0.0">
+
+	<game>
+		<data>User data</data>
+	</game>
+
+</world>
+
+
+```
+
+
+### Arguments
+
+- *const char ** **data** - The
+
+## const char * getData () const
+
+Returns the current user data associated with the game logic.
+Data can contain an XML formatted string. This string is written directly into a `*.world` file. Namely, into the *data* child tag of the *game* tag, for example:
+
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<world version="2.21.0.0">
+
+	<game>
+		<data>User data</data>
+	</game>
+
+</world>
+
+
+```
+
+
+### Return value
+
+Current
+## void setEnabled ( bool enabled )
+
+Sets a new value indicating if the game is paused or not.
+### Arguments
+
+- *bool* **enabled** - true if the game logic is not paused; otherwise, false.
+
+## bool isEnabled () const
+
+Returns the current value indicating if the game is paused or not.
+### Return value
+
+true if the game logic is not paused; otherwise, false.
+## Math:: vec4 getRandomColor () const
+
+Returns the current random generated color vector: (R, G, B, A).
+### Return value
+
+Current random four-component [vec4](../../../api/library/math/class.vec4_cpp.md) vector representing a color: (R, G, B, A).
+## unsigned int getRandom () const
+
+Returns the current pseudo-random unsigned integer number.
+### Return value
+
+Current pseudo-random unsigned integer number.
+---
+
 ## Ptr < Obstacle > getIntersection ( Vec3 p0 , Vec3 p1 , float radius , int mask , const Vector < Ptr < Node >> & exclude , Math:: Vec3 * OUT_intersection )
 
-Performs intersection to find if a pathfinding Obstacle is located within the cylinder between two points. The specified obstacles will be ignored.
+Performs intersection search to find if a pathfinding Obstacle is located within the cylinder between two specified points.
+The specified obstacles will be ignored.
+
+
 > **Notice:** World space coordinates are used for this function.
 
 
@@ -222,7 +410,7 @@ Performs intersection to find if a pathfinding Obstacle is located within the cy
 - *[Vec3](../../../api/library/math/class.vec3_cpp.md)* **p0** - Start point.
 - *[Vec3](../../../api/library/math/class.vec3_cpp.md)* **p1** - End point.
 - *float* **radius** - Radius of the intersection cylinder.
-- *int* **mask** - Obstacle intersection mask. The obstacle is ignored if its mask does not match.
+- *int* **mask** - Obstacle *Intersection* mask. The obstacle is ignored if its mask does not match.
 - *const [Vector](../../../api/library/containers/vector/class.vector_cpp.md)<[Ptr](../../../api/library/common/class.ptr_cpp.md)<[Node](../../../api/library/nodes/class.node_cpp.md)>> &* **exclude** - Array with excluded obstacles. These obstacle nodes are ignored when performing intersection.
 - *Math::[Vec3](../../../api/library/math/class.vec3_cpp.md) ** **OUT_intersection** - Intersection point. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
 
@@ -232,7 +420,7 @@ Intersected obstacle.
 ## Ptr < Obstacle > getIntersection ( Vec3 p0 , Vec3 p1 , float radius , int mask , const Ptr < GameIntersection > & intersection )
 
 
-Performs intersection to find if a pathfinding obstacle is located within the cylinder between two points.
+Performs an intersection search to determine whether a pathfinding obstacle is located within the cylinder defined by two specified points.
 
 
 > **Notice:** World space coordinates are used for this function.
@@ -242,6 +430,7 @@ Performs intersection to find if a pathfinding obstacle is located within the cy
 
 
 The following example shows how you can get the intersection point (vec3) of the cylinder between two points with an obstacle. In this example we specify a cylinder from the point of the camera (vec3 p0) to the point of the mouse pointer (vec3 p1) with the specified radius. The executing sequence is the following:
+
 
 1. Define and initialize two points (p0 and p1) by using the *[Player::getDirectionFromScreen()](../../../api/library/players/class.player_cpp.md#getDirectionFromScreen_Vec3_Vec3_int_int_int_int_int_int_void)*.
 2. Create an instance of the GameIntersection class to get the intersection point coordinates.
@@ -279,7 +468,7 @@ player->getDirectionFromScreen(p0, p1, 0, 0, mouse_x, mouse_y, main_size.x, main
 GameIntersectionPtr intersection = GameIntersection::create();
 
 // try to get the intersection with an obstacle
-// cylinder has radius 1.5f, intersection mask equals to 1
+// cylinder has radius 1.5f, Intersection mask equals to 1
 ObstaclePtr obstacle = Game::getIntersection(p0, p1, 1.5f, 1, intersection);
 
 // check if the intersection of mouse direction with any obstacle has occurred
@@ -299,7 +488,7 @@ if (obstacle)
 - *[Vec3](../../../api/library/math/class.vec3_cpp.md)* **p0** - Start point.
 - *[Vec3](../../../api/library/math/class.vec3_cpp.md)* **p1** - End point.
 - *float* **radius** - Radius of the intersection cylinder.
-- *int* **mask** - Obstacle intersection mask. The obstacle is ignored if its mask does not match.
+- *int* **mask** - Obstacle *Intersection* mask. The obstacle is ignored if its mask does not match.
 - *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[GameIntersection](../../../api/library/engine/class.gameintersection_cpp.md)> &* **intersection** - [GameIntersection](../../../api/library/engine/class.gameintersection_cpp.md) class instance to put the result into.
 
 ### Return value
@@ -341,66 +530,9 @@ Returns a 3D noise value calculated using a Perlin noise function.
 ### Return value
 
 3D noise value.
-## void setPlayer ( const Ptr < Player > & player )
-
-Assigns a new player to the *Engine Camera* viewport.
-```cpp
-// create a new player
-PlayerDummyPtr player = PlayerDummy::create();
-// set necessary parameters
-player->setFov(60.0f);
-player->setWorldPosition(Math::Vec3(-1.0f, -1.0f, 1.0f));
-// set the player to the Game singleton instance
-Game::setPlayer(player);
-
-
-```
-
-
-### Arguments
-
-- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Player](../../../api/library/players/class.player_cpp.md)> &* **player** - Player to set as a current one.
-
-## Ptr < Player > getPlayer ( ) const
-
-Returns the current player assigned to the *Engine Camera* viewport.
-```cpp
-Vec3 p0, p1;
-
-// get the current player (camera)
-PlayerPtr player = Game::getPlayer();
-
-if (player.get() == NULL)
-	return 0;
-
-// get width and height of the current application window's client area
-Math::ivec2 winsize = WindowManager::getMainWindow()->getClientSize();
-int width = winsize.x;
-int height = winsize.y;
-
-// get the current X and Y coordinates of the mouse pointer
-int mouse_x = Gui::getCurrent()->getMouseX();
-int mouse_y = Gui::getCurrent()->getMouseY();
-
-// get the mouse direction from the player's position (p0) to the mouse cursor pointer (p1)
-player->getDirectionFromScreen(p0, p1, mouse_x, mouse_y, 0, 0, width, height);
-
-
-```
-
-
-### Return value
-
-Current player.
-## unsigned int getRandom ( ) const
-
-Returns a pseudo-random unsigned integer number.
-### Return value
-
-Random unsigned integer number.
 ## double getRandomDouble ( double from , double to )
 
-Returns a pseudo-random double number within a given range (end-point not included).
+Returns a pseudo-random *double* number within a given range (end-point not included).
 ### Arguments
 
 - *double* **from** - The initial point of the range.
@@ -408,10 +540,10 @@ Returns a pseudo-random double number within a given range (end-point not includ
 
 ### Return value
 
-Random double integer number.
+Random *double* integer number.
 ## float getRandomFloat ( float from , float to )
 
-Returns a pseudo-random float number within a given range (end-point not included).
+Returns a pseudo-random *float* number within a given range (end-point not included).
 ### Arguments
 
 - *float* **from** - The initial point of the range.
@@ -419,7 +551,7 @@ Returns a pseudo-random float number within a given range (end-point not include
 
 ### Return value
 
-Random float number.
+Random *float* number.
 ## int getRandomInt ( int from , int to )
 
 Returns a pseudo-random integer number within a given range (end-point not included).
@@ -431,54 +563,6 @@ Returns a pseudo-random integer number within a given range (end-point not inclu
 ### Return value
 
 Random integer number.
-## void setScale ( float scale )
-
-
-Sets a value that is used to scale frame duration. It scales up or down the speed of rendering, physics and game logic. This function can be used to create effects of slow/accelerated motion.
-
-
-For example, if the scale equals **2**, the rate of simulation of all effects (such as particles) speeds up to two times faster. As for physics, in reality it will be simulated with the same fixed physics FPS, but the number of iterations will be two times higher. It is possible to scale the physics FPS separately via [*engine.physics.setScale()*](../../../api/library/physics/class.physics_cpp.md#setScale_float_void) function.
-
-
-This function scales the value set by the [*setIFps()*](#setIFps_float_void).
-
-
-### Arguments
-
-- *float* **scale** - Scaling factor. The provided values is clamped within the range **[0;32]**.
-
-## float getScale ( ) const
-
-Returns a value used to scale the frame duration.
-### Return value
-
-Value to scale the frame duration.
-## void setSeed ( int seed )
-
-Sets the seed for pseudo-random number generator.
-### Arguments
-
-- *int* **seed** - Number used to initialize a pseudo-random sequence of numbers.
-
-## int getSeed ( ) const
-
-Returns the seed for pseudo-random number generator.
-### Return value
-
-Number used to initialize a pseudo-random sequence of numbers.
-## void setTime ( float time )
-
-Sets the time value for the game. The time is counted off starting from the world loading and does not take game pauses into account.
-### Arguments
-
-- *float* **time** - Time in seconds.
-
-## float getTime ( ) const
-
-Returns the current time spent in the game. It is counted off starting from the world loading and does not take game pauses into account.
-### Return value
-
-Time in seconds.
 ## void getMainPlayers ( const Vector < Ptr < Player > > & players )
 
 Returns the array of pointers to players that are set as [main players](../../../api/library/players/class.player_cpp.md#setMainPlayer_int_void).
@@ -486,25 +570,6 @@ Returns the array of pointers to players that are set as [main players](../../..
 
 - *const [Vector](../../../api/library/containers/vector/class.vector_cpp.md)< [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Player](../../../api/library/players/class.player_cpp.md)> > &* **players** - Array of pointers to main players.
 
-## Math:: vec4 getRandomColor ( ) const
-
-Returns a random generated color vector: (R, G, B, A).
-### Return value
-
-Four-component [vec4](../../../api/library/math/class.vec4_cpp.md) vector representing a color: (R, G, B, A).
-## void setPlayerListener ( const Ptr < Player > & listener )
-
-Sets the player as listener.
-### Arguments
-
-- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Player](../../../api/library/players/class.player_cpp.md)> &* **listener** - Player to be set as listener.
-
-## Ptr < Player > getPlayerListener ( ) const
-
-Returns the player which is currently the listener.
-### Return value
-
-The player that is set as listener.
 ## void getListeners ( Vector < Ptr < Player > > & OUT_players )
 
 Adds all potential listeners to the specified array.

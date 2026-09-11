@@ -34,10 +34,10 @@ The checkbox text label.
 The value indicating if the checkbox is selected.
 ## vec4 UncheckedColor
 
-The four-component vector specifying the color in the RGBA format.
+The color of the checkbox flag in the unchecked state.
 ## vec4 CheckedColor
 
-The four-component vector specifying the color in the RGBA format.
+The color of the checkbox flag in the checked state.
 ### Members
 
 ---

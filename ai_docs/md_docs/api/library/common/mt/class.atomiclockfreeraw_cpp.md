@@ -8,6 +8,7 @@ AtomicLockFreeRaw<Type> is a low-level, lock-free atomic implementation used whe
 
 **Template Parameters:**
 
+
 - **Type** - The type of the stored value.
 - Internally, the data is stored as **RawType**, derived from getRawType<**Type**> to match the underlying binary representation.
 

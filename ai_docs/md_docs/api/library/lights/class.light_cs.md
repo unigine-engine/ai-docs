@@ -12,21 +12,23 @@ This base class is used to create light sources and shadows from them. The light
 
 ## SHADOW_RESOLUTION
 
+Resolution of the shadow map created for the light source. The higher the resolution, the smoother and more true to life the shadows, at the cost of higher memory consumption.
 | Name | Description |
 |---|---|
-| **MODE_DEFAULT** = -1 | Default shadow map resolution (512×512). |
-| **MODE_64** = MODE_DEFAULT + 1 | Shadow map resolution equals 64×64. |
-| **MODE_128** = MODE_64 + 1 | Shadow map resolution equals 128×128. |
-| **MODE_256** = MODE_128 + 1 | Shadow map resolution equals 256×256. |
-| **MODE_512** = MODE_256 + 1 | Shadow map resolution equals 512×512. |
-| **MODE_1024** = MODE_512 + 1 | Shadow map resolution equals 1024×1024. |
-| **MODE_2048** = MODE_1024 + 1 | Shadow map resolution equals 2048×2048. |
-| **MODE_4096** = MODE_2048 + 1 | Shadow map resolution equals 4096×4096. |
-| **MODE_8192** = MODE_4096 + 1 | Shadow map resolution equals 8192×8192. |
-| **MODE_16384** = MODE_8192 + 1 | Shadow map resolution equals 16384×16384. |
+| **MODE_DEFAULT** = -1 | Default shadow map resolution (512�512). |
+| **MODE_64** = MODE_DEFAULT + 1 | Shadow map resolution equals 64�64. |
+| **MODE_128** = MODE_64 + 1 | Shadow map resolution equals 128�128. |
+| **MODE_256** = MODE_128 + 1 | Shadow map resolution equals 256�256. |
+| **MODE_512** = MODE_256 + 1 | Shadow map resolution equals 512�512. |
+| **MODE_1024** = MODE_512 + 1 | Shadow map resolution equals 1024�1024. |
+| **MODE_2048** = MODE_1024 + 1 | Shadow map resolution equals 2048�2048. |
+| **MODE_4096** = MODE_2048 + 1 | Shadow map resolution equals 4096�4096. |
+| **MODE_8192** = MODE_4096 + 1 | Shadow map resolution equals 8192�8192. |
+| **MODE_16384** = MODE_8192 + 1 | Shadow map resolution equals 16384�16384. |
 
 ## SHADOW_PENUMBRA
 
+Quality mode of the penumbra rendered for the light source. A penumbra simulates real-world shadows by keeping sharp contact shadows closer to the base and softening the farther the shadow stretches away; higher modes produce softer shadows.
 | Name | Description |
 |---|---|
 | **GLOBAL** = -1 | Quality mode of shadow penumbra that is [set globally](../../../api/library/rendering/class.render_cs.md#setShadowsPenumbraMode_int_void) for all light sources is applied. |
@@ -38,6 +40,7 @@ This base class is used to create light sources and shadows from them. The light
 
 ## SHADOW_FILTER
 
+Quality mode of the filtering used for shadows from the light source. Filtering reduces the stair-step effect at the edges of shadows; higher modes produce smoother edges.
 | Name | Description |
 |---|---|
 | **GLOBAL** = -1 | Quality mode of shadow filtering that is [set globally](../../../api/library/rendering/class.render_cs.md#setShadowsFilterMode_int_void) is applied. |
@@ -49,6 +52,7 @@ This base class is used to create light sources and shadows from them. The light
 
 ## COLOR_MODE
 
+Color calculation mode of the light source: the color is either set directly, or computed from the color temperature and multiplied by the color filter.
 | Name | Description |
 |---|---|
 | **CLASSIC** = 0 | Classic color calculation mode, resulting color is defined by [Color](#setColor_vec4_void). |
@@ -56,6 +60,7 @@ This base class is used to create light sources and shadows from them. The light
 
 ## SHADOW_MODE
 
+Shadow casting mode for a light source with the static light mode enabled: either only baked shadows are rendered, or baked shadows from static surfaces are combined with a real-time shadow map for dynamic ones.
 | Name | Description |
 |---|---|
 | **MIXED** = 0 | Shadow mode for omni and projected light sources with the static light mode enabled to render both static and dynamic shadows. |
@@ -63,6 +68,7 @@ This base class is used to create light sources and shadows from them. The light
 
 ## SHADOW_COLOR_MODE
 
+Mode defining how the texture of an omni or projected light source is interpreted: either as an IES photometric profile defining the light distribution, or as a plain texture.
 | Name | Description |
 |---|---|
 | **IES** = 0 | Light distibution is defined by the IES profile. |
@@ -70,6 +76,7 @@ This base class is used to create light sources and shadows from them. The light
 
 ## MODE
 
+Mode of the light source defining its role in light baking: a dynamic light provides direct real-time lighting only and is turned off while light baking is being calculated, while a static light contributes to light baking and remains enabled all the time. For a static light, the types of shadows to be rendered are defined by the shadow mode.
 | Name | Description |
 |---|---|
 | **DYNAMIC** = 0 | Real-time light rendering mode. The light source with this mode enabled is turned off while light baking is being calculated. Objects lit by such light cast only dynamic shadows. |
@@ -77,6 +84,7 @@ This base class is used to create light sources and shadows from them. The light
 
 ## SHAPE
 
+Shape of the emitter of an omni or projected light source. A non-point shape turns the source into an area light that illuminates objects in different directions at once and provides a physically correct highlight on illuminated surfaces.
 | Name | Description |
 |---|---|
 | **DEFAULT** = -1 | A point light source (light is emitted by an infinitely small point) set by default. |
@@ -336,6 +344,9 @@ The distance from the camera after which the shadows gradually disappear.
 ## int Order
 
 The light's [priority](../../../objects/lights/parameters/index.md#rendering_transparent_order) for rendering on transparent objects (glass, raindrops, etc.). Lower-priority lights may be randomly skipped for optimization purposes if the special globally-set [limit](../../../editor2/settings/render_settings/lights/index.md#forward_limits) is exceeded. A higher value means a higher priority.
+## float SpecularRoughnessOffset
+
+The offset applied to the surface roughness when computing this light's specular contribution, in the [0; 1] range: the value acts as the minimum effective roughness for this light, making very glossy surfaces respond as if they were rougher. Raising it softens and spreads the light's specular highlights, which suppresses specular aliasing (bright specular flickering) caused by the light on glossy materials. The default value is 0.
 ### Members
 
 ---

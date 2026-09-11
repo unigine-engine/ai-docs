@@ -19,7 +19,7 @@ To start creating a setup from scratch, use the ***Create*** button.
 ![](create_button.png)
 
 
-You can also use the *[Wall Generator](../../../../../principles/render/output/multi_monitor/spidervision_plugin/presets.md)* to generate a wall of viewports.
+You can also use the *[Wall Generator](../../../../../principles/render/output/multi_monitor/spidervision_plugin/presets.md#wall)* to generate a wall of viewports, or the *[CAVE Generator](../../../../../principles/render/output/multi_monitor/spidervision_plugin/presets.md#cave)* to generate a CAVE configuration.
 
 
 Save the configuration via the menu (*File -> Save*) and then load it (*File -> Load*) to initiate rendering of the configured viewports.
@@ -54,19 +54,22 @@ To configure a viewport, select it either in the viewports tab or in the display
 | Type | Image type rendered in the viewport. The image is rendered differently due to the different approach to the calculation of the projection matrix. Thus, you need to select the image type based on the device which is going to render the image: - *Display* - *Projector* |  |  |
 | Name | Viewport name displayed in the window title bar and in the viewports tab on the left side of the SpiderVision Setup window. |  |  |
 | Computer name | The name of the computer on which the viewport is to be displayed. If the box is empty, the viewport is displayed on any PC. If the name is set, the viewport is only displayed on the PC that has a matching name. The computer name can also be set at the application instance start-up by using the corresponding [start-up command](#startup_computer_name). |  |  |
+| Render Mode | Selects the viewport rendering mode: - *Mono* � renders a single image. - *Stereo* � renders a side-by-side stereo image, with the left-eye view on the left and the right-eye view on the right. |  |  |
+| Swap Eyes In Stereo | Swaps the left and right eye images in stereo mode. Use this option if the stereo signal is reversed due to the display or projection hardware configuration. |  |  |
 | Window |  |  |  |
-| Grab | The button that allows copying the currently set position, display index and window size to the window settings. The option is unavailable for a window controlled by another application instance (for example, when using [Syncker](../../../../../code/plugins/syncker/index.md)) — in such a case you need to open SpiderVision Setup for that instance and grab that window transforms. |  |  |
+| Grab | The button that allows copying the currently set position, display index and window size to the window settings. The option is unavailable for a window controlled by another application instance (for example, when using [Syncker](../../../../../code/plugins/syncker/index.md)) � in such a case you need to open SpiderVision Setup for that instance and grab that window transforms. |  |  |
 | Set as Main Window | The button that makes the window rendering the currently selected projection the main window. The main window is the window that displays the console and allows camera control. |  |  |
 | Display index | OS index of the display on which the viewport should be rendered. If set to the index that exceeds (total number of displays - 1), the viewport is displayed on the monitor with the index 0. |  |  |
-| Window mode | Mode of the displayed window. - *Windowed* — bordered OS window - *Borderless Windowed* — borderless OS window with the configurable size - *Exclusive Fullscreen* — window that occupies the entire display, while all other engine windows are minimized. Interaction with other engine windows is not possible. If focus is switched to another application window, the Fullscreen window is minimized automatically by the OS. In this mode, the SpiderVision setup window follows the same distortions as the displayed projection. By default, the system cursor is used. To improve interaction accuracy under distortion, you can enable engine-rendered cursor by [disabling the OS mouse pointer](../../../../../api/library/controls/class.input_cpp.md#setMouseCursorSystem_int_void). |  |  |
+| Window mode | Mode of the displayed window. - *Windowed* � bordered OS window - *Borderless Windowed* � borderless OS window with the configurable size - *Exclusive Fullscreen* � window that occupies the entire display, while all other engine windows are minimized. Interaction with other engine windows is not possible. If focus is switched to another application window, the Fullscreen window is minimized automatically by the OS. In this mode, the SpiderVision setup window follows the same distortions as the displayed projection. By default, the system cursor is used. To improve interaction accuracy under distortion, you can enable engine-rendered cursor by [disabling the OS mouse pointer](../../../../../api/library/controls/class.input_cpp.md#setMouseCursorSystem_int_void). |  |  |
 | Window size | Size of the window on the display (in pixels) if it is in the [Window](#window_mode) mode. |  |  |
 | Window position | The window position on the screen (screen-space coordinates of the upper left corner). |  |  |
 | Transform |  |  |  |
 | Position | The viewport plane position relative to the point of view (does not affect runtime if *Projection Enabled* is disabled). |  |  |
 | Rotation | The viewport plane rotation relative to the point of view (does not affect runtime if *Projection Enabled* is disabled). |  |  |
 | Type-Dependent |  |  |  |
-| Display size | Physical size of the display to which the image is rendered (for *Display* image type). The value is set in meters. |  |  |
+| Display Physical Size | Physical size of the display to which the image is rendered (for *Display* image type). The value is set in meters. |  |  |
 | Offset | Offset of the projected image relative to the viewer (for *Display* image type). The value is set in meters. |  |  |
+| Pixel Density | Specifies the rendering resolution in pixels per meter (for *Display* image type). The render texture size is calculated automatically from the physical screen dimensions and the specified pixel density, preserving the correct aspect ratio. |  |  |
 | Aspect | Width-to-height ratio of the projected image (for *Projector* image type). |  |  |
 | Vertical FOV | Vertical field of view, in degrees (configurable for *Projector* image type, for *Display* type is shown just for reference). |  |  |
 | Horizontal FOV | Horizontal field of view, in degrees. This value is calculated automatically depending on the Vertical FOV and is provided for reference. |  |  |
@@ -87,7 +90,7 @@ The configuration file has the `*.sv` extension and stores all possible data for
 - Color Correction
 - Blend Zones
 - Masks
-- Wall Groups
+- Groups (*Wall* and *CAVE*)
 - Configuration name
 - Hotkey to open the setup window
 
@@ -131,7 +134,7 @@ The following commands are available for the *SpiderVision* plugin:
 
 | spider_vision_log |  |
 |---|---|
-| **Description:** - **Variable.**   Prints a value indicating if the option controlled by the command below is enabled. - **Command.**   Enables printing warnings to the console whenever viewport data changes occur. This is useful for debugging synchronization and configuration issues. | **Arguments:** **0** - disabled (by default) **1** - enabled |
+| **Description:** - **Variable.** � Prints a value indicating if the option controlled by the command below is enabled. - **Command.** � Enables printing warnings to the console whenever viewport data changes occur. This is useful for debugging synchronization and configuration issues. | **Arguments:** **0** - disabled (by default) **1** - enabled |
 
 
 ## Using Outdated Configurations

@@ -28,7 +28,7 @@ This class represents a [bone](../../../../code/plugins/ultraleap/index_cs.md#bo
 The object for the finger.
 ## 🔒︎ UltraleapBone.TYPE Type
 
-The bone type. One of the [TYPE](#TYPE) values.
+The type of the bone. One of the [TYPE_*](#TYPE_METACARPAL) values.
 ## 🔒︎ double Length
 
 The length of the bone, in meters.
@@ -47,6 +47,3 @@ The coordinates of the center of the bone.
 ## 🔒︎ vec3 Direction
 
 The normalized direction of the bone from wrist to tip.
-### Members
-
----

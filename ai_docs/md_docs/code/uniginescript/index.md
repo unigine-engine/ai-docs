@@ -3,7 +3,7 @@
 > **Warning:** The scope of applications for UnigineScript is limited to implementing materials-related logic (material expressions, scriptable materials, brush materials). Do not use UnigineScript as a language for application logic, please consider C#/C++ instead, as these APIs are the preferred ones. Availability of new Engine features in UnigineScript (beyond its scope of applications) is not guaranteed, as the current level of support assumes only fixing critical issues.
 
 
-UnigineScript is a programming language used in Unigine engine and introduced by UNIGINE Corp. for optimizing a project creation process. It is similar to C++ in syntax, but includes some additional features.
+UnigineScript is a programming language used in UNIGINE engine and introduced by UNIGINE for optimizing a project creation process. It is similar to C++ in syntax, but includes some additional features.
 
 
 You can read [more](../../code/uniginescript/language/features.md#diff) about syntactical differences between UnigineScript and C++.
@@ -22,11 +22,14 @@ The purpose of UnigineScript is to make coding easy-to-use even for junior progr
 - Easy interaction with C++ code
 - [Large built-in library (more than 5000 functions)](../../api/index.md)
 
-All the features of Unigine engine are accessible via UnigineScript.
+
+All the features of UNIGINE engine are accessible via UnigineScript.
+
+
 ### Which platforms have UnigineScript?
 
 
-Platforms supported by Unigine engine (Windows and Linux), no recompilation is required.
+Platforms supported by UNIGINE engine (Windows and Linux), no recompilation is required.
 
 
 ### What does a UnigineScript program creating process look like?
@@ -39,7 +42,7 @@ There are two ways of running UnigineScript programs:
 
 
 - Via the built-in UnigineScript runtime (by running an engine instance)
-- Via any standalone CLI interpreter ([usc](../../tools/usc/index.md)) – the same way as .bat/.sh/.py scripts work
+- Via any standalone CLI interpreter ([usc](../../tools/usc/index.md)) � the same way as `.bat/.sh/.py` scripts work
 
 
 ### How do I get started with UnigineScript?

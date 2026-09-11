@@ -27,10 +27,10 @@ It is very easy to start your own C++ project by using UNIGINE SDK Browser:
 2. Go to the *[Templates](../../sdk/index.md#templates)* tab and click *Create Project* button on the *C++ Empty* template card. ![](../../sdk/projects/create_project_cpp.png)
 3. Specify the following parameters: ![](cpp_parameters.png) > **Notice:** Read more about these parameters in [this article](../../sdk/projects/index_cpp.md)
 
-  - **Project name** — specify the name of your project.
-  - **Location** — specify the path to your project folder.
-  - **SDK** — choose the UNIGINE SDK edition.
-  - **API+IDE** — choose *C++* to start working with the C++ API. This parameter depends on a platform: You can also can create **C++ CMake** project
+  - **Project name** � specify the name of your project.
+  - **Location** � specify the path to your project folder.
+  - **SDK** � choose the UNIGINE SDK edition.
+  - **API+IDE** � choose *C++* to start working with the C++ API. This parameter depends on a platform: You can also can create **C++ CMake** project
 
     - On **Windows**, you can create **C++ Visual Studio 2022** project.
     - On **Linux** you can create **C++ GNU make** project.

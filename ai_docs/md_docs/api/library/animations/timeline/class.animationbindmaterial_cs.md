@@ -3,13 +3,10 @@
 **Inherits from:** AnimationBind
 
 
-This class is used to manage material [bindings](../../../../principles/animations/index.md#animation_binding) of [animation objects](../../../../principles/animations/index.md#animation_object) via code. Animation objects serve as proxies in animation sequences and are bound to specific objects (materials, nodes, property parameters, or runtime objects like widgets and windows) at the playback stage.
+This binding points a channel at a material, so that a [sequence](../../../../api/library/animations/timeline/class.animationsequence_cs.md) animates a material parameter such as a color, an albedo scale or a texture shift.
 
 
-Bindings are used to store, search, and obtain real engine objects that are actually animated.
-
-
-The material to be animated can be bound either via the material asset or via an object's surface to which this material is assigned depending on the specified [access mode](#setAccess_int_void). In case of accessing a material via a surface we'll get a child material inherited from the one assigned to this surface.
+The material is reached in one of two ways: straight from a material asset, which writes into the asset and shows on everything that uses it, or through a surface of an object, which gives that surface a child material and leaves the rest of the scene alone.
 
 
 ## AnimationBindMaterial Class
@@ -18,41 +15,21 @@ The material to be animated can be bound either via the material asset or via an
 
 ## ACCESS
 
-Access mode. Defines the way the animated material is obtained.
+Access mode. It decides the way the animated material is obtained.
 | Name | Description |
 |---|---|
-| **FROM_ASSET** = 0 | The material to be animated is obtained from a material asset (`.mat`). |
-| **FROM_SURFACE** = 1 | The material to be animated is obtained from a surface of an object. In this case we'll get a child material inherited from the one assigned to the surface. |
+| **UNKNOWN** = -1 | The way to obtain the material is not set. |
+| **FROM_ASSET** = 0 | The material is taken from a material asset, so the animation writes into the asset itself and reaches everything that uses it. |
+| **FROM_SURFACE** = 1 | The material is taken from a surface of an object, which gives a child material of its own to that surface, so the animation touches nothing else. |
 
 ### Properties
 
 ## AnimationBindMaterial.ACCESS Access
 
-The material access mode. Defines the way the animated material is obtained.
-## 🔒︎ UGUID MaterialDescriptionGUID
+The access mode of the binding. It decides the way the animated material is obtained.
+## string SurfacePattern
 
-The GUID of the animated material.
-## 🔒︎ UGUID MaterialDescriptionFileGUID
-
-The GUID of the file describing the animated material.
-## 🔒︎ int ObjectDescriptionID
-
-The ID of the object, to which a surface with the animated material belongs.
-## 🔒︎ string ObjectDescriptionName
-
-The name of the object, to which a surface with the animated material belongs.
-## 🔒︎ string SurfaceDescriptionName
-
-The name of the surface, to which the animated material is assigned.
-## 🔒︎ int SurfaceDescriptionIndex
-
-The number of the surface, to which the animated material is assigned.
-## 🔒︎ Object Object
-
-The object to which the animated material is assigned.
-## 🔒︎ Material Material
-
-The animated material.
+The pattern the surface names are matched against. It picks the surfaces the binding works on inside every object the target resolves to.
 ### Members
 
 ---
@@ -60,26 +37,37 @@ The animated material.
 ## AnimationBindMaterial ( )
 
 Constructor. Creates an empty material binding.
-## void SetMaterialDescription ( UGUID guid , UGUID file_guid )
+## void SetObjects ( Node [] OUT_nodes )
 
-Sets the description parameters of the animated material. This method is used if the [access mode](#setAccess_int_void) is set to *[ACCESS.FROM_ASSET](../../../...md#ACCESS_FROM_ASSET)*
+Points the binding at a set of objects at once, so that one channel drives every one of them.
 ### Arguments
 
-- *[UGUID](../../../../api/library/filesystem/class.uguid_cs.md)* **guid** - GUID of the animated material.
-- *[UGUID](../../../../api/library/filesystem/class.uguid_cs.md)* **file_guid** - GUID of the file describing the animated material.
+- *[Node](../../../../api/library/nodes/class.node_cs.md)[]* **OUT_nodes** - Nodes the binding is to point at. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
 
-## void SetObjectDescription ( int id , string name )
+## void SetAssets ( UGUID [] OUT_file_guids )
 
-Sets the description parameters of the object to which a surface with the animated material belongs. This method is used if the [access mode](#setAccess_int_void) is set to *[ACCESS.FROM_SURFACE](../../../...md#ACCESS_FROM_SURFACE)*.
+Points the binding at a set of assets at once.
 ### Arguments
 
-- *int* **id** - ID of the object, to which a surface with the animated material belongs.
-- *string* **name** - Name of the object, to which a surface with the animated material belongs.
+- *[UGUID](../../../../api/library/filesystem/class.uguid_cs.md)[]* **OUT_file_guids** - File GUIDs of the assets. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
 
-## void SetSurfaceDescription ( string name , int index )
+## int GetNumTargetSurfaceMatches ( int i )
 
-Sets the description parameters of the surface to which the animated material is assigned. This method is used if the [access mode](#setAccess_int_void) is set to *[ACCESS.FROM_SURFACE](../../../...md#ACCESS_FROM_SURFACE)*
+Returns how many surfaces the specified target resolves to, which is what tells a surface pattern that found nothing from one that found many.
 ### Arguments
 
-- *string* **name** - Name of the surface, to which the animated material is assigned.
-- *int* **index** - Number of the surface, to which the animated material is assigned.
+- *int* **i** - Target number.
+
+### Return value
+
+Number of surfaces the target resolves to.
+## Object GetTargetResolvedObject ( int i )
+
+Returns the object the specified target of the binding resolves to in the loaded scene.
+### Arguments
+
+- *int* **i** - Target number.
+
+### Return value
+
+Object the target resolves to, or NULL (null in C#) if it resolves to none.

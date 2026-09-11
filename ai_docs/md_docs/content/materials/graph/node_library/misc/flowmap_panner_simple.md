@@ -7,10 +7,12 @@
 
 This node creates a flow effect for a source texture based on a flow map. Using this node, water or lava flowing in different directons can be created. The flow map can be [drawn in UNIGINE Editor](../../../../../editor2/texture_editor/flowmap_tool/index.md): the direction of flowing is set by the brush.
 
+
 > **Notice:** When simulating a fast-flowing liquid (for example, a mountain stream), flickering may occur. In such case, it is recommended to use the **[Flowmap Panner](../../../../../content/materials/graph/node_library/misc/flowmap_panner.md)** node. Also this node is used if the custom sampling settings are required.
 
 
-The workflow is the following:
+The workflow is as follows:
+
 
 1. Using the flowmap texture, offset for UV coordinates is applied twice with a time shift.
 2. Using 2 different UVs from the previous stage, source texture sampling is pefromed. In the result, 2 textures distorted over time according to the flowmap are created.

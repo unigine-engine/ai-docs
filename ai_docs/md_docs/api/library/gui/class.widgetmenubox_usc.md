@@ -50,20 +50,20 @@ Returns the current text of the selected item (the last clicked item).
 ### Return value
 
 Current text of the selected item, or nullptr in case no item is selected.
-## void setCurrentItem ( )
+## void setCurrentItem ( int item )
 
 Sets a new item selection (the last clicked item number). When nothing is selected the value is -1 (setting the selection to a non-existent item number will also reset the value to -1).
 ### Arguments
 
-- **item** - The selected item number.
+- *int* **item** - The selected item number.
 
-## getCurrentItem () const
+## int getCurrentItem () const
 
 Returns the current item selection (the last clicked item number). When nothing is selected the value is -1 (setting the selection to a non-existent item number will also reset the value to -1).
 ### Return value
 
 Current selected item number.
-## getNumItems () const
+## int getNumItems () const
 
 Returns the current total number of items in the menu.
 ### Return value
@@ -82,13 +82,13 @@ Returns the current path to the texture file with mini icons to be used with the
 ### Return value
 
 Current path to the texture file to be used.
-## getSpaceY () const
+## int getSpaceY () const
 
 Returns the current vertical space between menu items, and between items and the menu borders.
 ### Return value
 
 Current vertical space between menu items and menu borders, in pixels.
-## getSpaceX () const
+## int getSpaceX () const
 
 Returns the current horizontal space between menu items, and between items and the menu borders.
 ### Return value

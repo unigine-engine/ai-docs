@@ -490,6 +490,102 @@ DisplaysConfig.EventCalibrationGridChanged.Enabled = true;
 
 </details>
 
+## vec3 HeadPosition
+
+The position of the viewer's head (the eye origin) in the projection coordinate space, in meters: the camera position from which the off-axis view and projection of each display viewport are computed. In stereo mode the two eyes are offset from it along the head's horizontal axis. Head tracking is injected by writing this value every frame.
+## quat HeadRotation
+
+The orientation of the viewer's head in the projection coordinate space. It defines the inter-eye axis along which the eyes are separated in stereo mode.
+## 🔒︎ Event< Math::mat4> EventHeadTransformChanged
+
+The The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```csharp
+// implement the HeadTransformChanged event handler
+void headtransformchanged_event_handler()
+{
+	Log.Message("\Handling HeadTransformChanged event\n");
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//  1. Multiple subscriptions can be linked to an EventConnections instance
+//  class that you can use later to remove all these subscriptions at once
+//////////////////////////////////////////////////////////////////////////////
+
+// create an instance of the EventConnections class
+EventConnections headtransformchanged_event_connections = new EventConnections();
+
+// link to this instance when subscribing to an event (subscription to various events can be linked)
+publisher.EventHeadTransformChanged.Connect(headtransformchanged_event_connections, headtransformchanged_event_handler);
+
+// other subscriptions are also linked to this EventConnections instance
+// (e.g. you can subscribe using lambdas)
+publisher.EventHeadTransformChanged.Connect(headtransformchanged_event_connections, () => {
+		Log.Message("Handling HeadTransformChanged event lambda\n");
+		}
+	);
+
+// later all of these linked subscriptions can be removed with a single line
+headtransformchanged_event_connections.DisconnectAll();
+
+//////////////////////////////////////////////////////////////////////////////
+//  2. You can subscribe and unsubscribe via the handler function directly
+//////////////////////////////////////////////////////////////////////////////
+
+// subscribe to the HeadTransformChanged event with a handler function
+publisher.EventHeadTransformChanged.Connect(headtransformchanged_event_handler);
+
+// remove subscription to the HeadTransformChanged event later by the handler function
+publisher.EventHeadTransformChanged.Disconnect(headtransformchanged_event_handler);
+
+//////////////////////////////////////////////////////////////////////////////
+//   3. Subscribe to an event and unsubscribe later via an EventConnection instance
+//////////////////////////////////////////////////////////////////////////////
+
+// define a connection to be used to unsubscribe later
+EventConnection headtransformchanged_event_connection;
+
+// subscribe to the HeadTransformChanged event with a lambda handler function and keeping the connection
+headtransformchanged_event_connection = publisher.EventHeadTransformChanged.Connect(() => {
+		Log.Message("Handling HeadTransformChanged event lambda\n");
+	}
+);
+
+// ...
+
+// you can temporarily disable a particular event connection
+headtransformchanged_event_connection.Enabled = false;
+
+// ... perform certain actions
+
+// and enable it back when necessary
+headtransformchanged_event_connection.Enabled = true;
+
+// ...
+
+// remove the subscription later using the saved connection
+headtransformchanged_event_connection.Disconnect();
+
+//////////////////////////////////////////////////////////////////////////////
+//   4. Ignoring HeadTransformChanged events when necessary
+//////////////////////////////////////////////////////////////////////////////
+
+// you can temporarily disable the event to perform certain actions without triggering it
+publisher.EventHeadTransformChanged.Enabled = false;
+
+// ... actions to be performed
+
+// and enable it back when necessary
+publisher.EventHeadTransformChanged.Enabled = true;
+
+```
+
+</details>
+
 ### Members
 
 ---

@@ -24,7 +24,7 @@ The value of the **Symbol State** parameter specified in the packet. Determines 
 The value of the **Attach State** parameter specified in the packet. Determines whether the symbol will be attached as a child to a parent symbol.
 ## 🔒︎ int FlashControl
 
-The value of the **Flash Control** parameter specified in the packet. Determines whether the IG shall continue the symbol’s flash cycle from its present state or restart it from the beginning.
+The value of the **Flash Control** parameter specified in the packet. Determines whether the IG shall continue the symbol�s flash cycle from its present state or restart it from the beginning.
 ## 🔒︎ int InheritColor
 
 The value of the **Inherit Color** parameter specified in the packet. Determines whether the symbol inherits its color from the symbol to which it is attached.
@@ -43,10 +43,10 @@ The value of the **Rotation** parameter specified in the packet. Determines the 
 ## 🔒︎ vec3 Position
 
 The Returns the UV position of the symbol as a three-component vector combining **Position U and Position V** parameters specified in the packet.
-> **Notice:** For top-level (non-child) symbols, the IG defines position of the symbol with respect to the symbol surface’s 2D coordinate system.
+> **Notice:** For top-level (non-child) symbols, the IG defines position of the symbol with respect to the symbol surface�s 2D coordinate system.
 >
 >
-> For child symbols - with respect to the parent symbol’s local coordinate system.
+> For child symbols - with respect to the parent symbol�s local coordinate system.
 
 
 ## 🔒︎ vec3 Scale

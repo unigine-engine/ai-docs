@@ -43,7 +43,7 @@ Right now we are going to take the vehicle model from the content addon included
 ## Step 2. Setting Up Camera
 
 
-Let’s create a camera for a third-person view. While the camera follows the car, the player can control the viewing direction (rotate the camera) with the mouse. To achieve this, perform the following:
+Let�s create a camera for a third-person view. While the camera follows the car, the player can control the viewing direction (rotate the camera) with the mouse. To achieve this, perform the following:
 
 
 1. In the *World Nodes* window, delete the *first_person_controller* containing the default camera.
@@ -65,7 +65,7 @@ In order to give our car some physical properties, we must [assign](../../../pri
 
 1. Go to the *Parameters* tab of the minibus frame (the *minibus_ambulance* node) and, in the *Physics* tab, assign a physical [rigid body](../../../principles/physics/bodies/rigid/index.md) by selecting *Body* -> **Rigid**. Also, add a [box shape](../../../principles/physics/shapes/index.md#box) to the body (*Shape* -> **Box**). ![](body.png)
 2. Set the *mass* of *ShapeBox* to 100. ![](shapebox_mass.png)
-3. Disable the *Shape-Based* option for the frame’s rigid body to turn off automatic calculation and customize mass distribution of the vehicle. Set the third component of the *CMass* parameter to 0.25 effectively lowering the center of mass. ![](cmass.png)
+3. Disable the *Shape-Based* option for the frame�s rigid body to turn off automatic calculation and customize mass distribution of the vehicle. Set the third component of the *CMass* parameter to 0.25 effectively lowering the center of mass. ![](cmass.png)
 4. For each wheel (child nodes of *minibus_ambulance*), go to the *Parameters* tab and, in the *Physics* section, assign **a rigid body** with **a cylinder shape** that roughly approximates the shape of the wheel mesh. You may need to rotate *ShapeCylinder* and adjust its radius and height to position it properly (see the image below). ![](cylinder.png) > **Notice:** In the *World Nodes* window, you can select multiple wheel nodes at the same time by holding **Shift** key and selecting the first and the last one. This way you will be able to add bodies and shapes to all wheels simultaneously.
 
 
@@ -75,14 +75,14 @@ In order to give our car some physical properties, we must [assign](../../../pri
 For the wheels to be connected to the frame and behave realistically, we must connect them using [wheel joints](../../../principles/physics/joints/index.md#wheel). These joints not only remove degrees of freedom providing motion constraints, but also simulate vehicle suspension and motor torque for wheels.
 
 
-We need to connect the body of **every wheel** to the frame’s body using **wheel joints**.
+We need to connect the body of **every wheel** to the frame�s body using **wheel joints**.
 
 
 1. To do so, select the frame of the minibus (the *minibus_ambulance* node) in the *World Nodes* hierarchy window and go to the *Joints* section of the *Physics* tab. There you must specify the *Wheel* type for the joint and click the *Add* button. ![](wheel_joint.png)
-2. You shall see the following dialog window. Connect the frame body to every wheel’s body by selecting every wheel one by one. The specified rigid body will be connected to the rigid body of the car using a wheel joint. ![](add_wheel_joint.png)
+2. You shall see the following dialog window. Connect the frame body to every wheel�s body by selecting every wheel one by one. The specified rigid body will be connected to the rigid body of the car using a wheel joint. ![](add_wheel_joint.png)
 
 
-You will end up with four wheel joints connecting corresponding wheels’ bodies to the frame’s body (you may name them accordingly).
+You will end up with four wheel joints connecting corresponding wheels� bodies to the frame�s body (you may name them accordingly).
 
 
 ![](wheel_joints.png)
@@ -93,14 +93,14 @@ To configure the setup, do the following for every wheel joint (select them one 
 
 1. Press **Fix 0** button to fix *Anchor 0* point to the wheel position. This will place the joint in the correct position for this wheel. ![](fix.png) ![](axes.jpg)
 2. Set the number of joint solving *Iterations* to 16 making the physical simulation more stable. > **Notice:** You can select multiple joints at the same time by holding **Shift** key and selecting the first and the last one. This way you will be able to set the same settings to all joints simultaneously.
-3. Next, set the following values to the joint’s parameters to achieve a plausible simulation behavior. ![](values.png)
+3. Next, set the following values to the joint�s parameters to achieve a plausible simulation behavior. ![](values.png)
 4. Wheel joints are based on physics raycasting. To make them interact with the ground properly, enable **Physics Intersection** for the surface of the *ground_plane* node in the *Parameters* tab. ![](physics_intersection.png)
 
 
 ## Step 5. Applying Velocity to Wheels
 
 
-Now let’s [create a C# component](../../../principles/component_system/component_system_cs/index.md#create) to implement driving and steering functionality for the car. To achieve this, do the following:
+Now let�s [create a C# component](../../../principles/component_system/component_system_cs/index.md#create) to implement driving and steering functionality for the car. To achieve this, do the following:
 
 
 1. In *Asset Browser*, right-click and select *Create Code -> C# Component*. Name it **Car**, [assign](../../../principles/component_system/component_system_cs/index.md#apply) it to the minibus node and then double-click on the newly created component to open it in an IDE. ![](component.png)

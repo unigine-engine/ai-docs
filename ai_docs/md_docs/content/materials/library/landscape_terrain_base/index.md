@@ -33,9 +33,9 @@ To adjust the landscape_terrain_base material, open the Surfaces tab of the Para
 ### Post Processing
 
 
-- **Material SSAO** — enables Screen-Space Ambient Occlusion post for Landscape Terrain.
-- **Material SSR** — enables Screen-Space Reflections post for Landscape Terrain.
-- **Material SSSSS** — enables Screen-Space Sub-Surface Scattering post for Landscape Terrain.
-- **Material DOF** — enables the Depth of Field post effect for Landscape Terrain.
-- **Material Motion Blur** — enables the Motion Blur effect for Landscape Terrain.
-- **Material Screen-Space Shadows** — enables the Screen-Space Shadows effect for Landscape Terrain.
+- **Material SSAO** � enables Screen-Space Ambient Occlusion post for Landscape Terrain.
+- **Material SSR** � enables Screen-Space Reflections post for Landscape Terrain.
+- **Material SSSSS** � enables Screen-Space Sub-Surface Scattering post for Landscape Terrain.
+- **Material DOF** � enables the Depth of Field post effect for Landscape Terrain.
+- **Material Motion Blur** � enables the Motion Blur effect for Landscape Terrain.
+- **Material Screen-Space Shadows** � enables the Screen-Space Shadows effect for Landscape Terrain.

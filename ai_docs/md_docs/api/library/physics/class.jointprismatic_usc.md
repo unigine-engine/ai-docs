@@ -58,13 +58,13 @@ joint.setNumIterations(16);
 Returns the current velocity of the linear motor.
 ### Return value
 
-Current current velocity in units per second.
+Current velocity in units per second.
 ## float getCurrentLinearDistance () const
 
 Returns the current distance between the bodies.
 ### Return value
 
-Current current distance in units.
+Current distance in units.
 ## void setWorldRotation ( mat3 rotation )
 
 Sets a new rotation matrix of the anchor point in the world system of coordinates.

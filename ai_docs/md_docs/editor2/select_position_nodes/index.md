@@ -303,7 +303,7 @@ To snap a node **by Vertex**:
 
 
 1. Press **W** to enable **Move node** mode or choose ![](icons/move_1.png) on the *Positioning* panel.
-2. Hold **V** or select **By Vertex** from the snapping mode drop-down. ![](icons/snap_by_vertex.png) The *Distance* parameter defines how far selectable pivot vertices of the manipulated mesh can be from the camera. All visible vertices of another mesh will be considered snap targets if the closest vertex of this mesh is within the specified range. This helps prevent snapping to distant or irrelevant geometry. If necessary, adjust the *Distance* (50 units by default) manually or use the box as a slider. ![](snap_by_vertex_slider.gif) When you hover the cursor over a vertex of the **selected** object, all of the object's vertices are outlined with a mesh grid. ![](snap_by_vertex_grid.png)
+2. Press **Shift+Z**, select **By Vertex** from the drop-down, or hold **V** to snap on demand. ![](icons/snap_by_vertex.png) The *Distance* parameter defines how far selectable pivot vertices of the manipulated mesh can be from the camera. All visible vertices of another mesh will be considered snap targets if the closest vertex of this mesh is within the specified range. This helps prevent snapping to distant or irrelevant geometry. If necessary, adjust the *Distance* (50 units by default) manually or use the box as a slider. ![](snap_by_vertex_slider.gif) When you hover the cursor over a vertex of the **selected** object, all of the object's vertices are outlined with a mesh grid. ![](snap_by_vertex_grid.png)
 3. Choose the pivot vertex for your object and move the cursor over it for the vertex snapping manipulator to appear. Hold **LMB** and drag the vertex circle manipulator toward another object's vertex. Release **LMB** (and **V**, if held) when the object is positioned correctly. ![](snap_by_vertex.gif) You can also move the node vertex along **one or two particular axes** - when the vertex manipulator appears, select an axis to constrain the snapping direction and drag the arrow or rectangle manipulator respectively. ![](snap_by_vertex_axes.png) To snap the pivot vertex to **occluded vertices**, enable ***X-Ray Snapping*** mode. In this mode, if the pivot vertex is dragged in front of a hidden object, an auxiliary mesh grid visualizes the occluded vertices, allowing you to snap to them. ![](snap_by_vertex_xray.png)
 
 
@@ -317,6 +317,9 @@ To snap a node **by Vertex**:
 
 
 > **Warning:** Vertex snapping may slow down the Editor's performance in complex scenes.
+
+
+Watch the quick video guide on positioning objects using Vertex Snapping:
 
 
 ### Rotation Snapping by Angle
@@ -391,7 +394,7 @@ To drop a node to the surface:
 
 
 1. [Select](#select_nodes) a node (or several nodes) that should be dropped.
-2. On the *Positioning* panel, find ![](drop_to_ground.png) and specify the required settings in the drop-down window: ![](drop_panel.png) | Option | Description | |---|---| | **Direction** | Specifies the direction of dropping: - **Up** — find the closest surface above the object. - **Down** — find the closest surface below the object. - **Up And Down** — find the closest surface below the object and above it. | | **Offset from Surface** | Specifies the distance from the node's [pivot point](#pivot_point) to the surface (in units). | | **Orient by Normal** | Specifies whether the node should be oriented by the surface normal. | | **Intersection Mask** | Sets an [intersection mask](../../principles/bit_masking/index.md#intersection_mask) that defines whether a node (or nodes) will be positioned on a surface to which it is dropped. A node will be positioned on a surface if they both have matching intersection masks. Otherwise, the node will penetrate the surface. | | **Take Intersection Into Account** | If enabled, the node interacts only with the surfaces that have the *[Intersection](../../editor2/node_parameters/physics/index.md#surface_intersection)* option enabled. |
+2. On the *Positioning* panel, find ![](drop_to_ground.png) and specify the required settings in the drop-down window: ![](drop_panel.png) | Option | Description | |---|---| | **Direction** | Specifies the direction of dropping: - **Up** � find the closest surface above the object. - **Down** � find the closest surface below the object. - **Up And Down** � find the closest surface below the object and above it. | | **Offset from Surface** | Specifies the distance from the node's [pivot point](#pivot_point) to the surface (in units). | | **Orient by Normal** | Specifies whether the node should be oriented by the surface normal. | | **Intersection Mask** | Sets an [intersection mask](../../principles/bit_masking/index.md#intersection_mask) that defines whether a node (or nodes) will be positioned on a surface to which it is dropped. A node will be positioned on a surface if they both have matching intersection masks. Otherwise, the node will penetrate the surface. | | **Take Intersection Into Account** | If enabled, the node interacts only with the surfaces that have the *[Intersection](../../editor2/node_parameters/physics/index.md#surface_intersection)* option enabled. |
 3. Click ![](drop_to_ground.png) to drop a node (nodes). | ![](drop_1.png) | ![](drop_2.png) | |---|---| | *Initial position of a node* | *Node dropped to surface (default settings)* |
 
 

@@ -3,21 +3,21 @@
 **Inherits from:** Node
 
 
-This class is used to create and modify a [geodetic pivot](../../../objects/geodetics/geodeticpivot/index.md) object that is used to place world objects on their real world positions (latitude, longitude and altitude). The geodetic pivot contains an ellipsoid with a pivot point.
+This class is used to create and modify a *[Geodetic Pivot](../../../objects/geodetics/geodeticpivot/index.md)* object that is used to place world objects on their real world positions (latitude, longitude and altitude). The geodetic pivot contains an ellipsoid with a pivot point.
 
 
-> **Notice:** In UNIGINE SDK editions other than Engineering and Sim, the geodetic pivot object is equivalent to [NodeDummy](../../../api/library/nodes/class.nodedummy_cs.md).
+> **Notice:** In UNIGINE SDK editions other than Academic and Sim, the geodetic pivot object is equivalent to [NodeDummy](../../../api/library/nodes/class.nodedummy_cs.md).
 
 
 **Important:**
 
 
-If you for any reason need to obtain the entity transforms (such as the position and rotation of your plane) to use them for configuring a camera on this entity or any beam emitted by this entity back to the ground, or anything similar, you need to consider the following while using Geodetic Pivot:
+If you for any reason need to obtain the entity transforms (such as the position and rotation of your plane) to use them for configuring a camera on this entity or any beam emitted by this entity back to the ground, or anything similar, you need to consider the following while using *Geodetic Pivot*:
 
 
-- The Up axis starts at the estimated center of the ellipsoid Earth model and is directed outwards. ![](pivot_model.png)
+- The "Up" axis starts at the estimated center of the ellipsoid Earth model and is directed outwards. ![](pivot_model.png)
 - When the object is shifted upwards along this axis, its world coordinates X and Y will also change relative to the projected terrain (expected direction - grey line, actual direction - orange line). ![](surface_fragment.png) Thus, if we use directly the transforms obtained from the engine (for example, the world coordinates of the plane to orient the camera), the result will differ from what is expected.
-- To obtain the corrected (and expected) transformations, you need to set the normal **to Geodetic** in the corresponding method ([toWorld()](#toWorld_dvec3_int_dmat4), [toWorldPreserveRotation()](#toWorldPreserveRotation_mat4_dvec3_int_mat4)), the requried recalculations will be performed automatically.
+- To obtain the corrected (and expected) transformations, you need to set the normal **to Geodetic** in the corresponding method (*[toWorld()](#toWorld_dvec3_int_dmat4), [toWorldPreserveRotation()](#toWorldPreserveRotation_mat4_dvec3_int_mat4)*), the requried recalculations will be performed automatically.
 
 
 Here is an example of a simple converter that allows transforming geodetic coordinates to world coordinates and vice versa:
@@ -128,14 +128,26 @@ UnigineScript sample
 
 ## int OriginBasis
 
-The [origin basis](#ORIGIN_BASIS_ENU) set for the GeodeticPivot object:
-- If [ORIGIN_BASIS_LOCAL](#ORIGIN_BASIS_LOCAL) is set, the binding to geo-coordinates is disabled. GeodeticPivot can be placed everywhere.
-- If [ORIGIN_BASIS_ENU](#ORIGIN_BASIS_ENU) is set, GeodeticPivot is placed to the world ECF position with ENU (East - North - Up) orientation according to the given latitude / longitude / altitude. The GeodeticPivot position is blocked. > **Notice:** The Up-axis (Z+) direction in ENU points upward along the ellipsoid normal, while in UNIGINE implementation of ENU it goes from the Earth's center.
+The origin basis set for the GeodeticPivot object:
+- If [ORIGIN_BASIS_LOCAL](#ORIGIN_BASIS_LOCAL) is set, the binding to geo-coordinates is disabled. *GeodeticPivot* can be placed everywhere.
+- If [ORIGIN_BASIS_ENU](#ORIGIN_BASIS_ENU) is set, *GeodeticPivot* is placed to the world ECF position with ENU (East - North - Up) orientation according to the given latitude / longitude / altitude. The *GeodeticPivot* position is blocked. > **Notice:** The Up-axis (Z+) direction in ENU points upward along the ellipsoid normal, while in UNIGINE implementation of ENU it goes from the Earth's center.
 
 
 ## dvec3 Origin
 
 The position (latitude, longitude and altitude) on the ellipsoid.
+```csharp
+// the GeodeticPivot will use WGS84 reference ellipsoid by default
+GeodeticPivot pivot = new GeodeticPivot();
+// update the origin
+dvec3 new_york_origin = dvec3(40.71427,-74.00597,57.0);
+pivot.setOrigin(new_york_origin);
+ObjectMeshStatic flat_new_york_ground = new ObjectMeshStatic("flat_new_york_ground.mesh");
+pivot.addChild(flat_new_york_ground); // the mesh will be bent once ObjectMeshStatic become a child of GeodeticPivot
+
+```
+
+
 ### Members
 
 ---
@@ -143,15 +155,17 @@ The position (latitude, longitude and altitude) on the ellipsoid.
 ## GeodeticPivot ( )
 
 GeodeticPivot constructor. Creates a GeodeticPivot instance with the default settings:
+
+
 - The origin is set to dvec3(0.0,0.0,0.0).
-- The size of the curving region is 2048000×2048000 km.
+- The size of the curving region is 2048000�2048000 km.
 - The resolution of the region texture is 2048.
 
 
 ## void SetEllipsoid ( Ellipsoid ellipsoid )
 
-Sets an Ellipsoid to be used for the Geodetic Pivot.
-> **Notice:** Modifying the ellipsoid of the Geodetic Pivot directly makes the pivot's state inconsistent. You should force the GeodeticPivot node to update its internal state according to the modified ellipsoid by setting it via the *setEllipsoid()* method.
+Sets an Ellipsoid to be used for the *Geodetic Pivot*.
+> **Notice:** Modifying the ellipsoid of the *Geodetic Pivot* directly makes the pivot's state inconsistent. You should force the GeodeticPivot node to update its internal state according to the modified ellipsoid by setting it via the *setEllipsoid()* method.
 
 
 ```csharp
@@ -184,8 +198,8 @@ pivot.setEllipsoid(ellipsoid);
 
 ## Ellipsoid GetEllipsoid ( )
 
-Returns the Ellipsoid currently used by the Geodetic Pivot.
-> **Notice:** Modifying the ellipsoid of the Geodetic Pivot directly makes the pivot's state inconsistent. You should force the GeodeticPivot node to update its internal state according to the modified ellipsoid by setting it via the [*setEllipsoid()*](#setEllipsoid_Ellipsoid_void) method.
+Returns the Ellipsoid currently used by the *Geodetic Pivot*.
+> **Notice:** Modifying the ellipsoid of the *Geodetic Pivot* directly makes the pivot's state inconsistent. You should force the GeodeticPivot node to update its internal state according to the modified ellipsoid by setting it via the [*setEllipsoid()*](#setEllipsoid_Ellipsoid_void) method.
 
 
 ```csharp
@@ -214,7 +228,7 @@ pivot.setEllipsoid(ellipsoid);
 
 ### Return value
 
-Ellipsoid currently used by the Geodetic Pivot.
+Ellipsoid currently used by the *Geodetic Pivot*.
 ## void MapEllipsoidToFlat ( vec3 ellipsoid_point , out vec3 ret_flat_point , out vec3 ret_ellipsoid_normal )
 
 Maps ellipsoid coordinates of a point to flat plane coordinates (using latitude and longitude as X and Y coordinates and altitude as Z).
@@ -409,7 +423,10 @@ Returns geodetic coordinates for a given world transformation matrix.
 Geodetic coordinates.
 ## dmat4 ToWorld ( dvec3 geodetic_coords , GeodeticPivot.UP_AXIS up_axis = Enum.GeodeticPivot.UP_AXIS.GEOCENTRIC_NORMAL )
 
+
 Returns world transformation matrix for given geodetic coordinates.
+
+
 > **Notice:** If the obtained coordinates will be used to set the transforms for anything relative to the entity (such as camera on the plane or a laser beam from the plane), switch the up axis type to [geodetic normal](#UP_AXIS_GEODETIC_NORMAL).
 
 
@@ -423,7 +440,10 @@ Returns world transformation matrix for given geodetic coordinates.
 World transformation.
 ## mat4 ToWorldPreserveRotation ( mat4 world_transform , dvec3 geodetic_coords , GeodeticPivot.UP_AXIS up_axis = Enum.GeodeticPivot.UP_AXIS.GEOCENTRIC_NORMAL )
 
+
 Returns new world transformation matrix preserving rotation relative to normal.
+
+
 > **Notice:** If the obtained coordinates will be used to set the transforms for anything relative to the entity (such as camera on the plane or a laser beam from the plane), switch the up axis type to [geodetic normal](#UP_AXIS_GEODETIC_NORMAL).
 
 
@@ -438,7 +458,10 @@ Returns new world transformation matrix preserving rotation relative to normal.
 New world transformation.
 ## dmat4 ToWorldPreserveRotation ( dmat4 world_transform , dvec3 geodetic_coords , GeodeticPivot.UP_AXIS up_axis = Enum.GeodeticPivot.UP_AXIS.GEOCENTRIC_NORMAL )
 
+
 Returns new world transformation matrix preserving rotation relative to normal.
+
+
 > **Notice:** If the obtained coordinates will be used to set the transforms for anything relative to the entity (such as camera on the plane or a laser beam from the plane), switch the up axis type to [geodetic normal](#UP_AXIS_GEODETIC_NORMAL).
 
 

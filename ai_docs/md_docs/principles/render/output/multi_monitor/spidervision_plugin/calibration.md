@@ -17,7 +17,7 @@ The following groups of calibration-related options are available:
 |---|---|
 | Visible | Toggles displaying the calibration pattern on the projection. |
 | Distance | Distance from the camera to the grid. The difference is noticeable with the Box type of projection. |
-| Type | Type of the calibration pattern: - **Sphere**. Suitable for projections onto a curved/spherical surface. Enables the **Sphere Cut** option that allows hiding the top and bottom poles of the sphere. ![](../../../../../code/plugins/syncker/config_pattern_sphere.png) - **Box**. Suitable for projections onto a flat surface. ![](../../../../../code/plugins/syncker/config_pattern_box.png) - **Color** — colors the projection into the selected color. |
+| Type | Type of the calibration pattern: - **Sphere**. Suitable for projections onto a curved/spherical surface. Enables the **Sphere Cut** option that allows hiding the top and bottom poles of the sphere. ![](../../../../../code/plugins/syncker/config_pattern_sphere.png) - **Box**. Suitable for projections onto a flat surface. ![](../../../../../code/plugins/syncker/config_pattern_box.png) - **Color** � colors the projection into the selected color. |
 | Sphere Cut | Allows hiding the top and bottom poles of the sphere for the *Sphere*-type calibration pattern. |
 | **Lines** group of settings defines the distance between the lines and the number of minor (auxiliary) lines. |  |
 | Horizontal Step | The distance between major horizontal lines. |

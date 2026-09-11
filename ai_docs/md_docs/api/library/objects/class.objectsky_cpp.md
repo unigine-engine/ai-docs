@@ -22,6 +22,19 @@ UnigineScript samples:
 
 ### Members
 
+## void setSpherical ( bool spherical )
+
+Sets a new value indicating whether a sky background cube map should be mapped onto a whole sphere rather then a hemisphere.
+### Arguments
+
+- *bool* **spherical** - value indicating whether a sky background cube map should be mapped onto a whole sphere rather then a hemisphere
+
+## bool isSpherical () const
+
+Returns the current value indicating whether a sky background cube map should be mapped onto a whole sphere rather then a hemisphere.
+### Return value
+
+value indicating whether a sky background cube map should be mapped onto a whole sphere rather then a hemisphere
 ---
 
 ## static ObjectSkyPtr create ( )
@@ -33,16 +46,3 @@ Returns the type of the node.
 ### Return value
 
 [ObjectSky](../../../api/library/nodes/class.node_cpp.md#OBJECT_SKY) node type identifier.
-## void setSpherical ( bool spherical )
-
-Sets a value indicating if a sky background cube map should be mapped onto a whole sphere rather then a hemisphere.
-### Arguments
-
-- *bool* **spherical** - **true** for the whole sphere; **false** for a sky hemisphere.
-
-## bool isSpherical ( ) const
-
-Returns a value indicating whether a sky background cube map should be mapped onto a whole sphere rather then a hemisphere.
-### Return value
-
-**true** if the sky is a sphere; **false**, if a hemisphere.

@@ -1,13 +1,13 @@
 # Simulation of Physics
 
 
-At physics simulation, physics calculations are in the **[multi-threaded](#multi_threaded)** mode — some operations are performed in parallel.
+At physics simulation, physics calculations are in the **[multi-threaded](#multi_threaded)** mode � some operations are performed in parallel.
 
 
 [**Physics performance profiler**](../../tools/profiling/profiler/index.md#physics) enables real-time tracking of simulation performance.
 
 
-> **Notice:** To show the physics performance [profiler](../../code/console/index.md#show_profiler) that reports statistics on different physics simulation aspects, press ***1*** hotkey three times or type ***[show_profiler_physics](../../code/console/index.md#show_profiler_physics)  1*** in the console.
+> **Notice:** To show the physics performance [profiler](../../code/console/index.md#show_profiler) that reports statistics on different physics simulation aspects, press ***1*** hotkey three times or type ***[show_profiler_physics](../../code/console/index.md#show_profiler_physics) �1*** in the console.
 
 
 ## Rate of Physics Simulation
@@ -31,8 +31,8 @@ UNIGINE physics module performs all its calculations. There are few things to po
 There are two update modes available for physics simulation (each of them has its advantages and use cases):
 
 
-- **Before Rendering** — physics update (along with the spatial tree update and user callbacks) is executed in the Main thread just before rendering is performed (*render*). The number of physics ticks executed before the rendering frame here is defined by the [physics and the Engine framerates](../../code/fundamentals/execution_sequence/index.md#cape_framerate). This mode is the most clear and straightforward (everything is executed safely in a strictly determined order) with no frame lag (results of physics calculations are applied in the current frame). But, on the other hand, this mode is the slowest as there are no asynchronous parallel calculations (everything's in the Main thread). Use this mode in case the time lag is unacceptabe for your application (you need all physics calculations to be applied in the current frame) and you want maximum simplicity and strictly determined order of execution for user code (*physicsUpdate* and physics callbacks).
-- **Async Rendering** — physics update is performed asynchronously to rendering. In case of several physics ticks per one rendering frame (when the Engine framerate is lower, or [catching up](#catch_up) is performed), only the first one is executed in parallel, then the physics module waits for the completion of the rendering process, returns to the Main thread and executes the rest of the physics ticks. There is a frame lag (results of physics calculations are applied in the next frame) and there is some ambiguity regarding the time, when user code (*physicsUpdate* and physics callbacks) is to be executed in case of several physics ticks per one rendering frame (some part is executed before rendering while the other just after it). This mode is the fastest one and is used by default.
+- **Before Rendering** � physics update (along with the spatial tree update and user callbacks) is executed in the Main thread just before rendering is performed (*render*). The number of physics ticks executed before the rendering frame here is defined by the [physics and the Engine framerates](../../code/fundamentals/execution_sequence/index.md#cape_framerate). This mode is the most clear and straightforward (everything is executed safely in a strictly determined order) with no frame lag (results of physics calculations are applied in the current frame). But, on the other hand, this mode is the slowest as there are no asynchronous parallel calculations (everything's in the Main thread). Use this mode in case the time lag is unacceptabe for your application (you need all physics calculations to be applied in the current frame) and you want maximum simplicity and strictly determined order of execution for user code (*physicsUpdate* and physics callbacks).
+- **Async Rendering** � physics update is performed asynchronously to rendering. In case of several physics ticks per one rendering frame (when the Engine framerate is lower, or [catching up](#catch_up) is performed), only the first one is executed in parallel, then the physics module waits for the completion of the rendering process, returns to the Main thread and executes the rest of the physics ticks. There is a frame lag (results of physics calculations are applied in the next frame) and there is some ambiguity regarding the time, when user code (*physicsUpdate* and physics callbacks) is to be executed in case of several physics ticks per one rendering frame (some part is executed before rendering while the other just after it). This mode is the fastest one and is used by default.
 
 
 The modes are toggled in [Global Physics Settings](../../editor2/settings/physics_global/index.md#update_mode) in UnigineEditor.
@@ -56,7 +56,7 @@ Actual time of physics calcuations can go beyond the current [budget](../../edit
 Deterministic mode ensures that all contacts are solved in the predefined order and visualization of physics in the world is repetitive (on one computer). When this mode is enabled the Engine performs additional sorting of bodies, shapes and joints inside islands after building them.
 
 
-Deterministic mode is unavailable in case there are missed frames — it is simply impossible. Moreover, there may be differences between visualization of physics on different hardware (e.g., AMD and Intel).
+Deterministic mode is unavailable in case there are missed frames � it is simply impossible. Moreover, there may be differences between visualization of physics on different hardware (e.g., AMD and Intel).
 
 
 Determinism **is guaranteed** if there are no missed frames, the same Engine version is used, and the CPUs perform SSE operations similarly.
@@ -116,7 +116,10 @@ In the performance [profiler](../../code/console/index.md#show_profiler_physics)
 #### Continuous Collision Detection
 
 
-If a **sphere** or a **capsule** participates in the contact with any other shape or surface, continuous collision detection (**CCD**) is performed. UNIGINE takes velocities of the body, radius of its shape and calculates what contacts this body will have (during the current physics tick), assuming it continues its current trajectory. So, unlike the simple collision detection, contacts are analyzed not discretely, once per physics tick, but rather found for the whole frame.
+If a shape participates in the contact with any other shape or surface, continuous collision detection (**CCD**) is performed. UNIGINE takes velocities of the body, radius of its shape and calculates what contacts this body will have (during the current physics tick), assuming it continues its current trajectory. So, unlike the simple collision detection, contacts are analyzed not discretely, once per physics tick, but are instead calculated for the entire current physics tick.
+
+
+> **Notice:** By default, continuous collision detection is enabled only for [sphere](../../principles/physics/shapes/index.md#sphere) and [capsule](../../principles/physics/shapes/index.md#capsule) shapes. For other shape types, it must be [enabled manually](../../api/library/physics/class.shape_cpp.md#setContinuous_int_void).
 
 
 ### 3. Simulation
@@ -125,7 +128,7 @@ If a **sphere** or a **capsule** participates in the contact with any other shap
 When a collision has been detected, [**collision response**](../../principles/physics/collision/index.md#collision_response) is calculated, so that the colliding bodies would gain new velocities.
 
 
-1. Here bodies are prepared to participate in collisions: contacts found for them are cached together with contacts from the previous frame — to ensure that they interact with each other properly.
+1. Here bodies are prepared to participate in collisions: contacts found for them are cached together with contacts from the previous frame � to ensure that they interact with each other properly.
 2. Collision response for each body is calculated. Based on the gathered contact points data, the Engine computes the impulse each body gets after collision. Contact points are solved in a pseudo-random order to achieve simulation stability and reproducibility.
 3. When contact responses are calculated, [joints](../../principles/physics/joints/index.md) constraining relative motion of bodies are solved. Joints are solved in the pseudo-random order just like contact points. > **Notice:** Within one physics iteration, joints can be solved several times. The high number of joint iterations increase the precision of calculations, as well as computational load. In the performance [profiler](../../code/console/index.md#show_profiler), the total time of both collision response and joint solving stages is displayed by the **PResponse** counter.
 4. The results of contact and joint solving are accumulated and, finally, are applied to bodies. The coordinates of the bodies change according to their new linear and angular velocities. In the performance [profiler](../../code/console/index.md#show_profiler), the time of this stage is displayed by the **PIntegrate** counter.

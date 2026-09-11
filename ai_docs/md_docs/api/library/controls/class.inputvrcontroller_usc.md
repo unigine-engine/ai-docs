@@ -105,7 +105,7 @@ Returns a state value for the specified axis. It includes position of the VR con
 Value in range [-1.0f; 1.0f].
 ## float getAxisDelta ( int axis )
 
-Returns the axis delta — the difference between a new and the current state of the specified axis.
+Returns the axis delta � the difference between a new and the current state of the specified axis.
 ### Arguments
 
 - *int* **axis** - Axis number.

@@ -24,6 +24,63 @@ The object of this class looks as follows:
 
 ### Members
 
+## void setCloseText ( string text )
+
+Sets a new caption of the Close button. The default is empty.
+### Arguments
+
+- *string* **text** - The caption of the Close button
+
+## const char * getCloseText () const
+
+Returns the current caption of the Close button. The default is empty.
+### Return value
+
+Current caption of the Close button
+## void setCancelText ( string text )
+
+Sets a new caption of the Cancel button. The default is Cancel.
+### Arguments
+
+- *string* **text** - The caption of the Cancel button
+
+## const char * getCancelText () const
+
+Returns the current caption of the Cancel button. The default is Cancel.
+### Return value
+
+Current caption of the Cancel button
+## void setOkText ( string text )
+
+Sets a new caption of the OK button. The default is OK.
+### Arguments
+
+- *string* **text** - The caption of the OK button
+
+## const char * getOkText () const
+
+Returns the current caption of the OK button. The default is OK.
+### Return value
+
+Current caption of the OK button
+## int isOkClicked () const
+
+Returns the current value indicating if the OK button is clicked.
+### Return value
+
+Current the OK button is clicked
+## int getResult () const
+
+Returns the current value indicating which button has been clicked: 1 if the OK button is clicked; -1 if the Cancel button is clicked; 0 if the Close button is clicked.
+### Return value
+
+Current value indicating which button has been clicked
+## int isDone () const
+
+Returns the current value indicating if the dialog window is closed.
+### Return value
+
+Current the dialog window is closed
 ---
 
 ## static WidgetDialog ( Gui gui , string str = 0 , int x = 0 , int y = 0 )
@@ -57,19 +114,6 @@ Returns a value indicating if the Cancel button is clicked.
 ### Return value
 
 1 if the Cancel button is clicked; otherwise, 0.
-## void setCancelText ( string text )
-
-Sets a caption of the Cancel button.
-### Arguments
-
-- *string* **text** - Cancel button caption.
-
-## string getCancelText ( )
-
-Returns the caption of the Cancel button. The default is Cancel.
-### Return value
-
-Cancel button caption.
 ## WidgetButton getCloseButton ( )
 
 Returns the button that closes an action.
@@ -82,53 +126,9 @@ Returns a value indicating if the Close button is clicked.
 ### Return value
 
 1 if the Close button is clicked; otherwise, 0.
-## void setCloseText ( string text )
-
-Sets a caption of the Close button.
-### Arguments
-
-- *string* **text** - Close button caption.
-
-## string getCloseText ( )
-
-Returns the caption of the Close button. The default is empty.
-### Return value
-
-Close button caption.
-## int isDone ( )
-
-Returns a value indicating if the dialog window is closed.
-### Return value
-
-**1** if the dialog window is closed; otherwise, **0**.
 ## WidgetButton getOkButton ( )
 
 Returns the button that approves an action.
 ### Return value
 
 OK button.
-## int isOkClicked ( )
-
-Returns a value indicating if the OK button is clicked.
-### Return value
-
-**1** if the OK button is clicked; otherwise, **0**.
-## void setOkText ( string text )
-
-Sets a caption of the OK button.
-### Arguments
-
-- *string* **text** - OK button caption.
-
-## string getOkText ( )
-
-Returns the caption of the OK button. The default is OK.
-### Return value
-
-OK button caption.
-## int getResult ( )
-
-Returns a value indicating which button has been clicked.
-### Return value
-
-1 if the OK button is clicked; -1 if the Cancel button is clicked; 0 if the Close button is clicked.

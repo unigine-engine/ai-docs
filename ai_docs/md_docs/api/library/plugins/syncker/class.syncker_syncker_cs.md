@@ -41,35 +41,44 @@ Buffer swap synchronization mode.
 
 ## double ExtrapolationPeriod
 
-***Console*:**`syncker_extrapolation_period`The Current [extrapolation](../../../../code/plugins/syncker/index.md#interpolation) period value for the computer.
+***Console*:**`syncker_extrapolation_period`The [extrapolation](../../../../code/plugins/syncker/index.md#interpolation) period value for the computer.
 ## double InterpolationPeriod
 
-***Console*:**`syncker_interpolation_period`The Current [interpolation](../../../../code/plugins/syncker/index.md#interpolation) period value for the computer.
+***Console*:**`syncker_interpolation_period`The [interpolation](../../../../code/plugins/syncker/index.md#interpolation) period value for the computer.
+It is recommended to use this method when setting the [frequency of sending packets](../../../../api/library/plugins/syncker/class.syncker_master_cs.md#getSendRate_float) to Slaves.
+
+
+```cpp
+//On the Master
+master->setSendRate(15.0f); // send packets 15 times per second
+
+//Both on the Master and all Slaves
+syncker->setInterpolationPeriod(0.1f); // 100 ms delay
+
+```
+
+
 ## bool Interpolation
 
-***Console*:**`syncker_interpolation`The A value indicating if [interpolation and extrapolation](../../../../code/plugins/syncker/index.md#interpolation) are enabled for the computer to tackle the problem of lost packets between the master and slaves.
+***Console*:**`syncker_interpolation`The value indicating if [interpolation and extrapolation](../../../../code/plugins/syncker/index.md#interpolation) are enabled for the computer to tackle the problem of lost packets between the master and slaves.
 ## float DisconnectTimeout
 
-The Current timeout period after which a Slave is considered as disconnected.
+The timeout period after which a Slave is considered as disconnected.
 ## 🔒︎ Syncker.ADDRESSING_METHOD AddressingMethod
 
-The Packets addressing mode currently used by the Syncker.
+The packets [addressing method](../../../../code/plugins/syncker/index.md#addressing_modes) currently used by the Syncker for communication.
 ## 🔒︎ double IFps
 
-The Duration of the last frame, in seconds. This value is more accurate than that of the [Game](../../../../api/library/engine/class.game_cs.md#IFps) class.
+The duration of the last frame, in seconds. This value is more accurate than that of the *[Game](../../../../api/library/engine/class.game_cs.md#IFps)* class and is represented by a double-precision value.
 ## 🔒︎ double Time
 
-The Current Master frame time, in seconds, (even if called from a Slave computer). It is the time of the last buffer swap operation (i.e., beginning of the next frame). This value is more accurate than that of the [Game](../../../../api/library/engine/class.game_cs.md#Time) class.
+The Master frame time, in seconds, (even if called from a Slave computer). It is the time of the last buffer swap operation (i.e., beginning of the next frame). This value is more accurate than that of the *[Game](../../../../api/library/engine/class.game_cs.md#Time)* class and is represented by a double-precision value.
 ## string ComputerName
 
 The name of the computer to be used when assigning a viewport to be displayed (see *[SpiderVision](../../../../principles/render/output/multi_monitor/spidervision_plugin/displays_setup.md)* plugin). This name can be set at the application startup via the [`computer_name`](../../../../code/plugins/syncker/options.md#computer_name) command-line argument. If not specified the name is obtained from the *[SpiderVision](../../../../principles/render/output/multi_monitor/spidervision_plugin/displays_setup.md)* plugin, or if the latter is unavailable the name will be taken from the Operating System settings.
 ## 🔒︎ Syncker.SWAP_SYNC_MODE SwapSyncMode
 
-The Current swap synchronization mode used by the Syncker. One of the following:
-- **DEFAULT** - default syncronization mode.
-- **NVIDIA** - NVIDIA buffer swap synchronization. Detailed information on current sync status is displayed in the console (available only for NVIDIA Quadro GPUs with G-SYNC support).
-
-
+The buffer swap synchronization mode currently used by the Syncker.
 ### Members
 
 ---
@@ -114,7 +123,7 @@ Sends a user message contained in the specified buffer using the given delivery 
 true if the message was sent successfully; otherwise, false.
 ## void SetMessageReceivedCallback ( string channel )
 
-Sets a callback function to be fired when a UDP user message is sent. A callback is executed in the Main Thread, but it is undefined when exactly — either in *update()*, or *postUpdate()*, or *swap()*. To unsubscribe from this callback, set the callback pointer to nullptr.
+Sets a callback function to be fired when a UDP user message is sent. A callback is executed in the Main Thread, but it is undefined when exactly � either in *update()*, or *postUpdate()*, or *swap()*. To unsubscribe from this callback, set the callback pointer to nullptr.
 ### Arguments
 
 - *string* **channel** - Channel name. Multiple systems may use Syncker's network simultaneously (e.g. [IG](../../../../ig/index.md) and user's application). For convenience, all messages are sent and received via named channels. If the specified channel does not exist, it shall be created.

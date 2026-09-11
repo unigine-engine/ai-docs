@@ -5,6 +5,7 @@
 
 Unigine API supports class export from C++ into UnigineScript along with their:
 
+
 - Constructors
 - Member functions (up to eight arguments are supported)
 
@@ -23,6 +24,7 @@ A simple application with C++ class implementation and export can be found in th
 
 In order to export a C++ class into UnigineScript you need to implement a *static* method that:
 
+
 1. Creates an external C++ class via the *MakeExternClass()* function.
 2. Adds constructors to the external class via the [*Unigine::ExternClass<Class>::addConstructor()*](../../../../api/library/common/class.externclass_cpp.md#addConstructor_const_char_ptr_void) function.
 3. Adds methods to the external class via the [*Unigine::ExternClass<Class>::addFunction()*](../../../../api/library/common/class.externclass_cpp.md#addFunction_const_char_ptr_methodptr_const_char_ptr_void) function. If the method receives an array as an argument, you should specify the array declaration as the last argument of the *addFunction()* as follows: ```cpp my_object->addFunction("my_array",&MyExternObject::my_array,"[]"); ``` If the target method has more than one argument, specify the array declaration on the corresponding position: ```cpp // the my_array() method receives an array as the second argument my_object->addFunction("my_array",&MyExternObject::my_array,",[],"); ``` See also the [Default Argument Values](../../../../code/cpp/usage/script/functions.md#args) chapter of the Function Export article and the article on [UnigineScript Containers](../../../../code/cpp/usage/script/arrays.md) for more details.
@@ -34,6 +36,7 @@ In order to export a C++ class into UnigineScript you need to implement a *stati
 
 
 For example:
+
 
 ```cpp
 class MyExternObject {
@@ -126,10 +129,11 @@ void registerClass() {
 
 Then the implemented method *registerClass()* can be called as follows:
 
-- In the *main()* function before Engine initialization: ```cpp #ifdef _WIN32 int wmain(int argc,wchar_t *argv[]) { #else int main(int argc,char *argv[]) { #endif // export the class MyExternObject::registerClass(); AppSystemLogic system_logic; AppWorldLogic world_logic; AppEditorLogic editor_logic; Unigine::EnginePtr engine(argc,argv); // Enter main loop. engine->main(&system_logic,&world_logic,&editor_logic); return 0; } ``` If the class uses the Engine and/or graphics resources, they should be processed properly in the main loop:  If, for example, the class creates the Engine resource in the constructor, and you export this class in the *main()* function, the Engine resource may be created before Engine initialization, resulting in Engine crash.
 
-  - If the Engine resources are used (e.g. Texture, Image, Mesh, Node, etc.), the class should implement the *init()* and *shutdown()* methods, at least. Here creating and deleting of the resources should be done.
-- In the constructor of the [WorldLogic](../../../../code/fundamentals/execution_sequence/app_logic_system.md#worldlogic)/[SystemLogic](../../../../code/fundamentals/execution_sequence/app_logic_system.md#systemlogic). For example: ```cpp class MyWorldLogic : public WorldLogic { // export the class MyExternObject::registerClass(); public: virtual int init(); virtual int shutdown(); }; int MyWorldLogic::init() { Log::message("MyWorldLogic::init(): called\n"); return 1; } int MyWorldLogic::shutdown() { Log::message("MyWorldLogic::shutdown(): called\n"); return 1; } ``` > **Notice:** If you call the *registerClass()* method in the *init()* function of the WorldLogic, the class won't be available in the world script *init()* function, as it is called before the WorldLogic initialization according to the execution sequence. The same is true for the SystemLogic.
+- In the *main()* function before Engine initialization: ```cpp #ifdef _WIN32 int wmain(int argc,wchar_t *argv[]) { #else int main(int argc,char *argv[]) { #endif // export the class MyExternObject::registerClass(); AppSystemLogic system_logic; AppWorldLogic world_logic; AppEditorLogic editor_logic; Unigine::EnginePtr engine(argc,argv); // Enter main loop. engine->main(&system_logic,&world_logic,&editor_logic); return 0; } ``` If the class uses the Engine and/or graphics resources, they should be processed properly in the main loop: If, for example, the class creates the Engine resource in the constructor, and you export this class in the *main()* function, the Engine resource may be created before Engine initialization, resulting in Engine crash.
+
+  - If the Engine resources are used (e.g. *Texture, Image, Mesh, Node*, etc.), the class should implement the *init()* and *shutdown()* methods, at least. Here creating and deleting of the resources should be done.
+- In the constructor of the *[WorldLogic](../../../../code/fundamentals/execution_sequence/app_logic_system.md#worldlogic)/[SystemLogic](../../../../code/fundamentals/execution_sequence/app_logic_system.md#systemlogic)*. For example: ```cpp class MyWorldLogic : public WorldLogic { // export the class MyExternObject::registerClass(); public: virtual int init(); virtual int shutdown(); }; int MyWorldLogic::init() { Log::message("MyWorldLogic::init(): called\n"); return 1; } int MyWorldLogic::shutdown() { Log::message("MyWorldLogic::shutdown(): called\n"); return 1; } ``` > **Notice:** If you call the *registerClass()* method in the *init()* function of the WorldLogic, the class won't be available in the world script *init()* function, as it is called before the WorldLogic initialization according to the execution sequence. The same is true for the SystemLogic.
 
 
 ### Access from Scripts
@@ -247,10 +251,14 @@ The general approach to C++ class exporting described above is common for all ty
 
 A singleton class can be exported to the script:
 
+
 - As a *library*. ```cpp class Singleton { public: // get a singleton instance static Singleton *get(); // export the class static void registerClass(); // create and delete engine and GPU resources (if any) int init(); int shutdown(); // class methods void setData(float data) { Log::message("singleton.setData() called\n"); }; float getData() const { Log::message("singleton.getData() called\n"); return 1.0f; } private: float data; static Singleton *instance; TexturePtr texture; }; // initialize a singleton instance Singleton *Singleton::instance = nullptr; // get a singleton instance Singleton *Singleton::get() { if (instance == nullptr) return new Singleton(); return instance; } // export the singleton class as a library named "singleton" void Singleton::registerClass() { Singleton *instance = Singleton::get(); // add a library Interpreter::addExternLibrary("singleton"); // add methods to the library Interpreter::addExternFunction("singleton.getData", MakeExternObjectFunction(instance, &Singleton::getData)); Interpreter::addExternFunction("singleton.setData", MakeExternObjectFunction(instance, &Singleton::setData)); } int Singleton::init() { // initialize a Texture return 1; } int Singleton::shutdown() { // delete a Texture return 1; } ```
 - As a class with the *get()* method that returns a singleton instance. ```cpp class Singleton { public: // get a singleton instance static Singleton *get(); // export the class static void registerClass(); // create and delete engine and GPU resources (if any) int init(); int shutdown(); // class methods void setData(float data) { Log::message("singleton.setData() called\n"); }; float getData() const { Log::message("singleton.getData() called\n"); return 1.0f; } private: float data; static Singleton *instance; TexturePtr texture; }; // initialize a singleton instance Singleton *Singleton::instance = nullptr; // get a singleton instance Singleton *Singleton::get() { if (instance == nullptr) return new Singleton(); return instance; } // export the singleton class as an external class with getter void Singleton::registerClass() { // create an external class ExternClass<Singleton> *singleton_bindings = MakeExternClass<Singleton>(); singleton_bindings->addFunction("setData", &Singleton::setData); singleton_bindings->addFunction("getData", &Singleton::getData); Interpreter::addExternClass("Singleton", singleton_bindings); // add getter that returns a singleton instance Interpreter::addExternFunction("get_singleton", MakeExternFunction(&Singleton::get)); } int Singleton::init() { // initialize a Texture return 1; } int Singleton::shutdown() { // delete a Texture return 1; } ```
 
- Then you can export the class to the script in one of the ways described [above](#export_classes). For example:
+
+Then you can export the class to the script in one of the ways described [above](#export_classes). For example:
+
+
 ```cpp
 #ifdef _WIN32
 	int wmain(int argc,wchar_t *argv[]) {
@@ -287,9 +295,13 @@ A singleton class can be exported to the script:
 
 If necessary, you can make a protected constructor of a C++ class available from scripts. To export it, you need to declare *Unigine::ExternClassConstructor<Class,List,Type>* template as a class friend.
 
+
 > **Notice:** Up to 9 arguments are supported.
 
+
 You can find the declaration of the template in the `<UnigineSDK>/include/UnigineInterpreter.h` header file.
+
+
 > **Notice:** Protected class members cannot be exported.
 
 
@@ -361,6 +373,7 @@ int main(int argc,char **argv) {
 
 You can also declare the corresponding template as the class friend for each of the protected constructors as follows:
 
+
 ```cpp
 class MyClass {
 
@@ -422,11 +435,15 @@ MyClass::MyClass(1) is called
 
 You can export C++ classes inherited from other C++ classes into UnigineScript and use them like other classes. Both base and derived classes are exported as it was described [above](#export_classes). For each derived class you should add a base class using the [*Unigine::ExternClass<Class>::addBaseClass()*](../../../../api/library/common/class.externclass_cpp.md#addBaseClass_ExternClassBase_ptr_void) function.
 
+
 ```cpp
 my_derived_class->addBaseClass(my_base_class);
 ```
 
- In this example we declare and export the following classes:
+
+In this example we declare and export the following classes:
+
+
 - **MyBase** - a base class
 - **MyNode** - a class inherited from the MyBase class
 - **MyObject** - a class inherited from the MyNode class
@@ -669,12 +686,14 @@ MyBase::~MyBase(): called
 
 By both creating and deleting variables that refer to the external classes, the corresponding scope should be set (world / system / editor). You should use pointers to the corresponding interpreter that are obtained via the following functions in order to set the required scope:
 
+
 - [*Unigine::Engine::getWorldInterpreter()*](../../../../api/library/engine/class.engine_cpp.md#getWorldInterpreter_void_ptr)
 - [*Unigine::Engine::getSystemInterpreter()*](../../../../api/library/engine/class.engine_cpp.md#getSystemInterpreter_void_ptr)
 - [*Unigine::Engine::getEditorInterpreter()*](../../../../api/library/engine/class.engine_cpp.md#getEditorInterpreter_void_ptr)
 
 
 Also you can use pointer to the current interpreter obtained via the [*Unigine::Interpreter::get()*](../../../../api/library/common/class.interpreter_cpp.md#get_void_ptr) function. If this function is called by the world interpreter, the current interpreter will be the world interpreter.
+
 
 ```cpp
 Interpreter *interpreter = Unigine::Interpreter::get();

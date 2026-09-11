@@ -10,15 +10,16 @@ UNIGINE Base WorldExtern class.
 
 ## WorldExternBase Class
 
-### Members
-
 ---
 
 ## template < class Type >
 
 ## static addClassID ( int class_id )
 
+
 Registers the custom world class with a unique class ID.
+
+
 ```cpp
 // register the MyWorld class
 WorldExternBase::addClassID<MyWorld>(1);
@@ -70,14 +71,17 @@ Pre-render function, i.e. after the *update()* and before the *render()* functio
 Renders the handler for the external world.
 ## void renderVisualizer ( )
 
+
 Renders the visualizer.
+
+
 > **Notice:** You should enable the engine visualizer by the **show_visualizer 1** console command.
 
 
 ## bool saveState ( const Ptr < Stream > & stream )
 
-Saves a world state into the stream.
-Saving into the stream requires creating a blob to save into. To restore the saved state the [restoreState()](#restoreState_Stream_int) method is used:
+
+Saves a world state into the stream. Saving into the stream requires creating a blob to save into. To restore the saved state the *[restoreState()](#restoreState_Stream_int)* method is used:
 
 
 ```cpp
@@ -107,8 +111,8 @@ worldExtern1->restoreState(blob_state);
 true on success; otherwise, false.
 ## bool restoreState ( const Ptr < Stream > & stream )
 
-Restores a world state from the stream.
-Restoring from the stream requires creating a blob to save into and saving the state using the [saveState()](#saveState_Stream_int) method:
+
+Restores a world state from the stream. Restoring from the stream requires creating a blob to save into and saving the state using the *[saveState()](#saveState_Stream_int)* method:
 
 
 ```cpp

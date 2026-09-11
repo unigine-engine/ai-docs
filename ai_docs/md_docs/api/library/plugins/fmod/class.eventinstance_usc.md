@@ -231,3 +231,11 @@ Returns the path for the EventDescription of the current EventInstance.
 ### Return value
 
 EventDescription path.
+## void setParameterWithLabel ( string name , string label , bool ignore_seek = false )
+
+Sets a labeled event parameter to the value associated with the given text label, instead of passing a raw numeric value as **[setParameter()()](../../../...md#setParameter_cstr_float_void)** does.
+### Arguments
+
+- *string* **name** - Name of the event parameter.
+- *string* **label** - Text label of the desired parameter value, as authored in *FMOD Studio*.
+- *bool* **ignore_seek** - Flag defining whether the value is set instantly, bypassing the parameter's authored seek speed.

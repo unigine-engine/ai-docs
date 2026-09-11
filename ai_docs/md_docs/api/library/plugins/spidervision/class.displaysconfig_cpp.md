@@ -43,7 +43,7 @@ Returns the current hotkey that opens the displays configuration window.
 Current hotkey that opens the displays configuration window.
 ## static Event<ViewportData*> getEventViewportCreated () const
 
-event triggered when a viewport is created. You can subscribe to events via *connect()*   and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a viewport is created. You can subscribe to events via *connect()* � and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -179,10 +179,10 @@ DisplaysConfig::getEventViewportCreated().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<ViewportData*> getEventViewportRemoved () const
 
-event triggered when a viewport is removed. You can subscribe to events via *connect()*   and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a viewport is removed. You can subscribe to events via *connect()* � and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -318,10 +318,10 @@ DisplaysConfig::getEventViewportRemoved().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventLoad () const
 
-event triggered on a displays configuration from a file. You can subscribe to events via *connect()*   and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered on a displays configuration from a file. You can subscribe to events via *connect()* � and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -457,10 +457,10 @@ DisplaysConfig::getEventLoad().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventClear () const
 
-event triggered on clearing displays configuration. You can subscribe to events via *connect()*   and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered on clearing displays configuration. You can subscribe to events via *connect()* � and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -596,10 +596,10 @@ DisplaysConfig::getEventClear().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<CalibrationGridData*> getEventCalibrationGridChanged () const
 
-event triggered on making changes to the calibration grid. You can subscribe to events via *connect()*   and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered on making changes to the calibration grid. You can subscribe to events via *connect()* � and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -735,7 +735,172 @@ DisplaysConfig::getEventCalibrationGridChanged().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
+## void setHeadPosition ( const Math:: vec3 & position )
+
+Sets a new position of the viewer's head (the eye origin) in the projection coordinate space, in meters: the camera position from which the off-axis view and projection of each display viewport are computed. In stereo mode the two eyes are offset from it along the head's horizontal axis. Head tracking is injected by writing this value every frame.
+### Arguments
+
+- *const  Math::[vec3](../../../../api/library/math/class.vec3_cpp.md)&* **position** - The position of the viewer's head
+
+## Math:: vec3 getHeadPosition () const
+
+Returns the current position of the viewer's head (the eye origin) in the projection coordinate space, in meters: the camera position from which the off-axis view and projection of each display viewport are computed. In stereo mode the two eyes are offset from it along the head's horizontal axis. Head tracking is injected by writing this value every frame.
+### Return value
+
+Current position of the viewer's head
+## void setHeadRotation ( const Math:: quat & rotation )
+
+Sets a new orientation of the viewer's head in the projection coordinate space. It defines the inter-eye axis along which the eyes are separated in stereo mode.
+### Arguments
+
+- *const  Math::[quat](../../../../api/library/math/class.quat_cpp.md)&* **rotation** - The orientation of the viewer's head
+
+## Math:: quat getHeadRotation () const
+
+Returns the current orientation of the viewer's head in the projection coordinate space. It defines the inter-eye axis along which the eyes are separated in stereo mode.
+### Return value
+
+Current orientation of the viewer's head
+## Event<const Math:: mat4 &> getEventHeadTransformChanged () const
+
+event triggered when the head position or the head rotation changes, carrying the resulting head transformation. You can subscribe to events via *connect()* � and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+
+> **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cpp.md) article.
+
+ The event handler signature is as follows: *myhandler(const Math::mat4 &**head_transform**)*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+// implement the HeadTransformChanged event handler
+void headtransformchanged_event_handler(const Math::mat4 &head_transform)
+{
+	Log::message("\Handling HeadTransformChanged event\n");
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//  1. Multiple subscriptions can be linked to an instance of the EventConnections
+//  class that you can use later to remove all these subscriptions at once
+//////////////////////////////////////////////////////////////////////////////
+
+// create an instance of the EventConnections class
+EventConnections headtransformchanged_event_connections;
+
+// link to this instance when subscribing to an event (subscription to various events can be linked)
+publisher->getEventHeadTransformChanged().connect(headtransformchanged_event_connections, headtransformchanged_event_handler);
+
+// other subscriptions are also linked to this EventConnections instance
+// (e.g. you can subscribe using lambdas)
+publisher->getEventHeadTransformChanged().connect(headtransformchanged_event_connections, [](const Math::mat4 &head_transform) {
+		Log::message("\Handling HeadTransformChanged event (lambda).\n");
+	}
+);
+
+// ...
+
+// later all of these linked subscriptions can be removed with a single line
+headtransformchanged_event_connections.disconnectAll();
+
+//////////////////////////////////////////////////////////////////////////////
+//  2. You can subscribe and unsubscribe via an instance of the EventConnection
+//  class. And toggle this particular connection off and on, when necessary.
+//////////////////////////////////////////////////////////////////////////////
+
+// create an instance of the EventConnection class
+EventConnection headtransformchanged_event_connection;
+
+// subscribe to the HeadTransformChanged event with a handler function keeping the connection
+publisher->getEventHeadTransformChanged().connect(headtransformchanged_event_connection, headtransformchanged_event_handler);
+
+// ...
+
+// you can temporarily disable a particular event connection to perform certain actions
+headtransformchanged_event_connection.setEnabled(false);
+
+// ... actions to be performed
+
+// and enable it back when necessary
+headtransformchanged_event_connection.setEnabled(true);
+
+// ...
+
+// remove subscription to the HeadTransformChanged event via the connection
+headtransformchanged_event_connection.disconnect();
+
+//////////////////////////////////////////////////////////////////////////////
+//  3. You can add EventConnection/EventConnections instance as a member of the
+//  class that handles the event. In this case all linked subscriptions will be
+//  automatically removed when class destructor is called
+//////////////////////////////////////////////////////////////////////////////
+
+// Class handling the event
+class SomeClass
+{
+public:
+	// instance of the EventConnections class as a class member
+	EventConnections e_connections;
+
+	// A HeadTransformChanged event handler implemented as a class member
+	void event_handler(const Math::mat4 &head_transform)
+	{
+		Log::message("\Handling HeadTransformChanged event\n");
+		// ...
+	}
+};
+
+SomeClass *sc = new SomeClass();
+
+// ...
+
+// specify a class instance in case a handler method belongs to some class
+publisher->getEventHeadTransformChanged().connect(sc->e_connections, sc, &SomeClass::event_handler);
+
+// ...
+
+// handler class instance is deleted with all its subscriptions removed automatically
+delete sc;
+
+//////////////////////////////////////////////////////////////////////////////
+//   4. Subscribe to an event saving a particular connection ID
+//   and unsubscribe later by this ID
+//////////////////////////////////////////////////////////////////////////////
+// instance of the EventConnections class to manage event connections
+EventConnections e_connections;
+
+// define a particular connection ID to be used to unsubscribe later
+EventConnectionId headtransformchanged_handler_id;
+
+// subscribe to the HeadTransformChanged event with a lambda handler function and keeping connection ID
+headtransformchanged_handler_id = publisher->getEventHeadTransformChanged().connect(e_connections, [](const Math::mat4 &head_transform) {
+		Log::message("\Handling HeadTransformChanged event (lambda).\n");
+	}
+);
+
+// remove the subscription later using the ID
+publisher->getEventHeadTransformChanged().disconnect(headtransformchanged_handler_id);
+
+//////////////////////////////////////////////////////////////////////////////
+//   5. Ignoring all HeadTransformChanged events when necessary
+//////////////////////////////////////////////////////////////////////////////
+
+// you can temporarily disable the event to perform certain actions without triggering it
+publisher->getEventHeadTransformChanged().setEnabled(false);
+
+// ... actions to be performed
+
+// and enable it back when necessary
+publisher->getEventHeadTransformChanged().setEnabled(true);
+
+```
+
+</details>
+
+### Return value
+
+Event instance.
 ---
 
 ## ViewportData * getViewportByIndex ( int index ) const

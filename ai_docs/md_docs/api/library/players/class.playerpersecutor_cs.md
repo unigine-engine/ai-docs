@@ -64,7 +64,7 @@ The A collision mask of the persecutor's collision sphere. two objects collide, 
 The A value indicating if collisions with persecutor's sphere should be taken into account.
 ## bool Fixed
 
-The A value indicating if the persecutor can freely rotate around its target or it is oriented strictly in one direction. the fixed viewing direction is the same direction the persecutor was looking in when the setFixed() function is called, though it can be reset to another one afterwards.
+The A value indicating if the persecutor can freely rotate around its target or it is oriented strictly in one direction. the fixed viewing direction is the same direction the persecutor was looking in when the *setFixed()* function is called, though it can be reset to another one afterwards.
 ### Members
 
 ---

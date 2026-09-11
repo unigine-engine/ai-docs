@@ -339,7 +339,10 @@ Returns a value indicating if there is an [import processor](../../../../api/lib
 true if there is an import processor with the specified type name available; otherwise, false.
 ## ImportProcessor CreateImportProcessor ( string type_name )
 
+
 Creates a new import processor of the specified type.
+
+
 > **Notice:** The processor type name specified must be previously [registered](#registerImportProcessor_cstr_ImportProcessorCreationFunction_ImportProcessorDeletionFunction_vptr_vptr).
 
 

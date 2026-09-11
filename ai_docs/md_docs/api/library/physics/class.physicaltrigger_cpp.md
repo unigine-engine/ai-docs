@@ -12,7 +12,7 @@
 2. [Shapes](../../../api/library/physics/class.shape_cpp.md) (with matching [Collision mask](../../../api/library/physics/class.shape_cpp.md#setCollisionMask_int_void))
 
 
-To force update of the physical trigger, [updateContacts()](#updateContacts_void) can be called. After that, you can access all updated data about the contacts in the same frame. However, handler functions will still be executed only when the next engine function is called: that is, before *[updatePhysics()](../../../code/fundamentals/execution_sequence/main_loop.md#physics)* (in the current frame), or before the *[update()](../../../code/fundamentals/execution_sequence/main_loop.md#update)* (in the next frame) — whatever comes first.
+To force update of the physical trigger, [updateContacts()](#updateContacts_void) can be called. After that, you can access all updated data about the contacts in the same frame. However, handler functions will still be executed only when the next engine function is called: that is, before *[updatePhysics()](../../../code/fundamentals/execution_sequence/main_loop.md#physics)* (in the current frame), or before the *[update()](../../../code/fundamentals/execution_sequence/main_loop.md#update)* (in the next frame) � whatever comes first.
 
 
 > **Notice:** If you have moved some nodes and want to execute event handlers based on changed positions in the same frame, you need to call [updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void) first.
@@ -202,18 +202,18 @@ int AppWorldLogic::shutdown()
 
 ### Members
 
-## void setSize ( )
+## void setSize ( const Math:: vec3 & size )
 
 Sets a new size of the physical trigger.
 ### Arguments
 
-- **size** - The size of the physical trigger:
+- *const  Math::[vec3](../../../api/library/math/class.vec3_cpp.md)&* **size** - The size of the physical trigger:
 
   - Radius, in case of a sphere (pass the radius in the first element of the vector).
   - Radius and height, in case of a capsule or a cylinder (pass the radius as the first vector element and the height as the second element).
   - Dimensions along the X, Y and Z axes, in case of the box.
 
-## getSize () const
+## Math:: vec3 getSize () const
 
 Returns the current size of the physical trigger.
 ### Return value
@@ -320,7 +320,7 @@ Returns the current collision bit mask for the trigger:
 Current integer, each bit of which is a mask.
 ## Event<const Ptr < Body > &> getEventLeave () const
 
-Event triggered when a body leaves the physical trigger. The event handler must receive a [*Body*](../../../api/library/physics/class.body_cpp.md) as its first argument. In addition, it can also take **2** arguments of any type. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+Event triggered when a body leaves the physical trigger. The event handler must receive a [*Body*](../../../api/library/physics/class.body_cpp.md) as its first argument. In addition, it can also take **2** arguments of any type. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -456,10 +456,10 @@ publisher->getEventLeave().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < Body > &> getEventEnter () const
 
-Event triggered when a body enters the physical trigger. The callback function must receive a [*Body*](../../../api/library/physics/class.body_cpp.md) as its first argument. In addition, it can also take 2 arguments of any type. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+Event triggered when a body enters the physical trigger. The callback function must receive a [*Body*](../../../api/library/physics/class.body_cpp.md) as its first argument. In addition, it can also take 2 arguments of any type. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -595,7 +595,7 @@ publisher->getEventEnter().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## static PhysicalTriggerPtr create ( Shape::TYPE type , const Math:: vec3 & size )

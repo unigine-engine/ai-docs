@@ -12,26 +12,32 @@ The *Displays* class allows getting information about connected displays such as
 
 ### Members
 
+## int getMain () const
+
+Returns the current index of the main system display.
+### Return value
+
+Current index of the main system display
+## int getDefaultSystemDPI () const
+
+Returns the current default system dots/pixels-per-inch value.
+### Return value
+
+Current default system dots/pixels-per-inch value
+## int getNum () const
+
+Returns the current number of available video displays.
+### Return value
+
+Current number of available video displays
+## int getCurrent () const
+
+Returns the current index of the display that is currently under the cursor.
+### Return value
+
+Current index of the display that is currently under the cursor
 ---
 
-## int getMain ( )
-
-Returns the main system display index.
-### Return value
-
-The index of the main system display.
-## int getDefaultSystemDPI ( )
-
-Returns the default system dots/pixels-per-inch value.
-### Return value
-
-The dots/pixels-per-inch value.
-## int getNum ( )
-
-Returns the number of available video displays.
-### Return value
-
-The number of available video displays.
 ## ivec2 getPosition ( int display_index )
 
 Returns the display position by its index.
@@ -104,12 +110,6 @@ Returns the system name of the display.
 ### Return value
 
 System name of the display.
-## int getCurrent ( )
-
-Returns the index of the display that is currently under cursor.
-### Return value
-
-The index of the display that is currently under cursor.
 ## int getRefreshRate ( int display_index )
 
 Returns the current refresh rate of the specified display.
@@ -160,26 +160,6 @@ Returns the unique ID for the display.
 ### Return value
 
 Display unique ID.
-## int findDisplay ( string name )
-
-Returns the display index by its name.
-### Arguments
-
-- *string* **name** - Display name.
-
-### Return value
-
-Display index.
-## int findDisplay ( int unique_id )
-
-Returns the display index by its unique ID.
-### Arguments
-
-- *int* **unique_id** - Display unique ID.
-
-### Return value
-
-Display index, or -1 if the display is not found.
 ## int findMode ( int display_index , ivec2 resolution )
 
 Returns the index of the display mode by the display index and resolution.

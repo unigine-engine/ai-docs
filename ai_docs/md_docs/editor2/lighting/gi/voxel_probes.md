@@ -61,7 +61,7 @@ Set up light sources in the scene:
 - For [emissive](../../../editor2/lighting/lights/index.md#emissive) surfaces (having *Emission* state in the material parameters enabled) also enable the *Emission Bake GI* option. Both direct and indirect (bounced) lighting from emissive materials is baked.
 
 
-> **Notice:** It is not recommended to bake lighting for voxel probes stored in multiple [*Node References*](../../../objects/nodes/reference/index.md) that refer to the same `.node` asset — the assigned textures will be lost. However, you can save a voxel probe to a node reference after baking and clone, if needed.
+> **Notice:** It is not recommended to bake lighting for voxel probes stored in multiple [*Node References*](../../../objects/nodes/reference/index.md) that refer to the same `.node` asset � the assigned textures will be lost. However, you can save a voxel probe to a node reference after baking and clone, if needed.
 
 
 ### Creating Voxel Probes

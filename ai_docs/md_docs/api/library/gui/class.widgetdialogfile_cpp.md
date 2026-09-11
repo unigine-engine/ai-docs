@@ -131,6 +131,58 @@ int AppWorldLogic::init()
 
 ### Members
 
+## void setFilter ( const char * filter )
+
+Sets a new file name filter used in the dialog (a list of file extensions with leading dots and without additional separators, for example: .mesh.smesh).
+### Arguments
+
+- *const char ** **filter** - The file name filter used in the dialog
+
+## const char * getFilter () const
+
+Returns the current file name filter used in the dialog (a list of file extensions with leading dots and without additional separators, for example: .mesh.smesh).
+### Return value
+
+Current file name filter used in the dialog
+## void setTabs ( const char * tabs )
+
+Sets a new list of tabs in the file picker dialog. The tabs allow the user to interact with several folders at once. The value is a list of paths separated with semicolons, where each path corresponds to a tab.
+### Arguments
+
+- *const char ** **tabs** - The list of tabs in the file picker dialog
+
+## const char * getTabs () const
+
+Returns the current list of tabs in the file picker dialog. The tabs allow the user to interact with several folders at once. The value is a list of paths separated with semicolons, where each path corresponds to a tab.
+### Return value
+
+Current list of tabs in the file picker dialog
+## void setFile ( const char * file )
+
+Sets a new file selected in the dialog (an absolute or relative path to the file).
+### Arguments
+
+- *const char ** **file** - The file selected in the dialog
+
+## const char * getFile () const
+
+Returns the current file selected in the dialog (an absolute or relative path to the file).
+### Return value
+
+Current file selected in the dialog
+## void setPath ( const char * path )
+
+Sets a new path to the folder whose contents are displayed in the file picker (an absolute or relative path).
+### Arguments
+
+- *const char ** **path** - The path to the folder whose contents are displayed in the file picker
+
+## const char * getPath () const
+
+Returns the current path to the folder whose contents are displayed in the file picker (an absolute or relative path).
+### Return value
+
+Current path to the folder whose contents are displayed in the file picker
 ---
 
 ## static WidgetDialogFilePtr create ( const Ptr < Gui > & gui , const char * str = 0 )
@@ -147,56 +199,3 @@ Constructor. Creates a file picker dialog with given parameters and adds it to t
 ### Arguments
 
 - *const char ** **str** - Dialog title. This is an optional parameter.
-
-## void setFile ( const char * file )
-
-Selects a given file in the file picker.
-### Arguments
-
-- *const char ** **file** - Absolute or relative (to the data folder) path.
-
-## const char * getFile ( ) const
-
-Returns the currently selected file.
-### Return value
-
-Path to the file.
-## void setFilter ( const char * filter )
-
-Sets a file name filter, which is used to display files of required types only.
-### Arguments
-
-- *const char ** **filter** - List of file extensions with leading dots and without additional separators, for example: .mesh.smesh.
-
-## const char * getFilter ( ) const
-
-Returns the currently used file name filter.
-### Return value
-
-List of file extensions with leading dots and without additional separators, for example: .mesh.smesh.
-## void setPath ( const char * path )
-
-Sets a path to the folder, contents of which should be displayed in the file picker.
-### Arguments
-
-- *const char ** **path** - Absolute or relative (to the data folder) path.
-
-## const char * getPath ( ) const
-
-Returns the current path to the folder, contents of which is displayed in the file picker.
-### Return value
-
-Current path to the folder.
-## void setTabs ( const char * tabs )
-
-Adds a set of tabs to the file picker dialog. The tabs allow the user to interact with several folders at once.
-### Arguments
-
-- *const char ** **tabs** - List of paths separated with semicolons. Each path corresponds to a tab.
-
-## const char * getTabs ( ) const
-
-Returns a list of tabs in the file picker dialog. The tabs allow the user to interact several folders at once.
-### Return value
-
-List of paths separated with semicolons. Each path corresponds to a tab.

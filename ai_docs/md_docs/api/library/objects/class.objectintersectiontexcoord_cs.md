@@ -12,7 +12,7 @@ This class is used to store the texture coordinates of the object intersection.
 
 ## vec4 TexCoord
 
-The Texture coordinates of the intersection point.
+The texture coordinates of the intersection point (where vec4.xy is for the first UV channel, vec4.zw is for the second UV channel).
 ### Members
 
 ---

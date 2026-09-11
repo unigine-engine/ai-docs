@@ -10,7 +10,7 @@
 ### Dimensions
 
 
-When exporting a heightmap from **World Machine**, pay attention to the following parameters (available via World Commands -> Project World Parameters…):
+When exporting a heightmap from **World Machine**, pay attention to the following parameters (available via *World Commands -> Project World Parameters�*):
 
 
 ![](wm_base_properties.png)
@@ -64,7 +64,7 @@ The exported heightmap is imported to UNIGINE as follows. In the **Landscape Lay
 
   - For the **normalized** heightmap, indicate the minimum and maximum heights taken from the *Base Elevation* and *Maximum Elevation* values.
   - The **unnormalized** map does not require setting the height values.
-- In the *Landscape Asset* section, set the actual size of your terrain in meters, the same as in *Width* and *Height* in World Machine.
+- In the *Landscape Asset* section, set the actual size of your terrain in meters, the same as in *Width* and *Height* in *World Machine*.
 - Check the *Current Data Density* value. It shows the meter-to-pixel ratio, and should correspond to the *Detail Scale* value.
 - In the *Import settings* section, check the *Resolution* values. They define the resolution of the heightmap. They are set automatically in most cases, but can also be adjusted, if required.
 

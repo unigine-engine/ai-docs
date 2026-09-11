@@ -10,7 +10,7 @@
 The number of adapters on the system.
 ## 🔒︎ string Name
 
-The name of the currently used gpu.
+The name of the currently used GPU.
 ### Members
 
 ---
@@ -20,7 +20,7 @@ The name of the currently used gpu.
 Returns the display adapter name based on its ordinal number.
 ### Arguments
 
-- *int* **num** - Ordinal number that denotes the display adapter. The minimum value for this parameter is 0, and the maximum value for this parameter is one less than the value returned by [getNumAdapters()](#getNumAdapters_int).
+- *int* **num** - Ordinal number that denotes the display adapter. The minimum value for this parameter is 0, and the maximum value for this parameter is one less than the value returned by *[getNumAdapters()](#getNumAdapters_int)*.
 
 ### Return value
 
@@ -30,7 +30,7 @@ Display adapter name
 Returns core clock of the selected adapter.
 ### Arguments
 
-- *int* **num** - Ordinal number that denotes the display adapter. The minimum value for this parameter is 0, and the maximum value for this parameter is one less than the value returned by [getNumAdapters()](#getNumAdapters_int).
+- *int* **num** - Ordinal number that denotes the display adapter. The minimum value for this parameter is 0, and the maximum value for this parameter is one less than the value returned by *[getNumAdapters()](#getNumAdapters_int)*.
 
 ### Return value
 
@@ -40,7 +40,7 @@ Core clock, i.e. frequency, at which the GPU is running.
 Returns memory clock of the selected adapter.
 ### Arguments
 
-- *int* **num** - Ordinal number that denotes the display adapter. The minimum value for this parameter is 0, and the maximum value for this parameter is one less than the value returned by [getNumAdapters()](#getNumAdapters_int).
+- *int* **num** - Ordinal number that denotes the display adapter. The minimum value for this parameter is 0, and the maximum value for this parameter is one less than the value returned by *[getNumAdapters()](#getNumAdapters_int)*.
 
 ### Return value
 
@@ -50,7 +50,7 @@ Memory clock, i.e. how fast the GPU memory is running
 Returns shader clock of the selected adapter.
 ### Arguments
 
-- *int* **num** - Ordinal number that denotes the display adapter. The minimum value for this parameter is 0, and the maximum value for this parameter is one less than the value returned by [getNumAdapters()](#getNumAdapters_int).
+- *int* **num** - Ordinal number that denotes the display adapter. The minimum value for this parameter is 0, and the maximum value for this parameter is one less than the value returned by *[getNumAdapters()](#getNumAdapters_int)*.
 
 ### Return value
 
@@ -60,7 +60,7 @@ Shader clock, i.e. frequency, at which shader processing units operate
 Returns the GPU temperature of the selected adapter.
 ### Arguments
 
-- *int* **num** - Ordinal number that denotes the display adapter. The minimum value for this parameter is 0, and the maximum value for this parameter is one less than the value returned by [getNumAdapters()](#getNumAdapters_int).
+- *int* **num** - Ordinal number that denotes the display adapter. The minimum value for this parameter is 0, and the maximum value for this parameter is one less than the value returned by *[getNumAdapters()](#getNumAdapters_int)*.
 
 ### Return value
 
@@ -70,7 +70,7 @@ GPU temperature
 Returns the rate of GPU utilization, in percent, of the selected adapter.
 ### Arguments
 
-- *int* **num** - Ordinal number that denotes the display adapter. The minimum value for this parameter is 0, and the maximum value for this parameter is one less than the value returned by [getNumAdapters()](#getNumAdapters_int).
+- *int* **num** - Ordinal number that denotes the display adapter. The minimum value for this parameter is 0, and the maximum value for this parameter is one less than the value returned by *[getNumAdapters()](#getNumAdapters_int)*.
 
 ### Return value
 

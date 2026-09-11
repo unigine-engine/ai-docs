@@ -32,15 +32,15 @@ But what about the frame-by-frame update? Both [World Logic](../../../api/librar
 - *[swap()](#code_swap)* can be used to process the results of the *[updateAsyncThread()](#code_updateAsyncThread)* function.
 
 
-> **Notice:** Unlike World Logic, which is bound to a world, System Logic operates at the application level and includes a similar set of methods: init(), shutdown(), update(), postUpdate().
+> **Notice:** Unlike *World Logic*, which is bound to a world, *System Logic* operates at the application level and includes a similar set of methods: *init(), shutdown(), update(), postUpdate()*.
 
 
 In addition to the standard lifecycle and per-frame update methods, components include several unique callbacks that extend their functionality:
 
 
-- [*OnReady()*](../../../api/library/common/logic/component_system/cs/class.component.md#on_ready_void) for C# or [*on_ready()*](../../../api/library/common/logic/component_system/cpp/class.componentbase_cpp.md#on_ready_void) for C++ - triggered **immediately** after the component has been created and attached to a node.
-- [*OnEnable()*](../../../api/library/common/logic/component_system/cs/class.component.md#on_enable_void) for C# or [*on_enable()*](../../../api/library/common/logic/component_system/cpp/class.componentbase_cpp.md#on_enable_void) for C++ - triggered **immediately** when the component becomes enabled (both the node and the property are active).
-- [*OnDisable()*](../../../api/library/common/logic/component_system/cs/class.component.md#on_disable_void) for C# or [*on_disable()*](../../../api/library/common/logic/component_system/cpp/class.componentbase_cpp.md#on_disable_void) for C++ - triggered **immediately** when the component becomes disabled (both the node and the property are disabled).
+- *[OnReady()](../../../api/library/common/logic/component_system/cs/class.component.md#on_ready_void)* for C# or *[on_ready()](../../../api/library/common/logic/component_system/cpp/class.componentbase_cpp.md#on_ready_void)* for C++ - triggered **immediately** after the component has been created and attached to a node.
+- *[OnEnable()](../../../api/library/common/logic/component_system/cs/class.component.md#on_enable_void)* for C# or *[on_enable()](../../../api/library/common/logic/component_system/cpp/class.componentbase_cpp.md#on_enable_void)* for C++ - triggered **immediately** when the component becomes enabled (both the node and the property are active).
+- *[OnDisable()](../../../api/library/common/logic/component_system/cs/class.component.md#on_disable_void)* for C# or *[on_disable()](../../../api/library/common/logic/component_system/cpp/class.componentbase_cpp.md#on_disable_void)* for C++ - triggered **immediately** when the component becomes disabled (both the node and the property are disabled).
 
 
 ## Code UpdateAsyncThread
@@ -73,7 +73,7 @@ In the world logic ***update()***, you can put all functions to be called every 
 - Create and manipulate your [GUI](../../../api/library/gui/class.gui_cpp.md).
 - [Render to textures](../../../api/library/rendering/class.viewport_cpp.md).
 - Execute [console](../../../api/library/engine/class.console_cpp.md) commands.
-- Even do some physics — perform some momentary actions: add [impulses](../../../api/library/physics/class.bodyrigid_cpp.md#addImpulse_vec3_vec3_void), simulate a hit or a push, set [linear](../../../api/library/physics/class.bodyrigid_cpp.md#setLinearVelocity_vec3_void) or [angular velocity](../../../api/library/physics/class.bodyrigid_cpp.md#setAngularVelocity_vec3_void), add or remove [shapes](../../../api/library/physics/class.shape_cpp.md) and [joints](../../../api/library/physics/class.joint_cpp.md), and change their parameters.
+- Even do some physics � perform some momentary actions: add [impulses](../../../api/library/physics/class.bodyrigid_cpp.md#addImpulse_vec3_vec3_void), simulate a hit or a push, set [linear](../../../api/library/physics/class.bodyrigid_cpp.md#setLinearVelocity_vec3_void) or [angular velocity](../../../api/library/physics/class.bodyrigid_cpp.md#setAngularVelocity_vec3_void), add or remove [shapes](../../../api/library/physics/class.shape_cpp.md) and [joints](../../../api/library/physics/class.joint_cpp.md), and change their parameters.
 
 
 > **Notice:** Do not apply [forces](../../../api/library/physics/class.bodyrigid_cpp.md#addForce_vec3_vec3_void) and [torques](../../../api/library/physics/class.bodyrigid_cpp.md#addTorque_vec3_void) to rigid bodies in the *update()*. Otherwise, you will get an unstable result that varies with each rendering frame. All continuous operations must be within *[*updatePhysics()*](#code_updatePhysics)*.
@@ -115,7 +115,7 @@ Imagine a situation when we need to attach an object (let's say, a sword) to the
 ## Code Swap
 
 
-Engine calls this function after the following processes are completed: rendering (CPU portion), physics calculations and pathfinding, GUI rendering, and all Async threads. The function is designed to process the results of the *[updateAsyncThread()](#code_updateAsyncThread)* method — all other methods (threads) have already been performed and are idle. After this function, only two actions occur:
+Engine calls this function after the following processes are completed: rendering (CPU portion), physics calculations and pathfinding, GUI rendering, and all Async threads. The function is designed to process the results of the *[updateAsyncThread()](#code_updateAsyncThread)* method � all other methods (threads) have already been performed and are idle. After this function, only two actions occur:
 
 
 - All objects that are queued for deletion are deleted.

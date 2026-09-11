@@ -11,6 +11,26 @@ Creates a GUI. Different types of GUI widgets can be either added to one of the 
 Default values returned by the following methods can be overridden via [RC files](../../../code/gui/rc.md) defining a custom GUI.
 ## Gui Class
 
+### Enums
+
+## CursorMode
+
+Cursor movement and hit-test mode for text edit widgets, relevant for bidirectional (mixed left-to-right and right-to-left) text.
+| Name | Description |
+|---|---|
+| **CURSOR_MODE_AUTO** = 0 | On a widget, the mode is inherited from the **[getGlobalCursorMode()](../../...md#getGlobalCursorMode_int)** property of the *Gui*; on the *Gui* itself, this value is treated as *CURSOR_MODE_LOGICAL*. |
+| **CURSOR_MODE_VISUAL** = 1 | The cursor moves over glyphs in on-screen (visual) order: arrow keys move the caret in the pressed direction even across boundaries between left-to-right and right-to-left text runs. |
+| **CURSOR_MODE_LOGICAL** = 2 | The cursor moves through the underlying character sequence in logical (storage) order. |
+
+## TextDirection
+
+Base paragraph direction used for laying out widget text with bidirectional content.
+| Name | Description |
+|---|---|
+| **TEXT_DIRECTION_AUTO** = 0 | The base direction is detected automatically from the text content (default). |
+| **TEXT_DIRECTION_LTR** = 1 | The text is laid out with the left-to-right base direction. |
+| **TEXT_DIRECTION_RTL** = 2 | The text is laid out with the right-to-left base direction. |
+
 ### Members
 
 ## int getNumChildren () const
@@ -70,7 +90,7 @@ Sets a new value indicating if the mouse cursor is rendered.
 Returns the current value indicating if the mouse cursor is rendered.
 ### Return value
 
-**true** if rendering of the mouse cursor is enabled; otherwise **false**.
+**true** if rendering of the mouse cursor is enabled ; otherwise **false**.
 ## void setToolTipTime ( float time )
 
 Sets a new delay before tooltip appearing.
@@ -148,15 +168,15 @@ Sets a new value indicating if tooltips are available.
 Returns the current value indicating if tooltips are available.
 ### Return value
 
-**true** if tooltips display is enabled; otherwise **false**.
-## void setTransparentAlpha ( )
+**true** if tooltips display is enabled ; otherwise **false**.
+## void setTransparentAlpha ( float alpha )
 
 Sets a new alpha value of a transparent widget. A widget is transparent, if it uses blending.
 ### Arguments
 
-- **alpha** - The alpha value of a transparent widget. **0** means completely transparent.
+- *float* **alpha** - The alpha value of a transparent widget. **0** means completely transparent.
 
-## getTransparentAlpha () const
+## float getTransparentAlpha () const
 
 Returns the current alpha value of a transparent widget. A widget is transparent, if it uses blending.
 ### Return value
@@ -187,7 +207,7 @@ Sets a new value indicating if a widget can be rendered as [transparent](../../.
 Returns the current value indicating if a widget can be rendered as [transparent](../../../code/gui/rc.md#transparent) (i.e. change its color accordingly), when necessary. For example, it can indicate whether the drop-down list of combobox is transparent or not.
 ### Return value
 
-**true** if rendering of a widget as transparent is enabled; otherwise **false**.
+**true** if rendering of a widget as transparent is enabled ; otherwise **false**.
 ## void setDisabledAlpha ( float alpha )
 
 Sets a new alpha value of a disabled widget.
@@ -226,7 +246,7 @@ Sets a new value indicating if a widget can be rendered as [disabled](../../../c
 Returns the current value indicating if a widget can be rendered as [disabled](../../../code/gui/rc.md#disabled) (i.e. change its color accordingly), when necessary.
 ### Return value
 
-**true** if rendering of a widget as disabled is enabled; otherwise **false**.
+**true** if rendering of a widget as disabled is enabled ; otherwise **false**.
 ## void setFocusedAlpha ( float alpha )
 
 Sets a new alpha value of a focused widget.
@@ -253,6 +273,19 @@ Returns the current font color of a focused widget.
 ### Return value
 
 Current font color of a focused widget. The default is equivalent to **#ffffff** (white).
+## void setFocusedPermanent ( bool permanent )
+
+Sets a new value indicating if the permanent color of the focused widget is changed.
+### Arguments
+
+- *bool* **permanent** - Set **true** to enable change of the permanent color of the focused widget; **false** - to disable it.
+
+## bool isFocusedPermanent () const
+
+Returns the current value indicating if the permanent color of the focused widget is changed.
+### Return value
+
+**true** if change of the permanent color of the focused widget is enabled ; otherwise **false**.
 ## void setFocusedEnabled ( bool enabled )
 
 Sets a new value indicating if a widget can be rendered as [focused](../../../code/gui/rc.md#focused) on (i.e. change its color accordingly), when necessary.
@@ -265,7 +298,7 @@ Sets a new value indicating if a widget can be rendered as [focused](../../../co
 Returns the current value indicating if a widget can be rendered as [focused](../../../code/gui/rc.md#focused) on (i.e. change its color accordingly), when necessary.
 ### Return value
 
-**true** if rendering of a widget as focused on is enabled; otherwise **false**.
+**true** if rendering of a widget as focused on is enabled ; otherwise **false**.
 ## void setDefaultAlpha ( float alpha )
 
 Sets a new standard alpha value of a widget.
@@ -384,17 +417,17 @@ Returns the current screen width.
 Current screen width, in [logical units](../../../principles/dpi/index.md).
 ## void setHidden ( bool hidden )
 
-Sets a new value indicating if a widget is rendered visible.
+Sets a new value indicating if the GUI is hidden (not rendered).
 ### Arguments
 
-- *bool* **hidden** - Set **true** to enable the widget rendering as visible; **false** - to disable it.
+- *bool* **hidden** - true if the GUI is hidden, false if it is shown
 
 ## bool isHidden () const
 
-Returns the current value indicating if a widget is rendered visible.
+Returns the current value indicating if the GUI is hidden (not rendered).
 ### Return value
 
-**true** if the widget rendering as visible is enabled; otherwise **false**.
+true if the GUI is hidden, false if it is shown
 ## void setEnabled ( bool enabled )
 
 Sets a new value indicating if the GUI is enabled.
@@ -407,7 +440,7 @@ Sets a new value indicating if the GUI is enabled.
 Returns the current value indicating if the GUI is enabled.
 ### Return value
 
-**true** if the GUI is enabled; otherwise **false**.
+**true** if the GUI is enabled ; otherwise **false**.
 ## bool isActive () const
 
 Returns the current value indicating if any widget in the GUI is in focus.
@@ -416,7 +449,7 @@ Returns the current value indicating if any widget in the GUI is in focus.
 **true** if any widget in the GUI is in focus; otherwise **false**.
 ## Ptr < WidgetVBox > getVBox () const
 
-Returns the current root widget of the GUI.
+Returns the current root widget of the GUI (a [WidgetVBox](../../../api/library/gui/class.widgetvbox_cpp.md)).
 ### Return value
 
 Current root widget of the GUI.
@@ -531,7 +564,7 @@ Sets a new value indicating if the OS mouse pointer is displayed, or if the appl
 Returns the current value indicating if the OS mouse pointer is displayed, or if the application cursor is used only.
 ### Return value
 
-**true** if displaying of OS mouse pointer is enabled; otherwise **false**.
+**true** if displaying of OS mouse pointer is enabled ; otherwise **false**.
 ## void setMouseButtons ( int buttons )
 
 Sets a new mouse buttons the input of which is received.
@@ -612,7 +645,7 @@ Returns the current DPI scale applied to the GUI.
 Current DPI scale applied to the GUI.
 ## Event<> getEventUpdate () const
 
-event triggered when GUI is updated. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when GUI is updated. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -748,7 +781,33 @@ publisher->getEventUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
+## void setGlobalCursorMode ( Gui::CursorMode mode )
+
+Sets a new default cursor movement mode applied to all text edit widgets of this GUI whose own *CursorMode* property is set to *CURSOR_MODE_AUTO*. Reading this property never returns *CURSOR_MODE_AUTO*: it resolves to *CURSOR_MODE_LOGICAL* (the effective default).
+### Arguments
+
+- *[Gui::CursorMode](../../../api/library/gui/class.gui_cpp.md#CursorMode)* **mode** - The default cursor mode for text edit widgets
+
+## Gui::CursorMode getGlobalCursorMode () const
+
+Returns the current default cursor movement mode applied to all text edit widgets of this GUI whose own *CursorMode* property is set to *CURSOR_MODE_AUTO*. Reading this property never returns *CURSOR_MODE_AUTO*: it resolves to *CURSOR_MODE_LOGICAL* (the effective default).
+### Return value
+
+Current default cursor mode for text edit widgets
+## void setGlobalTextDirection ( Gui::TextDirection direction )
+
+Sets a new default base text direction applied to all widgets of this GUI whose own *TextDirection* property is set to *TEXT_DIRECTION_AUTO*. The default value is *TEXT_DIRECTION_AUTO* (the direction is detected from the text content).
+### Arguments
+
+- *[Gui::TextDirection](../../../api/library/gui/class.gui_cpp.md#TextDirection)* **direction** - The default base text direction for widgets
+
+## Gui::TextDirection getGlobalTextDirection () const
+
+Returns the current default base text direction applied to all widgets of this GUI whose own *TextDirection* property is set to *TEXT_DIRECTION_AUTO*. The default value is *TEXT_DIRECTION_AUTO* (the direction is detected from the text content).
+### Return value
+
+Current default base text direction for widgets
 ---
 
 ## Ptr < Gui > getCurrent ( )
@@ -777,19 +836,6 @@ Checks if a given widget belongs to the GUI.
 ### Return value
 
 true if the widget belongs to the GUI; otherwise, false.
-## void setFocusedPermanent ( bool permanent )
-
-Changes the permanent color of the focused widget.
-### Arguments
-
-- *bool* **permanent** - true - a font color is overridden with the global GUI focused color; false - a font color is unchanged.
-
-## bool isFocusedPermanent ( ) const
-
-Returns a value indicating if the permanent color of the focused widget is changed.
-### Return value
-
-true if the font color is overridden with the global GUI focused color; false if the font color is unchanged.
 ## int getKeyActivity ( unsigned int key ) const
 
 Checks if a given key already has a special purpose for the widget in focus.
@@ -971,7 +1017,7 @@ Renders the GUI.
 
 ## void updateHierarchy ( )
 
-Updates the hierarchy for all widgets — the widgets are arranged, expanded to the required sizes and then their positions are updated. Updating the hierarchy may be required, for example, for getting the screen position immediately after the widget has been added to the hierarchy.
+Updates the hierarchy for all widgets � the widgets are arranged, expanded to the required sizes and then their positions are updated. Updating the hierarchy may be required, for example, for getting the screen position immediately after the widget has been added to the hierarchy.
 ## bool isRenderingBootScreen ( )
 
 Returns a value indicating if the GUI currently renders the [boot screen](../../../code/gui/screens/index.md#boot).
@@ -1142,7 +1188,7 @@ Returns the path to the regular font currently used in the system GUI.
 Path to the font file.
 ## bool setFontPaths ( const char * normal_path , const char * bold_path , const char * italic_path , const char * bold_italic_path )
 
-Changes the set of fonts — regular, bold, italic, and italic bold — used in the system GUI.
+Changes the set of fonts � regular, bold, italic, and italic bold � used in the system GUI.
 ### Arguments
 
 - *const char ** **normal_path** - Path to the regular font file.

@@ -12,7 +12,7 @@
 2. [Shapes](../../../api/library/physics/class.shape_usc.md) (with matching [Collision mask](../../../api/library/physics/class.shape_usc.md#setCollisionMask_int_void))
 
 
-To force update of the physical trigger, [updateContacts()](#updateContacts_void) can be called. After that, you can access all updated data about the contacts in the same frame. However, handler functions will still be executed only when the next engine function is called: that is, before *[updatePhysics()](../../../code/fundamentals/execution_sequence/main_loop.md#physics)* (in the current frame), or before the *[update()](../../../code/fundamentals/execution_sequence/main_loop.md#update)* (in the next frame) — whatever comes first.
+To force update of the physical trigger, [updateContacts()](#updateContacts_void) can be called. After that, you can access all updated data about the contacts in the same frame. However, handler functions will still be executed only when the next engine function is called: that is, before *[updatePhysics()](../../../code/fundamentals/execution_sequence/main_loop.md#physics)* (in the current frame), or before the *[update()](../../../code/fundamentals/execution_sequence/main_loop.md#update)* (in the next frame) � whatever comes first.
 
 
 > **Notice:** If you have moved some nodes and want to execute event handlers based on changed positions in the same frame, you need to call [updateSpatial()](../../../api/library/engine/class.world_usc.md#updateSpatial_void) first.
@@ -172,18 +172,18 @@ int updatePhysics() {
 
 ### Members
 
-## void setSize ( )
+## void setSize ( vec3 size )
 
 Sets a new size of the physical trigger.
 ### Arguments
 
-- **size** - The size of the physical trigger:
+- *vec3* **size** - The size of the physical trigger:
 
   - Radius, in case of a sphere (pass the radius in the first element of the vector).
   - Radius and height, in case of a capsule or a cylinder (pass the radius as the first vector element and the height as the second element).
   - Dimensions along the X, Y and Z axes, in case of the box.
 
-## getSize () const
+## vec3 getSize () const
 
 Returns the current size of the physical trigger.
 ### Return value
@@ -298,7 +298,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventEnter () const
 
 The event handler signature is as follows: *myhandler()*
@@ -315,7 +315,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## static PhysicalTrigger ( int type , vec3 size )

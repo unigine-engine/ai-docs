@@ -3,10 +3,10 @@
 **Header:** #include <UnigineTextures.h>
 
 
-StructuredBuffer is a buffer for structures: it represents a uniform array of structures.
+*StructuredBuffer* is a buffer for structures: it represents a uniform array of structures.
 
 
-StructuredBuffer resource can be specified [via the following flags](../../../api/library/rendering/class.structuredbuffer_cpp.md#USAGE_RENDER).
+*StructuredBuffer* resource can be specified [via the following flags](../../../api/library/rendering/class.structuredbuffer_cpp.md#USAGE_RENDER).
 
 
 ### See Also
@@ -43,30 +43,32 @@ Current number of elements in the structured buffer.
 Returns the current value indicating if the resource has the [USAGE_SHARED](#USAGE_SHARED) flag enabled.
 ### Return value
 
-**true** if the [USAGE_SHARED](#USAGE_SHARED) flag is enabled; otherwise **false**.
+**true** if the [USAGE_SHARED](#USAGE_SHARED) flag is enabled ; otherwise **false**.
 ## bool isUsageStaging () const
 
 Returns the current value indicating if the resource has the [USAGE_STAGING](#USAGE_STAGING) flag enabled.
 ### Return value
 
-**true** if the [USAGE_STAGING](#USAGE_STAGING) flag is enabled; otherwise **false**.
+**true** if the [USAGE_STAGING](#USAGE_STAGING) flag is enabled ; otherwise **false**.
 ## bool isUsageImmutable () const
 
 Returns the current value indicating if the resource has the [USAGE_IMMUTABLE](#USAGE_IMMUTABLE) flag enabled.
 ### Return value
 
-**true** if the [USAGE_IMMUTABLE](#USAGE_IMMUTABLE) flag is enabled; otherwise **false**.
+**true** if the [USAGE_IMMUTABLE](#USAGE_IMMUTABLE) flag is enabled ; otherwise **false**.
 ## bool isUsageRender () const
 
 Returns the current value indicating if the resource has the [USAGE_RENDER](#USAGE_RENDER) flag enabled.
 ### Return value
 
-**true** if the [USAGE_RENDER](#USAGE_RENDER) flag is enabled; otherwise **false**.
+**true** if the [USAGE_RENDER](#USAGE_RENDER) flag is enabled ; otherwise **false**.
 ---
 
 ## static StructuredBufferPtr create ( )
 
 Constructor. Creates a new structured buffer.
+
+
 ```cpp
 StructuredBufferPtr input_buffer = StructuredBuffer::create();
 ```
@@ -78,6 +80,8 @@ Clears smart pointer.
 ## int create ( int flags , const void * data , unsigned int structure_size , unsigned int num_elements )
 
 Creates a StructuredBuffer instance with specified parameters.
+
+
 ```cpp
 #define NUMBERS_COUNT 4096 * 8192
 

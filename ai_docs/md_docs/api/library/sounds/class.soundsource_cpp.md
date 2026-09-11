@@ -386,7 +386,7 @@ Sets a new value indicating whether the sound is streamed or not.
 Returns the current value indicating whether the sound is streamed or not.
 ### Return value
 
-**true** if the sound streaming is enabled; otherwise **false**.
+**true** if the sound streaming is enabled ; otherwise **false**.
 ## void setRestartOnEnable ( bool enable )
 
 Sets a new value indicating if playback is to be restarted from the beginning each time the sound source is enabled.
@@ -399,7 +399,7 @@ Sets a new value indicating if playback is to be restarted from the beginning ea
 Returns the current value indicating if playback is to be restarted from the beginning each time the sound source is enabled.
 ### Return value
 
-**true** if playback restart on enabling the sound source is enabled; otherwise **false**.
+**true** if playback restart on enabling the sound source is enabled ; otherwise **false**.
 ## void setPlayOnEnable ( bool enable )
 
 Sets a new value indicating if playback is to be started each time the sound source is enabled.
@@ -418,7 +418,7 @@ Returns the current value indicating if playback is to be started each time the 
 
 ### Return value
 
-**true** if playback start on enabling the sound source is enabled; otherwise **false**.
+**true** if playback start on enabling the sound source is enabled ; otherwise **false**.
 ## void setLoop ( int loop )
 
 Sets a new value indicating if the sample is looped.
@@ -451,6 +451,19 @@ Returns the current gain controlling the sound intensity.
 ### Return value
 
 Current volume in range [0, 1] where **0** means muted, **1** means maximum volume.
+## void setPitchShift ( float shift )
+
+Sets a new pitch shift of the played sample in semitones, clamped to the [-12; 12] range (one octave down to one octave up), with the default of 0 (no shift). Unlike the **[getPitch()](../../...md#getPitch_float)** property, it changes the tone without changing the playback speed. The effect requires pitch-shifter support in the sound device; otherwise the value has no audible effect.
+### Arguments
+
+- *float* **shift** - The pitch shift of the played sample, in semitones
+
+## float getPitchShift () const
+
+Returns the current pitch shift of the played sample in semitones, clamped to the [-12; 12] range (one octave down to one octave up), with the default of 0 (no shift). Unlike the **[getPitch()](../../...md#getPitch_float)** property, it changes the tone without changing the playback speed. The effect requires pitch-shifter support in the sound device; otherwise the value has no audible effect.
+### Return value
+
+Current pitch shift of the played sample, in semitones
 ---
 
 ## static SoundSourcePtr create ( const char * name , int stream = 0 )

@@ -20,7 +20,7 @@
 The type of the hand: left or right.
 ## 🔒︎ VRBone RootBone
 
-The root bone of the hand — the corresponding [wrist](../../../api/library/vr/class.vrbone_cs.md#TYPE_WRIST) bone.
+The root bone of the hand � the corresponding [wrist](../../../api/library/vr/class.vrbone_cs.md#TYPE_WRIST) bone.
 ## 🔒︎ bool IsHoldingController
 
 The value indicating if the controller is held in the hand. Not supported by Varjo.

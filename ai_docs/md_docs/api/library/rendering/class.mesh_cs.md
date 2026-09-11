@@ -6,6 +6,7 @@ The *Mesh* class is a container that provides an interface for loading, manipula
 
 By using this class, you can create a mesh, add geometry to it (e.g. box, plane, capsule or cylinder surface) and then use it to create the following objects:
 
+
 - [Static mesh](../../../api/library/objects/class.objectmeshstatic_cs.md)
 - [Dynamic mesh](../../../api/library/objects/class.objectmeshdynamic_cs.md)
 - [Decal mesh](../../../api/library/decals/class.decalmesh_cs.md)
@@ -138,6 +139,8 @@ The number of elements in these index buffers is equal to the [total number of v
 
 
 > **Notice:** There is no actual structure called a "triangle vertex." All vertex attributes (normals, tangents, UVs, etc.) are stored separately and linked via index buffers. The term "triangle vertex" is used here only for convenience to describe how attributes are associated with vertex positions.
+>
+>
 > See the ***[Mesh File Formats](../../../code/formats/file_formats.md#mesh)*** article for details on how mesh structure is organized from a file layout perspective.
 
 
@@ -278,7 +281,7 @@ The bounding box of the mesh.
 The total number of mesh surfaces.
 ## 🔒︎ ulong MemoryUsage
 
-The amount of memory used by the mesh in bytes.
+The amount of memory used by the mesh, in bytes.
 ## int SpatialTreeTriangles
 
 The number of triangles stored in each leaf node of the mesh's spatial tree.
@@ -436,6 +439,8 @@ Returns the [coordinate index](#cindices) of the given vertex of the given surfa
 ## bool GetIntersection ( vec3 p0 , vec3 p1 , vec3[] OUT_ret_point , vec3[] OUT_ret_normal , int[] OUT_ret_index , int surface )
 
 Performs the search for the intersection of the given surface with the given traced line.
+
+
 > **Notice:** Mesh local space coordinates are used for this method.
 
 
@@ -454,6 +459,8 @@ Performs the search for the intersection of the given surface with the given tra
 ## void SetNormal ( int num , vec3 normal , int surface = 0 )
 
 Sets the normal for the given [triangle vertex](#tvertex) of the given surface.
+
+
 > **Notice:** The normal of the vertex won't be written to the `*.mesh` file. It will be stored only in memory.
 
 
@@ -495,6 +502,8 @@ Number of coordinate indices.
 ## void SetNumColors ( int size , int surface = 0 )
 
 Sets the total number of vertex color entries for the given surface.
+
+
 > **Notice:** Colors are specified for [triangle vertices](#tvertex).
 
 
@@ -506,6 +515,8 @@ Sets the total number of vertex color entries for the given surface.
 ## int GetNumColors ( int surface = 0 )
 
 Returns the total number of vertex color entries for the given surface.
+
+
 > **Notice:** Colors are specified for [triangle vertices](#tvertex).
 
 
@@ -547,6 +558,8 @@ Number of coordinate indices.
 ## void SetNumNormals ( int size , int surface = 0 )
 
 Sets the total number of vertex normal entries for the given surface.
+
+
 > **Notice:** Normals are specified for [triangle vertices](#tvertex).
 
 
@@ -558,6 +571,8 @@ Sets the total number of vertex normal entries for the given surface.
 ## int GetNumNormals ( int surface = 0 )
 
 Returns the total number of vertex normal entries for the given surface.
+
+
 > **Notice:** Normals are specified for [triangle vertices](#tvertex).
 
 
@@ -571,6 +586,8 @@ Number of vertex normal entries for the given surface.
 ## void SetNumTangents ( int size , int surface = 0 )
 
 Sets the total number of vertex tangent entries for the given surface.
+
+
 > **Notice:** Tangents are specified for [triangle vertices](#tvertex).
 
 
@@ -582,6 +599,8 @@ Sets the total number of vertex tangent entries for the given surface.
 ## int GetNumTangents ( int surface )
 
 Returns the total number of vertex tangent entries for the given surface.
+
+
 > **Notice:** Tangents are specified for [triangle vertices](#tvertex).
 
 
@@ -595,6 +614,8 @@ Number of vertex tangent entries.
 ## void SetNumTexCoords0 ( int size , int surface = 0 )
 
 Sets the total number of the first UV map texture coordinate entries for the given mesh surface.
+
+
 > **Notice:** First UV map texture coordinates are specified for [triangle vertices](#tvertex).
 
 
@@ -606,6 +627,8 @@ Sets the total number of the first UV map texture coordinate entries for the giv
 ## int GetNumTexCoords0 ( int surface = 0 )
 
 Returns the total number of the first UV map texture coordinate entries for the given mesh surface.
+
+
 > **Notice:** First UV map texture coordinates are specified for [triangle vertices](#tvertex).
 
 
@@ -619,6 +642,8 @@ Total number of the first UV map texture coordinate entries.
 ## void SetNumTexCoords1 ( int size , int surface )
 
 Sets the total number of the second UV map texture coordinate entries for the given mesh surface.
+
+
 > **Notice:** Second UV map texture coordinates are specified for [triangle vertices](#tvertex).
 
 
@@ -630,6 +655,8 @@ Sets the total number of the second UV map texture coordinate entries for the gi
 ## int GetNumTexCoords1 ( int surface = 0 )
 
 Returns the total number of the second UV map texture coordinate entries for the given mesh surface.
+
+
 > **Notice:** Second UV map texture coordinates are specified for [triangle vertices](#tvertex).
 
 
@@ -671,6 +698,8 @@ Number of the triangle vertices.
 ## void SetNumVertex ( int size , int surface = 0 )
 
 Sets the total number of vertices for the given surface.
+
+
 > **Notice:** The numbers of vertices and [coordinate vertices](#cvertex) are equal.
 
 
@@ -682,6 +711,8 @@ Sets the total number of vertices for the given surface.
 ## GetNumVertex ( int surface )
 
 Returns the total number of vertices for the given surface.
+
+
 > **Notice:** The numbers of vertices and [coordinate vertices](#cvertex) are equal.
 
 
@@ -857,6 +888,8 @@ Vertex coordinates.
 ## int AddBoxSurface ( string name , vec3 size , int collision_data_flags = COLLISION_DATA_ALL )
 
 Appends a box surface to the current mesh.
+
+
 ```csharp
 // create a mesh instance
 Mesh mesh = new Mesh();
@@ -893,6 +926,8 @@ Added surface number.
 ## int AddCapsuleSurface ( string name , float radius , float height , int stacks , int slices , int collision_data_flags = COLLISION_DATA_ALL )
 
 Appends a capsule surface to the current mesh. The stacks and slices specify the surface's subdivision.
+
+
 ```csharp
 // create a mesh instance
 Mesh mesh = new Mesh();
@@ -950,6 +985,8 @@ Appends the given color to the vertex color array of the given surface.
 ## int AddCylinderSurface ( string name , float radius , float height , int stacks , int slices , int collision_data_flags = COLLISION_DATA_ALL )
 
 Appends a cylinder surface to the current mesh. The stacks and slices specify the surface's subdivision.
+
+
 ```csharp
 // create a mesh instance
 Mesh mesh = new Mesh();
@@ -991,6 +1028,8 @@ The added surface number.
 ## int AddDodecahedronSurface ( string name , float radius , int collision_data_flags = COLLISION_DATA_ALL )
 
 Appends a dodecahedron surface to the current mesh.
+
+
 ```csharp
 // create a mesh instance
 Mesh mesh = new Mesh();
@@ -1028,6 +1067,8 @@ The added surface number.
 ## int AddEmptySurface ( string name , int num_vertex , int num_indices )
 
 Appends a new empty surface to the current mesh.
+
+
 > **Notice:** This function allocates only vertex and index arrays. Texture coordinates, tangent basis, weights and color arrays must be allocated manually.
 
 
@@ -1043,6 +1084,8 @@ Number of the mesh surfaces.
 ## int AddIcosahedronSurface ( string name , float radius , int collision_data_flags = COLLISION_DATA_ALL )
 
 Appends a icosahedron surface to the current mesh.
+
+
 ```csharp
 // create a mesh instance
 Mesh mesh = new Mesh();
@@ -1088,6 +1131,8 @@ Appends a given index to the arrays of [coordinate](#cindices) and [triangle](#t
 ## int AddMeshSurface ( string v , Mesh mesh , int surface , int collision_data_flags = COLLISION_DATA_ALL )
 
 Appends a surface of the source mesh to the current mesh as a new surface.
+
+
 The following example shows how to add a surface from the one mesh to another.
 
 
@@ -1137,6 +1182,8 @@ Number of the last added surface.
 ## int AddMeshSurface ( int v , Mesh mesh , int surface , int collision_data_flags = COLLISION_DATA_ALL )
 
 Appends a surface of the source mesh to the current mesh.
+
+
 The following example shows how to add a surface from the one mesh to another.
 
 
@@ -1194,6 +1241,8 @@ Appends a given normal to the array of normals of the given surface.
 ## int AddPlaneSurface ( string name , float width , float height , float step , int collision_data_flags = COLLISION_DATA_ALL )
 
 Appends a plane surface to the current mesh. The plane is divided into equal squares whose size is defined by the given step.
+
+
 ```csharp
 // create a mesh instance
 Mesh mesh = new Mesh();
@@ -1233,6 +1282,8 @@ Added surface number.
 ## int AddPrismSurface ( string name , float size_0 , float size_1 , float height , int sides , int collision_data_flags = COLLISION_DATA_ALL )
 
 Appends a prism surface to the current mesh.
+
+
 ```csharp
 // create a mesh instance
 Mesh mesh = new Mesh();
@@ -1274,6 +1325,8 @@ The added surface number.
 ## int AddSphereSurface ( string name , float radius , int stacks , int slices , int collision_data_flags = COLLISION_DATA_ALL )
 
 Appends a sphere surface to the current mesh. The stacks and slices specify the surface's subdivision.
+
+
 ```csharp
 // create a mesh instance
 Mesh mesh = new Mesh();
@@ -1314,6 +1367,8 @@ Added surface number.
 ## int AddSurface ( string name = 0 )
 
 Append a new surface with the given name to the current mesh.
+
+
 In the following example, we create a new surface and add vertices and indices to create a plane.
 
 
@@ -1399,6 +1454,8 @@ Appends an index of a [triangle vertex](#tvertex) to the array of triangle indic
 ## void AddVertex ( vec3 vertex , int surface = 0 )
 
 Appends a new vertex with the given coordinates to the mesh surface.
+
+
 In the following example, we create a new surface and add 4 vertices to it. We use local coordinates to define a vertex and specify the surface. After that we specify 6 indices to create a plane by using defined vertices.
 
 
@@ -1532,6 +1589,8 @@ Flips the sign of the binormal component of the surface tangent space.
 ## bool FlipYZ ( int surface = -1 )
 
 Flips the Y and Z axes for the given surface:
+
+
 - Y axis becomes equal to -Z
 - Z axis becomes equal to Y
 
@@ -1595,7 +1654,7 @@ Clears the coordinate and [triangle indices](#tindices) of the given surface.
 Saves the given mesh in the *[MESH](../../../code/formats/file_formats.md#mesh_ff)* file format. Creates the given mesh path if it doesn't exist yet (including subdirectories).
 ### Arguments
 
-- *string* **path** - Path to the mesh including the file name and extension — `*.mesh`.
+- *string* **path** - Path to the mesh including the file name and extension � `*.mesh`.
 
 ### Return value
 
@@ -1640,7 +1699,7 @@ Add normals to the given surface.
 Add tangents to the given surface.
 ### Arguments
 
-- *quat[]* **tangents**
+- *quat[]* **tangents** - Array of tangents (each packed as a quaternion) to be added to the surface.
 - *int* **surface** - Mesh surface number.
 
 ## void AddColors ( vec4[] colors , int surface = 0 )
@@ -1724,10 +1783,7 @@ Generates a spatial tree for the mesh (or its specified surface), if it doesn't 
 
 ## bool HasEdges ( int surface = -1 )
 
-
 Checks whether edge data has been generated for the specified surface. If -1 is passed, checks all surfaces.
-
-
 ### Arguments
 
 - *int* **surface** - Index of the surface to check. If -1 is passed, all surfaces will be updated.
@@ -1735,10 +1791,10 @@ Checks whether edge data has been generated for the specified surface. If -1 is 
 ### Return value
 
 
-Returns true if edge data exists, or if the surface has no geometry (empty edges are assumed).
+true if edge data exists, or if the surface has no geometry (empty edges are assumed).
 
 
-Returns false if the surface has geometry, but no edge data has been generated.
+false if the surface has geometry, but no edge data has been generated.
 
 
 ## void CreateEdges ( int surface = -1 )
@@ -1763,6 +1819,8 @@ Generates specified types of collision data for the given surface. The behavior 
 
 
 > **Notice:** This method **must** be called after **any** modification of mesh geometry.
+>
+>
 > Otherwise, intersections and collisions may produce **incorrect results** due to outdated internal mesh structures.
 
 

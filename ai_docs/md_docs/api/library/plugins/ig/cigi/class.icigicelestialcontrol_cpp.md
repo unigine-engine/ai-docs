@@ -28,7 +28,7 @@ Returns the value of the **Minute** parameter specified in the packet.
 Returns the value of the **Date** parameter specified in the packet. Specifies the current date within the simulation.
 ### Return value
 
-**Date** parameter value. The date shall be represented as a seven- or eight-digit decimal integer formatted as follows: **MMDDYYYY = (month × 1000000) + (day × 10000) + year**
+**Date** parameter value. The date shall be represented as a seven- or eight-digit decimal integer formatted as follows: **MMDDYYYY = (month � 1000000) + (day � 10000) + year**
 ## int getTimeValid ( ) const
 
 Returns the value of the **Date/Time Valid** parameter specified in the packet.

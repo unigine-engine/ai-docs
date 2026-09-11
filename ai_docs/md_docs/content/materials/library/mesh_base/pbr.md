@@ -115,7 +115,7 @@ If we look at most materials under the microscope, we will see that their surfac
 *A scan of filter paper magnified 840 times under a scanning electron microscope(commons.wikimedia.org) /CC BY 2.0*
 
 
-Because of the roughness of the surface, light rays bounce in different directions, and the rougher the surface, the bigger the deflection amplitude of the light rays is. Consequently, the bigger the deflection amplitude, the more “blurry” the image is.
+Because of the roughness of the surface, light rays bounce in different directions, and the rougher the surface, the bigger the deflection amplitude of the light rays is. Consequently, the bigger the deflection amplitude, the more �blurry� the image is.
 
 
 ### Energy Conservation

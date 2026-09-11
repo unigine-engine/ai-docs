@@ -67,6 +67,97 @@ int init() {
 
 ### Members
 
+## void setValue ( double value )
+
+Sets a new value of the spinbox.
+### Arguments
+
+- *double* **value** - The value of the spinbox
+
+## double getValue () const
+
+Returns the current value of the spinbox.
+### Return value
+
+Current value of the spinbox
+## void setMaxExpand ( double expand )
+
+Sets a new maximum value, up to which the upper limit of the range of the spinbox values can be expanded. The upper limit of the spinbox can be expanded only if the spinbox is [attached](../../../api/library/gui/class.widget_usc.md#addAttach_Widget_cstr_int_int_void) to an editline with the Gui::ATTACH_MAX_EXPAND flag.
+### Arguments
+
+- *double* **expand** - The maximum value, up to which the upper limit of the spinbox value range can be expanded
+
+## double getMaxExpand () const
+
+Returns the current maximum value, up to which the upper limit of the range of the spinbox values can be expanded. The upper limit of the spinbox can be expanded only if the spinbox is [attached](../../../api/library/gui/class.widget_usc.md#addAttach_Widget_cstr_int_int_void) to an editline with the Gui::ATTACH_MAX_EXPAND flag.
+### Return value
+
+Current maximum value, up to which the upper limit of the spinbox value range can be expanded
+## void setMinExpand ( double expand )
+
+Sets a new minimum value, up to which the lower limit of the range of the spinbox values can be expanded. The lower limit of the spinbox can be expanded only if the spinbox is [attached](../../../api/library/gui/class.widget_usc.md#addAttach_Widget_cstr_int_int_void) to an editline with the Gui::ATTACH_MIN_EXPAND flag.
+### Arguments
+
+- *double* **expand** - The minimum value, up to which the lower limit of the spinbox value range can be expanded
+
+## double getMinExpand () const
+
+Returns the current minimum value, up to which the lower limit of the range of the spinbox values can be expanded. The lower limit of the spinbox can be expanded only if the spinbox is [attached](../../../api/library/gui/class.widget_usc.md#addAttach_Widget_cstr_int_int_void) to an editline with the Gui::ATTACH_MIN_EXPAND flag.
+### Return value
+
+Current minimum value, up to which the lower limit of the spinbox value range can be expanded
+## void setMaxValue ( double value )
+
+Sets a new maximum value of the spinbox.
+### Arguments
+
+- *double* **value** - The maximum value of the spinbox
+
+## double getMaxValue () const
+
+Returns the current maximum value of the spinbox.
+### Return value
+
+Current maximum value of the spinbox
+## void setMinValue ( double value )
+
+Sets a new minimum value of the spinbox.
+### Arguments
+
+- *double* **value** - The minimum value of the spinbox
+
+## double getMinValue () const
+
+Returns the current minimum value of the spinbox.
+### Return value
+
+Current minimum value of the spinbox
+## void setButtonColor ( vec4 color )
+
+Sets a new color for the widget's button.
+### Arguments
+
+- *vec4* **color** - The color for the widget's button
+
+## vec4 getButtonColor () const
+
+Returns the current color for the widget's button.
+### Return value
+
+Current color for the widget's button
+## void setStep ( double step )
+
+Sets a new step of the spinbox.
+### Arguments
+
+- *double* **step** - The step of the spinbox
+
+## double getStep () const
+
+Returns the current step of the spinbox.
+### Return value
+
+Current step of the spinbox
 ---
 
 ## static WidgetSpinBoxDouble ( Gui gui , double min = 0.0 , double max = 100.0 , double value = 0.0 , double step = 1.0 )
@@ -89,107 +180,3 @@ Constructor. Creates a spinbox with given parameters and adds it to the Engine G
 - *double* **max** - Maximum value.
 - *double* **value** - Initial value.
 - *double* **step** - Initial step.
-
-## void setMaxExpand ( double expand )
-
-Sets the maximum value, up to which the upper limit of the range of the spinbox values can be expanded.
-### Arguments
-
-- *double* **expand** - Maximum value, up to which the spinbox upper limit can be raised.
-
-## double getMaxExpand ( )
-
-Returns the current maximum value, up to which the upper limit of the range of the spinbox values can be expanded.
-> **Notice:** The upper limit of the spinbox can be expanded only if the spinbox is [attached](../../../api/library/gui/class.widget_usc.md#addAttach_Widget_cstr_int_int_void)  to an editline with the [*GUI_ATTACH_MAX_EXPAND*](../../../api/library/gui/class.gui_usc.md#ATTACH_MAX_EXPAND) flag.
-
-See also the [*setMaxExpand()*](#setMaxExpand_double_void) function.
-### Return value
-
-Maximum value, up to which the spinbox upper limit can be raised.
-## void setMaxValue ( double value )
-
-Sets a maximum value of the spinbox.
-### Arguments
-
-- *double* **value** - Maximum value.
-
-## double getMaxValue ( )
-
-Returns a maximum value of the spinbox.
-> **Notice:** The value returned by this function may differ from the value set via [*setMaxValue()*](#setMaxValue_double_void). See The [*setMaxExpand()*](#setMaxExpand_double_void) function for more details.
-
-
-### Return value
-
-Maximum value.
-## void setMinExpand ( double expand )
-
-Sets the minimum value, up to which the lower limit of the range of the spinbox values can be expanded.
-### Arguments
-
-- *double* **expand** - Minimum value, up to which the spinbox lower limit can be dropped.
-
-## double getMinExpand ( )
-
-Returns the current minimum value, up to which the lower limit of the range of the spinbox values can be dropped.
-> **Notice:** The lower limit of the spinbox can be expanded only if the spinbox is [attached](../../../api/library/gui/class.widget_usc.md#addAttach_Widget_cstr_int_int_void)  to an editline with the [*GUI_ATTACH_MIN_EXPAND*](../../../api/library/gui/class.gui_usc.md#ATTACH_MIN_EXPAND) flag.
-
-See also the [*setMinExpand()*](#setMinExpand_double_void) function.
-### Return value
-
-Minimum value, up to which the spinbox lower limit can be dropped.
-## void setMinValue ( double value )
-
-Sets a minimum value of the spinbox.
-### Arguments
-
-- *double* **value** - Minimum value.
-
-## double getMinValue ( )
-
-Returns a minimum value of the spinbox.
-> **Notice:** The value returned by this function may differ from the value set via [*setMinValue()*](#setMinValue_double_void). See The [*setMinExpand()*](#setMinExpand_double_void) function for more details.
-
-
-### Return value
-
-Minimum value
-## void setValue ( double value )
-
-Updates a current value of the spinbox.
-### Arguments
-
-- *double* **value** - New value.
-
-## double getValue ( )
-
-Returns a current value of the spinbox.
-### Return value
-
-Current value.
-## void setStep ( double step )
-
-Updates a current step of the spinbox.
-### Arguments
-
-- *double* **step** - New step.
-
-## double getStep ( )
-
-Returns a current step of the spinbox.
-### Return value
-
-Current step.
-## void setButtonColor ( vec4 color )
-
-Sets the color for the widget's button.
-### Arguments
-
-- *vec4* **color** - Four-component vector specifying the color in the RGBA format.
-
-## vec4 getButtonColor ( )
-
-Returns the current color for the widget's button.
-### Return value
-
-Four-component vector specifying the color in the RGBA format.

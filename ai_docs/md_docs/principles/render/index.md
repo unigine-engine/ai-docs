@@ -35,3 +35,5 @@
   - [Panoramic Rendering](../../principles/render/output/apppanorama/index.md)
 
 - [Upscaling with DLSS and FSR](../../principles/render/upscaling/index.md)
+
+- [Dynamic Resolution Scale](../../principles/render/drs/index.md)

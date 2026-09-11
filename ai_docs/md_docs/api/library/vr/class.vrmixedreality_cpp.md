@@ -134,7 +134,7 @@ Returns the current value indicating if mixed reality is available on the active
 ***Console*:**`vr_mixed_reality_chroma_key_enabled`Returns the current value indicating if chroma keying is enabled. [VST capturing](#isVideoEnabled_int) from HMD cameras must be enabled.
 ### Return value
 
-**true** if chroma keying is enabled; otherwise **false**. The default value is **false**.
+**true** if chroma keying is enabled ; otherwise **false**. The default value is **false**.
 ## void setDepthTestEnabled ( bool enabled = 0 )
 
 ***Console*:**`vr_mixed_reality_depth_test_enabled`Sets a new value indicating if depth buffer submission is enabled. [VST capturing](#isVideoEnabled_int) from HMD cameras must be enabled.
@@ -147,7 +147,7 @@ Returns the current value indicating if mixed reality is available on the active
 ***Console*:**`vr_mixed_reality_depth_test_enabled`Returns the current value indicating if depth buffer submission is enabled. [VST capturing](#isVideoEnabled_int) from HMD cameras must be enabled.
 ### Return value
 
-**true** if depth testing is enabled; otherwise **false**. The default value is **false**.
+**true** if depth testing is enabled ; otherwise **false**. The default value is **false**.
 ## void setAlphaBlendEnabled ( bool enabled = 0 )
 
 ***Console*:**`vr_mixed_reality_alpha_blend_enabled`Sets a new value indicating if alpha blending is enabled. This option is used for blending VR and AR images using the alpha channel. [VST capturing](#isVideoEnabled_int) from HMD cameras must be enabled and the [screen precision](../../../api/library/rendering/class.render_cpp.md#isScreenPrecision_int) must be 1.
@@ -160,7 +160,7 @@ Returns the current value indicating if mixed reality is available on the active
 ***Console*:**`vr_mixed_reality_alpha_blend_enabled`Returns the current value indicating if alpha blending is enabled. This option is used for blending VR and AR images using the alpha channel. [VST capturing](#isVideoEnabled_int) from HMD cameras must be enabled and the [screen precision](../../../api/library/rendering/class.render_cpp.md#isScreenPrecision_int) must be 1.
 ### Return value
 
-**true** if alpha blending is enabled; otherwise **false**. The default value is **false**.
+**true** if alpha blending is enabled ; otherwise **false**. The default value is **false**.
 ## void setVideoEnabled ( bool enabled = 0 )
 
 ***Console*:**`vr_mixed_reality_video_enabled`Sets a new value indicating if the video signal from the real-world view from the front-facing HMD-mounted cameras is enabled. The real-world view is used for combining virtual and real-world elements to create an immersive experience in mixed reality.
@@ -173,7 +173,7 @@ Returns the current value indicating if mixed reality is available on the active
 ***Console*:**`vr_mixed_reality_video_enabled`Returns the current value indicating if the video signal from the real-world view from the front-facing HMD-mounted cameras is enabled. The real-world view is used for combining virtual and real-world elements to create an immersive experience in mixed reality.
 ### Return value
 
-**true** if the real-world view from the front-facing HMD-mounted cameras is enabled; otherwise **false**. The default value is **false**.
+**true** if the real-world view from the front-facing HMD-mounted cameras is enabled ; otherwise **false**. The default value is **false**.
 ## void setDepthTestRangeEnabled ( bool enabled = 0 )
 
 ***Console*:**`vr_mixed_reality_depth_test_range_enabled`Sets a new value indicating if the depth test range usage is enabled. Use the [depth test range](#getDepthTestRange_vec2) (*Depth Test Near Z*, *Depth Test Far Z*) to control the range for which the depth test is evaluated.
@@ -186,7 +186,7 @@ Returns the current value indicating if mixed reality is available on the active
 ***Console*:**`vr_mixed_reality_depth_test_range_enabled`Returns the current value indicating if the depth test range usage is enabled. Use the [depth test range](#getDepthTestRange_vec2) (*Depth Test Near Z*, *Depth Test Far Z*) to control the range for which the depth test is evaluated.
 ### Return value
 
-**true** if the depth test range is enabled; otherwise **false**. The default value is **false**.
+**true** if the depth test range is enabled ; otherwise **false**. The default value is **false**.
 ## void setDepthTestRange ( const Math:: vec2 & range )
 
 ***Console*:**`vr_mixed_reality_depth_test_range`Sets a new depth test range as a two-component vector (the near and far planes). The [depth test range usage](#isDepthTestRangeEnabled_int) must be enabled.
@@ -242,7 +242,7 @@ Current masking mode. One of the following values:
 ***Console*:**`vr_mixed_reality_blend_masking_debug_enabled`Returns the current value indicating if blend masking debug visualization is enabled. The [blend masking mode](#getBlendMaskingMode_int) must be enabled.
 ### Return value
 
-**true** if blend masking debug visualization is enabled; otherwise **false**. The default value is **false**.
+**true** if blend masking debug visualization is enabled ; otherwise **false**. The default value is **false**.
 ## bool isBlendMaskingUsed () const
 
 Returns the current value indicating if the *Blend Control Mask* is used to extend or restrict the chroma key mask or to control the depth testing against the estimated video depth.
@@ -486,7 +486,7 @@ Range of values: **[0.0, 1.0]**. The default value is : **0.0**.
 ***Console*:**`vr_mixed_reality_marker_tracking_enabled`Returns the current value indicating if marker tracking is enabled.
 ### Return value
 
-**true** if marker tracking is enabled; otherwise **false**. The default value is **false**.
+**true** if marker tracking is enabled ; otherwise **false**. The default value is **false**.
 ## short getNumMarkerObjectVisible () const
 
 Returns the current number of visible marker objects.
@@ -564,7 +564,7 @@ Current color correction mode. One of the following values:
 
 ## static Event<> getEventCameraPropertyUpdateSharpness () const
 
-Event triggered when the sharpness value of the camera is changed in Varjo Base. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+Event triggered when the sharpness value of the camera is changed in Varjo Base. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -700,10 +700,10 @@ VRMixedReality::getEventCameraPropertyUpdateSharpness().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventCameraPropertyUpdateFlickerCompensation () const
 
-Event triggered when the flicker compensation value of the camera is changed in Varjo Base. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+Event triggered when the flicker compensation value of the camera is changed in Varjo Base. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -839,10 +839,10 @@ VRMixedReality::getEventCameraPropertyUpdateFlickerCompensation().setEnabled(tru
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventCameraPropertyUpdateISO () const
 
-Event triggered when the camera ISO value and/or the ISO adjustment mode are changed in Varjo Base. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+Event triggered when the camera ISO value and/or the ISO adjustment mode are changed in Varjo Base. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -978,10 +978,10 @@ VRMixedReality::getEventCameraPropertyUpdateISO().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventCameraPropertyUpdateWhiteBalance () const
 
-Event triggered when the white balance correction value of the camera and/or the white balance adjustment mode are changed in Varjo Base. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+Event triggered when the white balance correction value of the camera and/or the white balance adjustment mode are changed in Varjo Base. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1117,10 +1117,10 @@ VRMixedReality::getEventCameraPropertyUpdateWhiteBalance().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventCameraPropertyUpdateExposureTime () const
 
-Event triggered when the exposure time value of the camera and/or the exposure adjustment mode are changed in Varjo Base. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+Event triggered when the exposure time value of the camera and/or the exposure adjustment mode are changed in Varjo Base. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1256,10 +1256,10 @@ VRMixedReality::getEventCameraPropertyUpdateExposureTime().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventChromakeyUpdate () const
 
-Event triggered when the chroma keying settings are changed in Varjo Base. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+Event triggered when the chroma keying settings are changed in Varjo Base. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1395,10 +1395,10 @@ VRMixedReality::getEventChromakeyUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventDeviceDisconnected () const
 
-Event triggered when the Varjo device is disconnected. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+Event triggered when the Varjo device is disconnected. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1534,10 +1534,10 @@ VRMixedReality::getEventDeviceDisconnected().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventDeviceConnected () const
 
-Event triggered when the Varjo device is connected. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+Event triggered when the Varjo device is connected. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1673,10 +1673,10 @@ VRMixedReality::getEventDeviceConnected().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventCameraPropertyUpdateVSTReprojection () const
 
-Event triggered when the camera VST reprojection property is updated. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+Event triggered when the camera VST reprojection property is updated. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1812,7 +1812,7 @@ VRMixedReality::getEventCameraPropertyUpdateVSTReprojection().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## void setCameraVSTReprojectionMode ( VRMixedReality::CAMERA_PROPERTY_MODE mode = 0 )
 
 ***Console*:**`vr_mixed_reality_camera_vst_reprojection_mode`Sets a new reprojection mode of VST.

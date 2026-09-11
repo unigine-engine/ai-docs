@@ -19,7 +19,7 @@ This section will introduce you to some vegetation authoring tips in UNIGINE and
 ### Modeling
 
 
-When preparing a 3D model of a tree with dense foliage, avoid creating topology for all branches and leaves; instead, it is much more efficient performance-wise to simulate fine details with textures. The main rule of models optimized for use in real-time is "the fewer polygons — the better". Following this rule is much more critical for rendering a dense forest filled with multiple types of plants and grasses.
+When preparing a 3D model of a tree with dense foliage, avoid creating topology for all branches and leaves; instead, it is much more efficient performance-wise to simulate fine details with textures. The main rule of models optimized for use in real-time is "the fewer polygons � the better". Following this rule is much more critical for rendering a dense forest filled with multiple types of plants and grasses.
 
 
 Therefore, it is highly recommended to prepare several levels of detail (**[LODs](../../../principles/world_management/index.md#lods)**) for a plant to be used at different distances from the camera.
@@ -28,7 +28,7 @@ Therefore, it is highly recommended to prepare several levels of detail (**[LODs
 The overall workflow of modeling a tree is as follows:
 
 
-1. Model several small branches with leaves and bake the models into texture atlases — the obtained textures are going to be your foliage textures. Here are examples of such textures: ![](leaves_texture_alb.png) *Albedo with Alpha channel* ![](leaves_texture_sh.png) *Shading* ![](leaves_texture_n.png) *Normal* ![](leaves_texture_t.png) *Translucent*
+1. Model several small branches with leaves and bake the models into texture atlases � the obtained textures are going to be your foliage textures. Here are examples of such textures: ![](leaves_texture_alb.png) *Albedo with Alpha channel* ![](leaves_texture_sh.png) *Shading* ![](leaves_texture_n.png) *Normal* ![](leaves_texture_t.png) *Translucent*
 2. Create low-poly meshes that will represent foliage chunks, map UVs for proper texturing. The chunks do not have to be flat, you can experiment with the shape and bend of meshes. It is also important to prepare at least 3 LODs, so make sure to optimize the meshes of LODs to the full extent: ![Branches](model_leaves.png) *Foliage LODs*
 3. Create the trunk with large branches and levels of detail for it. Prepare and assign necessary textures and materials. ![](model_trunks.png) *Trunk LODs* Also, it is recommended to transfer normals from the trunk to the adjoined vertices of branches to make a more natural look of joints: ![](model_branch_normals.png) *Adjusted normals of branches at joints provide a more natural look*
 4. Scatter the LODs of foliage chunks over branches of the corresponding trunk LODs forming the tree crown: ![Tree LODs](model_composite.png) The fact that the same number of chunks is used on all LODs may result in a higher polygon count. However, this approach has a number of advantages:
@@ -198,7 +198,7 @@ Vegetation movements are defined by RGB channels of vertex colors as follows:
 | ![](../../materials/library/mesh_base/R_channel_veg.png) | Red channel is used for animation of smaller or peripheral parts of vegetation (leaves). Bright parts are animated, and dark parts are stiff. |
 |---|---|
 | ![](../../materials/library/mesh_base/G_channel_veg.png) | Green channel is used to define the movement order for branches in order to desynchronize them. The movement sequence starts from the brightest element to the darkest. |
-| ![](../../materials/library/mesh_base/B_channel_veg.png) | Blue channel is used to define which parts of branches can be bent. Brighter parts indicate bendable portions, and darker parts — stiff portions. |
+| ![](../../materials/library/mesh_base/B_channel_veg.png) | Blue channel is used to define which parts of branches can be bent. Brighter parts indicate bendable portions, and darker parts���stiff portions. |
 
 
 The [animation parameters](../../../content/materials/library/mesh_base/index.md#animation_parameters) control vertices movement:

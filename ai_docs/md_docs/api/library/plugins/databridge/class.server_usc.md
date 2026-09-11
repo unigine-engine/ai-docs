@@ -8,8 +8,6 @@ This class is inherited from [NetworkInstance](../../../../api/library/plugins/d
 
 ## Server Class
 
-### Members
-
 ---
 
 ## bool init ( int in_addressing_method , string broadcast_address , string multicast_address , int udp_port )

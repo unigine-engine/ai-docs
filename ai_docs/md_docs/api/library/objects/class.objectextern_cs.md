@@ -18,7 +18,7 @@ C++ sample
 
 ## int MaterialNodeType
 
-The node type to be used by the renderer to determine which materials can be applied to the object.
+The [node type](../../../api/library/nodes/class.node_cs.md) to be used by the renderer to determine which materials can be applied to the object. One of the [node type identifiers](../../../api/library/nodes/class.node_cs.md#DECAL_BEGIN).
 > **Notice:** As ObjectExtern is a custom user-defined object, so the user should determine the node type for the renderer to treat this object properly. Setting inappropriate node type may lead to system crashes.
 
 

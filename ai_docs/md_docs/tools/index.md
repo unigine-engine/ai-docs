@@ -2,11 +2,6 @@
 
 ## Articles in This Section
 
-- [Plugins for 3D Editors](../tools/plugins/index.md)
-
-  - [Plugins for 3ds Max](../tools/plugins/3dsmax/index.md)
-  - [Plugins for Maya](../tools/plugins/maya/index.md)
-
 - [Performance Profiling Tools](../tools/profiling/index.md)
 
   - [Performance Profiler](../tools/profiling/profiler/index.md)

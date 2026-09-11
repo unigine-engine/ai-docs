@@ -17,9 +17,9 @@ The obstacles can be added to the scene:
 There are 3 types of the obstacles:
 
 
-- **[![](box.png)](../../../objects/navigations/obstacle/obstacle_box/index.md)  [Obstacle Box](../../../objects/navigations/obstacle/obstacle_box/index.md)** is a cuboid-shaped obstacle.
-- **[![](sphere.png)](../../../objects/navigations/obstacle/obstacle_sphere/index.md)   [Obstacle Sphere](../../../objects/navigations/obstacle/obstacle_sphere/index.md)** is a sphere-shaped obstacle.
-- **[![](capsule.png)](../../../objects/navigations/obstacle/obstacle_capsule/index.md)   [Obstacle Capsule](../../../objects/navigations/obstacle/obstacle_capsule/index.md)** is a capsule-shaped obstacle.
+- **[![](box.png)](../../../objects/navigations/obstacle/obstacle_box/index.md) �[Obstacle Box](../../../objects/navigations/obstacle/obstacle_box/index.md)** is a cuboid-shaped obstacle.
+- **[![](sphere.png)](../../../objects/navigations/obstacle/obstacle_sphere/index.md) � [Obstacle Sphere](../../../objects/navigations/obstacle/obstacle_sphere/index.md)** is a sphere-shaped obstacle.
+- **[![](capsule.png)](../../../objects/navigations/obstacle/obstacle_capsule/index.md) � [Obstacle Capsule](../../../objects/navigations/obstacle/obstacle_capsule/index.md)** is a capsule-shaped obstacle.
 
 
 You should choose the most appropriate type depending on the form of the node that should be bypassed during pathfinding.

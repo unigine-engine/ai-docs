@@ -3,7 +3,7 @@
 **Header:** #include <plugins/Unigine/SpiderVision/UnigineSpiderVision.h>
 
 
-The object of this class stores the information on the warp grid — a set of points and their handles that create a mesh based on which the displayed image is reshaped.
+The object of this class stores the information on the warp grid � a set of points and their handles that create a mesh based on which the displayed image is reshaped.
 
 
 Warping of the image is required to render the projected image on a distorted surface in such a way that it would look undistorted.
@@ -40,6 +40,189 @@ The mask data are stored in the [configuration file](../../../../principles/rend
 
 ### Members
 
+## void setEnabled ( bool enabled )
+
+Sets a new value indicating if the warp grid rendering is enabled.
+### Arguments
+
+- *bool* **enabled** - Set **true** to enable rendering of the warp grid; **false** - to disable it.
+
+## bool isEnabled () const
+
+Returns the current value indicating if the warp grid rendering is enabled.
+### Return value
+
+**true** if rendering of the warp grid is enabled ; otherwise **false**.
+## int getNumRows () const
+
+Returns the current number of warping grid points vertically in the warp grid, which define the grid rows.
+### Return value
+
+Current number of warping grid points vertically in the warp grid.
+## int getNumColumns () const
+
+Returns the current number of warping grid points horizontally in the warp grid, which define the grid columns.
+### Return value
+
+Current number of warping grid points horizontally in the warp grid.
+## int getWarpPointsCount () const
+
+Returns the current total number of points in the warp grid.
+### Return value
+
+Current total number of points in the warp grid.
+## void setCanvasFlipMask ( WarpGridData::VIEWPORT_FLIP_TYPE mask )
+
+Sets a new type of flipping the canvas mask for the viewport.
+### Arguments
+
+- *[WarpGridData::VIEWPORT_FLIP_TYPE](../../../../api/library/plugins/spidervision/class.warpgriddata_cpp.md#VIEWPORT_FLIP_TYPE)* **mask** - The type of mask flipping.
+
+## WarpGridData::VIEWPORT_FLIP_TYPE getCanvasFlipMask () const
+
+Returns the current type of flipping the canvas mask for the viewport.
+### Return value
+
+Current type of mask flipping.
+## static Event<> getEventChanged () const
+
+event triggered on changing warp grid data. You can subscribe to events via *connect()* � and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+
+> **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cpp.md) article.
+
+ The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+// implement the Changed event handler
+void changed_event_handler()
+{
+	Log::message("\Handling Changed event\n");
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//  1. Multiple subscriptions can be linked to an instance of the EventConnections
+//  class that you can use later to remove all these subscriptions at once
+//////////////////////////////////////////////////////////////////////////////
+
+// create an instance of the EventConnections class
+EventConnections changed_event_connections;
+
+// link to this instance when subscribing to an event (subscription to various events can be linked)
+WarpGridData::getEventChanged().connect(changed_event_connections, changed_event_handler);
+
+// other subscriptions are also linked to this EventConnections instance
+// (e.g. you can subscribe using lambdas)
+WarpGridData::getEventChanged().connect(changed_event_connections, []() {
+		Log::message("\Handling Changed event (lambda).\n");
+	}
+);
+
+// ...
+
+// later all of these linked subscriptions can be removed with a single line
+changed_event_connections.disconnectAll();
+
+//////////////////////////////////////////////////////////////////////////////
+//  2. You can subscribe and unsubscribe via an instance of the EventConnection
+//  class. And toggle this particular connection off and on, when necessary.
+//////////////////////////////////////////////////////////////////////////////
+
+// create an instance of the EventConnection class
+EventConnection changed_event_connection;
+
+// subscribe to the Changed event with a handler function keeping the connection
+WarpGridData::getEventChanged().connect(changed_event_connection, changed_event_handler);
+
+// ...
+
+// you can temporarily disable a particular event connection to perform certain actions
+changed_event_connection.setEnabled(false);
+
+// ... actions to be performed
+
+// and enable it back when necessary
+changed_event_connection.setEnabled(true);
+
+// ...
+
+// remove subscription to the Changed event via the connection
+changed_event_connection.disconnect();
+
+//////////////////////////////////////////////////////////////////////////////
+//  3. You can add EventConnection/EventConnections instance as a member of the
+//  class that handles the event. In this case all linked subscriptions will be
+//  automatically removed when class destructor is called
+//////////////////////////////////////////////////////////////////////////////
+
+// Class handling the event
+class SomeClass
+{
+public:
+	// instance of the EventConnections class as a class member
+	EventConnections e_connections;
+
+	// A Changed event handler implemented as a class member
+	void event_handler()
+	{
+		Log::message("\Handling Changed event\n");
+		// ...
+	}
+};
+
+SomeClass *sc = new SomeClass();
+
+// ...
+
+// specify a class instance in case a handler method belongs to some class
+WarpGridData::getEventChanged().connect(sc->e_connections, sc, &SomeClass::event_handler);
+
+// ...
+
+// handler class instance is deleted with all its subscriptions removed automatically
+delete sc;
+
+//////////////////////////////////////////////////////////////////////////////
+//   4. Subscribe to an event saving a particular connection ID
+//   and unsubscribe later by this ID
+//////////////////////////////////////////////////////////////////////////////
+// instance of the EventConnections class to manage event connections
+EventConnections e_connections;
+
+// define a particular connection ID to be used to unsubscribe later
+EventConnectionId changed_handler_id;
+
+// subscribe to the Changed event with a lambda handler function and keeping connection ID
+changed_handler_id = WarpGridData::getEventChanged().connect(e_connections, []() {
+		Log::message("\Handling Changed event (lambda).\n");
+	}
+);
+
+// remove the subscription later using the ID
+WarpGridData::getEventChanged().disconnect(changed_handler_id);
+
+//////////////////////////////////////////////////////////////////////////////
+//   5. Ignoring all Changed events when necessary
+//////////////////////////////////////////////////////////////////////////////
+
+// you can temporarily disable the event to perform certain actions without triggering it
+WarpGridData::getEventChanged().setEnabled(false);
+
+// ... actions to be performed
+
+// and enable it back when necessary
+WarpGridData::getEventChanged().setEnabled(true);
+
+```
+
+</details>
+
+### Return value
+
+Event instance.
 ---
 
 ## void setGridSize ( int row , int column )

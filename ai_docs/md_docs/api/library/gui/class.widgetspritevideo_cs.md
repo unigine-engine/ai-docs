@@ -117,10 +117,10 @@ The ambient sound source according to which video playback is synchronized.
 The sound source according to which video playback is synchronized.
 ## float VideoTime
 
-The time of the currently played frame.
+The time of the currently played frame, in seconds. Setting this value rewinds or fast-forwards the video to a given time.
 ## int YUV
 
-The flag for yuv conversion.
+The flag for YUV conversion.
 ## int Loop
 
 The value indicating if the video is looped.

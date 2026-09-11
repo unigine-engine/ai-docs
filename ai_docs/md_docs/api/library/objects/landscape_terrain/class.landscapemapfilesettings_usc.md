@@ -16,55 +16,197 @@ This class is used to load, modify, and apply [landscape map](../../../../api/li
 
 ### Members
 
----
-
-## static LandscapeMapFileSettings ( )
-
-The LandscapeMapFileSettings constructor.
 ## void setHeightBlending ( int blending )
 
-Sets a new blending mode to be used for heights data of the landscape map.
-### Arguments
-
-- *int* **blending** - Blending mode to be used for heights data. One of the following values:
-
-  - Alpha Blend
-  - Additive
-
-## int getHeightBlending ( )
-
-Returns the current blending mode used for heights data of the landscape map.
-### Return value
-
-Blending mode used for heights data. One of the following values:
+Sets a new Blending mode used for heights data. One of the following *[Landscape.BLENDING_MODE](../../../../api/library/objects/landscape_terrain/class.landscape_usc.md#BLENDING_MODE)* values:
 - Alpha Blend
 - Additive
 
-
-## void setAlbedoBlending ( int blending )
-
-Sets a new blending mode to be used for albedo data of the landscape map.
 ### Arguments
 
-- *int* **blending** - Blending mode to be used for albedo data. One of the following values:
+- *int* **blending** - The Blending mode used for heights data
 
-  - Alpha Blend
-  - Additive
-  - Overlay
-  - Multiplicative
+## int getHeightBlending () const
 
-## int getAlbedoBlending ( )
+Returns the current Blending mode used for heights data. One of the following *[Landscape.BLENDING_MODE](../../../../api/library/objects/landscape_terrain/class.landscape_usc.md#BLENDING_MODE)* values:
+- Alpha Blend
+- Additive
 
-Returns the current blending mode used for albedo data of the landscape map.
 ### Return value
 
-Blending mode used for albedo data. One of the following values:
+Current Blending mode used for heights data
+## void setAlbedoBlending ( int blending )
+
+Sets a new Blending mode used for albedo data. One of the following *[Landscape.BLENDING_MODE](../../../../api/library/objects/landscape_terrain/class.landscape_usc.md#BLENDING_MODE)* values:
 - Alpha Blend
 - Additive
 - Overlay
 - Multiplicative
 
+### Arguments
 
+- *int* **blending** - The Blending mode used for albedo data
+
+## int getAlbedoBlending () const
+
+Returns the current Blending mode used for albedo data. One of the following *[Landscape.BLENDING_MODE](../../../../api/library/objects/landscape_terrain/class.landscape_usc.md#BLENDING_MODE)* values:
+- Alpha Blend
+- Additive
+- Overlay
+- Multiplicative
+
+### Return value
+
+Current Blending mode used for albedo data
+## void setEnabledHeight ( int height )
+
+Sets a new Value indicating if heights data of the landscape layer map is to be used.
+### Arguments
+
+- *int* **height** - The Value indicating if heights data of the landscape layer map is to be used
+
+## int isEnabledHeight () const
+
+Returns the current Value indicating if heights data of the landscape layer map is to be used.
+### Return value
+
+Current Value indicating if heights data of the landscape layer map is to be used
+## void setEnabledAlbedo ( int albedo )
+
+Sets a new Value indicating if albedo data of the landscape layer map is to be used.
+### Arguments
+
+- *int* **albedo** - The Value indicating if albedo data of the landscape layer map is to be used
+
+## int isEnabledAlbedo () const
+
+Returns the current Value indicating if albedo data of the landscape layer map is to be used.
+### Return value
+
+Current Value indicating if albedo data of the landscape layer map is to be used
+## void setEnabledOpacityHeight ( int height )
+
+Sets a new Value indicating if opacity information for heights data of the landscape layer map is to be used. Opacity information is required to blend data of several landscape layer maps.
+### Arguments
+
+- *int* **height** - The Value indicating if opacity information for heights data of the landscape layer map is to be used
+
+## int isEnabledOpacityHeight () const
+
+Returns the current Value indicating if opacity information for heights data of the landscape layer map is to be used. Opacity information is required to blend data of several landscape layer maps.
+### Return value
+
+Current Value indicating if opacity information for heights data of the landscape layer map is to be used
+## void setEnabledOpacityAlbedo ( int albedo )
+
+Sets a new Value indicating if opacity information for albedo data of the landscape layer map is to be used. Opacity information is required to blend data of several landscape layer maps.
+### Arguments
+
+- *int* **albedo** - The Value indicating if opacity information for albedo data of the landscape layer map is to be used
+
+## int isEnabledOpacityAlbedo () const
+
+Returns the current Value indicating if opacity information for albedo data of the landscape layer map is to be used. Opacity information is required to blend data of several landscape layer maps.
+### Return value
+
+Current Value indicating if opacity information for albedo data of the landscape layer map is to be used
+## ivec2 getTilesSize () const
+
+Returns the current Two-component vector (X, Y) representing the number of tiles in the landscape layer map along X and Y axes.
+### Return value
+
+Current Two-component vector (X, Y) representing the number of tiles in the landscape layer map along X and Y axes
+## ivec2 getResolution () const
+
+Returns the current Two-component vector (X, Y) representing landscape layer map resolution along X and Y axes, in pixels.
+### Return value
+
+Current Two-component vector (X, Y) representing landscape layer map resolution along X and Y axes, in pixels
+## UGUID getGUID () const
+
+Returns the current [GUID](../../../../api/library/filesystem/class.uguid_usc.md) of the `.lmap` file.
+### Return value
+
+Current [GUID](../../../../api/library/filesystem/class.uguid_usc.md) of the *.lmap* file
+## int isLoaded () const
+
+Returns the current value indicating if the landscape map file (`.lmap`) is loaded.
+### Return value
+
+Current the file is loaded
+## void setAlbedoFadeAttenuation ( vec2 attenuation )
+
+Sets a new Two-component vector **(X, Y)** defining the fade attenuation of the albedo data along X and Y axes.
+### Arguments
+
+- *vec2* **attenuation** - The Two-component vector
+
+## vec2 getAlbedoFadeAttenuation () const
+
+Returns the current Two-component vector **(X, Y)** defining the fade attenuation of the albedo data along X and Y axes.
+### Return value
+
+Current Two-component vector
+## void setHeightFadeAttenuation ( vec2 attenuation )
+
+Sets a new Two-component vector **(X, Y)** defining the fade attenuation of the hight data along X and Y axes.
+### Arguments
+
+- *vec2* **attenuation** - The Two-component vector
+
+## vec2 getHeightFadeAttenuation () const
+
+Returns the current Two-component vector **(X, Y)** defining the fade attenuation of the hight data along X and Y axes.
+### Return value
+
+Current Two-component vector
+## int isEnabledAlbedoTextureCompression () const
+
+Returns the current value indicating if albedo texture compression is enabled.
+### Return value
+
+Current albedo texture compression is enabled
+## int isEnabledHeightTextureCompression () const
+
+Returns the current value indicating if height texture compression is enabled.
+### Return value
+
+Current height texture compression is enabled
+## int isEnabledOpacityHeightTextureCompression () const
+
+Returns the current value indicating if opacity height texture compression is enabled.
+### Return value
+
+Current opacity height texture compression is enabled
+## int isCompressed () const
+
+Returns the current value indicating if the `.lmap` file is compressed.
+### Return value
+
+Current the file is compressed
+## int getOpacityHeightCompressor () const
+
+Returns the current type of compression currently used for opacity height data.
+### Return value
+
+Current type of compression currently used for opacity height data
+## int getAlbedoCompressor () const
+
+Returns the current type of compression currently used for opacity albedo data.
+### Return value
+
+Current type of compression currently used for opacity albedo data
+## int getHeightCompressor () const
+
+Returns the current type of compression currently used for height data.
+### Return value
+
+Current type of compression currently used for height data
+---
+
+## static LandscapeMapFileSettings ( )
+
+The LandscapeMapFileSettings constructor.
 ## void setMaskBlending ( int mask , int blend )
 
 Sets a new blending mode to be used for the data of the specified detail mask.
@@ -94,32 +236,6 @@ Blending mode used for the data of the specified detail mask. One of the followi
 - Multiplicative
 
 
-## void setEnabledHeight ( int height )
-
-Sets a value indicating if heights data of the landscape layer map is to be used.
-### Arguments
-
-- *int* **height** - **1** to enable using heights data of the landscape layer map, **0** - to disable it.
-
-## int isEnabledHeight ( )
-
-Returns a value indicating if heights data of the landscape layer map is to be used.
-### Return value
-
-**1** if heights data of the landscape layer map is to be used; otherwise, **0**.
-## void setEnabledAlbedo ( int albedo )
-
-Sets a value indicating if albedo data of the landscape layer map is to be used.
-### Arguments
-
-- *int* **albedo** - **1** to enable using albedo data of the landscape layer map, **0** - to disable it.
-
-## int isEnabledAlbedo ( )
-
-Returns a value indicating if albedo data of the landscape layer map is to be used.
-### Return value
-
-**1** if albedo data of the landscape layer map is to be used; otherwise, **0**.
 ## void setEnabledMask ( int mask , int enabled )
 
 Sets a value indicating if the data of the detail mask with the specified number is to be used.
@@ -138,32 +254,6 @@ Returns a value indicating if the data of the detail mask with the specified num
 ### Return value
 
 **1** if the data of the detail mask with the specified number is to be used; otherwise, **0**.
-## void setEnabledOpacityHeight ( int height )
-
-Sets a value indicating if opacity information for heights data of the landscape layer map is to be used. Opacity information is required to blend data of several landscape layer maps.
-### Arguments
-
-- *int* **height** - **1** to enable using opacity information for heights data of the landscape layer map, **0** - to disable it.
-
-## int isEnabledOpacityHeight ( )
-
-Returns a value indicating if opacity information for heights data of the landscape layer map is to be used. Opacity information is required to blend data of several landscape layer maps.
-### Return value
-
-**1** if opacity information for heights data of the landscape layer map is to be used; otherwise, **0**.
-## void setEnabledOpacityAlbedo ( int albedo )
-
-Sets a value indicating if opacity information for albedo data of the landscape layer map is to be used. Opacity information is required to blend data of several landscape layer maps.
-### Arguments
-
-- *int* **albedo** - **1** to enable using opacity information for albedo data of the landscape layer map, **0** - to disable it.
-
-## int isEnabledOpacityAlbedo ( )
-
-Returns a value indicating if opacity information for the albedo data of the landscape layer map is to be used. Opacity information is required to blend data of several landscape layer maps.
-### Return value
-
-**1** if opacity information for the albedo data of the landscape layer map is to be used; otherwise, **0**.
 ## void setEnabledOpacityMask ( int mask , int enabled )
 
 Sets a value indicating if opacity information for the heights data of the detail mask with the specified number is to be used. Opacity information is required to blend data of several landscape layer maps.
@@ -179,30 +269,6 @@ Returns a value indicating if opacity information for the data of the detail mas
 
 - *int* **mask** - Detail mask number in the **[0; 19]** range.
 
-### Return value
-
-**1** if opacity information for the data of the detail mask with the specified number is to be used; otherwise, **0**.
-## ivec2 getTilesSize ( )
-
-Returns the size of the landscape map tiles.
-### Return value
-
-Two-component vector (X, Y) representing the number of tiles in the landscape layer map along X and Y axes.
-## ivec2 getResolution ( )
-
-Returns the landscape layer map resolution.
-### Return value
-
-Two-component vector (X, Y) representing landscape layer map resolution along X and Y axes, in pixels.
-## UGUID getGUID ( )
-
-Returns a [GUID](../../../../api/library/filesystem/class.uguid_usc.md) of the `.lmap` file containing landscape map data.
-### Return value
-
-[GUID](../../../../api/library/filesystem/class.uguid_usc.md) of the `.lmap` file.
-## int isLoaded ( )
-
-Returns a value indicating if the landscape map file (`.lmap`) is loaded.
 ### Return value
 
 **1** if opacity information for the data of the detail mask with the specified number is to be used; otherwise, **0**.
@@ -222,32 +288,6 @@ Applies all settings stored in the landscape map file (`.lmap`).
 ### Return value
 
 **1** if landscape map file settings were successfully applied; otherwise, **0**.
-## void setHeightFadeAttenuation ( vec2 attenuation )
-
-Sets a new fade attenuation to be used for heights data of the landscape map. This parameter defines the distance of the transparency attenuation, starting from the edge of the map.
-### Arguments
-
-- *vec2* **attenuation** - Two-component vector **(X, Y)** defining the fade attenuation of the height data along X and Y axes.
-
-## vec2 getHeightFadeAttenuation ( )
-
-Returns the current fade attenuation for heights data of the landscape map. This parameter defines the distance of the transparency attenuation, starting from the edge of the map.
-### Return value
-
-Two-component vector **(X, Y)** defining the fade attenuation of the height data along X and Y axes.
-## void setAlbedoFadeAttenuation ( vec2 attenuation )
-
-Sets a new fade attenuation to be used for albedo data of the landscape map. This parameter defines the distance of the transparency attenuation, starting from the edge of the map.
-### Arguments
-
-- *vec2* **attenuation** - Two-component vector **(X, Y)** defining the fade attenuation of the albedo data along X and Y axes.
-
-## vec2 getAlbedoFadeAttenuation ( )
-
-Returns the current fade attenuation for albedo data of the landscape map. This parameter defines the distance of the transparency attenuation, starting from the edge of the map.
-### Return value
-
-Two-component vector **(X, Y)** defining the fade attenuation of the albedo data along X and Y axes.
 ## void setMaskFadeAttenuation ( int mask , vec2 fade_attenuation )
 
 Sets a new fade attenuation to be used for the data of the specified detail mask. This parameter defines the distance of the transparency attenuation, starting from the edge of the map.
@@ -266,24 +306,6 @@ Returns the current fade attenuation for the data of the specified detail mask. 
 ### Return value
 
 Two-component vector **(X, Y)** defining the fade attenuation of the detail mask data along X and Y axes.
-## int getHeightCompressor ( )
-
-Returns the type of compression currently used for height data.
-### Return value
-
-Type of compression currently used for height data.
-## int getAlbedoCompressor ( )
-
-Returns the type of compression currently used for albedo data.
-### Return value
-
-Type of compression currently used for albedo data.
-## int getOpacityHeightCompressor ( )
-
-Returns the type of compression currently used for opacity height data.
-### Return value
-
-Type of compression currently used for opacity height data.
 ## int getMaskCompressor ( int mask )
 
 Returns the type of compression currently used for the data of the mask with the specified number.
@@ -304,30 +326,6 @@ Returns the type of compression currently used for the opacity data of the mask 
 ### Return value
 
 Type of compression currently used for the opacity data of the mask with the specified number.
-## int isCompressed ( )
-
-Returns the value indicating if the `.lmap` file is compressed.
-### Return value
-
-**1** if the file is compressed; otherwise, **0**.
-## int isEnabledAlbedoTextureCompression ( )
-
-Returns a value indicating if albedo texture compression is enabled.
-### Return value
-
-**1** if albedo texture compression is enabled; otherwise, **0**.
-## int isEnabledHeightTextureCompression ( )
-
-Returns a value indicating if height texture compression is enabled.
-### Return value
-
-**1** if height texture compression is enabled; otherwise, **0**.
-## int isEnabledOpacityHeightTextureCompression ( )
-
-Returns a value indicating if opacity height texture compression is enabled.
-### Return value
-
-**1** if opacity height texture compression is enabled; otherwise, **0**.
 ## int isEnabledMaskTextureCompression ( int mask )
 
 Returns a value indicating if compression of the mask texture for the mask with the specified number is enabled.

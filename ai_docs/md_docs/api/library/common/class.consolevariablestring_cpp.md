@@ -47,14 +47,16 @@ Assignment operator for the variable.
 
 ## void setGetFunc ( String(*) func )
 
-Sets a function that will be called when the [get()](#c_get) function is called for the variable.
+Sets a function that will be called when the *[get()](#c_get)*function is called for the variable.
 ### Arguments
 
 - *String(*)* **func** - Function pointer.
 
 ## void setSetFunc ( void (*)(String) func )
 
-Sets a function that will be called when the [set()](#c_set_constcharm) function is called for the variable. For example:
+Sets a function that will be called when the *[set()](#c_set_constcharm)* function is called for the variable. For example:
+
+
 ```cpp
 ConsoleVariableString my_debug_mode(...);
 

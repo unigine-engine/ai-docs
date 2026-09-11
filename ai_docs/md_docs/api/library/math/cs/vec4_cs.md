@@ -34,7 +34,7 @@ The Minimum value among all components.
 The Maximum value among all components.
 ## 🔒︎ float Length2
 
-The Squared length of the vector. This method is much faster than *length()* — the calculation is basically the same only without the slow *Sqrt* call. If you are using lengths simply to compare distances, then it is faster to compare squared lengths against the squares of distances as the comparison gives the same result.
+The Squared length of the vector. This method is much faster than *length()* � the calculation is basically the same only without the slow *Sqrt* call. If you are using lengths simply to compare distances, then it is faster to compare squared lengths against the squares of distances as the comparison gives the same result.
 ## 🔒︎ float ILength
 
 The Inverted length of the vector.

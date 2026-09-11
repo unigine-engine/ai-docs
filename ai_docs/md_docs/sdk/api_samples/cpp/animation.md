@@ -92,7 +92,7 @@ This sample provides the interface that allows visualizing and experiencing how 
 
 This sample demonstrates how to make an animated state machine based on ObjectMeshSkinned.
 
-A state machine is a design pattern that manages various object states—such as idle, walking, or sneaking—and handles transitions between them. The example illustrates how to configure state machines with dynamic controls for walking, turning when idle, and running.
+A state machine is a design pattern that manages various object states�such as idle, walking, or sneaking�and handles transitions between them. The example illustrates how to configure state machines with dynamic controls for walking, turning when idle, and running.
 
 
 Implementing state machines enables the creation of complex, flexible character behaviors.

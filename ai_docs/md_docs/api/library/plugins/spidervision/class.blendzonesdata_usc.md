@@ -6,7 +6,7 @@
 This class stores data on all [blend zones](../../../../principles/render/output/multi_monitor/spidervision_plugin/projection_setup.md#blend) created for the viewport and provides the interface for configuring each blend zone.
 
 
-The blend zone is an arbitrary shape formed by three vertical lines so that it has two parts — one part is a mask (from blue to green line), and the other one (from green to red line) is a gradient zone.
+The blend zone is an arbitrary shape formed by three vertical lines so that it has two parts � one part is a mask (from blue to green line), and the other one (from green to red line) is a gradient zone.
 
 
 ![](../../../../principles/render/output/multi_monitor/spidervision_plugin/blend_zone.jpg)
@@ -15,7 +15,7 @@ The blend zone is an arbitrary shape formed by three vertical lines so that it h
 The blend zone data are stored in the [configuration file](../../../../principles/render/output/multi_monitor/spidervision_plugin/displays_setup.md#config_file).
 
 
-To configure parameters of a specific blend zone of a viewport, the methods of this class are to be used. However, the instance of the *BlendZonesData* class doesn't store any information on which viewport it is assigned to — the information is stored in the *[ViewportData](../../../../api/library/plugins/spidervision/class.viewportdata_usc.md#getBlendZones_BlendZonesData)* class instance.
+To configure parameters of a specific blend zone of a viewport, the methods of this class are to be used. However, the instance of the *BlendZonesData* class doesn't store any information on which viewport it is assigned to � the information is stored in the *[ViewportData](../../../../api/library/plugins/spidervision/class.viewportdata_usc.md#getBlendZones_BlendZonesData)* class instance.
 
 
 ## BlendZonesData Class
@@ -57,7 +57,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## int addZone ( )

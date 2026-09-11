@@ -10,10 +10,10 @@ A container to which an image is rendered (a [framebuffer](https://en.wikipedia.
 
 ## 🔒︎ bool IsCompleted
 
-The A value indicating if the render target is completed.
+The value indicating if the render target is completed.
 ## 🔒︎ bool IsEnabled
 
-The A value indicating if the render target is enabled.
+The value indicating if the render target is enabled.
 ### Members
 
 ---
@@ -191,7 +191,7 @@ Binds all layers and faces (if supported by the texture type) of a texture on th
 - *int* **slot** - Texture slot.
 - *[Texture](../../../api/library/rendering/class.texture_cs.md)* **texture** - Unordered access texture to be bound.
 - *bool* **writeonly** - Access flag. true to use the texture for writing only, otherwise false.
-- *bool* **atomic** - Set true to bind the texture with the *GL_32UI* format; otherwise — false. This flag is to be set for Vulkan only.
+- *bool* **atomic** - Set true to bind the texture with the *GL_32UI* format; otherwise � false. This flag is to be set for Vulkan only.
 
 ## void BindUnorderedAccessTexture2D ( int slot , Texture texture , bool writeonly = false , bool atomic = false , int mip = 0 )
 
@@ -201,7 +201,7 @@ Binds a 2D texture on the specified mipmap level to the specified slot for unord
 - *int* **slot** - Texture slot.
 - *[Texture](../../../api/library/rendering/class.texture_cs.md)* **texture** - Unordered access 2D texture to be bound.
 - *bool* **writeonly** - Access flag. true to use the texture for writing only, otherwise false.
-- *bool* **atomic** - Set true to bind the texture with the *GL_32UI* format; otherwise — false. This flag is to be set for Vulkan only.
+- *bool* **atomic** - Set true to bind the texture with the *GL_32UI* format; otherwise � false. This flag is to be set for Vulkan only.
 - *int* **mip** - Mipmap level number in the range from **0** to the [total number of mipmaps](../../../api/library/rendering/class.texture_cs.md#getNumMipmaps_int).
 
 ## void BindUnorderedAccessTexture2DArray ( int slot , Texture texture , bool writeonly = false , bool atomic = false , int layer = -1 , int mip = 0 )
@@ -212,7 +212,7 @@ Binds the specified layer of a 2D texture array on the specified mipmap level to
 - *int* **slot** - Texture slot.
 - *[Texture](../../../api/library/rendering/class.texture_cs.md)* **texture** - Unordered access 2D texture array to be bound.
 - *bool* **writeonly** - Access flag. true to use the texture for writing only, otherwise false.
-- *bool* **atomic** - Set true to bind the texture with the *GL_32UI* format; otherwise — false. This flag is to be set for Vulkan only.
+- *bool* **atomic** - Set true to bind the texture with the *GL_32UI* format; otherwise � false. This flag is to be set for Vulkan only.
 - *int* **layer** - Number of the 2D texture array layer. With the default value of -1, all layers of the texture on a specified mip level are bound.
 - *int* **mip** - Mipmap level number in the range from **0** to the [total number of mipmaps](../../../api/library/rendering/class.texture_cs.md#getNumMipmaps_int).
 
@@ -224,7 +224,7 @@ Binds the specified face of a texture cube on the specified mipmap level to the 
 - *int* **slot** - Texture slot.
 - *[Texture](../../../api/library/rendering/class.texture_cs.md)* **texture** - Unordered access texture cube to be bound.
 - *bool* **writeonly** - Access flag. true to use the texture for writing only, otherwise false.
-- *bool* **atomic** - Set true to bind the texture with the *GL_32UI* format; otherwise — false. This flag is to be set for Vulkan only.
+- *bool* **atomic** - Set true to bind the texture with the *GL_32UI* format; otherwise � false. This flag is to be set for Vulkan only.
 - *int* **face** - The face of the cube. With the default value of -1, all faces of the texture on a specified mip level are bound.
 - *int* **mip** - Mipmap level number in the range from **0** to the [total number of mipmaps](../../../api/library/rendering/class.texture_cs.md#getNumMipmaps_int).
 
@@ -236,7 +236,7 @@ Binds the specified layer and face of a texture cube on the specified mipmap lev
 - *int* **slot** - Texture slot.
 - *[Texture](../../../api/library/rendering/class.texture_cs.md)* **texture** - Unordered access texture cube array to be bound.
 - *bool* **writeonly** - Access flag. true to use the texture for writing only, otherwise false.
-- *bool* **atomic** - Set true to bind the texture with the *GL_32UI* format; otherwise — false. This flag is to be set for Vulkan only.
+- *bool* **atomic** - Set true to bind the texture with the *GL_32UI* format; otherwise � false. This flag is to be set for Vulkan only.
 - *int* **layer** - Number of the texture cube array layer.
 - *int* **face** - The face of the cube. With the default value of -1, all faces of the texture on a specified mip level are bound.
 - *int* **mip** - Mipmap level number in the range from **0** to the [total number of mipmaps](../../../api/library/rendering/class.texture_cs.md#getNumMipmaps_int).
@@ -249,7 +249,7 @@ Binds the specified layer of a 3D texture on the specified mipmap level to the s
 - *int* **slot** - Texture slot.
 - *[Texture](../../../api/library/rendering/class.texture_cs.md)* **texture** - Unordered access 3D texture to be bound.
 - *bool* **writeonly** - Access flag. true to use the texture for writing only, otherwise false.
-- *bool* **atomic** - Set true to bind the texture with the *GL_32UI* format; otherwise — false. This flag is to be set for Vulkan only.
+- *bool* **atomic** - Set true to bind the texture with the *GL_32UI* format; otherwise � false. This flag is to be set for Vulkan only.
 - *int* **depth** - 3D texture depth layer. With the default value of -1, all depth layers of the texture on a specified mip level are bound.
 - *int* **mip** - Mipmap level number in the range from **0** to the [total number of mipmaps](../../../api/library/rendering/class.texture_cs.md#getNumMipmaps_int).
 

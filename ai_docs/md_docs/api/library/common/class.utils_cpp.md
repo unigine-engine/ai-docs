@@ -59,8 +59,11 @@ Loads a mesh from a file. If the mesh is loaded successfully, its node does not 
 Pointer to the node corresponding to the loaded mesh; **0** if the mesh cannot be loaded.
 ## int makeNodeCurved ( const Ptr < Node > & node )
 
-Curves a given node using its geodetic pivot.
-> **Notice:** The node must be a child of a [geodetic pivot](../../../api/library/geodetics/class.geodeticpivot_cpp.md) node.
+
+Curves a given node using its *Geodetic Pivot*.
+
+
+> **Notice:** The node must be a child of a [*Geodetic Pivot*](../../../api/library/geodetics/class.geodeticpivot_cpp.md) node.
 
 
 ### Arguments
@@ -72,8 +75,11 @@ Curves a given node using its geodetic pivot.
 1 if the node was curved successfully; othervise, 0.
 ## int makeNodeFlat ( const Ptr < Node > & node )
 
-Flattens a given node using its geodetic pivot.
-> **Notice:** The node must be a child of a [geodetic pivot](../../../api/library/geodetics/class.geodeticpivot_cpp.md) node.
+
+Flattens a given node using its *Geodetic Pivot*.
+
+
+> **Notice:** The node must be a child of a [*Geodetic Pivot*](../../../api/library/geodetics/class.geodeticpivot_cpp.md) node.
 
 
 ### Arguments

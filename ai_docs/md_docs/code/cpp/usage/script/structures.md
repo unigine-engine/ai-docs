@@ -17,6 +17,7 @@ An example located in the `<UnigineSDK>/source/samples/Api/Scripts/Structures/` 
 
 Data structures are exported in the same way as C++ [classes](../../../../code/cpp/usage/script/classes.md):
 
+
 1. Create an external class based on your C++ data structure via *MakeExternClass()*.
 2. Add constructors to the external class.
 3. Add methods to the external class.

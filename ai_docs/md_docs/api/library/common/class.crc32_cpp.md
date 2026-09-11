@@ -33,7 +33,7 @@ Calculates a 32-bit CRC checksum.
 
 - *const void** **data** - Input data pointer.
 - *int* **size** - Input data size, in bytes.
-- *bool* **big_endian** - Byte ordering flag. Set **true** to use the big-endian order; **false** — to use the little-endian order.
+- *bool* **big_endian** - Byte ordering flag. Set true to use the big-endian order; false � to use the little-endian order.
 
 ### Return value
 

@@ -10,71 +10,69 @@ This class is used to store the result of the object intersection (coordinates o
 
 ### Members
 
+## void setInstance ( int instance )
+
+Sets a new number of the intersected instance.
+> **Notice:** Intersected instance number can be obtained for the following classes:
+> - *[ObjectMeshSkinned](../../../api/library/objects/class.objectmeshskinned_usc.md)*
+> - *[ObjectMeshCluster](../../../api/library/objects/class.objectmeshcluster_usc.md)*
+> - *[ObjectMeshSplineCluster](../../../api/library/objects/class.objectmeshsplinecluster_usc.md)*
+
+### Arguments
+
+- *int* **instance** - The number of the intersected instance
+
+## int getInstance () const
+
+Returns the current number of the intersected instance.
+> **Notice:** Intersected instance number can be obtained for the following classes:
+> - *[ObjectMeshSkinned](../../../api/library/objects/class.objectmeshskinned_usc.md)*
+> - *[ObjectMeshCluster](../../../api/library/objects/class.objectmeshcluster_usc.md)*
+> - *[ObjectMeshSplineCluster](../../../api/library/objects/class.objectmeshsplinecluster_usc.md)*
+
+### Return value
+
+Current number of the intersected instance
+## void setIndex ( int index )
+
+Sets a new number of the intersected triangle.
+### Arguments
+
+- *int* **index** - The number of the intersected triangle
+
+## int getIndex () const
+
+Returns the current number of the intersected triangle.
+### Return value
+
+Current number of the intersected triangle
+## void setPoint ( Vec3 point )
+
+Sets a new coordinates of the intersection point.
+### Arguments
+
+- *Vec3* **point** - The coordinates of the intersection point
+
+## Vec3 getPoint () const
+
+Returns the current coordinates of the intersection point.
+### Return value
+
+Current coordinates of the intersection point
+## const char * getTypeName () const
+
+Returns the current object intersection type name.
+### Return value
+
+Current object intersection type name
+## int getType () const
+
+Returns the current object [intersection type identifier](#OBJECT_INTERSECTION).
+### Return value
+
+Current object intersection type identifier
 ---
 
 ## static ObjectIntersection ( )
 
 The ObjectIntersection constructor.
-## void setIndex ( int index )
-
-Sets the new intersection triangle number.
-### Arguments
-
-- *int* **index** - Intersection triangle number.
-
-## int getIndex ( )
-
-Returns the number of the intersected triangle.
-### Return value
-
-Intersected triangle number.
-## void setInstance ( int instance )
-
-Sets the new intersected instance number.
-> **Notice:** Intersected instance number can be obtained for the following classes:
-> - *[ObjectMeshSkinned](../../../api/library/objects/class.objectmeshskinned_usc.md)*
-> - *[ObjectMeshCluster](../../../api/library/objects/class.objectmeshcluster_usc.md)*
-> - *[ObjectMeshSplineCluster](../../../api/library/objects/class.objectmeshsplinecluster_usc.md)*
-
-
-### Arguments
-
-- *int* **instance** - Intersected instance number.
-
-## int getInstance ( )
-
-Returns the number of the intersected instance.
-> **Notice:** Intersected instance number can be obtained for the following classes:
-> - *[ObjectMeshSkinned](../../../api/library/objects/class.objectmeshskinned_usc.md)*
-> - *[ObjectMeshCluster](../../../api/library/objects/class.objectmeshcluster_usc.md)*
-> - *[ObjectMeshSplineCluster](../../../api/library/objects/class.objectmeshsplinecluster_usc.md)*
-
-
-### Return value
-
-Intersected instance number.
-## void setPoint ( Vec3 point )
-
-Sets new coordinates of the intersection point.
-### Arguments
-
-- *Vec3* **point** - Coordinates of the intersection point.
-
-## Vec3 getPoint ( )
-
-Returns coordinates of the intersection point.
-### Return value
-
-Coordinates of the intersection point.
-## int getType ( )
-
-Returns the object intersection type identifier.
-### Return value
-
-Object [intersection type identifier](#OBJECT_INTERSECTION).
-## string getTypeName ( )
-
-Returns the object intersection type name.
-### Return value
-
-Object intersection type name.

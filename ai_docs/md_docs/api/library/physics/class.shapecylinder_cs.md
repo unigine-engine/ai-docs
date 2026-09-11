@@ -26,10 +26,10 @@ UnigineScript samples:
 
 ## float Height
 
-The current height of the cylinder.
+The height of the cylinder, in units.
 ## float Radius
 
-The current radius of the cylinder.
+The radius of the cylinder, in units.
 ### Members
 
 ---

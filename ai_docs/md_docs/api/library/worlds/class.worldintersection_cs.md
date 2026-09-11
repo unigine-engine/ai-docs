@@ -7,12 +7,13 @@ This class stores the result of the world intersection (the coordinates of the i
 #### Usage Example
 
 
-The following example shows how you can get the intersection information by using the WorldIntersection class. In this example, the line is an invisible traced line from the point of the camera (vec3 p0) to the point of the mouse pointer (vec3 p1). The executing sequence is the following:
+The following example shows how you can get the intersection information by using the *WorldIntersection* class. In this example, the line is an invisible traced line from the point of the camera (*vec3 **p0***) to the point of the mouse pointer (*vec3 **p1***). The executing sequence is the following:
 
-- Define and initialize two points (p0 and p1) by using the *[Player.getDirectionFromScreen()](../../../api/library/players/class.player_cs.md#getDirectionFromScreen_Vec3_Vec3_int_int_int_int_int_int_void)*> function.
-- Create an instance of the WorldIntersection class to get the intersection information.
+
+- Define and initialize two points (p0 and p1) by using the *[Player.getDirectionFromScreen()](../../../api/library/players/class.player_cs.md#getDirectionFromScreen_Vec3_Vec3_int_int_int_int_int_int_void)* function.
+- Create an instance of the *WorldIntersection* class to get the intersection information.
 - Check, if there is a intersection with an object. The [*World.getIntersection()*](../../../api/library/engine/class.world_cs.md#getIntersection_vec3_vec3_int_Variable_Object) function returns an intersected object when the object intersects with the traced line.
-- In this example, when the object intersects with the traced line, all the surfaces of the intersected object change their material parameters. The WorldIntersection class instance gets the coordinates of the intersection point and the index of the intersected triangle. You can get all these fields by using [*getIndex()*](#getIndex_int) and [*getPoint()*](#getPoint_Vec3) functions
+- In this example, when the object intersects with the traced line, all the surfaces of the intersected object change their material parameters. The *WorldIntersection* class instance gets the coordinates of the intersection point and the index of the intersected triangle. You can get all these fields by using [*getIndex()*](#getIndex_int) and [*getPoint()*](#getPoint_Vec3) functions
 
 
 ```csharp
@@ -84,6 +85,8 @@ The intersected surface number.
 
 The number of the intersected instance.
 > **Notice:** Intersected instance number can be obtained for the following classes:
+>
+>
 > - *[ObjectMeshSkinned](../../../api/library/objects/class.objectmeshskinned_cs.md)*
 > - *[ObjectMeshCluster](../../../api/library/objects/class.objectmeshcluster_cs.md)*
 > - *[ObjectMeshSplineCluster](../../../api/library/objects/class.objectmeshsplinecluster_cs.md)*
@@ -94,13 +97,13 @@ The number of the intersected instance.
 The number of the intersected triangle.
 ## vec3 Point
 
-The Coordinates of the intersection point.
+The coordinates of the intersection point.
 ## 🔒︎ string TypeName
 
-The World intersection type name.
+The *World Intersection* type name.
 ## 🔒︎ WorldIntersection.TYPE Type
 
-The World [intersection type identifier](#WORLD_INTERSECTION).
+The [*World Intersection* type identifier](#WORLD_INTERSECTION).
 ### Members
 
 ---

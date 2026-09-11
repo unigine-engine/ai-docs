@@ -89,10 +89,10 @@ These options control rendering of shadows cast on transparent objects.
 Filtering mode to be used for shadows from all light sources cast on the material. This mode determines the quality of soft shadows reducing the stair-step effect. *Higher* quality produces *smoother* shadows. Available values:
 
 - **Disabled** - filtering for shadows is disabled, the stair-step effect is clearly seen at the edges of shadows.
-- **Low** — low quality
-- **Medium** — medium quality
-- **High** — high quality
-- **Ultra** — ultra quality
+- **Low** � low quality
+- **Medium** � medium quality
+- **High** � high quality
+- **Ultra** � ultra quality
 
 
 > **Notice:** This parameter is similar to the [global shadow filtering mode](../../../../editor2/settings/render_settings/shadows/index.md#filter_mode) (*Settings -> Render -> Shadows*), but is used for transparent objects on a per-material basis.
@@ -104,10 +104,10 @@ Filtering mode to be used for shadows from all light sources cast on the materia
 Quality mode to be used for rendering penumbra from all light sources cast on the material. This mode enables simulation of real-world shadows by keeping sharp contact shadows closer to the base and softening the farther the shadow stretches away. *Higher* quality produces *softer* shadows. Available values:
 
 - **Disabled** - penumbra rendering is disabled, shadow edges are crisp and sharp (no shadow softness at all).
-- **Low** — low quality
-- **Medium** — medium quality
-- **High** — high quality
-- **Ultra** — ultra quality
+- **Low** � low quality
+- **Medium** � medium quality
+- **High** � high quality
+- **Ultra** � ultra quality
 
 
 > **Notice:** This parameter is similar to the [global shadow penumbra mode](../../../../editor2/settings/render_settings/shadows/index.md#penumbra_mode) (*Settings -> Render -> Shadows*), but is used for transparent objects on a per-material basis.
@@ -163,7 +163,7 @@ Post Processing options activate post processing effects for the material.
 | Diffuse | The diffuse texture defines the color of the surface. The texture is 4-channeled (RGBA): - *RGB* values store color information. - The *Alpha (A)* value stores transparency information: - **White** color indicates the visible area. - **Black** color indicates the transparent area. |
 |---|---|
 | Normal | The normal texture stores information about the surface's contours in order to create the illusion of depth and is used to add details without adding additional polygons. The texture is 2-channeled: RG values contain two components of a normal, and the third component's value is calculated from the given components at run time. |
-| Specular | The specular texture defines the surface's shininess and highlights color. The texture is 4-channeled (RGBA): - *RGB* values store reflection color and intensity (black color means no reflection). - The *alpha (A)* value specifies the specular power: **0** means specular highlights are very bright and intense, **256** — specular highlights are faded. |
+| Specular | The specular texture defines the surface's shininess and highlights color. The texture is 4-channeled (RGBA): - *RGB* values store reflection color and intensity (black color means no reflection). - The *alpha (A)* value specifies the specular power: **0** means specular highlights are very bright and intense, **256** � specular highlights are faded. |
 
 
 > **Notice:** The base textures with the ***_d***, ***_n*** and ***_s*** postfixes in the name respectively, located in a folder named `uncompressed`, are automatically compressed by the engine.
@@ -172,7 +172,7 @@ Post Processing options activate post processing effects for the material.
 ### Options
 
 
-| Emission | Emission texture stores information about the light emission. This texture is available only if the [Emission](#emission) option is enabled. The texture is 4-channeled (RGBA): - *RGB* values store the glowing color. - The *Alpha (A)* value stores the *glow mask*: black is for non-glowing areas, white — for glowing ones. |
+| Emission | Emission texture stores information about the light emission. This texture is available only if the [Emission](#emission) option is enabled. The texture is 4-channeled (RGBA): - *RGB* values store the glowing color. - The *Alpha (A)* value stores the *glow mask*: black is for non-glowing areas, white � for glowing ones. |
 |---|---|
 | Auxiliary | Auxiliary texture is used for rendering into the [Auxiliary](#pass_auxiliary) buffer. |
 

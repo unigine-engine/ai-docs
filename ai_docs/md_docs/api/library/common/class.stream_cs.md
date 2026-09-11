@@ -3,12 +3,13 @@
 
 This class cannot be instantiated. It is a base class for:
 
+
 - *[File](../../../api/library/filesystem/class.file_cs.md)* class
 - *[Blob](../../../api/library/common/class.blob_cs.md)* class
 - *[Socket](../../../api/library/networking/class.socket_cs.md)* class
 
 
-Stream class allows you to write data into a stream, that is into files (stored on the disk), blobs (stored in system memory) and sockets (to be sent over the network), as well as read data from a stream.
+*Stream* class allows you to write data into a stream, that is into files (stored on the disk), blobs (stored in system memory) and sockets (to be sent over the network), as well as read data from a stream.
 
 
 ## Stream Class
@@ -550,7 +551,7 @@ Writes an ASCII character in a binary format (1 byte) to the stream.
 
 ### Return value
 
-**true** if a character is written successfully; otherwise **false**.
+true if a character is written successfully; otherwise false.
 ## bool Write ( short value )
 
 Writes a signed short integer to the stream in accordance with the little-endian order.
@@ -560,7 +561,7 @@ Writes a signed short integer to the stream in accordance with the little-endian
 
 ### Return value
 
-**true** if a character is written successfully; otherwise **false**.
+true if a character is written successfully; otherwise false.
 ## bool Write ( ushort value )
 
 Writes a unsigned short integer to the stream in accordance with the little-endian order.
@@ -570,7 +571,7 @@ Writes a unsigned short integer to the stream in accordance with the little-endi
 
 ### Return value
 
-**true** if a character is written successfully; otherwise **false**.
+true if a character is written successfully; otherwise false.
 ## bool Write ( bool value )
 
 Writes the specified boolean value to the stream.
@@ -580,7 +581,7 @@ Writes the specified boolean value to the stream.
 
 ### Return value
 
-**true** if a character is written successfully; otherwise **false**.
+true if a character is written successfully; otherwise false.
 ## bool Write ( int value )
 
 Writes a signed integer to the stream in accordance with the little-endian order.
@@ -590,7 +591,7 @@ Writes a signed integer to the stream in accordance with the little-endian order
 
 ### Return value
 
-**true** if a character is written successfully; otherwise **false**.
+true if a character is written successfully; otherwise false.
 ## bool Write ( uint value )
 
 Writes a unsigned integer to the stream in accordance with the little-endian order.
@@ -600,7 +601,7 @@ Writes a unsigned integer to the stream in accordance with the little-endian ord
 
 ### Return value
 
-**true** if a character is written successfully; otherwise **false**.
+true if a character is written successfully; otherwise false.
 ## bool Write ( long value )
 
 Writes a signed long to the stream in accordance with the little-endian order.
@@ -610,7 +611,7 @@ Writes a signed long to the stream in accordance with the little-endian order.
 
 ### Return value
 
-**true** if a character is written successfully; otherwise **false**.
+true if a character is written successfully; otherwise false.
 ## bool Write ( float value )
 
 Writes a floating-point number to the stream in accordance with the little-endian order.
@@ -620,7 +621,7 @@ Writes a floating-point number to the stream in accordance with the little-endia
 
 ### Return value
 
-**true** if a character is written successfully; otherwise **false**.
+true if a character is written successfully; otherwise false.
 ## bool Write ( double value )
 
 Writes a double floating-point number to the stream in accordance with the little-endian order.
@@ -630,7 +631,7 @@ Writes a double floating-point number to the stream in accordance with the littl
 
 ### Return value
 
-**true** if a character is written successfully; otherwise **false**.
+true if a character is written successfully; otherwise false.
 ## bool Write ( string value )
 
 Writes a string in a binary format to the stream. Each binary string should be preceded by its length (4 bytes defining the length of string + the string itself).
@@ -640,7 +641,7 @@ Writes a string in a binary format to the stream. Each binary string should be p
 
 ### Return value
 
-**true** if a character is written successfully; otherwise **false**.
+true if a character is written successfully; otherwise false.
 ## bool Write ( vec2 value )
 
 Writes a 2-component vector to the stream in accordance with the little-endian order.
@@ -650,7 +651,7 @@ Writes a 2-component vector to the stream in accordance with the little-endian o
 
 ### Return value
 
-**true** if a character is written successfully; otherwise **false**.
+true if a character is written successfully; otherwise false.
 ## bool Write ( vec3 value )
 
 Writes a 3-component vector to the stream in accordance with the little-endian order.
@@ -660,7 +661,7 @@ Writes a 3-component vector to the stream in accordance with the little-endian o
 
 ### Return value
 
-**true** if a character is written successfully; otherwise **false**.
+true if a character is written successfully; otherwise false.
 ## bool Write ( vec4 value )
 
 Writes a 4-component vector to the stream in accordance with the little-endian order.
@@ -670,7 +671,7 @@ Writes a 4-component vector to the stream in accordance with the little-endian o
 
 ### Return value
 
-**true** if a character is written successfully; otherwise **false**.
+true if a character is written successfully; otherwise false.
 ## bool Write ( dvec2 value )
 
 Writes a 2-component double vector to the stream in accordance with the little-endian order.
@@ -680,7 +681,7 @@ Writes a 2-component double vector to the stream in accordance with the little-e
 
 ### Return value
 
-**true** if a character is written successfully; otherwise **false**.
+true if a character is written successfully; otherwise false.
 ## bool Write ( dvec3 value )
 
 Writes a 3-component double vector to the stream in accordance with the little-endian order.
@@ -690,7 +691,7 @@ Writes a 3-component double vector to the stream in accordance with the little-e
 
 ### Return value
 
-**true** if a character is written successfully; otherwise **false**.
+true if a character is written successfully; otherwise false.
 ## bool Write ( dvec4 value )
 
 Writes a 4-component double vector to the stream in accordance with the little-endian order.
@@ -700,7 +701,7 @@ Writes a 4-component double vector to the stream in accordance with the little-e
 
 ### Return value
 
-**true** if a character is written successfully; otherwise **false**.
+true if a character is written successfully; otherwise false.
 ## bool Write ( ivec2 value )
 
 Writes a 2-component integer vector to the stream in accordance with the little-endian order.
@@ -710,7 +711,7 @@ Writes a 2-component integer vector to the stream in accordance with the little-
 
 ### Return value
 
-**true** if a character is written successfully; otherwise **false**.
+true if a character is written successfully; otherwise false.
 ## bool Write ( ivec3 value )
 
 Writes a 3-component integer vector to the stream in accordance with the little-endian order.
@@ -720,7 +721,7 @@ Writes a 3-component integer vector to the stream in accordance with the little-
 
 ### Return value
 
-**true** if a character is written successfully; otherwise **false**.
+true if a character is written successfully; otherwise false.
 ## bool Write ( ivec4 value )
 
 Writes a 4-component integer vector to the stream in accordance with the little-endian order.
@@ -730,7 +731,7 @@ Writes a 4-component integer vector to the stream in accordance with the little-
 
 ### Return value
 
-**true** if a character is written successfully; otherwise **false**.
+true if a character is written successfully; otherwise false.
 ## bool Write ( mat4 value )
 
 Writes a matrix to the stream in accordance with the little-endian order.
@@ -740,7 +741,7 @@ Writes a matrix to the stream in accordance with the little-endian order.
 
 ### Return value
 
-**true** if a character is written successfully; otherwise **false**.
+true if a character is written successfully; otherwise false.
 ## bool Write ( dmat4 value )
 
 Writes a double matrix to the stream in accordance with the little-endian order.
@@ -750,7 +751,7 @@ Writes a double matrix to the stream in accordance with the little-endian order.
 
 ### Return value
 
-**true** if a character is written successfully; otherwise **false**.
+true if a character is written successfully; otherwise false.
 ## bool Write ( quat value )
 
 Writes a quaternion to the stream in accordance with the little-endian order.
@@ -760,7 +761,7 @@ Writes a quaternion to the stream in accordance with the little-endian order.
 
 ### Return value
 
-**true** if a character is written successfully; otherwise **false**.
+true if a character is written successfully; otherwise false.
 ## bool WriteBool ( bool value )
 
 Writes the specified boolean value to the stream.
@@ -780,7 +781,7 @@ Writes an ASCII character in a binary format (1 byte) to the stream.
 
 ### Return value
 
-**true** if a character is written successfully; otherwise **false**.
+true if a character is written successfully; otherwise false.
 ## bool WriteDMat4 ( dmat4 value )
 
 Writes a double matrix to the stream in accordance with the little-endian order.
@@ -793,7 +794,7 @@ Writes a double matrix to the stream in accordance with the little-endian order.
 true if the matrix is written successfully; otherwise, false.
 ## bool WriteDouble ( double value )
 
-Writes a double floating-point number to the stream in accordance with the little-endian order.
+Writes a *double* floating-point number to the stream in accordance with the little-endian order.
 ### Arguments
 
 - *double* **value** - A *double* value to write.
@@ -803,7 +804,7 @@ Writes a double floating-point number to the stream in accordance with the littl
 true if the operation was successful; otherwise, false.
 ## bool WriteDoubleArray ( double[] OUT_src )
 
-Writes an array of double floating-point numbers to the stream in accordance with the little-endian order.
+Writes an array of *double* floating-point numbers to the stream in accordance with the little-endian order.
 ### Arguments
 
 - *double[]* **OUT_src**
@@ -813,7 +814,7 @@ Writes an array of double floating-point numbers to the stream in accordance wit
 true if the operation was successful; otherwise, false.
 ## bool WriteDVec2 ( dvec2 value )
 
-Writes a 2-component double vector to the stream in accordance with the little-endian order.
+Writes a 2-component *double* vector to the stream in accordance with the little-endian order.
 ### Arguments
 
 - *dvec2* **value** - Vector value.
@@ -823,7 +824,7 @@ Writes a 2-component double vector to the stream in accordance with the little-e
 true if the operation was successful; otherwise, false.
 ## bool WriteDVec3 ( dvec3 value )
 
-Writes a 3-component double vector to the stream in accordance with the little-endian order.
+Writes a 3-component *double* vector to the stream in accordance with the little-endian order.
 ### Arguments
 
 - *dvec3* **value** - A *dvec3* value to write.
@@ -833,7 +834,7 @@ Writes a 3-component double vector to the stream in accordance with the little-e
 true if the operation was successful; otherwise, false.
 ## bool WriteDVec4 ( dvec4 value )
 
-Writes a 4-component double vector to the stream in accordance with the little-endian order.
+Writes a 4-component *double* vector to the stream in accordance with the little-endian order.
 ### Arguments
 
 - *dvec4* **value** - A *dvec4* value to write.

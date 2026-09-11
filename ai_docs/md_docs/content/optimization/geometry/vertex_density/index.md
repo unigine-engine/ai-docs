@@ -13,7 +13,7 @@ A model with an excessive vertex count doesn't necessarily produce better visual
 **Vertex Density visualizer** helps diagnose these issues quickly. It is ideal for **optimizing LODs, high-poly meshes created in digital sculpting tools, and geometry imported from external tools** to maintain a balanced topology. It displays a heatmap of vertex concentration directly in the viewport, making it easy to spot areas where geometry can be simplified or reorganized for better performance and efficiency.
 
 
-> **Notice:** Vertex Density visualizer tool is only available for **Development and Debug builds** of the Engine: not compiled for *Release* builds.
+> **Notice:** Vertex Density visualizer tool is only available for ***Development* and *Debug* builds** of the Engine: not compiled for *Release* builds.
 
 
 To open the **Vertex Density**visualizer choose *Rendering Debug -> Vertex Density* on the *[Rendering Debug](../../../../editor2/rendering_debug/index.md)* *Panel* of UnigineEditor.
@@ -98,7 +98,6 @@ Simplify meshes where density is excessive, starting with these techniques:
 ## See Also
 
 
-*[Vertex Density visualizer API Reference](../../../../api/library/rendering/class.render_cpp.md#setShowVertexDensityBlend_float_void)*
-
-
-*[Vertex Density visualizer console commands](../../../../code/console/index.md#vertex_density_debug)*
+- *[Vertex Density visualizer API Reference](../../../../api/library/rendering/class.render_cpp.md#setShowVertexDensityBlend_float_void)*
+- *[Vertex Density visualizer console commands](../../../../code/console/index.md#vertex_density_debug)*
+- Quick video guide: *[How To Analyze Scene Content Using Vertex Density Visualizer](../../../../videotutorials/how_to/how_to_rendering/vertex_visualizer.md)*.

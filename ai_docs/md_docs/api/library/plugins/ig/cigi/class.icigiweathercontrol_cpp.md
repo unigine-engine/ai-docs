@@ -40,7 +40,7 @@ Layer ID. The following values are supported:
 - 7 - Hail
 - 8 - Sand
 - 9 - Dust
-- 10 – 255 - Defined by IG
+- 10 � 255 - Defined by IG
 
 
 ## int getWeatherEnabled ( ) const
@@ -87,7 +87,7 @@ Returns the value of the **Cloud Type** parameter specified in the packet.
 - 8 - Nimbostratus
 - 9 - Stratocumulus
 - 10 - Stratus
-- 11 – 15 - Other
+- 11 � 15 - Other
 
 
 ## int getScope ( ) const
@@ -106,7 +106,7 @@ Returns the value of the **Scope** parameter specified in the packet. Determines
 Returns the value of the **Severity** parameter specified in the packet.
 ### Return value
 
-**Severity** parameter value: 0 – 5 (least to most severe).
+**Severity** parameter value: 0 � 5 (least to most severe).
 ## int getHumidity ( ) const
 
 Returns the value of the **Humidity** parameter specified in the packet.

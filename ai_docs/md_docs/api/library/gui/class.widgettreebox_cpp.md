@@ -102,6 +102,19 @@ Returns the current file name of the image with mini-icons. the texture is a ver
 ### Return value
 
 Current path to the texture file.
+## void setMultiSelection ( bool selection )
+
+Sets a new value indicating if multiple selection of items is enabled. The default is 0.
+### Arguments
+
+- *bool* **selection** - Set **true** to enable multiple selection of items; **false** - to disable it.
+
+## bool isMultiSelection () const
+
+Returns the current value indicating if multiple selection of items is enabled. The default is 0.
+### Return value
+
+**true** if multiple selection of items is enabled ; otherwise **false**.
 ## void setEditable ( bool editable )
 
 Sets a new value indicating if item hierarchy can be edited. The default is 0.
@@ -159,7 +172,7 @@ Sets a new value indicating if sorting of children is enabled. Sorting is perfor
 Returns the current value indicating if sorting of children is enabled. Sorting is performed with the default compare algorithm.
 ### Return value
 
-**true** if sorting of children is enabled; otherwise **false**.
+**true** if sorting of children is enabled ; otherwise **false**.
 ---
 
 ## static WidgetTreeBoxPtr create ( const Ptr < Gui > & gui )
@@ -373,19 +386,6 @@ Returns the icon of a given item.
 ### Return value
 
 Zero-based ID of the icon (i.e. number of the icon in the icon texture).
-## void setMultiSelection ( bool selection )
-
-Enables or disables multiple selection of items.
-### Arguments
-
-- *bool* **selection** - true to enable multiple selection, false to disable it.
-
-## bool isMultiSelection ( ) const
-
-Returns a value indicating if multiple selection of items is enabled. The default is 0.
-### Return value
-
-**true** if several items can be selected at once; otherwise, **false**.
 ## int getNumItemChildren ( int item ) const
 
 Returns the number of child items of a given item.
@@ -408,7 +408,7 @@ Returns ID of a selected item (multi-selection mode).
 ID of the selected item.
 ## int addItem ( const char * str , int texture = -1 )
 
-Adds a new item with a given text and and an icon.
+Adds a new item with a given text and an icon.
 ### Arguments
 
 - *const char ** **str** - Item text.
@@ -453,12 +453,6 @@ Scrolls a tree box so that a given item is visible.
 
 - *int* **item** - Item ID in range from 0 to the total number of items.
 
-## int getItemUnderCursor ( ) const
-
-Returns the ID of the item, over which the cursor is currently hovering.
-### Return value
-
-Item ID in range from 0 to the total number of items.
 ## void setImage ( const Ptr < Image > & image )
 
 Sets an image with mini-icons to be used with list items. The image is a vertical strip of square icons.
@@ -472,3 +466,17 @@ Returns the image with mini-icons, which are used with the list items.
 ### Return value
 
 Image with mini-icons (the vertical strip of square icons).
+## void clearIcons ( )
+
+Removes all per-slot icon overrides set via **[setIcon()](../../...md#setIcon_int_cstr_int)** and recalculates the icon cell size, so the items fall back to the icon atlas texture.
+## bool setIcon ( int index , const char * path )
+
+Assigns a standalone image as the icon for the specified icon slot, overriding the corresponding slot of the treebox's icon atlas (items reference icons via the texture number set for the item). The image may have its own size: the overall icon cell grows to the maximum icon dimensions.
+### Arguments
+
+- *int* **index** - Icon slot number (0 or greater) referenced by items via their texture number.
+- *const char ** **path** - Path to the image file.
+
+### Return value
+
+true if the icon is set successfully; otherwise, false (a negative index or the image cannot be loaded).

@@ -25,7 +25,7 @@ Returns the coordinates of the accceleration vector specified in the packet.
 Acceleration vector of the [entity](#getEntityID_int).
 ## float getRetardationRate ( ) const
 
-Returns the value of the **Retardation Rate** parameter specified in the packet. Determines the magnitude of an acceleration applied against the entity’s instantaneous linear velocity vector. This is used to simulate drag and other frictional forces acting upon the [entity](#getEntityID_int).
+Returns the value of the **Retardation Rate** parameter specified in the packet. Determines the magnitude of an acceleration applied against the entity�s instantaneous linear velocity vector. This is used to simulate drag and other frictional forces acting upon the [entity](#getEntityID_int).
 ### Return value
 
 **Retardation Rate** parameter value.

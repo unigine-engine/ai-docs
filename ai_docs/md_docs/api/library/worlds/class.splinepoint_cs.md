@@ -1,7 +1,7 @@
 # Unigine.SplinePoint Class (CS)
 
 
-This class is used to manage individual points of the [world spline graph](../../../api/library/worlds/class.worldsplinegraph_cs.md).
+This class is used to manage individual points of the [world spline graph](../../../api/library/worlds/class.worldsplinegraph_cs.md) (*WorldSplineGraph*).
 
 
 ## SplinePoint Class
@@ -16,10 +16,10 @@ The total number of [source nodes](../../../api/library/worlds/class.worldspline
 The total number of [segments](../../../api/library/worlds/class.splinesegment_cs.md) sharing this spline point.
 ## vec3 Position
 
-The current position of the spline point.
+The position of the spline point.
 ## 🔒︎ WorldSplineGraph Parent
 
-The *WorldSplineGraph* node to which the spline point belongs.
+The [*WorldSplineGraph*](../../../api/library/worlds/class.worldsplinegraph_cs.md) node to which the spline point belongs.
 ## 🔒︎ int NumNodes
 
 The total number of nodes placed at this spline point.
@@ -33,14 +33,14 @@ Sets a value indicating whether the spline point is enabled.
 ### Arguments
 
 - *bool* **enable** - **1** to enable the spline point, 0 to disable.
-- *bool* **with_segments** - Use **true** to enable all [segments](../../../api/library/worlds/class.splinesegment_cs.md), to which the point belongs as well, false to enable the spline point only.
+- *bool* **with_segments** - Use true to enable all [segments](../../../api/library/worlds/class.splinesegment_cs.md), to which the point belongs as well, false to enable the spline point only.
 
 ## bool IsEnabled ( )
 
 Returns a value indicating whether the spline point is enabled.
 ### Return value
 
-**true** if the spline point is enabled; otherwise, **false**.
+true if the spline point is enabled; otherwise, false.
 ## void GetSplineSegments ( SplineSegment [] OUT_segments )
 
 Returns the list of segments, to which the spline point belongs, and puts them to the specified array of [SplineSegment](../../../api/library/worlds/class.splinesegment_cs.md) elements.
@@ -124,9 +124,13 @@ Gets the current link (bone) position of the junction source node and puts it to
 ### Return value
 
 1 if the current position of the junction source node's link (bone) corresponding to the specified spline segment was obtained successfully; otherwise 0.
-## int GetNumNodes ( )
+## Node GetNode ( int index )
 
-Returns the total number of nodes placed at this spline point.
+Returns a node assigned to the point by its number.
+### Arguments
+
+- *int* **index** - Number of the desired node in a row of nodes placed at this point, in the range from 0 to the [total number of nodes placed at the point](#getNumNodes_int).
+
 ### Return value
 
-Total number of nodes placed at this spline point.
+Node placed at this point at the specified position (number).

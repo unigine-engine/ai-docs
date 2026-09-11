@@ -53,19 +53,6 @@ Returns the current file path for the lighting texture used for the *Voxel Probe
 ### Return value
 
 Current path to the texture file.
-## void setBakeVisibilityEnvironmentProbe ( bool probe )
-
-Sets a new value indicating if environment probe light sources are to be baked to the *Voxel Probe*. you can use this option together with [additive blending](#BLEND_ADDITIVE) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make *Voxel Probes* independent of each other and combine them to produce some sort of dynamic GI effect.
-### Arguments
-
-- *bool* **probe** - Set **true** to enable baking of environment probe light sources to the *Voxel Probe*; **false** - to disable it.
-
-## bool isBakeVisibilityEnvironmentProbe () const
-
-Returns the current value indicating if environment probe light sources are to be baked to the *Voxel Probe*. you can use this option together with [additive blending](#BLEND_ADDITIVE) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make *Voxel Probes* independent of each other and combine them to produce some sort of dynamic GI effect.
-### Return value
-
-**true** if baking of environment probe light sources to the *Voxel Probe* is enabled; otherwise **false**.
 ## void setBakeVisibilityVoxelProbe ( bool probe )
 
 Sets a new value indicating if other *Voxel Probe* light sources are to be baked to the *Voxel Probe*. you can use this option together with [additive blending](#BLEND_ADDITIVE) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make *Voxel Probes* independent of each other and combine them to produce some sort of dynamic GI effect.
@@ -78,7 +65,7 @@ Sets a new value indicating if other *Voxel Probe* light sources are to be baked
 Returns the current value indicating if other *Voxel Probe* light sources are to be baked to the *Voxel Probe*. you can use this option together with [additive blending](#BLEND_ADDITIVE) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make *Voxel Probes* independent of each other and combine them to produce some sort of dynamic GI effect.
 ### Return value
 
-**true** if baking of other *Voxel Probe* light sources to the *Voxel Probe* is enabled; otherwise **false**.
+**true** if baking of other *Voxel Probe* light sources to the *Voxel Probe* is enabled ; otherwise **false**.
 ## void setBakeVisibilityLightProj ( bool proj )
 
 Sets a new value indicating if projected light sources are to be baked to the *Voxel Probe*. you can use this option together with [additive blending](#BLEND_ADDITIVE) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make *Voxel Probes* independent of each other and combine them to produce some sort of dynamic GI effect.
@@ -91,7 +78,7 @@ Sets a new value indicating if projected light sources are to be baked to the *V
 Returns the current value indicating if projected light sources are to be baked to the *Voxel Probe*. you can use this option together with [additive blending](#BLEND_ADDITIVE) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make *Voxel Probes* independent of each other and combine them to produce some sort of dynamic GI effect.
 ### Return value
 
-**true** if baking of projected light sources to the *Voxel Probe* is enabled; otherwise **false**.
+**true** if baking of projected light sources to the *Voxel Probe* is enabled ; otherwise **false**.
 ## void setBakeVisibilityLightOmni ( bool omni )
 
 Sets a new value indicating if omni light sources are to be baked to the *Voxel Probe*. you can use this option together with [additive blending](#BLEND_ADDITIVE) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make *Voxel Probes* independent of each other and combine them to produce some sort of dynamic GI effect.
@@ -104,7 +91,7 @@ Sets a new value indicating if omni light sources are to be baked to the *Voxel 
 Returns the current value indicating if omni light sources are to be baked to the *Voxel Probe*. you can use this option together with [additive blending](#BLEND_ADDITIVE) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make *Voxel Probes* independent of each other and combine them to produce some sort of dynamic GI effect.
 ### Return value
 
-**true** if baking of omni light sources to the *Voxel Probe* is enabled; otherwise **false**.
+**true** if baking of omni light sources to the *Voxel Probe* is enabled ; otherwise **false**.
 ## void setBakeVisibilityLightWorld ( bool world )
 
 Sets a new value indicating if world light sources are to be baked to the *Voxel Probe*. you can use this option together with [additive blending](#BLEND_ADDITIVE) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make *Voxel Probes* independent of each other and combine them to produce some sort of dynamic GI effect.
@@ -117,7 +104,7 @@ Sets a new value indicating if world light sources are to be baked to the *Voxel
 Returns the current value indicating if world light sources are to be baked to the *Voxel Probe*. you can use this option together with [additive blending](#BLEND_ADDITIVE) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make *Voxel Probes* independent of each other and combine them to produce some sort of dynamic GI effect.
 ### Return value
 
-**true** if baking of world light sources to the *Voxel Probe* is enabled; otherwise **false**.
+**true** if baking of world light sources to the *Voxel Probe* is enabled ; otherwise **false**.
 ## void setBakeVisibilitySky ( bool sky )
 
 Sets a new value indicating if lighting from the sky is to be baked to the *Voxel Probe*. you can use this option together with [additive blending](#BLEND_ADDITIVE) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make *Voxel Probes* independent of each other and combine them to produce some sort of dynamic GI effect.
@@ -130,7 +117,7 @@ Sets a new value indicating if lighting from the sky is to be baked to the *Voxe
 Returns the current value indicating if lighting from the sky is to be baked to the *Voxel Probe*. you can use this option together with [additive blending](#BLEND_ADDITIVE) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make *Voxel Probes* independent of each other and combine them to produce some sort of dynamic GI effect.
 ### Return value
 
-**true** if baking of lighting from the sky to the *Voxel Probe* is enabled; otherwise **false**.
+**true** if baking of lighting from the sky to the *Voxel Probe* is enabled ; otherwise **false**.
 ## void setBakeVisibilityEmission ( bool emission )
 
 Sets a new value indicating if emission light sources are to be baked to the *Voxel Probe*. you can use this option together with [additive blending](#BLEND_ADDITIVE) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make *Voxel Probes* independent of each other and combine them to produce some sort of dynamic GI effect.
@@ -143,7 +130,7 @@ Sets a new value indicating if emission light sources are to be baked to the *Vo
 Returns the current value indicating if emission light sources are to be baked to the *Voxel Probe*. you can use this option together with [additive blending](#BLEND_ADDITIVE) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make *Voxel Probes* independent of each other and combine them to produce some sort of dynamic GI effect.
 ### Return value
 
-**true** if baking of emission light sources to the *Voxel Probe* is enabled; otherwise **false**.
+**true** if baking of emission light sources to the *Voxel Probe* is enabled ; otherwise **false**.
 ## void setBakeVisibilityLightmap ( bool lightmap )
 
 Sets a new value indicating if the lightmapped surfaces are to be baked to the *Voxel Probe*.
@@ -156,7 +143,7 @@ Sets a new value indicating if the lightmapped surfaces are to be baked to the *
 Returns the current value indicating if the lightmapped surfaces are to be baked to the *Voxel Probe*.
 ### Return value
 
-**true** if baking of lightmapped surfaces to the *Voxel Probe* is enabled; otherwise **false**.
+**true** if baking of lightmapped surfaces to the *Voxel Probe* is enabled ; otherwise **false**.
 ## void setBakeInternalVolume ( LightVoxelProbe::BAKE_INTERNAL_VOLUME volume )
 
 Sets a new internal volume baking mode for the *Voxel Probe* (voxels that don't touch geometry).
@@ -218,7 +205,7 @@ Returns the current value indicating if cubic filtering is applied to specular r
 
 ### Return value
 
-**true** if cubic filtering for specular reflections textures is enabled; otherwise **false**.
+**true** if cubic filtering for specular reflections textures is enabled ; otherwise **false**.
 ## void setSpecularReflectionBias ( float bias )
 
 Sets a new specular reflections offset along the reflection vector.
@@ -296,7 +283,7 @@ Sets a new value indicating if specular reflections are enabled for the *Voxel P
 Returns the current value indicating if specular reflections are enabled for the *Voxel Probe*.
 ### Return value
 
-**true** if specular reflections for the *Voxel Probe* is enabled; otherwise **false**.
+**true** if specular reflections for the *Voxel Probe* is enabled ; otherwise **false**.
 ## void setDiffuseCubicFiltering ( bool filtering )
 
 Sets a new value indicating if cubic filtering is applied to *Voxel Probe* diffuse lighting.
@@ -309,7 +296,7 @@ Sets a new value indicating if cubic filtering is applied to *Voxel Probe* diffu
 Returns the current value indicating if cubic filtering is applied to *Voxel Probe* diffuse lighting.
 ### Return value
 
-**true** if cubic filtering for *Voxel Probe* diffuse lighting is enabled; otherwise **false**.
+**true** if cubic filtering for *Voxel Probe* diffuse lighting is enabled ; otherwise **false**.
 ## void setDiffuseNormalBias ( float bias )
 
 Sets a new bias of ambient lighting implemented as voxel projection offset along the normal to the surface.
@@ -374,7 +361,7 @@ Sets a new value indicating if sky color modulation for the *Voxel Probe* is ena
 Returns the current value indicating if sky color modulation for the *Voxel Probe* is enabled.
 ### Return value
 
-**true** if sky color modulation for the *Voxel Probe* is enabled; otherwise **false**.
+**true** if sky color modulation for the *Voxel Probe* is enabled ; otherwise **false**.
 ## void setAttenuationPower ( float power )
 
 Sets a new power of light attenuation used to simulate intensity gradual fading. This parameter determines how fast the intensity decreases up to the attenuation distance set for the light source.
@@ -472,7 +459,7 @@ Returns the type of the node.
 [LightVoxelProbe](../../../api/library/nodes/class.node_cpp.md#LIGHT_VOXEL_PROBE) type identifier.
 ## long long getVideoMemoryUsage ( )
 
-Returns a value defining how much memory the light texture takes according to its size. The memory is calculated in accordance to the following formula: ***Memory** = **SizeX** × **SizeY** × **SizeZ** × **Sides** × **FormatMemory***
+Returns a value defining how much memory the light texture takes according to its size. The memory is calculated in accordance to the following formula: ***Memory** = **SizeX** � **SizeY** � **SizeZ** � **Sides** � **FormatMemory***
 - **SizeX, SizeY, SizeZ** - the dimensions of the 3D light texture, in voxels.
 - **Sides** - number of sides of each voxel, equal to 6.
 - **FormatMemory** - a memory usage amount for the texture in RGBA16 format, equal to 8.

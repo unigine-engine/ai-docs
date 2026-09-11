@@ -9,6 +9,15 @@ Represents a global mixer bus.
 
 ## Bus Class
 
+### Enums
+
+## PORT_INDEX
+
+Output-port index values used for routing the bus signal on platforms with auxiliary audio ports.
+| Name | Description |
+|---|---|
+| **NONE** = 0xffffffffffffffff | The bus is not routed to any specific auxiliary output port and outputs normally. |
+
 ### Properties
 
 ## bool Paused
@@ -23,6 +32,9 @@ The mute state for the bus.
 ## 🔒︎ bool IsValid
 
 The value indicating if the bus reference is valid.
+## Bus.PORT_INDEX PortIndex
+
+The output-port index the signal of the underlying *FMOD Studio* bus is routed to, used on platforms with auxiliary audio ports (for example, controller speakers). The *PORT_INDEX_NONE* value routes the bus normally.
 ### Members
 
 ---

@@ -32,13 +32,13 @@ The object of this class may look as follows:
 
 ## int Value
 
-The current value of the slider, i.e. its position.
+The value (position) of the slider.
 ## int MaxExpand
 
-The current maximum value, up to which the upper limit of the range of the slider values can be expanded. the upper limit of the slider can be expanded only if the slider is attached to an editline with the Gui::ATTACH_MAX_EXPAND flag.
+The maximum value, up to which the upper limit of the range of the slider values can be expanded. The upper limit of the slider can be expanded only if the slider is [attached](../../../api/library/gui/class.widget_cs.md#addAttach_Widget_cstr_int_int_void) to an editline with the Gui::ATTACH_MAX_EXPAND flag.
 ## int MinExpand
 
-The minimum value, up to which the lower limit of the range of the slider values can be expanded. the lower limit of the slider can be expanded only if the slider is attached to an editline with the Gui::ATTACH_MIN_EXPAND flag.
+The minimum value, up to which the lower limit of the range of the slider values can be expanded. The lower limit of the slider can be expanded only if the slider is [attached](../../../api/library/gui/class.widget_cs.md#addAttach_Widget_cstr_int_int_void) to an editline with the Gui::ATTACH_MIN_EXPAND flag.
 ## int MaxValue
 
 The maximum value of the slider.
@@ -47,19 +47,19 @@ The maximum value of the slider.
 The minimum value of the slider.
 ## int ButtonHeight
 
-The height of the slider handle in pixels (for a vertical slider).
+The height of the slider handle, in pixels (for a vertical slider).
 ## int ButtonWidth
 
-The width of the slider handle in pixels (for a horizontal slider).
+The width of the slider handle, in pixels (for a horizontal slider).
 ## int Orientation
 
-The current orientation of the slider: horizontal or vertical one.
+The orientation of the slider: horizontal or vertical.
 ## vec4 ButtonColor
 
-The four-component vector specifying the color in the RGBA format.
+The color of the slider handle.
 ## vec4 BackgroundColor
 
-The four-component vector specifying the color in the RGBA format.
+The background color of the slider.
 ### Members
 
 ---

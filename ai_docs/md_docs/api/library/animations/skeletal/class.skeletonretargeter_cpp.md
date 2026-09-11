@@ -38,7 +38,7 @@ Direction of retargeting between two skeletons.
 
 ### Members
 
-## getType () const
+## SkeletonRetargeter::TYPE getType () const
 
 Returns the current type of this retargeter instance, identifying which subclass strategy it implements.
 ### Return value
@@ -50,6 +50,18 @@ Returns the current human-readable name of the retargeter type.
 ### Return value
 
 Current retargeter type name.
+## UGUID getFirstFileGUID () const
+
+Returns the current GUID of the first of the two skeleton files this retargeter was registered for.
+### Return value
+
+Current file GUID of the first skeleton
+## UGUID getSecondFileGUID () const
+
+Returns the current GUID of the second of the two skeleton files this retargeter was registered for.
+### Return value
+
+Current file GUID of the second skeleton
 ---
 
 ## void retarget ( SkeletonRetargeter::RETARGET_DIRECTION retarget_direction , const Ptr < SkeletonPoseDecomposed > & out_pose , const Ptr < SkeletonPoseDecomposed > & compatible_pose ) const

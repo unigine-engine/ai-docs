@@ -9,12 +9,13 @@ This class stores the result of the world intersection (the coordinates of the i
 #### Usage Example
 
 
-The following example shows how you can get the intersection information by using the WorldIntersection class. In this example, the line is an invisible traced line from the point of the camera (vec3 p0) to the point of the mouse pointer (vec3 p1). The executing sequence is the following:
+The following example shows how you can get the intersection information by using the *WorldIntersection* class. In this example, the line is an invisible traced line from the point of the camera (*vec3 **p0***) to the point of the mouse pointer (*vec3 **p1***). The executing sequence is the following:
+
 
 - Define and initialize two points (p0 and p1) by using the *getPlayerMouseDirection()* function from `core/scripts/utils.h`.
-- Create an instance of the WorldIntersection class to get the intersection information.
+- Create an instance of the *WorldIntersection* class to get the intersection information.
 - Check, if there is a intersection with an object. The [*engine.world.getIntersection()*](../../../api/library/engine/class.world_usc.md#getIntersection_vec3_vec3_int_Variable_Object) function returns an intersected object when the object intersects with the traced line.
-- In this example, when the object intersects with the traced line, all the surfaces of the intersected object change their material parameters. The WorldIntersection class instance gets the coordinates of the intersection point, the index of the surface and the index of the intersected triangle. You can get all these fields by using [*getIndex()*](#getIndex_int), [*getPoint()*](#getPoint_Vec3) and [*getSurface()*](#getSurface_int) functions
+- In this example, when the object intersects with the traced line, all the surfaces of the intersected object change their material parameters. The *WorldIntersection* class instance gets the coordinates of the intersection point, the index of the surface and the index of the intersected triangle. You can get all these fields by using [*getIndex()*](#getIndex_int), [*getPoint()*](#getPoint_Vec3) and [*getSurface()*](#getSurface_int) functions
 
 
 ```cpp
@@ -53,84 +54,88 @@ if(object != NULL)
 
 ### Members
 
+## void setSurface ( int surface )
+
+Sets a new intersected surface number.
+### Arguments
+
+- *int* **surface** - The intersected surface number.
+
+## int getSurface () const
+
+Returns the current intersected surface number.
+### Return value
+
+Current intersected surface number.
+## void setInstance ( int instance )
+
+Sets a new number of the intersected instance.
+> **Notice:** Intersected instance number can be obtained for the following classes:
+>
+>
+> - *[ObjectMeshSkinned](../../../api/library/objects/class.objectmeshskinned_usc.md)*
+> - *[ObjectMeshCluster](../../../api/library/objects/class.objectmeshcluster_usc.md)*
+> - *[ObjectMeshSplineCluster](../../../api/library/objects/class.objectmeshsplinecluster_usc.md)*
+
+
+### Arguments
+
+- *int* **instance** - The intersected instance number.
+
+## int getInstance () const
+
+Returns the current number of the intersected instance.
+> **Notice:** Intersected instance number can be obtained for the following classes:
+>
+>
+> - *[ObjectMeshSkinned](../../../api/library/objects/class.objectmeshskinned_usc.md)*
+> - *[ObjectMeshCluster](../../../api/library/objects/class.objectmeshcluster_usc.md)*
+> - *[ObjectMeshSplineCluster](../../../api/library/objects/class.objectmeshsplinecluster_usc.md)*
+
+
+### Return value
+
+Current intersected instance number.
+## void setIndex ( int index )
+
+Sets a new number of the intersected triangle.
+### Arguments
+
+- *int* **index** - The number of the intersected triangle.
+
+## int getIndex () const
+
+Returns the current number of the intersected triangle.
+### Return value
+
+Current number of the intersected triangle.
+## void setPoint ( Vec3 point )
+
+Sets a new coordinates of the intersection point.
+### Arguments
+
+- *Vec3* **point** - The coordinates of the intersection point.
+
+## Vec3 getPoint () const
+
+Returns the current coordinates of the intersection point.
+### Return value
+
+Current coordinates of the intersection point.
+## const char * getTypeName () const
+
+Returns the current *World Intersection* type name.
+### Return value
+
+Current *World Intersection* type name.
+## int getType () const
+
+Returns the current [*World Intersection* type identifier](#WORLD_INTERSECTION).
+### Return value
+
+Current *World Intersection* type identifier.
 ---
 
 ## static WorldIntersection ( )
 
 The WorldIntersection constructor.
-## void setIndex ( int index )
-
-Sets the new intersection triangle number.
-### Arguments
-
-- *int* **index** - Intersection triangle number.
-
-## int getIndex ( )
-
-Returns the number of the intersected triangle.
-### Return value
-
-Intersected triangle number.
-## void setInstance ( int instance )
-
-Sets the new intersected instance number.
-> **Notice:** Intersected instance number can be obtained for the following classes:
-> - *[ObjectMeshSkinned](../../../api/library/objects/class.objectmeshskinned_usc.md)*
-> - *[ObjectMeshCluster](../../../api/library/objects/class.objectmeshcluster_usc.md)*
-> - *[ObjectMeshSplineCluster](../../../api/library/objects/class.objectmeshsplinecluster_usc.md)*
-
-
-### Arguments
-
-- *int* **instance** - Intersected instance number.
-
-## int getInstance ( )
-
-Returns the number of the intersected instance.
-> **Notice:** Intersected instance number can be obtained for the following classes:
-> - *[ObjectMeshSkinned](../../../api/library/objects/class.objectmeshskinned_usc.md)*
-> - *[ObjectMeshCluster](../../../api/library/objects/class.objectmeshcluster_usc.md)*
-> - *[ObjectMeshSplineCluster](../../../api/library/objects/class.objectmeshsplinecluster_usc.md)*
-
-
-### Return value
-
-Intersected instance number.
-## void setPoint ( Vec3 point )
-
-Sets new coordinates of the intersection point.
-### Arguments
-
-- *Vec3* **point** - Coordinates of the intersection point.
-
-## Vec3 getPoint ( )
-
-Returns coordinates of the intersection point.
-### Return value
-
-Coordinates of the intersection point.
-## void setSurface ( int surface )
-
-Sets the new intersection surface number.
-### Arguments
-
-- *int* **surface** - Intersection surface number.
-
-## int getSurface ( )
-
-Returns the intersected surface number.
-### Return value
-
-Intersected surface number.
-## int getType ( )
-
-Returns the world intersection type identifier.
-### Return value
-
-World [intersection type identifier](#WORLD_INTERSECTION).
-## string getTypeName ( )
-
-Returns the world intersection type name.
-### Return value
-
-World intersection type name.

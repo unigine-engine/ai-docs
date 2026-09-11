@@ -3,24 +3,24 @@
 **Header:** #include <UnigineTilesetFile.h>
 
 
-This class is used to create a tileset file — the file that keeps data that is based on X and Y indices. The values of X and Y are limited to the integer and can be both positive and negative. The maximum size of the tile is limited to 2Gb. The maximum size of a tileset is limited to the unsigned integer value. Tileset files are stored using the .UTS and .UTSH formats.
+This class is used to create a tileset file � the file that keeps data that is based on X and Y indices. The values of X and Y are limited to the integer and can be both positive and negative. The maximum size of the tile is limited to 2Gb. The maximum size of a tileset is limited to the unsigned integer value. Tileset files are stored using the .UTS and .UTSH formats.
 
 
 ## TilesetFile Class
 
 ### Members
 
+## int getNumTiles () const
+
+Returns the current number of tiles in the tileset file.
+### Return value
+
+Current number of tiles in the tileset file
 ---
 
 ## static TilesetFilePtr create ( )
 
 Constructor. Creates a tileset file.
-## int getNumTiles ( )
-
-Returns the number of tiles in the tileset file.
-### Return value
-
-Number of tiles.
 ## long long getOffset ( int x , int y )
 
 Returns the offset for the tile with specified coordinates.

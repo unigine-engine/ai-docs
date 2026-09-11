@@ -30,12 +30,12 @@ Initializes the system object and prepares FMOD for playback.
 - *int* **max_channels** - Maximum number of Channel objects available for playback, also known as virtual channels. Virtual channels will play with minimal overhead, with a subset of 'real' voices that are mixed, and selected based on priority and audibility. Range: [0; 4095]
 - *[FMODEnums::INIT_FLAGS](../../../../api/library/plugins/fmod/class.fmodenums_cpp.md#INIT_FLAGS)* **flags** - Initialization flags. More than one mode can be set at once by combining them with the OR operator.
 
-## Sound * createSound ( const char * name_of_data , FMODEnums::FMOD_MODE mode )
+## Sound * createSound ( const char * file_name , FMODEnums::FMOD_MODE mode )
 
 Loads a sound into memory, opens it for streaming or sets it up for callback based sounds.
 ### Arguments
 
-- *const char ** **name_of_data** - Name of the file or URL to open (UTF-8 string) or a pointer to a preloaded sound memory block.
+- *const char ** **file_name** - Name of the file or URL to open (UTF-8 string) or a pointer to a preloaded sound memory block.
 - *[FMODEnums::FMOD_MODE](../../../../api/library/plugins/fmod/class.fmodenums_cpp.md#FMOD_MODE)* **mode** - Behavior modifier for opening the sound.
 
 ### Return value
@@ -105,3 +105,14 @@ Create a ChannelGroup object.
 ### Return value
 
 Newly created group.
+## Sound * createSound ( const Ptr < Blob > & data , FMODEnums::FMOD_MODE mode )
+
+Creates a sound from the in-memory contents of a blob instead of a file.
+### Arguments
+
+- *const [Ptr](../../../../api/library/common/class.ptr_cpp.md)<[Blob](../../../../api/library/common/class.blob_cpp.md)> &* **data** - Blob whose raw contents hold the audio file data.
+- *[FMODEnums::FMOD_MODE](../../../../api/library/plugins/fmod/class.fmodenums_cpp.md#FMOD_MODE)* **mode** - Behavior modifier for opening the sound, a combination of the *FMODEnums::FMOD_MODE* flags. For an in-memory buffer the OPENMEMORY flag is required; it is not added automatically.
+
+### Return value
+
+Newly created sound.

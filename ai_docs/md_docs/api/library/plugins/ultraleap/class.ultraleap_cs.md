@@ -38,7 +38,7 @@
 
 ## bool BackgroundUpdate
 
-The value indicating if the application is allowed to receive frames in the background.
+The value indicating if the application is allowed to receive frames in the background. By default your UNIGINE application stops rendering frames and updating its main window, when its window goes out of focus (e.g. user switches to another window). Setting the background update mode enables constant rendering regardless of whether the application window is focused or in the background.
 ## bool StreamImages
 
 The value indicating if streaming of images is currently enabled.
@@ -50,16 +50,16 @@ The value indicating if the Ultraleap service is currently paused.
 The value indicating if the application is allowed to pause and unpause the Ultraleap service.
 ## Ultraleap.OPTIMIZE_MODE OptimizeMode
 
-The optimization mode. One of the [OPTIMIZE_MODE](#OPTIMIZE_MODE) values.
+The optimization mode set for tracking. One of the [OPTIMIZE_MODE_*](#OPTIMIZE_MODE_DISABLED) values. Some policies can be denied if the user has disabled the feature on their Ultraleap control panel.
 ## Ultraleap.TRACKING_MODE TrackingMode
 
-The tracking mode. One of the [TRACKING_MODE](#TRACKING_MODE) values.
+The tracking mode. One of the [TRACKING_MODE_*](#TRACKING_MODE_DESKTOP) values.
 ## bool TrackingInterpolation
 
 The value indicating if the tracking interpolation is enabled.
 ## 🔒︎ Ultraleap.CONNECTION_STATUS ConnectionStatus
 
-The connection status. One of the [CONNECTION_STATUS](#CONNECTION_STATUS) values.
+The status of connection to the Ultraleap daemon/service. One of the [CONNECTION_STATUS_*](#CONNECTION_STATUS_NOT_CONNECTED) values.
 ## 🔒︎ bool IsStatusLowFPSDetected
 
 The value indicating if the service cannot receive frames fast enough from the underlying hardware.
@@ -71,19 +71,25 @@ The value indicating if the service has paused itself due to an insufficient fra
 The value indicating if the service has failed to start tracking due to unknown reasons.
 ## vec3 TrackingOffsetDefault
 
-The default offset for the newly connected device. The Y value specifies the offset from the eyes to the frontal camera plane, in meters, and the Z value — the offset from the eye level up to the camera level, in meters.
+The virtual offset for the newly connected device. The Y value specifies the offset from the eyes to the frontal camera plane, in meters, and the Z value � the offset from the eye level up to the camera level, in meters. The X value should be set to 0. These settings can be used to match the physical position and orientation of the Tracking Hardware on a tracked device it is mounted on (such as a VR headset).
 ## UltraleapDevice.TRANSFORM_MODE TransformModeOffsetDefault
 
-The transform mode. One of the [TRANSFORM_MODE](../../../../api/library/plugins/ultraleap/class.ultraleapdevice_cs.md#TRANSFORM_MODE) values.
+The default transform mode for the offset of a newly connected device.
+One of the [TRANSFORM_MODE_*](../../../../api/library/plugins/ultraleap/class.ultraleapdevice_cs.md#TRANSFORM_MODE_HMD_VARJO) values. Setting it adjusts the offset to manually match the physical position and orientation of the Tracking Hardware on a tracked device it is mounted on (such as a VR headset).
+
+
+> **Notice:** If the [HMD VARJO](../../../../api/library/plugins/ultraleap/class.ultraleapdevice_cs.md#TRANSFORM_MODE_HMD_VARJO) transform mode has been set, but AppVarjo hasn't been found, the transform mode is switched to [MANUAL](../../../../api/library/plugins/ultraleap/class.ultraleapdevice_cs.md#TRANSFORM_MODE_MANUAL).
+
+
 ## 🔒︎ int NumDevices
 
-The number of connected devices.
+The total number of recognized devices.
 ## 🔒︎ int NumDevicesConnected
 
 The number of connected Ultraleap controller devices.
 ## 🔒︎ long LeapNow
 
-The time, in microseconds since an unspecified epoch.
+The universal clock value used by the system to timestamp image and tracking frames, in microseconds since an epoch time. The clock used for the counter itself is implementation-defined, but generally speaking, it is global, monotonic, and makes use of the most accurate high-performance counter available on the system.
 ### Members
 
 ---
@@ -109,3 +115,5 @@ Returns the Ultraleap controller device from the list of connected devices.
 
 The Ultraleap controller device.
 ## void Synchronize ( )
+
+Synchronizes the internal Ultraleap clock rebaser with the current engine time. This keeps the Ultraleap tracking clock aligned with the engine timeline so that tracking frames are timestamped consistently (used, in particular, for tracking interpolation). In manual (non-VR) mode this is called automatically each frame on the begin render event.

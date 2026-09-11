@@ -15,10 +15,10 @@ Returns the current type of the hand: left or right.
 Current type of the hand: left or right.
 ## VRBone getRootBone () const
 
-Returns the current root bone of the hand — the corresponding [wrist](../../../api/library/vr/class.vrbone_usc.md#TYPE_WRIST) bone.
+Returns the current root bone of the hand � the corresponding [wrist](../../../api/library/vr/class.vrbone_usc.md#TYPE_WRIST) bone.
 ### Return value
 
-Current root bone of the hand — the corresponding [wrist](../../../api/library/vr/class.vrbone_usc.md#TYPE_WRIST) bone.
+Current root bone of the hand � the corresponding [wrist](../../../api/library/vr/class.vrbone_usc.md#TYPE_WRIST) bone.
 ## int isHoldingController () const
 
 Returns the current value indicating if the controller is held in the hand. Not supported by Varjo.

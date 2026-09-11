@@ -3,7 +3,7 @@
 **Header:** #include <UnigineImport.h>
 
 
-This class is the top-level container for all data extracted from a source file during import. It manages the scene graph (a hierarchy of [ImportNode](../../../../api/library/common/import/class.importnode_cpp.md) elements) and parallel collections of scene components. During import, an [Importer](../../../../api/library/common/import/class.importer_cpp.md) populates the ImportScene, and then an [ImportProcessor](../../../../api/library/common/import/class.importprocessor_cpp.md) converts its contents into UNIGINE assets.
+This class is the top-level container for all data extracted from a source file during import. It manages the scene graph (a hierarchy of *[ImportNode](../../../../api/library/common/import/class.importnode_cpp.md)* elements) and parallel collections of scene components. During import, an *[Importer](../../../../api/library/common/import/class.importer_cpp.md)* populates the *ImportScene*, and then an *[ImportProcessor](../../../../api/library/common/import/class.importprocessor_cpp.md)* converts its contents into UNIGINE assets.
 
 
 A scene can include the following components:
@@ -21,8 +21,6 @@ A scene can include the following components:
 
 
 ## ImportScene Class
-
-### Members
 
 ---
 

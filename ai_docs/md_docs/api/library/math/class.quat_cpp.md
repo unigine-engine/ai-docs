@@ -8,6 +8,7 @@ This class represents a quaternion type. Quaternions represent a rotation. Typic
 
 Quaternions add a fourth element to the [x, y, z] values that define a vector, resulting in arbitrary 4-D vectors. The following example illustrates how each element of a unit quaternion relates to an axis-angle rotation, where q represents a unit quaternion (x, y, z, w), axis is normalized, and theta is the desired counterclockwise (CCW) rotation around the axis:
 
+
 - q.x = sin(theta/2) * axis.x
 - q.y = sin(theta/2) * axis.y
 - q.z = sin(theta/2) * axis.z
@@ -168,7 +169,10 @@ Constructor. Initializes the quaternion using a given [dmat4](../../../api/libra
 
 ## quat ( const __m128& v )
 
+
 Constructor. Initializes the quaternion using a given __m128 variable (128-bit).
+
+
 > **Notice:** We do not recommend to use this method unless you have a clear understanding of SSE2.
 
 
@@ -285,12 +289,15 @@ Returns the quaternion binormal vector with respect to orientation.
 Quaternion binormal vector.
 ## mat3 getMat3 ( ) const
 
+
 Returns the rotation matrix for the quaternion.
+
+
 ```text
 For the quaternion (x, y, z, w) the corresponding rotation matrix M is defined as follows:
-    | 1 - 2y² - 2z²    2xy + 2wz      	2xz - 2wy     |
-M=  | 2xy - 2wz        1 - 2x² - 2z²    2yz + 2wx     |
-    | 2xz + 2wy        2yz - 2wx        1 - 2x² - 2y² |
+    | 1 - 2y� - 2z�    2xy + 2wz      	2xz - 2wy     |
+M=  | 2xy - 2wz        1 - 2x� - 2z�    2yz + 2wx     |
+    | 2xz + 2wy        2yz - 2wx        1 - 2x� - 2y� |
 
 ```
 

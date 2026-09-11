@@ -17,8 +17,6 @@ This class creates a mover manipulator along three axes with arrows at the end.
 
 ## WidgetManipulatorTranslator Class
 
-### Members
-
 ---
 
 ## static WidgetManipulatorTranslatorPtr create ( const Ptr < Gui > & gui )

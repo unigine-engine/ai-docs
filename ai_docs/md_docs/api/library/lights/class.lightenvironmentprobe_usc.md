@@ -265,7 +265,7 @@ Sets a new value indicating if local space (local coordinates) for the *Environm
 Returns the current value indicating if local space (local coordinates) for the *Environment Probe* is enabled. Can be used for scenes with moving objects.
 ### Return value
 
-**true** if local space (local coordinates) for the *Environment Probe* is enabled; otherwise **false**.
+**true** if local space (local coordinates) for the *Environment Probe* is enabled ; otherwise **false**.
 ## void setCutoutByShadow ( bool shadow = false )
 
 Sets a new value indicating if clipping of reflections occluded by obstacles is enabled. this feature uses the [depth texture](../../../api/library/lights/class.light_usc.md#getBakedDepthTextureFilePath_cstr) grabbed for the *Environment Probe* to determine reflections that should be visible.
@@ -278,7 +278,7 @@ Sets a new value indicating if clipping of reflections occluded by obstacles is 
 Returns the current value indicating if clipping of reflections occluded by obstacles is enabled. this feature uses the [depth texture](../../../api/library/lights/class.light_usc.md#getBakedDepthTextureFilePath_cstr) grabbed for the *Environment Probe* to determine reflections that should be visible.
 ### Return value
 
-**true** if clipping of reflections occluded by obstacles is enabled; otherwise **false**.
+**true** if clipping of reflections occluded by obstacles is enabled ; otherwise **false**.
 ## void setSkyCutout ( bool cutout = false )
 
 Sets a new value indicating if sky cutout for image grabbing is enabled.
@@ -291,7 +291,7 @@ Sets a new value indicating if sky cutout for image grabbing is enabled.
 Returns the current value indicating if sky cutout for image grabbing is enabled.
 ### Return value
 
-**true** if sky cutout for image grabbing is enabled; otherwise **false**.
+**true** if sky cutout for image grabbing is enabled ; otherwise **false**.
 ## void setAdditiveBlending ( bool blending = false )
 
 Sets a new value indicating if additive blending is enabled for the *Environment Probe*. this option offers more flexibility in reflections control. you can use it to blend reflections of several Environment Probes together and control them separately.
@@ -304,7 +304,7 @@ Sets a new value indicating if additive blending is enabled for the *Environment
 Returns the current value indicating if additive blending is enabled for the *Environment Probe*. this option offers more flexibility in reflections control. you can use it to blend reflections of several Environment Probes together and control them separately.
 ### Return value
 
-**true** if additive blending mode for the *Environment Probe* is enabled; otherwise **false**.
+**true** if additive blending mode for the *Environment Probe* is enabled ; otherwise **false**.
 ## void setMultiplyBySkyColor ( bool color )
 
 Sets a new Enables or disables sun color modulation for the *Environment Probe* (changing of the light in the *Environment Probe* as the sun color changes). This parameter can be used for outdoor-baked Environment Probes
@@ -317,7 +317,7 @@ Sets a new Enables or disables sun color modulation for the *Environment Probe* 
 Returns the current Enables or disables sun color modulation for the *Environment Probe* (changing of the light in the *Environment Probe* as the sun color changes). This parameter can be used for outdoor-baked Environment Probes
 ### Return value
 
-**true** if sun color modulation for the *Environment Probe* is enabled; otherwise **false**.
+**true** if sun color modulation for the *Environment Probe* is enabled ; otherwise **false**.
 ## void setProjectionMode ( )
 
 Sets a new projection mode to be used for the *Environment Probe*.
@@ -343,7 +343,7 @@ Sets a new value indicating whether the [cubemap texture](#setTextureFilePath_St
 Returns the current value indicating whether the [cubemap texture](#setTextureFilePath_String_void) is to be modified by the [Bake Lighting Tool](../../../editor2/lighting/gi/bake_lighting/index.md).
 ### Return value
 
-**true** if grabbing the cubemap texture with the Bake Lighting Tool is enabled; otherwise **false**.
+**true** if grabbing the cubemap texture with the Bake Lighting Tool is enabled ; otherwise **false**.
 ## void setGrabDistanceScale ( float scale = 0.5f )
 
 Sets a new distance scale for the reflection.
@@ -382,7 +382,7 @@ Sets a new value indicating if baking of lightmapped surfaces to the *Environmen
 Returns the current value indicating if baking of lightmapped surfaces to the *Environment Probe*. You can use this option together with [additive blending](#setAdditiveBlending_int_void) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make Environment Probes independent of each other and combine them to produce some sort of dynamic GI effect.
 ### Return value
 
-**true** if baking of lightmapped surfaces to the *Environment Probe* is enabled; otherwise **false**.
+**true** if baking of lightmapped surfaces to the *Environment Probe* is enabled ; otherwise **false**.
 ## void setGrabBakeVisibilityVoxelProbe ( bool probe )
 
 Sets a new value indicating if *Voxel Probe* light sources are to be baked to the *Environment Probe*. you can use this option together with [additive blending](#setAdditiveBlending_int_void) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make Voxel Probes independent of each other and combine them to produce some sort of dynamic GI effect.
@@ -395,7 +395,7 @@ Sets a new value indicating if *Voxel Probe* light sources are to be baked to th
 Returns the current value indicating if *Voxel Probe* light sources are to be baked to the *Environment Probe*. you can use this option together with [additive blending](#setAdditiveBlending_int_void) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make Voxel Probes independent of each other and combine them to produce some sort of dynamic GI effect.
 ### Return value
 
-**true** if baking of Voxel Probes to the *Environment Probe* is enabled; otherwise **false**.
+**true** if baking of Voxel Probes to the *Environment Probe* is enabled ; otherwise **false**.
 ## void setGrabBakeVisibilityEnvironmentProbe ( bool probe )
 
 Sets a new value indicating if other *Environment Probe* light sources are to be baked to the *Environment Probe*. you can use this option together with [additive blending](#setAdditiveBlending_int_void) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make Voxel Probes independent of each other and combine them to produce some sort of dynamic GI effect.
@@ -408,7 +408,7 @@ Sets a new value indicating if other *Environment Probe* light sources are to be
 Returns the current value indicating if other *Environment Probe* light sources are to be baked to the *Environment Probe*. you can use this option together with [additive blending](#setAdditiveBlending_int_void) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make Voxel Probes independent of each other and combine them to produce some sort of dynamic GI effect.
 ### Return value
 
-**true** if baking of other Environment Probes to the *Environment Probe* is enabled; otherwise **false**.
+**true** if baking of other Environment Probes to the *Environment Probe* is enabled ; otherwise **false**.
 ## void setGrabBakeVisibilityLightProj ( bool proj )
 
 Sets a new value indicating if projected light sources are to be baked to the *Environment Probe*. You can use this option together with [additive blending](#setAdditiveBlending_int_void) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make Environment Probes independent of each other and combine them to produce some sort of dynamic GI effect.
@@ -421,7 +421,7 @@ Sets a new value indicating if projected light sources are to be baked to the *E
 Returns the current value indicating if projected light sources are to be baked to the *Environment Probe*. You can use this option together with [additive blending](#setAdditiveBlending_int_void) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make Environment Probes independent of each other and combine them to produce some sort of dynamic GI effect.
 ### Return value
 
-**true** if baking of projected light sources to the *Environment Probe* is enabled; otherwise **false**.
+**true** if baking of projected light sources to the *Environment Probe* is enabled ; otherwise **false**.
 ## void setGrabBakeVisibilityLightOmni ( bool omni )
 
 Sets a new value indicating if omni light sources are to be baked to the *Environment Probe*. You can use this option together with [additive blending](#setAdditiveBlending_int_void) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make Environment Probes independent of each other and combine them to produce some sort of dynamic GI effect.
@@ -434,7 +434,7 @@ Sets a new value indicating if omni light sources are to be baked to the *Enviro
 Returns the current value indicating if omni light sources are to be baked to the *Environment Probe*. You can use this option together with [additive blending](#setAdditiveBlending_int_void) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make Environment Probes independent of each other and combine them to produce some sort of dynamic GI effect.
 ### Return value
 
-**true** if baking of omni light sources to the *Environment Probe* is enabled; otherwise **false**.
+**true** if baking of omni light sources to the *Environment Probe* is enabled ; otherwise **false**.
 ## void setGrabBakeVisibilityLightWorld ( bool world )
 
 Sets a new value indicating if world light sources are to be baked to the *Environment Probe*. You can use this option together with [additive blending](#setAdditiveBlending_int_void) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make Environment Probes independent of each other and combine them to produce some sort of dynamic GI effect.
@@ -447,7 +447,7 @@ Sets a new value indicating if world light sources are to be baked to the *Envir
 Returns the current value indicating if world light sources are to be baked to the *Environment Probe*. You can use this option together with [additive blending](#setAdditiveBlending_int_void) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make Environment Probes independent of each other and combine them to produce some sort of dynamic GI effect.
 ### Return value
 
-**true** if baking of world light sources to the *Environment Probe* is enabled; otherwise **false**.
+**true** if baking of world light sources to the *Environment Probe* is enabled ; otherwise **false**.
 ## void setGrabBakeVisibilitySky ( bool sky )
 
 Sets a new value indicating if lighting from the sky is to be baked to the *Environment Probe*. You can use this option together with [additive blending](#setAdditiveBlending_int_void) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make Environment Probes independent of each other and combine them to produce some sort of dynamic GI effect.
@@ -460,7 +460,7 @@ Sets a new value indicating if lighting from the sky is to be baked to the *Envi
 Returns the current value indicating if lighting from the sky is to be baked to the *Environment Probe*. You can use this option together with [additive blending](#setAdditiveBlending_int_void) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make Environment Probes independent of each other and combine them to produce some sort of dynamic GI effect.
 ### Return value
 
-**true** if baking of lighting from the sky to the *Environment Probe* is enabled; otherwise **false**.
+**true** if baking of lighting from the sky to the *Environment Probe* is enabled ; otherwise **false**.
 ## void setGrabBakeVisibilityEmission ( bool emission )
 
 Sets a new value indicating if emission light sources are to be baked to the *Environment Probe*. You can use this option together with [additive blending](#setAdditiveBlending_int_void) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make Environment Probes independent of each other and combine them to produce some sort of dynamic GI effect.
@@ -473,7 +473,7 @@ Sets a new value indicating if emission light sources are to be baked to the *En
 Returns the current value indicating if emission light sources are to be baked to the *Environment Probe*. You can use this option together with [additive blending](#setAdditiveBlending_int_void) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make Environment Probes independent of each other and combine them to produce some sort of dynamic GI effect.
 ### Return value
 
-**true** if baking of emission light sources to the *Environment Probe* is enabled; otherwise **false**.
+**true** if baking of emission light sources to the *Environment Probe* is enabled ; otherwise **false**.
 ## void setGrabBakeVisibilityHaze ( bool haze )
 
 Sets a new value indicating if haze is to be baked to the *Environment Probe*. You can use this option together with [additive blending](#setAdditiveBlending_int_void) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make Environment Probes independent of each other and combine them to produce some sort of dynamic GI effect.
@@ -486,7 +486,7 @@ Sets a new value indicating if haze is to be baked to the *Environment Probe*. Y
 Returns the current value indicating if haze is to be baked to the *Environment Probe*. You can use this option together with [additive blending](#setAdditiveBlending_int_void) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make Environment Probes independent of each other and combine them to produce some sort of dynamic GI effect.
 ### Return value
 
-**true** if baking of haze to the *Environment Probe* is enabled; otherwise **false**.
+**true** if baking of haze to the *Environment Probe* is enabled ; otherwise **false**.
 ## void setGrabBakeVisibilityClouds ( bool clouds )
 
 Sets a new value indicating if clouds to be baked to the *Environment Probe*. You can use this option together with [additive blending](#setAdditiveBlending_int_void) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make Environment Probes independent of each other and combine them to produce some sort of dynamic GI effect.
@@ -499,7 +499,7 @@ Sets a new value indicating if clouds to be baked to the *Environment Probe*. Yo
 Returns the current value indicating if clouds to be baked to the *Environment Probe*. You can use this option together with [additive blending](#setAdditiveBlending_int_void) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make Environment Probes independent of each other and combine them to produce some sort of dynamic GI effect.
 ### Return value
 
-**true** if baking of clouds to the *Environment Probe* is enabled; otherwise **false**.
+**true** if baking of clouds to the *Environment Probe* is enabled ; otherwise **false**.
 ## void setGrabEnvironmentReflectionIntensity ( float intensity )
 
 Sets a new intensity of the environment reflection.
@@ -663,9 +663,9 @@ Sets a new value defining the extent of the light penetration through transparen
 
 - *float* **anisotropy** - The value defining the extent of the light penetration through transparent surfaces. The example values have the following effect:
 
-  - 0 — light does not penetrate through surfaces.
-  - 0.5 — light is distributed equally on both sides of the surface (along the ray direction and towards the light source)
-  - 1.0 — all light passes through the surface along the ray direction.
+  - 0 � light does not penetrate through surfaces.
+  - 0.5 � light is distributed equally on both sides of the surface (along the ray direction and towards the light source)
+  - 1.0 � all light passes through the surface along the ray direction.
 
 ## float getRaymarchingDiffuseTranslucenceAnisotropy () const
 
@@ -673,9 +673,9 @@ Returns the current value defining the extent of the light penetration through t
 ### Return value
 
 Current value defining the extent of the light penetration through transparent surfaces. The example values have the following effect:
-- 0 — light does not penetrate through surfaces.
-- 0.5 — light is distributed equally on both sides of the surface (along the ray direction and towards the light source)
-- 1.0 — all light passes through the surface along the ray direction.
+- 0 � light does not penetrate through surfaces.
+- 0.5 � light is distributed equally on both sides of the surface (along the ray direction and towards the light source)
+- 1.0 � all light passes through the surface along the ray direction.
 
 
 ## void setRaymarchingDiffuseInformationLostRaysMultiplier ( float multiplier )
@@ -915,8 +915,8 @@ Current ambient occlusion intensity value.
 ## void setRaymarchingLastStepMode ( )
 
 Sets a new cubemap to be used for the last raymarching step. The following modes are available:
-- **Environment Probe** — the cubemap used for the last step is the same as for all previous steps.
-- **Only Sky** — the cubemap contains the sky and clouds only. This option is designed to fix the incorrect parallax that may occur in reflections due to the infinite length of the last step.
+- **Environment Probe** � the cubemap used for the last step is the same as for all previous steps.
+- **Only Sky** � the cubemap contains the sky and clouds only. This option is designed to fix the incorrect parallax that may occur in reflections due to the infinite length of the last step.
 
 
 ### Arguments
@@ -926,8 +926,8 @@ Sets a new cubemap to be used for the last raymarching step. The following modes
 ## getRaymarchingLastStepMode () const
 
 Returns the current cubemap to be used for the last raymarching step. The following modes are available:
-- **Environment Probe** — the cubemap used for the last step is the same as for all previous steps.
-- **Only Sky** — the cubemap contains the sky and clouds only. This option is designed to fix the incorrect parallax that may occur in reflections due to the infinite length of the last step.
+- **Environment Probe** � the cubemap used for the last step is the same as for all previous steps.
+- **Only Sky** � the cubemap contains the sky and clouds only. This option is designed to fix the incorrect parallax that may occur in reflections due to the infinite length of the last step.
 
 
 ### Return value
@@ -974,7 +974,7 @@ This option may be combined with *[setSrgbModified()()](../../...md#setSrgbModif
 
 ### Return value
 
-**true** if bicubic interpolation for Enviropment Probe is enabled; otherwise **false**.
+**true** if bicubic interpolation for Enviropment Probe is enabled ; otherwise **false**.
 ## void setSrgbModified ( bool modified )
 
 Sets a new value indicating if the *Environment Probe* cubemap or realtime calculation is converted to sRGB color model and modified to a lower dynamic range. Applying this option makes transition between the neighboring probe pixels smoother, which visually improves low-resolution probes or probes containing bright or constant pixels. Enabing or disabling this option requires rebaking of the static cubemap, otherwise lighting will be visually incorrect. If a static *Environment Probe* reuses a cubemap that has been baked with this option enabled, it should be enabled for this probe as well.
@@ -993,20 +993,46 @@ This option may be combined with *[setReflectionCubicFiltering()()](../../...md#
 
 ### Return value
 
-**true** if conversion to sRGB and a lower dynamic range for cubemap or realtime calculation is enabled; otherwise **false**.
-## void setRenderAboveVoxelProbes ( bool probes )
+**true** if conversion to sRGB and a lower dynamic range for cubemap or realtime calculation is enabled ; otherwise **false**.
+## void setGrabDynamicReprojection ( int reprojection )
 
-Sets a new value indicating if this *Environment Probe* is rendered above Voxel Probes (or other Environment Probes) to imitate the GI bounce from the sun. If enabled, the *Environment Probe* is additively blended with Voxel Probes (or other Environment Probes). In case of several Environment Probes having this setting enabled, they are rendered according to the specified [order](../../../api/library/lights/class.light_usc.md#setOrder_int_void).
+Sets a new reprojection mode compensating the probe movement in the cube map faces that were not redrawn this frame, one of the *GRAB_DYNAMIC_REPROJECTION_** values. Effective only for probes with the dynamic grab mode refreshing fewer than 6 faces per frame. Disabled by default.
 ### Arguments
 
-- *bool* **probes** - Set **true** to enable rendering of the *Environment Probe* above other Probes; **false** - to disable it.
+- *int* **reprojection** - The reprojection mode of the dynamic grab
 
-## bool isRenderAboveVoxelProbes () const
+## int getGrabDynamicReprojection () const
 
-Returns the current value indicating if this *Environment Probe* is rendered above Voxel Probes (or other Environment Probes) to imitate the GI bounce from the sun. If enabled, the *Environment Probe* is additively blended with Voxel Probes (or other Environment Probes). In case of several Environment Probes having this setting enabled, they are rendered according to the specified [order](../../../api/library/lights/class.light_usc.md#setOrder_int_void).
+Returns the current reprojection mode compensating the probe movement in the cube map faces that were not redrawn this frame, one of the *GRAB_DYNAMIC_REPROJECTION_** values. Effective only for probes with the dynamic grab mode refreshing fewer than 6 faces per frame. Disabled by default.
 ### Return value
 
-**true** if rendering of the *Environment Probe* above other Probes is enabled; otherwise **false**.
+Current reprojection mode of the dynamic grab
+## void setGrabDynamicInterleaved ( int interleaved )
+
+Sets a new interleaved rendering mode for the cube map faces updated by the dynamic grab, one of the *GRAB_DYNAMIC_INTERLEAVED_** values: each updated face is rendered at a reduced resolution and scattered into its own subset (phase) of the face texels, spreading the full-resolution refresh over several updates and reducing the per-update cost accordingly. Disabled by default.
+### Arguments
+
+- *int* **interleaved** - The interleaved rendering mode of the dynamic grab
+
+## int getGrabDynamicInterleaved () const
+
+Returns the current interleaved rendering mode for the cube map faces updated by the dynamic grab, one of the *GRAB_DYNAMIC_INTERLEAVED_** values: each updated face is rendered at a reduced resolution and scattered into its own subset (phase) of the face texels, spreading the full-resolution refresh over several updates and reducing the per-update cost accordingly. Disabled by default.
+### Return value
+
+Current interleaved rendering mode of the dynamic grab
+## void setGrabDynamicInterleavedColorClamping ( int clamping )
+
+Sets a new color clamping mode suppressing ghosting between the interleaved phases of the dynamic grab, one of the *GRAB_DYNAMIC_INTERLEAVED_COLOR_CLAMPING_** values. Effective only when interleaved rendering is enabled via the **[getGrabDynamicInterleaved()()](../../...md#getGrabDynamicInterleaved_int)** property. By default the clamping is applied on movement only.
+### Arguments
+
+- *int* **clamping** - The color clamping mode of the interleaved dynamic grab
+
+## int getGrabDynamicInterleavedColorClamping () const
+
+Returns the current color clamping mode suppressing ghosting between the interleaved phases of the dynamic grab, one of the *GRAB_DYNAMIC_INTERLEAVED_COLOR_CLAMPING_** values. Effective only when interleaved rendering is enabled via the **[getGrabDynamicInterleaved()()](../../...md#getGrabDynamicInterleaved_int)** property. By default the clamping is applied on movement only.
+### Return value
+
+Current color clamping mode of the interleaved dynamic grab
 ---
 
 ## static LightEnvironmentProbe ( vec4 color , vec3 attenuation_distance , string name = 0 )

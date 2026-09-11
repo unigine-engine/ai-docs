@@ -15,6 +15,7 @@ This class represents a vector of 4 integer components.
 ## ivec4 ( const __m128i& v )
 
 Constructor. Initializes the vector using a [__m128i](https://docs.microsoft.com/en-us/cpp/cpp/m128i?view=msvc-160) variable.
+
 > **Notice:** We do not recommend to use this method unless you have a clear understanding of SSE2.
 
 ### Arguments
@@ -314,6 +315,7 @@ Resulting vector.
 ## ivec4 & operator= ( const __m128i& val )
 
 Performs vector assignment. Destination vector = Source vector.
+
 > **Notice:** We do not recommend to use this method unless you have a clear understanding of SSE2.
 
 ### Arguments

@@ -39,21 +39,429 @@ Controls the simulation of physics. For more information on principles and imple
 
 ### Members
 
----
+## float getTotalTime () const
 
-## void setAngularDamping ( float damping )
+Returns the current total time taken to perform all physics calculations.
+### Return value
 
-Updates the current angular damping value.
+Current total physics calculation time
+## float getSimulationTime () const
+
+Returns the current duration of all of the simulation phases added together.
+### Return value
+
+Current duration of all simulation phases
+## float getWaitTime () const
+
+Returns the current Time period during which the physics module waits for the completion of rendering process.
+### Return value
+
+Current time the physics module waits for the completion stage
+## int getNumJoints () const
+
+Returns the current number of [joints](../../../principles/physics/joints/index.md) within the physics [radius](../../../editor2/settings/physics_global/index.md#physics_distance).
+### Return value
+
+Current number of joints within the physics radius
+## int getNumIslands () const
+
+Returns the current number of physical [islands](../../../principles/physics/collision/index.md#islands) within the [physics radius](../../../editor2/settings/physics_global/index.md#physics_distance) that could be calculated separately. The lower this number, the less efficient multi-threading is, if enabled.
+### Return value
+
+Current number of physical islands within the physics radius
+## int getNumContacts () const
+
+Returns the current number of contacts within the [physics radius](../../../editor2/settings/physics_global/index.md#physics_distance); it includes contacts between the bodies (their shapes) and body-mesh contacts.
+### Return value
+
+Current number of contacts within the physics radius
+## int getNumBodies () const
+
+Returns the current number of [bodies](../../../principles/physics/bodies/index.md) present within the [physics radius](../../../editor2/settings/physics_global/index.md#physics_distance).
+### Return value
+
+Current number of bodies within the physics radius
+## float getCollisionTime () const
+
+Returns the current duration of the [collision detection phase](../../../principles/physics/simulation.md#collision_detection), during which collisions between objects are found.
+### Return value
+
+Current duration of the collision detection phase
+## int getFrame () const
+
+Returns the current frame of physics update.
+### Return value
+
+Current physics update frame
+## void setNumIterations ( int iterations )
+
+Sets a new number of iterations used to solve contacts and constraints.
 ### Arguments
 
-- *float* **damping** - New angular damping. If a negative value is provided, **0** will be used instead.
+- *int* **iterations** - The number of iterations used to solve contacts and joints
 
-## float getAngularDamping ( ) const
+## int getNumIterations () const
+
+Returns the current number of iterations used to solve contacts and constraints.
+### Return value
+
+Current number of iterations used to solve contacts and joints
+## void setNumFrozenFrames ( int frames )
+
+Sets a new number of frames, during which an object should keep certain angular and linear velocities to become frozen.
+### Arguments
+
+- *int* **frames** - The number of frames before an object is frozen
+
+## int getNumFrozenFrames () const
+
+Returns the current number of frames, during which an object should keep certain angular and linear velocities to become frozen.
+### Return value
+
+Current number of frames before an object is frozen
+## float getCurrentSubframeTime () const
+
+Returns the current time that can be used when shifting between physics update frames.
+### Return value
+
+Current time used when shifting between physics subframes
+## void setScale ( float scale )
+
+Sets a new value used to scale a frame duration.
+### Arguments
+
+- *float* **scale** - The frame duration scale
+
+## float getScale () const
+
+Returns the current value used to scale a frame duration.
+### Return value
+
+Current frame duration scale
+## void setPenetrationTolerance ( float tolerance )
+
+Sets a new how deeply one object can penetrate another.
+### Arguments
+
+- *float* **tolerance** - The allowed penetration depth
+
+## float getPenetrationTolerance () const
+
+Returns the current how deeply one object can penetrate another.
+### Return value
+
+Current allowed penetration depth
+## void setPenetrationFactor ( float factor )
+
+Sets a new penalty force factor. **0** means no penalty force in contacts. The maximum value is **1**.
+### Arguments
+
+- *float* **factor** - The penalty force factor
+
+## float getPenetrationFactor () const
+
+Returns the current penalty force factor. **0** means no penalty force in contacts. The maximum value is **1**.
+### Return value
+
+Current penalty force factor
+## void setMaxLinearVelocity ( float velocity )
+
+Sets a new maximum possible linear velocity.
+### Arguments
+
+- *float* **velocity** - The maximum possible linear velocity
+
+## float getMaxLinearVelocity () const
+
+Returns the current maximum possible linear velocity.
+### Return value
+
+Current maximum possible linear velocity
+## void setMaxAngularVelocity ( float velocity )
+
+Sets a new maximum possible angular velocity.
+### Arguments
+
+- *float* **velocity** - The maximum possible angular velocity
+
+## float getMaxAngularVelocity () const
+
+Returns the current maximum possible angular velocity.
+### Return value
+
+Current maximum possible angular velocity
+## void setLinearDamping ( float damping )
+
+Sets a new linear damping value.
+### Arguments
+
+- *float* **damping** - The linear damping value
+
+## float getLinearDamping () const
+
+Returns the current linear damping value.
+### Return value
+
+Current linear damping value
+## void setIFps ( float ifps )
+
+Sets a new physics frame duration.
+### Arguments
+
+- *float* **ifps** - The physics frame duration
+
+## float getIFps () const
+
+Returns the current physics frame duration.
+### Return value
+
+Current physics frame duration
+## void setGravity ( const Math:: vec3 & gravity )
+
+Sets a new gravity value.
+### Arguments
+
+- *const  Math::[vec3](../../../api/library/math/class.vec3_cpp.md)&* **gravity** - The gravity vector
+
+## Math:: vec3 getGravity () const
+
+Returns the current gravity value.
+### Return value
+
+Current gravity vector
+## void setFrozenLinearVelocity ( float velocity )
+
+Sets a new linear velocity threshold for freezing object simulation. an object stops to be updated if its linear velocity remains lower than this threshold during the number of [Frozen frames](#setNumFrozenFrames_int_void) (together with angular one).
+### Arguments
+
+- *float* **velocity** - The linear velocity threshold for freezing object simulation
+
+## float getFrozenLinearVelocity () const
+
+Returns the current linear velocity threshold for freezing object simulation. an object stops to be updated if its linear velocity remains lower than this threshold during the number of [Frozen frames](#setNumFrozenFrames_int_void) (together with angular one).
+### Return value
+
+Current linear velocity threshold for freezing object simulation
+## void setFrozenAngularVelocity ( float velocity )
+
+Sets a new angular velocity threshold for freezing object simulation. an object stops to be updated if its angular velocity remains lower than this threshold during the number of [Frozen frames](#setNumFrozenFrames_int_void) (together with linear one).
+### Arguments
+
+- *float* **velocity** - The angular velocity threshold for freezing object simulation
+
+## float getFrozenAngularVelocity () const
+
+Returns the current angular velocity threshold for freezing object simulation. an object stops to be updated if its angular velocity remains lower than this threshold during the number of [Frozen frames](#setNumFrozenFrames_int_void) (together with linear one).
+### Return value
+
+Current angular velocity threshold for freezing object simulation
+## void setAngularDamping ( float damping )
+
+Sets a new angular damping value.
+### Arguments
+
+- *float* **damping** - The angular damping value
+
+## float getAngularDamping () const
 
 Returns the current angular damping value.
 ### Return value
 
-Angular damping.
+Current angular damping value
+## void setDistance ( float distance )
+
+Sets a new distance after which the physics will not be simulated.
+### Arguments
+
+- *float* **distance** - The distance after which physics is not simulated
+
+## float getDistance () const
+
+Returns the current distance after which the physics will not be simulated.
+### Return value
+
+Current distance after which physics is not simulated
+## void setBudget ( float budget )
+
+Sets a new physics simulation budget. physics isn't simulated when time is out of the budget.
+### Arguments
+
+- *float* **budget** - The physics simulation budget
+
+## float getBudget () const
+
+Returns the current physics simulation budget. physics isn't simulated when time is out of the budget.
+### Return value
+
+Current physics simulation budget
+## void setData ( const char * data )
+
+Sets a new user string data associated with the world. this string is written directly into the data tag of the `*.world` file.
+### Arguments
+
+- *const char ** **data** - The user string data associated with the world
+
+## const char * getData () const
+
+Returns the current user string data associated with the world. this string is written directly into the data tag of the `*.world` file.
+### Return value
+
+Current user string data associated with the world
+## void setSyncEngineUpdateWithPhysics ( bool physics )
+
+Sets a new flag indicating if the Engine fps is synchronized to physics one. Such fps limitation makes it possible to calculate physics each rendered frame (rather then interpolate it when this flag is unset). In this mode, there are no twitching of physical objects if they have non-linear velocities. If the Engine fps is lower than the physics one, this flag has no effect.
+### Arguments
+
+- *bool* **physics** - Set **true** to enable synchronization of the Engine FPS with physics; **false** - to disable it.
+
+## bool isSyncEngineUpdateWithPhysics () const
+
+Returns the current flag indicating if the Engine fps is synchronized to physics one. Such fps limitation makes it possible to calculate physics each rendered frame (rather then interpolate it when this flag is unset). In this mode, there are no twitching of physical objects if they have non-linear velocities. If the Engine fps is lower than the physics one, this flag has no effect.
+### Return value
+
+**true** if synchronization of the Engine FPS with physics is enabled ; otherwise **false**.
+## void setDeterminism ( bool determinism )
+
+Sets a new value indicating if objects are updated in a definite order or not. the default is 0 (the update order may change). Deterministic mode ensures that all contacts are solved in the predefined order and visualization of physics in the world is repetitive (on one computer). When this mode is enabled the Engine performs additional sorting of bodies, shapes and joints inside islands after building them. Deterministic mode is unavailable in case there are missed frames - it is simply impossible. Moreover, there may be differences between visualization of physics on different hardware (e.g., AMD and Intel).
+> **Notice:** Determinism is guaranteed if there are no missed frames, the same Engine version is used, and the CPUs perform SSE operations similarly.
+> Please note that deterministic mode does not come for free, it may eat up 10-20% of the frame rate, and it also depends on the scene a lot.
+
+### Arguments
+
+- *bool* **determinism** - Set **true** to enable deterministic update order; **false** - to disable it.
+
+## bool isDeterminism () const
+
+Returns the current value indicating if objects are updated in a definite order or not. the default is 0 (the update order may change). Deterministic mode ensures that all contacts are solved in the predefined order and visualization of physics in the world is repetitive (on one computer). When this mode is enabled the Engine performs additional sorting of bodies, shapes and joints inside islands after building them. Deterministic mode is unavailable in case there are missed frames - it is simply impossible. Moreover, there may be differences between visualization of physics on different hardware (e.g., AMD and Intel).
+> **Notice:** Determinism is guaranteed if there are no missed frames, the same Engine version is used, and the CPUs perform SSE operations similarly.
+> Please note that deterministic mode does not come for free, it may eat up 10-20% of the frame rate, and it also depends on the scene a lot.
+
+### Return value
+
+**true** if deterministic update order is enabled ; otherwise **false**.
+## void setEnabled ( bool enabled )
+
+Sets a new value indicating if physics simulation is enabled. the default is 1.
+### Arguments
+
+- *bool* **enabled** - Set **true** to enable physics simulation; **false** - to disable it.
+
+## bool isEnabled () const
+
+Returns the current value indicating if physics simulation is enabled. the default is 1.
+### Return value
+
+**true** if physics simulation is enabled ; otherwise **false**.
+## void setMissedFrameLifetime ( float lifetime )
+
+Sets a new lifetime for [missed frames](../../../principles/physics/simulation.md#missed_frames). This value defines how long missed frames are to be kept in the catch-up buffer. In case the current Engine framerate is lower than the [fixed Physics framerate](../../../principles/physics/simulation.md#simulation_rate), some of the physics frames get skipped and the simulation starts looking like in a slo-mo effect (e.g., if the target physics framerate is 60 FPS, when the Engine updates at 30 FPS, the simulation will look 2 times slower). The Physics module will try to catch up everything missed later, when possible (e.g. when the Engine framerate grows higher, while [waiting for GPU](../../../code/fundamentals/execution_sequence/index.md#waiting_gpu) to complete rendering). The missed frames are kept in a buffer for some time (lifetime), as it expires the frame is removed from the buffer and becomes lost forever.
+### Arguments
+
+- *float* **lifetime** - The lifetime for missed frames
+
+## float getMissedFrameLifetime () const
+
+Returns the current lifetime for [missed frames](../../../principles/physics/simulation.md#missed_frames). This value defines how long missed frames are to be kept in the catch-up buffer. In case the current Engine framerate is lower than the [fixed Physics framerate](../../../principles/physics/simulation.md#simulation_rate), some of the physics frames get skipped and the simulation starts looking like in a slo-mo effect (e.g., if the target physics framerate is 60 FPS, when the Engine updates at 30 FPS, the simulation will look 2 times slower). The Physics module will try to catch up everything missed later, when possible (e.g. when the Engine framerate grows higher, while [waiting for GPU](../../../code/fundamentals/execution_sequence/index.md#waiting_gpu) to complete rendering). The missed frames are kept in a buffer for some time (lifetime), as it expires the frame is removed from the buffer and becomes lost forever.
+### Return value
+
+Current lifetime for missed frames
+## void setUpdateMode ( Physics::UPDATE_MODE mode )
+
+Sets a new [physics update mode](../../../principles/physics/simulation.md#update_mode). Physics can be updated either asynchronously (in parallel with rendering) or in the Main thread before rendering. The [async](#UPDATE_MODE_ASYNC_RENDERING) mode is the fastest one and is used by default, however, it has a one-frame lag (calculation results are applied in the next frame) and some nuances regarding user code execution in some cases.
+### Arguments
+
+- *[Physics::UPDATE_MODE](../../../api/library/physics/class.physics_cpp.md#UPDATE_MODE)* **mode** - The physics update mode
+
+## Physics::UPDATE_MODE getUpdateMode () const
+
+Returns the current [physics update mode](../../../principles/physics/simulation.md#update_mode). Physics can be updated either asynchronously (in parallel with rendering) or in the Main thread before rendering. The [async](#UPDATE_MODE_ASYNC_RENDERING) mode is the fastest one and is used by default, however, it has a one-frame lag (calculation results are applied in the next frame) and some nuances regarding user code execution in some cases.
+### Return value
+
+Current physics update mode
+## void setStableFPS ( bool fps )
+
+Sets a new value indicating if frame time stabilization is enabled. In case the current Engine framerate is much higher than the [fixed Physics framerate](../../../principles/physics/simulation.md#simulation_rate) (e.g. 120 FPS vs 60 FPS), the physics won't be updated each rendering frame (e.g. it may update during every second frame). The resulting frame time will become unstable, shorter-longer-shorter-longer (*render -> render+physics -> render -> render+physics...*). This option ensures stable frame time for smoother user experience removing unwanted "hiccups" (however, the average framerate is decreased).
+> **Notice:** By default, this option is enabled. But you can disable it to increase average framerate in case the application is used for machine learning or for grabbing frame sequences (video grabber), when smoothness is not important.
+
+### Arguments
+
+- *bool* **fps** - Set **true** to enable frame time stabilization; **false** - to disable it.
+
+## bool isStableFPS () const
+
+Returns the current value indicating if frame time stabilization is enabled. In case the current Engine framerate is much higher than the [fixed Physics framerate](../../../principles/physics/simulation.md#simulation_rate) (e.g. 120 FPS vs 60 FPS), the physics won't be updated each rendering frame (e.g. it may update during every second frame). The resulting frame time will become unstable, shorter-longer-shorter-longer (*render -> render+physics -> render -> render+physics...*). This option ensures stable frame time for smoother user experience removing unwanted "hiccups" (however, the average framerate is decreased).
+> **Notice:** By default, this option is enabled. But you can disable it to increase average framerate in case the application is used for machine learning or for grabbing frame sequences (video grabber), when smoothness is not important.
+
+### Return value
+
+**true** if frame time stabilization is enabled ; otherwise **false**.
+## void setShowContacts ( bool contacts )
+
+Sets a new value indicating if the visualization of physical interactions between the physical bodies is enabled.
+### Arguments
+
+- *bool* **contacts** - Set **true** to enable physical contacts visualization; **false** - to disable it.
+
+## bool isShowContacts () const
+
+Returns the current value indicating if the visualization of physical interactions between the physical bodies is enabled.
+### Return value
+
+**true** if physical contacts visualization is enabled ; otherwise **false**.
+## void setShowShapes ( Physics::SHOW_TYPE shapes )
+
+Sets a new mode used to visualize physical shapes: one of the [SHOW_TYPE_*](#SHOW_TYPE_DISABLED) values.
+### Arguments
+
+- *[Physics::SHOW_TYPE](../../../api/library/physics/class.physics_cpp.md#SHOW_TYPE)* **shapes** - The shapes visualization mode
+
+## Physics::SHOW_TYPE getShowShapes () const
+
+Returns the current mode used to visualize physical shapes: one of the [SHOW_TYPE_*](#SHOW_TYPE_DISABLED) values.
+### Return value
+
+Current shapes visualization mode
+## void setShowShapesDistance ( float distance )
+
+Sets a new distance within which physical shapes are visualized.
+### Arguments
+
+- *float* **distance** - The distance within which shapes are visualized
+
+## float getShowShapesDistance () const
+
+Returns the current distance within which physical shapes are visualized.
+### Return value
+
+Current distance within which shapes are visualized
+## void setShowCollisionSurfaces ( bool surfaces )
+
+Sets a new value indicating if the collision surface visualization is enabled.
+### Arguments
+
+- *bool* **surfaces** - Set **true** to enable collision surface visualization; **false** - to disable it.
+
+## bool isShowCollisionSurfaces () const
+
+Returns the current value indicating if the collision surface visualization is enabled.
+### Return value
+
+**true** if collision surface visualization is enabled ; otherwise **false**.
+## void setShowJoints ( bool joints )
+
+Sets a new value indicating if the visualization of joints that connect physical bodies is enabled.
+### Arguments
+
+- *bool* **joints** - Set **true** to enable joints visualization; **false** - to disable it.
+
+## bool isShowJoints () const
+
+Returns the current value indicating if the visualization of joints that connect physical bodies is enabled.
+### Return value
+
+**true** if joints visualization is enabled ; otherwise **false**.
+---
+
 ## Ptr < Body > getBody ( int id ) const
 
 Returns a body with a given ID.
@@ -74,129 +482,6 @@ Checks if a body with a given ID exists.
 ### Return value
 
 true if a body with a given ID exists; otherwise, false.
-## void setBudget ( float budget )
-
-Sets the physics simulation budget. Physics isn't simulated when time is out of the budget.
-### Arguments
-
-- *float* **budget** - The budget value in seconds.
-
-## float getBudget ( ) const
-
-Returns the physics simulation budget. Physics isn't simulated when time is out of the budget.
-### Return value
-
-The budget value in seconds. The default value is 1/20.
-## void setData ( const char * data )
-
-Sets user data associated with the world. In the `*.world` file, the data is set in the data tag.
-### Arguments
-
-- *const char ** **data** - New user data.
-
-## const char * getData ( ) const
-
-Returns the user string data associated with the world. This string is written directly into the data tag of the `*.world` file.
-### Return value
-
-User string data.
-## void setDistance ( float distance )
-
-Updates a distance after which the physics will not be simulated.
-### Arguments
-
-- *float* **distance** - Distance in units.
-
-## float getDistance ( ) const
-
-Returns a distance after which the physics will not be simulated.
-### Return value
-
-Distance in units.
-## void setEnabled ( bool enable )
-
-Enables or disables physics simulation.
-### Arguments
-
-- *bool* **enable** - true to enable physics, false to disable it.
-
-## bool isEnabled ( ) const
-
-Returns a value indicating if physics simulation is enabled. The default is 1.
-### Return value
-
-true if physics is enabled; otherwise, false.
-## void setSyncEngineUpdateWithPhysics ( bool fixed )
-
-Sets a flag to synchronize the Engine FPS to physics one. Such FPS limitation allows to calculate physics each rendered frame (rather then interpolate it when this flag is unset). In this mode, there are no twitching of physical objects if they have non-linear velocities. If the Engine FPS is lower than the physics one, this flag has no effect.
-### Arguments
-
-- *bool* **fixed** - **true** to synchronize the Engine FPS to physics one; **false** to interpolate physics if the Engine FPS is higher.
-
-## bool isSyncEngineUpdateWithPhysics ( ) const
-
-Returns a flag indicating if the Engine FPS is synchronized to physics one. Such FPS limitation allows to calculate physics each rendered frame (rather then interpolate it when this flag is unset). In this mode, there are no twitching of physical objects if they have non-linear velocities. If the Engine FPS is lower than the physics one, this flag has no effect.
-### Return value
-
-**true** if the Engine FPS is synchronized to physics one; **false** if the physics is interpolated if the Engine FPS is higher.
-## int getFrame ( ) const
-
-Returns the current frame of physics update.
-### Return value
-
-Frame number.
-## void setFrozenAngularVelocity ( float velocity )
-
-Updates the angular velocity threshold for freezing object simulation. If the object angular velocity remains lower than this threshold during the number of [Frozen frames](#setNumFrozenFrames_int_void) (together with linear one), it stops to be updated.
-### Arguments
-
-- *float* **velocity** - New "freeze" angular velocity. If a negative value is provided, **0** will be used instead.
-
-## float getFrozenAngularVelocity ( )
-
-Returns the current angular velocity threshold for freezing object simulation. An object stops to be updated if its angular velocity remains lower than this threshold during the number of [Frozen frames](#setNumFrozenFrames_int_void) (together with linear one).
-### Return value
-
-"Freeze" angular velocity.
-## void setFrozenLinearVelocity ( float velocity )
-
-Updates the linear velocity threshold for freezing object simulation. If the object linear velocity remains lower than this threshold during the number of [Frozen frames](#setNumFrozenFrames_int_void) (together with angular one), it stops to be updated.
-### Arguments
-
-- *float* **velocity** - New "freeze" linear velocity. If a negative value is provided, **0** will be used instead.
-
-## float getFrozenLinearVelocity ( )
-
-Returns the current linear velocity threshold for freezing object simulation. An object stops to be updated if its linear velocity remains lower than this threshold during the number of [Frozen frames](#setNumFrozenFrames_int_void) (together with angular one).
-### Return value
-
-"Freeze" linear velocity.
-## void setGravity ( const Math:: vec3 & gravity )
-
-Updates the current gravity value.
-### Arguments
-
-- *const  Math::[vec3](../../../api/library/math/class.vec3_cpp.md) &* **gravity** - New gravity.
-
-## Math:: vec3 getGravity ( ) const
-
-Returns the current gravity value.
-### Return value
-
-Gravity.
-## void setIFps ( float ifps )
-
-Updates a frame duration. In fact, this function updates the FPS count used to calculate physics.
-### Arguments
-
-- *float* **ifps** - Frame duration (*1/FPS*).
-
-## float getIFps ( ) const
-
-Returns a physics frame duration.
-### Return value
-
-Frame duration (1 / FPS).
 ## Ptr < Object > getIntersection ( const Math:: Vec3 & p0 , const Math:: Vec3 & p1 , int mask , const Vector < Ptr < Node > > & exclude , const Ptr < PhysicsIntersection > & intersection )
 
 
@@ -376,140 +661,6 @@ Checks if a joint with a given ID exists.
 ### Return value
 
 true if a joint with a given ID exists; otherwise, false.
-## void setLinearDamping ( float damping )
-
-Updates the current linear damping value.
-### Arguments
-
-- *float* **damping** - New linear damping. If a negative value is provided, **0** will be used instead.
-
-## float getLinearDamping ( ) const
-
-Returns the current linear damping value.
-### Return value
-
-Linear damping.
-## void setMaxAngularVelocity ( float velocity )
-
-Updates the maximum possible angular velocity.
-### Arguments
-
-- *float* **velocity** - New maximum velocity value. If a negative value is provided, **0** will be used instead.
-
-## float getMaxAngularVelocity ( ) const
-
-Returns the current maximum possible angular velocity.
-### Return value
-
-Maximum possible angular velocity.
-## void setMaxLinearVelocity ( float velocity )
-
-Updates the maximum possible linear velocity.
-### Arguments
-
-- *float* **velocity** - New maximum velocity value. If a negative value is provided, **0** will be used instead.
-
-## float getMaxLinearVelocity ( ) const
-
-Returns the current maximum possible linear velocity.
-### Return value
-
-Maximum possible linear velocity.
-## float getCollisionTime ( ) const
-
-Returns the duration of the [collision detection phase](../../../principles/physics/simulation.md#collision_detection), during which collisions between objects are found.
-### Return value
-
-Collision detection phase duration, in milliseconds.
-## int getNumBodies ( ) const
-
-Returns the number of [bodies](../../../principles/physics/bodies/index.md) present within the [physics radius](../../../editor2/settings/physics_global/index.md#physics_distance).
-### Return value
-
-The number of bodies.
-## int getNumContacts ( ) const
-
-Returns the number of contacts within the [physics radius](../../../editor2/settings/physics_global/index.md#physics_distance); it includes contacts between the bodies (their shapes) and body-mesh contacts.
-### Return value
-
-The number of contacts.
-## void setNumFrozenFrames ( int frames )
-
-Updates the number of frames, during which an object should keep certain angular and linear velocities to become frozen.
-### Arguments
-
-- *int* **frames** - Number of frames. If a non-positive value is provided, **1** will be used instead.
-
-## int getNumFrozenFrames ( ) const
-
-Returns the current number of frames, during which an object should keep certain angular and linear velocities to become frozen.
-### Return value
-
-Number of frames.
-## int getNumIslands ( ) const
-
-Returns the number of physical [islands](../../../principles/physics/collision/index.md#islands) within the [physics radius](../../../editor2/settings/physics_global/index.md#physics_distance) that could be calculated separately. The lower this number, the less efficient multi-threading is, if enabled.
-### Return value
-
-The number of physical islands.
-## void setNumIterations ( int iterations )
-
-Updates the number of iterations used to solve contacts and constraints. Note that if this value is too low, the precision of calculations will suffer.
-### Arguments
-
-- *int* **iterations** - New number of iterations. If a non-positive value is provided, **1** will be used instead.
-
-## int getNumIterations ( ) const
-
-Returns the current number of iterations used to solve contacts and constraints.
-### Return value
-
-Current number of iterations.
-## int getNumJoints ( ) const
-
-Returns the number of [joints](../../../principles/physics/joints/index.md) within the physics [radius](../../../editor2/settings/physics_global/index.md#physics_distance).
-### Return value
-
-The number of joints.
-## void setPenetrationFactor ( float factor )
-
-Updates the current penalty force factor.
-### Arguments
-
-- *float* **factor** - New penetration factor. **0** means no penalty force in contacts. The provided value is saturated in the range **[0; 1]**.
-
-## float getPenetrationFactor ( ) const
-
-Returns a penalty force factor. **0** means no penalty force in contacts. The maximum value is **1**.
-### Return value
-
-Current penetration factor.
-## void setPenetrationTolerance ( float tolerance )
-
-Updates the current penetration tolerance.
-### Arguments
-
-- *float* **tolerance** - New penetration tolerance. If a negative value is provided, **0** will be used instead, however, this value should be greater than **0** for stable simulation.
-
-## float getPenetrationTolerance ( ) const
-
-Returns a value indicating how deeply one object can penetrate another.
-### Return value
-
-Current penetration tolerance.
-## void setScale ( float scale )
-
-Updates a value that is used to scale a frame duration. The provided value is saturated in the range **[0;16]**.
-### Arguments
-
-- *float* **scale** - Scaling factor.
-
-## float getScale ( ) const
-
-Returns a value used to scale a frame duration.
-### Return value
-
-Value to scale the frame duration.
 ## Ptr < Shape > getShape ( int id ) const
 
 Returns a shape with a given ID.
@@ -530,78 +681,6 @@ Checks if a shape with a given ID exists.
 ### Return value
 
 true if a shape with a given ID exists; otherwise, false.
-## float getSimulationTime ( ) const
-
-Returns the duration of all of the simulation phases added together.
-### Return value
-
-A simulation phases duration value, milliseconds.
-## float getWaitTime ( ) const
-
-Returns the time period during which the physics module waits for the completion of rendering process.
-### Return value
-
-Waiting phase duration value, milliseconds.
-## void setDeterminism ( bool determinism )
-
-Sets a value indicating if objects are updated in a definite order or not. Deterministic mode ensures that all contacts are solved in the predefined order and visualization of physics in the world is repetitive (on one computer). When this mode is enabled the Engine performs additional sorting of bodies, shapes and joints inside islands after building them. Deterministic mode is unavailable in case there are missed frames — it is simply impossible. Moreover, there may be differences between visualization of physics on different hardware (e.g., AMD and Intel).
-> **Notice:** Determinism is guaranteed if there are no missed frames, the same Engine version is used, and the CPUs perform SSE operations similarly.
-> Please note that deterministic mode does not come for free, it may eat up 10-20% of the frame rate, and it also depends on the scene a lot.
-
-
-### Arguments
-
-- *bool* **determinism** - **true** to indicate that the objects are updated in a definite order; **false** to indicate that an objects update order may change. The default is **false** (the update order may change).
-
-## bool isDeterminism ( ) const
-
-Returns a value indicating if objects are updated in a definite order or not.Deterministic mode ensures that all contacts are solved in the predefined order and visualization of physics in the world is repetitive (on one computer). When this mode is enabled the Engine performs additional sorting of bodies, shapes and joints inside islands after building them. Deterministic mode is unavailable in case there are missed frames — it is simply impossible. Moreover, there may be differences between visualization of physics on different hardware (e.g., AMD and Intel).
-> **Notice:** Determinism is guaranteed if there are no missed frames, the same Engine version is used, and the CPUs perform SSE operations similarly.
-> Please note that deterministic mode does not come for free, it may eat up 10-20% of the frame rate, and it also depends on the scene a lot.
-
-
-### Return value
-
-**true** if the objects are updated in a definite order; otherwise **false**. The default is **false** (the update order may change).
-## void setCurrentSubframeTime ( float time )
-
-Forces simulation of physics for a given time. It means, until the set time elapses, physics will be calculated each physics tick (frame) that occurs depending on physics frame rate. It allows you to control the starting point for physics simulation.
-```cpp
-// AppWorldLogic.cpp
-
-/* ... */
-int AppWorldLogic::init() {
-	// to prevent physics from being automatically calculated with each update, set one of the following:
-	Physics::setEnabled(0)
-	// or
-	Physics::setScale(0)
-}
-
-int AppWorldLogic::update() {
-	// add the time elapsed from the last physics update to the next time count cycle:
-	Physics::setCurrentSubframeTime(Physics::getCurrentSubframeTime()+ifps));
-}
-/* ... */
-
-```
-
- In the example, *ifps* is the time between frames of the renderer.
-### Arguments
-
-- *float* **time** - Time to continue updating physics in seconds.
-
-## float getCurrentSubframeTime ( ) const
-
-Returns the current time that can be used when shifting between physics update frames.
-### Return value
-
-Time in seconds.
-## float getTotalTime ( ) const
-
-Returns the total time that both rendering and calculating of the frame took (the duration of the [main loop](../../../code/fundamentals/execution_sequence/main_loop.md) in the application [execution sequence](../../../code/fundamentals/execution_sequence/index.md)).
-### Return value
-
-The total time value, milliseconds.
 ## void addUpdateNode ( const Ptr < Node > & node )
 
 Adds the node for which physical state should be updated. If a node is not added with this function, it won't be updated when out of physics [simulation distance](#setDistance_float_void).
@@ -746,111 +825,3 @@ Saves [physics settings](../../../editor2/settings/physics_global/index.md) to t
 ### Return value
 
 **true** if settings are saved successfully; otherwise, **false**.
-## void setStableFPS ( bool stablefps )
-
-Returns a value indicating if frame time stabilization is enabled. In case the current Engine framerate is much higher than the [fixed Physics framerate](../../../principles/physics/simulation.md#simulation_rate) (e.g. 120 FPS vs 60 FPS), the physics won't be updated each rendering frame (e.g. it may update during every second frame). The resulting frame time will become unstable, shorter-longer-shorter-longer (*render -> render+physics -> render -> render+physics...*). This option ensures stable frame time for smoother user experience removing unwanted "hiccups" (however, the average framerate is decreased).
-> **Notice:** By default, this option is enabled. But you can disable it to increase average framerate in case the application is used for machine learning or for grabbing frame sequences (video grabber), when smoothness is not important.
-
-### Arguments
-
-- *bool* **stablefps** - **true** to enable frame time stabilization; **false** — to disable it.
-
-## bool isStableFPS ( ) const
-
-Returns a value indicating if frame time stabilization is enabled. In case the current Engine framerate is much higher than the [fixed Physics framerate](../../../principles/physics/simulation.md#simulation_rate) (e.g. 120 FPS vs 60 FPS), the physics won't be updated each rendering frame (e.g. it may update during every second frame). The resulting frame time will become unstable, shorter-longer-shorter-longer (*render -> render+physics -> render -> render+physics...*). This option ensures stable frame time for smoother user experience removing unwanted "hiccups" (however, the average framerate is decreased).
-> **Notice:** By default, this option is enabled. But you can disable it to increase average framerate in case the application is used for machine learning or for grabbing frame sequences (video grabber), when smoothness is not important.
-
-### Return value
-
-**true** if frame time stabilization is enabled; otherwise, **false**.
-## void setUpdateMode ( Physics::UPDATE_MODE mode )
-
-Sets the [update mode](../../../principles/physics/simulation.md#update_mode) to be used for physics. Physics can be updated either asynchronously (in parallel with rendering) or in the Main thread before rendering. The [async](#UPDATE_MODE_ASYNC_RENDERING) mode is the fastest one and is used by default, however, it has a one-frame lag (calculation results are applied in the next frame) and some nuances regarding user code execution in some cases.
-### Arguments
-
-- *[Physics::UPDATE_MODE](../../../api/library/physics/class.physics_cpp.md#UPDATE_MODE)* **mode** - New physics update mode to be set.
-
-## Physics::UPDATE_MODE getUpdateMode ( ) const
-
-Returns the current [physics update mode](../../../principles/physics/simulation.md#update_mode). Physics can be updated either asynchronously (in parallel with rendering) or in the Main thread before rendering. The [async](#UPDATE_MODE_ASYNC_RENDERING) mode is the fastest one and is used by default, however, it has a one-frame lag (calculation results are applied in the next frame) and some nuances regarding user code execution in some cases.
-### Return value
-
-Current physics update mode.
-## void setMissedFrameLifetime ( float lifetime )
-
-Sets the lifetime for [missed frames](../../../principles/physics/simulation.md#missed_frames). This value defines how long missed frames are to be kept in the catch-up buffer. In case the current Engine framerate is lower than the [fixed Physics framerate](../../../principles/physics/simulation.md#simulation_rate), some of the physics frames get skipped and the simulation starts looking like in a slo-mo effect (e.g., if the target physics framerate is 60 FPS, when the Engine updates at 30 FPS, the simulation will look 2 times slower). The Physics module will try to catch up everything missed later, when possible (e.g. when the Engine framerate grows higher, while [waiting for GPU](../../../code/fundamentals/execution_sequence/index.md#waiting_gpu) to complete rendering). The missed frames are kept in a buffer for some time (lifetime), as it expires the frame is removed from the buffer and becomes lost forever.
-### Arguments
-
-- *float* **lifetime** - Lifetime for missing frame, in milliseconds. Setting too high values may result in significant memory consumption in case of low hardware capabilities (no catching-up performed with a growing number of missed frames).
-
-## float getMissedFrameLifetime ( ) const
-
-Sets the lifetime for missed frames. This value defines how long missed frames are to be kept in the catch-up buffer. In case the current Engine framerate is lower than the [fixed Physics framerate](../../../principles/physics/simulation.md#simulation_rate), some of the physics frames get skipped and the simulation starts looking like in a slo-mo effect (e.g., if the target physics framerate is 60 FPS, when the Engine updates at 30 FPS, the simulation will look 2 times slower). The Physics module will try to catch up everything missed later, when possible (e.g. when the Engine framerate grows higher, while [waiting for GPU](../../../code/fundamentals/execution_sequence/index.md#waiting_gpu) to complete rendering). The missed frames are kept in a buffer for some time (lifetime), as it expires the frame is removed from the buffer and becomes lost forever.
-### Return value
-
-Lifetime for missing frame, in milliseconds. Setting too high values may result in significant memory consumption in case of low hardware capabilities (no catching-up performed with a growing number of missed frames).
-## void setShowShapes ( Physics::SHOW_TYPE shapes )
-
-Sets the shape visualization mode.
-### Arguments
-
-- *[Physics::SHOW_TYPE](../../../api/library/physics/class.physics_cpp.md#SHOW_TYPE)* **shapes** - The helper visualization mode.
-
-## Physics::SHOW_TYPE getShowShapes ( ) const
-
-Returns the shape visualization mode.
-### Return value
-
-The shape visualization mode.
-## void setShowShapesDistance ( float distance )
-
-Sets the distance from the camera within which the shapes are visualized.
-### Arguments
-
-- *float* **distance** - The distance from the camera within which the shapes are visualized.
-
-## float getShowShapesDistance ( ) const
-
-Returns the distance from the camera within which the shapes are visualized.
-### Return value
-
-The distance from the camera within which the shapes are visualized.
-## void setShowCollisionSurfaces ( bool surfaces )
-
-Sets the value indicating if the collision surface visualization is enabled.
-### Arguments
-
-- *bool* **surfaces** - **true** to enable the collision surface visualization; **false** — to disable it.
-
-## bool isShowCollisionSurfaces ( ) const
-
-Returns a value indicating if the collision surface visualization is enabled.
-### Return value
-
-**true** if the collision surface visualization is enabled; otherwise, **false**.
-## void setShowContacts ( bool contacts )
-
-Sets the value indicating if the visualization of physical interactions between the physical bodies is enabled.
-### Arguments
-
-- *bool* **contacts** - **true** to enable the visualization of physical interactions between the physical bodies; **false** — to disable it.
-
-## bool isShowContacts ( ) const
-
-Returns a value indicating if the visualization of physical interactions between the physical bodies is enabled.
-### Return value
-
-**true** if the visualization of physical interactions between the physical bodies is enabled; otherwise, **false**.
-## void setShowJoints ( bool joints )
-
-Sets the value indicating if the visualization of joints that connect physical bodies is enabled.
-### Arguments
-
-- *bool* **joints** - **true** to enable the visualization of joints that connect physical bodies; **false** — to disable it.
-
-## bool isShowJoints ( ) const
-
-Returns a value indicating if the visualization of joints that connect physical bodies is enabled.
-### Return value
-
-**true** if the visualization of joints that connect physical bodies is enabled; otherwise, **false**.

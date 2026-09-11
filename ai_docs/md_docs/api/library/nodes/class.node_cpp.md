@@ -255,7 +255,7 @@ int AppWorldLogic::init() {
 | **NODE_TRIGGER** = 2 | Dummy node that can fire callbacks on its enabling/disabling or repositioning. See the [NodeTrigger](../../../api/library/nodes/class.nodetrigger_cpp.md) class. |
 | **NODE_REFERENCE** = 3 | Node reference that refers to an external NODE file. See the [NodeReference](../../../api/library/nodes/class.nodereference_cpp.md) class. |
 | **NODE_EXTERN** = 4 | Extern node. See the [NodeExtern](../../../api/library/nodes/class.nodeextern_cpp.md) class. |
-| **NODE_ANIMATION_PLAYBACK** = 5 | Animation playback node. See the [NodeAnimationPlayback](../../../api/library/nodes/class.nodeanimationplayback_cpp.md) class. |
+| **NODE_SEQUENCE_PLAYER** = 5 | Sequence player node. See the [NodeSequencePlayer](../../../api/library/nodes/class.nodesequenceplayer_cpp.md) class. |
 | **NODE_SKELETON_POSE** = 6 | Skeleton pose node. See the [NodeSkeletonPose](../../../api/library/nodes/class.nodeskeletonpose_cpp.md) class. |
 | **NODE_END** = 6 | End of the nodes range. |
 | **WORLD_BEGIN** = 7 | Begin of the world nodes range. |
@@ -345,16 +345,21 @@ int AppWorldLogic::init() {
 | **NAVIGATION_SECTOR** = 70 | Sector within which pathfinding is performed. See the [NavigationSector](../../../api/library/pathfinding/class.navigationsector_cpp.md) class. |
 | **NAVIGATION_MESH** = 71 | Mesh-based navigation area across which pathfinding is performed. See the [NavigationMesh](../../../api/library/pathfinding/class.navigationmesh_cpp.md) class. |
 | **NAVIGATION_END** = 71 | End of the navigation nodes range. |
-| **OBSTACLE_BEGIN** = 72 | Begin of the obstacle nodes range. |
-| **OBSTACLE_BOX** = 72 | Obstacle in the shape of a box avoided by pathfinding. See the [ObstacleBox](../../../api/library/pathfinding/class.obstaclebox_cpp.md) class. |
-| **OBSTACLE_SPHERE** = 73 | Obstacle in the shape of a sphere avoided by pathfinding. See the [ObstacleSphere](../../../api/library/pathfinding/class.obstaclesphere_cpp.md) class. |
-| **OBSTACLE_CAPSULE** = 74 | Obstacle in the shape of a capsule avoided by pathfinding. See the [ObstacleCapsule](../../../api/library/pathfinding/class.obstaclecapsule_cpp.md) class. |
-| **OBSTACLE_END** = 74 | End of the obstacle nodes range. |
-| **SOUND_BEGIN** = 75 | Begin of the sound nodes range. |
-| **SOUND_SOURCE** = 75 | Sound source. See the [SoundSource](../../../api/library/sounds/class.soundsource_cpp.md) class. |
-| **SOUND_REVERB** = 76 | Sound reverberation zone. See the [SoundReverb](../../../api/library/sounds/class.soundreverb_cpp.md) class. |
-| **SOUND_END** = 76 | End of the sound nodes range. |
-| **NUM_NODES** = 77 | Counter of node types. |
+| **EXPERIMENTAL_NAVIGATION_BEGIN** = 72 | Begin of the experimental navigation nodes range. |
+| **EXPERIMENTAL_NAVIGATION_MESH** = 72 | Navigation mesh baked from the scene geometry, across which pathfinding is performed. See the [ExperimentalNavigationMesh](../../../api/library/pathfinding/class.experimentalnavigationmesh_cpp.md) class. |
+| **EXPERIMENTAL_NAVIGATION_MESH_INVOKER** = 73 | Node that keeps the tiles of a baked navigation mesh resident around itself. See the [ExperimentalNavigationMeshInvoker](../../../api/library/pathfinding/class.experimentalnavigationmeshinvoker_cpp.md) class. |
+| **EXPERIMENTAL_NAVIGATION_MESH_AREA_VOLUME** = 74 | Volume that stamps an area onto the polygons of a baked navigation mesh. See the [ExperimentalNavigationMeshAreaVolume](../../../api/library/pathfinding/class.experimentalnavigationmeshareavolume_cpp.md) class. |
+| **EXPERIMENTAL_NAVIGATION_END** = 74 | End of the experimental navigation nodes range. |
+| **OBSTACLE_BEGIN** = 75 | Begin of the obstacle nodes range. |
+| **OBSTACLE_BOX** = 75 | Obstacle in the shape of a box avoided by pathfinding. See the [ObstacleBox](../../../api/library/pathfinding/class.obstaclebox_cpp.md) class. |
+| **OBSTACLE_SPHERE** = 76 | Obstacle in the shape of a sphere avoided by pathfinding. See the [ObstacleSphere](../../../api/library/pathfinding/class.obstaclesphere_cpp.md) class. |
+| **OBSTACLE_CAPSULE** = 77 | Obstacle in the shape of a capsule avoided by pathfinding. See the [ObstacleCapsule](../../../api/library/pathfinding/class.obstaclecapsule_cpp.md) class. |
+| **OBSTACLE_END** = 77 | End of the obstacle nodes range. |
+| **SOUND_BEGIN** = 78 | Begin of the sound nodes range. |
+| **SOUND_SOURCE** = 78 | Sound source. See the [SoundSource](../../../api/library/sounds/class.soundsource_cpp.md) class. |
+| **SOUND_REVERB** = 79 | Sound reverberation zone. See the [SoundReverb](../../../api/library/sounds/class.soundreverb_cpp.md) class. |
+| **SOUND_END** = 79 | End of the sound nodes range. |
+| **NUM_NODES** = 80 | Counter of node types. |
 | **NUM_WORLDS** = WORLD_END - WORLD_BEGIN + 1 | Counter of world node types. |
 | **NUM_GEODETICS** = GEODETIC_END - GEODETIC_BEGIN + 1 | Counter of geodetic node types. |
 | **NUM_FIELDS** = FIELD_END - FIELD_BEGIN + 1 | Counter of field node types. |
@@ -652,7 +657,7 @@ Returns the current value indicating if interaction with [World Clutters](../../
 
 ### Return value
 
-**true** if interaction with [World Clutters](../../../api/library/worlds/class.worldclutter_cpp.md) and [Mesh Clutters](../../../api/library/objects/class.objectmeshclutter_cpp.md) is enabled; otherwise **false**.
+**true** if interaction with [World Clutters](../../../api/library/worlds/class.worldclutter_cpp.md) and [Mesh Clutters](../../../api/library/objects/class.objectmeshclutter_cpp.md) is enabled ; otherwise **false**.
 ## void setGrassInteractionEnabled ( bool enabled )
 
 Sets a new value indicating if interaction with [Grass](../../../api/library/objects/class.objectgrass_cpp.md) nodes is enabled for the node.
@@ -671,7 +676,7 @@ Returns the current value indicating if interaction with [Grass](../../../api/li
 
 ### Return value
 
-**true** if interaction with [Grass](../../../api/library/objects/class.objectgrass_cpp.md) nodes is enabled; otherwise **false**.
+**true** if interaction with [Grass](../../../api/library/objects/class.objectgrass_cpp.md) nodes is enabled ; otherwise **false**.
 ## void setTriggerInteractionEnabled ( bool enabled )
 
 Sets a new value indicating if interaction with [WorldTrigger](../../../api/library/worlds/class.worldtrigger_cpp.md) nodes is enabled for the node.
@@ -690,7 +695,7 @@ Returns the current value indicating if interaction with [WorldTrigger](../../..
 
 ### Return value
 
-**true** if interaction with [World Triggers](../../../api/library/worlds/class.worldtrigger_cpp.md) is enabled; otherwise **false**.
+**true** if interaction with [World Triggers](../../../api/library/worlds/class.worldtrigger_cpp.md) is enabled ; otherwise **false**.
 ## void setImmovable ( bool immovable )
 
 Sets a new value indicating if the node is an immovable (clutter) object, which means it is moved to a separate spatial tree for immovable (static) objects optimizing node management. There are several restrictions on nodes considered immovable. Any action affecting the spatial tree is prohibited and causes a warning: you cannot change the node state (enabled/disabled), surfaces, bounds, trasformation, visibility distance, as well as move the node, assign a non-dummy physical body or even disable the *Immovable* flag as it also leads to rebiulding of the spatial tree.
@@ -722,7 +727,7 @@ Sets a new value indicating if the node handle is displayed. This option is vali
 Returns the current value indicating if the node handle is displayed. This option is valid only for invisible nodes, such as light and sound sources, particle systems and world-managing nodes ( [WorldOccluder](../../../api/library/worlds/class.worldoccluder_cpp.md), triggers, expressions, etc.)
 ### Return value
 
-**true** if displaying of the node handle is enabled; otherwise **false**.
+**true** if displaying of the node handle is enabled ; otherwise **false**.
 ## void setEnabled ( bool enabled )
 
 Sets a new value indicating if the node and its parent nodes are enabled.
@@ -735,7 +740,7 @@ Sets a new value indicating if the node and its parent nodes are enabled.
 Returns the current value indicating if the node and its parent nodes are enabled.
 ### Return value
 
-**true** if the node is enabled; otherwise **false**.
+**true** if the node is enabled ; otherwise **false**.
 ## bool isExtern () const
 
 Returns the current value indicating if the node is an extern node (its type is one of the following: *[NODE_EXTERN](#NODE_EXTERN), [OBJECT_EXTERN](#OBJECT_EXTERN), [WORLD_EXTERN](#WORLD_EXTERN)*).
@@ -766,9 +771,15 @@ Returns the current value indicating if the node is an obstacle node (its type i
 ### Return value
 
 **true** if the node is an obstacle node; otherwise **false**.
+## bool isExperimentalNavigation () const
+
+Returns the current value indicating if a given node belongs to the experimental navigation system, that is, if its type falls within the [EXPERIMENTAL_NAVIGATION_BEGIN](#EXPERIMENTAL_NAVIGATION_BEGIN) .. [EXPERIMENTAL_NAVIGATION_END](#EXPERIMENTAL_NAVIGATION_END) range.
+### Return value
+
+**true** if the node belongs to the experimental navigation system; otherwise **false**.
 ## bool isNavigation () const
 
-Returns the current value indicating if a given node is a navigation node.
+Returns the current value indicating if a given node is a navigation node, that is, if its type falls within the [NAVIGATION_BEGIN](#NAVIGATION_BEGIN) .. [NAVIGATION_END](#NAVIGATION_END) range. The range covers the navigation areas only. Nodes of the experimental navigation system occupy a range of their own and are reported by [IsExperimentalNavigation](#IsExperimentalNavigation).
 ### Return value
 
 **true** if the node is a navigation node; otherwise **false**.
@@ -881,13 +892,13 @@ Sets a new value indicating if saving to `*.world` file is enabled for the node 
 Returns the current value indicating if saving to `*.world` file is enabled for the node and all its children (if any).
 ### Return value
 
-**true** if saving to `*.world` file for the node and all its children (if any) is enabled; otherwise **false**.
+**true** if saving to `*.world` file for the node and all its children (if any) is enabled ; otherwise **false**.
 ## bool isSaveToWorldEnabledSelf () const
 
 Returns the current value indicating if saving to `*.world` file is enabled for the node.
 ### Return value
 
-**true** if saving to `*.world` file for the node is enabled; otherwise **false**.
+**true** if saving to `*.world` file for the node is enabled ; otherwise **false**.
 ## void setShowInEditorEnabled ( bool enabled )
 
 Sets a new value indicating if displaying in the *World Hierarchy* window of the [UnigineEditor](../../../editor2/index.md) is enabled for the node.
@@ -906,13 +917,13 @@ Returns the current value indicating if displaying in the *World Hierarchy* wind
 
 ### Return value
 
-**true** if displaying in the *World Hierarchy* window of the [UnigineEditor](../../../editor2/index.md) for the node is enabled; otherwise **false**.
+**true** if displaying in the *World Hierarchy* window of the [UnigineEditor](../../../editor2/index.md) for the node is enabled ; otherwise **false**.
 ## bool isShowInEditorEnabledSelf () const
 
 Returns the current value indicating if displaying in the *World Hierarchy* window of the [UnigineEditor](../../../editor2/index.md) is enabled for the node.
 ### Return value
 
-**true** if displaying in the *World Hierarchy* window of the [UnigineEditor](../../../editor2/index.md) for the node is enabled; otherwise **false**.
+**true** if displaying in the *World Hierarchy* window of the [UnigineEditor](../../../editor2/index.md) for the node is enabled ; otherwise **false**.
 ## int getNumWorldTriggers () const
 
 Returns the current number of World Triggers inside which the node is located at the moment.
@@ -936,7 +947,7 @@ Current bounding box with world coordinates.
 Returns the current value indicating if the node is a landscape layer (its type is [*LANDSCAPE_LAYER_**](#LANDSCAPE_LAYER_BEGIN)).
 ### Return value
 
-**true** if the node is a landscape layer is enabled; otherwise **false**.
+**true** if the node is a landscape layer is enabled ; otherwise **false**.
 ## Math:: Mat4 getIWorldTransform () const
 
 Returns the current inverse transformation matrix of the node for transformations in the world coordinates.
@@ -970,7 +981,7 @@ Returns the current lifetime management type for the root (either [parent](#getP
 Current lifetime management type for the root node (see the [*LIFETIME*](#LIFETIME) enum).
 ## Event<const Ptr < Node > &> getEventTransformChanged () const
 
-event triggered when the node's transformation has changed. This event is triggered immediately when a change occurs, regardless of where it was made, without waiting for the next frame. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when the node's transformation has changed. This event is triggered immediately when a change occurs, regardless of where it was made, without waiting for the next frame. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1106,10 +1117,10 @@ publisher->getEventTransformChanged().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const Ptr < Node > &, int> getEventPropertyNodeSlotsChanged () const
 
-event triggered when the number of the node's property slots is changed. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when the number of the node's property slots is changed. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1245,10 +1256,10 @@ Node::getEventPropertyNodeSlotsChanged().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const Ptr < Node > &, const Ptr < Property > &, int> getEventPropertyNodeAdd () const
 
-event triggered when a new property is assigned to the node. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a new property is assigned to the node. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1384,10 +1395,10 @@ Node::getEventPropertyNodeAdd().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const Ptr < Node > &, const Ptr < Property > &, int> getEventPropertyNodeRemove () const
 
-event triggered when a property is removed from the list of the node's properties. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a property is removed from the list of the node's properties. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1523,10 +1534,10 @@ Node::getEventPropertyNodeRemove().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const Ptr < Node > &, const Ptr < Property > &, int> getEventPropertyChangeEnabled () const
 
-event triggered when the node's property *enabled* state is changed. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when the node's property *enabled* state is changed. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1662,10 +1673,10 @@ Node::getEventPropertyChangeEnabled().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const Ptr < Node > &, int, int> getEventPropertyNodeSwap () const
 
-event triggered when two properties swap their positions in the list of the node's properties. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when two properties swap their positions in the list of the node's properties. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1801,10 +1812,10 @@ Node::getEventPropertyNodeSwap().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const Ptr < Node > &, const Ptr < Property > &> getEventPropertySurfaceAdd () const
 
-event triggered when a property is assigned to the object's surface. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a property is assigned to the object's surface. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1940,10 +1951,10 @@ Node::getEventPropertySurfaceAdd().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const Ptr < Node > &, const Ptr < Property > &> getEventPropertySurfaceRemove () const
 
-event triggered when a property is removed from the object's surface. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a property is removed from the object's surface. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2079,10 +2090,10 @@ Node::getEventPropertySurfaceRemove().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const Ptr < Node > &> getEventCacheNodeAdd () const
 
-event triggered when a node is added to cache. Occurs once upon calling [NodeReference::create()](../../../api/library/nodes/class.nodereference_cpp.md#NodeReference_constchar) or [*World::loadNode()*](../../../api/library/engine/class.world_cpp.md#loadNode_cstr_int_Node). You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a node is added to cache. Occurs once upon calling [NodeReference::create()](../../../api/library/nodes/class.nodereference_cpp.md#NodeReference_constchar) or [*World::loadNode()*](../../../api/library/engine/class.world_cpp.md#loadNode_cstr_int_Node). You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2218,10 +2229,10 @@ Node::getEventCacheNodeAdd().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const Ptr < Node > &> getEventNodeLoad () const
 
-event triggered when a node is loaded from a file. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a node is loaded from a file. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2357,10 +2368,10 @@ Node::getEventNodeLoad().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const Ptr < Node > &> getEventNodeRemove () const
 
-event triggered when the node is deleted. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when the node is deleted. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2496,10 +2507,10 @@ Node::getEventNodeRemove().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const Ptr < Node > &> getEventNodeChangeEnabled () const
 
-event triggered when the node's *enabled* state is changed. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when the node's *enabled* state is changed. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2635,10 +2646,10 @@ Node::getEventNodeChangeEnabled().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const Ptr < Node > &, const Ptr < Node > &> getEventNodeClone () const
 
-event triggered when copying a node via [Node::clone()](../../../api/library/nodes/class.node_cpp.md#clone_Node). You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when copying a node via [Node::clone()](../../../api/library/nodes/class.node_cpp.md#clone_Node). You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2774,10 +2785,10 @@ Node::getEventNodeClone().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const Ptr < Node > &, const Ptr < Node > &> getEventNodeSwap () const
 
-event triggered when swapping a node via [Node::swap()](../../../api/library/nodes/class.node_cpp.md#swap_Node_void). You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when swapping a node via [Node::swap()](../../../api/library/nodes/class.node_cpp.md#swap_Node_void). You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2913,13 +2924,13 @@ Node::getEventNodeSwap().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## bool isCache () const
 
 Returns the current value indicating whether the node or any of its parent nodes are stored in the cache.
 ### Return value
 
-**true** if the node in the cache is enabled; otherwise **false**.
+**true** if the node in the cache is enabled ; otherwise **false**.
 ## const char * getSrcFilePath () const
 
 Returns the current path to the source of the node. For example, a relative path to the `*.world` file with a description of this node, or the identifier of the source `*.node` in the format `guid://...`

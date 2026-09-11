@@ -33,7 +33,7 @@
 The data on the last received error.
 ## 🔒︎ int NumInertial
 
-The number of all tracked standard 6dof bodies (i.e. all 6dof bodies except flysticks, measurement tools, etc.) and all hybrid bodies.
+The Returns the number of all tracked standard 6DOF bodies (i.e. all 6DOF bodies except Flysticks, Measurement Tools, etc.) and all hybrid bodies.
 ## 🔒︎ int NumHuman
 
 The number of human models.
@@ -42,25 +42,25 @@ The number of human models.
 The number of tracked hand bodies.
 ## 🔒︎ int NumMarker
 
-The number of tracked additional markers.
+The number of tracked additional Markers.
 ## 🔒︎ int NumMeaRef
 
-The number of defined reference bodies of the measurement tool.
+The number of defined reference bodies of the Measurement Tool.
 ## 🔒︎ int NumMeaTool
 
-The number of defined (calibrated) measurement tools.
+The number of defined (calibrated) Measurement Tools.
 ## 🔒︎ int NumFlyStick
 
-The number of defined (calibrated) flystick bodies.
+The number of defined (calibrated) Flystick bodies.
 ## 🔒︎ int NumBody
 
-The number of dtrack bodies.
+The number of DTrack bodies.
 ## 🔒︎ double TimeStamp
 
-The time at the measurement of the current frame, i.e. the time when the infrared flash of the cameras is fired. the timestamp uses the internal clock of the controller, giving back the seconds (with an accuracy of 1μs) since 00:00 utc (midnight). this implies that the timestamp value is reset to zero when passing midnight (utc).
+The time at the measurement of the current frame, i.e. the time when the infrared flash of the cameras is fired. the timestamp uses the internal clock of the controller, giving back the seconds (with an accuracy of 1μs) since 00:00 UTC (midnight). this implies that the timestamp value is reset to zero when passing midnight (UTC).
 ## 🔒︎ int FrameCounter
 
-The A frame counter (counting with synchronization frequency).
+The frame counter (counting with synchronization frequency).
 ### Members
 
 ---
@@ -174,7 +174,7 @@ Returns the status of the given Flystick button.
 
 ### Return value
 
-Button state: 1 - if the button is pressed, 0 — if not pressed.
+Button state: 1 - if the button is pressed, 0 � if not pressed.
 ## int GetFlyStickNumJoyStick ( int index )
 
 Returns the number of joystick values of a specified Flystick.
@@ -256,7 +256,7 @@ Returns the button state for the specified Measurement Tool.
 
 ### Return value
 
-Button state: 1 — pressed, 0 — not pressed.
+Button state: 1 � pressed, 0 � not pressed.
 ## dvec3 GetMeaToolLocation ( int index )
 
 Returns the Measurement Tool location.
@@ -400,7 +400,7 @@ The value to distinguish between the left (0) and right (1) hand.
 ## int GetHandNumFinger ( int index )
 
 Returns the number of fingers for the specified hand. The maximum number of fingers is 5.
-> **Notice:** Based on this number, each finger can be addressed using its index starting from the thumb — 0, index finger — 1, etc.
+> **Notice:** Based on this number, each finger can be addressed using its index starting from the thumb � 0, index finger � 1, etc.
 
 
 ### Arguments
@@ -580,9 +580,9 @@ Returns the data tracking status.
 ### Return value
 
 Tracking status of the sensor:
-- 0 — no tracking.
-- 1 — inertial tracking.
-- 2 — optical tracking.
+- 0 � no tracking.
+- 1 � inertial tracking.
+- 2 � optical tracking.
 
 
 ## double GetInertialError ( int index )

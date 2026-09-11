@@ -141,7 +141,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventProgress () const
 
 The event handler signature is as follows: *myhandler()*
@@ -158,7 +158,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventBegin () const
 
 The event handler signature is as follows: *myhandler()*
@@ -175,7 +175,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## LandscapeMapFileCompression ( )
@@ -186,10 +186,10 @@ Constructor.
 Starts the landscape map file compression process.
 ### Arguments
 
-- *int* **is_safe** - **1** to make the Engine automatically call *filesClose()/fileOpen()* methods when performing operations (before modifying an `.lmap` file the Engine should release files via *filesClose()*, while after modification *fileOpen()* should be called), **0** — to call *filesClose()/fileOpen()* methods manually. The Landscape class has two overloads for the *filesClose()* method: > **Notice:** When **is_safe = true** the Engine shall always call *filesClose(reload_files)* with complete data reloading.
+- *int* **is_safe** - **1** to make the Engine automatically call *filesClose()/fileOpen()* methods when performing operations (before modifying an `.lmap` file the Engine should release files via *filesClose()*, while after modification *fileOpen()* should be called), **0** � to call *filesClose()/fileOpen()* methods manually. The Landscape class has two overloads for the *filesClose()* method: > **Notice:** When **is_safe = true** the Engine shall always call *filesClose(reload_files)* with complete data reloading.
 
-  - [*filesClose()*](../../../../api/library/objects/landscape_terrain/class.landscape_usc.md#filesClose_void) — to be called in case of moving an `.lmap` file (no data reloading is performed as the file itself was not modified — saves time on reloading data)
-  - [*filesClose(reload_files)*](../../../../api/library/objects/landscape_terrain/class.landscape_usc.md#filesClose_VECUGUID_void) — to be called in case of deleting or modifying an `.lmap` file.
+  - [*filesClose()*](../../../../api/library/objects/landscape_terrain/class.landscape_usc.md#filesClose_void) � to be called in case of moving an `.lmap` file (no data reloading is performed as the file itself was not modified � saves time on reloading data)
+  - [*filesClose(reload_files)*](../../../../api/library/objects/landscape_terrain/class.landscape_usc.md#filesClose_VECUGUID_void) � to be called in case of deleting or modifying an `.lmap` file.
 
 ### Return value
 
@@ -199,10 +199,10 @@ Starts the landscape map file compression process.
 Starts the landscape map file decompression process.
 ### Arguments
 
-- *int* **is_safe** - **1** to make the Engine automatically call *filesClose()/fileOpen()* methods when performing operations (before modifying an `.lmap` file the Engine should release files via *filesClose()*, while after modification *fileOpen()* should be called), **0** — to call *filesClose()/fileOpen()* methods manually. The Landscape class has two overloads for the *filesClose()* method: > **Notice:** When **is_safe = true** the Engine shall always call *filesClose(reload_files)* with complete data reloading.
+- *int* **is_safe** - **1** to make the Engine automatically call *filesClose()/fileOpen()* methods when performing operations (before modifying an `.lmap` file the Engine should release files via *filesClose()*, while after modification *fileOpen()* should be called), **0** � to call *filesClose()/fileOpen()* methods manually. The Landscape class has two overloads for the *filesClose()* method: > **Notice:** When **is_safe = true** the Engine shall always call *filesClose(reload_files)* with complete data reloading.
 
-  - [*filesClose()*](../../../../api/library/objects/landscape_terrain/class.landscape_usc.md#filesClose_void) — to be called in case of moving an `.lmap` file (no data reloading is performed as the file itself was not modified — saves time on reloading data)
-  - [*filesClose(reload_files)*](../../../../api/library/objects/landscape_terrain/class.landscape_usc.md#filesClose_VECUGUID_void) — to be called in case of deleting or modifying an `.lmap` file.
+  - [*filesClose()*](../../../../api/library/objects/landscape_terrain/class.landscape_usc.md#filesClose_void) � to be called in case of moving an `.lmap` file (no data reloading is performed as the file itself was not modified � saves time on reloading data)
+  - [*filesClose(reload_files)*](../../../../api/library/objects/landscape_terrain/class.landscape_usc.md#filesClose_VECUGUID_void) � to be called in case of deleting or modifying an `.lmap` file.
 
 ### Return value
 
@@ -218,10 +218,10 @@ Sets the type of the compressor used for the specified mask.
 - *int* **mask** - Mask number.
 - *int* **compressor_type** - Compressor type:
 
-  - 0 – None
-  - 1 – Our Method
-  - 2 – LZ4
-  - 3 – Zlib
+  - 0 � None
+  - 1 � Our Method
+  - 2 � LZ4
+  - 3 � Zlib
 
 ## void setMaskOpacityCompressor ( int mask , int compressor_type )
 
@@ -231,10 +231,10 @@ Sets the type of the compressor used for the opacity data of the specified mask.
 - *int* **mask** - Mask number.
 - *int* **compressor_type** - Compressor type:
 
-  - 0 – None
-  - 1 – Our Method
-  - 2 – LZ4
-  - 3 – Zlib
+  - 0 � None
+  - 1 � Our Method
+  - 2 � LZ4
+  - 3 � Zlib
 
 ## void setCompressorAll ( int compressor_type )
 
@@ -243,10 +243,10 @@ Sets the type of the compressor used to compress all data.
 
 - *int* **compressor_type** - Compressor type:
 
-  - 0 – None
-  - 1 – Our Method
-  - 2 – LZ4
-  - 3 – Zlib
+  - 0 � None
+  - 1 � Our Method
+  - 2 � LZ4
+  - 3 � Zlib
 
 ## int getMaskCompressor ( int mask )
 
@@ -258,10 +258,10 @@ Returns the current type of the compressor used for the specified mask.
 ### Return value
 
 Compressor type:
-- 0 – None
-- 1 – Our Method
-- 2 – LZ4
-- 3 – Zlib
+- 0 � None
+- 1 � Our Method
+- 2 � LZ4
+- 3 � Zlib
 
 
 ## int getMaskOpacityCompressor ( int mask )
@@ -274,10 +274,10 @@ Returns the current type of the compressor used for the opacity data of the spec
 ### Return value
 
 Compressor type:
-- 0 – None
-- 1 – Our Method
-- 2 – LZ4
-- 3 – Zlib
+- 0 � None
+- 1 � Our Method
+- 2 � LZ4
+- 3 � Zlib
 
 
 ## void setEnabledMaskTextureCompression ( int mask , int enable )

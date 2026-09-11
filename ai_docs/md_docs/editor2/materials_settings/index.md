@@ -73,7 +73,7 @@ This section contains transparency settings:
 | Src | Option used to scale the source color (the color of an overlaying material). Available only when **Custom** preset is selected. |
 | Dest | Option used to scale the destination color (the color of an obscured material). Available only when **Custom** preset is selected. |
 | Depth Write | Toggles writing in the depth buffer for the material on and off. This option can be used for transparent objects to prevent them from obstructing the others. With this option enabled the inner part of a transparent object won't be rendered if the outside surface was rendered first. The same can happen to a concave object. |
-| Overlap | Render polygons, to which the material is applied, on the top of the render. This can be used for UI elements. |
+| Transparent Order | The point of the frame at which transparent surfaces with this material are rendered: - **Before SSR** � the default: the surface takes part in screen-space reflections and receives all post effects. - **Before Post** � the surface is invisible to SSR and receives tonemapping and TAA. - **After Post** � the surface is drawn after the whole post chain, so post effects never touch it. Suitable for overlays, HUD and in-world tooltips. |
 
 
 ### Options
@@ -152,36 +152,36 @@ For every parameter, there are two modes available. They can be selected by clic
 - **Simple** mode provides adjustment of the default parameter value.
 - **Expression** mode allows using expressions in the parameter field. The type of the expression result must be one of the following: A number of aliases to variables and functions are available from the expression, for convenience:
 
-  - **[int](../../code/uniginescript/language/data_types.md#int)** — an integer value. With the input value of 4, the result will be equal to **vec4(4.0f, 4.0f, 4.0f, 4.0f)**
-  - **[long](../../code/uniginescript/language/data_types.md#long)** — a long integer. With the input value of 2L, the result will be equal to **vec4(2.0f, 2.0f, 2.0f, 2.0f)**
-  - **[float](../../code/uniginescript/language/data_types.md#float)** — a floating point value. With the input value of 3.0f, the result will be equal to **vec4(3.0f, 3.0f, 3.0f, 3.0f)**
-  - **[double](../../code/uniginescript/language/data_types.md#double)** — a double value. With the input value of 7.4, the result will be equal to **vec4(7.4, 7.4, 7.4, 7.4)**
-  - **[vec3](../../code/uniginescript/language/data_types.md#vec3)** — a vector of three float components. With the input value of vec3(2.0f, 2.0f, 2.0f), the result will be equal to **vec4(2.0f, 2.0f, 2.0f, 1.0f)**
-  - **[vec4](../../code/uniginescript/language/data_types.md#vec4)** — a vector of four float components. With the input value of vec4(2.0f, 2.0f, 2.0f, time), the result will change each frame due to [**time**](#expression_time).
-  - **[dvec3](../../code/uniginescript/language/data_types.md#dvec3)** — a double point value. With the input value of dvec3(2.0, 2.0, 2.0), the result will be equal to **vec4(2.0f, 2.0f, 2.0f, 1.0f)**
-  - **[dvec4](../../code/uniginescript/language/data_types.md#dvec4)** — a double point value. With the input value of dvec4(2.0, 2.0, 2.0, 2.0), the result will be equal to **vec4(2.0f, 2.0f, 2.0f, 2.0f)**
+  - **[int](../../code/uniginescript/language/data_types.md#int)** � an integer value. With the input value of 4, the result will be equal to **vec4(4.0f, 4.0f, 4.0f, 4.0f)**
+  - **[long](../../code/uniginescript/language/data_types.md#long)** � a long integer. With the input value of 2L, the result will be equal to **vec4(2.0f, 2.0f, 2.0f, 2.0f)**
+  - **[float](../../code/uniginescript/language/data_types.md#float)** � a floating point value. With the input value of 3.0f, the result will be equal to **vec4(3.0f, 3.0f, 3.0f, 3.0f)**
+  - **[double](../../code/uniginescript/language/data_types.md#double)** � a double value. With the input value of 7.4, the result will be equal to **vec4(7.4, 7.4, 7.4, 7.4)**
+  - **[vec3](../../code/uniginescript/language/data_types.md#vec3)** � a vector of three float components. With the input value of vec3(2.0f, 2.0f, 2.0f), the result will be equal to **vec4(2.0f, 2.0f, 2.0f, 1.0f)**
+  - **[vec4](../../code/uniginescript/language/data_types.md#vec4)** � a vector of four float components. With the input value of vec4(2.0f, 2.0f, 2.0f, time), the result will change each frame due to [**time**](#expression_time).
+  - **[dvec3](../../code/uniginescript/language/data_types.md#dvec3)** � a double point value. With the input value of dvec3(2.0, 2.0, 2.0), the result will be equal to **vec4(2.0f, 2.0f, 2.0f, 1.0f)**
+  - **[dvec4](../../code/uniginescript/language/data_types.md#dvec4)** � a double point value. With the input value of dvec4(2.0, 2.0, 2.0, 2.0), the result will be equal to **vec4(2.0f, 2.0f, 2.0f, 2.0f)**
 
-  - **ifps** — a global variable referring to the *[engine.game.getIFps()](../../api/library/engine/class.game_cpp.md#getIFps_float)* function.
-  - **time** — a variable referring to the *[engine.game.getTime()](../../api/library/engine/class.game_cpp.md#getTime_float)* function.
-  - **noise(float pos, float size, int frequency)** — a function referring to the *[engine.game.getNoise1()](../../api/library/engine/class.game_cpp.md#getNoise1_float_float_int_float)* function.
-  - **random(float from, float to)** — a function referring to the *[engine.game.getRandomFloat()](../../api/library/engine/class.game_cpp.md#getRandomFloat_float_float_float)* function.
-  - **getNode()** — a function returning a current node pointer.
-  - **getParent()** — a function returning a parent node pointer.
-  - **getNumChildren()** — a function returning the number of children nodes.
-  - **getChild(int num)** — a function returning a node child by its number.
-  - **getState(string name)** — a function returning a specified [state of the current material](../../api/library/rendering/class.material_cpp.md#getState_int_int).
-  - **getParameter*(string name)** — a function returning the value of a specified [parameter of the current material](../../api/library/rendering/class.material_cpp.md#getParameterFloat_cstr_float).
+  - **ifps** � a global variable referring to the *[engine.game.getIFps()](../../api/library/engine/class.game_cpp.md#getIFps_float)* function.
+  - **time** � a variable referring to the *[engine.game.getTime()](../../api/library/engine/class.game_cpp.md#getTime_float)* function.
+  - **noise(float pos, float size, int frequency)** � a function referring to the *[engine.game.getNoise1()](../../api/library/engine/class.game_cpp.md#getNoise1_float_float_int_float)* function.
+  - **random(float from, float to)** � a function referring to the *[engine.game.getRandomFloat()](../../api/library/engine/class.game_cpp.md#getRandomFloat_float_float_float)* function.
+  - **getNode()** � a function returning a current node pointer.
+  - **getParent()** � a function returning a parent node pointer.
+  - **getNumChildren()** � a function returning the number of children nodes.
+  - **getChild(int num)** � a function returning a node child by its number.
+  - **getState(string name)** � a function returning a specified [state of the current material](../../api/library/rendering/class.material_cpp.md#getState_int_int).
+  - **getParameter*(string name)** � a function returning the value of a specified [parameter of the current material](../../api/library/rendering/class.material_cpp.md#getParameterFloat_cstr_float).
 
 
 The *[UV Transform](../../content/materials/library/mesh_base/index.md#texture_transform)* parameter additionally has the **Animated** mode, which allows procedural animation of texture coordinates by fine-tuning the following values:
 
 
-- **Scale X** — the first component of the vector defining the scale along the X axis.
-- **Scale Y** — the second component of the vector defining the scale along the Y axis.
-- **Frequency** — the frequency of the circular motion.
-- **Amplitude** — the maximum extent of the circular motion, in pixels.
-- **Velocity** — the velocity of the constant linear offset, in pixels per frame.
-- **Angle** — the direction of the constant linear offset, in degrees.
+- **Scale X** � the first component of the vector defining the scale along the X axis.
+- **Scale Y** � the second component of the vector defining the scale along the Y axis.
+- **Frequency** � the frequency of the circular motion.
+- **Amplitude** � the maximum extent of the circular motion, in pixels.
+- **Velocity** � the velocity of the constant linear offset, in pixels per frame.
+- **Angle** � the direction of the constant linear offset, in degrees.
 
 
 A set of parameters can differ depending on the base material and [states](#states_tab) enabled for the selected material. Detailed description of parameters for each particular material is available in the corresponding article of the [Built-In Base Materials](../../content/materials/library/index.md) section.

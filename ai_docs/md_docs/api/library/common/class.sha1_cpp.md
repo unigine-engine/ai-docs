@@ -29,7 +29,7 @@ Finalizes the checksum value by inverting all bits.
 ### Arguments
 
 - *unsigned int** **value** - 160-bit SHA1 checksum (array of 5 unsigned int elements).
-- *bool* **big_endian** - Byte ordering flag. Set **true** to use the big-endian order; **false** — to use the little-endian order.
+- *bool* **big_endian** - Byte ordering flag. Set true to use the big-endian order; **false** � to use the little-endian order.
 
 ## int calculate ( const void* data , int size , bool big_endian )
 
@@ -38,7 +38,7 @@ Calculates a 160-bit SHA1 checksum.
 
 - *const void** **data** - Input data pointer.
 - *int* **size** - Input data size, in bytes.
-- *bool* **big_endian** - Byte ordering flag. Set **true** to use the big-endian order; **false** — to use the little-endian order.
+- *bool* **big_endian** - Byte ordering flag. Set true to use the big-endian order; **false** � to use the little-endian order.
 
 ### Return value
 
@@ -51,4 +51,4 @@ Calculates a 160-bit SHA1 checksum.
 - *unsigned int** **value** - 160-bit SHA1 checksum (array of 5 unsigned int elements).
 - *const void** **data** - Input data pointer.
 - *int* **size** - Input data size, in bytes.
-- *bool* **big_endian** - Byte ordering flag. Set **true** to use the big-endian order; **false** — to use the little-endian order.
+- *bool* **big_endian** - Byte ordering flag. Set true to use the big-endian order; **false** � to use the little-endian order.

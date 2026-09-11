@@ -19,6 +19,19 @@ The color correction data are stored in the [configuration file](../../../../pri
 
 ### Members
 
+## void setEnabled ( bool enabled )
+
+Sets a new value indicating if the warping mesh is enabled.
+### Arguments
+
+- *bool* **enabled** - Set **true** to enable warping mesh; **false** - to disable it.
+
+## bool isEnabled () const
+
+Returns the current value indicating if the warping mesh is enabled.
+### Return value
+
+**true** if warping mesh is enabled ; otherwise **false**.
 ---
 
 ## bool loadFile ( const char * filepath )

@@ -3765,7 +3765,7 @@ Returns the hyperbolic sine of an argument.
 Return value.
 ## float Asin ( float v )
 
-Returns the arcsine of the argument — the angle in radians, whose sine is equal to the argument. a == sin(asin(a)) for every value that is within asin()'s range.
+Returns the arcsine of the argument � the angle in radians, whose sine is equal to the argument. a == sin(asin(a)) for every value that is within asin()'s range.
 ### Arguments
 
 - *float* **v** - Value.
@@ -3775,7 +3775,7 @@ Returns the arcsine of the argument — the angle in radians, whose sine is equa
 Resulting *float* value.
 ## double Asin ( double v )
 
-Returns the arcsine of the argument — the angle in radians, whose sine is equal to the argument. a == sin(asin(a)) for every value that is within asin()'s range.
+Returns the arcsine of the argument � the angle in radians, whose sine is equal to the argument. a == sin(asin(a)) for every value that is within asin()'s range.
 ### Arguments
 
 - *double* **v** - Value.
@@ -3785,7 +3785,7 @@ Returns the arcsine of the argument — the angle in radians, whose sine is equa
 Resulting *double* value.
 ## Vector2 Asin ( Vector2 v )
 
-Returns the arcsine of the argument — the angle in radians, whose sine is equal to the argument. a == sin(asin(a)) for every value that is within asin()'s range.
+Returns the arcsine of the argument � the angle in radians, whose sine is equal to the argument. a == sin(asin(a)) for every value that is within asin()'s range.
 ### Arguments
 
 - *Vector2* **v** - Value.
@@ -3795,7 +3795,7 @@ Returns the arcsine of the argument — the angle in radians, whose sine is equa
 Return value.
 ## Vector3 Asin ( Vector3 v )
 
-Returns the arcsine of the argument — the angle in radians, whose sine is equal to the argument. a == sin(asin(a)) for every value that is within asin()'s range.
+Returns the arcsine of the argument � the angle in radians, whose sine is equal to the argument. a == sin(asin(a)) for every value that is within asin()'s range.
 ### Arguments
 
 - *Vector3* **v** - Value.
@@ -3805,7 +3805,7 @@ Returns the arcsine of the argument — the angle in radians, whose sine is equa
 Return value.
 ## Vector4 Asin ( Vector4 v )
 
-Returns the arcsine of the argument — the angle in radians, whose sine is equal to the argument. a == sin(asin(a)) for every value that is within asin()'s range.
+Returns the arcsine of the argument � the angle in radians, whose sine is equal to the argument. a == sin(asin(a)) for every value that is within asin()'s range.
 ### Arguments
 
 - *Vector4* **v** - Value.
@@ -3815,7 +3815,7 @@ Returns the arcsine of the argument — the angle in radians, whose sine is equa
 Return value.
 ## vec2 Asin ( vec2 v )
 
-Returns the arcsine of the argument — the angle in radians, whose sine is equal to the argument. a == sin(asin(a)) for every value that is within asin()'s range.
+Returns the arcsine of the argument � the angle in radians, whose sine is equal to the argument. a == sin(asin(a)) for every value that is within asin()'s range.
 ### Arguments
 
 - *vec2* **v** - Value.
@@ -3825,7 +3825,7 @@ Returns the arcsine of the argument — the angle in radians, whose sine is equa
 Return value.
 ## vec3 Asin ( vec3 v )
 
-Returns the arcsine of the argument — the angle in radians, whose sine is equal to the argument. a == sin(asin(a)) for every value that is within asin()'s range.
+Returns the arcsine of the argument � the angle in radians, whose sine is equal to the argument. a == sin(asin(a)) for every value that is within asin()'s range.
 ### Arguments
 
 - *vec3* **v** - Value.
@@ -3835,7 +3835,7 @@ Returns the arcsine of the argument — the angle in radians, whose sine is equa
 Return value.
 ## vec4 Asin ( vec4 v )
 
-Returns the arcsine of the argument — the angle in radians, whose sine is equal to the argument. a == sin(asin(a)) for every value that is within asin()'s range.
+Returns the arcsine of the argument � the angle in radians, whose sine is equal to the argument. a == sin(asin(a)) for every value that is within asin()'s range.
 ### Arguments
 
 - *vec4* **v** - Value.
@@ -3845,7 +3845,7 @@ Returns the arcsine of the argument — the angle in radians, whose sine is equa
 Return value.
 ## dvec2 Asin ( dvec2 v )
 
-Returns the arcsine of the argument — the angle in radians, whose sine is equal to the argument. a == sin(asin(a)) for every value that is within asin()'s range.
+Returns the arcsine of the argument � the angle in radians, whose sine is equal to the argument. a == sin(asin(a)) for every value that is within asin()'s range.
 ### Arguments
 
 - *dvec2* **v** - Value.
@@ -3855,7 +3855,7 @@ Returns the arcsine of the argument — the angle in radians, whose sine is equa
 Return value.
 ## dvec3 Asin ( dvec3 v )
 
-Returns the arcsine of the argument — the angle in radians, whose sine is equal to the argument. a == sin(asin(a)) for every value that is within asin()'s range.
+Returns the arcsine of the argument � the angle in radians, whose sine is equal to the argument. a == sin(asin(a)) for every value that is within asin()'s range.
 ### Arguments
 
 - *dvec3* **v** - Value.
@@ -3865,7 +3865,7 @@ Returns the arcsine of the argument — the angle in radians, whose sine is equa
 Return value.
 ## dvec4 Asin ( dvec4 v )
 
-Returns the arcsine of the argument — the angle in radians, whose sine is equal to the argument. a == sin(asin(a)) for every value that is within asin()'s range.
+Returns the arcsine of the argument � the angle in radians, whose sine is equal to the argument. a == sin(asin(a)) for every value that is within asin()'s range.
 ### Arguments
 
 - *dvec4* **v** - Value.
@@ -4095,7 +4095,7 @@ Returns the hyperbolic cosine of an argument.
 Return value.
 ## float Acos ( float x )
 
-Returns the arccosine of the argument — the angle in radians, whose cosine is equal to the argument. a == cos(acos(a)) for every value that is within acos()'s range.
+Returns the arccosine of the argument ï¿½ the angle in radians, whose cosine is equal to the argument. a == cos(acos(a)) for every value that is within acos()'s range.
 ### Arguments
 
 - *float* **x** - Value.
@@ -4105,7 +4105,7 @@ Returns the arccosine of the argument — the angle in radians, whose cosine is 
 Resulting *float* value.
 ## double Acos ( double x )
 
-Returns the arccosine of the argument — the angle in radians, whose cosine is equal to the argument. a == cos(acos(a)) for every value that is within acos()'s range.
+Returns the arccosine of the argument ï¿½ the angle in radians, whose cosine is equal to the argument. a == cos(acos(a)) for every value that is within acos()'s range.
 ### Arguments
 
 - *double* **x** - Value.
@@ -4115,7 +4115,7 @@ Returns the arccosine of the argument — the angle in radians, whose cosine is 
 Resulting *double* value.
 ## Vector2 Acos ( Vector2 v )
 
-Returns the arccosine of the argument — the angle in radians, whose cosine is equal to the argument. a == cos(acos(a)) for every value that is within acos()'s range.
+Returns the arccosine of the argument ï¿½ the angle in radians, whose cosine is equal to the argument. a == cos(acos(a)) for every value that is within acos()'s range.
 ### Arguments
 
 - *Vector2* **v** - Value.
@@ -4125,7 +4125,7 @@ Returns the arccosine of the argument — the angle in radians, whose cosine is 
 Return value.
 ## Vector3 Acos ( Vector3 v )
 
-Returns the arccosine of the argument — the angle in radians, whose cosine is equal to the argument. a == cos(acos(a)) for every value that is within acos()'s range.
+Returns the arccosine of the argument ï¿½ the angle in radians, whose cosine is equal to the argument. a == cos(acos(a)) for every value that is within acos()'s range.
 ### Arguments
 
 - *Vector3* **v** - Value.
@@ -4135,7 +4135,7 @@ Returns the arccosine of the argument — the angle in radians, whose cosine is 
 Return value.
 ## Vector4 Acos ( Vector4 v )
 
-Returns the arccosine of the argument — the angle in radians, whose cosine is equal to the argument. a == cos(acos(a)) for every value that is within acos()'s range.
+Returns the arccosine of the argument ï¿½ the angle in radians, whose cosine is equal to the argument. a == cos(acos(a)) for every value that is within acos()'s range.
 ### Arguments
 
 - *Vector4* **v** - Value.
@@ -4145,7 +4145,7 @@ Returns the arccosine of the argument — the angle in radians, whose cosine is 
 Return value.
 ## vec2 Acos ( vec2 v )
 
-Returns the arccosine of the argument — the angle in radians, whose cosine is equal to the argument. a == cos(acos(a)) for every value that is within acos()'s range.
+Returns the arccosine of the argument ï¿½ the angle in radians, whose cosine is equal to the argument. a == cos(acos(a)) for every value that is within acos()'s range.
 ### Arguments
 
 - *vec2* **v** - Value.
@@ -4155,7 +4155,7 @@ Returns the arccosine of the argument — the angle in radians, whose cosine is 
 Return value.
 ## vec3 Acos ( vec3 v )
 
-Returns the arccosine of the argument — the angle in radians, whose cosine is equal to the argument. a == cos(acos(a)) for every value that is within acos()'s range.
+Returns the arccosine of the argument ï¿½ the angle in radians, whose cosine is equal to the argument. a == cos(acos(a)) for every value that is within acos()'s range.
 ### Arguments
 
 - *vec3* **v** - Value.
@@ -4165,7 +4165,7 @@ Returns the arccosine of the argument — the angle in radians, whose cosine is 
 Return value.
 ## vec4 Acos ( vec4 v )
 
-Returns the arccosine of the argument — the angle in radians, whose cosine is equal to the argument. a == cos(acos(a)) for every value that is within acos()'s range.
+Returns the arccosine of the argument ï¿½ the angle in radians, whose cosine is equal to the argument. a == cos(acos(a)) for every value that is within acos()'s range.
 ### Arguments
 
 - *vec4* **v** - Value.
@@ -4175,7 +4175,7 @@ Returns the arccosine of the argument — the angle in radians, whose cosine is 
 Return value.
 ## dvec2 Acos ( dvec2 v )
 
-Returns the arccosine of the argument — the angle in radians, whose cosine is equal to the argument. a == cos(acos(a)) for every value that is within acos()'s range.
+Returns the arccosine of the argument ï¿½ the angle in radians, whose cosine is equal to the argument. a == cos(acos(a)) for every value that is within acos()'s range.
 ### Arguments
 
 - *dvec2* **v** - Value.
@@ -4185,7 +4185,7 @@ Returns the arccosine of the argument — the angle in radians, whose cosine is 
 Return value.
 ## dvec3 Acos ( dvec3 v )
 
-Returns the arccosine of the argument — the angle in radians, whose cosine is equal to the argument. a == cos(acos(a)) for every value that is within acos()'s range.
+Returns the arccosine of the argument ï¿½ the angle in radians, whose cosine is equal to the argument. a == cos(acos(a)) for every value that is within acos()'s range.
 ### Arguments
 
 - *dvec3* **v** - Value.
@@ -4195,7 +4195,7 @@ Returns the arccosine of the argument — the angle in radians, whose cosine is 
 Return value.
 ## dvec4 Acos ( dvec4 v )
 
-Returns the arccosine of the argument — the angle in radians, whose cosine is equal to the argument. a == cos(acos(a)) for every value that is within acos()'s range.
+Returns the arccosine of the argument ï¿½ the angle in radians, whose cosine is equal to the argument. a == cos(acos(a)) for every value that is within acos()'s range.
 ### Arguments
 
 - *dvec4* **v** - Value.
@@ -4331,6 +4331,46 @@ Returns the tangent of an argument.
 ### Return value
 
 Return value.
+## float Logit ( float v )
+
+Returns the logit of an argument - the inverse of the logistic sigmoid: **ln(x / (1 - x))**.
+### Arguments
+
+- *float* **v** - Value, expected to be in the range of **0.0** to **1.0**, exclusive.
+
+### Return value
+
+Resulting *float* value.
+## double Logit ( double v )
+
+Returns the logit of an argument - the inverse of the logistic sigmoid: **ln(x / (1 - x))**.
+### Arguments
+
+- *double* **v** - Value, expected to be in the range of **0.0** to **1.0**, exclusive.
+
+### Return value
+
+Resulting *double* value.
+## float Sigmoid ( float v )
+
+Returns the logistic sigmoid of an argument: **1 / (1 + e^-x)**.
+### Arguments
+
+- *float* **v** - Value.
+
+### Return value
+
+Resulting *float* value in the range of **0.0** to **1.0**, exclusive.
+## double Sigmoid ( double v )
+
+Returns the logistic sigmoid of an argument: **1 / (1 + e^-x)**.
+### Arguments
+
+- *double* **v** - Value.
+
+### Return value
+
+Resulting *double* value in the range of **0.0** to **1.0**, exclusive.
 ## float Tanh ( float v )
 
 Returns the hyperbolic tangent of an argument.
@@ -4443,7 +4483,7 @@ Returns the hyperbolic tangent of an argument.
 Return value.
 ## float Atan ( float v )
 
-Returns the arctangent of the argument — the angle in radians, whose tangent is equal to the argument. a == tan(atan(a)) for every value that is within atan()'s range.
+Returns the arctangent of the argument ï¿½ the angle in radians, whose tangent is equal to the argument. a == tan(atan(a)) for every value that is within atan()'s range.
 ### Arguments
 
 - *float* **v** - Value.
@@ -4453,7 +4493,7 @@ Returns the arctangent of the argument — the angle in radians, whose tangent i
 Resulting *float* value.
 ## double Atan ( double v )
 
-Returns the arctangent of the argument — the angle in radians, whose tangent is equal to the argument. a == tan(atan(a)) for every value that is within atan()'s range.
+Returns the arctangent of the argument ï¿½ the angle in radians, whose tangent is equal to the argument. a == tan(atan(a)) for every value that is within atan()'s range.
 ### Arguments
 
 - *double* **v** - Value.
@@ -4463,7 +4503,7 @@ Returns the arctangent of the argument — the angle in radians, whose tangent i
 Resulting *double* value.
 ## Vector2 Atan ( Vector2 v )
 
-Returns the arctangent of the argument — the angle in radians, whose tangent is equal to the argument. a == tan(atan(a)) for every value that is within atan()'s range.
+Returns the arctangent of the argument ï¿½ the angle in radians, whose tangent is equal to the argument. a == tan(atan(a)) for every value that is within atan()'s range.
 ### Arguments
 
 - *Vector2* **v** - Value.
@@ -4473,7 +4513,7 @@ Returns the arctangent of the argument — the angle in radians, whose tangent i
 Return value.
 ## Vector3 Atan ( Vector3 v )
 
-Returns the arctangent of the argument — the angle in radians, whose tangent is equal to the argument. a == tan(atan(a)) for every value that is within atan()'s range.
+Returns the arctangent of the argument ï¿½ the angle in radians, whose tangent is equal to the argument. a == tan(atan(a)) for every value that is within atan()'s range.
 ### Arguments
 
 - *Vector3* **v** - Value.
@@ -4483,7 +4523,7 @@ Returns the arctangent of the argument — the angle in radians, whose tangent i
 Return value.
 ## Vector4 Atan ( Vector4 v )
 
-Returns the arctangent of the argument — the angle in radians, whose tangent is equal to the argument. a == tan(atan(a)) for every value that is within atan()'s range.
+Returns the arctangent of the argument ï¿½ the angle in radians, whose tangent is equal to the argument. a == tan(atan(a)) for every value that is within atan()'s range.
 ### Arguments
 
 - *Vector4* **v** - Value.
@@ -4493,7 +4533,7 @@ Returns the arctangent of the argument — the angle in radians, whose tangent i
 Return value.
 ## vec2 Atan ( vec2 v )
 
-Returns the arctangent of the argument — the angle in radians, whose tangent is equal to the argument. a == tan(atan(a)) for every value that is within atan()'s range.
+Returns the arctangent of the argument ï¿½ the angle in radians, whose tangent is equal to the argument. a == tan(atan(a)) for every value that is within atan()'s range.
 ### Arguments
 
 - *vec2* **v** - Value.
@@ -4503,7 +4543,7 @@ Returns the arctangent of the argument — the angle in radians, whose tangent i
 Return value.
 ## vec3 Atan ( vec3 v )
 
-Returns the arctangent of the argument — the angle in radians, whose tangent is equal to the argument. a == tan(atan(a)) for every value that is within atan()'s range.
+Returns the arctangent of the argument ï¿½ the angle in radians, whose tangent is equal to the argument. a == tan(atan(a)) for every value that is within atan()'s range.
 ### Arguments
 
 - *vec3* **v** - Value.
@@ -4513,7 +4553,7 @@ Returns the arctangent of the argument — the angle in radians, whose tangent i
 Return value.
 ## vec4 Atan ( vec4 v )
 
-Returns the arctangent of the argument — the angle in radians, whose tangent is equal to the argument. a == tan(atan(a)) for every value that is within atan()'s range.
+Returns the arctangent of the argument ï¿½ the angle in radians, whose tangent is equal to the argument. a == tan(atan(a)) for every value that is within atan()'s range.
 ### Arguments
 
 - *vec4* **v** - Value.
@@ -4523,7 +4563,7 @@ Returns the arctangent of the argument — the angle in radians, whose tangent i
 Return value.
 ## dvec2 Atan ( dvec2 v )
 
-Returns the arctangent of the argument — the angle in radians, whose tangent is equal to the argument. a == tan(atan(a)) for every value that is within atan()'s range.
+Returns the arctangent of the argument ï¿½ the angle in radians, whose tangent is equal to the argument. a == tan(atan(a)) for every value that is within atan()'s range.
 ### Arguments
 
 - *dvec2* **v** - Value.
@@ -4533,7 +4573,7 @@ Returns the arctangent of the argument — the angle in radians, whose tangent i
 Return value.
 ## dvec3 Atan ( dvec3 v )
 
-Returns the arctangent of the argument — the angle in radians, whose tangent is equal to the argument. a == tan(atan(a)) for every value that is within atan()'s range.
+Returns the arctangent of the argument ï¿½ the angle in radians, whose tangent is equal to the argument. a == tan(atan(a)) for every value that is within atan()'s range.
 ### Arguments
 
 - *dvec3* **v** - Value.
@@ -4543,7 +4583,7 @@ Returns the arctangent of the argument — the angle in radians, whose tangent i
 Return value.
 ## dvec4 Atan ( dvec4 v )
 
-Returns the arctangent of the argument — the angle in radians, whose tangent is equal to the argument. a == tan(atan(a)) for every value that is within atan()'s range.
+Returns the arctangent of the argument ï¿½ the angle in radians, whose tangent is equal to the argument. a == tan(atan(a)) for every value that is within atan()'s range.
 ### Arguments
 
 - *dvec4* **v** - Value.
@@ -6663,7 +6703,10 @@ Returns an integral value indicating the sign of an argument.
 
 ### Return value
 
+
 Sign of the argument:
+
+
 - 1.0 if the value is greater than 0
 - 0 if the value is equal to 0
 - -1.0 if the value is less than 0
@@ -6678,7 +6721,10 @@ Returns an integral value indicating the sign of an argument.
 
 ### Return value
 
+
 Sign of the argument:
+
+
 - 1.0 if the value is greater than 0
 - 0 if the value is equal to 0
 - -1.0 if the value is less than 0
@@ -6693,7 +6739,10 @@ Returns an integral value indicating the sign of an argument.
 
 ### Return value
 
+
 Sign of the argument:
+
+
 - 1.0 if the value is greater than 0
 - 0 if the value is equal to 0
 - -1.0 if the value is less than 0
@@ -6708,7 +6757,10 @@ Returns an integral value indicating the sign of an argument.
 
 ### Return value
 
+
 Sign of the argument:
+
+
 - 1.0 if the value is greater than 0
 - 0 if the value is equal to 0
 - -1.0 if the value is less than 0
@@ -6723,7 +6775,10 @@ Returns an integral value indicating the sign of an argument.
 
 ### Return value
 
+
 Sign of the argument:
+
+
 - 1.0 if the value is greater than 0
 - 0 if the value is equal to 0
 - -1.0 if the value is less than 0
@@ -6738,7 +6793,10 @@ Returns an integral value indicating the sign of an argument.
 
 ### Return value
 
+
 Sign of the argument:
+
+
 - 1.0 if the value is greater than 0
 - 0 if the value is equal to 0
 - -1.0 if the value is less than 0
@@ -6753,7 +6811,10 @@ Returns an integral value indicating the sign of an argument.
 
 ### Return value
 
+
 Sign of the argument:
+
+
 - 1.0 if the value is greater than 0
 - 0 if the value is equal to 0
 - -1.0 if the value is less than 0
@@ -6768,7 +6829,10 @@ Returns an integral value indicating the sign of an argument.
 
 ### Return value
 
+
 Vector with components containing the sign of the argument components:
+
+
 - 1.0 if the value is greater than 0
 - 0 if the value is equal to 0
 - -1.0 if the value is less than 0
@@ -6783,7 +6847,10 @@ Returns an integral value indicating the sign of an argument.
 
 ### Return value
 
+
 Vector with components containing the sign of the argument components:
+
+
 - 1.0 if the value is greater than 0
 - 0 if the value is equal to 0
 - -1.0 if the value is less than 0
@@ -6798,7 +6865,10 @@ Returns an integral value indicating the sign of an argument.
 
 ### Return value
 
+
 Vector with components containing the sign of the argument components:
+
+
 - 1.0 if the value is greater than 0
 - 0 if the value is equal to 0
 - -1.0 if the value is less than 0
@@ -6813,7 +6883,10 @@ Returns an integral value indicating the sign of an argument.
 
 ### Return value
 
+
 Vector with components containing the sign of the argument components:
+
+
 - 1.0 if the value is greater than 0
 - 0 if the value is equal to 0
 - -1.0 if the value is less than 0
@@ -6828,7 +6901,10 @@ Returns an integral value indicating the sign of an argument.
 
 ### Return value
 
+
 Vector with components containing the sign of the argument components:
+
+
 - 1.0 if the value is greater than 0
 - 0 if the value is equal to 0
 - -1.0 if the value is less than 0
@@ -6843,7 +6919,10 @@ Returns an integral value indicating the sign of an argument.
 
 ### Return value
 
+
 Vector with components containing the sign of the argument components:
+
+
 - 1.0 if the value is greater than 0
 - 0 if the value is equal to 0
 - -1.0 if the value is less than 0
@@ -6858,7 +6937,10 @@ Returns an integral value indicating the sign of an argument.
 
 ### Return value
 
+
 Vector with components containing the sign of the argument components:
+
+
 - 1.0 if the value is greater than 0
 - 0 if the value is equal to 0
 - -1.0 if the value is less than 0
@@ -6873,7 +6955,10 @@ Returns an integral value indicating the sign of an argument.
 
 ### Return value
 
+
 Vector with components containing the sign of the argument components:
+
+
 - 1.0 if the value is greater than 0
 - 0 if the value is equal to 0
 - -1.0 if the value is less than 0
@@ -6888,7 +6973,10 @@ Returns an integral value indicating the sign of an argument.
 
 ### Return value
 
+
 Vector with components containing the sign of the argument components:
+
+
 - 1.0 if the value is greater than 0
 - 0 if the value is equal to 0
 - -1.0 if the value is less than 0
@@ -6903,7 +6991,10 @@ Returns an integral value indicating the sign of an argument.
 
 ### Return value
 
+
 Vector with components containing the sign of the argument components:
+
+
 - 1.0 if the value is greater than 0
 - 0 if the value is equal to 0
 - -1.0 if the value is less than 0
@@ -6918,7 +7009,10 @@ Returns an integral value indicating the sign of an argument.
 
 ### Return value
 
+
 Vector with components containing the sign of the argument components:
+
+
 - 1.0 if the value is greater than 0
 - 0 if the value is equal to 0
 - -1.0 if the value is less than 0
@@ -6933,7 +7027,10 @@ Returns an integral value indicating the sign of an argument.
 
 ### Return value
 
+
 Vector with components containing the sign of the argument components:
+
+
 - 1.0 if the value is greater than 0
 - 0 if the value is equal to 0
 - -1.0 if the value is less than 0
@@ -10495,7 +10592,7 @@ Returns the sum of vector components.
 Resulting *int* value.
 ## float Length2 ( Vector2 v )
 
-Returns the squared length of a given vector. This method is much faster than *[Length()](#Length_Vector2_float)* — the calculation is basically the same only without the slow *Sqrt* call. If you are using lengths simply to compare distances, then it is faster to compare squared lengths against the squares of distances as the comparison gives the same result.
+Returns the squared length of a given vector. This method is much faster than *[Length()](#Length_Vector2_float)* ï¿½ the calculation is basically the same only without the slow *Sqrt* call. If you are using lengths simply to compare distances, then it is faster to compare squared lengths against the squares of distances as the comparison gives the same result.
 ### Arguments
 
 - *Vector2* **v** - Vector.
@@ -10505,7 +10602,7 @@ Returns the squared length of a given vector. This method is much faster than *[
 Resulting *float* value.
 ## float Length2 ( Vector3 v )
 
-Returns the squared length of a given vector. This method is much faster than *[Length()](#Length_Vector3_float)* — the calculation is basically the same only without the slow *Sqrt* call. If you are using lengths simply to compare distances, then it is faster to compare squared lengths against the squares of distances as the comparison gives the same result.
+Returns the squared length of a given vector. This method is much faster than *[Length()](#Length_Vector3_float)* ï¿½ the calculation is basically the same only without the slow *Sqrt* call. If you are using lengths simply to compare distances, then it is faster to compare squared lengths against the squares of distances as the comparison gives the same result.
 ### Arguments
 
 - *Vector3* **v** - Vector.
@@ -10515,7 +10612,7 @@ Returns the squared length of a given vector. This method is much faster than *[
 Resulting *float* value.
 ## float Length2 ( Vector4 v )
 
-Returns the squared length of a given vector. This method is much faster than *[Length()](#Length_Vector4_float)* — the calculation is basically the same only without the slow *Sqrt* call. If you are using lengths simply to compare distances, then it is faster to compare squared lengths against the squares of distances as the comparison gives the same result.
+Returns the squared length of a given vector. This method is much faster than *[Length()](#Length_Vector4_float)* ï¿½ the calculation is basically the same only without the slow *Sqrt* call. If you are using lengths simply to compare distances, then it is faster to compare squared lengths against the squares of distances as the comparison gives the same result.
 ### Arguments
 
 - *Vector4* **v** - Vector.
@@ -10525,7 +10622,7 @@ Returns the squared length of a given vector. This method is much faster than *[
 Resulting *float* value.
 ## float Length2 ( vec2 v )
 
-Returns the squared length of a given vector. This method is much faster than *[Length()](#Length_vec2_float)* — the calculation is basically the same only without the slow *Sqrt* call. If you are using lengths simply to compare distances, then it is faster to compare squared lengths against the squares of distances as the comparison gives the same result.
+Returns the squared length of a given vector. This method is much faster than *[Length()](#Length_vec2_float)* ï¿½ the calculation is basically the same only without the slow *Sqrt* call. If you are using lengths simply to compare distances, then it is faster to compare squared lengths against the squares of distances as the comparison gives the same result.
 ### Arguments
 
 - *vec2* **v** - Vector.
@@ -10535,7 +10632,7 @@ Returns the squared length of a given vector. This method is much faster than *[
 Resulting *float* value.
 ## float Length2 ( vec3 v )
 
-Returns the squared length of a given vector. This method is much faster than *[Length()](#Length_vec3_float)* — the calculation is basically the same only without the slow *Sqrt* call. If you are using lengths simply to compare distances, then it is faster to compare squared lengths against the squares of distances as the comparison gives the same result.
+Returns the squared length of a given vector. This method is much faster than *[Length()](#Length_vec3_float)* ï¿½ the calculation is basically the same only without the slow *Sqrt* call. If you are using lengths simply to compare distances, then it is faster to compare squared lengths against the squares of distances as the comparison gives the same result.
 ### Arguments
 
 - *vec3* **v** - Vector.
@@ -10545,7 +10642,7 @@ Returns the squared length of a given vector. This method is much faster than *[
 Resulting *float* value.
 ## float Length2 ( vec4 v )
 
-Returns the squared length of a given vector. This method is much faster than *[Length()](#Length_vec4_float)* — the calculation is basically the same only without the slow *Sqrt* call. If you are using lengths simply to compare distances, then it is faster to compare squared lengths against the squares of distances as the comparison gives the same result.
+Returns the squared length of a given vector. This method is much faster than *[Length()](#Length_vec4_float)* ï¿½ the calculation is basically the same only without the slow *Sqrt* call. If you are using lengths simply to compare distances, then it is faster to compare squared lengths against the squares of distances as the comparison gives the same result.
 ### Arguments
 
 - *vec4* **v** - Vector.
@@ -10555,7 +10652,7 @@ Returns the squared length of a given vector. This method is much faster than *[
 Resulting *float* value.
 ## float Length2 ( quat v )
 
-Returns the squared length of a given vector. This method is much faster than *[Length()](#Length_quat_float)* — the calculation is basically the same only without the slow *Sqrt* call. If you are using lengths simply to compare distances, then it is faster to compare squared lengths against the squares of distances as the comparison gives the same result.
+Returns the squared length of a given vector. This method is much faster than *[Length()](#Length_quat_float)* ï¿½ the calculation is basically the same only without the slow *Sqrt* call. If you are using lengths simply to compare distances, then it is faster to compare squared lengths against the squares of distances as the comparison gives the same result.
 ### Arguments
 
 - *quat* **v** - Vector.
@@ -10565,7 +10662,7 @@ Returns the squared length of a given vector. This method is much faster than *[
 Resulting *float* value.
 ## double Length2 ( dvec2 v )
 
-Returns the squared length of a given vector. This method is much faster than *[Length()](#Length_dvec2_double)* — the calculation is basically the same only without the slow *Sqrt* call. If you are using lengths simply to compare distances, then it is faster to compare squared lengths against the squares of distances as the comparison gives the same result.
+Returns the squared length of a given vector. This method is much faster than *[Length()](#Length_dvec2_double)* ï¿½ the calculation is basically the same only without the slow *Sqrt* call. If you are using lengths simply to compare distances, then it is faster to compare squared lengths against the squares of distances as the comparison gives the same result.
 ### Arguments
 
 - *dvec2* **v** - Vector.
@@ -10575,7 +10672,7 @@ Returns the squared length of a given vector. This method is much faster than *[
 Resulting *double* value.
 ## double Length2 ( dvec3 v )
 
-Returns the squared length of a given vector. This method is much faster than *[Length()](#Length_dvec3_double)* — the calculation is basically the same only without the slow *Sqrt* call. If you are using lengths simply to compare distances, then it is faster to compare squared lengths against the squares of distances as the comparison gives the same result.
+Returns the squared length of a given vector. This method is much faster than *[Length()](#Length_dvec3_double)* ï¿½ the calculation is basically the same only without the slow *Sqrt* call. If you are using lengths simply to compare distances, then it is faster to compare squared lengths against the squares of distances as the comparison gives the same result.
 ### Arguments
 
 - *dvec3* **v** - Vector.
@@ -10585,7 +10682,7 @@ Returns the squared length of a given vector. This method is much faster than *[
 Resulting *double* value.
 ## double Length2 ( dvec4 v )
 
-Returns the squared length of a given vector. This method is much faster than *[Length()](#Length_dvec4_double)* — the calculation is basically the same only without the slow *Sqrt* call. If you are using lengths simply to compare distances, then it is faster to compare squared lengths against the squares of distances as the comparison gives the same result.
+Returns the squared length of a given vector. This method is much faster than *[Length()](#Length_dvec4_double)* ï¿½ the calculation is basically the same only without the slow *Sqrt* call. If you are using lengths simply to compare distances, then it is faster to compare squared lengths against the squares of distances as the comparison gives the same result.
 ### Arguments
 
 - *dvec4* **v** - Vector.
@@ -10595,7 +10692,7 @@ Returns the squared length of a given vector. This method is much faster than *[
 Resulting *double* value.
 ## int Length2 ( ivec2 v )
 
-Returns the squared length of a given vector. This method is much faster than *length()* — the calculation is basically the same only without the slow *Sqrt* call. If you are using lengths simply to compare distances, then it is faster to compare squared lengths against the squares of distances as the comparison gives the same result.
+Returns the squared length of a given vector. This method is much faster than *length()* ï¿½ the calculation is basically the same only without the slow *Sqrt* call. If you are using lengths simply to compare distances, then it is faster to compare squared lengths against the squares of distances as the comparison gives the same result.
 ### Arguments
 
 - *ivec2* **v** - Vector.
@@ -10605,7 +10702,7 @@ Returns the squared length of a given vector. This method is much faster than *l
 Resulting *int* value.
 ## int Length2 ( ivec3 v )
 
-Returns the squared length of a given vector. This method is much faster than *length()* — the calculation is basically the same only without the slow *Sqrt* call. If you are using lengths simply to compare distances, then it is faster to compare squared lengths against the squares of distances as the comparison gives the same result.
+Returns the squared length of a given vector. This method is much faster than *length()* ï¿½ the calculation is basically the same only without the slow *Sqrt* call. If you are using lengths simply to compare distances, then it is faster to compare squared lengths against the squares of distances as the comparison gives the same result.
 ### Arguments
 
 - *ivec3* **v** - Vector.
@@ -10615,7 +10712,7 @@ Returns the squared length of a given vector. This method is much faster than *l
 Resulting *int* value.
 ## int Length2 ( ivec4 v )
 
-Returns the squared length of a given vector. This method is much faster than *length()* — the calculation is basically the same only without the slow *Sqrt* call. If you are using lengths simply to compare distances, then it is faster to compare squared lengths against the squares of distances as the comparison gives the same result.
+Returns the squared length of a given vector. This method is much faster than *length()* ï¿½ the calculation is basically the same only without the slow *Sqrt* call. If you are using lengths simply to compare distances, then it is faster to compare squared lengths against the squares of distances as the comparison gives the same result.
 ### Arguments
 
 - *ivec4* **v** - Vector.
@@ -10625,7 +10722,7 @@ Returns the squared length of a given vector. This method is much faster than *l
 Resulting *int* value.
 ## int Length2 ( bvec4 v )
 
-Returns the squared length of a given vector. This method is much faster than *length()* — the calculation is basically the same only without the slow *Sqrt* call. If you are using lengths simply to compare distances, then it is faster to compare squared lengths against the squares of distances as the comparison gives the same result.
+Returns the squared length of a given vector. This method is much faster than *length()* ï¿½ the calculation is basically the same only without the slow *Sqrt* call. If you are using lengths simply to compare distances, then it is faster to compare squared lengths against the squares of distances as the comparison gives the same result.
 ### Arguments
 
 - *bvec4* **v** - Vector.
@@ -14787,7 +14884,7 @@ Returns the oblique projection matrix for the specified projection matrix to acc
 Oblique projection matrix.
 ## mat4 ReverseDepthProjection ( mat4 projection )
 
-Returns the reverse depth projection matrix — the projection matrix in which the elements that store the near and far clipping planes are multiplied by -1.
+Returns the reverse depth projection matrix ï¿½ the projection matrix in which the elements that store the near and far clipping planes are multiplied by -1.
 ### Arguments
 
 - *mat4* **projection** - Projection matrix.
@@ -14886,7 +14983,7 @@ Transposes a given matrix.
 Transposed matrix.
 ## mat4 Transpose3 ( mat4 m )
 
-Transposes the upper left 3×3 sub-matrix of a matrix..
+Transposes the upper left 3ï¿½3 sub-matrix of a matrix..
 ### Arguments
 
 - *mat4* **m** - Matrix.
@@ -14986,7 +15083,8 @@ Returns inverse of the quaternion.
 Return value.
 ## mat4 Inverse4 ( mat4 m )
 
-Inverts a matrix that consists of a **3 × 4** sub-matrix (upper left) and a translation vector. The last row of the matrix is ignored. Compared to the *inverse()* function, this one is a bit faster and, which is more important, more stable. A matrix suitable for such inversion looks like this:
+Inverts a matrix that consists of a **3 ï¿½ 4** sub-matrix (upper left) and a translation vector. The last row of the matrix is ignored. Compared to the *inverse()* function, this one is a bit faster and, which is more important, more stable. A matrix suitable for such inversion looks like this:
+
 | *m00* | *m10* | *m20* | *m30* |
 |---|---|---|---|
 | *m01* | *m11* | *m21* | *m31* |
@@ -15002,7 +15100,8 @@ Inverts a matrix that consists of a **3 × 4** sub-matrix (upper left) and a tra
 Return value.
 ## dmat4 Inverse4 ( dmat4 m )
 
-Inverts a matrix that consists of a **3 × 4** sub-matrix (upper left) and a translation vector. The last row of the matrix is ignored. Compared to the *inverse()* function, this one is a bit faster and, which is more important, more stable. A matrix suitable for such inversion looks like this:
+Inverts a matrix that consists of a **3 ï¿½ 4** sub-matrix (upper left) and a translation vector. The last row of the matrix is ignored. Compared to the *inverse()* function, this one is a bit faster and, which is more important, more stable. A matrix suitable for such inversion looks like this:
+
 | *m00* | *m10* | *m20* | *m30* |
 |---|---|---|---|
 | *m01* | *m11* | *m21* | *m31* |
@@ -15051,6 +15150,7 @@ Return value.
 ## mat4 Translate ( vec3 v )
 
 Returns the translation matrix for the specified translation vector (X, Y, Z):
+
 | 1.0 | 0.0 | 0.0 | X |
 |---|---|---|---|
 | 0.0 | 1.0 | 0.0 | Y |
@@ -15067,6 +15167,7 @@ Resulting translation matrix.
 ## mat4 Translate ( vec4 v )
 
 Returns the translation matrix for the specified translation vector (X, Y, Z):
+
 | 1.0 | 0.0 | 0.0 | X |
 |---|---|---|---|
 | 0.0 | 1.0 | 0.0 | Y |
@@ -15083,6 +15184,7 @@ Resulting translation matrix.
 ## mat4 Translate ( vec2 v )
 
 Returns the translation matrix for the specified translation vector (X, Y, Z):
+
 | 1.0 | 0.0 | 0.0 | X |
 |---|---|---|---|
 | 0.0 | 1.0 | 0.0 | Y |
@@ -15099,6 +15201,7 @@ Resulting translation matrix.
 ## mat4 Translate ( float x , float y = 0.0f , float z = 0.0f )
 
 Returns the translation matrix for the specified translation vector (X, Y, Z):
+
 | 1.0 | 0.0 | 0.0 | X |
 |---|---|---|---|
 | 0.0 | 1.0 | 0.0 | Y |
@@ -15117,6 +15220,7 @@ Resulting translation matrix.
 ## dmat4 Translate ( dvec3 v )
 
 Returns the translation matrix for the specified translation vector (X, Y, Z):
+
 | 1.0 | 0.0 | 0.0 | X |
 |---|---|---|---|
 | 0.0 | 1.0 | 0.0 | Y |
@@ -15133,6 +15237,7 @@ Resulting translation matrix.
 ## dmat4 Translate ( dvec4 v )
 
 Returns the translation matrix for the specified translation vector (X, Y, Z):
+
 | 1.0 | 0.0 | 0.0 | X |
 |---|---|---|---|
 | 0.0 | 1.0 | 0.0 | Y |
@@ -15149,6 +15254,7 @@ Resulting translation matrix.
 ## dmat4 Translate ( dvec2 v )
 
 Returns the translation matrix for the specified translation vector (X, Y, Z):
+
 | 1.0 | 0.0 | 0.0 | X |
 |---|---|---|---|
 | 0.0 | 1.0 | 0.0 | Y |
@@ -15165,6 +15271,7 @@ Resulting translation matrix.
 ## dmat4 Translate ( double x , double y = 0.0 , double z = 0.0 )
 
 Returns the translation matrix for the specified translation vector (X, Y, Z):
+
 | 1.0 | 0.0 | 0.0 | X |
 |---|---|---|---|
 | 0.0 | 1.0 | 0.0 | Y |
@@ -15385,13 +15492,17 @@ Return value.
 ## mat3 Scale3 ( float x , float y , float z )
 
 Returns scaling matrix for the specified scaling vector (X, Y, Z):
+
 | X | 0.0 | 0.0 | 0.0 |
 |---|---|---|---|
 | 0.0 | Y | 0.0 | 0.0 |
 | 0.0 | 0.0 | Z | 0.0 |
 | 0.0 | 0.0 | 0.0 | 1.0 |
 
- The resulting matrix size for this method is **3 x 3**.
+
+The resulting matrix size for this method is **3 x 3**.
+
+
 ### Arguments
 
 - *float* **x** - X coordinate of the vector.
@@ -15404,13 +15515,17 @@ Resulting scaling matrix.
 ## mat3 Scale3 ( vec3 v )
 
 Returns scaling matrix for the specified scaling vector (X, Y, Z):
+
 | X | 0.0 | 0.0 | 0.0 |
 |---|---|---|---|
 | 0.0 | Y | 0.0 | 0.0 |
 | 0.0 | 0.0 | Z | 0.0 |
 | 0.0 | 0.0 | 0.0 | 1.0 |
 
- The resulting matrix size for this method is **3 x 3**.
+
+The resulting matrix size for this method is **3 x 3**.
+
+
 ### Arguments
 
 - *vec3* **v** - Scaling vector.
@@ -15421,6 +15536,7 @@ Resulting scaling matrix.
 ## mat4 Scale ( float x , float y , float z )
 
 Returns scaling matrix for the specified scaling vector (X, Y, Z):
+
 | X | 0.0 | 0.0 | 0.0 |
 |---|---|---|---|
 | 0.0 | Y | 0.0 | 0.0 |
@@ -15439,6 +15555,7 @@ Resulting scaling matrix.
 ## mat4 Scale ( float x )
 
 Returns scaling matrix for the specified scaling value:
+
 | X | 0.0 | 0.0 | 0.0 |
 |---|---|---|---|
 | 0.0 | X | 0.0 | 0.0 |
@@ -15455,6 +15572,7 @@ Resulting scaling matrix.
 ## mat4 Scale ( vec3 v )
 
 Returns scaling matrix for the specified scaling vector (X, Y, Z):
+
 | X | 0.0 | 0.0 | 0.0 |
 |---|---|---|---|
 | 0.0 | Y | 0.0 | 0.0 |
@@ -15471,6 +15589,7 @@ Resulting scaling matrix.
 ## dmat4 Scale ( double x , double y , double z )
 
 Returns scaling matrix for the specified scaling values (X, Y, Z):
+
 | X | 0.0 | 0.0 | 0.0 |
 |---|---|---|---|
 | 0.0 | Y | 0.0 | 0.0 |
@@ -15489,6 +15608,7 @@ Resulting scaling matrix.
 ## dmat4 Scale ( double x )
 
 Returns scaling matrix for the specified scaling value:
+
 | X | 0.0 | 0.0 | 0.0 |
 |---|---|---|---|
 | 0.0 | X | 0.0 | 0.0 |
@@ -15505,6 +15625,7 @@ Resulting scaling matrix.
 ## dmat4 Scale ( dvec3 v )
 
 Returns scaling matrix for the specified scaling vector (X, Y, Z):
+
 | X | 0.0 | 0.0 | 0.0 |
 |---|---|---|---|
 | 0.0 | Y | 0.0 | 0.0 |
@@ -15606,6 +15727,8 @@ When we talk about axes in UNIGINE we assume that:
 
 
 > **Notice:** Players have a different coordinate system:
+>
+>
 > - **X** axis points to the *right* giving us a **pitch** angle.
 > - **Y** axis points *up* giving us a **yaw** (heading) angle.
 > - **Z** axis points *backward* giving us a **-roll** angle.
@@ -15633,6 +15756,8 @@ When we talk about axes in UNIGINE we assume that:
 
 
 > **Notice:** Players have a different coordinate system:
+>
+>
 > - **X** axis points to the *right* giving us a **pitch** angle.
 > - **Y** axis points *up* giving us a **yaw** (heading) angle.
 > - **Z** axis points *backward* giving us a **-roll** angle.
@@ -15660,6 +15785,8 @@ When we talk about axes in UNIGINE we assume that:
 
 
 > **Notice:** Players have a different coordinate system:
+>
+>
 > - **X** axis points to the *right* giving us a **pitch** angle.
 > - **Y** axis points *up* giving us a **yaw** (heading) angle.
 > - **Z** axis points *backward* giving us a **-roll** angle.
@@ -15687,6 +15814,8 @@ When we talk about axes in UNIGINE we assume that:
 
 
 > **Notice:** Players have a different coordinate system:
+>
+>
 > - **X** axis points to the *right* giving us a **pitch** angle.
 > - **Y** axis points *up* giving us a **yaw** (heading) angle.
 > - **Z** axis points *backward* giving us a **-roll** angle.
@@ -15714,6 +15843,8 @@ When we talk about axes in UNIGINE we assume that:
 
 
 > **Notice:** Players have a different coordinate system:
+>
+>
 > - **X** axis points to the *right* giving us a **pitch** angle.
 > - **Y** axis points *up* giving us a **yaw** (heading) angle.
 > - **Z** axis points *backward* giving us a **-roll** angle.
@@ -15741,6 +15872,8 @@ When we talk about axes in UNIGINE we assume that:
 
 
 > **Notice:** Players have a different coordinate system:
+>
+>
 > - **X** axis points to the *right* giving us a **pitch** angle.
 > - **Y** axis points *up* giving us a **yaw** (heading) angle.
 > - **Z** axis points *backward* giving us a **-roll** angle.
@@ -15807,6 +15940,8 @@ When we talk about axes in UNIGINE we assume that:
 
 
 > **Notice:** Players have a different coordinate system:
+>
+>
 > - **X** axis points to the *right* giving us a **pitch** angle.
 > - **Y** axis points *up* giving us a **yaw** (heading) angle.
 > - **Z** axis points *backward* giving us a **-roll** angle.
@@ -15834,6 +15969,8 @@ When we talk about axes in UNIGINE we assume that:
 
 
 > **Notice:** Players have a different coordinate system:
+>
+>
 > - **X** axis points to the *right* giving us a **pitch** angle.
 > - **Y** axis points *up* giving us a **yaw** (heading) angle.
 > - **Z** axis points *backward* giving us a **-roll** angle.
@@ -15861,6 +15998,8 @@ When we talk about axes in UNIGINE we assume that:
 
 
 > **Notice:** Players have a different coordinate system:
+>
+>
 > - **X** axis points to the *right* giving us a **pitch** angle.
 > - **Y** axis points *up* giving us a **yaw** (heading) angle.
 > - **Z** axis points *backward* giving us a **-roll** angle.
@@ -15888,6 +16027,8 @@ When we talk about axes in UNIGINE we assume that:
 
 
 > **Notice:** Players have a different coordinate system:
+>
+>
 > - **X** axis points to the *right* giving us a **pitch** angle.
 > - **Y** axis points *up* giving us a **yaw** (heading) angle.
 > - **Z** axis points *backward* giving us a **-roll** angle.
@@ -15915,6 +16056,8 @@ When we talk about axes in UNIGINE we assume that:
 
 
 > **Notice:** Players have a different coordinate system:
+>
+>
 > - **X** axis points to the *right* giving us a **pitch** angle.
 > - **Y** axis points *up* giving us a **yaw** (heading) angle.
 > - **Z** axis points *backward* giving us a **-roll** angle.
@@ -15942,6 +16085,8 @@ When we talk about axes in UNIGINE we assume that:
 
 
 > **Notice:** Players have a different coordinate system:
+>
+>
 > - **X** axis points to the *right* giving us a **pitch** angle.
 > - **Y** axis points *up* giving us a **yaw** (heading) angle.
 > - **Z** axis points *backward* giving us a **-roll** angle.

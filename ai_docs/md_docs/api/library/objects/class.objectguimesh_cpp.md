@@ -18,6 +18,135 @@ UnigineScript sample
 
 ### Members
 
+## int getScreenHeight () const
+
+Returns the current screen height of the mesh GUI object.
+### Return value
+
+Current screen height of the mesh GUI object
+## int getScreenWidth () const
+
+Returns the current screen width of the mesh gui object.
+### Return value
+
+Current screen width of the mesh gui object
+## void setControlDistance ( float distance )
+
+Sets a new distance at which the GUI becomes controllable.
+### Arguments
+
+- *float* **distance** - The distance at which the GUI becomes controllable
+
+## float getControlDistance () const
+
+Returns the current distance at which the GUI becomes controllable.
+### Return value
+
+Current distance at which the GUI becomes controllable
+## void setMouseMode ( int mode )
+
+Sets a new mouse mode. One of the [MOUSE_*](#MOUSE_VIRTUAL) variables.
+### Arguments
+
+- *int* **mode** - The mouse mode
+
+## int getMouseMode () const
+
+Returns the current mouse mode. One of the [MOUSE_*](#MOUSE_VIRTUAL) variables.
+### Return value
+
+Current mouse mode
+## void setMouseShow ( bool show )
+
+Sets a new value indicating if the mouse cursor is rendered in the mesh GUI object.
+### Arguments
+
+- *bool* **show** - value indicating if the mouse cursor is rendered in the mesh GUI object
+
+## bool isMouseShow () const
+
+Returns the current value indicating if the mouse cursor is rendered in the mesh GUI object.
+### Return value
+
+value indicating if the mouse cursor is rendered in the mesh GUI object
+## void setBackground ( bool background )
+
+Sets a new value indicating if gui background (black screen) is rendered.
+### Arguments
+
+- *bool* **background** - value indicating if gui background (black screen) is rendered
+
+## bool isBackground () const
+
+Returns the current value indicating if gui background (black screen) is rendered.
+### Return value
+
+value indicating if gui background (black screen) is rendered
+## Ptr < Gui > getGui () const
+
+Returns the current [gui](../../../api/library/gui/class.gui_cpp.md) instance associated with the object.
+### Return value
+
+Current gui instance associated with the object
+## void setMeshPath ( const char * path )
+
+Sets a new path to the source *.mesh*-file used for the object.
+> **Notice:** Setting a new path does not update the mesh immediately, and if the mesh is in the procedural mode, it will be reset. The mesh should contain a single surface; in case the mesh contains several surfaces, only the one with the 0 index will be used.
+
+### Arguments
+
+- *const char ** **path** - The path to the source .mesh-file used for the object
+
+## const char * getMeshPath () const
+
+Returns the current path to the source *.mesh*-file used for the object.
+> **Notice:** Setting a new path does not update the mesh immediately, and if the mesh is in the procedural mode, it will be reset. The mesh should contain a single surface; in case the mesh contains several surfaces, only the one with the 0 index will be used.
+
+### Return value
+
+Current path to the source .mesh-file used for the object
+## bool isMeshLoadedVRAM () const
+
+Returns the current value indicating if the source mesh used for the object is loaded to video memory (VRAM).
+### Return value
+
+**true** if the source mesh used for the object is loaded to video memory (VRAM); otherwise **false**.
+## bool isMeshLoadedRAM () const
+
+Returns the current value indicating if the source mesh used for the object is loaded to memory (RAM).
+### Return value
+
+**true** if the source mesh used for the object is loaded to memory (RAM); otherwise **false**.
+## bool isMeshNull () const
+
+Returns the current value indicating if the source mesh used for the object is null (does not exist, unassigned, not loaded, etc.).
+### Return value
+
+**true** if the source mesh used for the object is null (does not exist, unassigned, not loaded, etc.); otherwise **false**.
+## ObjectMeshStatic::PROCEDURAL_MODE getMeshProceduralMode () const
+
+Returns the current value indicating which procedural mesh generation mode assigned to the mesh. The value corresponds to one of the available *[PROCEDURAL_MODE](../../../api/library/objects/class.objectmeshstatic_cpp.md#PROCEDURAL_MODE)* types, determining how procedural data is stored, updated, and unloaded.
+### Return value
+
+Current procedural mesh generation mode assigned to the mesh
+## bool isMeshProceduralDynamic () const
+
+Returns the current value indicating if the current procedural mode is *[PROCEDURAL_MODE_DYNAMIC](../../../api/library/objects/class.objectmeshstatic_cpp.md#PROCEDURAL_MODE_DYNAMIC)*.
+### Return value
+
+**true** if the current procedural mode is PROCEDURAL_MODE_DYNAMIC; otherwise **false**.
+## bool isMeshProceduralActive () const
+
+Returns the current value indicating if an asynchronous operation on the procedural mesh is currently in progress.
+### Return value
+
+**true** if an asynchronous operation on the procedural mesh is currently in progress; otherwise **false**.
+## bool isMeshProceduralDone () const
+
+Returns the current value indicating if all asynchronous operations on the procedural mesh have completed.
+### Return value
+
+**true** if all asynchronous operations on the procedural mesh have completed; otherwise **false**.
 ---
 
 ## static ObjectGuiMeshPtr create ( const char * mesh_path , const char * name = 0 )
@@ -31,41 +160,6 @@ An ObjectGuiMesh constructor. The *Gui Mesh* will be created on the basis of the
 ## static ObjectGuiMeshPtr create ( )
 
 Constructor. Creates a new *Gui Mesh* object.
-## void setControlDistance ( float distance )
-
-Sets a distance at which the GUI becomes controllable.
-### Arguments
-
-- *float* **distance** - A new distance in units.
-
-## float getControlDistance ( ) const
-
-Returns the distance at which the GUI becomes controllable.
-### Return value
-
-The distance in units.
-## Ptr < Gui > getGui ( ) const
-
-Returns a Gui instance associated with the object.
-### Return value
-
-Gui smart pointer.
-## void setMeshPath ( const char * path )
-
-Sets a new path to the source mesh for the *Gui Mesh* object. If the mesh is in the procedural mode, it will be reset.
-> **Notice:** The mesh should contain a single surface. In case if the mesh contains several surfaces, only the one with the 0 index will be used.
-
-
-### Arguments
-
-- *const char ** **path** - New path to the source *.mesh*-file to be set.
-
-## const char * getMeshPath ( ) const
-
-Returns the path to the source *.mesh*-file currently used for the *Gui Mesh* object.
-### Return value
-
-Path to the source *.mesh*-file.
 ## void setMouse ( const Math:: Vec3 & p0 , const Math:: Vec3 & p1 , int mouse_buttons , bool mouse_show )
 
 Sets mouse cursor position in the [virtual control mode](#MOUSE_VIRTUAL).
@@ -76,51 +170,6 @@ Sets mouse cursor position in the [virtual control mode](#MOUSE_VIRTUAL).
 - *int* **mouse_buttons** - Mouse button status. Set 1 to indicate that the button is clicked; otherwise, 0.
 - *bool* **mouse_show** - Mouse cursor status. Set 1 to show mouse cursor; otherwise, 0.
 
-## void setMouseMode ( int mode )
-
-Sets mouse mode. This method can be used to set a [virtual control mode](#MOUSE_VIRTUAL) for the mouse.
-### Arguments
-
-- *int* **mode** - Mouse mode. One of the [MOUSE_*](#MOUSE_VIRTUAL) variables.
-
-## int getMouseMode ( ) const
-
-Returns the current mouse mode.
-### Return value
-
-Mouse mode. One of the [MOUSE_*](#MOUSE_VIRTUAL) variables.
-## void setMouseShow ( bool show )
-
-Sets a value indicating if the mouse cursor should be rendered in the mesh GUI object.
-### Arguments
-
-- *bool* **show** - true to render the mouse cursor; otherwise, false.
-
-## bool isMouseShow ( ) const
-
-Returns a value indicating if the mouse cursor is rendered in the mesh GUI object.
-### Return value
-
-true if the cursor is rendered; otherwise, false.
-## void setBackground ( bool background )
-
-Sets a value indicating if the GUI background (black screen) should be rendered.
-### Arguments
-
-- *bool* **background** - true to render GUI background, false to keep it transparent.
-
-## bool isBackground ( ) const
-
-Returns a value indicating if GUI background (black screen) is rendered.
-### Return value
-
-true if background is rendered; otherwise, false.
-## int getScreenHeight ( ) const
-
-Returns the screen height of the mesh GUI object.
-### Return value
-
-Height in pixels.
 ## void setScreenSize ( int width , int height )
 
 Sets screen dimensions of the mesh GUI object.
@@ -129,12 +178,6 @@ Sets screen dimensions of the mesh GUI object.
 - *int* **width** - New width in pixels. If a negative value is provided, 0 will be used instead.
 - *int* **height** - New height in pixels. If a negative value is provided, 0 will be used instead.
 
-## int getScreenWidth ( ) const
-
-Returns the screen width of the mesh GUI object.
-### Return value
-
-Width in pixels.
 ## static int type ( )
 
 Returns the type identifier of *ObjectMeshStatic*.
@@ -239,32 +282,6 @@ Sets the procedural mode for the mesh. The specified mode defines how procedural
 - *[ObjectMeshStatic::PROCEDURAL_MODE](../../../api/library/objects/class.objectmeshstatic_cpp.md#PROCEDURAL_MODE)* **mode** - One of the *[PROCEDURAL_MODE](../../../api/library/objects/class.objectmeshstatic_cpp.md#PROCEDURAL_MODE)* to apply to the mesh.
 - *int* **mesh_render_flags** - Optional [usage flags](../../../api/library/rendering/class.meshrender_cpp.md#USAGE_DYNAMIC_VERTEX) that control how vertex and index data are stored for the mesh render.
 
-## ObjectMeshStatic::PROCEDURAL_MODE getMeshProceduralMode ( ) const
-
-Returns a value indicating which procedural mode assigned to the mesh. The value corresponds to one of the available *[PROCEDURAL_MODE](../../../api/library/objects/class.objectmeshstatic_cpp.md#PROCEDURAL_MODE)* types, determining how procedural data is stored, updated, and unloaded.
-> **Notice:** Please note that procedural mesh modification **directly affects streaming and memory usage (RAM, VRAM, and disk)** depending on the selected procedural mode. For details, see the [Procedural Mesh Workflow](#procedural_workflow) section.
-
-### Return value
-
-Current procedural mode of the mesh.
-## bool isMeshNull ( ) const
-
-Returns a value indicating if the source mesh used for the object is null (does not exist, unassigned, not loaded, etc.).
-### Return value
-
-true if the source mesh used for the object is null; otherwise, false.
-## bool isMeshLoadedRAM ( ) const
-
-Returns a value indicating if the source mesh used for the object is loaded to memory (RAM).
-### Return value
-
-true if the source mesh used for the object is loaded to RAM; otherwise, false.
-## bool isMeshLoadedVRAM ( ) const
-
-Returns a value indicating if the source mesh used for the object is loaded to video memory (VRAM).
-### Return value
-
-true if the source mesh used for the object is loaded to VRAM; otherwise, false.
 ## Ptr < Mesh > createCopyMeshRAM ( ) const
 
 Creates and returns a copy of the source mesh used by the object, loading it directly from disk if it is not present in cache. This method does not stream the copied mesh into memory cache, resulting in lower RAM usage.
@@ -281,30 +298,6 @@ Retrieves a copy of the source mesh used by the object and writes it to the prov
 ### Return value
 
 true if the mesh was copied successfully, false if source mesh is not present in RAM or its file path is invalid.
-## bool isMeshProceduralDone ( ) const
-
-Returns a value indicating if all asynchronous operations on the procedural mesh have completed.
-> **Notice:** Please note that procedural mesh modification **directly affects streaming and memory usage (RAM, VRAM, and disk)** depending on the selected procedural mode. For details, see the [Procedural Mesh Workflow](#procedural_workflow) section.
-
-### Return value
-
-true if no asynchronous geometry operation is active, otherwise false.
-## bool isMeshProceduralActive ( ) const
-
-Returns a value indicating if an asynchronous operation on the procedural mesh is currently in progress.
-> **Notice:** Please note that procedural mesh modification **directly affects streaming and memory usage (RAM, VRAM, and disk)** depending on the selected procedural mode. For details, see the [Procedural Mesh Workflow](#procedural_workflow) section.
-
-### Return value
-
-true if an asynchronous geometry operation is active, otherwise false.
-## bool isMeshProceduralDynamic ( ) const
-
-Returns a value indicating if the current procedural mode is *[PROCEDURAL_MODE_DYNAMIC](../../../api/library/objects/class.objectmeshstatic_cpp.md#PROCEDURAL_MODE_DYNAMIC)*.
-> **Notice:** Please note that procedural mesh modification **directly affects streaming and memory usage (RAM, VRAM, and disk)** depending on the selected procedural mode. For details, see the [Procedural Mesh Workflow](#procedural_workflow) section.
-
-### Return value
-
-true if *[PROCEDURAL_MODE_DYNAMIC](../../../api/library/objects/class.objectmeshstatic_cpp.md#PROCEDURAL_MODE_DYNAMIC)* is active, otherwise false.
 ## bool applyCopyMeshProceduralForce ( const Ptr<ConstMesh> & mesh , int mesh_render_flags = 0 )
 
 **[ Main Thread ]**

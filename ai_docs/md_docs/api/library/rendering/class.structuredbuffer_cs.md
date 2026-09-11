@@ -1,10 +1,10 @@
 # Unigine.StructuredBuffer Class (CS)
 
 
-StructuredBuffer is a buffer for structures: it represents a uniform array of structures.
+*StructuredBuffer* is a buffer for structures: it represents a uniform array of structures.
 
 
-StructuredBuffer resource can be specified [via the following flags](../../../api/library/rendering/class.structuredbuffer_cs.md#USAGE_RENDER).
+*StructuredBuffer* resource can be specified [via the following flags](../../../api/library/rendering/class.structuredbuffer_cs.md#USAGE_RENDER).
 
 
 ### See Also
@@ -42,6 +42,8 @@ The value indicating if the resource has the [USAGE_RENDER](#USAGE_RENDER) flag 
 ## StructuredBuffer ( )
 
 Constructor. Creates a new structured buffer.
+
+
 ```cpp
 StructuredBufferPtr input_buffer = StructuredBuffer::create();
 ```

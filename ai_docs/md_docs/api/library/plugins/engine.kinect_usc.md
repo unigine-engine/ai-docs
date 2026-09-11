@@ -7,6 +7,7 @@
 
 This set of functions is available when the [Kinect2 plugin](../../../code/plugins/kinect2/index_usc.md) is loaded. This plugin is used for receiving already detected data from a Kinect2 sensor.
 
+
 > **Notice:** Kinect SDK 2.0+ must be installed on your computer.
 
 
@@ -21,7 +22,7 @@ If the plugin is loaded together with the engine, the `HAS_KINECT` definition is
 ```
 
 
-The Unigine Kinect plugin works in the following way: when [engine.kinect.isBodyTracked(body)](#isBodyTracked_int_bool) returns **0**, [engine.kinect.getBonePosition(body, bone)](#getBonePosition_int_int_vec3) will return **vec3_zero**. Kinect has its own framerate, so the body tracking information is not available each engine frame. Wrist tracking can be achieved via:
+The UNIGINE Kinect plugin works in the following way: when *[engine.kinect.isBodyTracked(body)](#isBodyTracked_int_bool)* returns **0**, *[engine.kinect.getBonePosition(body, bone)](#getBonePosition_int_int_vec3)* will return **vec3_zero**. Kinect has its own framerate, so the body tracking information is not available each engine frame. Wrist tracking can be achieved via:
 
 
 ```cpp
@@ -50,8 +51,6 @@ int update() {
 
 
 ## Kinect Class
-
-### Members
 
 ---
 
@@ -100,7 +99,10 @@ Returns the current tracking state of the given bone of the given body.
 One of the [TRACKING_STATE_*](#TRACKING_STATE_NOT_TRACKED) constants specifying the tracking state. If the [*STREAM_BODY*](#STREAM_BODY) is not specified on sensor [initialization](#init_uint_int), [*TRACKING_STATE_NOT_TRACKED*](#TRACKING_STATE_NOT_TRACKED) will be returned.
 ## Image engine.kinect. getColorBuffer ( )
 
+
 Returns an image representing the current color buffer in the RGBA8 format.
+
+
 > **Notice:** The image in the color buffer is deleted each frame. However, the data isn't sent to the buffer each frame, so the function may return **NULL**.
 
 
@@ -109,7 +111,10 @@ Returns an image representing the current color buffer in the RGBA8 format.
 An image representing the current color buffer. If the [*STREAM_COLOR*](#STREAM_COLOR) is not specified on sensor [initialization](#init_uint_int), **NULL** will be returned.
 ## Image engine.kinect. getDepthBuffer ( )
 
+
 Returns an image representing the current depth buffer in the R16 format.
+
+
 > **Notice:** The image in the depth buffer is deleted each frame. However, the data isn't sent to the buffer each frame, so the function may return **NULL**.
 
 
@@ -148,7 +153,10 @@ Returns orientation of the given face relative to the sensor.
 Face orientation. If the [*STREAM_BODY*](#STREAM_BODY) is not specified on sensor [initialization](#init_uint_int), zero quat will be returned.
 ## vec3 engine.kinect. getFacePointInColorSpace ( int face , int point )
 
+
 Returns coordinates of the given point on the given face relative to the size of the color buffer.
+
+
 > **Notice:** Only *X* and *Y* components of the returned vector are used, *Z* component should be ignored.
 
 
@@ -162,7 +170,10 @@ Returns coordinates of the given point on the given face relative to the size of
 Face point coordinates. If the [*STREAM_BODY*](#STREAM_BODY) is not specified on sensor [initialization](#init_uint_int), zero vector will be returned.
 ## vec3 engine.kinect. getFacePointInInfraredSpace ( int face , int point )
 
+
 Returns coordinates of the given point on the given face relative to the size of the infrared buffer.
+
+
 > **Notice:** Only *X* and *Y* components of the returned vector are used, *Z* component should be ignored.
 
 
@@ -187,7 +198,10 @@ Returns a value indicating how accurate the property of the given face was track
 One of the [*KINECT_FACE_DETECTION_RESULT_**](#FACE_DETECTION_RESULT_UNKNOWN) constants. If The [*STREAM_BODY*](#STREAM_BODY) is not specified on sensor [initialization](#init_uint_int), [*KINECT_FACE_DETECTION_RESULT_UNKNOWN*](#FACE_DETECTION_RESULT_UNKNOWN) will be returned.
 ## Image engine.kinect. getInfraredBuffer ( )
 
+
 Returns an image representing the current infrared buffer in the R16 format.
+
+
 > **Notice:** The image in the infrared buffer is deleted each frame. However, the data isn't sent to the buffer each frame, so the function may return **NULL**.
 
 
@@ -248,6 +262,7 @@ Kinect2 sensor initialization. The [*STREAM_**](#STREAM_COLOR) constants specify
 
 
 For example, there will be access to the color and depth buffers if you initialize the sensor as follows:
+
 
 ```cpp
 engine.kinect.init(KINECT_STREAM_COLOR | KINECT_STREAM_DEPTH);

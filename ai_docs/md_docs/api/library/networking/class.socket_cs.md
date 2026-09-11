@@ -11,12 +11,14 @@ This class provides basic functionality for network interaction using stream soc
 
 In this example we create UDP sockets: server and five clients.
 
+
 - The server sends broadcast packets containing the ID of the receiving client.
 - Each client processes only the messages, that were addressed to it.
 - In the world's *Update()* method the server sends messages addressed to clients **2** and **5**.
 
 
 In the `AppWorldLogic.cs` we do the following:
+
 
 - First, we describe our client and server and declare server and array of clients.
 - In the *AppWorldLogic.Init()* method we initialize our clients.

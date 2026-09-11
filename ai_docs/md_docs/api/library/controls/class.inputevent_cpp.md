@@ -29,12 +29,15 @@ This class handles input event information.
 | **INPUT_EVENT_PAD_BUTTON** = 12 | Game pad button has been pressed. |
 | **INPUT_EVENT_PAD_AXIS_MOTION** = 13 | Game pad axis has been moved. |
 | **INPUT_EVENT_PAD_TOUCH_MOTION** = 14 | Touch panel has been touched. |
-| **INPUT_EVENT_VR_DEVICE** = 15 | VR device has been connected or disconnected. |
-| **INPUT_EVENT_VR_BUTTON** = 16 | VR device button has been pressed. |
-| **INPUT_EVENT_VR_BUTTON_TOUCH** = 17 | VR device button has been touched. |
-| **INPUT_EVENT_VR_AXIS_MOTION** = 18 | VR device axis has been moved. |
-| **INPUT_EVENT_SYSTEM** = 19 | System event has occurred (keyboard layout or input language has changed). |
-| **NUM_INPUT_EVENTS** = 20 | Counter of input events. |
+| **INPUT_EVENT_PAD_ACCELEROMETER_MOTION** = 15 | Game pad accelerometer has reported a new state (see the *[InputEventPadAccelerometerMotion](../../../api/library/controls/class.inputeventpadaccelerometermotion_cpp.md)* class). |
+| **INPUT_EVENT_PAD_GYROSCOPE_MOTION** = 16 | Game pad gyroscope has reported a new state (see the *[InputEventPadGyroscopeMotion](../../../api/library/controls/class.inputeventpadgyroscopemotion_cpp.md)* class). |
+| **INPUT_EVENT_VR_DEVICE** = 17 | VR device has been connected or disconnected. |
+| **INPUT_EVENT_VR_BUTTON** = 18 | VR device button has been pressed. |
+| **INPUT_EVENT_VR_BUTTON_TOUCH** = 19 | VR device button has been touched. |
+| **INPUT_EVENT_VR_AXIS_MOTION** = 20 | VR device axis has been moved. |
+| **INPUT_EVENT_SYSTEM** = 21 | System event has occurred (keyboard layout or input language has changed). |
+| **INPUT_EVENT_TEXT_EDITING** = 22 | IME text composition (preedit) has been updated (see the *[InputEventTextEditing](../../../api/library/controls/class.inputeventtextediting_cpp.md)* class). |
+| **NUM_INPUT_EVENTS** = 23 | Counter of input events. |
 
 ### Members
 

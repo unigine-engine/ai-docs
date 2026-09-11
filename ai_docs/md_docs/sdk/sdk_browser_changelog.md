@@ -7,10 +7,104 @@ This article contains a summary of changes between the official **SDK Browser 2*
 The latest **SDK Browser 2** version can be downloaded [here](https://developer.unigine.com/en/downloads/sdk_browser_v2_start_here).
 
 
+## Version 2.1.3
+
+
+Release date: **2026-09-09**
+
+
+<details>
+<summary>View Main Changes | Close</summary>
+
+**Main changes in 2.1.3:**
+
+
+- Added support for **Cross-OS** projects, allowing the same project to be used safely on both Windows and Linux:
+
+  - A project can be created on one operating system, transferred to another, and upgraded to Cross-OS mode in *SDK Browser*. The binaries required for the current platform are added, the project is marked as Cross-OS, and platform-specific files are tracked in the `*.project` file.
+  - When a Cross-OS project is upgraded or reconfigured, only the files for the current operating system are updated, and you are notified if the project also has to be upgraded on the other platform.
+  - Cross-OS support can be removed later, which converts the project back to a single-OS configuration. The standard single-OS workflow remains unchanged.
+- Added the ability to rename projects. A project now has a separate **display name**, which matches the original project name by default and can be changed by double-clicking the project title or from the project card menu. The display name is stored in the `*.project` file only: the project name itself, its code structure and its identity stay untouched, so building and migration are not affected.
+- Added proactive disk space checks for SDK installation and project creation. Available storage is monitored throughout downloading, extraction, installation and project creation: if the space runs low, you get a notification instead of a silent failure, and the current task is preserved whenever possible so that it can be resumed. Space requirements are now tracked separately for SDKs, demos, templates, documentation and projects.
+- When you upgrade or delete an installed edition of a certain SDK version, *SDK Browser* now offers to remove the demo projects, samples and documentation that belong to that version. This helps to reclaim disk space and keeps obsolete content from being left behind.
+- Redesigned the **template information** window: a larger and more flexible layout, improved version descriptions, clearer action buttons, and better handling of long content. Version details can now be expanded right in the version table, with *Download* and *Create Project* available in the expanded view. The *Download* and *Delete* actions now also reflect the state of the template, including separately downloaded templates, empty templates, and templates provided through an installed dependency SDK.
+- Added the license expiration notifications, which are based on the **runtime** expiration date. Warnings escalate as the date approaches from a one-time message to a banner plus a message.
+- Added the *$(Folder)* and *$(File)* placeholders for the arguments of a custom IDE, so that it opens the project instead of just starting up. They are substituted with the project folder and the IDE project file at launch.
+- Added the new **Tools** tab, where UNIGINE tools can be downloaded directly from *SDK Browser*.
+- Updated the list of plugins available for 2.22+ projects:
+
+  - Added a new **Cesium** plugin.
+  - Added a new **RTSPStreamer** plugin.
+  - Added a new experimental **Scenario Manager** plugin.
+  - The **MCPBridge** plugin, is now installed together with *AI Documentation* as a part of the **AI Toolkit**.
+  - Plugin dependencies are now taken into account: for example, **Scenario Manager** requires **DataBridge**.
+  - Plugins are installed into a project according to the directory structure.
+- Added the ability to open source code of sample packs on GitHub.
+- An installation already in progress can be canceled by clicking *Cancel* in the **SDKs** view.
+- You can now open a storage location for any installed SDK right from the SDK card by choosing *Open Folder*.
+- The **Visual Studio** is now used as default IDE for C++ templates.
+- The Microprofile is now enabled by default for SDK 2.22.
+- The **My Projects** tab is now opened on startup if there are any created projects.
+- Improved sorting of SDK versions, which now takes pre-release, release, and patched versions into account.
+- Platform-specific products now have a **for Windows** or **for Linux** suffix in their names.
+- UI elements are now mirrored in the Arabic localization.
+- Fixed freezes when downloading at a high speed and when renaming a project during a download.
+- Fixed project migration between different SDKs having the same template version, and migration of template-based demos.
+- Various bugfixes.
+
+</details>
+
+
+## Version 2.1.2
+
+
+Release date: **2026-04-28**
+
+
+<details>
+<summary>View Main Changes | Close</summary>
+
+**Main changes in 2.1.2:**
+
+
+- Added support for Arabic language in the UI.
+- Replaced the default project preview with an updated version.
+- Fixed an issue where the world file name in projects created from a template was not consistently updated, resulting in incorrect references to the `.world` file in meta files after project creation.
+- Various bugfixes.
+
+</details>
+
+
+## Version 2.1.1
+
+
+Release date: **2026-04-09**
+
+
+<details>
+<summary>View Main Changes | Close</summary>
+
+**Main changes in 2.1.1:**
+
+
+- Added the ability to select the **Template Installation Path** for storing downloaded templates when creating a project (by default, templates are saved to the **Storage** path).
+- Fixed text and window layout issues in the **Fixed License Activation** window and template cards on the **Templates** tab.
+- Removed a duplicate window showing the result of license activation.
+- Fixed an issue with refreshing template card previews on the **Templates** tab.
+- Fixed inconsistent quoting in <Target> blocks for C# projects, preventing potential parser issues.
+- Fixed a crash when deleting a non-Empty template via the UI in offline mode after it had been removed manually via File Explorer.
+- Switching to an SDK version where the currently selected **Samples** category is not available now automatically redirects to an available *Samples* view.
+- Fixed an issue preventing a return to default after selecting **Custom** in **Customize Code Options**.
+- Fixed a crash on logout.
+- Various bugfixes.
+
+</details>
+
+
 ## Version 2.1.0
 
 
-Release date: **2026-03-24**
+Release date: **2026-03-25**
 
 
 <details>
@@ -26,7 +120,7 @@ Release date: **2026-03-24**
 - Eliminated hangs caused by long response times, improving overall stability.
 - Fixed an issue with copying source code files when creating a project based on the **ROS Vehicle** demo (via **Copy As Project**).
 - Added an option to include Reference Documentation for AI Agents (**AI Documentation**) when creating a project (via **Create Project**) or later via the **Project Configuration** window.
-- Added support for Qt 6–based projects.
+- Added support for Qt 6�based projects.
 - Updated the list of plugins available for 2.21+ projects: Incorrect links to plugins were also fixed.
 
   - Added a new **DataBridge** plugin.

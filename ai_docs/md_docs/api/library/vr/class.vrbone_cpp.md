@@ -70,7 +70,7 @@ Returns the current value indicating if the bone transformation is valid.
 Returns the current value indicating if the bone velocity is valid.
 ### Return value
 
-**true** if the bone velocity is valid is enabled; otherwise **false**.
+**true** if the bone velocity is valid is enabled ; otherwise **false**.
 ## Math:: mat4 getTransform () const
 
 Returns the current transformation of the bone in local coordinates relative to the parent node.

@@ -27,10 +27,10 @@ When you add a new node to the scene via the [Menu Bar](../../editor2/interface/
 In front of the name of each node, there is a set of icons:
 
 
-- ![](property.png) — indicates that the node has [a property assigned](../../editor2/node_parameters/properties/index.md#node_property). > **Notice:** The property is considered assigned even if it is empty (i.e., no property name is specified).
-- ![](selection_on.png) / ![](selection_off.png) — toggles [node selection](../../editor2/select_position_nodes/index.md#select_nodes) on and off.
-- ![](transformation_on.png) / ![](transformation_off.png) — toggles [node transformation](../../editor2/node_parameters/transformation_common/index.md#transformation_params) on and off.
-- ![](state_on.png) / ![](state_off.png) — toggles the node is [on or off](#toggle_node).
+- ![](property.png) � indicates that the node has [a property assigned](../../editor2/node_parameters/properties/index.md#node_property). > **Notice:** The property is considered assigned even if it is empty (i.e., no property name is specified).
+- ![](selection_on.png) / ![](selection_off.png) � toggles [node selection](../../editor2/select_position_nodes/index.md#select_nodes) on and off.
+- ![](transformation_on.png) / ![](transformation_off.png) � toggles [node transformation](../../editor2/node_parameters/transformation_common/index.md#transformation_params) on and off.
+- ![](state_on.png) / ![](state_off.png) � toggles the node is [on or off](#toggle_node).
 
 
 To manage these icons, click **Filter by node type** and specify the icons you want to show or hide in the *Show Columns* section. Note that the state icon ![](state_on.png) always stays visible.

@@ -5,15 +5,17 @@
 
 This class is used to manage collision volumes that are assigned to [entities](../../../../../api/library/plugins/ig/api/class.entity_cpp.md) and used for collision detection.
 
+
 > **Notice:** IG plugin must be loaded.
 
 
 A collision detection volume is a sphere or a cuboid through which collision testing is performed by the IG. When a collision detection volume passes through another collision volume, the IG registers a collision by sending the corresponding notification.
 
+
 > **Notice:** Collision detection testing is performed by the IG every frame.
 
 
-A volume is defined by specifying its location, size, and orientation with respect to the associated entity’s body coordinate system. A sphere’s size is specified as a radius; a cuboid’s size is specified by its width, height, and depth.
+A volume is defined by specifying its location, size, and orientation with respect to the associated entity�s body coordinate system. A sphere�s size is specified as a radius; a cuboid�s size is specified by its width, height, and depth.
 
 
 Unlike collision detection segments, which are tested segment-to-polygon, collision detection volumes are tested volume-to-volume. Volumes associated with the same entity are not tested against each other.

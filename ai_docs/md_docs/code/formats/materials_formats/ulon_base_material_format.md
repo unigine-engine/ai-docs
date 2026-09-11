@@ -28,8 +28,8 @@ BaseMaterial <node=ObjectMeshStatic options_hidden=0 preview_hidden=0 var_prefix
 There are two types of base material supported:
 
 
-- **BaseMaterial** — base material for objects
-- **BaseBrushMaterial** — base material for terrain brushes
+- **BaseMaterial** � base material for objects
+- **BaseBrushMaterial** � base material for terrain brushes
 
 
 > **Notice:** All node names in *ULON* are case-sensitive.
@@ -53,8 +53,8 @@ A flag indicating if all of the base material settings can be changed in the *[P
 Available values:
 
 
-- false — unchangeable
-- true — changeable (by default)
+- false � unchangeable
+- true � changeable (by default)
 
 
 ### hidden
@@ -69,8 +69,8 @@ A flag indicating if the material is displayed in the *[Materials](../../../edit
 Available values:
 
 
-- false — displayed (by default)
-- true — hidden
+- false � displayed (by default)
+- true � hidden
 
 
 ### manual
@@ -82,8 +82,8 @@ A flag, indicating if a material is [manual](../../../content/materials/index.md
 Available values:
 
 
-- false — not manual
-- true — manual (by default)
+- false � not manual
+- true � manual (by default)
 
 
 ### guid
@@ -107,8 +107,8 @@ A flag indicating if the *[Options](../../../code/formats/materials_formats/ulon
 Available values:
 
 
-- false — displayed (by default)
-- true — hidden
+- false � displayed (by default)
+- true � hidden
 
 
 ### preview_hidden
@@ -123,8 +123,8 @@ A flag indicating if the material preview is displayed.
 Available values:
 
 
-- false — displayed (by default)
-- true — hidden
+- false � displayed (by default)
+- true � hidden
 
 
 ### legacy
@@ -139,8 +139,8 @@ A flag indicating if the legacy mode is enabled.
 Available values:
 
 
-- false — displayed (by default)
-- true — hidden
+- false � displayed (by default)
+- true � hidden
 
 
 ### var_prefix
@@ -182,30 +182,30 @@ The type of node to which this material can be applied.
 Available values:
 
 
-- **[DecalProj](../../../api/library/decals/class.decalproj_cpp.md)** — projected decal
-- **[DecalOrtho](../../../api/library/decals/class.decalortho_cpp.md)** — orthographic decal
-- **[DecalMesh](../../../api/library/decals/class.decalmesh_cpp.md)** — mesh decal
-- **[LandscapeLayerMap](../../../api/library/objects/landscape_terrain/class.landscapelayermap_cpp.md)** — landscape layer map
-- **[ObjectDummy](../../../api/library/objects/class.objectdummy_cpp.md)** — *Dummy* object
-- **[ObjectDynamic](../../../api/library/objects/class.objectdynamic_cpp.md)** — dynamic object
-- **[ObjectMeshStatic](../../../api/library/objects/class.objectmeshstatic_cpp.md)** — static mesh
-- **[ObjectMeshCluster](../../../api/library/objects/class.objectmeshcluster_cpp.md)** — *Mesh Cluster*
-- **[ObjectMeshClutter](../../../api/library/objects/class.objectmeshclutter_cpp.md)** — *Mesh Clutter*
-- **[ObjectMeshSkinned](../../../api/library/objects/class.objectmeshskinned_cpp.md)** — *Skinned Mesh*
-- **[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cpp.md)** — *Dynamic Mesh*
-- **[ObjectMeshSplineCluster](../../../api/library/objects/class.objectmeshsplinecluster_cpp.md)** — mesh spline cluster
-- **[ObjectLandscapeTerrain](../../../api/library/objects/landscape_terrain/index.md)** — *Landscape Terrain* object
-- **[ObjectTerrainGlobal](../../../api/library/objects/class.objectterrainglobal_cpp.md)** — *Global Terrain* object
-- **[ObjectGrass](../../../api/library/objects/class.objectgrass_cpp.md)** — *Grass* object
-- **[ObjectParticles](../../../api/library/objects/class.objectparticles_cpp.md)** — particles
-- **[ObjectBillboards](../../../api/library/objects/class.objectbillboards_cpp.md)** — *Billboards*
-- **[ObjectVolumeBox](../../../api/library/objects/class.objectvolumebox_cpp.md)** — *Volume Box*
-- **[ObjectVolumeSphere](../../../api/library/objects/class.objectvolumesphere_cpp.md)** — *Volume Sphere*
-- **[ObjectVolumeOmni](../../../api/library/objects/class.objectvolumeomni_cpp.md)** — *Volume Omni* object
-- **[ObjectVolumeProj](../../../api/library/objects/class.objectvolumeproj_cpp.md)** — *Volume Projected* object
-- **[ObjectGui](../../../api/library/objects/class.objectgui_cpp.md)** — *GUI* object
-- **[ObjectGuiMesh](../../../api/library/objects/class.objectguimesh_cpp.md)** — *GUI* mesh
-- **[ObjectWaterGlobal](../../../api/library/objects/class.objectwaterglobal_cpp.md)** — *Global Water* object
+- **[DecalProj](../../../api/library/decals/class.decalproj_cpp.md)** � projected decal
+- **[DecalOrtho](../../../api/library/decals/class.decalortho_cpp.md)** � orthographic decal
+- **[DecalMesh](../../../api/library/decals/class.decalmesh_cpp.md)** � mesh decal
+- **[LandscapeLayerMap](../../../api/library/objects/landscape_terrain/class.landscapelayermap_cpp.md)** � landscape layer map
+- **[ObjectDummy](../../../api/library/objects/class.objectdummy_cpp.md)** � *Dummy* object
+- **[ObjectDynamic](../../../api/library/objects/class.objectdynamic_cpp.md)** � dynamic object
+- **[ObjectMeshStatic](../../../api/library/objects/class.objectmeshstatic_cpp.md)** � static mesh
+- **[ObjectMeshCluster](../../../api/library/objects/class.objectmeshcluster_cpp.md)** � *Mesh Cluster*
+- **[ObjectMeshClutter](../../../api/library/objects/class.objectmeshclutter_cpp.md)** � *Mesh Clutter*
+- **[ObjectMeshSkinned](../../../api/library/objects/class.objectmeshskinned_cpp.md)** � *Skinned Mesh*
+- **[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cpp.md)** � *Dynamic Mesh*
+- **[ObjectMeshSplineCluster](../../../api/library/objects/class.objectmeshsplinecluster_cpp.md)** � mesh spline cluster
+- **[ObjectLandscapeTerrain](../../../api/library/objects/landscape_terrain/index.md)** � *Landscape Terrain* object
+- **[ObjectTerrainGlobal](../../../api/library/objects/class.objectterrainglobal_cpp.md)** � *Global Terrain* object
+- **[ObjectGrass](../../../api/library/objects/class.objectgrass_cpp.md)** � *Grass* object
+- **[ObjectParticles](../../../api/library/objects/class.objectparticles_cpp.md)** � particles
+- **[ObjectBillboards](../../../api/library/objects/class.objectbillboards_cpp.md)** � *Billboards*
+- **[ObjectVolumeBox](../../../api/library/objects/class.objectvolumebox_cpp.md)** � *Volume Box*
+- **[ObjectVolumeSphere](../../../api/library/objects/class.objectvolumesphere_cpp.md)** � *Volume Sphere*
+- **[ObjectVolumeOmni](../../../api/library/objects/class.objectvolumeomni_cpp.md)** � *Volume Omni* object
+- **[ObjectVolumeProj](../../../api/library/objects/class.objectvolumeproj_cpp.md)** � *Volume Projected* object
+- **[ObjectGui](../../../api/library/objects/class.objectgui_cpp.md)** � *GUI* object
+- **[ObjectGuiMesh](../../../api/library/objects/class.objectguimesh_cpp.md)** � *GUI* mesh
+- **[ObjectWaterGlobal](../../../api/library/objects/class.objectwaterglobal_cpp.md)** � *Global Water* object
 
 
 ### default
@@ -220,8 +220,8 @@ Indicates that this material is used by default for the specified type of nodes.
 Available values:
 
 
-- false — not used as the default material (by default)
-- true — sets as the default material
+- false � not used as the default material (by default)
+- true � sets as the default material
 
 
 ### namespace
@@ -247,9 +247,9 @@ The shader warning mode that defines the way warnings are treated.
 Available values:
 
 
-- disable — disables shader warnings output
-- soft — only errors result in shader compilation failure
-- hard — warnings treated as errors and shader compilation fails (default)
+- disable � disables shader warnings output
+- soft � only errors result in shader compilation failure
+- hard � warnings treated as errors and shader compilation fails (default)
 
 
 ### shader_optimization_level
@@ -261,11 +261,11 @@ Available values:
 Available values:
 
 
-- 0 — skip optimization steps during code generation
-- 1 — the compiler produces the slower code compared to other levels but does it quicker > **Notice:** Use this level for the shader debugging.
-- 2 — the second lowest optimization
-- 3 — the second highest optimization
-- 4 — the compiler produces the best possible code but might take significantly longer to do so (default) > **Notice:** Use this level for the final builds when application performance matters.
+- 0 � skip optimization steps during code generation
+- 1 � the compiler produces the slower code compared to other levels but does it quicker > **Notice:** Use this level for the shader debugging.
+- 2 � the second lowest optimization
+- 3 � the second highest optimization
+- 4 � the compiler produces the best possible code but might take significantly longer to do so (default) > **Notice:** Use this level for the final builds when application performance matters.
 
 
 ### shader_disable_error
@@ -280,8 +280,8 @@ A flag indicating if the shader compilation error output is disabled.
 Available values:
 
 
-- false — enables the shader compilation error output (by default)
-- true — disables the shader compilation error output
+- false � enables the shader compilation error output (by default)
+- true � disables the shader compilation error output
 
 
 ### shader_disable_export
@@ -296,8 +296,8 @@ A flag indicating if the preprocessored shader exporting is disabled.
 Available values:
 
 
-- false — enables the preprocessored shader exporting (by default)
-- true — disables the preprocessored shader exporting
+- false � enables the preprocessored shader exporting (by default)
+- true � disables the preprocessored shader exporting
 
 
 ### shader_ieee_strictness
@@ -312,8 +312,8 @@ A flag indicating if the floating math follows *IEEE-754* specification for gene
 Available values:
 
 
-- false — disables the floating math strictness (by default)
-- true — enables the floating math strictness
+- false � disables the floating math strictness (by default)
+- true � enables the floating math strictness
 
 
 ### use_ui
@@ -328,5 +328,5 @@ A flag indicating if the ui [groups](../../../code/formats/materials_formats/ulo
 Available values:
 
 
-- false — skip the ui elements parsing (by default)
-- true — enable the ui elements parsing
+- false � skip the ui elements parsing (by default)
+- true � enable the ui elements parsing

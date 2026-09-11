@@ -61,20 +61,20 @@ Sets a new value indicating if back-and-forth movements of the mouse (by y-axis)
 Returns the current value indicating if back-and-forth movements of the mouse (by y-axis) are inverted: when the mouse is moved upward, the camera looks downwards, and when the mouse is moved downwards, the camera looks upwards. this mode is available only to control the camera.
 ### Return value
 
-**true** if the inverted state of the mouse is enabled; otherwise **false**.
+**true** if the inverted state of the mouse is enabled ; otherwise **false**.
 ## void setMouseRawInput ( bool input )
 
-Sets a new value indicating which type of mouse data is used to control the camera — raw ([Input::getMouseDeltaRaw()](../../../api/library/controls/class.input_usc.md#getMouseDeltaRaw_ivec2)) or processed by the OS ([Input::getMouseDeltaPosition()](../../../api/library/controls/class.input_usc.md#getMouseDeltaPosition_ivec2)).
+Sets a new value indicating which type of mouse data is used to control the camera � raw ([Input::getMouseDeltaRaw()](../../../api/library/controls/class.input_usc.md#getMouseDeltaRaw_ivec2)) or processed by the OS ([Input::getMouseDeltaPosition()](../../../api/library/controls/class.input_usc.md#getMouseDeltaPosition_ivec2)).
 ### Arguments
 
 - *bool* **input** - Set **true** to enable mode using raw mouse data to control the camera; **false** - to disable it.
 
 ## bool isMouseRawInput () const
 
-Returns the current value indicating which type of mouse data is used to control the camera — raw ([Input::getMouseDeltaRaw()](../../../api/library/controls/class.input_usc.md#getMouseDeltaRaw_ivec2)) or processed by the OS ([Input::getMouseDeltaPosition()](../../../api/library/controls/class.input_usc.md#getMouseDeltaPosition_ivec2)).
+Returns the current value indicating which type of mouse data is used to control the camera � raw ([Input::getMouseDeltaRaw()](../../../api/library/controls/class.input_usc.md#getMouseDeltaRaw_ivec2)) or processed by the OS ([Input::getMouseDeltaPosition()](../../../api/library/controls/class.input_usc.md#getMouseDeltaPosition_ivec2)).
 ### Return value
 
-**true** if mode using raw mouse data to control the camera is enabled; otherwise **false**.
+**true** if mode using raw mouse data to control the camera is enabled ; otherwise **false**.
 ## void setMouseEnabled ( int enabled )
 
 Sets a new value indicating if the mouse is enabled.
@@ -287,13 +287,17 @@ Returns the key currently used to switch off the [grab mode](../../../api/librar
 Key used to switch off the [grab mode](../../../api/library/controls/class.input_usc.md#setMouseGrab_int_void) of the mouse pointer, one of the [INPUT_KEY_](../../../api/library/controls/class.input_usc.md#KEY_UNKNOWN) codes.
 ## int load ( )
 
-***Console*:**`controls_config_load`Loads controls configuration settings from a [controls configuration file](../../../code/configuration_file_usc.md) (`configs/default.controls` by default). To change the path to the controls configuration file use the [*setPath()*](#setPath_cstr_void) method.
+***Console*:**`controls_config_load`Loads controls configuration settings from a [controls configuration file](../../../code/configuration_file_usc.md) (`configs/default.controls` by default).
+To change the path to the controls configuration file use the [*setPath()*](#setPath_cstr_void) method.
+
 ### Return value
 
 1 if controls configuration settings are successfully loaded from a file; otherwise, 0.
 ## int save ( )
 
-***Console*:**`controls_config_save`Saves controls configuration settings to a [controls configuration file](../../../code/configuration_file_usc.md) (`configs/default.controls` by default). To change the path to the controls configuration file use the [*setPath()*](#setPath_cstr_void) method.
+***Console*:**`controls_config_save`Saves controls configuration settings to a [controls configuration file](../../../code/configuration_file_usc.md) (`configs/default.controls` by default).
+To change the path to the controls configuration file use the [*setPath()*](#setPath_cstr_void) method.
+
 ### Return value
 
 1 if controls configuration settings are successfully saved to a file; otherwise, 0.

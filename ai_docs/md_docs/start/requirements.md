@@ -223,6 +223,10 @@ If your AMD GPU is in the [list of legacy products](https://www.amd.com/en/resou
 ### Intel
 
 
+> **Warning:** - Many Intel Vulkan drivers currently lack support for multithreaded data transfer between CPU and GPU, which is required for the engine to function correctly. As a result, the **engine may not work properly on these systems when using Vulkan**. This is a driver limitation and it will be resolved once Intel updates their Vulkan drivers and adds the required support.
+> - *Landscape Terrain* uses complex shaders that rely on double-precision floating-point calculations. Many **Intel GPUs (particularly on Windows) do not support double-precision math** in shaders under DirectX 12. As a result, terrain rendering may behave incorrectly or not function as expected on these systems.
+
+
 **Intel CPU with Integrated Graphics:**
 
 

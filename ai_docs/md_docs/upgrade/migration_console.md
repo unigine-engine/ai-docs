@@ -4,115 +4,160 @@
 ## Changed Console Commands
 
 
-| UNIGINE 2.20 | UNIGINE 2.21 |
+| UNIGINE 2.21 | UNIGINE 2.22 |
 |---|---|
-| `render_transparent_light` | Removed. |
-| `render_transparent_ambient` | Removed. |
-| `render_lights_tile_grid_size` | Removed. |
-| `render_lights_max_per_batch` | Removed. |
-| `render_sssss_taa_max_frames_by_velocity` | Removed. |
-| `render_sssss_taa_min_frames_by_velocity` | Removed. |
-| `render_taa_max_frames_by_velocity` | Removed. |
-| `render_taa_min_frames_by_velocity` | Removed. |
-| `render_taa_information_lost_frame_count` | Removed. |
-| `render_upscale_post` | Removed. |
-| `render_upscale_fsr_auto_reactive_enabled` | Removed. |
-| `render_upscale_fsr_auto_reactive_scale` | Removed. |
-| `render_upscale_fsr_auto_tc_scale` | Removed. |
-| `render_upscale_fsr_auto_tc_threshold` | Removed. |
-| `render_upscale_fsr_auto_reactive_max` | Removed. |
+| `shaders_create_cache` | Removed. Use `shaders_create_cache_async` or `shaders_create_cache_force` instead. |
+| `render_dof_bokeh_mode` | Default value changed from 0 to 1. |
+| `render_dof_focal_distance` | Default value changed from 1.0f to 4.0f. |
+| `render_streaming_textures_mipmaps` | Default value changed to false. |
+| `render_upscale_mode` | Value range changed. |
+| `render_white_balance_adaptation_time` | Value range changed. |
 
 
 ## New Console Commands
 
 
-### Clouds
+### Clouds Rendering
 
 
-- `render_clouds_environment_sky`
-- `render_clouds_environment_sky_color`
-- `render_clouds_environment_color`
+- `render_clouds_async_compute`
 
 
-### Configurations
+### Dynamic Resolution Scaling
 
 
-- `global_config`
-- `global_config_autosave`
-- `global_config_load`
-- `global_config_save`
+- `render_dynamic_resolution_alignment_enabled`
+- `render_dynamic_resolution_cooldown_frames`
+- `render_dynamic_resolution_debug`
+- `render_dynamic_resolution_dimension`
+- `render_dynamic_resolution_down_frames`
+- `render_dynamic_resolution_down_threshold`
+- `render_dynamic_resolution_enabled`
+- `render_dynamic_resolution_scale_max`
+- `render_dynamic_resolution_scale_min`
+- `render_dynamic_resolution_step`
+- `render_dynamic_resolution_target_fps`
+- `render_dynamic_resolution_up_frames`
+- `render_dynamic_resolution_up_threshold`
+- `render_dynamic_resolution_warmup_frames`
 
 
-### Effects
+### Effects and Postprocesses
 
 
-- `render_sharpen_resolution`
+- `render_dof_jitter_samples`
+- `render_dof_mipmap_by_blur_intensity`
+- `render_dof_sampling_mode`
+- `render_dof_taa_frame_count`
+- `render_dof_taa_frames_velocity_threshold`
+- `render_gpu_resource_aliasing`
+- `render_indirect_specular_temporal_filtering_angle_dependence`
+- `render_indirect_specular_temporal_filtering_color_clamping_grazing`
+- `render_indirect_specular_temporal_filtering_frame_count_grazing`
+- `render_local_tonemapper_detail_contrast_intensity`
+- `render_local_tonemapper_detail_contrast_radius`
+- `render_local_tonemapper_use_detail_contrast`
+- `render_oblique_frustum_enabled`
+- `render_surface_id_multilayered`
 
 
-### Environment
+### Graphics Settings
 
 
-- `render_environment_haze_resolution`
-- `render_environment_dither_scale`
-- `render_environment_haze_dither_scale`
+- `vk_frame_pool_gpu_upload`
+- `vk_frame_pool_upload`
+- `vk_gpu_upload_heap`
 
 
-### Lighting and Shadows
+### ObjectWaterGlobal Rendering
 
 
-- `render_lights_dither_scale`
+- `render_water_geometry_progression_fov_min`
+- `render_water_geometry_progression_fov_scale`
 
 
-### Streaming
+### Output Modes
 
 
-- `render_streaming_igpu_vram_mode`
-- `render_streaming_igpu_vram_size`
-- `render_streaming_igpu_vram_balance`
+- `render_panorama_fisheye_kannala_brandt_chromatic_aberration`
+- `render_panorama_fisheye_kannala_brandt_coefficients`
+- `render_panorama_fisheye_kannala_brandt_focal_length`
+- `render_panorama_fisheye_kannala_brandt_image_circle_radius`
+- `render_panorama_fisheye_kannala_brandt_image_dimensions`
+- `render_panorama_fisheye_kannala_brandt_principal_point`
+- `render_panorama_fisheye_kannala_brandt_skew`
+- `render_panorama_fisheye_kannala_brandt_tangential_distortion`
+- `render_panorama_fisheye_kannala_brandt_vignetting_coefficient_5`
+- `render_panorama_fisheye_kannala_brandt_vignetting_coefficients`
+- `render_panorama_force_disable_screen_space_effects`
 
 
-### Upscalers
+### Performance Profiling
 
 
-- `render_upscale_fix_flicker`
-- `render_upscale_fsr_custom_resolution_scale`
-- `render_upscale_dlss_resolution_scale_enabled`
-- `render_upscale_dlss_resolution_scale_value`
-- `render_upscale_order`
-- `render_upscale_fsr_show_debug_view`
+- `show_profiler_memory_object`
 
 
-### Visualizer
+### Rendering Resources
 
 
-- `render_show_visualizer_on_invisible_surfaces`
-- `render_show_depth_pre_pass`
-- `render_show_proj_and_omni_shadow_casters`
-- `render_show_transparent_gbuffer`
-- `render_show_transparent_lighting_ambient`
-- `render_show_transparent_lighting_environment_probe`
-- `render_show_transparent_lighting_voxel_probe`
-- `render_show_transparent_lighting_planar_probe`
-- `render_show_transparent_lighting_light_omni`
-- `render_show_transparent_lighting_light_proj`
-- `render_show_transparent_lighting_light_world`
-- `render_show_vertex_density_enabled`
-- `render_show_vertex_density_mode`
-- `render_show_vertex_density_depth_test`
-- `render_show_vertex_density_search_area`
-- `render_show_vertex_density_threshold`
-- `render_show_vertex_density_blend`
-- `render_show_quad_overdraw_enabled`
-- `render_show_quad_overdraw_display_mode`
-- `render_show_quad_overdraw_passes`
-- `render_show_quad_overdraw_wireframe`
-- `render_show_quad_overdraw_landscape_terrain`
-- `render_show_quad_overdraw_water_global`
-- `render_show_quad_overdraw_threshold`
-- `render_show_quad_overdraw_blend`
+- `render_streaming_animation_cache_ram`
+- `render_streaming_animations_info`
+- `render_streaming_animations_list`
+- `render_streaming_animations_mode`
+- `render_streaming_animations_reload`
+- `render_streaming_mesh_cache_ram`
+- `render_streaming_mesh_cache_vram`
+- `render_streaming_mesh_skinned_cache_ram`
+- `render_streaming_mesh_skinned_cache_vram`
+- `render_streaming_skinned_mesh_reload`
+- `render_streaming_texture_cache_vram`
+
+
+### Shaders
+
+
+- `shaders_create_cache_async`
+- `shaders_create_cache_force`
+
+
+### Shadows
+
+
+- `render_shadows_penumbra_max_radius_omni`
+- `render_shadows_penumbra_max_radius_proj`
+- `render_shadows_penumbra_max_radius_world`
+
+
+### Stereo Rendering
+
+
+- `render_stereo_hidden_area_enabled`
+
+
+### VR
+
+
+- `vr_emulation_mirror_crop`
+- `vr_emulation_mirror_crop_offset`
+- `vr_emulation_mirror_mode`
+- `vr_mirror_crop`
+- `vr_mirror_crop_offset`
+- `vr_peripheral_rendering_debug_gaze_override_coord`
+- `vr_peripheral_rendering_debug_gaze_override_mode`
+- `vr_profiler_background_alpha`
+- `vr_profiler_position`
+- `vr_show_profiler`
+- `vr_show_profiler_memory`
+- `vr_show_profiler_misc`
+- `vr_show_profiler_performance`
 
 
 ### Miscellaneous
 
 
-- `render_occluder_distance`
+- `render_upscale_fsr_use_old_frame_reactivity`
+- `rtsp_streamer_profiling`
+- `rtsp_streamer_show_debug_info`
+- `scenario_manager_log`
+- `scenario_manager_server`

@@ -24,11 +24,9 @@ This chapter contains the examples of using API for typical use cases.
 
 - [Customizing Mouse Cursor and Behavior (USC)](../../code/usage/mouse_customization/index_usc.md)
 
-- [Basic Object Movements (USC)](../../code/usage/basic_movement/index_usc.md)
+- [Basic Object Movements (CPP)](../../code/usage/basic_movement/index_cpp.md)
 
 - [Basic Object Movements (CS)](../../code/usage/basic_movement/index_cs.md)
-
-- [Basic Object Movements (CPP)](../../code/usage/basic_movement/index_cpp.md)
 
 - [Creating and Attaching a Cloth (USC)](../../code/usage/cloth_particle_joint/index_usc.md)
 

@@ -9,10 +9,10 @@ World triggers trigger events when any nodes (colliders or not) get inside or ou
 > **Notice:** **[World Triggers](../../../objects/worlds/world_trigger/index.md)** detect only the nodes with *Triggers Interaction* enabled - either in the Editor or via API using *[TriggerInteractionEnabled](../../../api/library/nodes/class.node_cs.md#setTriggerInteractionEnabled_int_void)*.
 
 
-The handler function of *World Trigger* is actually executed only when the next engine function is called: that is, before *[UpdatePhysics()](../../../code/fundamentals/execution_sequence/main_loop.md#physics_updatePhysics)* (in the current frame) or before *[Update()](../../../code/fundamentals/execution_sequence/main_loop.md#world_update)* (in the next frame) — whatever comes first.
+The handler function of *World Trigger* is actually executed only when the next engine function is called: that is, before *[UpdatePhysics()](../../../code/fundamentals/execution_sequence/main_loop.md#physics_updatePhysics)* (in the current frame) or before *[Update()](../../../code/fundamentals/execution_sequence/main_loop.md#world_update)* (in the next frame) � whatever comes first.
 
 
-> **Notice:** If you have moved some nodes and want to execute event handlers based on changed positions in the same frame, you need to call [UpdateSpatial()](../../../api/library/engine/class.world_cs.md#updateSpatial_void) first.
+> **Notice:** If you have moved some nodes and want to execute event handlers based on changed positions in the same frame, you need to call *[UpdateSpatial()](../../../api/library/engine/class.world_cs.md#updateSpatial_void)* first.
 
 
 ### Example
@@ -131,7 +131,7 @@ The current dimensions of the world trigger.
 The value indicating if a touch mode is enabled for the trigger. With this mode on, the trigger will react to the node by partial contact. When set to off, the trigger reacts only if the whole bounding sphere/box gets inside or outside of it.
 ## 🔒︎ Event< Node > EventLeave
 
-The event triggered when a node leaves the world trigger. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a node leaves the world trigger. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -225,7 +225,7 @@ publisher.EventLeave.Enabled = true;
 
 ## 🔒︎ Event< Node > EventEnter
 
-The event triggered when a node enters the world trigger. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a node enters the world trigger. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 

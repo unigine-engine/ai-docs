@@ -31,19 +31,6 @@ Returns the current name of the computer on which the viewport is to be displaye
 ### Return value
 
 Current name of the computer on which the viewport is to be displayed.
-## void setEnabled ( bool enabled )
-
-Sets a new value indicating if the SpiderVision plugin is enabled.
-### Arguments
-
-- *bool* **enabled** - Set **true** to enable the SpiderVision plugin; **false** - to disable it.
-
-## bool isEnabled () const
-
-Returns the current value indicating if the SpiderVision plugin is enabled.
-### Return value
-
-**true** if the SpiderVision plugin is enabled; otherwise **false**.
 ## void setConfiguratorEnabled ( bool enabled )
 
 Sets a new value indicating if the configurator window is open.
@@ -56,10 +43,10 @@ Sets a new value indicating if the configurator window is open.
 Returns the current value indicating if the configurator window is open.
 ### Return value
 
-**true** if the configurator interface is enabled; otherwise **false**.
+**true** if the configurator interface is enabled ; otherwise **false**.
 ## static Event<> getEventComputerNameChanged () const
 
-event triggered on changing a computer name. You can subscribe to events via *connect()*   and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered on changing a computer name. You can subscribe to events via *connect()* � and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -195,7 +182,7 @@ Manager::getEventComputerNameChanged().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## int findViewportID ( const char * viewport_name )
@@ -234,14 +221,6 @@ Assigns a player to the specified viewport.
 - *int* **viewport_id** - ID of the viewport window.
 - *const [Ptr](../../../../api/library/common/class.ptr_cpp.md)<[Player](../../../../api/library/players/class.player_cpp.md)> &* **player** - The player camera.
 
-## void setViewportViewOffset ( int viewport_id , const Math:: Vec3 & offset )
-
-Sets a camera view offset (eye position) for the viewport with the specified ID.
-### Arguments
-
-- *int* **viewport_id** - ID of the viewport window.
-- *const  Math::[Vec3](../../../../api/library/math/class.vec3_cpp.md) &* **offset** - Camera view offset coordinates along the corresponding axes.
-
 ## void setGroupCustomPlayer ( int group_id , const Ptr < Player > & player )
 
 Assigns a player to the specified group of viewports.
@@ -249,14 +228,6 @@ Assigns a player to the specified group of viewports.
 
 - *int* **group_id** - ID of the viewport group.
 - *const [Ptr](../../../../api/library/common/class.ptr_cpp.md)<[Player](../../../../api/library/players/class.player_cpp.md)> &* **player** - The player camera.
-
-## void setGroupViewOffset ( int group_id , const Math:: Vec3 & offset )
-
-Sets a camera view offset (eye position) for the viewport group with the specified ID.
-### Arguments
-
-- *int* **group_id** - ID of the viewport group.
-- *const  Math::[Vec3](../../../../api/library/math/class.vec3_cpp.md) &* **offset** - Camera view offset coordinates along the corresponding axes.
 
 ## Ptr < EngineWindowViewport > getEngineWindow ( int viewport_id ) const
 
@@ -268,3 +239,13 @@ Returns the engine window viewport for the specified viewport.
 ### Return value
 
 The engine window viewport.
+## Ptr < Player > getViewportCustomPlayer ( int viewport_id )
+
+Returns the custom player previously assigned to the given viewport's window via **[setViewportCustomPlayer()](../../../...md#setViewportCustomPlayer_int_Player_void)**.
+### Arguments
+
+- *int* **viewport_id** - ID of the viewport.
+
+### Return value
+
+Custom player assigned to the viewport's window, or null if the viewport does not exist or no custom player is set (rendering then falls back to the game player).

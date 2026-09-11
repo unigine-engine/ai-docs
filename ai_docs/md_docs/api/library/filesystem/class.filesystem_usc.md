@@ -15,6 +15,7 @@ Files and packages stored outside the `data` directory are also added to the vir
 
 File System functions:
 
+
 - Provide control over [asynchronous loading](../../../api/library/filesystem/class.asyncqueue_usc.md) of files/meshes/images/nodes on demand under the `data` directory, including files in ZIP and UNG packages. Such packages are [automatically handled](../../../principles/filesystem/index.md#file_packages) by the Engine and all their files are automatically added to the file system.
 - Allow adding directories (even with ZIP and UNG packages) that are [outside](../../../principles/filesystem/index.md#mount_points) the `data` directory and provide [control over loading](../../../api/library/filesystem/class.asyncqueue_usc.md) such files.
 - Allow adding ZIP and UNG packages that are [outside the `data`](../../../principles/filesystem/index.md#mount_points) directory. After that, files in such packages are accessed in a usual way, by specifying a path to the file only inside the package.
@@ -67,7 +68,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventFileRemoved () const
 
 The event handler signature is as follows: *myhandler()*
@@ -84,7 +85,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventFileAdded () const
 
 The event handler signature is as follows: *myhandler()*
@@ -101,7 +102,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventFilesChanged () const
 
 The event handler signature is as follows: *myhandler()*
@@ -118,7 +119,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventFilesRemoved () const
 
 The event handler signature is as follows: *myhandler()*
@@ -135,7 +136,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventFilesAdded () const
 
 The event handler signature is as follows: *myhandler()*
@@ -152,7 +153,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## engine.filesystem. getMount ( )

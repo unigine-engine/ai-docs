@@ -44,8 +44,8 @@ Returns the value of the **Billboard** parameter specified in the packet. Determ
 ### Return value
 
 Billboard parameter value. The following values are supported:
-- 1 – Billboard. The surface shall be oriented such that the normal vector from the center of the surface is parallel to the viewing vector.
-- 0 - Non-Billboard. The surface shall be oriented in relation to the entity’s local coordinate system by the Yaw, Pitch, and Roll parameters.
+- 1 � Billboard. The surface shall be oriented such that the normal vector from the center of the surface is parallel to the viewing vector.
+- 0 - Non-Billboard. The surface shall be oriented in relation to the entity�s local coordinate system by the Yaw, Pitch, and Roll parameters.
 
 
 > **Notice:** If the surface is attached to a view, then the IG shall ignore this parameter.
@@ -63,8 +63,8 @@ Returns the offset of the given surface as a three-component vector of **X Offse
 ### Return value
 
 Three-component vector:
-- [X Offset, Y Offset, Z Offset] - if the surface is attached to an entity. The values are relative to the entity’s reference point.
-- [Left, Right, Top] - if the surface is attached to a view. The IG shall place it at this distance from the left edge of the viewport to the surface’s leftmost and rightmost boundary and from the bottom edge of the viewport to the surface’s topmost boundary respectively. This distance is measured as a fraction of the viewport’s width.
+- [X Offset, Y Offset, Z Offset] - if the surface is attached to an entity. The values are relative to the entity�s reference point.
+- [Left, Right, Top] - if the surface is attached to a view. The IG shall place it at this distance from the left edge of the viewport to the surface�s leftmost and rightmost boundary and from the bottom edge of the viewport to the surface�s topmost boundary respectively. This distance is measured as a fraction of the viewport�s width.
 
 
 ## Math:: vec3 getRotation ( ) const

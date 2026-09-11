@@ -78,7 +78,7 @@ The *Planar Reflection Probe* settings can be found in the *Node* tab of the *Pa
 
 | Reflection Viewport Mask | The *[Reflection Viewport](../../../principles/bit_masking/index.md#reflection_mask)* mask that controls rendering of *Planar Reflection Probe* reflections into the reflection camera viewport. Objects with matching viewport masks will be rendered. |
 |---|---|
-| Map Size | Specifies the reflection’s texture resolution in pixels. The texture is squared (height and width are equal). > **Notice:** Using high-resolution maps for reflections may significantly affect performance, as dynamic reflections are rendered each frame. |
+| Map Size | Specifies the reflection�s texture resolution in pixels. The texture is squared (height and width are equal). > **Notice:** Using high-resolution maps for reflections may significantly affect performance, as dynamic reflections are rendered each frame. |
 | Two Sided | Enables projection for both sides. If this parameter is on, the reflection is projected on both sides of *Planar Reflection Probe* in opposite directions. |
 | Stereo per Eye | Enables rendering of the reflection for each eye separately. > **Notice:** This option is very performance-consuming. |
 | Roughness Samples | Sets the number of samples used to adjust quality of the blurring effect for the reflection on rough surfaces. - The lowest value of 0 means that the blurring of projection is made using only mipmaps. - Higher values result in better blurring quality, as more more randomized samples are used. > **Notice:** Rougher materials require more samples for smoother blurring reflection, but setting too high number of samples may cause a performance drop. |

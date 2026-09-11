@@ -1,13 +1,13 @@
 # Assets Workflow
 
 
-The **Asset System** aims to unify file management within the UNIGINE project and make it simple and intuitive. For this purpose the content of the project is represented as a collection of "building blocks" — assets, and the whole workflow is organized around them.
+The **Asset System** aims to unify file management within the UNIGINE project and make it simple and intuitive. For this purpose the content of the project is represented as a collection of "building blocks" � assets, and the whole workflow is organized around them.
 
 
 **Asset** is the "unit of work", it represents any item that can be used in your world or project. An asset may come from a file created using a third-party application, such as a 3D model, an audio file, an image, or any other type supported by the UNIGINE Engine. Assets can also be created using the UnigineEditor, e.g., a node, a material, or a property.
 
 
-Each asset is represented by a pair: a file on disk, and a `*.meta` metadata file which stores auxiliary information for this asset including a *GUID (globally unique identifier)*. A GUID identifies a path to the asset (i.e., location of the asset in the project) and is used by the Asset System to keep all links and dependencies between the resources regardless of their name and location within the project. So, you don’t have to worry that your material will lose a texture when you change its name.
+Each asset is represented by a pair: a file on disk, and a `*.meta` metadata file which stores auxiliary information for this asset including a *GUID (globally unique identifier)*. A GUID identifies a path to the asset (i.e., location of the asset in the project) and is used by the Asset System to keep all links and dependencies between the resources regardless of their name and location within the project. So, you don�t have to worry that your material will lose a texture when you change its name.
 
 
 Another important feature of the Asset System is real-time tracking of changes. You can modify your assets at any time after importing, the Asset System will notice when you save new changes to the file and will re-import it as necessary.
@@ -76,10 +76,10 @@ Watch the tutorial below to learn how to manage assets with the Asset Browser:
 **Hierarchy View** is located on the left side of the Asset Browser interface. It contains a list of all folders and assets within your project. The following root folders are available:
 
 
-- `favorites` — contains the project assets, folders, and search requests selectively added by the user via the corresponding [item of the context menu](../../editor2/interface/context/index.md#favorites).
-- `data` — contains the data stored in the `data` folder of the project root. It is the folder where all work with the project content is performed.
-- `core` — contains the built-in core assets. These assets are available for every project by default. > **Notice:** Core assets are read-only.
-- `configs` — stores all global engine-related and project-related settings represented as separate [configuration files](../../code/configuration_file_cpp.md).
+- `favorites` � contains the project assets, folders, and search requests selectively added by the user via the corresponding [item of the context menu](../../editor2/interface/context/index.md#favorites).
+- `data` � contains the data stored in the `data` folder of the project root. It is the folder where all work with the project content is performed.
+- `core` � contains the built-in core assets. These assets are available for every project by default. > **Notice:** Core assets are read-only.
+- `configs` � stores all global engine-related and project-related settings represented as separate [configuration files](../../code/configuration_file_cpp.md).
 
 
 When a folder is selected from the list by clicking, its contents will be shown in the [Thumbnail View](#thumbnail_view) to the right. You can use a small triangle next to the folder to expand or collapse it, displaying nested folders and assets.

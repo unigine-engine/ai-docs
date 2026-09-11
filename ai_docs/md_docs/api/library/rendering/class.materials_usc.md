@@ -56,7 +56,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventBeginReload () const
 
 The event handler signature is as follows: *myhandler()*
@@ -73,13 +73,19 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## int isShadersCompiling () const
 
 Returns the current value indicating if asynchronous compilation is being performed.
 ### Return value
 
 Current asynchronous compilation is being performed
+## CustomParameterLayout getMaterialParameters () const
+
+Returns the current layout of custom material parameters (the *[CustomParameterLayout](../../../api/library/common/class.customparameterlayout_usc.md)* instance shared by all materials). Each parameter defined in this layout exists on every material.
+### Return value
+
+Current layout of custom material parameters
 ---
 
 ## Material engine.materials. loadMaterial ( string path )
@@ -295,12 +301,35 @@ Creates all shaders for all loaded materials.
 ## void engine.materials. createRenderMaterials ( )
 
 Creates render materials (internal materials required for rendering). For example, you can create all necessary render materials during initialization to avoid spikes that may occur later.
-## void engine.materials. createShaderCache ( )
+## void engine.materials. createShaderCacheAsync ( )
 
-Creates shader cache for all loaded materials.
+Creates the shader cache for all loaded materials in asynchronous mode: missing shader permutations are queued for background compilation. A loading screen with progress is displayed while the materials are iterated.
+## void engine.materials. createShaderCacheForce ( )
+
+Creates the shader cache for all loaded materials immediately: every missing shader permutation is compiled in a blocking multithreaded batch while a loading screen with progress is displayed.
 ## void engine.materials. createShadersFromCache ( )
 
 Compiles the shaders available in the shader cache.
 ## void engine.materials. flushShadersCompiling ( )
 
 Force-compiles all shaders that are queued for the asynchronous compilation.
+## unsigned int engine.materials. getMaterialFeatureBits ( unsigned int material_id )
+
+Returns the screen-space effect feature bits of the material with the given runtime ID. This makes it possible to query the flags by a material ID obtained from the GPU buffers without having the material itself.
+### Arguments
+
+- *unsigned int* **material_id** - Runtime material ID.
+
+### Return value
+
+Material feature bits, or 0 if no material with this ID exists.
+## unsigned int engine.materials. getMaterialMask ( unsigned int material_id )
+
+Returns the material mask of the material with the given runtime ID.
+### Arguments
+
+- *unsigned int* **material_id** - Runtime material ID.
+
+### Return value
+
+Material mask, or 0 if no material with this ID exists.

@@ -9,7 +9,7 @@ This class is used to manage a fragment of terrain data on the CPU side (e.g. mo
 
 ## 🔒︎ ivec2 Resolution
 
-The current image resolution.
+The image resolution.
 ### Members
 
 ---
@@ -76,12 +76,6 @@ Returns the image of the specified type.
 ### Return value
 
 Image of the specified type.
-## ivec2 GetResolution ( )
-
-Returns the current image resolution.
-### Return value
-
-Two-component vector containing image resolution along X and Y axes.
 ## void Resize ( ivec2 new_resolution )
 
 Sets a new image resolution.

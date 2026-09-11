@@ -35,7 +35,7 @@ Compares two values.
 
 ### Return value
 
-true if A is equal to B, otherwise — false.
+true if A is equal to B, otherwise � false.
 ## bool equals ( float a , float b )
 
 Compares two values.
@@ -46,7 +46,7 @@ Compares two values.
 
 ### Return value
 
-true if A is equal to B, otherwise — false.
+true if A is equal to B, otherwise � false.
 ## float max2 ( float2 value )
 
 Returns the greater of the two vector components.
@@ -1613,7 +1613,10 @@ Returns the argument raised to the power of 4.
 Argument values raised to the power of 4.
 ## float powMirror ( float value , float power )
 
+
 Perform the following operation:
+
+
 **Implementation**
 
 
@@ -1632,7 +1635,10 @@ Perform the following operation:
 Mirrored powered value.
 ## float2 powMirror ( float2 value , float2 power )
 
+
 Perform the following operation:
+
+
 **Implementation**
 
 
@@ -1651,7 +1657,10 @@ Perform the following operation:
 Vector containing mirrored powered values.
 ## float3 powMirror ( float3 value , float3 power )
 
+
 Perform the following operation:
+
+
 **Implementation**
 
 
@@ -1670,7 +1679,10 @@ Perform the following operation:
 Vector containing mirrored powered values.
 ## float4 powMirror ( float4 value , float4 power )
 
+
 Perform the following operation:
+
+
 **Implementation**
 
 
@@ -1689,10 +1701,8 @@ Perform the following operation:
 Vector containing mirrored powered values.
 ## float powFast ( float a , float b )
 
-Returns the argument raised to the specified power (**ab**). Doesn't perform the check that the first argument is a negative value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the argument raised to the specified power (**ab**). Doesn't perform the check that the first argument is a negative value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float* **a** - Argument.
@@ -1703,10 +1713,8 @@ Returns the argument raised to the specified power (**ab**). Doesn't perform the
 Argument raised to the specified power (**ab**).
 ## float2 powFast ( float2 a , float2 b )
 
-Returns the argument raised to the specified power (**ab**). Doesn't perform the check that the first argument is a negative value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the argument raised to the specified power (**ab**). Doesn't perform the check that the first argument is a negative value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float2* **a** - Argument.
@@ -1717,10 +1725,8 @@ Returns the argument raised to the specified power (**ab**). Doesn't perform the
 Argument raised to the specified power (**ab**).
 ## float3 powFast ( float3 a , float3 b )
 
-Returns the argument raised to the specified power (**ab**). Doesn't perform the check that the first argument is a negative value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the argument raised to the specified power (**ab**). Doesn't perform the check that the first argument is a negative value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3* **a** - Argument.
@@ -1731,10 +1737,8 @@ Returns the argument raised to the specified power (**ab**). Doesn't perform the
 Argument raised to the specified power (**ab**).
 ## float4 powFast ( float4 a , float4 b )
 
-Returns the argument raised to the specified power (**ab**). Doesn't perform the check that the first argument is a negative value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the argument raised to the specified power (**ab**). Doesn't perform the check that the first argument is a negative value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4* **a** - Argument.
@@ -1745,10 +1749,8 @@ Returns the argument raised to the specified power (**ab**). Doesn't perform the
 Argument raised to the specified power (**ab**).
 ## int powFast ( int a , int b )
 
-Returns the argument raised to the specified power (**ab**). Doesn't perform the check that the first argument is a negative value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the argument raised to the specified power (**ab**). Doesn't perform the check that the first argument is a negative value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int* **a** - Argument.
@@ -1759,10 +1761,8 @@ Returns the argument raised to the specified power (**ab**). Doesn't perform the
 Argument raised to the specified power (**ab**).
 ## int2 powFast ( int2 a , int2 b )
 
-Returns the argument raised to the specified power (**ab**). Doesn't perform the check that the first argument is a negative value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the argument raised to the specified power (**ab**). Doesn't perform the check that the first argument is a negative value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int2* **a** - Argument.
@@ -1773,10 +1773,8 @@ Returns the argument raised to the specified power (**ab**). Doesn't perform the
 Argument raised to the specified power (**ab**).
 ## int3 powFast ( int3 a , int3 b )
 
-Returns the argument raised to the specified power (**ab**). Doesn't perform the check that the first argument is a negative value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the argument raised to the specified power (**ab**). Doesn't perform the check that the first argument is a negative value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int3* **a** - Argument.
@@ -1787,10 +1785,8 @@ Returns the argument raised to the specified power (**ab**). Doesn't perform the
 Argument raised to the specified power (**ab**).
 ## int4 powFast ( int4 a , int4 b )
 
-Returns the argument raised to the specified power (**ab**). Doesn't perform the check that the first argument is a negative value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the argument raised to the specified power (**ab**). Doesn't perform the check that the first argument is a negative value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int4* **a** - Argument.
@@ -2005,7 +2001,7 @@ Checks if the input value is within the specified range.
 
 ### Return value
 
-true if the value is within the range, otherwise — false.
+true if the value is within the range, otherwise � false.
 ## bool checkRange ( int value , int range_min , int range_max )
 
 Checks if the input value is within the specified range.
@@ -2017,7 +2013,7 @@ Checks if the input value is within the specified range.
 
 ### Return value
 
-true if the value is within the range, otherwise — false.
+true if the value is within the range, otherwise � false.
 ## float hasBit ( uint value , uint bit )
 
 Returns the value of the specified bit.
@@ -2028,7 +2024,7 @@ Returns the value of the specified bit.
 
 ### Return value
 
-Value of the checked bit — either 1.0f, or 0.0f.
+Value of the checked bit � either 1.0f, or 0.0f.
 ## float4 hasBit ( uint4 value , uint bit )
 
 Returns the value of the specified bit.
@@ -2039,7 +2035,7 @@ Returns the value of the specified bit.
 
 ### Return value
 
-Values of the checked bits — either 1.0f, or 0.0f.
+Values of the checked bits � either 1.0f, or 0.0f.
 ## float4 hasBit ( uint value , uint4 bit )
 
 Returns the value of the specified bit.
@@ -2050,7 +2046,7 @@ Returns the value of the specified bit.
 
 ### Return value
 
-Values of the checked bits — either 1.0f, or 0.0f.
+Values of the checked bits � either 1.0f, or 0.0f.
 ## float ddxy ( float value )
 
 Returns the sum of absolute values of the source value derivatives with respect to the screen-space X coordinate and screen-space Y coordinate respectively. This method can only be used in the pixel shader stage.
@@ -2448,10 +2444,8 @@ Calculates the Tangent, Binormal, and Normal vectors based on the Normal vector,
 
 ## bool toBool ( float v )
 
-Converts the argument's value to a *boolean* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's value to a *boolean* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float* **v** - Value to be converted.
@@ -2461,10 +2455,8 @@ Converts the argument's value to a *boolean* value.
 Converted value.
 ## bool toBool ( float2 v )
 
-Converts the argument's first component to a *boolean* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to a *boolean* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float2* **v** - Value to be converted.
@@ -2474,10 +2466,8 @@ Converts the argument's first component to a *boolean* value.
 Converted value.
 ## bool toBool ( float3 v )
 
-Converts the argument's first component to a *boolean* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to a *boolean* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3* **v** - Value to be converted.
@@ -2487,10 +2477,8 @@ Converts the argument's first component to a *boolean* value.
 Converted value.
 ## bool toBool ( float4 v )
 
-Converts the argument's first component to a *boolean* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to a *boolean* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4* **v** - Value to be converted.
@@ -2500,10 +2488,8 @@ Converts the argument's first component to a *boolean* value.
 Converted value.
 ## bool toBool ( bool v )
 
-Returns the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *bool* **v**
@@ -2511,10 +2497,8 @@ Returns the argument.
 
 ## bool toBool ( int v )
 
-Converts the argument's value to a *boolean* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's value to a *boolean* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int* **v** - Value to be converted.
@@ -2524,10 +2508,8 @@ Converts the argument's value to a *boolean* value.
 Converted value.
 ## bool toBool ( int2 v )
 
-Converts the argument's first component to a *boolean* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to a *boolean* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int2* **v** - Value to be converted.
@@ -2537,10 +2519,8 @@ Converts the argument's first component to a *boolean* value.
 Converted value.
 ## bool toBool ( int3 v )
 
-Converts the argument's first component to a *boolean* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to a *boolean* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int3* **v** - Value to be converted.
@@ -2550,10 +2530,8 @@ Converts the argument's first component to a *boolean* value.
 Converted value.
 ## bool toBool ( int4 v )
 
-Converts the argument's first component to a *boolean* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to a *boolean* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int4* **v** - Value to be converted.
@@ -2563,10 +2541,8 @@ Converts the argument's first component to a *boolean* value.
 Converted value.
 ## bool toBool ( uint v )
 
-Converts the argument's value to a *boolean* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's value to a *boolean* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint* **v** - Value to be converted.
@@ -2576,10 +2552,8 @@ Converts the argument's value to a *boolean* value.
 Converted value.
 ## bool toBool ( uint2 v )
 
-Converts the argument's first component to a *boolean* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to a *boolean* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint2* **v** - Value to be converted.
@@ -2589,10 +2563,8 @@ Converts the argument's first component to a *boolean* value.
 Converted value.
 ## bool toBool ( uint3 v )
 
-Converts the argument's first component to a *boolean* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to a *boolean* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint3* **v** - Value to be converted.
@@ -2602,10 +2574,8 @@ Converts the argument's first component to a *boolean* value.
 Converted value.
 ## bool toBool ( uint4 v )
 
-Converts the argument's first component to a *boolean* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to a *boolean* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint4* **v** - Value to be converted.
@@ -2615,10 +2585,8 @@ Converts the argument's first component to a *boolean* value.
 Converted value.
 ## int toInt ( float v )
 
-Converts the argument's value to an *integer* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's value to an *integer* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float* **v** - Value to be converted.
@@ -2628,10 +2596,8 @@ Converts the argument's value to an *integer* value.
 Converted value.
 ## int toInt ( float2 v )
 
-Converts the argument's first component to an *integer* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to an *integer* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float2* **v** - Value to be converted.
@@ -2641,10 +2607,8 @@ Converts the argument's first component to an *integer* value.
 Converted value.
 ## int toInt ( float3 v )
 
-Converts the argument's first component to an *integer* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to an *integer* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3* **v** - Value to be converted.
@@ -2654,10 +2618,8 @@ Converts the argument's first component to an *integer* value.
 Converted value.
 ## int toInt ( float4 v )
 
-Converts the argument's first component to an *integer* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to an *integer* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4* **v** - Value to be converted.
@@ -2667,10 +2629,8 @@ Converts the argument's first component to an *integer* value.
 Converted value.
 ## int toInt ( bool v )
 
-Converts the argument's value to an *integer* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's value to an *integer* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *bool* **v** - Value to be converted.
@@ -2680,10 +2640,8 @@ Converts the argument's value to an *integer* value.
 Converted value.
 ## int toInt ( int v )
 
-Returns the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int* **v**
@@ -2691,10 +2649,8 @@ Returns the argument.
 
 ## int toInt ( int2 v )
 
-Converts the argument's first component to an *integer* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to an *integer* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int2* **v** - Value to be converted.
@@ -2704,10 +2660,8 @@ Converts the argument's first component to an *integer* value.
 Converted value.
 ## int toInt ( int3 v )
 
-Converts the argument's first component to an *integer* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to an *integer* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int3* **v** - Value to be converted.
@@ -2717,10 +2671,8 @@ Converts the argument's first component to an *integer* value.
 Converted value.
 ## int toInt ( int4 v )
 
-Converts the argument's first component to an *integer* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to an *integer* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int4* **v** - Value to be converted.
@@ -2730,10 +2682,8 @@ Converts the argument's first component to an *integer* value.
 Converted value.
 ## int toInt ( uint v )
 
-Converts the argument's value to an *integer* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's value to an *integer* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint* **v** - Value to be converted.
@@ -2743,10 +2693,8 @@ Converts the argument's value to an *integer* value.
 Converted value.
 ## int toInt ( uint2 v )
 
-Converts the argument's first component to an *integer* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to an *integer* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint2* **v** - Value to be converted.
@@ -2756,10 +2704,8 @@ Converts the argument's first component to an *integer* value.
 Converted value.
 ## int toInt ( uint3 v )
 
-Converts the argument's first component to an *integer* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to an *integer* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint3* **v** - Value to be converted.
@@ -2769,10 +2715,8 @@ Converts the argument's first component to an *integer* value.
 Converted value.
 ## int toInt ( uint4 v )
 
-Converts the argument's first component to an *integer* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to an *integer* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint4* **v** - Value to be converted.
@@ -2782,10 +2726,8 @@ Converts the argument's first component to an *integer* value.
 Converted value.
 ## int2 toInt2 ( float v )
 
-Converts the argument to a two-component vector of *integer* values, using the argument value as the first component, and filling the other one with zero.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a two-component vector of *integer* values, using the argument value as the first component, and filling the other one with zero.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float* **v** - Value to be converted.
@@ -2795,10 +2737,8 @@ Converts the argument to a two-component vector of *integer* values, using the a
 Converted value.
 ## int2 toInt2 ( float2 v )
 
-Converts the argument to the vector of *integer* values.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to the vector of *integer* values.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float2* **v** - Value to be converted.
@@ -2808,10 +2748,8 @@ Converts the argument to the vector of *integer* values.
 Converted value.
 ## int2 toInt2 ( float3 v )
 
-Converts the argument to a two-component vector of *integer* values, discarding the extra component of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a two-component vector of *integer* values, discarding the extra component of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3* **v** - Value to be converted.
@@ -2821,10 +2759,8 @@ Converts the argument to a two-component vector of *integer* values, discarding 
 Converted value.
 ## int2 toInt2 ( float4 v )
 
-Converts the argument to a two-component vector of *integer* values, discarding the extra components of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a two-component vector of *integer* values, discarding the extra components of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4* **v** - Value to be converted.
@@ -2834,10 +2770,8 @@ Converts the argument to a two-component vector of *integer* values, discarding 
 Converted value.
 ## int2 toInt2 ( bool v )
 
-Converts the argument to a two-component vector of *integer* values, using the argument value as the first component, and filling the other one with zero.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a two-component vector of *integer* values, using the argument value as the first component, and filling the other one with zero.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *bool* **v** - Value to be converted.
@@ -2847,10 +2781,8 @@ Converts the argument to a two-component vector of *integer* values, using the a
 Converted value.
 ## int2 toInt2 ( int v )
 
-Converts the argument to a two-component vector of *integer* values, using the argument value as the first component, and filling the other one with zero.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a two-component vector of *integer* values, using the argument value as the first component, and filling the other one with zero.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int* **v** - Value to be converted.
@@ -2860,10 +2792,8 @@ Converts the argument to a two-component vector of *integer* values, using the a
 Converted value.
 ## int2 toInt2 ( int2 v )
 
-Returns the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int2* **v**
@@ -2871,10 +2801,8 @@ Returns the argument.
 
 ## int2 toInt2 ( int3 v )
 
-Converts the argument to a two-component vector of *integer* values, discarding the extra component of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a two-component vector of *integer* values, discarding the extra component of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int3* **v** - Value to be converted.
@@ -2884,10 +2812,8 @@ Converts the argument to a two-component vector of *integer* values, discarding 
 Converted value.
 ## int2 toInt2 ( int4 v )
 
-Converts the argument to a two-component vector of *integer* values, discarding the extra components of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a two-component vector of *integer* values, discarding the extra components of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int4* **v** - Value to be converted.
@@ -2897,10 +2823,8 @@ Converts the argument to a two-component vector of *integer* values, discarding 
 Converted value.
 ## int2 toInt2 ( uint v )
 
-Converts the argument to a two-component vector of *integer* values, using the argument value as the first component, and filling the other one with zero.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a two-component vector of *integer* values, using the argument value as the first component, and filling the other one with zero.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint* **v** - Value to be converted.
@@ -2910,10 +2834,8 @@ Converts the argument to a two-component vector of *integer* values, using the a
 Converted value.
 ## int2 toInt2 ( uint2 v )
 
-Converts the argument to the vector of *integer* values.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to the vector of *integer* values.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint2* **v** - Value to be converted.
@@ -2923,10 +2845,8 @@ Converts the argument to the vector of *integer* values.
 Converted value.
 ## int2 toInt2 ( uint3 v )
 
-Converts the argument to a two-component vector of *integer* values, discarding the extra component of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a two-component vector of *integer* values, discarding the extra component of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint3* **v** - Value to be converted.
@@ -2936,10 +2856,8 @@ Converts the argument to a two-component vector of *integer* values, discarding 
 Converted value.
 ## int2 toInt2 ( uint4 v )
 
-Converts the argument to a two-component vector of *integer* values, discarding the extra components of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a two-component vector of *integer* values, discarding the extra components of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint4* **v** - Value to be converted.
@@ -2949,10 +2867,8 @@ Converts the argument to a two-component vector of *integer* values, discarding 
 Converted value.
 ## int3 toInt3 ( float v )
 
-Converts the argument to a three-component vector of *integer* values, using the argument value as the first component, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a three-component vector of *integer* values, using the argument value as the first component, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float* **v** - Value to be converted.
@@ -2962,10 +2878,8 @@ Converts the argument to a three-component vector of *integer* values, using the
 Converted value.
 ## int3 toInt3 ( float2 v )
 
-Converts the argument to a three-component vector of *integer* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a three-component vector of *integer* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float2* **v** - Value to be converted.
@@ -2975,10 +2889,8 @@ Converts the argument to a three-component vector of *integer* values, using the
 Converted value.
 ## int3 toInt3 ( float3 v )
 
-Converts the argument to a vector of *integer* values.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a vector of *integer* values.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3* **v** - Value to be converted.
@@ -2988,10 +2900,8 @@ Converts the argument to a vector of *integer* values.
 Converted value.
 ## int3 toInt3 ( float4 v )
 
-Converts the argument to a three-component vector of *integer* values, discarding the extra component of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a three-component vector of *integer* values, discarding the extra component of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4* **v** - Value to be converted.
@@ -3001,10 +2911,8 @@ Converts the argument to a three-component vector of *integer* values, discardin
 Converted value.
 ## int3 toInt3 ( bool v )
 
-Converts the argument to a three-component vector of *integer* values, using the argument value as the first component, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a three-component vector of *integer* values, using the argument value as the first component, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *bool* **v** - Value to be converted.
@@ -3014,10 +2922,8 @@ Converts the argument to a three-component vector of *integer* values, using the
 Converted value.
 ## int3 toInt3 ( int v )
 
-Converts the argument to a three-component vector of *integer* values, using the argument value as the first component, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a three-component vector of *integer* values, using the argument value as the first component, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int* **v** - Value to be converted.
@@ -3027,10 +2933,8 @@ Converts the argument to a three-component vector of *integer* values, using the
 Converted value.
 ## int3 toInt3 ( int2 v )
 
-Converts the argument to a three-component vector of *integer* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a three-component vector of *integer* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int2* **v** - Value to be converted.
@@ -3040,10 +2944,8 @@ Converts the argument to a three-component vector of *integer* values, using the
 Converted value.
 ## int3 toInt3 ( int3 v )
 
-Returns the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int3* **v**
@@ -3051,10 +2953,8 @@ Returns the argument.
 
 ## int3 toInt3 ( int4 v )
 
-Converts the argument to a three-component vector of *integer* values, discarding the extra component of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a three-component vector of *integer* values, discarding the extra component of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int4* **v** - Value to be converted.
@@ -3064,10 +2964,8 @@ Converts the argument to a three-component vector of *integer* values, discardin
 Converted value.
 ## int3 toInt3 ( uint v )
 
-Converts the argument to a three-component vector of *integer* values, using the argument value as the first component, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a three-component vector of *integer* values, using the argument value as the first component, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint* **v** - Value to be converted.
@@ -3077,10 +2975,8 @@ Converts the argument to a three-component vector of *integer* values, using the
 Converted value.
 ## int3 toInt3 ( uint2 v )
 
-Converts the argument to a three-component vector of *integer* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a three-component vector of *integer* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint2* **v** - Value to be converted.
@@ -3090,10 +2986,8 @@ Converts the argument to a three-component vector of *integer* values, using the
 Converted value.
 ## int3 toInt3 ( uint3 v )
 
-Converts the argument to a vector of *integer* values.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a vector of *integer* values.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint3* **v** - Value to be converted.
@@ -3103,10 +2997,8 @@ Converts the argument to a vector of *integer* values.
 Converted value.
 ## int3 toInt3 ( uint4 v )
 
-Converts the argument to a three-component vector of *integer* values, discarding the extra component of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a three-component vector of *integer* values, discarding the extra component of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint4* **v** - Value to be converted.
@@ -3116,10 +3008,8 @@ Converts the argument to a three-component vector of *integer* values, discardin
 Converted value.
 ## int4 toInt4 ( float v )
 
-Converts the argument to a four-component vector of *integer* values, using the argument value as the first component, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a four-component vector of *integer* values, using the argument value as the first component, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float* **v** - Value to be converted.
@@ -3129,10 +3019,8 @@ Converts the argument to a four-component vector of *integer* values, using the 
 Converted value.
 ## int4 toInt4 ( float2 v )
 
-Converts the argument to a four-component vector of *integer* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a four-component vector of *integer* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float2* **v** - Value to be converted.
@@ -3142,10 +3030,8 @@ Converts the argument to a four-component vector of *integer* values, using the 
 Converted value.
 ## int4 toInt4 ( float3 v )
 
-Converts the argument to a four-component vector of *integer* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a four-component vector of *integer* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3* **v** - Value to be converted.
@@ -3155,10 +3041,8 @@ Converts the argument to a four-component vector of *integer* values, using the 
 Converted value.
 ## int4 toInt4 ( float4 v )
 
-Converts the argument to a vector of *integer* values.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a vector of *integer* values.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4* **v** - Value to be converted.
@@ -3168,10 +3052,8 @@ Converts the argument to a vector of *integer* values.
 Converted value.
 ## int4 toInt4 ( bool v )
 
-Converts the argument to a four-component vector of *integer* values, using the argument value as the first component, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a four-component vector of *integer* values, using the argument value as the first component, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *bool* **v** - Value to be converted.
@@ -3181,10 +3063,8 @@ Converts the argument to a four-component vector of *integer* values, using the 
 Converted value.
 ## int4 toInt4 ( int v )
 
-Converts the argument to a four-component vector of *integer* values, using the argument value as the first component, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a four-component vector of *integer* values, using the argument value as the first component, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int* **v** - Value to be converted.
@@ -3194,10 +3074,8 @@ Converts the argument to a four-component vector of *integer* values, using the 
 Converted value.
 ## int4 toInt4 ( int2 v )
 
-Converts the argument to a four-component vector of *integer* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a four-component vector of *integer* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int2* **v** - Value to be converted.
@@ -3207,10 +3085,8 @@ Converts the argument to a four-component vector of *integer* values, using the 
 Converted value.
 ## int4 toInt4 ( int3 v )
 
-Converts the argument to a four-component vector of *integer* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a four-component vector of *integer* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int3* **v** - Value to be converted.
@@ -3220,10 +3096,8 @@ Converts the argument to a four-component vector of *integer* values, using the 
 Converted value.
 ## int4 toInt4 ( int4 v )
 
-Returns the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int4* **v**
@@ -3231,10 +3105,8 @@ Returns the argument.
 
 ## int4 toInt4 ( uint v )
 
-Converts the argument to a four-component vector of *integer* values, using the argument value as the first component, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a four-component vector of *integer* values, using the argument value as the first component, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint* **v** - Value to be converted.
@@ -3244,10 +3116,8 @@ Converts the argument to a four-component vector of *integer* values, using the 
 Converted value.
 ## int4 toInt4 ( uint2 v )
 
-Converts the argument to a four-component vector of *integer* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a four-component vector of *integer* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint2* **v** - Value to be converted.
@@ -3257,10 +3127,8 @@ Converts the argument to a four-component vector of *integer* values, using the 
 Converted value.
 ## int4 toInt4 ( uint3 v )
 
-Converts the argument to a four-component vector of *integer* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a four-component vector of *integer* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint3* **v** - Value to be converted.
@@ -3270,10 +3138,8 @@ Converts the argument to a four-component vector of *integer* values, using the 
 Converted value.
 ## int4 toInt4 ( uint4 v )
 
-Converts the argument to a vector of *integer* values.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a vector of *integer* values.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint4* **v** - Value to be converted.
@@ -3283,10 +3149,8 @@ Converts the argument to a vector of *integer* values.
 Converted value.
 ## uint toUInt ( float v )
 
-Converts the argument's value to an *unsigned integer* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's value to an *unsigned integer* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float* **v** - Value to be converted.
@@ -3296,10 +3160,8 @@ Converts the argument's value to an *unsigned integer* value.
 Converted value.
 ## uint toUInt ( float2 v )
 
-Converts the argument's first component to an *unsigned integer* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to an *unsigned integer* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float2* **v** - Value to be converted.
@@ -3309,10 +3171,8 @@ Converts the argument's first component to an *unsigned integer* value.
 Converted value.
 ## uint toUInt ( float3 v )
 
-Converts the argument's first component to an *unsigned integer* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to an *unsigned integer* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3* **v** - Value to be converted.
@@ -3322,10 +3182,8 @@ Converts the argument's first component to an *unsigned integer* value.
 Converted value.
 ## uint toUInt ( float4 v )
 
-Converts the argument's first component to an *unsigned integer* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to an *unsigned integer* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4* **v** - Value to be converted.
@@ -3335,10 +3193,8 @@ Converts the argument's first component to an *unsigned integer* value.
 Converted value.
 ## uint toUInt ( bool v )
 
-Converts the argument's value to an *unsigned integer* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's value to an *unsigned integer* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *bool* **v** - Value to be converted.
@@ -3348,10 +3204,8 @@ Converts the argument's value to an *unsigned integer* value.
 Converted value.
 ## uint toUInt ( int v )
 
-Converts the argument's value to an *unsigned integer* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's value to an *unsigned integer* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int* **v** - Value to be converted.
@@ -3361,10 +3215,8 @@ Converts the argument's value to an *unsigned integer* value.
 Converted value.
 ## uint toUInt ( int2 v )
 
-Converts the argument's first component to an *unsigned integer* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to an *unsigned integer* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int2* **v** - Value to be converted.
@@ -3374,10 +3226,8 @@ Converts the argument's first component to an *unsigned integer* value.
 Converted value.
 ## uint toUInt ( int3 v )
 
-Converts the argument's first component to an *unsigned integer* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to an *unsigned integer* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int3* **v** - Value to be converted.
@@ -3387,10 +3237,8 @@ Converts the argument's first component to an *unsigned integer* value.
 Converted value.
 ## uint toUInt ( int4 v )
 
-Converts the argument's first component to an *unsigned integer* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to an *unsigned integer* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int4* **v** - Value to be converted.
@@ -3400,10 +3248,8 @@ Converts the argument's first component to an *unsigned integer* value.
 Converted value.
 ## uint toUInt ( uint v )
 
-Returns the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint* **v**
@@ -3411,10 +3257,8 @@ Returns the argument.
 
 ## uint toUInt ( uint2 v )
 
-Converts the argument's first component to an *unsigned integer* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to an *unsigned integer* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint2* **v** - Value to be converted.
@@ -3424,10 +3268,8 @@ Converts the argument's first component to an *unsigned integer* value.
 Converted value.
 ## uint toUInt ( uint3 v )
 
-Converts the argument's first component to an *unsigned integer* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to an *unsigned integer* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint3* **v** - Value to be converted.
@@ -3437,10 +3279,8 @@ Converts the argument's first component to an *unsigned integer* value.
 Converted value.
 ## uint toUInt ( uint4 v )
 
-Converts the argument's first component to an *unsigned integer* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to an *unsigned integer* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint4* **v** - Value to be converted.
@@ -3450,10 +3290,8 @@ Converts the argument's first component to an *unsigned integer* value.
 Converted value.
 ## uint2 toUInt2 ( float v )
 
-Converts the argument to a two-component vector of *unsigned integer* values, using the argument value as the first component, and filling the other one with zero.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a two-component vector of *unsigned integer* values, using the argument value as the first component, and filling the other one with zero.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float* **v** - Value to be converted.
@@ -3463,10 +3301,8 @@ Converts the argument to a two-component vector of *unsigned integer* values, us
 Converted value.
 ## uint2 toUInt2 ( float2 v )
 
-Converts the argument to the vector of *unsigned integer* values.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to the vector of *unsigned integer* values.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float2* **v** - Value to be converted.
@@ -3476,10 +3312,8 @@ Converts the argument to the vector of *unsigned integer* values.
 Converted value.
 ## uint2 toUInt2 ( float3 v )
 
-Converts the argument to a two-component vector of *unsigned integer* values, discarding the extra component of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a two-component vector of *unsigned integer* values, discarding the extra component of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3* **v** - Value to be converted.
@@ -3489,10 +3323,8 @@ Converts the argument to a two-component vector of *unsigned integer* values, di
 Converted value.
 ## uint2 toUInt2 ( float4 v )
 
-Converts the argument to a two-component vector of *unsigned integer* values, discarding the extra components of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a two-component vector of *unsigned integer* values, discarding the extra components of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4* **v** - Value to be converted.
@@ -3502,10 +3334,8 @@ Converts the argument to a two-component vector of *unsigned integer* values, di
 Converted value.
 ## uint2 toUInt2 ( bool v )
 
-Converts the argument to a two-component vector of *unsigned integer* values, using the argument value as the first component, and filling the other one with zero.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a two-component vector of *unsigned integer* values, using the argument value as the first component, and filling the other one with zero.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *bool* **v** - Value to be converted.
@@ -3515,10 +3345,8 @@ Converts the argument to a two-component vector of *unsigned integer* values, us
 Converted value.
 ## uint2 toUInt2 ( int v )
 
-Converts the argument to a two-component vector of *unsigned integer* values, using the argument value as the first component, and filling the other one with zero.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a two-component vector of *unsigned integer* values, using the argument value as the first component, and filling the other one with zero.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int* **v** - Value to be converted.
@@ -3528,10 +3356,8 @@ Converts the argument to a two-component vector of *unsigned integer* values, us
 Converted value.
 ## uint2 toUInt2 ( int2 v )
 
-Converts the argument to the vector of *unsigned integer* values.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to the vector of *unsigned integer* values.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int2* **v** - Value to be converted.
@@ -3541,10 +3367,8 @@ Converts the argument to the vector of *unsigned integer* values.
 Converted value.
 ## uint2 toUInt2 ( int3 v )
 
-Converts the argument to a two-component vector of *unsigned integer* values, discarding the extra component of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a two-component vector of *unsigned integer* values, discarding the extra component of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int3* **v** - Value to be converted.
@@ -3554,10 +3378,8 @@ Converts the argument to a two-component vector of *unsigned integer* values, di
 Converted value.
 ## uint2 toUInt2 ( int4 v )
 
-Converts the argument to a two-component vector of *unsigned integer* values, discarding the extra components of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a two-component vector of *unsigned integer* values, discarding the extra components of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int4* **v** - Value to be converted.
@@ -3567,10 +3389,8 @@ Converts the argument to a two-component vector of *unsigned integer* values, di
 Converted value.
 ## uint2 toUInt2 ( uint v )
 
-Converts the argument to a two-component vector of *unsigned integer* values, using the argument value as the first component, and filling the other one with zero.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a two-component vector of *unsigned integer* values, using the argument value as the first component, and filling the other one with zero.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint* **v** - Value to be converted.
@@ -3580,10 +3400,8 @@ Converts the argument to a two-component vector of *unsigned integer* values, us
 Converted value.
 ## uint2 toUInt2 ( uint2 v )
 
-Returns the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint2* **v**
@@ -3591,10 +3409,8 @@ Returns the argument.
 
 ## uint2 toUInt2 ( uint3 v )
 
-Converts the argument to a two-component vector of *unsigned integer* values, discarding the extra component of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a two-component vector of *unsigned integer* values, discarding the extra component of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint3* **v** - Value to be converted.
@@ -3604,10 +3420,8 @@ Converts the argument to a two-component vector of *unsigned integer* values, di
 Converted value.
 ## uint2 toUInt2 ( uint4 v )
 
-Converts the argument to a two-component vector of *unsigned integer* values, discarding the extra components of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a two-component vector of *unsigned integer* values, discarding the extra components of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint4* **v** - Value to be converted.
@@ -3617,10 +3431,8 @@ Converts the argument to a two-component vector of *unsigned integer* values, di
 Converted value.
 ## uint3 toUInt3 ( float v )
 
-Converts the argument to a three-component vector of *unsigned integer* values, using the argument value as the first component, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a three-component vector of *unsigned integer* values, using the argument value as the first component, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float* **v** - Value to be converted.
@@ -3630,10 +3442,8 @@ Converts the argument to a three-component vector of *unsigned integer* values, 
 Converted value.
 ## uint3 toUInt3 ( float2 v )
 
-Converts the argument to a three-component vector of *unsigned integer* values, using the argument values as the corresponding components, and filling the extra one with zero.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a three-component vector of *unsigned integer* values, using the argument values as the corresponding components, and filling the extra one with zero.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float2* **v** - Value to be converted.
@@ -3643,10 +3453,8 @@ Converts the argument to a three-component vector of *unsigned integer* values, 
 Converted value.
 ## uint3 toUInt3 ( float3 v )
 
-Converts the argument to a vector of *unsigned integer* values.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a vector of *unsigned integer* values.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3* **v** - Value to be converted.
@@ -3656,10 +3464,8 @@ Converts the argument to a vector of *unsigned integer* values.
 Converted value.
 ## uint3 toUInt3 ( float4 v )
 
-Converts the argument to a three-component vector of *unsigned integer* values, discarding the extra component of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a three-component vector of *unsigned integer* values, discarding the extra component of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4* **v** - Value to be converted.
@@ -3669,10 +3475,8 @@ Converts the argument to a three-component vector of *unsigned integer* values, 
 Converted value.
 ## uint3 toUInt3 ( bool v )
 
-Converts the argument to a three-component vector of *unsigned integer* values, using the argument value as the first component, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a three-component vector of *unsigned integer* values, using the argument value as the first component, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *bool* **v** - Value to be converted.
@@ -3682,10 +3486,8 @@ Converts the argument to a three-component vector of *unsigned integer* values, 
 Converted value.
 ## uint3 toUInt3 ( int v )
 
-Converts the argument to a three-component vector of *unsigned integer* values, using the argument value as the first component, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a three-component vector of *unsigned integer* values, using the argument value as the first component, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int* **v** - Value to be converted.
@@ -3695,10 +3497,8 @@ Converts the argument to a three-component vector of *unsigned integer* values, 
 Converted value.
 ## uint3 toUInt3 ( int2 v )
 
-Converts the argument to a three-component vector of *unsigned integer* values, using the argument values as the corresponding components, and filling the extra one with zero.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a three-component vector of *unsigned integer* values, using the argument values as the corresponding components, and filling the extra one with zero.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int2* **v** - Value to be converted.
@@ -3708,10 +3508,8 @@ Converts the argument to a three-component vector of *unsigned integer* values, 
 Converted value.
 ## uint3 toUInt3 ( int3 v )
 
-Converts the argument to a vector of *unsigned integer* values.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a vector of *unsigned integer* values.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int3* **v** - Value to be converted.
@@ -3721,10 +3519,8 @@ Converts the argument to a vector of *unsigned integer* values.
 Converted value.
 ## uint3 toUInt3 ( int4 v )
 
-Converts the argument to a three-component vector of *unsigned integer* values, discarding the extra component of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a three-component vector of *unsigned integer* values, discarding the extra component of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int4* **v** - Value to be converted.
@@ -3734,10 +3530,8 @@ Converts the argument to a three-component vector of *unsigned integer* values, 
 Converted value.
 ## uint3 toUInt3 ( uint v )
 
-Converts the argument to a three-component vector of *unsigned integer* values, using the argument value as the first component, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a three-component vector of *unsigned integer* values, using the argument value as the first component, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint* **v** - Value to be converted.
@@ -3747,10 +3541,8 @@ Converts the argument to a three-component vector of *unsigned integer* values, 
 Converted value.
 ## uint3 toUInt3 ( uint2 v )
 
-Converts the argument to a three-component vector of *unsigned integer* values, using the argument values as the corresponding components, and filling the extra one with zero.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a three-component vector of *unsigned integer* values, using the argument values as the corresponding components, and filling the extra one with zero.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint2* **v** - Value to be converted.
@@ -3760,10 +3552,8 @@ Converts the argument to a three-component vector of *unsigned integer* values, 
 Converted value.
 ## uint3 toUInt3 ( uint3 v )
 
-Returns the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint3* **v**
@@ -3771,10 +3561,8 @@ Returns the argument.
 
 ## uint3 toUInt3 ( uint4 v )
 
-Converts the argument to a three-component vector of *unsigned integer* values, discarding the extra component of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a three-component vector of *unsigned integer* values, discarding the extra component of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint4* **v** - Value to be converted.
@@ -3784,10 +3572,8 @@ Converts the argument to a three-component vector of *unsigned integer* values, 
 Converted value.
 ## uint4 toUInt4 ( float v )
 
-Converts the argument to a four-component vector of *unsigned integer* values, using the argument value as the first component, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a four-component vector of *unsigned integer* values, using the argument value as the first component, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float* **v** - Value to be converted.
@@ -3797,10 +3583,8 @@ Converts the argument to a four-component vector of *unsigned integer* values, u
 Converted value.
 ## uint4 toUInt4 ( float2 v )
 
-Converts the argument to a four-component vector of *unsigned integer* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a four-component vector of *unsigned integer* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float2* **v** - Value to be converted.
@@ -3810,10 +3594,8 @@ Converts the argument to a four-component vector of *unsigned integer* values, u
 Converted value.
 ## uint4 toUInt4 ( float3 v )
 
-Converts the argument to a four-component vector of *unsigned integer* values, using the argument values as the corresponding components, and filling the extra one with zero.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a four-component vector of *unsigned integer* values, using the argument values as the corresponding components, and filling the extra one with zero.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3* **v** - Value to be converted.
@@ -3823,10 +3605,8 @@ Converts the argument to a four-component vector of *unsigned integer* values, u
 Converted value.
 ## uint4 toUInt4 ( float4 v )
 
-Converts the argument to a vector of *unsigned integer* values.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a vector of *unsigned integer* values.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4* **v** - Value to be converted.
@@ -3836,10 +3616,8 @@ Converts the argument to a vector of *unsigned integer* values.
 Converted value.
 ## uint4 toUInt4 ( bool v )
 
-Converts the argument to a four-component vector of *unsigned integer* values, using the argument value as the first component, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a four-component vector of *unsigned integer* values, using the argument value as the first component, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *bool* **v** - Value to be converted.
@@ -3849,10 +3627,8 @@ Converts the argument to a four-component vector of *unsigned integer* values, u
 Converted value.
 ## uint4 toUInt4 ( int v )
 
-Converts the argument to a four-component vector of *unsigned integer* values, using the argument value as the first component, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a four-component vector of *unsigned integer* values, using the argument value as the first component, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int* **v** - Value to be converted.
@@ -3862,10 +3638,8 @@ Converts the argument to a four-component vector of *unsigned integer* values, u
 Converted value.
 ## uint4 toUInt4 ( int2 v )
 
-Converts the argument to a four-component vector of *unsigned integer* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a four-component vector of *unsigned integer* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int2* **v** - Value to be converted.
@@ -3875,10 +3649,8 @@ Converts the argument to a four-component vector of *unsigned integer* values, u
 Converted value.
 ## uint4 toUInt4 ( int3 v )
 
-Converts the argument to a four-component vector of *unsigned integer* values, using the argument values as the corresponding components, and filling the extra one with zero.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a four-component vector of *unsigned integer* values, using the argument values as the corresponding components, and filling the extra one with zero.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int3* **v** - Value to be converted.
@@ -3888,10 +3660,8 @@ Converts the argument to a four-component vector of *unsigned integer* values, u
 Converted value.
 ## uint4 toUInt4 ( int4 v )
 
-Converts the argument to a vector of *unsigned integer* values.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a vector of *unsigned integer* values.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int4* **v** - Value to be converted.
@@ -3901,10 +3671,8 @@ Converts the argument to a vector of *unsigned integer* values.
 Converted value.
 ## uint4 toUInt4 ( uint v )
 
-Converts the argument to a four-component vector of *unsigned integer* values, using the argument value as the first component, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a four-component vector of *unsigned integer* values, using the argument value as the first component, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint* **v** - Value to be converted.
@@ -3914,10 +3682,8 @@ Converts the argument to a four-component vector of *unsigned integer* values, u
 Converted value.
 ## uint4 toUInt4 ( uint2 v )
 
-Converts the argument to a four-component vector of *unsigned integer* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a four-component vector of *unsigned integer* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint2* **v** - Value to be converted.
@@ -3927,10 +3693,8 @@ Converts the argument to a four-component vector of *unsigned integer* values, u
 Converted value.
 ## uint4 toUInt4 ( uint3 v )
 
-Converts the argument to a four-component vector of *unsigned integer* values, using the argument values as the corresponding components, and filling the extra one with zero.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a four-component vector of *unsigned integer* values, using the argument values as the corresponding components, and filling the extra one with zero.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint3* **v** - Value to be converted.
@@ -3940,10 +3704,8 @@ Converts the argument to a four-component vector of *unsigned integer* values, u
 Converted value.
 ## uint4 toUInt4 ( uint4 v )
 
-Returns the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint4* **v**
@@ -3951,10 +3713,8 @@ Returns the argument.
 
 ## float toFloat ( float v )
 
-Returns the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float* **v**
@@ -3962,10 +3722,8 @@ Returns the argument.
 
 ## float toFloat ( float2 v )
 
-Converts the argument's first component to a *floating-point* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to a *floating-point* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float2* **v** - Value to be converted.
@@ -3975,10 +3733,8 @@ Converts the argument's first component to a *floating-point* value.
 Converted value.
 ## float toFloat ( float3 v )
 
-Converts the argument's first component to a *floating-point* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to a *floating-point* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3* **v** - Value to be converted.
@@ -3988,10 +3744,8 @@ Converts the argument's first component to a *floating-point* value.
 Converted value.
 ## float toFloat ( float4 v )
 
-Converts the argument's first component to a *floating-point* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to a *floating-point* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4* **v** - Value to be converted.
@@ -4001,10 +3755,8 @@ Converts the argument's first component to a *floating-point* value.
 Converted value.
 ## float toFloat ( bool v )
 
-Converts the argument's value to a *floating-point* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's value to a *floating-point* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *bool* **v** - Value to be converted.
@@ -4014,10 +3766,8 @@ Converts the argument's value to a *floating-point* value.
 Converted value.
 ## float toFloat ( int v )
 
-Converts the argument's value to a *floating-point* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's value to a *floating-point* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int* **v** - Value to be converted.
@@ -4027,10 +3777,8 @@ Converts the argument's value to a *floating-point* value.
 Converted value.
 ## float toFloat ( int2 v )
 
-Converts the argument's first component to a *floating-point* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to a *floating-point* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int2* **v** - Value to be converted.
@@ -4040,10 +3788,8 @@ Converts the argument's first component to a *floating-point* value.
 Converted value.
 ## float toFloat ( int3 v )
 
-Converts the argument's first component to a *floating-point* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to a *floating-point* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int3* **v** - Value to be converted.
@@ -4053,10 +3799,8 @@ Converts the argument's first component to a *floating-point* value.
 Converted value.
 ## float toFloat ( int4 v )
 
-Converts the argument's first component to a *floating-point* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to a *floating-point* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int4* **v** - Value to be converted.
@@ -4066,10 +3810,8 @@ Converts the argument's first component to a *floating-point* value.
 Converted value.
 ## float toFloat ( uint v )
 
-Converts the argument's value to a *floating-point* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's value to a *floating-point* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint* **v** - Value to be converted.
@@ -4079,10 +3821,8 @@ Converts the argument's value to a *floating-point* value.
 Converted value.
 ## float toFloat ( uint2 v )
 
-Converts the argument's first component to a *floating-point* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to a *floating-point* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint2* **v** - Value to be converted.
@@ -4092,10 +3832,8 @@ Converts the argument's first component to a *floating-point* value.
 Converted value.
 ## float toFloat ( uint3 v )
 
-Converts the argument's first component to a *floating-point* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to a *floating-point* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint3* **v** - Value to be converted.
@@ -4105,10 +3843,8 @@ Converts the argument's first component to a *floating-point* value.
 Converted value.
 ## float toFloat ( uint4 v )
 
-Converts the argument's first component to a *floating-point* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to a *floating-point* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint4* **v** - Value to be converted.
@@ -4118,10 +3854,8 @@ Converts the argument's first component to a *floating-point* value.
 Converted value.
 ## float toFloat ( double v )
 
-Converts the argument's first component to a *floating-point* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to a *floating-point* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *double* **v** - Value to be converted.
@@ -4131,10 +3865,8 @@ Converts the argument's first component to a *floating-point* value.
 Resulting value.
 ## float toFloat ( double2 v )
 
-Converts the argument's first component to a *floating-point* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to a *floating-point* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *double2* **v** - Value to be converted.
@@ -4144,10 +3876,8 @@ Converts the argument's first component to a *floating-point* value.
 Converted value.
 ## float toFloat ( double3 v )
 
-Converts the argument's first component to a *floating-point* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to a *floating-point* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *double3* **v** - Value to be converted.
@@ -4157,10 +3887,8 @@ Converts the argument's first component to a *floating-point* value.
 Converted value.
 ## float toFloat ( double4 v )
 
-Converts the argument's first component to a *floating-point* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument's first component to a *floating-point* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *double4* **v** - Value to be converted.
@@ -4170,10 +3898,8 @@ Converts the argument's first component to a *floating-point* value.
 Converted value.
 ## float2 toFloat2 ( float v )
 
-Converts the argument to a two-component vector of *floating-point* values, using the argument value as the first component, and filling the other one with zero.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a two-component vector of *floating-point* values, using the argument value as the first component, and filling the other one with zero.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float* **v** - Value to be converted.
@@ -4183,10 +3909,8 @@ Converts the argument to a two-component vector of *floating-point* values, usin
 Converted value.
 ## float2 toFloat2 ( float2 v )
 
-Returns the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float2* **v**
@@ -4194,10 +3918,8 @@ Returns the argument.
 
 ## float2 toFloat2 ( float3 v )
 
-Converts the argument to a two-component vector of *floating-point* values, discarding the extra component of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a two-component vector of *floating-point* values, discarding the extra component of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3* **v** - Value to be converted.
@@ -4207,10 +3929,8 @@ Converts the argument to a two-component vector of *floating-point* values, disc
 Converted value.
 ## float2 toFloat2 ( float4 v )
 
-Converts the argument to a two-component vector of *floating-point* values, discarding the extra components of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a two-component vector of *floating-point* values, discarding the extra components of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4* **v** - Value to be converted.
@@ -4220,10 +3940,8 @@ Converts the argument to a two-component vector of *floating-point* values, disc
 Converted value.
 ## float2 toFloat2 ( bool v )
 
-Converts the argument to a two-component vector of *floating-point* values, using the argument value as the first component, and filling the other one with zero.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a two-component vector of *floating-point* values, using the argument value as the first component, and filling the other one with zero.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *bool* **v** - Value to be converted.
@@ -4233,10 +3951,8 @@ Converts the argument to a two-component vector of *floating-point* values, usin
 Converted value.
 ## float2 toFloat2 ( int v )
 
-Converts the argument to a two-component vector of *floating-point* values, using the argument value as the first component, and filling the other one with zero.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a two-component vector of *floating-point* values, using the argument value as the first component, and filling the other one with zero.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int* **v** - Value to be converted.
@@ -4246,10 +3962,8 @@ Converts the argument to a two-component vector of *floating-point* values, usin
 Converted value.
 ## float2 toFloat2 ( int2 v )
 
-Converts the argument to the vector of *floating-point* values.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to the vector of *floating-point* values.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int2* **v** - Value to be converted.
@@ -4259,10 +3973,8 @@ Converts the argument to the vector of *floating-point* values.
 Converted value.
 ## float2 toFloat2 ( int3 v )
 
-Converts the argument to a two-component vector of *floating-point* values, discarding the extra component of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a two-component vector of *floating-point* values, discarding the extra component of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int3* **v** - Value to be converted.
@@ -4272,10 +3984,8 @@ Converts the argument to a two-component vector of *floating-point* values, disc
 Converted value.
 ## float2 toFloat2 ( int4 v )
 
-Converts the argument to a two-component vector of *floating-point* values, discarding the extra components of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a two-component vector of *floating-point* values, discarding the extra components of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int4* **v** - Value to be converted.
@@ -4285,10 +3995,8 @@ Converts the argument to a two-component vector of *floating-point* values, disc
 Converted value.
 ## float2 toFloat2 ( uint v )
 
-Converts the argument to a two-component vector of *floating-point* values, using the argument value as the first component, and filling the other one with zero.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a two-component vector of *floating-point* values, using the argument value as the first component, and filling the other one with zero.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint* **v** - Value to be converted.
@@ -4298,10 +4006,8 @@ Converts the argument to a two-component vector of *floating-point* values, usin
 Converted value.
 ## float2 toFloat2 ( uint2 v )
 
-Converts the argument to the vector of *floating-point* values.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to the vector of *floating-point* values.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint2* **v** - Value to be converted.
@@ -4311,10 +4017,8 @@ Converts the argument to the vector of *floating-point* values.
 Converted value.
 ## float2 toFloat2 ( uint3 v )
 
-Converts the argument to a two-component vector of *floating-point* values, discarding the extra component of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a two-component vector of *floating-point* values, discarding the extra component of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint3* **v** - Value to be converted.
@@ -4324,10 +4028,8 @@ Converts the argument to a two-component vector of *floating-point* values, disc
 Converted value.
 ## float2 toFloat2 ( uint4 v )
 
-Converts the argument to a two-component vector of *floating-point* values, discarding the extra components of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a two-component vector of *floating-point* values, discarding the extra components of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint4* **v** - Value to be converted.
@@ -4337,10 +4039,8 @@ Converts the argument to a two-component vector of *floating-point* values, disc
 Converted value.
 ## float2 toFloat2 ( double v )
 
-Converts the argument to a two-component vector of *floating-point* values, using the argument value for both components.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a two-component vector of *floating-point* values, using the argument value for both components.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *double* **v** - Value to be converted.
@@ -4350,10 +4050,8 @@ Converts the argument to a two-component vector of *floating-point* values, usin
 Converted value.
 ## float2 toFloat2 ( double2 v )
 
-Converts the argument to the vector of *floating-point* values.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to the vector of *floating-point* values.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *double2* **v** - Value to be converted.
@@ -4363,10 +4061,8 @@ Converts the argument to the vector of *floating-point* values.
 Converted value.
 ## float2 toFloat2 ( double3 v )
 
-Converts the argument to a two-component vector of *floating-point* values, discarding the extra component of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a two-component vector of *floating-point* values, discarding the extra component of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *double3* **v** - Value to be converted.
@@ -4376,10 +4072,8 @@ Converts the argument to a two-component vector of *floating-point* values, disc
 Converted value.
 ## float2 toFloat2 ( double4 v )
 
-Converts the argument to a two-component vector of *floating-point* values, discarding the extra components of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a two-component vector of *floating-point* values, discarding the extra components of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *double4* **v** - Value to be converted.
@@ -4389,10 +4083,8 @@ Converts the argument to a two-component vector of *floating-point* values, disc
 Converted value.
 ## float3 toFloat3 ( float v )
 
-Converts the argument to a three-component vector of *floating-point* values, using the argument value as the first component, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a three-component vector of *floating-point* values, using the argument value as the first component, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float* **v** - Value to be converted.
@@ -4402,10 +4094,8 @@ Converts the argument to a three-component vector of *floating-point* values, us
 Converted value.
 ## float3 toFloat3 ( float2 v )
 
-Converts the argument to a three-component vector of *floating-point* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a three-component vector of *floating-point* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float2* **v** - Value to be converted.
@@ -4415,10 +4105,8 @@ Converts the argument to a three-component vector of *floating-point* values, us
 Converted value.
 ## float3 toFloat3 ( float3 v )
 
-Returns the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3* **v**
@@ -4426,10 +4114,8 @@ Returns the argument.
 
 ## float3 toFloat3 ( float4 v )
 
-Converts the argument to a three-component vector of *floating-point* values, discarding the extra component of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a three-component vector of *floating-point* values, discarding the extra component of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4* **v** - Value to be converted.
@@ -4439,10 +4125,8 @@ Converts the argument to a three-component vector of *floating-point* values, di
 Converted value.
 ## float3 toFloat3 ( bool v )
 
-Converts the argument to a three-component vector of *floating-point* values, using the argument value as the first component, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a three-component vector of *floating-point* values, using the argument value as the first component, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *bool* **v** - Value to be converted.
@@ -4452,10 +4136,8 @@ Converts the argument to a three-component vector of *floating-point* values, us
 Converted value.
 ## float3 toFloat3 ( int v )
 
-Converts the argument to a three-component vector of *floating-point* values, using the argument value as the first component, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a three-component vector of *floating-point* values, using the argument value as the first component, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int* **v** - Value to be converted.
@@ -4465,10 +4147,8 @@ Converts the argument to a three-component vector of *floating-point* values, us
 Converted value.
 ## float3 toFloat3 ( int2 v )
 
-Converts the argument to a three-component vector of *floating-point* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a three-component vector of *floating-point* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int2* **v** - Value to be converted.
@@ -4478,10 +4158,8 @@ Converts the argument to a three-component vector of *floating-point* values, us
 Converted value.
 ## float3 toFloat3 ( int3 v )
 
-Converts the argument to a vector of *floating-point* values.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a vector of *floating-point* values.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int3* **v** - Value to be converted.
@@ -4491,10 +4169,8 @@ Converts the argument to a vector of *floating-point* values.
 Converted value.
 ## float3 toFloat3 ( int4 v )
 
-Converts the argument to a three-component vector of *floating-point* values, discarding the extra component of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a three-component vector of *floating-point* values, discarding the extra component of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int4* **v** - Value to be converted.
@@ -4504,10 +4180,8 @@ Converts the argument to a three-component vector of *floating-point* values, di
 Converted value.
 ## float3 toFloat3 ( uint v )
 
-Converts the argument to a three-component vector of *floating-point* values, using the argument value as the first component, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a three-component vector of *floating-point* values, using the argument value as the first component, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint* **v** - Value to be converted.
@@ -4517,10 +4191,8 @@ Converts the argument to a three-component vector of *floating-point* values, us
 Converted value.
 ## float3 toFloat3 ( uint2 v )
 
-Converts the argument to a three-component vector of *floating-point* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a three-component vector of *floating-point* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint2* **v** - Value to be converted.
@@ -4530,10 +4202,8 @@ Converts the argument to a three-component vector of *floating-point* values, us
 Converted value.
 ## float3 toFloat3 ( uint3 v )
 
-Converts the argument to a vector of *floating-point* values.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a vector of *floating-point* values.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint3* **v** - Value to be converted.
@@ -4543,10 +4213,8 @@ Converts the argument to a vector of *floating-point* values.
 Converted value.
 ## float3 toFloat3 ( uint4 v )
 
-Converts the argument to a three-component vector of *floating-point* values, discarding the extra component of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a three-component vector of *floating-point* values, discarding the extra component of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint4* **v** - Value to be converted.
@@ -4556,10 +4224,8 @@ Converts the argument to a three-component vector of *floating-point* values, di
 Converted value.
 ## float3 toFloat3 ( double v )
 
-Converts the argument to a three-component vector of *floating-point* values, using the argument value for all components.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a three-component vector of *floating-point* values, using the argument value for all components.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *double* **v** - Value to be converted.
@@ -4569,10 +4235,8 @@ Converts the argument to a three-component vector of *floating-point* values, us
 Converted value.
 ## float3 toFloat3 ( double2 v )
 
-Converts the argument to a three-component vector of *floating-point* values, using the argument value for the first two components and filling the third one with zero.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a three-component vector of *floating-point* values, using the argument value for the first two components and filling the third one with zero.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *double2* **v** - Value to be converted.
@@ -4582,10 +4246,8 @@ Converts the argument to a three-component vector of *floating-point* values, us
 Converted value.
 ## float3 toFloat3 ( double3 v )
 
-Converts the argument to the vector of *floating-point* values.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to the vector of *floating-point* values.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *double3* **v** - Value to be converted.
@@ -4595,10 +4257,8 @@ Converts the argument to the vector of *floating-point* values.
 Converted value.
 ## float3 toFloat3 ( double4 v )
 
-Converts the argument to the vector of *floating-point* values using the first three components of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to the vector of *floating-point* values using the first three components of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *double4* **v** - Value to be converted.
@@ -4608,10 +4268,8 @@ Converts the argument to the vector of *floating-point* values using the first t
 Converted value.
 ## float4 toFloat4 ( float v )
 
-Converts the argument to a four-component vector of *floating-point* values, using the argument value as the first component, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a four-component vector of *floating-point* values, using the argument value as the first component, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float* **v** - Value to be converted.
@@ -4621,10 +4279,8 @@ Converts the argument to a four-component vector of *floating-point* values, usi
 Converted value.
 ## float4 toFloat4 ( float2 v )
 
-Converts the argument to a four-component vector of *floating-point* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a four-component vector of *floating-point* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float2* **v** - Value to be converted.
@@ -4634,10 +4290,8 @@ Converts the argument to a four-component vector of *floating-point* values, usi
 Converted value.
 ## float4 toFloat4 ( float3 v )
 
-Converts the argument to a four-component vector of *floating-point* values, using the argument values as the corresponding components, and filling the extra one with zero.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a four-component vector of *floating-point* values, using the argument values as the corresponding components, and filling the extra one with zero.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3* **v** - Value to be converted.
@@ -4647,10 +4301,8 @@ Converts the argument to a four-component vector of *floating-point* values, usi
 Converted value.
 ## float4 toFloat4 ( float4 v )
 
-Returns the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4* **v**
@@ -4658,10 +4310,8 @@ Returns the argument.
 
 ## float4 toFloat4 ( bool v )
 
-Converts the argument to a four-component vector of *floating-point* values, using the argument value as the first component, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a four-component vector of *floating-point* values, using the argument value as the first component, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *bool* **v** - Value to be converted.
@@ -4671,10 +4321,8 @@ Converts the argument to a four-component vector of *floating-point* values, usi
 Converted value.
 ## float4 toFloat4 ( int v )
 
-Converts the argument to a four-component vector of *floating-point* values, using the argument value as the first component, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a four-component vector of *floating-point* values, using the argument value as the first component, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int* **v** - Value to be converted.
@@ -4684,10 +4332,8 @@ Converts the argument to a four-component vector of *floating-point* values, usi
 Converted value.
 ## float4 toFloat4 ( int2 v )
 
-Converts the argument to a four-component vector of *floating-point* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a four-component vector of *floating-point* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int2* **v** - Value to be converted.
@@ -4697,10 +4343,8 @@ Converts the argument to a four-component vector of *floating-point* values, usi
 Converted value.
 ## float4 toFloat4 ( int3 v )
 
-Converts the argument to a four-component vector of *floating-point* values, using the argument values as the corresponding components, and filling the extra one with zero.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a four-component vector of *floating-point* values, using the argument values as the corresponding components, and filling the extra one with zero.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int3* **v** - Value to be converted.
@@ -4710,10 +4354,8 @@ Converts the argument to a four-component vector of *floating-point* values, usi
 Converted value.
 ## float4 toFloat4 ( int4 v )
 
-Converts the argument to a vector of *floating-point* values.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a vector of *floating-point* values.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int4* **v** - Value to be converted.
@@ -4723,10 +4365,8 @@ Converts the argument to a vector of *floating-point* values.
 Converted value.
 ## float4 toFloat4 ( uint v )
 
-Converts the argument to a four-component vector of *floating-point* values, using the argument value as the first component, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a four-component vector of *floating-point* values, using the argument value as the first component, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint* **v** - Value to be converted.
@@ -4736,10 +4376,8 @@ Converts the argument to a four-component vector of *floating-point* values, usi
 Converted value.
 ## float4 toFloat4 ( uint2 v )
 
-Converts the argument to a four-component vector of *floating-point* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a four-component vector of *floating-point* values, using the argument values as the corresponding components, and filling the extra ones with zeroes.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint2* **v** - Value to be converted.
@@ -4749,10 +4387,8 @@ Converts the argument to a four-component vector of *floating-point* values, usi
 Converted value.
 ## float4 toFloat4 ( uint3 v )
 
-Converts the argument to a four-component vector of *floating-point* values, using the argument values as the corresponding components, and filling the extra one with zero.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a four-component vector of *floating-point* values, using the argument values as the corresponding components, and filling the extra one with zero.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint3* **v** - Value to be converted.
@@ -4762,10 +4398,8 @@ Converts the argument to a four-component vector of *floating-point* values, usi
 Converted value.
 ## float4 toFloat4 ( uint4 v )
 
-Converts the argument to a vector of *floating-point* values.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to a vector of *floating-point* values.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint4* **v** - Value to be converted.
@@ -4775,10 +4409,8 @@ Converts the argument to a vector of *floating-point* values.
 Converted value.
 ## float2x2 toFloat2x2 ( float3x3 v )
 
-Converts the 3x3 matrix to 2x2 matrix by removing the third column and row and returns the result.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the 3x3 matrix to 2x2 matrix by removing the third column and row and returns the result.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3x3* **v** - 3x3 matrix.
@@ -4788,10 +4420,8 @@ Converts the 3x3 matrix to 2x2 matrix by removing the third column and row and r
 2x2 matrix.
 ## float2x2 toFloat2x2 ( float4x4 v )
 
-Converts the 4x4 matrix to 2x2 matrix by removing extra columns and rows and returns the result.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the 4x4 matrix to 2x2 matrix by removing extra columns and rows and returns the result.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **v** - 4x4 matrix.
@@ -4801,7 +4431,10 @@ Converts the 4x4 matrix to 2x2 matrix by removing extra columns and rows and ret
 2x2 matrix.
 ## float3x3 toFloat3x3 ( float2x2 v )
 
-Converts the 2x2 matrix to 3x3 matrix by filling the additional row and column cells with 0 and the element on the main diagonal — with 1.
+
+Converts the 2x2 matrix to 3x3 matrix by filling the additional row and column cells with 0 and the element on the main diagonal � with 1.
+
+
 | v[0][0] | v[0][1] | 0.0f |
 |---|---|---|
 | v[1][0] | v[1][1] | 0.0f |
@@ -4820,10 +4453,8 @@ Converts the 2x2 matrix to 3x3 matrix by filling the additional row and column c
 3x3 matrix.
 ## float3x3 toFloat3x3 ( float4x4 v )
 
-Converts the 4x4 matrix to 3x3 matrix by removing the fourth column and row and returns the result.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the 4x4 matrix to 3x3 matrix by removing the fourth column and row and returns the result.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **v** - 4x4 matrix.
@@ -4833,7 +4464,10 @@ Converts the 4x4 matrix to 3x3 matrix by removing the fourth column and row and 
 3x3 matrix.
 ## float4x4 toFloat4x4 ( float2x2 v )
 
-Converts the 2x2 matrix to 4x4 matrix by filling the additional row and column cells with 0 and the element on the main diagonal — with 1.
+
+Converts the 2x2 matrix to 4x4 matrix by filling the additional row and column cells with 0 and the element on the main diagonal � with 1.
+
+
 | v[0][0] | v[0][1] | 0.0f | 0.0f |
 |---|---|---|---|
 | v[1][0] | v[1][1] | 0.0f | 0.0f |
@@ -4853,7 +4487,10 @@ Converts the 2x2 matrix to 4x4 matrix by filling the additional row and column c
 4x4 matrix.
 ## float4x4 toFloat4x4 ( float3x3 v )
 
-Converts the 3x3 matrix to 4x4 matrix by filling the additional row and column cells with 0 and the element on the main diagonal — with 1.
+
+Converts the 3x3 matrix to 4x4 matrix by filling the additional row and column cells with 0 and the element on the main diagonal � with 1.
+
+
 | v[0][0] | v[0][1] | v[0][2] | 0.0f |
 |---|---|---|---|
 | v[1][0] | v[1][1] | v[1][2] | 0.0f |
@@ -4873,10 +4510,8 @@ Converts the 3x3 matrix to 4x4 matrix by filling the additional row and column c
 4x4 matrix.
 ## double3x3 toDouble3x3 ( double4x4 v )
 
-Converts the argument to the 3x3 matrix.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument to the 3x3 matrix.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *double4x4* **v** - Value to be converted.
@@ -4886,10 +4521,8 @@ Converts the argument to the 3x3 matrix.
 Converted value.
 ## float4 toGVec4 ( float v )
 
-Converts the argument value to four-component vector of the same type filling all components with the argument values.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument value to four-component vector of the same type filling all components with the argument values.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float* **v** - Value to be converted.
@@ -4899,10 +4532,8 @@ Converts the argument value to four-component vector of the same type filling al
 Four-component vector.
 ## float4 toGVec4 ( float2 v )
 
-Converts the argument value to four-component vector of the same type filling extra components with zeros.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument value to four-component vector of the same type filling extra components with zeros.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float2* **v** - Value to be converted.
@@ -4912,10 +4543,8 @@ Converts the argument value to four-component vector of the same type filling ex
 Four-component vector.
 ## float4 toGVec4 ( float3 v )
 
-Converts the argument value to four-component vector of the same type filling the extra component with zero.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument value to four-component vector of the same type filling the extra component with zero.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float3* **v** - Value to be converted.
@@ -4925,10 +4554,8 @@ Converts the argument value to four-component vector of the same type filling th
 Four-component vector.
 ## float4 toGVec4 ( float4 v )
 
-Returns the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4* **v** - Value to be converted.
@@ -4938,10 +4565,8 @@ Returns the argument.
 Four-component vector.
 ## int4 toGVec4 ( int v )
 
-Converts the argument value to four-component vector of the same type filling all components with the argument values.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument value to four-component vector of the same type filling all components with the argument values.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int* **v** - Value to be converted.
@@ -4951,10 +4576,8 @@ Converts the argument value to four-component vector of the same type filling al
 Four-component vector.
 ## int4 toGVec4 ( int2 v )
 
-Converts the argument value to four-component vector of the same type filling extra components with zeros.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument value to four-component vector of the same type filling extra components with zeros.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int2* **v** - Value to be converted.
@@ -4964,10 +4587,8 @@ Converts the argument value to four-component vector of the same type filling ex
 Four-component vector.
 ## int4 toGVec4 ( int3 v )
 
-Converts the argument value to four-component vector of the same type filling the extra component with zero.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument value to four-component vector of the same type filling the extra component with zero.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int3* **v** - Value to be converted.
@@ -4977,10 +4598,8 @@ Converts the argument value to four-component vector of the same type filling th
 Four-component vector.
 ## int4 toGVec4 ( int4 v )
 
-Returns the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *int4* **v** - Value to be converted.
@@ -4990,10 +4609,8 @@ Returns the argument.
 Four-component vector.
 ## uint4 toGVec4 ( uint v )
 
-Converts the argument value to four-component vector of the same type filling all components with the argument values.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument value to four-component vector of the same type filling all components with the argument values.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint* **v** - Value to be converted.
@@ -5003,10 +4620,8 @@ Converts the argument value to four-component vector of the same type filling al
 Four-component vector.
 ## uint4 toGVec4 ( uint2 v )
 
-Converts the argument value to four-component vector of the same type filling extra components with zeros.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument value to four-component vector of the same type filling extra components with zeros.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint2* **v** - Value to be converted.
@@ -5016,10 +4631,8 @@ Converts the argument value to four-component vector of the same type filling ex
 Four-component vector.
 ## uint4 toGVec4 ( uint3 v )
 
-Converts the argument value to four-component vector of the same type filling the extra component with zero.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the argument value to four-component vector of the same type filling the extra component with zero.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint3* **v** - Value to be converted.
@@ -5029,10 +4642,8 @@ Converts the argument value to four-component vector of the same type filling th
 Four-component vector.
 ## uint4 toGVec4 ( uint4 v )
 
-Returns the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint4* **v** - Value to be converted.
@@ -5042,10 +4653,8 @@ Returns the argument.
 Four-component vector.
 ## int uintToInt ( uint v )
 
-Converts the *unsigned integer* value to the *integer* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the *unsigned integer* value to the *integer* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint* **v** - The value to be converted.
@@ -5055,10 +4664,8 @@ Converts the *unsigned integer* value to the *integer* value.
 Converted value.
 ## int2 uintToInt ( uint2 v )
 
-Converts the *unsigned integer* value to the *integer* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the *unsigned integer* value to the *integer* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint2* **v** - The value to be converted.
@@ -5068,10 +4675,8 @@ Converts the *unsigned integer* value to the *integer* value.
 Converted value.
 ## int3 uintToInt ( uint3 v )
 
-Converts the *unsigned integer* value to the *integer* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the *unsigned integer* value to the *integer* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint3* **v** - The value to be converted.
@@ -5081,10 +4686,8 @@ Converts the *unsigned integer* value to the *integer* value.
 Converted value.
 ## int4 uintToInt ( uint4 v )
 
-Converts the *unsigned integer* value to the *integer* value.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the *unsigned integer* value to the *integer* value.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *uint4* **v** - The value to be converted.
@@ -5094,10 +4697,8 @@ Converts the *unsigned integer* value to the *integer* value.
 Converted value.
 ## float3x3 matrix3 ( float4x4 mat )
 
-Converts the 4x4 matrix to 3x3 matrix by removing extra column and row and returns the result.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Converts the 4x4 matrix to 3x3 matrix by removing extra column and row and returns the result.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *float4x4* **mat** - 4x4 matrix.
@@ -5107,7 +4708,10 @@ Converts the 4x4 matrix to 3x3 matrix by removing extra column and row and retur
 3x3 matrix.
 ## float4x4 matrix4 ( float3x3 mat )
 
-Converts the 3x3 matrix to 4x4 matrix by filling the additional row and column cells with 0 and the element on the main diagonal — with 1.
+
+Converts the 3x3 matrix to 4x4 matrix by filling the additional row and column cells with 0 and the element on the main diagonal � with 1.
+
+
 | v[0][0] | v[0][1] | v[0][2] | 0.0f |
 |---|---|---|---|
 | v[1][0] | v[1][1] | v[1][2] | 0.0f |
@@ -5130,15 +4734,14 @@ Converts the 3x3 matrix to 4x4 matrix by filling the additional row and column c
 
 These functions take one or more arguments that are double expressions and return a double value.
 
+
 > **Notice:** It is not recommended to use these functions, unless there is no other option. Operations with doubles are significantly more time consuming (e.g. addition and multiplication operations are 8 times slower).
 
 
 ## double drsqrt ( double a )
 
-Returns the inverse square root of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the inverse square root of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *double* **a** - Input value.
@@ -5148,10 +4751,8 @@ Returns the inverse square root of the argument.
 Inverse square root of the argument.
 ## double ddot ( double2 a , double2 b )
 
-Returns the dot product of two vectors.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the dot product of two vectors.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *double2* **a** - First vector.
@@ -5162,10 +4763,8 @@ Returns the dot product of two vectors.
 Resulting value.
 ## double ddot ( double3 a , double3 b )
 
-Returns the dot product of two vectors.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the dot product of two vectors.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *double3* **a** - First vector.
@@ -5176,10 +4775,8 @@ Returns the dot product of two vectors.
 Resulting value.
 ## double ddot ( double4 a , double4 b )
 
-Returns the dot product of two vectors.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the dot product of two vectors.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *double4* **a** - First vector.
@@ -5190,10 +4787,8 @@ Returns the dot product of two vectors.
 Resulting value.
 ## double dmad ( double a , double b , double c )
 
-Returns the result of a*b+c.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the result of a*b+c.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *double* **a** - First value.
@@ -5205,17 +4800,18 @@ Returns the result of a*b+c.
 Result of a*b+c.
 ## double dsign ( double a )
 
-Returns the value denoting the sign of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the value denoting the sign of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *double* **a** - Argument value.
 
 ### Return value
 
+
 Argument sign:
+
+
 - 1 if the argument value is positive
 - 0 if the argument value equals to zero
 - -1 if the argument value is negative
@@ -5223,10 +4819,8 @@ Argument sign:
 
 ## double dabs ( double a )
 
-Returns the absolute value of the specified argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the absolute value of the specified argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *double* **a** - Argument value.
@@ -5236,10 +4830,8 @@ Returns the absolute value of the specified argument.
 Return value.
 ## double dlerp ( double a , double b , double t )
 
-Returns the interpolated value according to the following formula: **a * (1.0 - t) + b * t**.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the interpolated value according to the following formula: **a * (1.0 - t) + b * t**.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *double* **a** - First value (lower limit of the interpolation range).
@@ -5251,10 +4843,8 @@ Returns the interpolated value according to the following formula: **a * (1.0 - 
 Resulting value.
 ## double2 dlerp ( double2 a , double2 b , double2 t )
 
-Returns the interpolated value according to the following formula: **a * (1.0 - t) + b * t**.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the interpolated value according to the following formula: **a * (1.0 - t) + b * t**.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *double2* **a** - First value (lower limit of the interpolation range).
@@ -5266,10 +4856,8 @@ Returns the interpolated value according to the following formula: **a * (1.0 - 
 Resulting value.
 ## double3 dlerp ( double3 a , double3 b , double3 t )
 
-Returns the interpolated value according to the following formula: **a * (1.0 - t) + b * t**.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the interpolated value according to the following formula: **a * (1.0 - t) + b * t**.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *double3* **a** - First value (lower limit of the interpolation range).
@@ -5281,10 +4869,8 @@ Returns the interpolated value according to the following formula: **a * (1.0 - 
 Resulting value.
 ## double4 dlerp ( double4 a , double4 b , double4 t )
 
-Returns the interpolated value according to the following formula: **a * (1.0 - t) + b * t**.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the interpolated value according to the following formula: **a * (1.0 - t) + b * t**.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *double4* **a** - First value (lower limit of the interpolation range).
@@ -5296,10 +4882,8 @@ Returns the interpolated value according to the following formula: **a * (1.0 - 
 Resulting value.
 ## double dfrac ( double value )
 
-Returns the fractional part of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the fractional part of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *double* **value** - Argument value.
@@ -5309,10 +4893,8 @@ Returns the fractional part of the argument.
 Resulting value.
 ## double2 dfrac ( double2 value )
 
-Returns the fractional part of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the fractional part of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *double2* **value** - Argument value.
@@ -5322,10 +4904,8 @@ Returns the fractional part of the argument.
 Resulting value.
 ## double3 dfrac ( double3 value )
 
-Returns the fractional part of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the fractional part of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *double3* **value** - Argument value.
@@ -5335,10 +4915,8 @@ Returns the fractional part of the argument.
 Resulting value.
 ## double4 dfrac ( double4 value )
 
-Returns the fractional part of the argument.
-**This function is [API-dependent](#api_dependent).**
-
-
+ Returns the fractional part of the argument.
+ **This function is [API-dependent](#api_dependent).**
 ### Arguments
 
 - *double4* **value** - Argument value.

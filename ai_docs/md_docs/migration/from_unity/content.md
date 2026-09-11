@@ -13,15 +13,15 @@ The [Assets Workflow](../../editor2/assets_workflow/index.md) in UNIGINE is simi
 ![](unigine_asset_bro.png)
 
 
-It contains the data stored in the `data` folder of the project root — all project resources. This is where all textures, models and other assets are copied when imported. Like in Unity, you can modify your assets at any time after importing, the Asset System will notice when you save new changes to the file and will re-import it as necessary.
+It contains the data stored in the `data` folder of the project root � all project resources. This is where all textures, models and other assets are copied when imported. Like in Unity, you can modify your assets at any time after importing, the Asset System will notice when you save new changes to the file and will re-import it as necessary.
 
 
-There is no `Packages` entry here — the set of features is defined by the SDK edition and engine/UnigineEditor plugins.
+There is no `Packages` entry here � the set of features is defined by the SDK edition and engine/UnigineEditor plugins.
 
 
-- [Packages in UnigineEditor](../../editor2/assets_workflow/assets_migration.md) are `*.upackage` assets enabling you to conveniently transfer files with all dependencies, or exchange data with other users, be it content (a single model or a scene with a set of objects driven by logic implemented via C# components) or plugins, libraries, execution files, etc. Additional content packs are available as [add-ons](../../sdk/addons/index.md) — plugged functionality and content extensions for the Engine and UnigineEditor. There is a *[Package Manager](../../editor2/managing_packages/index.md#package_history)* in UNIGINE as well as in *Unity* software, it shows all added packages downloaded from [Add-On Store](https://store.unigine.com) and helps browsing, deleting, and updating packages, as well as unlinking files from a package to prevent them from being affected by further package updates.
-- `core` — contains the built-in core assets (contents of the `core.ung` archive). These assets are available for every project by default
-- `configs` — stores all [global engine-related and project-related settings](../../code/configuration_file_cpp.md). For example, here you can specify the default project world.
+- [Packages in UnigineEditor](../../editor2/assets_workflow/assets_migration.md) are `*.upackage` assets enabling you to conveniently transfer files with all dependencies, or exchange data with other users, be it content (a single model or a scene with a set of objects driven by logic implemented via C# components) or plugins, libraries, execution files, etc. Additional content packs are available as [add-ons](../../sdk/addons/index.md) � plugged functionality and content extensions for the Engine and UnigineEditor. There is a *[Package Manager](../../editor2/managing_packages/index.md#package_history)* in UNIGINE as well as in *Unity* software, it shows all added packages downloaded from [Add-On Store](https://store.unigine.com) and helps browsing, deleting, and updating packages, as well as unlinking files from a package to prevent them from being affected by further package updates.
+- `core` � contains the built-in core assets (contents of the `core.ung` archive). These assets are available for every project by default
+- `configs` � stores all [global engine-related and project-related settings](../../code/configuration_file_cpp.md). For example, here you can specify the default project world.
 
 
 The virtual file system can be easily extended by using the [mount point](../../principles/filesystem/index_cpp.md) feature. It allows you to extend the virtual file system of your project by adding any external shared folders and packages to the data directory.
@@ -30,7 +30,7 @@ The virtual file system can be easily extended by using the [mount point](../../
 ## Components vs Nodes
 
 
-The basic scene object in *Unity* — *GameObject* — is conceptually a container for components with its transformation. Component-based workflow implies that standard and user components assigned to a *GameObject* define its functionality.
+The basic scene object in *Unity* � *GameObject* � is conceptually a container for components with its transformation. Component-based workflow implies that standard and user components assigned to a *GameObject* define its functionality.
 
 
 UNIGINE provides a more strict approach to world objects. Basic functionality of a node is determined by its [type](../../objects/index.md): there are *objects*, *light sources*, *decals*, *world building objects,* etc. Additional functionality can be added using [properties](../../principles/properties/index.md) and a [component system](../../principles/component_system/component_system_cs/index.md).
@@ -74,7 +74,7 @@ The *World Nodes* window outlines the content of the world. Unlike in *Unity Hie
 As well as in *Unity* software, mesh is the main graphics primitive in UNIGINE.
 
 
-You can freely use FBX-models from Unity-based projects without scaling issues — 1 unit is 1 meter in UNIGINE as well.
+You can freely use FBX-models from Unity-based projects without scaling issues � 1 unit is 1 meter in UNIGINE as well.
 
 
 However, UNIGINE uses a **right-handed** coordinate system where the vertical direction is represented by the +Z axis and the Y+ axis is the forward direction. It is important to use proper [export settings](../../editor2/assets_workflow/assets_create_import.md#export) for correct orientation of models.
@@ -126,7 +126,7 @@ In *Unity* software, you are likely to be used to using the **LOD Group** compon
 ![LOD Group](lods_unity.png)
 
 
-In UNIGINE, levels of detail are configured based on distances — in a more low-level manner to make fine tuning available. Surfaces have [visibility settings](../../editor2/node_parameters/visual_representation/index.md#surface_lods) for this purpose. You can set the minimum and maximum visibility distances from the camera for each surface. For **Cross Fading** use the *Minimum Fade* and *Maximum Fade* values.
+In UNIGINE, levels of detail are configured based on distances � in a more low-level manner to make fine tuning available. Surfaces have [visibility settings](../../editor2/node_parameters/visual_representation/index.md#surface_lods) for this purpose. You can set the minimum and maximum visibility distances from the camera for each surface. For **Cross Fading** use the *Minimum Fade* and *Maximum Fade* values.
 
 
 ![Surface LOD Settings](lods_unigine.png)
@@ -153,7 +153,7 @@ FBX models containing bone-animated skinned meshes create animation clips when i
 UNIGINE imports only skeletal animation. *[Skinned Mesh](../../objects/objects/mesh_skinned_legacy/index.md)* object is an analog for the *Unity* **Skinned Mesh Renderer** component for handling bone animations.
 
 
-*Unity* software provides a sophisticated animation system (sometimes referred to as *'Mecanim'*). It implies using *Animator Controller* — a state machine that manages animation states and transitions between them.
+*Unity* software provides a sophisticated animation system (sometimes referred to as *'Mecanim'*). It implies using *Animator Controller* � a state machine that manages animation states and transitions between them.
 
 
 UNIGINE skinned animation system is focused on operating animation layers: you can configure multiple layers with various animation clips and perform blending between them by using API methods.
@@ -238,9 +238,9 @@ Its primary parameters are:
 The [**Transparency Preset**](../../editor2/materials_settings/index.md#blending) not only defines the transparency mode for the material, but also specifies the stage of the [Rendering Sequence](../../principles/render/sequence/index.md) to which objects with this material assigned belong. A comparison with the Unity *Rendering Modes*:
 
 
-- Opaque — Opaque,
-- Cutout — Alpha Test,
-- Transparent — Alpha Blend.
+- Opaque � Opaque,
+- Cutout � Alpha Test,
+- Transparent � Alpha Blend.
 
 
 We create **[user materials](../../content/materials/index.md#user_materials)** by inheriting them from base materials to override some properties passed to shaders on rendering. When creating a material in the *Asset Browser*, we choose the base material to inherit from, thus defining the type of objects the new material will support.
@@ -280,7 +280,7 @@ UNIGINE supports the same texture shapes as Unity software: 2D, 3D, Cubemap and 
 ![](../../editor2/assets_workflow/import_texture.png)
 
 
-For convenience, presets are automatically applied according to the filename [postfix](../../editor2/assets_workflow/texture_import.md#postfix): *mytexture_alb.png* will be treated as an albedo texture and *mynormal_c.hdr* — as a cubemap.
+For convenience, presets are automatically applied according to the filename [postfix](../../editor2/assets_workflow/texture_import.md#postfix): *mytexture_alb.png* will be treated as an albedo texture and *mynormal_c.hdr* � as a cubemap.
 
 
 Sometimes texture compression is not needed, for example, in vertex animation textures or custom HDR-maps. UNIGINE supports using the texture "as is" without additional compression, check the [**Unchanged**](../../editor2/assets_workflow/texture_import.md#unchanged) option for it.
@@ -289,16 +289,16 @@ Sometimes texture compression is not needed, for example, in vertex animation te
 The *Shading* texture for the *mesh-base* material must have the following format:
 
 
-- R — Metalness,
-- G — Roughness,
-- B — Specular (optional),
-- A — Microfiber (optional).
+- R � Metalness,
+- G � Roughness,
+- B � Specular (optional),
+- A � Microfiber (optional).
 
 
 Of course, any other set of textures can be used in custom materials.
 
 
-UNIGINE uses DirectX-style normal maps — **Y-**. When using normals maps right from projects based on Unity that uses Y+ (OpenGL-style) normals, use the **Invert G Channel** flag for convenient convertion. Normal maps in UNIGINE are two-channel (the third vector component is calculated) and the third channel of the texture can be used as an opacity map or for other purposes.
+UNIGINE uses DirectX-style normal maps � **Y-**. When using normals maps right from projects based on Unity that uses Y+ (OpenGL-style) normals, use the **Invert G Channel** flag for convenient convertion. Normal maps in UNIGINE are two-channel (the third vector component is calculated) and the third channel of the texture can be used as an opacity map or for other purposes.
 
 
 UNIGINE uses its own *tangent space* for normal mapping which is not fully compatible with the Unity one. It is possible to import tangent space right from an FBX file, however, **different Digital Content Creation tools use different tangent spaces**. The common recommendations for baking normals are following:
@@ -309,7 +309,7 @@ UNIGINE uses its own *tangent space* for normal mapping which is not fully compa
 - Keep paddings between UV-shells big enough.
 
 
-All these steps will help you not worry about correct baked normals in any software. As a result, there is no need to export tangent space to FBX — UNIGINE will automatically calculate it on import.
+All these steps will help you not worry about correct baked normals in any software. As a result, there is no need to export tangent space to FBX � UNIGINE will automatically calculate it on import.
 
 
 Also, texture clamping and anisotropic filtering flags are available per each assigned texture in the material parameters.
@@ -434,7 +434,7 @@ In UNIGINE, you can use the **[Sky](../../objects/objects/sky/index.md)** object
 To simulate fog in *Unity* software, you are accustomed to use the **Other Settings** section of the Lighting window when using Forward Rendering Path, and the **Deferred Fog** feature from the *Post Processing* package when using Deferred Rendering.
 
 
-For the same purpose in UNIGINE you can use **[Environment Haze](../../editor2/settings/render_settings/environment/index.md#haze)** in the *Solid* mode or, if the difference between haze and fog is crucial for your project, use **[Volumetric Objects](../../objects/effects/volumetrics/index.md)** — they are great for simulating light beams and shafts, fog and shaped clouds.
+For the same purpose in UNIGINE you can use **[Environment Haze](../../editor2/settings/render_settings/environment/index.md#haze)** in the *Solid* mode or, if the difference between haze and fog is crucial for your project, use **[Volumetric Objects](../../objects/effects/volumetrics/index.md)** � they are great for simulating light beams and shafts, fog and shaped clouds.
 
 
 ### Global Illumination
@@ -458,13 +458,13 @@ In UNIGINE, lightmaps are also supported and baked using the integrated *[GPU Li
 ![](../../editor2/lighting/gi/lightmapping_sm.jpg)
 
 
-UNIGINE provides another advanced solution for static GI — [**Voxel-Based Global Illumination**](../../editor2/lighting/gi/voxel_probes.md) provided by *[Voxel Probes](../../objects/lights/voxelprobe/index.md)*.
+UNIGINE provides another advanced solution for static GI � [**Voxel-Based Global Illumination**](../../editor2/lighting/gi/voxel_probes.md) provided by *[Voxel Probes](../../objects/lights/voxelprobe/index.md)*.
 
 
 ![](unigine_voxel_gi.jpg)
 
 
-*Voxel Probe* is a box-shaped volume composed of voxels of fixed size, providing both pre-calculated indirect lighting and [diffuse (blurred) reflections](../../objects/lights/voxelprobe/index.md#reflections_parameters). One of advantages of this approach — there is no need in UV coordinates, any geometry will contribute to GI with no issues. Also, this technique illuminates dynamic objects as well and greatly fits with static lightmaps.
+*Voxel Probe* is a box-shaped volume composed of voxels of fixed size, providing both pre-calculated indirect lighting and [diffuse (blurred) reflections](../../objects/lights/voxelprobe/index.md#reflections_parameters). One of advantages of this approach � there is no need in UV coordinates, any geometry will contribute to GI with no issues. Also, this technique illuminates dynamic objects as well and greatly fits with static lightmaps.
 
 
 ![](../../editor2/lighting/gi/combine_sm.gif)
@@ -565,7 +565,7 @@ UNIGINE has no built-in baking tool for AO, nonetheless, it is possible to apply
 In *Unity* software, **Audio Source** components play back **Audio Clip** assets. There must be an **Audio Listener** component, usually attached to the main camera by default, to make the sounds audible. The **Spatial Blend** parameter of the *Audio Source* component allows controlling the blending between 2D and 3D spatial sound.
 
 
-In UNIGINE, **[Sound Source](../../objects/sounds/sound_source.md)** node type is responsible for playing back an audio asset. It provides a surround effect the same way as it does *Unity* software. There is no such entity as the *Unity* *Audio Listener* — all sound sources that appear in the world are audible. While many parameters seem rather familiar to you, such settings as **Doppler level**, **Attenuation** (Rolloff) function and other, including **Audio Mixer** channels, are available only globally in the *[Sound](../../editor2/settings/sound_global/index.md)* section of the *Settings* window.
+In UNIGINE, **[Sound Source](../../objects/sounds/sound_source.md)** node type is responsible for playing back an audio asset. It provides a surround effect the same way as it does *Unity* software. There is no such entity as the *Unity* *Audio Listener* � all sound sources that appear in the world are audible. While many parameters seem rather familiar to you, such settings as **Doppler level**, **Attenuation** (Rolloff) function and other, including **Audio Mixer** channels, are available only globally in the *[Sound](../../editor2/settings/sound_global/index.md)* section of the *Settings* window.
 
 
 > **Notice:** Note that a sound source must use a mono audio file to be spatialized at run time. Stereo audio files are played according to the stereo channels stored.
@@ -686,7 +686,7 @@ Follow the [Working with Large Number of Objects](../../content/optimization/geo
 ### Billboards
 
 
-In *Unity* software, you use **Billboard Asset** — a collection of pre-rendered images of a more complicated Mesh intended for use with the *Billboard Renderer* component — to replace the complex 3D mesh with a 2D billboard representation at some distance from the camera, thus reducing the load on GPU.
+In *Unity* software, you use **Billboard Asset** � a collection of pre-rendered images of a more complicated Mesh intended for use with the *Billboard Renderer* component � to replace the complex 3D mesh with a 2D billboard representation at some distance from the camera, thus reducing the load on GPU.
 
 
 ![](unity_billboard_asset.png)
@@ -750,7 +750,7 @@ All runtime spikes, bottlenecks and performance issues can be tracked using the 
 
 - **[Performance Profiler](../../tools/profiling/profiler/index.md)**, an analog for *Unity* *Profiler* tool, displays performance data in a timeline in several modes. ![](../../tools/profiling/profiler/profiler.png)
 - **[Microprofile](../../tools/profiling/microprofile/index_cpp.md)**, an advanced CPU/GPU profiler with support for per-frame inspection. [![](../../tools/profiling/microprofile/microprofile_sm.jpg)](../../tools/profiling/microprofile/microprofile.jpg)
-- **[Content Profiler](../../editor2/assets_optimize/content_profiler/index.md)** — a tool helping to [optimize texture assets](../../editor2/assets_optimize/content_profiler/texture_profiler.md) and [monitor the content surface-related settings](../../editor2/assets_optimize/content_profiler/surface_profiler.md). ![](../../editor2/assets_optimize/content_profiler/texture_profiler.png)
+- **[Content Profiler](../../editor2/assets_optimize/content_profiler/index.md)** � a tool helping to [optimize texture assets](../../editor2/assets_optimize/content_profiler/texture_profiler.md) and [monitor the content surface-related settings](../../editor2/assets_optimize/content_profiler/surface_profiler.md). ![](../../editor2/assets_optimize/content_profiler/texture_profiler.png)
 
 
 #### See Also

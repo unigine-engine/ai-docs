@@ -8,7 +8,7 @@
 Interface for fixed function pipeline.
 
 
-Ffp class in Unigine differs from the classic OpenGL FFP implementation. For example, Unigine [Visualizer](../../../code/console/index.md#visualizer) and [Texture Buffers for Debugging](../../../code/console/index.md#render_show_textures) are implemented by using Ffp. Ffp uses already implemented D3D12 and Vulkan shader programs (without creating materials, etc.) to render.
+Ffp class in Unigine differs from the classic OpenGL FFP implementation. For example, Unigine [Visualizer](../../../code/console/index.md#visualizer) and [Texture Buffers for Debugging](../../../code/console/index.md#render_show_textures) are implemented by using FFP. FFP uses already implemented D3D12 and Vulkan shader programs (without creating materials, etc.) to render.
 
 
 This interface enables to render basic geometric primitives. For example, it can be used to draw a project watermark.
@@ -53,11 +53,71 @@ Ffp::endTriangles();
 
 ### Members
 
+## int getNumIndices () const
+
+Returns the current number of indices in the current primitive batch.
+### Return value
+
+Current number of indices in the current primitive batch.
+## int getNumVertex () const
+
+Returns the current number of vertices in the current primitive batch.
+### Return value
+
+Current number of vertices in the current primitive batch.
+## void setTransform ( const Math:: mat4 & transform )
+
+Sets a new Transformation matrix of the rendered primitive.
+### Arguments
+
+- *const  Math::[mat4](../../../api/library/math/class.mat4_cpp.md)&* **transform** - The Transformation matrix of the rendered primitive.
+
+## Math:: mat4 getTransform () const
+
+Returns the current Transformation matrix of the rendered primitive.
+### Return value
+
+Current Transformation matrix of the rendered primitive.
+## bool isEnabled () const
+
+Returns the current a value indicating if the FFP is enabled.
+### Return value
+
+**true** if FFP is enabled is enabled ; otherwise **false**.
+## void setMode ( int mode )
+
+Sets a new FFP mode.
+### Arguments
+
+- *int* **mode** - The FFP mode.
+
+## int getMode () const
+
+Returns the current FFP mode.
+### Return value
+
+Current FFP mode.
+## void setTextureSample ( int sample )
+
+Sets a new texture sample flag.
+### Arguments
+
+- *int* **sample** - The texture sample flag, one of the *[TEXTURE_SAMPLE_*](#TEXTURE_SAMPLE_2D)* values.
+
+## int getTextureSample () const
+
+Returns the current texture sample flag.
+### Return value
+
+Current texture sample flag, one of the *[TEXTURE_SAMPLE_*](#TEXTURE_SAMPLE_2D)* values.
 ---
 
 ## void setColor ( unsigned int color )
 
+
 Sets rendering color for the last added vertex.
+
+
 You can use [COLOR_*](#COLOR_BLACK) variables to set the color.
 
 
@@ -75,41 +135,13 @@ Sets rendering color for the last added vertex.
 - *float* **b** - Blue color component.
 - *float* **a** - Alpha color component.
 
-## bool isEnabled ( ) const
-
-Return a value indicating if the Ffp is enabled.
-### Return value
-
-Returns **1** if the Ffp is enabled; otherwise, **0**.
-## void setMode ( int mode )
-
-Sets current Ffp mode.
-### Arguments
-
-- *int* **mode** - Current Ffp mode.
-
-## int getMode ( ) const
-
-Returns current Ffp mode.
-### Return value
-
-Current Ffp mode.
-## int getNumIndices ( ) const
-
-Returns the number of indices in the current primitive batch.
-### Return value
-
-The number of indices.
-## int getNumVertex ( ) const
-
-Returns the number of vertices in the current primitive batch.
-### Return value
-
-The number of vertices.
 ## void setOrtho ( int width , int height )
 
+
 Sets orthographic projection to render the primitive.
-For example, the [`render_show_textures`](../../../code/console/index.md#render_show_textures) console command renders textures via Ffp by using orthographic projection.
+
+
+For example, the [`render_show_textures`](../../../code/console/index.md#render_show_textures) console command renders textures via FFP by using orthographic projection.
 
 
 ### Arguments
@@ -127,29 +159,16 @@ Sets texture coordinates for the last added vertex.
 - *float* **z** - Z texture coordinate.
 - *float* **w** - W texture coordinate.
 
-## void setTransform ( const Math:: mat4 & transform )
-
-Sets transformation matrix for the rendered primitive.
-### Arguments
-
-- *const  Math::[mat4](../../../api/library/math/class.mat4_cpp.md) &* **transform** - Transformation matrix.
-
-## Math:: mat4 getTransform ( ) const
-
-Returns transformation matrix of the rendered primitive.
-### Return value
-
-Transformation matrix.
 ## void addIndex ( int index )
 
-Adds given index to Ffp.
+Adds given index to FFP.
 ### Arguments
 
 - *int* **index** - Index of a vertex.
 
 ## void addIndices ( int i0 , int i1 )
 
-Adds two given indices to Ffp.
+Adds two given indices to FFP.
 ### Arguments
 
 - *int* **i0** - The first index.
@@ -157,7 +176,7 @@ Adds two given indices to Ffp.
 
 ## void addIndices ( ushort* OUT_indices , int indices_size , int vertex_offset )
 
-Adds the specified array of indices to Ffp with the specified vertex offset.
+Adds the specified array of indices to FFP with the specified vertex offset.
 ### Arguments
 
 - *ushort** **OUT_indices** - Array of indices to be added. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
@@ -166,7 +185,7 @@ Adds the specified array of indices to Ffp with the specified vertex offset.
 
 ## void addIndices ( ushort* OUT_indices , int indices_size )
 
-Adds the specified array of indices to Ffp.
+Adds the specified array of indices to FFP.
 ### Arguments
 
 - *ushort** **OUT_indices** - Array of indices to be added. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
@@ -174,7 +193,7 @@ Adds the specified array of indices to Ffp.
 
 ## void addIndices ( int i0 , int i1 , int i2 , int i3 )
 
-Adds four given indices to Ffp.
+Adds four given indices to FFP.
 ### Arguments
 
 - *int* **i0** - The first index.
@@ -184,7 +203,7 @@ Adds four given indices to Ffp.
 
 ## void addIndices ( int i0 , int i1 , int i2 )
 
-Adds three given indices to Ffp.
+Adds three given indices to FFP.
 ### Arguments
 
 - *int* **i0** - The first index.
@@ -193,10 +212,7 @@ Adds three given indices to Ffp.
 
 ## void addLines ( int num )
 
-Adds a specified number of lines.
-This method does not add vertices; instead, it allocates indices, for which vertices should be then created with *addVertex()*. Indices will point to vertices starting from the last added vertex.
-
-
+Adds a specified number of lines. This method does not add vertices; instead, it allocates indices, for which vertices should be then created with *addVertex()*. Indices will point to vertices starting from the last added vertex.
 ### Arguments
 
 - *int* **num** - The number of lines.
@@ -217,7 +233,7 @@ Adds a specified number of triangles. This method does not add vertices; instead
 
 ## void addVertex ( Vertex* OUT_vertex , int vertex_size )
 
-Adds the specified vertex array to Ffp.
+Adds the specified vertex array to FFP.
 ### Arguments
 
 - *Vertex** **OUT_vertex** - Array of vertices to be added. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
@@ -225,14 +241,14 @@ Adds the specified vertex array to Ffp.
 
 ## void addVertex ( const Ffp::Vertex & vertex )
 
-Adds given vertex to Ffp.
+Adds given vertex to FFP.
 ### Arguments
 
 - *const [Ffp::Vertex](../../../api/library/rendering/class.ffp_cpp.md#Vertex) &* **vertex** - Vertex.
 
 ## void addVertex ( float x , float y , float z = 0.0f )
 
-Adds a vertex with given coordinates to Ffp.
+Adds a vertex with given coordinates to FFP.
 ### Arguments
 
 - *float* **x** - X coordinate of the vertex.
@@ -247,13 +263,13 @@ Begins rendering of lines. Specify a list of vertex or index data between *begin
 Begins rendering of triangles. Specify a list of primitives and vertex data between *beginTriangles()* and *endTriangles()*.
 ## void disable ( )
 
-Disables Ffp rendering.
+Disables FFP rendering.
 ## void enable ( int mode = MODE_DEFAULT , int texture_sample = 0 )
 
-Enables Ffp rendering.
+Enables FFP rendering.
 ### Arguments
 
-- *int* **mode** - Ffp mode.
+- *int* **mode** - FFP mode.
 - *int* **texture_sample** - Texture sampler flag to be set. One of the *[TEXTURE_SAMPLE_*](#TEXTURE_SAMPLE_2D)* values.
 
 ## void endLines ( )
@@ -265,16 +281,3 @@ Ends rendering of triangles (i.e. draws the specified triangles).
 ## void renderScreen ( )
 
 Renderers a full screen quad. It should be used when rendering post effects.
-## void setTextureSample ( int sample )
-
-Sets a new texture sample flag.
-### Arguments
-
-- *int* **sample** - Texture sample flag to be set, one of the *[TEXTURE_SAMPLE_*](#TEXTURE_SAMPLE_2D)* values.
-
-## int getTextureSample ( ) const
-
-Returns the current texture sample flag.
-### Return value
-
-Current texture sample flag used, one of the *[TEXTURE_SAMPLE_*](#TEXTURE_SAMPLE_2D)* values.

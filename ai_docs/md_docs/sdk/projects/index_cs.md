@@ -37,9 +37,9 @@ Projects can be created with the following application settings available depend
 ![](../../sdk/projects/application_settings.png)
 
 
-| API+IDE | Programming language to be used for project creation. The following APIs are available: - *UnigineScript only* — UnigineScript will be used to implement the project. - *C++* — C++ API will be used to implement the project. One of the following variants can be used depending on the OS: - On Windows: - *C++ (Visual Studio 2022)* - *C++ (CMake)* - On Linux: - *C++ GNU Make* - *C# (.NET)* — C# API and [Component System](../../principles/component_system/component_system_cs/index.md) will be used to implement the project. .NET is required for building the project. |
+| API+IDE | Programming language to be used for project creation. The following APIs are available: - *UnigineScript only* � UnigineScript will be used to implement the project. - *C++* � C++ API will be used to implement the project. One of the following variants can be used depending on the OS: - On Windows: - *C++ (Visual Studio 2022)* - *C++ (CMake)* - On Linux: - *C++ GNU Make* - *C# (.NET)* � C# API and [Component System](../../principles/component_system/component_system_cs/index.md) will be used to implement the project. .NET is required for building the project. |
 |---|---|
-| Precision | The coordinates precision to be used: - *Float* — single precision - *Double* — [double precision](../../code/double_precision/index.md) |
+| Precision | The coordinates precision to be used: - *Float* � single precision - *Double* � [double precision](../../code/double_precision/index.md) |
 
 
 ### Features
@@ -51,12 +51,12 @@ The project can be created with the following **features**:
 ![](../../sdk/projects/general_settings.png)
 
 
-| Command-line Runtimes Generator | Enables [Command-line Runtimes Generator](../../tools/runtimes_generator/index.md) for the project. |
+| Command-line Runtimes�Generator | Enables [Command-line Runtimes Generator](../../tools/runtimes_generator/index.md) for the project. |
 |---|---|
-| Command-line Build Tool | Enables the [Command-line Build Tool](../../editor2/projects/build_project.md#console_build) for the project. |
-| Sandworm Distributed & Headless Mode | Enables creation of the console application required on *Worker* computers for [distributed computing and headless generation](../../editor2/sandworm/generation/distributed_computing/index.md) of terrain using the Sandworm tool for the project. |
-| Editor Plugin Template | Enables the creation of an [editor plugin](../../editor2/extensions/custom_plugin.md) based on available templates for the project. |
-| Engine Plugin Template | Enables creation of an [Engine plugin](../../code/cpp/plugin.md#step_1) to extend the core functionality of the Engine. |
+| Command-line Build�Tool | Enables the [Command-line Build Tool](../../editor2/projects/build_project.md#console_build) for the project. |
+| Sandworm Distributed�& Headless Mode | Enables creation of the console application required on *Worker* computers for [distributed computing and headless generation](../../editor2/sandworm/generation/distributed_computing/index.md) of terrain using the Sandworm tool for the project. |
+| Editor Plugin�Template | Enables the creation of an [editor plugin](../../editor2/extensions/custom_plugin.md) based on available templates for the project. |
+| Engine Plugin�Template | Enables creation of an [Engine plugin](../../code/cpp/plugin.md#step_1) to extend the core functionality of the Engine. |
 
 
 The **Plugins (0)** button opens the list of available plugins:
@@ -110,7 +110,7 @@ To upgrade your project to the newest installed version of UNIGINE SDK:
 
 
 1. Click the **Upgrade** label on the project image or **[Other Actions](#other_actions) -> Configure**. The following form will open: ![](../../sdk/projects/upgrade_form.png)
-2. If a project upgrade requires installing a [template](../../sdk/templates/index.md) (for example, when upgrading a non-template-based project created with an SDK version earlier than **2.21**), you will see the following notification: ![](template_download.png) The template will be downloaded and installed during upgrade process. If **no network connection** is available, the following message will appear: ![](no_connection.png) > **Notice:** To upgrade the project without a network connection, see the [manual template installation](../../sdk/templates/index.md#manual_setup) guide.
+2. If a project upgrade requires installing a [template](../../sdk/templates/index.md) (for example, when upgrading a non-template-based project created with an SDK version earlier than **2.21**), you will see the following notification: ![](../../sdk/projects/template_download.png) The template will be downloaded and installed during upgrade process. If **no network connection** is available, the following message will appear: ![](../../sdk/projects/no_connection.png) > **Notice:** To upgrade the project without a network connection, see the [manual template installation](../../sdk/templates/index.md#manual_setup) guide.
 3. Choose the newest installed version of the SDK and click **CONFIGURE PROJECT**.
 4. Specify a path to the backup folder into which the original project will be copied. Keep *Migrate Content* checked and click *UPGRADE PROJECT*. ![](../../sdk/projects/upgrade_confirm.png)
 
@@ -163,7 +163,7 @@ Depending on the value of the **Application** option, different sets of options 
 
 
 - *Default* - the default main application (`<project_name>_x*.exe`) will be run: ![](../../sdk/projects/custom_run.png) The default main application should be used when only [UnigineScript](#api) is used to implement the project. In this case, the following options can be customized: | Debug | Indicates whether debug or release version of the application should be run. | |---|---| | Microprofile Enabled | Run the application with the [Microprofile](../../tools/profiling/microprofile/index_cs.md) tool enabled. | | Arguments | [Start-up command-line options](../../code/command_line.md). | | Remember | Indicates whether to remember the specified custom settings for the future run. |
-- *Custom* — a custom main application will be run: ![](../../sdk/projects/custom_run_custom.png) This option should be chosen if the *[C++ or C# API](#api)* is used to implement the project (besides UnigineScript). In this case, the following options can be customized: | Binary | Name of the custom main application. Here the name of the compiled binary executable located in the `bin` folder of the project should be specified. If the binary executable is located outside this folder, a path to it relative to the `bin` folder should be specified. | |---|---| | Arguments | [Start-up command-line options](../../code/command_line.md). | | Remember | Indicates whether to remember the specified custom settings for future run. |
+- *Custom* � a custom main application will be run: ![](../../sdk/projects/custom_run_custom.png) This option should be chosen if the *[C++ or C# API](#api)* is used to implement the project (besides UnigineScript). In this case, the following options can be customized: | Binary | Name of the custom main application. Here the name of the compiled binary executable located in the `bin` folder of the project should be specified. If the binary executable is located outside this folder, a path to it relative to the `bin` folder should be specified. | |---|---| | Arguments | [Start-up command-line options](../../code/command_line.md). | | Remember | Indicates whether to remember the specified custom settings for future run. |
 
 
 ## Editing a Project

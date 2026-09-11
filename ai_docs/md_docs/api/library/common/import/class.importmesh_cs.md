@@ -1,7 +1,7 @@
 # Unigine::ImportMesh Class (CS)
 
 
-This class is an intermediate representation of a static mesh from a source file. A mesh is organized as a set of [ImportGeometry](../../../../api/library/common/import/class.importgeometry_cs.md) elements, each containing [ImportSurface](../../../../api/library/common/import/class.importsurface_cs.md) elements with material assignments and rendering settings. During import, it is converted to a UNIGINE [Mesh](../../../../api/library/rendering/class.mesh_cs.md) by an [import processor](../../../../api/library/common/import/class.importprocessor_cs.md). For skinned meshes with skeleton support, see [ImportMeshSkinned](../../../../api/library/common/import/class.importmeshskinned_cs.md).
+This class is an intermediate representation of a static mesh from a source file. A mesh is organized as a set of *[ImportGeometry](../../../../api/library/common/import/class.importgeometry_cs.md)* elements, each containing *[ImportSurface](../../../../api/library/common/import/class.importsurface_cs.md)* elements with material assignments and rendering settings. During import, it is converted to a UNIGINE *[Mesh](../../../../api/library/rendering/class.mesh_cs.md)* by an [import processor](../../../../api/library/common/import/class.importprocessor_cs.md). For skinned meshes with skeleton support, see *[ImportMeshSkinned](../../../../api/library/common/import/class.importmeshskinned_cs.md)*.
 
 
 ## ImportMesh Class

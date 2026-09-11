@@ -11,12 +11,14 @@ The following features are available:
 
 
 - Setting the engine power and resistance curves, as well as idle speed (RPM)
-- Gearbox simulation (manual and automatic) enabling you to adjust throttle an speed values for shifting gears along with transition time, as well as to set the number of gears and configure gear ratios
+- Gearbox simulation (manual and automatic) enabling you to adjust throttle and speed values for shifting gears along with transition time, as well as to set the number of gears and configure gear ratios
+- A [transfer case](#components_car_transfer_case) distributing torque between the axles, with low and high range for off-road driving
+- Easy setup of steering and driving axes, with locking of both the interwheel and inter-axle differentials
 - Mathematical wheel model for more realistic steering, enabling simulation of forces affecting the rotating wheel, along with an ability to adjust suspension travel distance, spring, and damping values
-- Easy setup of steering and driving axes along with capability to turn the differential lock on and off
-- A set of [debug windows](#debug_windows) displaying information on all vehicle parameters in real time
-- [Switching between different views](#camera_switch) (driver's, external camera, etc.)
 - [Simulation of various surface conditions](#friction) (such as dry, wet, snow-covered, or icy road, mud, and so on)
+- [Switching between different views](#camera_switch) (driver's, external camera, etc.)
+- [Keyboard, gamepad, and wheel device input](#user_input) working simultaneously
+- A set of [debug windows](#debug_windows) displaying information on all vehicle parameters in real time
 
 
 Instructions given below cover the process of creation of a wheeled vehicle using the C++ SIM sample from the SDK in a new empty project. The step-by-step guide will take you through the process of creating all necessary nodes and configuring component parameters you need to have a functional vehicle, assuming that you have a model of the vehicle's body and models of its wheels at your disposal.
@@ -36,7 +38,7 @@ First, we should prepare a project and get all necessary source files containing
 
 
 1. [Create a new C++ project](../../../sdk/projects/index_cpp.md#creation). ![](../using_component_system/create.png)
-2. Open your new project's source folder and create the new `vehicle_components` folder in it.
+2. Open your new project's `source` folder and create the new `vehicle_components` folder in it.
 3. Then open the folder of the C++ SIM sample and copy all the files it contains to the `vehicle_components` folder that you've just created.
 4. Open your project in the IDE and add all source files from the `vehicle_components` folder to it.
 5. Add initialization code for C++ Component System to the *[AppSystemLogic::init()](../../../code/fundamentals/execution_sequence/app_logic_system.md#systemlogic_init)* method: ```cpp #include <UnigineComponentSystem.h> /* ... */ int AppSystemLogic::init() { /* ... */ // initialize ComponentSystem and register all components Unigine::ComponentSystem::get()->initialize(); /* ... */ } ```
@@ -55,7 +57,7 @@ Next, we create a model representing the vehicle's body and a model for vehicle'
 The **Y** axis of all models (including wheels) should be pointing forward. So, you can't just make a copy of a wheel and rotate it around the **Z** axis by 180 degrees.
 
 
-![](model_axes.jpg)
+![](model_axes.png)
 
 
 The scale of all models should be equal to 1 along all axes, to ensure correct physics simulation.
@@ -79,7 +81,7 @@ All nodes in the hierarchy, except for the vehicle's body and wheels, are *[Node
 Then, we should assign a [rigid body](../../../principles/physics/bodies/rigid/index.md) to the object representing the vehicle's body and disable the *Shape-Based* option for it, to turn off automatic calculation as inertia, mass, and center of mass are specified in the component. Then, add necessary number of physical shapes to specify the geometry of the body.
 
 
-![](add_physics.jpg)
+[![](add_physics_sm.png)](add_physics.png)
 
 
 ## Step 5. Assign and Configure Components
@@ -101,8 +103,8 @@ Assign the **car** component to the object representing the vehicle's body. For 
 |---|---|
 | Car Body Node | Object representing the car body. |
 | Size | Car dimensions, in meters (width, length, height). |
-| Mass | Vehicle mass, in kilograms. A lifelike value is to be used. Higher values increase the car stability when colliding with other cars. Along with that, higher values increase inertia thus requiring enhanced brakes and springs, better greep of wheels, etc. > **Notice:** This value affects numerous aspects of the vehicle behavior, therefore it's better to set it first. |
-| Driving Efficiency | Multiplier of the gear ratio. The efficiency of the whole transmission — all moving parts from wheels to the gearbox. Higher values mean less inertia and resistance in the gearbox. |
+| Mass | Vehicle mass, in kilograms. A lifelike value is to be used. Higher values increase the car stability when colliding with other cars. Along with that, higher values increase inertia thus requiring enhanced brakes and springs, better grip of wheels, etc. > **Notice:** This value affects numerous aspects of the vehicle behavior, therefore it's better to set it first. |
+| Driving Efficiency | Multiplier of the gear ratio. The efficiency of the whole transmission - all moving parts from wheels to the gearbox. Higher values mean less inertia and resistance in the gearbox. |
 | Movement Resistance | The effect of resistance to the movement. The higher the value, the more the wheels resist rotation (transmitting this resistance to the engine, reducing its power). The effect is amplified by large and heavy wheels. |
 | Moving Transmission Parts Inertia | Inertia multiplier for moving parts of transmission used to calculate the vehicle moment of inertia. The higher the value, the more inert the gearbox is. |
 | Air Density | Air density that affects downforce. The faster you drive, the more the car is pressed against the asphalt, while at the same time control is improved due to increased road grip. It is recommended to keep this value unchanged and adjust the *[CarFrontalArea](#carfrontalarea)* and *[ShapeResistanceCoefficient](#shaperesistancecoefficient)* parameters, if required. |
@@ -136,7 +138,7 @@ Assign the **car_engine** component to the **engine** *Node Dummy* and specify n
 | Inertia | Moment of inertia of the engine moving parts. Higher values mean slower changes in engine RPM. |
 | Idle Throttle | Automatic throttle level helping to keep stable idle rpm. It defines the minimum throttle plate position, if the engine RPM is less than minimum (idle). |
 | RPM - Torque | Correlation between the engine RPM and Torque. Specific torque values can be set for various RPMs. Changing the value affects speed and acceleration. |
-| RPM - Resistance | Correlation between the engine RPM and Resistance — friction of the internal engine details depending on the RPM changes. Higher resistance values mean that the vehicle will pick up speed less. |
+| RPM - Resistance | Correlation between the engine RPM and Resistance - friction of the internal engine details depending on the RPM changes. Higher resistance values mean that the vehicle will pick up speed less. |
 
 
 Formulas applied in the engine implementation:
@@ -177,7 +179,7 @@ The array of gear values must contain at least **3** elements: *neutral, first f
 ### Transfer Case
 
 
-Assign the **car_tranfer_case** component to the **transfer_case** *Node Dummy*. Specify necessary parameters and configure torque distribution for all axles in the **front-to-back** order.
+Assign the **car_transfer_case** component to the **transfer_case** *Node Dummy*. Specify necessary parameters and configure torque distribution for all axles in the **front-to-back** order.
 
 
 ![](transfer_case.png)
@@ -228,7 +230,7 @@ Assign the **car_wheel** component to all nodes representing vehicle's wheels. B
 You can enable the **Use General Settings** option and specify a preset property with general wheel settings for a certain wheel type in the **General Settings** field to override values of component parameters. This simplifies configuration process: you set all required parameter values for a certain wheel type in a dedicated property, and then use this property for all similar wheels.
 
 
-[Suspension settings](#suspension_settings) are to be set indivudually for each car by eye. These settings affect the vehicle bouncing, rigidity and wind resistance when driving over bumps and around tight corners.
+[Suspension settings](#suspension_settings) are to be set individually for each car by eye. These settings affect the vehicle bouncing, rigidity and wind resistance when driving over bumps and around tight corners.
 
 
 | General |  |
@@ -256,7 +258,7 @@ You can enable the **Use General Settings** option and specify a preset property
 | Tire Damping | Damping coefficient of the tire. This value adds up to *Max Brake Damping* and *Max Handbrake Damping*. Can be perceived as the resistance of the wheels to air flow. |
 | Friction |  |
 | Forward Friction | Longitudinal friction of the tires. Higher values reduce the likelihood of wheels spinning in place. This value also may enhance acceleration and improve braking performance. |
-| Lateral Friction | Transverse friction of the tires. Higher values reduce the likelihood of drifting (for the front wheels) or skidding (for the rear wheels) also increasing the steerability — the vehicle seems to turn sharper and faster. |
+| Lateral Friction | Transverse friction of the tires. Higher values reduce the likelihood of drifting (for the front wheels) or skidding (for the rear wheels) also increasing the steerability - the vehicle seems to turn sharper and faster. |
 | Additional Forces |  |
 | Forward Factor | Coefficient specifying how fast the optimum longitudinal force can be achieved. Higher values increase the impulse produced by the tire. |
 | Lateral Factor | Coefficient specifying how fast the optimum lateral force can be achieved. Higher values increase the impulse produced by the tire. |

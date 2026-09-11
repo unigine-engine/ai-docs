@@ -58,6 +58,19 @@ Returns the current value indicating if the bus reference is valid.
 ### Return value
 
 Current bus reference is valid
+## void setPortIndex ( int index )
+
+Sets a new output-port index the signal of the underlying *FMOD Studio* bus is routed to, used on platforms with auxiliary audio ports (for example, controller speakers). The *PORT_INDEX_NONE* value routes the bus normally.
+### Arguments
+
+- *int* **index** - The output-port index of the bus
+
+## int getPortIndex () const
+
+Returns the current output-port index the signal of the underlying *FMOD Studio* bus is routed to, used on platforms with auxiliary audio ports (for example, controller speakers). The *PORT_INDEX_NONE* value routes the bus normally.
+### Return value
+
+Current output-port index of the bus
 ---
 
 ## void stopAllEvents ( )

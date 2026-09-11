@@ -85,13 +85,13 @@ The value of the [toggle parameter](../../../code/formats/property_format.md#par
 The value of the node ID property parameter.
 ## Node ValueNode
 
-The value of the [Node](../../../api/library/nodes/class.node_cs.md) property parameter.
+The value of the *[Node](../../../api/library/nodes/class.node_cs.md)* property parameter.
 ## Material ValueMaterial
 
-The value of the [Material](../../../api/library/rendering/class.material_cs.md) property parameter.
+The value of the *[Material](../../../api/library/rendering/class.material_cs.md)* property parameter.
 ## Property ValueProperty
 
-The value of the [Property](../../../api/library/common/class.property_cs.md)-type property parameter.
+The value of the *[Property](../../../api/library/common/class.property_cs.md)*-type property parameter.
 ## vec4 ValueVec4
 
 The value of the four-component [vec4](../../../api/library/math/class.vec4_cs.md) vector property parameter
@@ -115,7 +115,10 @@ The value of the float property parameter.
 The value of the integer property parameter.
 ## 🔒︎ Curve2d ValueCurve2dOverride
 
-The [Curve2d](../../../api/library/common/class.curve2d_cs.md) instance for the data stored in the specified property parameter overriding the default one. This method enables you to set individual curves, adjusting the value of the resulting property.
+The [Curve2d](../../../api/library/common/class.curve2d_cs.md) instance for the data stored in the specified property parameter overriding the default one.
+This method enables you to set individual curves, adjusting the value of the resulting property.
+
+
 > **Notice:** Modifications made to the curve shall not propagate to the parent and sibling properties.
 
 
@@ -187,16 +190,19 @@ The value indicating if the property parameter is a switch.
 The value indicating if the property parameter is a toggle.
 ## 🔒︎ bool IsDouble
 
-The value indicating if the property parameter is a double.
+The value indicating if the property parameter is a *double*.
 ## 🔒︎ bool IsFloat
 
-The value indicating if the property parameter is a float.
+The value indicating if the property parameter is a *float*.
 ## 🔒︎ bool IsInt
 
 The value indicating if the property parameter is an integer.
 ## 🔒︎ string Filter
 
-The filter string associated with the property parameter. This string specifies a filter for file, material or property parameter values thet will be used in the unigineeditor. for example, you can specify ".xml|.node|.txt" to filter certain types of assets, or specify a base material to filter out materials, that cannot be used in a particular case (e.g. to avoid an attempt of assigning a post material to a mesh).
+The filter string associated with the property parameter.
+This string specifies a filter for *File, Material* or *Property* parameter values thet will be used in the UnigineEditor. for example, you can specify *".xml|.node|.txt"* to filter certain types of assets, or specify a base material to filter out materials, that cannot be used in a particular case (e.g. to avoid an attempt of assigning a post material to a mesh).
+
+
 > **Notice:** This attribute is available only for [file](../../../api/library/common/class.property_cs.md#PARAMETER_FILE), [material](../../../api/library/common/class.property_cs.md#PARAMETER_MATERIAL) and [property](../../../api/library/common/class.property_cs.md#PARAMETER_PROPERTY) parameter types.
 
 
@@ -205,16 +211,19 @@ The filter string associated with the property parameter. This string specifies 
 The name of the group to which the property parameter belongs.
 ## 🔒︎ string Tooltip
 
-The tooltip for the property parameter. This title is displayed in the UNIGINE Editor's UI.
+The tooltip for the property parameter. This title is displayed in the UnigineEditor UI.
 ## 🔒︎ string Title
 
-The title of the property parameter. This title is displayed in the UNIGINE Editor's UI.
+The title of the property parameter. This title is displayed in the UnigineEditor UI.
 ## 🔒︎ string Name
 
 The name of the property parameter.
 ## 🔒︎ int Type
 
-The [type](../../../code/formats/property_format.md#parameter_type) identifier of the property parameter. You can get the name of the parameter type using the *[Property.ParameterNameByType()](../../../api/library/common/class.property_cs.md#parameterNameByType_int_cstr)* method:
+The [type](../../../code/formats/property_format.md#parameter_type) identifier of the property parameter.
+You can get the name of the parameter type using the *[Property.ParameterNameByType()](../../../api/library/common/class.property_cs.md#parameterNameByType_int_cstr)* method:
+
+
 ```csharp
 Log.Message("Parameter type: {0}\n", my_property.ParameterNameByType(my_prop_param.Type));
 ```
@@ -264,7 +273,7 @@ Suppose we have a property switch parameter declared as follows:
 > **Notice:** Spaces in the *items* attribute declaration are taken into account. Thus, **items="red=-1, green"** shall produce 2 items: **"red"** and **" green"**
 
 
-After loading we'll have switch items with the following values: red = -1, green = 0, blue = 5, yellow = 6.
+After loading we'll have switch items with the following values: *red = -1, green = 0, blue = 5, yellow = 6*.
 
 
 ```csharp
@@ -491,13 +500,16 @@ Sets the value of the property parameter using the [Curve2d](../../../api/librar
 
 ## void ResetValue ( )
 
+
 Resets an overridden value of the property parameter.
+
+
 > **Notice:** Resetting a value of the property parameter affects all its children.
 
 
 ## Variable GetValue ( )
 
-Returns the current value of the property parameter as a [Variable](../../../api/library/common/class.variable_cs.md).
+Returns the current value of the property parameter as a *[Variable](../../../api/library/common/class.variable_cs.md)*.
 ### Return value
 
 Value of the property parameter.
@@ -542,7 +554,10 @@ Returns the current value of the [file parameter](../../../code/formats/property
 
 ### Return value
 
+
 Current file parameter value depending on the [flags](../../../code/formats/property_format.md#parameter_flags) set for the parameter:
+
+
 ```cpp
 // flags = "asset"
 setValueFile("guid://asset_guid"); 		// getValueFile() -> asset_path
@@ -562,7 +577,7 @@ setValueFile(file_path);				// getValueFile() -> file_path
 ```
 
 
-> **Notice:** To get a GUID of the file, use the [getValueGUID()](#getValueGUID_UGUID) method.
+> **Notice:** To get a GUID of the file, use the *[getValueGUID()](#getValueGUID_UGUID)* method.
 
 
 ## bool GetFileIsAsset ( )
@@ -592,7 +607,9 @@ true if a file corresponding to the property parameter exists; otherwise, false.
 ## bool SaveState ( Stream stream )
 
 Saves data of the property parameter into a binary stream.
-**Example** using saveState() and [restoreState()](#restoreState_Stream_int_int) methods:
+
+
+**Example** using *saveState()* and *[restoreState()](#restoreState_Stream_int_int)* methods:
 
 
 ```csharp
@@ -622,8 +639,11 @@ propertyparam1.RestoreState(blob_state, 0);
 true if the property parameter data is saved successfully; otherwise, false.
 ## bool RestoreState ( Stream stream , int restore_mode = 0 )
 
+
 Restores the data of the property parameter from a binary stream in the specified mode.
-**Example** using [saveState()](#saveState_Stream_int) and restoreState() methods:
+
+
+**Example** using *[saveState()](#saveState_Stream_int)* and *restoreState()* methods:
 
 
 ```csharp
@@ -654,10 +674,10 @@ propertyparam1.RestoreState(blob_state, 0);
 true if the property parameter data is restored successfully; otherwise, false.
 ## bool IsValuePropertyInternal ( )
 
-Checks if the property parameter [flag](../../../code/formats/property_format.md#parameter_flags) is set to internal (flags="internal"). If it is internal, only a property assigned to some node can be assigned to it. If the property parameter is not internal, a property from the Asset Browser can be assigned to it.
+Checks if the property parameter [flag](../../../code/formats/property_format.md#parameter_flags) is set to internal (*flags="internal"*). If it is internal, only a property assigned to some node can be assigned to it. If the property parameter is not internal, a property from the Asset Browser can be assigned to it.
 ### Return value
 
-true if a property parameter's flag is set to "Internal"; otherwise, false.
+true if a property parameter's flag is set to *"Internal"*; otherwise, false.
 ## bool IsValueFitFilter ( Node value )
 
 Checks if the type of the indicated node fits the current property parameter [filter](../../../code/formats/property_format.md#parameter_filter).
@@ -700,9 +720,12 @@ Checks if the indicated GUID fits the current property parameter [filter](../../
 true, if the GUID fits the filter; otherwise, false.
 ## bool IsValuePropertyInterface ( )
 
-Checks if the property parameter [flag](../../../code/formats/property_format.md#parameter_flags) is defined as an interface type (flags="interface"), allowing any component that implements the required interface to be assigned to it.
+
+Checks if the property parameter [flag](../../../code/formats/property_format.md#parameter_flags) is defined as an interface type (*flags="interface"*), allowing any component that implements the required interface to be assigned to it.
+
+
 > **Notice:** You can use interfaces only within the C# Component System. For more information, see the article [C# Interfaces and Abstract Classes.](../../../code/csharp/interfaces_and_abstract_classes.md).
 
 ### Return value
 
-true if a property parameter's flag is set to "interface"; otherwise, false.
+true if a property parameter's flag is set to *"interface"*; otherwise, false.

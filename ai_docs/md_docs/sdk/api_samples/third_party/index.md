@@ -17,6 +17,10 @@ UNIGINE SDK Browser contains a set of samples demonstrating how to integrate var
 
 - [Dear ImGui (CS)](../../../sdk/api_samples/third_party/dear_imgui_cs.md)
 
+- [NoesisGUI (CPP)](../../../sdk/api_samples/third_party/noesis_gui_cpp.md)
+
+- [NoesisGUI (CS)](../../../sdk/api_samples/third_party/noesis_gui_cs.md)
+
 - [Network](../../../sdk/api_samples/third_party/network.md)
 
   - [Photon Integration Sample (CPP)](../../../sdk/api_samples/third_party/photon/index_cpp.md)

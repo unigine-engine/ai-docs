@@ -21,9 +21,9 @@ By using *[Water Decal](../../content/materials/library/decal_base/index.md#opti
 UNIGINE features the following types of decals:
 
 
-- [![](ortho.png)](../../objects/decals/ortho/index.md)   **[Orthographic Decal](../../objects/decals/ortho/index.md)** is a decal projected onto a surface by means of orthographic projection.
-- [![](proj.png)](../../objects/decals/proj/index.md)   **[Projected Decal](../../objects/decals/proj/index.md)** is a decal projected onto a surface by means of the perspective projection.
-- [![](mesh.png)](../../objects/decals/mesh/index.md)   **[Mesh Decal](../../objects/decals/mesh/index.md)** is a decal based on the arbitrary `.mesh` file and projected onto a surface by means of the orthographic projection.
+- [![](ortho.png)](../../objects/decals/ortho/index.md) � **[Orthographic Decal](../../objects/decals/ortho/index.md)** is a decal projected onto a surface by means of orthographic projection.
+- [![](proj.png)](../../objects/decals/proj/index.md) � **[Projected Decal](../../objects/decals/proj/index.md)** is a decal projected onto a surface by means of the perspective projection.
+- [![](mesh.png)](../../objects/decals/mesh/index.md) � **[Mesh Decal](../../objects/decals/mesh/index.md)** is a decal based on the arbitrary `.mesh` file and projected onto a surface by means of the orthographic projection.
 
 
 ### See Also

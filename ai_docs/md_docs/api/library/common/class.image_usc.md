@@ -463,7 +463,10 @@ Sets a color of a given pixel. The image must be of the Cube Array type. Compres
 
 ## getCubeArray ( int layer )
 
+
 Returns the color of a given pixel of the cube array image.
+
+
 > **Notice:** Compressed formats are not supported.
 
 
@@ -476,7 +479,10 @@ Returns the color of a given pixel of the cube array image.
 Pixel color (can be vec4, or ivec4, or a scalar for single-channel images).
 ## getCubeArray ( int v1 , int v2 , int face , int layer )
 
+
 Returns the color of a given pixel of the cube array image. Both the first and the second passed arguments mush be either of the float or of the integer type.
+
+
 > **Notice:** Compressed formats are not supported.
 
 
@@ -742,7 +748,10 @@ Returns the image width on a given mipmap level.
 Image width if the image exists (its width is larger than 0); otherwise, 1.
 ## int blend ( Image image , int x0 , int y0 , int x1 , int y1 , int width , int height , float scale = 1.0f , int safe = 0 )
 
+
 Blends the specified image with the current one. Blending takes place within a specified region. If the *safe* flag is set to 1, rendering of the blended images won't be performed outside the destination image boundaries. Compressed, combined, half-float and float formats are not supported. Images of different formats can be blended as follows:
+
+
 - R8 with R8, RG8;
 - RG8 with RG8, RGB8;
 - RGB8 with RGB8, RGBA8;
@@ -803,7 +812,10 @@ Sharpens the image. Only the 2D or cube image can be sharpened. Compressed and c
 Clears all data associated with the image and resets its type, format, size to default. Also the number of image layers and mipmaps is set to 1.
 ## int combine ( int new_format = -1 )
 
+
 Converts the image to a combined format. The following conversions are available:
+
+
 - RGB8 to RGB565
 - RGBA8 to RGBA4 if the format is specified as RGBA4; otherwise, RGBA8 is converted to RGB5A1 by default
 - RGBA16 to RGB10A2
@@ -841,7 +853,10 @@ Compares a region of a specified image with a specified region of the current im
 **1** if the regions match; otherwise, **0**.
 ## int compress ( int new_format = -1 )
 
+
 Converts the image to a compressed format. The following conversions are available:
+
+
 - R8 to ATI1
 - RG8 to ATI2
 - RGB8 to DXT1
@@ -869,18 +884,19 @@ Converts the image to a specified format. Compressed and combined images are aut
 **1** if the conversion is successful; otherwise, **0**.
 ## int convertToType ( int type )
 
+
 Converts the image to a specified type. The following conversions are possible:
 
 
 | Source type | Target type | Target dimensions |
 |---|---|---|
-| 2D (height should be proportional to width) | 3D | width × height × height/width |
-| 2D (height should divide by four, width should divide by three) | Cube | width/4 × height/3 |
-| 3D | 2D | width × height*depth |
-| 3D | 2D texture array | width × height |
-| Cube | 2D | width*4 × height*3 |
-| Cube | 2D array texture | width × height |
-| 2D array texture | 2D | width × height*number of texture layers |
+| 2D (height should be proportional to width) | 3D | width � height � height/width |
+| 2D (height should divide by four, width should divide by three) | Cube | width/4 � height/3 |
+| 3D | 2D | width � height*depth |
+| 3D | 2D texture array | width � height |
+| Cube | 2D | width*4 � height*3 |
+| Cube | 2D array texture | width � height |
+| 2D array texture | 2D | width � height*number of texture layers |
 
 
 ### Arguments
@@ -907,7 +923,10 @@ Copies the data from the specified source image, resizing the source. The source
 **1** if the data was successfully copied from the source image; otherwise, **0**.
 ## int copy ( const Image & src_image , int layer )
 
+
 Copies data from the specified source image according to the specified **layer** parameter. Depending on the image and the source image types the **layer** parameter either defines the index of the layer/face to copy data FROM (source), or the index of the layer/face to copy data TO (destination):
+
+
 | Image | Source Image | Copy |
 |---|---|---|
 | Cube | 2D | Specified source 2D image is copied to the face of the cubemap image specified by the layer argument in the **[0; 5]** range: 2D_image **TO** cubemap_face[ ***layer*** ] |
@@ -960,7 +979,7 @@ Copies a data fragment with specified width, height, and coordinates from the so
 - *int* **y_src** - Y coordinate of a position in a source image, starting from which the data fragment is to be copied.
 - *int* **width** - Width of the fragment to be copied from the source image, in pixels.
 - *int* **height** - Height of the fragment to be copied from the source image, in pixels.
-- *int* **safe** - **1** for safe copying with respect to destination image boundaries; otherwise, **0**. > **Notice:** The safe flag doesn't provide safe copying with respect to source image boundaries.
+- *int* **safe** - true for safe copying with respect to destination image boundaries; otherwise, false. > **Notice:** The safe flag doesn't provide safe copying with respect to source image boundaries.
 
 ### Return value
 
@@ -1098,7 +1117,10 @@ Removes mipmaps generated for the image.
 **1** if mipmaps generated for the image are removed successfully; otherwise, **0**.
 ## int decombine ( )
 
+
 Automatically converts the image from the combined format to a correct one. The following conversions are available:
+
+
 - RGB565 to RGB8
 - RGBA4 to RGBA8
 - RGB5A1 to RGBA8
@@ -1116,7 +1138,10 @@ Decombines the loaded 2D-image and the mipmap images. The number of mipmaps must
 **1** if the 2D-image and mipmap image are successfully decombined; otherwise, **0**.
 ## int decompress ( )
 
+
 Decompresses the image from the compressed format to a correct one. The following conversions are available:
+
+
 - DXT1 to RGB8
 - DXT1 without alpha data to RGB8
 - DXT3 to RGBA8
@@ -1158,7 +1183,10 @@ Returns a value indicating if the source image has mipmaps.
 **1** if the image has mipmaps; otherwise, **0**.
 ## int info ( string path )
 
+
 Retrieves information about the specified image by it's path and stores it into current **Image** instance. The following file formats are supported:
+
+
 - *.texture
 - *.tga
 - *.jpg
@@ -1356,7 +1384,10 @@ Calculates the image range for each channel separately.
 
 ## void changeRange ( const dvec4 & range )
 
+
 Changes the image range.
+
+
 > **Notice:** The range of the final image will be clamped, if the set range values exceed the maximum values of the image format.
 
 
@@ -1366,7 +1397,10 @@ Changes the image range.
 
 ## void changeRange ( const dvec4 & range_r , const dvec4 & range_g , const dvec4 & range_b , const dvec4 & range_a )
 
+
 Changes the image range for each channel separately.
+
+
 > **Notice:** The range of the final image will be clamped, if the set range values exceed the maximum values of the image format.
 
 

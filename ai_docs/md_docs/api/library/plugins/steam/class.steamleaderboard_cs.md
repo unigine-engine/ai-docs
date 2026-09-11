@@ -38,37 +38,37 @@
 The existing number of entries.
 ## 🔒︎ SteamLeaderboard.DISPLAY_TYPE DisplayType
 
-The type of data to be displayed with the leaderboard.
+The type of data to be displayed with the leaderboard. One of the [DISPLAY_TYPE_*](#DISPLAY_TYPE_NONE) values.
 ## 🔒︎ SteamLeaderboard.SORT_METHOD SortMethod
 
-The order for the leaderboard sorting.
+The order for the leaderboard sorting. One of the [SORT_METHOD_*](#SORT_METHOD_NONE) values.
 ## 🔒︎ int EntryCount
 
-The
+The total number of entries in the leaderboard. Returns 0, if the leaderboard handle is invalid.
 ## 🔒︎ SteamLeaderboard.DATA_REQUEST LastDataRequest
 
-The
+The type of requested data in the most recent leaderboard download. One of the [DATA_REQUEST_*](#DATA_REQUEST_GLOBAL) values.
 ## 🔒︎ bool IsLastDownloadFailed
 
-The
+The value indicating if the last leaderboard download has failed.
 ## 🔒︎ bool IsLastUploadFailed
 
-The
+The value indicating if the last leaderboard upload has failed.
 ## 🔒︎ bool IsDownloading
 
-The Checks the leaderboard downloading status.
+The value indicating if the leaderboard is downloading.
 ## 🔒︎ bool IsUploading
 
-The Checks the leaderboard uploading status.
+The value indicating if the leaderboard is uploading.
 ## 🔒︎ bool IsFound
 
-The value stating if the leaderboard was found.
+The value indicating if the leaderboard was found.
 ## 🔒︎ string Name
 
 The leaderboard name.
 ## 🔒︎ int ID
 
-The leaderboard id.
+The leaderboard ID.
 ### Members
 
 ---
@@ -85,7 +85,7 @@ Checks if a leaderboard is created, it will create it if it's not yet created.
 ### Arguments
 
 - *[SteamLeaderboard.SORT_METHOD](../../../../api/library/plugins/steam/class.steamleaderboard_cs.md#SORT_METHOD)* **sort_method** - The sort order of the new leaderboard if it's created.
-- *[SteamLeaderboard.DISPLAY_TYPE](../../../../api/library/plugins/steam/class.steamleaderboard_cs.md#DISPLAY_TYPE)* **display_type** - The display type (used by the Steam Community web site) of the new leaderboard if it's created.
+- *[SteamLeaderboard.DISPLAY_TYPE](../../../../api/library/plugins/steam/class.steamleaderboard_cs.md#DISPLAY_TYPE)* **display_type** - The display type (used by the *Steam Community* web site) of the new leaderboard if it's created.
 
 ### Return value
 

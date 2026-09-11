@@ -15,13 +15,17 @@
 
 ## Articles in This Section
 
-- [CIGI](../../sdk/demos/cigi.md)
-
 - [C# Third Person Platformer](../../sdk/demos/cs_component_sample.md)
+
+- [Machine Learning Agents](../../sdk/demos/ml_agents.md)
+
+- [Cesium](../../sdk/demos/cesium_ig.md)
 
 - [Earthworks](../../sdk/demos/earthworks.md)
 
 - [Fox Hole](../../sdk/demos/fox_hole.md)
+
+- [Gaussian Splatting](../../sdk/demos/gaussian_splat.md)
 
 - [Mars](../../sdk/demos/mars.md)
 

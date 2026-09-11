@@ -71,7 +71,7 @@ Current motor velocity, in radians per second.
 Returns the current angle between the bodies.
 ### Return value
 
-Current current angle in degrees.
+Current angle in degrees.
 ## void setAngularVelocity ( float velocity )
 
 Sets a new target velocity of the attached angular motor.

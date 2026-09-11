@@ -9,9 +9,9 @@ Unigine has different methods to detect intersections. Intersection is a shared 
 There are three main types of intersections:
 
 
-- **World intersection** — an intersection with [objects](../../../api/library/objects/class.object_usc.md) and [nodes](../../../api/library/nodes/class.node_usc.md).
-- **Physics intersection** — an intersection with [shapes](../../../api/library/physics/class.shape_usc.md) and [collision objects](../../../principles/physics/collision/index.md).
-- **Game intersection** — an intersection with pathfinding nodes such as [obstacles](../../../api/library/pathfinding/class.obstacle_usc.md).
+- **World intersection** � an intersection with [objects](../../../api/library/objects/class.object_usc.md) and [nodes](../../../api/library/nodes/class.node_usc.md).
+- **Physics intersection** � an intersection with [shapes](../../../api/library/physics/class.shape_usc.md) and [collision objects](../../../principles/physics/collision/index.md).
+- **Game intersection** � an intersection with pathfinding nodes such as [obstacles](../../../api/library/pathfinding/class.obstacle_usc.md).
 
 
 The *[Shape](../../../api/library/physics/class.shape_usc.md)* and *[Object](../../../api/library/objects/class.object_usc.md)* classes have their own *getIntersection()* functions. These functions are used to detect intersections with a specific shape or a specific surface of the object.
@@ -206,15 +206,15 @@ This function detects intersection with surfaces (polygons) of mesh and terrain 
 The *engine.world.getIntersection()* function is overloaded and receives 4 or 5 arguments:
 
 
-- **vec3 p0** — the start point coordinates of the trace line.
-- **vec3 p1** — the end point coordinates of the trace line.
-- **int mask** — the *Intersection* mask. Use the *Intersection* mask to find object only with the specified mask.
-- **int exclude[]** — the list of objects IDs to exclude.
-- **variable v** — The function returns an intersected object which is the nearest to the start point (*p0*). Information about the intersection will be presented in variable which you pass to the function as an argument: > **Notice:** Passing *NULL* instead of the intersection query object will perform fast intersection algorithm without the closest intersection point searching.
+- **vec3 p0** � the start point coordinates of the trace line.
+- **vec3 p1** � the end point coordinates of the trace line.
+- **int mask** � the *Intersection* mask. Use the *Intersection* mask to find object only with the specified mask.
+- **int exclude[]** � the list of objects IDs to exclude.
+- **variable v** � The function returns an intersected object which is the nearest to the start point (*p0*). Information about the intersection will be presented in variable which you pass to the function as an argument: > **Notice:** Passing *NULL* instead of the intersection query object will perform fast intersection algorithm without the closest intersection point searching.
 
-  - *WorldIntersection **intersection*** — the *[WorldIntersection](../../../api/library/worlds/class.worldintersection_usc.md)* class instance. By using this class you can get the intersection point (coordinates), the index of the intersected triangle of the object and the index of the intersected surface.
-  - *WorldIntersectionNormal **normal*** — the *[WorldIntersectionNormal](../../../api/library/worlds/class.worldintersectionnormal_usc.md)* class instance. By using this class you can get only the normal of the intersection point.
-  - *WorldIntersectionTexCoord **texcoord*** — the *[WorldIntersectionTexCoord](../../../api/library/worlds/class.worldintersectiontexcoord_usc.md)* class instance. By using this class you can get only the texture coordinates of the intersection point.
+  - *WorldIntersection **intersection*** � the *[WorldIntersection](../../../api/library/worlds/class.worldintersection_usc.md)* class instance. By using this class you can get the intersection point (coordinates), the index of the intersected triangle of the object and the index of the intersected surface.
+  - *WorldIntersectionNormal **normal*** � the *[WorldIntersectionNormal](../../../api/library/worlds/class.worldintersectionnormal_usc.md)* class instance. By using this class you can get only the normal of the intersection point.
+  - *WorldIntersectionTexCoord **texcoord*** � the *[WorldIntersectionTexCoord](../../../api/library/worlds/class.worldintersectiontexcoord_usc.md)* class instance. By using this class you can get only the texture coordinates of the intersection point.
 
 
 Thus, to exclude some objects you should use these methods:
@@ -294,14 +294,14 @@ These functions perform tracing from the start *p0* point to the end *p1* point 
 The *engine.physics.getIntersection()* function is overloaded and receives 4 or 5 arguments:
 
 
-- ***vec3 p0*** — the start point coordinates of the trace line.
-- ***vec3 p1*** — the end point coordinates of the trace line.
-- ***int mask*** — the *Intersection* mask. Use the *Intersection* mask to find object only with the specified mask.
-- ***int exclude[]*** — the list of objects IDs to exclude, all these objects will be ignored.
-- ***variable v*** — The function returns an intersected object which is the nearest to the start point (p0). Information about the intersection will be presented in variable which you pass to the function as an argument: > **Notice:** Passing *NULL* instead of the intersection query object will perform fast intersection algorithm without the closest intersection point searching.
+- ***vec3 p0*** � the start point coordinates of the trace line.
+- ***vec3 p1*** � the end point coordinates of the trace line.
+- ***int mask*** � the *Intersection* mask. Use the *Intersection* mask to find object only with the specified mask.
+- ***int exclude[]*** � the list of objects IDs to exclude, all these objects will be ignored.
+- ***variable v*** � The function returns an intersected object which is the nearest to the start point (p0). Information about the intersection will be presented in variable which you pass to the function as an argument: > **Notice:** Passing *NULL* instead of the intersection query object will perform fast intersection algorithm without the closest intersection point searching.
 
-  - *PhysicsIntersection **intersection*** — the *[PhysicsIntersection](../../../api/library/physics/class.physicsintersection_usc.md)* class instance. By using this class you can get the intersection point (coordinates), the index of the intersected surface and the intersection Shape.
-  - *PhysicsIntersectionNormal **normal*** — the *[PhysicsIntersectionNormal](../../../api/library/physics/class.physicsintersectionnormal_usc.md)* class instance. By using this class you can get only the normal of the intersection point.
+  - *PhysicsIntersection **intersection*** � the *[PhysicsIntersection](../../../api/library/physics/class.physicsintersection_usc.md)* class instance. By using this class you can get the intersection point (coordinates), the index of the intersected surface and the intersection Shape.
+  - *PhysicsIntersectionNormal **normal*** � the *[PhysicsIntersectionNormal](../../../api/library/physics/class.physicsintersectionnormal_usc.md)* class instance. By using this class you can get only the normal of the intersection point.
 
 
 Thus, to exclude some obstacles you should use these methods:
@@ -380,12 +380,12 @@ The function returns an intersected obstacle which is the nearest to the start p
 The *engine.game.getIntersection()* function is overloaded and receives 5 or 6 arguments:
 
 
-- ***vec3 p0*** — the start point coordinates.
-- ***vec3 p1*** — the end point coordinates.
-- ***float radius*** — the end point coordinates.
-- ***int mask*** — the obstacle *Intersection* mask. Use the *Intersection* mask to find object only with the specified mask.
-- ***int exclude[]*** — the list of obstacles to exclude.
-- ***GameIntersection intersection*** — The function returns an intersected obstacle which is the nearest to the start point *(p0)*. Information about the intersection will be presented in the *GameIntersection* class instance which you pass to the function as an argument. > **Notice:** Passing *NULL* instead of the intersection query object will perform fast intersection algorithm without the closest intersection point searching.
+- ***vec3 p0*** � the start point coordinates.
+- ***vec3 p1*** � the end point coordinates.
+- ***float radius*** � the end point coordinates.
+- ***int mask*** � the obstacle *Intersection* mask. Use the *Intersection* mask to find object only with the specified mask.
+- ***int exclude[]*** � the list of obstacles to exclude.
+- ***GameIntersection intersection*** � The function returns an intersected obstacle which is the nearest to the start point *(p0)*. Information about the intersection will be presented in the *GameIntersection* class instance which you pass to the function as an argument. > **Notice:** Passing *NULL* instead of the intersection query object will perform fast intersection algorithm without the closest intersection point searching.
 
 
 Thus, to exclude some obstacles you should use these methods:

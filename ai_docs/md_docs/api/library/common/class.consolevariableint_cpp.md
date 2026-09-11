@@ -64,14 +64,16 @@ Assignment operator for the variable.
 
 ## void setGetFunc ( int(*) func )
 
-Sets a function that will be called when the [get()](#c_get) function is called for the variable.
+Sets a function that will be called when the *[get()](#c_get)* function is called for the variable.
 ### Arguments
 
 - *int(*)* **func** - Function pointer.
 
 ## void setSetFunc ( void (*)(int) func )
 
-Sets a function that will be called when the [set()](#c_set_int) function is called for the variable. For example:
+Sets a function that will be called when the *[set()](#c_set_int)* function is called for the variable. For example:
+
+
 ```cpp
 ConsoleVariableInt my_debug_mode(...);
 

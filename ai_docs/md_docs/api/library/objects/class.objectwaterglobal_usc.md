@@ -5,7 +5,7 @@
 **Inherits from:** Object
 
 
-Interface for **[Global Water](../../../objects/objects/water/water_object.md)** object handling. This water object represents infinitely spread water with auto-tessellation (the wireframe of the water object is not scaled — regardless of the camera position it stays the same) and the underwater mode. This type is suitable to represent boundless ocean while not overloading the GPU.
+Interface for **[Global Water](../../../objects/objects/water/water_object.md)** object handling. This water object represents infinitely spread water with auto-tessellation (the wireframe of the water object is not scaled � regardless of the camera position it stays the same) and the underwater mode. This type is suitable to represent boundless ocean while not overloading the GPU.
 
 
 However, it cannot have a body assigned, and thus does not provide proper physical interaction with scene objects. If you need to simulate the physics of buoyancy, you should use **[Physical Water](../../../objects/effects/physicals/physical_water/index.md)**. Also it is limited to a single water level. It means that the filling level of water always remains the same. So, if you need to create, for example, mountain lakes or water flows with height difference, you should use a **[Water Mesh](../../../objects/objects/water/water_mesh.md)**.
@@ -14,9 +14,9 @@ However, it cannot have a body assigned, and thus does not provide proper physic
 There are three options for creating waves:
 
 
-- **Layer mode** — you create layers on which waves will be randomly generated in a given range of wave parameters. All the layers are added together. > **Notice:** Wave layers are usually created through the UnigineEditor, but you can also create and edit them via code.
-- **Manual mode** — you create your own individual waves and have full control over them. This mode can only be set via code, you cannot do this in the UnigineEditor. > **Notice:** In **Manual mode**, be careful with the *Steepness* parameter, the waves will be everted if this value is set high.
-- **Beauforts mode** — waves are generated based on the presets reproducing the state of the sea according to the Beaufort wind force scale (0 - Calm, 12 - Hurricane). In this mode, the parameters that define the main wave geometry will not be available for editing via code.
+- **Layer mode** � you create layers on which waves will be randomly generated in a given range of wave parameters. All the layers are added together. > **Notice:** Wave layers are usually created through the UnigineEditor, but you can also create and edit them via code.
+- **Manual mode** � you create your own individual waves and have full control over them. This mode can only be set via code, you cannot do this in the UnigineEditor. > **Notice:** In **Manual mode**, be careful with the *Steepness* parameter, the waves will be everted if this value is set high.
+- **Beauforts mode** � waves are generated based on the presets reproducing the state of the sea according to the Beaufort wind force scale (0 - Calm, 12 - Hurricane). In this mode, the parameters that define the main wave geometry will not be available for editing via code.
 
 
 For all modes, wave frequency is calculated based on the wavelength using the formula:
@@ -170,45 +170,1403 @@ This example demonstrates the influence of the **[Steepness Quality](#setFetchSt
 
 ### Members
 
+## void setFieldSpacerEnabled ( int enabled )
+
+Sets a new value indicating if the effect of [FieldSpacer](../../../objects/effects/fields/field_spacer/index.md) object on the Global Water object is enabled.
+### Arguments
+
+- *int* **enabled** - The value indicating if the effect of FieldSpacer object on the Global Water object is enabled
+
+## int isFieldSpacerEnabled () const
+
+Returns the current value indicating if the effect of [FieldSpacer](../../../objects/effects/fields/field_spacer/index.md) object on the Global Water object is enabled.
+### Return value
+
+Current value indicating if the effect of FieldSpacer object on the Global Water object is enabled
+## void setSoftInteraction ( float interaction )
+
+Sets a new soft intersection of water with the shoreline and surfaces of objects.
+### Arguments
+
+- *float* **interaction** - The soft intersection of water with the shoreline and surfaces of objects
+
+## float getSoftInteraction () const
+
+Returns the current soft intersection of water with the shoreline and surfaces of objects.
+### Return value
+
+Current soft intersection of water with the shoreline and surfaces of objects
+## void setDecalsSoftInteraction ( float interaction )
+
+Sets a new soft intersection of water with decals.
+### Arguments
+
+- *float* **interaction** - The soft intersection of water with decals
+
+## float getDecalsSoftInteraction () const
+
+Returns the current soft intersection of water with decals.
+### Return value
+
+Current soft intersection of water with decals
+## void setDecalsDistortion ( float distortion )
+
+Sets a new distortion of [decals](../../../objects/decals/index.md) projected onto water.
+### Arguments
+
+- *float* **distortion** - The distortion of decals projected onto water
+
+## float getDecalsDistortion () const
+
+Returns the current distortion of [decals](../../../objects/decals/index.md) projected onto water.
+### Return value
+
+Current distortion of decals projected onto water
+## void setRefractionScale ( float scale )
+
+Sets a new scale of the [water refraction](../../../objects/objects/water/water_object.md#refraction_scale).
+### Arguments
+
+- *float* **scale** - The scale of the water refraction
+
+## float getRefractionScale () const
+
+Returns the current scale of the [water refraction](../../../objects/objects/water/water_object.md#refraction_scale).
+### Return value
+
+Current scale of the water refraction
+## void setAuxiliaryColor ( vec4 color )
+
+Sets a new color that goes into the auxiliary buffer. *Alpha* is the blend factor.
+### Arguments
+
+- *vec4* **color** - The color that goes into the auxiliary buffer
+
+## vec4 getAuxiliaryColor () const
+
+Returns the current color that goes into the auxiliary buffer. *Alpha* is the blend factor.
+### Return value
+
+Current color that goes into the auxiliary buffer
+## void setAuxiliary ( int auxiliary )
+
+Sets a new value indicating if the [auxiliary rendering pass](../../../objects/objects/water/water_object.md#auxiliary) for the material is enabled. Can be used for custom post-effects, such as thermal vision, night vision, etc. Enabling the option activates the [Auxiliary Color](../../../api/library/objects/class.objectwaterglobal_usc.md#setAuxiliaryColor_vec4_void) parameter.
+### Arguments
+
+- *int* **auxiliary** - The value indicating if the auxiliary rendering pass for the material is enabled
+
+## int isAuxiliary () const
+
+Returns the current value indicating if the [auxiliary rendering pass](../../../objects/objects/water/water_object.md#auxiliary) for the material is enabled. Can be used for custom post-effects, such as thermal vision, night vision, etc. Enabling the option activates the [Auxiliary Color](../../../api/library/objects/class.objectwaterglobal_usc.md#setAuxiliaryColor_vec4_void) parameter.
+### Return value
+
+Current value indicating if the auxiliary rendering pass for the material is enabled
+## void setShorelineWetnessOffset ( float offset )
+
+Sets a new offset of the wetness area from the water.
+### Arguments
+
+- *float* **offset** - The offset of the wetness area from the water
+
+## float getShorelineWetnessOffset () const
+
+Returns the current offset of the wetness area from the water.
+### Return value
+
+Current offset of the wetness area from the water
+## void setShorelineWetnessDistance ( float distance )
+
+Sets a new spread of the wetness area along the shoreline.
+### Arguments
+
+- *float* **distance** - The spread of the wetness area along the shoreline
+
+## float getShorelineWetnessDistance () const
+
+Returns the current spread of the wetness area along the shoreline.
+### Return value
+
+Current spread of the wetness area along the shoreline
+## void setShorelineWetnessIntensity ( float intensity )
+
+Sets a new intensity of the wetness effect along the shoreline.
+### Arguments
+
+- *float* **intensity** - The intensity of the wetness effect along the shoreline
+
+## float getShorelineWetnessIntensity () const
+
+Returns the current intensity of the wetness effect along the shoreline.
+### Return value
+
+Current intensity of the wetness effect along the shoreline
+## void setFieldShorelineBeaufortFalloff ( float falloff )
+
+Sets a new Beaufort falloff value that provides height control of main geometry waves near the shoreline.
+### Arguments
+
+- *float* **falloff** - The Beaufort falloff value that provides height control of main geometry waves near the shoreline
+
+## float getFieldShorelineBeaufortFalloff () const
+
+Returns the current Beaufort falloff value that provides height control of main geometry waves near the shoreline.
+### Return value
+
+Current Beaufort falloff value that provides height control of main geometry waves near the shoreline
+## void setFieldShorelineMaskTiling ( float tiling )
+
+Sets a new size of the foam procedural pattern used to reduce the foam tiling effect.
+### Arguments
+
+- *float* **tiling** - The size of the foam procedural pattern used to reduce the foam tiling effect
+
+## float getFieldShorelineMaskTiling () const
+
+Returns the current size of the foam procedural pattern used to reduce the foam tiling effect.
+### Return value
+
+Current size of the foam procedural pattern used to reduce the foam tiling effect
+## void setFieldShorelineFoamExponent ( float exponent )
+
+Sets a new visibility of the foam texture pattern.
+### Arguments
+
+- *float* **exponent** - The visibility of the foam texture pattern
+
+## float getFieldShorelineFoamExponent () const
+
+Returns the current visibility of the foam texture pattern.
+### Return value
+
+Current visibility of the foam texture pattern
+## void setFieldShorelineFoamIntensity ( float intensity )
+
+Sets a new degree of foam intensity along the shoreline.
+### Arguments
+
+- *float* **intensity** - The degree of foam intensity along the shoreline
+
+## float getFieldShorelineFoamIntensity () const
+
+Returns the current degree of foam intensity along the shoreline.
+### Return value
+
+Current degree of foam intensity along the shoreline
+## void setFieldShorelineFoamStretching ( float stretching )
+
+Sets a new width of the Shoreline LUT texture that creates a tidal wave.
+### Arguments
+
+- *float* **stretching** - The width of the Shoreline LUT texture that creates a tidal wave
+
+## float getFieldShorelineFoamStretching () const
+
+Returns the current width of the Shoreline LUT texture that creates a tidal wave.
+### Return value
+
+Current width of the Shoreline LUT texture that creates a tidal wave
+## void setFieldShorelineWaveFrontExponent ( float exponent )
+
+Sets a new semi-transparency of the foam at an angle to the wind direction. Allows making the foam visible only on the windward side.
+### Arguments
+
+- *float* **exponent** - The semi-transparency of the foam at an angle to the wind direction
+
+## float getFieldShorelineWaveFrontExponent () const
+
+Returns the current semi-transparency of the foam at an angle to the wind direction. Allows making the foam visible only on the windward side.
+### Return value
+
+Current semi-transparency of the foam at an angle to the wind direction
+## void setFieldShorelineWaveExponent ( float exponent )
+
+Sets a new nonlinearity of tidal waves frequency and movement speed.
+### Arguments
+
+- *float* **exponent** - The nonlinearity of tidal waves frequency and movement speed
+
+## float getFieldShorelineWaveExponent () const
+
+Returns the current nonlinearity of tidal waves frequency and movement speed.
+### Return value
+
+Current nonlinearity of tidal waves frequency and movement speed
+## void setFieldShorelineWaveFalloff ( float falloff )
+
+Sets a new visibility gradient of waves coming from sea to the shore.
+### Arguments
+
+- *float* **falloff** - The visibility gradient of waves coming from sea to the shore
+
+## float getFieldShorelineWaveFalloff () const
+
+Returns the current visibility gradient of waves coming from sea to the shore.
+### Return value
+
+Current visibility gradient of waves coming from sea to the shore
+## void setFieldShorelineWaveHeight ( float height )
+
+Sets a new height of oncoming tidal waves.
+### Arguments
+
+- *float* **height** - The height of oncoming tidal waves
+
+## float getFieldShorelineWaveHeight () const
+
+Returns the current height of oncoming tidal waves.
+### Return value
+
+Current height of oncoming tidal waves
+## void setFieldShorelineWaveTiling ( float tiling )
+
+Sets a new frequency of tidal waves.
+### Arguments
+
+- *float* **tiling** - The frequency of tidal waves
+
+## float getFieldShorelineWaveTiling () const
+
+Returns the current frequency of tidal waves.
+### Return value
+
+Current frequency of tidal waves
+## void setFieldShorelineWaveSpeed ( float speed )
+
+Sets a new speed of tidal waves.
+### Arguments
+
+- *float* **speed** - The speed of tidal waves
+
+## float getFieldShorelineWaveSpeed () const
+
+Returns the current speed of tidal waves.
+### Return value
+
+Current speed of tidal waves
+## void setFieldShorelineLUTTexturePath ( string path )
+
+Sets a new path to the LUT texture used for shoreline wetness effect.
+### Arguments
+
+- *string* **path** - The path to the LUT texture used for shoreline wetness effect
+
+## const char * getFieldShorelineLUTTexturePath () const
+
+Returns the current path to the LUT texture used for shoreline wetness effect.
+### Return value
+
+Current path to the LUT texture used for shoreline wetness effect
+## void setFieldShorelineFoam ( int foam )
+
+Sets a new value indicating if [rendering of foam](../../../objects/objects/water/water_object.md#fieldshoreline_foam) for shoreline zones is enabled.
+### Arguments
+
+- *int* **foam** - The value indicating if rendering of foam for shoreline zones is enabled
+
+## int isFieldShorelineFoam () const
+
+Returns the current value indicating if [rendering of foam](../../../objects/objects/water/water_object.md#fieldshoreline_foam) for shoreline zones is enabled.
+### Return value
+
+Current value indicating if rendering of foam for shoreline zones is enabled
+## void setFieldShorelineGeometry ( int geometry )
+
+Sets a new value indicating if [rendering of wave geometry](../../../objects/objects/water/water_object.md#fieldshoreline_geometry) for shoreline waves is enabled. If disabled, the water surface remains flat. Disabling this option in cases where wave geometry is hardly noticeable (e.g. a flight simulator) gives a performance gain.
+### Arguments
+
+- *int* **geometry** - The value indicating if rendering of wave geometry for shoreline waves is enabled
+
+## int isFieldShorelineGeometry () const
+
+Returns the current value indicating if [rendering of wave geometry](../../../objects/objects/water/water_object.md#fieldshoreline_geometry) for shoreline waves is enabled. If disabled, the water surface remains flat. Disabling this option in cases where wave geometry is hardly noticeable (e.g. a flight simulator) gives a performance gain.
+### Return value
+
+Current value indicating if rendering of wave geometry for shoreline waves is enabled
+## void setFieldShorelineNormal ( int normal )
+
+Sets a new value indicating if calculation of normals for [geometry](../../../api/library/objects/class.objectwaterglobal_usc.md#setFieldShorelineGeometry_int_void) of shoreline waves is enabled. This option significantly reduces performance and can be used in cases, when really large waves are required. Enabling just the geometry state to simulate distortion of the water surface by a shoreline wave is enough in most cases.
+### Arguments
+
+- *int* **normal** - The value indicating if calculation of normals for geometry of shoreline waves is enabled
+
+## int isFieldShorelineNormal () const
+
+Returns the current value indicating if calculation of normals for [geometry](../../../api/library/objects/class.objectwaterglobal_usc.md#setFieldShorelineGeometry_int_void) of shoreline waves is enabled. This option significantly reduces performance and can be used in cases, when really large waves are required. Enabling just the geometry state to simulate distortion of the water surface by a shoreline wave is enough in most cases.
+### Return value
+
+Current value indicating if calculation of normals for geometry of shoreline waves is enabled
+## void setFieldShorelineHighPrecision ( int precision )
+
+Sets a new value indicating if the [high precision](../../../objects/objects/water/water_object.md#high_precision) of the shoreline is enabled. If enabled, this option improves interpolation between the adjacent pixels of the shoreline texture to reduce stepping artifacts. This can be noticed when looking at the waterline separating overwater and underwater. This option should be used only when [geometry](../../../api/library/objects/class.objectwaterglobal_usc.md#setFieldShorelineGeometry_int_void) and/or [normal](../../../api/library/objects/class.objectwaterglobal_usc.md#setFieldShorelineNormal_int_void) states are enabled.
+### Arguments
+
+- *int* **precision** - The value indicating if the high precision of the shoreline is enabled
+
+## int isFieldShorelineHighPrecision () const
+
+Returns the current value indicating if the [high precision](../../../objects/objects/water/water_object.md#high_precision) of the shoreline is enabled. If enabled, this option improves interpolation between the adjacent pixels of the shoreline texture to reduce stepping artifacts. This can be noticed when looking at the waterline separating overwater and underwater. This option should be used only when [geometry](../../../api/library/objects/class.objectwaterglobal_usc.md#setFieldShorelineGeometry_int_void) and/or [normal](../../../api/library/objects/class.objectwaterglobal_usc.md#setFieldShorelineNormal_int_void) states are enabled.
+### Return value
+
+Current value indicating if the high precision of the shoreline is enabled
+## void setFieldShorelineEnabled ( int enabled )
+
+Sets a new value indicating if the assigned material on the Global Water object has enabled [FieldShoreline](../../../objects/effects/fields/field_shoreline/index.md) interaction option. Enabling this option makes available the group of Field Shoreline states.
+### Arguments
+
+- *int* **enabled** - The value indicating if the assigned material on the Global Water object has enabled FieldShoreline interaction option
+
+## int isFieldShorelineEnabled () const
+
+Returns the current value indicating if the assigned material on the Global Water object has enabled [FieldShoreline](../../../objects/effects/fields/field_shoreline/index.md) interaction option. Enabling this option makes available the group of Field Shoreline states.
+### Return value
+
+Current value indicating if the assigned material on the Global Water object has enabled FieldShoreline interaction option
+## void setFieldHeightSteepness ( float steepness )
+
+Sets a new sharpness of the crests for the waves generated from the [FieldHeight](../../../objects/effects/fields/field_height/index.md) objects placed in Global Water.
+### Arguments
+
+- *float* **steepness** - The sharpness of the crests for the waves generated from the FieldHeight objects placed in Global Water
+
+## float getFieldHeightSteepness () const
+
+Returns the current sharpness of the crests for the waves generated from the [FieldHeight](../../../objects/effects/fields/field_height/index.md) objects placed in Global Water.
+### Return value
+
+Current sharpness of the crests for the waves generated from the FieldHeight objects placed in Global Water
+## void setFieldHeightFoamIntensity ( float intensity )
+
+Sets a new intensity of the foam generated from the [FieldHeight](../../../objects/effects/fields/field_height/index.md) objects placed in Global Water.
+### Arguments
+
+- *float* **intensity** - The intensity of the foam generated from the FieldHeight objects placed in Global Water
+
+## float getFieldHeightFoamIntensity () const
+
+Returns the current intensity of the foam generated from the [FieldHeight](../../../objects/effects/fields/field_height/index.md) objects placed in Global Water.
+### Return value
+
+Current intensity of the foam generated from the FieldHeight objects placed in Global Water
+## void setFieldHeightFoamContrast ( float contrast )
+
+Sets a new contrast of the foam generated from the [FieldHeight](../../../objects/effects/fields/field_height/index.md) objects placed in Global Water.
+### Arguments
+
+- *float* **contrast** - The contrast of the foam generated from the FieldHeight objects placed in Global Water
+
+## float getFieldHeightFoamContrast () const
+
+Returns the current contrast of the foam generated from the [FieldHeight](../../../objects/effects/fields/field_height/index.md) objects placed in Global Water.
+### Return value
+
+Current contrast of the foam generated from the FieldHeight objects placed in Global Water
+## void setFieldHeightEnabled ( int enabled )
+
+Sets a new value indicating if the assigned material on the Global Water object has enabled [FieldHeight](../../../objects/effects/fields/field_height/index.md) interaction option.
+### Arguments
+
+- *int* **enabled** - The value indicating if the assigned material on the Global Water object has enabled FieldHeight interaction option
+
+## int isFieldHeightEnabled () const
+
+Returns the current value indicating if the assigned material on the Global Water object has enabled [FieldHeight](../../../objects/effects/fields/field_height/index.md) interaction option.
+### Return value
+
+Current value indicating if the assigned material on the Global Water object has enabled FieldHeight interaction option
+## void setCausticBrightness ( float brightness )
+
+Sets a new brightness of the light shapes.
+### Arguments
+
+- *float* **brightness** - The brightness of the light shapes
+
+## float getCausticBrightness () const
+
+Returns the current brightness of the light shapes.
+### Return value
+
+Current brightness of the light shapes
+## void setCausticAnimationSpeed ( float speed )
+
+Sets a new movement speed of the light patterns.
+### Arguments
+
+- *float* **speed** - The movement speed of the light patterns
+
+## float getCausticAnimationSpeed () const
+
+Returns the current movement speed of the light patterns.
+### Return value
+
+Current movement speed of the light patterns
+## void setCausticDistanceFade ( float fade )
+
+Sets a new [distance from the water surface](../../../objects/objects/water/water_object.md#caustics_distance_fade) downwards, at which light shapes fade.
+### Arguments
+
+- *float* **fade** - The distance from the water surface downwards, at which light shapes fade
+
+## float getCausticDistanceFade () const
+
+Returns the current [distance from the water surface](../../../objects/objects/water/water_object.md#caustics_distance_fade) downwards, at which light shapes fade.
+### Return value
+
+Current distance from the water surface downwards, at which light shapes fade
+## void setCausticUVTransform ( vec4 uvtransform )
+
+Sets a new [UV Transform](../../../objects/objects/water/water_object.md#caustics_uv_transform) coordinates for the caustic texture.
+### Arguments
+
+- *vec4* **uvtransform** - The UV Transform coordinates for the caustic texture
+
+## vec4 getCausticUVTransform () const
+
+Returns the current [UV Transform](../../../objects/objects/water/water_object.md#caustics_uv_transform) coordinates for the caustic texture.
+### Return value
+
+Current UV Transform coordinates for the caustic texture
+## void setCausticsTexturePath ( string path )
+
+Sets a new path to the [3D Caustic texture](../../../objects/objects/water/water_object.md#caustics_texture) which determines the [pattern of light rays](../../../objects/objects/water/water_object.md#enable_caustics) refracted by the water surface. The texture is 1-channeled: *R* value defines the caustics pattern.
+### Arguments
+
+- *string* **path** - The path to the 3D Caustic texture which determines the pattern of light rays refracted by the water surface
+
+## const char * getCausticsTexturePath () const
+
+Returns the current path to the [3D Caustic texture](../../../objects/objects/water/water_object.md#caustics_texture) which determines the [pattern of light rays](../../../objects/objects/water/water_object.md#enable_caustics) refracted by the water surface. The texture is 1-channeled: *R* value defines the caustics pattern.
+### Return value
+
+Current path to the 3D Caustic texture which determines the pattern of light rays refracted by the water surface
+## void setCausticsDistortion ( int distortion )
+
+Sets a new value indicating if the [caustics distortion](../../../objects/objects/water/water_object.md#caustics_distortion) effect is enabled. This effect removes pixelation and makes caustics look smoother. When smoothing is not required, you can disable this option to gain performance.
+### Arguments
+
+- *int* **distortion** - The value indicating if the caustics distortion effect is enabled
+
+## int isCausticsDistortion () const
+
+Returns the current value indicating if the [caustics distortion](../../../objects/objects/water/water_object.md#caustics_distortion) effect is enabled. This effect removes pixelation and makes caustics look smoother. When smoothing is not required, you can disable this option to gain performance.
+### Return value
+
+Current value indicating if the caustics distortion effect is enabled
+## void setCaustics ( int caustics )
+
+Sets a new value indicating if the [caustics effect](../../../objects/objects/water/water_object.md#enable_caustics) is enabled.
+### Arguments
+
+- *int* **caustics** - The value indicating if the caustics effect is enabled
+
+## int isCaustics () const
+
+Returns the current value indicating if the [caustics effect](../../../objects/objects/water/water_object.md#enable_caustics) is enabled.
+### Return value
+
+Current value indicating if the caustics effect is enabled
+## void setReflectionOcclusionSlope ( float slope )
+
+Sets a new slope of negative normals of the water surface, at which occlusion is performed for wave reflections.
+### Arguments
+
+- *float* **slope** - The slope of negative normals of the water surface, at which occlusion is performed for wave reflections
+
+## float getReflectionOcclusionSlope () const
+
+Returns the current slope of negative normals of the water surface, at which occlusion is performed for wave reflections.
+### Return value
+
+Current slope of negative normals of the water surface, at which occlusion is performed for wave reflections
+## void setReflectionOcclusion ( float occlusion )
+
+Sets a new [occlusion factor for environment reflections](../../../objects/objects/water/water_object.md#occlusion) on parts of the water surface with negative normals. The higher the value, the less intensive reflections are on the surface parts with negative normals. Using this parameter enables simulation of reflection of waves on the water surface removing too bright areas on waves close to the horizon.
+### Arguments
+
+- *float* **occlusion** - The occlusion factor for environment reflections on parts of the water surface with negative normals
+
+## float getReflectionOcclusion () const
+
+Returns the current [occlusion factor for environment reflections](../../../objects/objects/water/water_object.md#occlusion) on parts of the water surface with negative normals. The higher the value, the less intensive reflections are on the surface parts with negative normals. Using this parameter enables simulation of reflection of waves on the water surface removing too bright areas on waves close to the horizon.
+### Return value
+
+Current occlusion factor for environment reflections on parts of the water surface with negative normals
+## void setReflectionRoughness ( float roughness )
+
+Sets a new environment [reflection roughness](../../../objects/objects/water/water_object.md#roughness) of the water surface. The value is used for shading of the water surface: the higher the value, the more blurred environment reflections are; [planar reflections](../../../objects/objects/water/water_object.md#planar_reflection_toggle) are blurred and attenuated by this value as well. When waves are generated in the [Beauforts mode](../../../objects/objects/water/water_object.md#beauforts_mode), this parameter is driven by the Beaufort preset automatically and cannot be changed manually.
+### Arguments
+
+- *float* **roughness** - The environment reflection roughness of the water surface
+
+## float getReflectionRoughness () const
+
+Returns the current environment [reflection roughness](../../../objects/objects/water/water_object.md#roughness) of the water surface. The value is used for shading of the water surface: the higher the value, the more blurred environment reflections are; [planar reflections](../../../objects/objects/water/water_object.md#planar_reflection_toggle) are blurred and attenuated by this value as well. When waves are generated in the [Beauforts mode](../../../objects/objects/water/water_object.md#beauforts_mode), this parameter is driven by the Beaufort preset automatically and cannot be changed manually.
+### Return value
+
+Current environment reflection roughness of the water surface
+## void setPlanarReflectionViewportMask ( int mask )
+
+Sets a new viewport [mask](../../../principles/bit_masking/index.md#viewport) of the reflection camera. A surface has its reflection rendered, if its viewport mask and its material's viewport mask match this mask.
+### Arguments
+
+- *int* **mask** - The viewport
+
+## int getPlanarReflectionViewportMask () const
+
+Returns the current viewport [mask](../../../principles/bit_masking/index.md#viewport) of the reflection camera. A surface has its reflection rendered, if its viewport mask and its material's viewport mask match this mask.
+### Return value
+
+Current viewport
+## void setPlanarReflectionPivotOffset ( vec3 offset )
+
+Sets a new position of the reflection pivot point.
+### Arguments
+
+- *vec3* **offset** - The position of the reflection pivot point
+
+## vec3 getPlanarReflectionPivotOffset () const
+
+Returns the current position of the reflection pivot point.
+### Return value
+
+Current position of the reflection pivot point
+## void setPlanarReflectionDistance ( float distance )
+
+Sets a new distance from the reflection viewport camera to the reflected object. This distance sums up to the distance from the camera to the reflective surface plus the distance from object to reflective surface.
+### Arguments
+
+- *float* **distance** - The distance from the reflection viewport camera to the reflected object
+
+## float getPlanarReflectionDistance () const
+
+Returns the current distance from the reflection viewport camera to the reflected object. This distance sums up to the distance from the camera to the reflective surface plus the distance from object to reflective surface.
+### Return value
+
+Current distance from the reflection viewport camera to the reflected object
+## void setPlanarReflectionMapSizeType ( int type )
+
+Sets a new size of the planar reflection map. The higher the value, the better the quality is.
+### Arguments
+
+- *int* **type** - The size of the planar reflection map
+
+## int getPlanarReflectionMapSizeType () const
+
+Returns the current size of the planar reflection map. The higher the value, the better the quality is.
+### Return value
+
+Current size of the planar reflection map
+## void setPlanarReflection ( int reflection )
+
+Sets a new value indicating if the planar reflections option is enabled. When enabled, planar reflections are used on the water surface instead of SSR. It is better to use this option for undisturbed water (0-2 Beaufort). Enabling the option activates [Planar Reflection MapSize](../../../api/library/objects/class.objectwaterglobal_usc.md#setPlanarReflectionMapSizeType_int_void) and Planar Reflection parameters.
+### Arguments
+
+- *int* **reflection** - The value indicating if the planar reflections option is enabled
+
+## int isPlanarReflection () const
+
+Returns the current value indicating if the planar reflections option is enabled. When enabled, planar reflections are used on the water surface instead of SSR. It is better to use this option for undisturbed water (0-2 Beaufort). Enabling the option activates [Planar Reflection MapSize](../../../api/library/objects/class.objectwaterglobal_usc.md#setPlanarReflectionMapSizeType_int_void) and Planar Reflection parameters.
+### Return value
+
+Current value indicating if the planar reflections option is enabled
+## void setUnderwaterDofDistance ( float distance )
+
+Sets a new focal distance for the [underwater DOF effect](../../../objects/objects/water/water_object.md#underwater_dof).
+### Arguments
+
+- *float* **distance** - The focal distance for the underwater DOF effect
+
+## float getUnderwaterDofDistance () const
+
+Returns the current focal distance for the [underwater DOF effect](../../../objects/objects/water/water_object.md#underwater_dof).
+### Return value
+
+Current focal distance for the underwater DOF effect
+## void setUnderwaterDOF ( int dof )
+
+Sets a new value indicating if the [underwater DOF](../../../objects/objects/water/water_object.md#underwater_dof) effect enabled.
+### Arguments
+
+- *int* **dof** - The value indicating if the underwater DOF effect enabled
+
+## int isUnderwaterDOF () const
+
+Returns the current value indicating if the [underwater DOF](../../../objects/objects/water/water_object.md#underwater_dof) effect enabled.
+### Return value
+
+Current value indicating if the underwater DOF effect enabled
+## void setWaterlineSize ( float size )
+
+Sets a new [size of the borderline](../../../objects/objects/water/water_object.md#waterline_size) between the overwater and underwater environments.
+### Arguments
+
+- *float* **size** - The size of the borderline between the overwater and underwater environments
+
+## float getWaterlineSize () const
+
+Returns the current [size of the borderline](../../../objects/objects/water/water_object.md#waterline_size) between the overwater and underwater environments.
+### Return value
+
+Current size of the borderline between the overwater and underwater environments
+## void setUnderwaterShaftIntensity ( float intensity )
+
+Sets a new intensity of the underwater sun shafts.
+### Arguments
+
+- *float* **intensity** - The intensity of the underwater sun shafts
+
+## float getUnderwaterShaftIntensity () const
+
+Returns the current intensity of the underwater sun shafts.
+### Return value
+
+Current intensity of the underwater sun shafts
+## void setUnderwaterFogSunInfluence ( float influence )
+
+Sets a new degree of impact of the sun lighting on the final underwater color.
+### Arguments
+
+- *float* **influence** - The degree of impact of the sun lighting on the final underwater color
+
+## float getUnderwaterFogSunInfluence () const
+
+Returns the current degree of impact of the sun lighting on the final underwater color.
+### Return value
+
+Current degree of impact of the sun lighting on the final underwater color
+## void setUnderwaterFogEnvironmentInfluence ( float influence )
+
+Sets a new degree of impact of the environment lighting on the final underwater color.
+### Arguments
+
+- *float* **influence** - The degree of impact of the environment lighting on the final underwater color
+
+## float getUnderwaterFogEnvironmentInfluence () const
+
+Returns the current degree of impact of the environment lighting on the final underwater color.
+### Return value
+
+Current degree of impact of the environment lighting on the final underwater color
+## void setUnderwaterFogOffset ( float offset )
+
+Sets a new height offset for lighting.
+### Arguments
+
+- *float* **offset** - The height offset for lighting
+
+## float getUnderwaterFogOffset () const
+
+Returns the current height offset for lighting.
+### Return value
+
+Current height offset for lighting
+## void setUnderwaterFogDepth ( float depth )
+
+Sets a new [distance from the water surface](../../../objects/objects/water/water_object.md#fog_lighting_depth) up to which the light affects the underwater color.
+### Arguments
+
+- *float* **depth** - The distance from the water surface up to which the light affects the underwater color
+
+## float getUnderwaterFogDepth () const
+
+Returns the current [distance from the water surface](../../../objects/objects/water/water_object.md#fog_lighting_depth) up to which the light affects the underwater color.
+### Return value
+
+Current distance from the water surface up to which the light affects the underwater color
+## void setUnderwaterFogTransparency ( float transparency )
+
+Sets a new [transparency of the underwater fog](../../../objects/objects/water/water_object.md#fog_transparency). The higher the value, the more transparent the underwater fog is.
+### Arguments
+
+- *float* **transparency** - The transparency of the underwater fog
+
+## float getUnderwaterFogTransparency () const
+
+Returns the current [transparency of the underwater fog](../../../objects/objects/water/water_object.md#fog_transparency). The higher the value, the more transparent the underwater fog is.
+### Return value
+
+Current transparency of the underwater fog
+## void setUnderwaterFogColor ( vec4 color )
+
+Sets a new [underwater fog color](../../../objects/objects/water/water_object.md#fog_color). The Sun and Environment lighting affect this parameter to create the final underwater fog color.
+### Arguments
+
+- *vec4* **color** - The underwater fog color
+
+## vec4 getUnderwaterFogColor () const
+
+Returns the current [underwater fog color](../../../objects/objects/water/water_object.md#fog_color). The Sun and Environment lighting affect this parameter to create the final underwater fog color.
+### Return value
+
+Current underwater fog color
+## void setDepthLUTTexturePath ( string path )
+
+Sets a new path to the [LUT texture](../../../objects/objects/water/water_object.md#depth_lut) that shows the color of the bottom.
+### Arguments
+
+- *string* **path** - The path to the LUT texture that shows the color of the bottom
+
+## const char * getDepthLUTTexturePath () const
+
+Returns the current path to the [LUT texture](../../../objects/objects/water/water_object.md#depth_lut) that shows the color of the bottom.
+### Return value
+
+Current path to the LUT texture that shows the color of the bottom
+## void setSubsurfaceDecalsIntensity ( float intensity )
+
+Sets a new intensity of subsurface scattering of diffuse lighting for decals.
+### Arguments
+
+- *float* **intensity** - The intensity of subsurface scattering of diffuse lighting for decals
+
+## float getSubsurfaceDecalsIntensity () const
+
+Returns the current intensity of subsurface scattering of diffuse lighting for decals.
+### Return value
+
+Current intensity of subsurface scattering of diffuse lighting for decals
+## void setSubsurfaceWaveFoamIntensity ( float intensity )
+
+Sets a new intensity of [subsurface scattering near the foam areas](../../../objects/objects/water/water_object.md#intensity_around_foam).
+### Arguments
+
+- *float* **intensity** - The intensity of subsurface scattering near the foam areas
+
+## float getSubsurfaceWaveFoamIntensity () const
+
+Returns the current intensity of [subsurface scattering near the foam areas](../../../objects/objects/water/water_object.md#intensity_around_foam).
+### Return value
+
+Current intensity of subsurface scattering near the foam areas
+## void setSubsurfaceWaveIntensity ( float intensity )
+
+Sets a new intensity of [light rays passing through waves](../../../objects/objects/water/water_object.md#intensity_through_waves). The lower the value, the faster the light rays dissipate in water.
+### Arguments
+
+- *float* **intensity** - The intensity of light rays passing through waves
+
+## float getSubsurfaceWaveIntensity () const
+
+Returns the current intensity of [light rays passing through waves](../../../objects/objects/water/water_object.md#intensity_through_waves). The lower the value, the faster the light rays dissipate in water.
+### Return value
+
+Current intensity of light rays passing through waves
+## void setSubsurfaceAmbientIntensity ( float intensity )
+
+Sets a new [intensity of subsurface scattering](../../../objects/objects/water/water_object.md#ambient_intensity) for ambient lighting. The lower the value, the faster the light rays dissipate in water.
+### Arguments
+
+- *float* **intensity** - The intensity of subsurface scattering for ambient lighting
+
+## float getSubsurfaceAmbientIntensity () const
+
+Returns the current [intensity of subsurface scattering](../../../objects/objects/water/water_object.md#ambient_intensity) for ambient lighting. The lower the value, the faster the light rays dissipate in water.
+### Return value
+
+Current intensity of subsurface scattering for ambient lighting
+## void setSubsurfaceColor ( vec4 color )
+
+Sets a new [water subsurface scattering (SSS) color](../../../objects/objects/water/water_object.md#color).
+### Arguments
+
+- *vec4* **color** - The water subsurface scattering (SSS) color
+
+## vec4 getSubsurfaceColor () const
+
+Returns the current [water subsurface scattering (SSS) color](../../../objects/objects/water/water_object.md#color).
+### Return value
+
+Current water subsurface scattering (SSS) color
+## void setFoamTextureAffect ( float affect )
+
+Sets a new visibility of the foam texture. It can be used to create additional effects, e.g., foam bubbles.
+### Arguments
+
+- *float* **affect** - The visibility of the foam texture
+
+## float getFoamTextureAffect () const
+
+Returns the current visibility of the foam texture. It can be used to create additional effects, e.g., foam bubbles.
+### Return value
+
+Current visibility of the foam texture
+## void setFoamContactIntensity ( float intensity )
+
+Sets a new foam intensity near shores or different objects in water.
+### Arguments
+
+- *float* **intensity** - The foam intensity near shores or different objects in water
+
+## float getFoamContactIntensity () const
+
+Returns the current foam intensity near shores or different objects in water.
+### Return value
+
+Current foam intensity near shores or different objects in water
+## void setFoamWindIntensity ( float intensity )
+
+Sets a new intensity for the foam generated based on the wind direction.
+### Arguments
+
+- *float* **intensity** - The intensity for the foam generated based on the wind direction
+
+## float getFoamWindIntensity () const
+
+Returns the current intensity for the foam generated based on the wind direction.
+### Return value
+
+Current intensity for the foam generated based on the wind direction
+## void setFoamWindContrast ( float contrast )
+
+Sets a new contrast for the foam generated based on the wind direction.
+### Arguments
+
+- *float* **contrast** - The contrast for the foam generated based on the wind direction
+
+## float getFoamWindContrast () const
+
+Returns the current contrast for the foam generated based on the wind direction.
+### Return value
+
+Current contrast for the foam generated based on the wind direction
+## void setFoamWhitecapIntensity ( float intensity )
+
+Sets a new foam intensity on the white caps.
+### Arguments
+
+- *float* **intensity** - The foam intensity on the white caps
+
+## float getFoamWhitecapIntensity () const
+
+Returns the current foam intensity on the white caps.
+### Return value
+
+Current foam intensity on the white caps
+## void setFoamWhitecapContrast ( float contrast )
+
+Sets a new foam contrast on the white caps.
+### Arguments
+
+- *float* **contrast** - The foam contrast on the white caps
+
+## float getFoamWhitecapContrast () const
+
+Returns the current foam contrast on the white caps.
+### Return value
+
+Current foam contrast on the white caps
+## void setFoamPeakIntensity ( float intensity )
+
+Sets a new foam intensity on the wave peaks.
+### Arguments
+
+- *float* **intensity** - The foam intensity on the wave peaks
+
+## float getFoamPeakIntensity () const
+
+Returns the current foam intensity on the wave peaks.
+### Return value
+
+Current foam intensity on the wave peaks
+## void setFoamPeakContrast ( float contrast )
+
+Sets a new foam contrast on the wave peaks.
+### Arguments
+
+- *float* **contrast** - The foam contrast on the wave peaks
+
+## float getFoamPeakContrast () const
+
+Returns the current foam contrast on the wave peaks.
+### Return value
+
+Current foam contrast on the wave peaks
+## void setFoam1UVSpeed ( float uvspeed )
+
+Sets a new speed for the second sample of the foam texture.
+### Arguments
+
+- *float* **uvspeed** - The speed for the second sample of the foam texture
+
+## float getFoam1UVSpeed () const
+
+Returns the current speed for the second sample of the foam texture.
+### Return value
+
+Current speed for the second sample of the foam texture
+## void setFoam1UVScale ( float uvscale )
+
+Sets a new UV scale for the second sample of the foam texture.
+### Arguments
+
+- *float* **uvscale** - The UV scale for the second sample of the foam texture
+
+## float getFoam1UVScale () const
+
+Returns the current UV scale for the second sample of the foam texture.
+### Return value
+
+Current UV scale for the second sample of the foam texture
+## void setFoam0UVSpeed ( float uvspeed )
+
+Sets a new speed for the first sample of the foam texture.
+### Arguments
+
+- *float* **uvspeed** - The speed for the first sample of the foam texture
+
+## float getFoam0UVSpeed () const
+
+Returns the current speed for the first sample of the foam texture.
+### Return value
+
+Current speed for the first sample of the foam texture
+## void setFoam0UVScale ( float uvscale )
+
+Sets a new UV scale for the first sample of the foam texture.
+### Arguments
+
+- *float* **uvscale** - The UV scale for the first sample of the foam texture
+
+## float getFoam0UVScale () const
+
+Returns the current UV scale for the first sample of the foam texture.
+### Return value
+
+Current UV scale for the first sample of the foam texture
+## void setFoamTexturePath ( string path )
+
+Sets a new path to the [foam texture](../../../objects/objects/water/water_object.md#texture).
+### Arguments
+
+- *string* **path** - The path to the foam texture
+
+## const char * getFoamTexturePath () const
+
+Returns the current path to the [foam texture](../../../objects/objects/water/water_object.md#texture).
+### Return value
+
+Current path to the foam texture
+## void setDistantWavesBlendMax ( float max )
+
+Sets a new value representing the maximum amount of [distant waves](../../../objects/objects/water/water_object.md#distant_waves) in the crossfade zone where the main geometry waves fade out and distant waves fade in.
+### Arguments
+
+- *float* **max** - The value representing the maximum amount of distant waves in the crossfade zone where the main geometry waves fade out and distant waves fade in
+
+## float getDistantWavesBlendMax () const
+
+Returns the current value representing the maximum amount of [distant waves](../../../objects/objects/water/water_object.md#distant_waves) in the crossfade zone where the main geometry waves fade out and distant waves fade in.
+### Return value
+
+Current value representing the maximum amount of distant waves in the crossfade zone where the main geometry waves fade out and distant waves fade in
+## void setDistantWavesBlendMin ( float min )
+
+Sets a new value representing the minimum amount of [distant waves](../../../objects/objects/water/water_object.md#distant_waves) in the crossfade zone where the main geometry waves fade out and distant waves fade in.
+### Arguments
+
+- *float* **min** - The value representing the minimum amount of distant waves in the crossfade zone where the main geometry waves fade out and distant waves fade in
+
+## float getDistantWavesBlendMin () const
+
+Returns the current value representing the minimum amount of [distant waves](../../../objects/objects/water/water_object.md#distant_waves) in the crossfade zone where the main geometry waves fade out and distant waves fade in.
+### Return value
+
+Current value representing the minimum amount of distant waves in the crossfade zone where the main geometry waves fade out and distant waves fade in
+## void setDistantWavesBlendDistanceEnd ( float end )
+
+Sets a new fade-in end distance for [distant waves](../../../objects/objects/water/water_object.md#distant_waves).
+### Arguments
+
+- *float* **end** - The fade-in end distance for distant waves
+
+## float getDistantWavesBlendDistanceEnd () const
+
+Returns the current fade-in end distance for [distant waves](../../../objects/objects/water/water_object.md#distant_waves).
+### Return value
+
+Current fade-in end distance for distant waves
+## void setDistantWavesBlendDistanceStart ( float start )
+
+Sets a new fade-in start distance for [distant waves](../../../objects/objects/water/water_object.md#distant_waves).
+### Arguments
+
+- *float* **start** - The fade-in start distance for distant waves
+
+## float getDistantWavesBlendDistanceStart () const
+
+Returns the current fade-in start distance for [distant waves](../../../objects/objects/water/water_object.md#distant_waves).
+### Return value
+
+Current fade-in start distance for distant waves
+## void setDistantWavesIntensity ( float intensity )
+
+Sets a new intensity for [distant waves](../../../objects/objects/water/water_object.md#distant_waves).
+> **Notice:** Unavailable for modes with Beaufort levels blending.
+
+### Arguments
+
+- *float* **intensity** - The intensity for distant waves
+
+## float getDistantWavesIntensity () const
+
+Returns the current intensity for [distant waves](../../../objects/objects/water/water_object.md#distant_waves).
+> **Notice:** Unavailable for modes with Beaufort levels blending.
+
+### Return value
+
+Current intensity for distant waves
+## void setDistantWavesUVTransform ( vec4 uvtransform )
+
+Sets a new UV transform for the [distant waves](../../../objects/objects/water/water_object.md#distant_waves) normal map. The first two values (x, y) represent the scale texture coordinates along the X and Y axes. The third and forth (z, w) specify the speed of movement animation.
+### Arguments
+
+- *vec4* **uvtransform** - The UV transform for the distant waves normal map
+
+## vec4 getDistantWavesUVTransform () const
+
+Returns the current UV transform for the [distant waves](../../../objects/objects/water/water_object.md#distant_waves) normal map. The first two values (x, y) represent the scale texture coordinates along the X and Y axes. The third and forth (z, w) specify the speed of movement animation.
+### Return value
+
+Current UV transform for the distant waves normal map
+## void setDistantWavesTexturePath ( string path )
+
+Sets a new path to the [normal map](../../../objects/objects/water/water_object.md#distant_waves_normal_map) of the distant waves.
+### Arguments
+
+- *string* **path** - The path to the normal map of the distant waves
+
+## const char * getDistantWavesTexturePath () const
+
+Returns the current path to the [normal map](../../../objects/objects/water/water_object.md#distant_waves_normal_map) of the distant waves.
+### Return value
+
+Current path to the normal map of the distant waves
+## void setDetail1Intensity ( float intensity )
+
+Sets a new intensity of the first sample of the [normal detail texture](../../../objects/objects/water/water_object.md#detail_normal_map).
+### Arguments
+
+- *float* **intensity** - The intensity of the first sample of the normal detail texture
+
+## float getDetail1Intensity () const
+
+Returns the current intensity of the first sample of the [normal detail texture](../../../objects/objects/water/water_object.md#detail_normal_map).
+### Return value
+
+Current intensity of the first sample of the normal detail texture
+## void setDetail1UVSpeed ( vec2 uvspeed )
+
+Sets a new speed of the second sample of the [normal detail texture](../../../objects/objects/water/water_object.md#detail_normal_map).
+### Arguments
+
+- *vec2* **uvspeed** - The speed of the second sample of the normal detail texture
+
+## vec2 getDetail1UVSpeed () const
+
+Returns the current speed of the second sample of the [normal detail texture](../../../objects/objects/water/water_object.md#detail_normal_map).
+### Return value
+
+Current speed of the second sample of the normal detail texture
+## void setDetail1UVSize ( vec2 uvsize )
+
+Sets a new size of the second sample of the [normal detail texture](../../../objects/objects/water/water_object.md#detail_normal_map).
+### Arguments
+
+- *vec2* **uvsize** - The size of the second sample of the normal detail texture
+
+## vec2 getDetail1UVSize () const
+
+Returns the current size of the second sample of the [normal detail texture](../../../objects/objects/water/water_object.md#detail_normal_map).
+### Return value
+
+Current size of the second sample of the normal detail texture
+## void setDetail0Intensity ( float intensity )
+
+Sets a new intensity of the first sample of the [normal detail texture](../../../objects/objects/water/water_object.md#detail_normal_map).
+### Arguments
+
+- *float* **intensity** - The intensity of the first sample of the normal detail texture
+
+## float getDetail0Intensity () const
+
+Returns the current intensity of the first sample of the [normal detail texture](../../../objects/objects/water/water_object.md#detail_normal_map).
+### Return value
+
+Current intensity of the first sample of the normal detail texture
+## void setDetail0UVSpeed ( vec2 uvspeed )
+
+Sets a new speed of the first sample of the [normal detail texture](../../../objects/objects/water/water_object.md#detail_normal_map).
+### Arguments
+
+- *vec2* **uvspeed** - The speed of the first sample of the normal detail texture
+
+## vec2 getDetail0UVSpeed () const
+
+Returns the current speed of the first sample of the [normal detail texture](../../../objects/objects/water/water_object.md#detail_normal_map).
+### Return value
+
+Current speed of the first sample of the normal detail texture
+## void setDetail0UVSize ( vec2 uvsize )
+
+Sets a new size of the first sample of the [normal detail texture](../../../objects/objects/water/water_object.md#detail_normal_map).
+### Arguments
+
+- *vec2* **uvsize** - The size of the first sample of the normal detail texture
+
+## vec2 getDetail0UVSize () const
+
+Returns the current size of the first sample of the [normal detail texture](../../../objects/objects/water/water_object.md#detail_normal_map).
+### Return value
+
+Current size of the first sample of the normal detail texture
+## void setDetailTexturePath ( string path )
+
+Sets a new path to the location of a [normal detail texture](../../../objects/objects/water/water_object.md#detail_normal_map).
+### Arguments
+
+- *string* **path** - The path to the location of a normal detail texture
+
+## const char * getDetailTexturePath () const
+
+Returns the current path to the location of a [normal detail texture](../../../objects/objects/water/water_object.md#detail_normal_map).
+### Return value
+
+Current path to the location of a normal detail texture
+## void setTextureNormalIntensity ( float intensity )
+
+Sets a new intensity of procedurally generated normals. This affects the normals generated for [Field Height](../../../objects/effects/fields/field_height/index.md) and [Field Shoreline](../../../objects/effects/fields/field_shoreline/index.md).
+### Arguments
+
+- *float* **intensity** - The intensity of procedurally generated normals
+
+## float getTextureNormalIntensity () const
+
+Returns the current intensity of procedurally generated normals. This affects the normals generated for [Field Height](../../../objects/effects/fields/field_height/index.md) and [Field Shoreline](../../../objects/effects/fields/field_shoreline/index.md).
+### Return value
+
+Current intensity of procedurally generated normals
+## void setTextureNormalBlur ( float blur )
+
+Sets a new blurring ratio for the procedurally generated normals. This parameter enables you to reduce pixelation of the normal map, and make it less pronounced. It is recommended to use small values for correction, when necessary. This affects the normals generated for [Field Height](../../../objects/effects/fields/field_height/index.md) and [Field Shoreline](../../../objects/effects/fields/field_shoreline/index.md).
+### Arguments
+
+- *float* **blur** - The blurring ratio for the procedurally generated normals
+
+## float getTextureNormalBlur () const
+
+Returns the current blurring ratio for the procedurally generated normals. This parameter enables you to reduce pixelation of the normal map, and make it less pronounced. It is recommended to use small values for correction, when necessary. This affects the normals generated for [Field Height](../../../objects/effects/fields/field_height/index.md) and [Field Shoreline](../../../objects/effects/fields/field_shoreline/index.md).
+### Return value
+
+Current blurring ratio for the procedurally generated normals
+## void setGeometryNormalIntensity ( float intensity )
+
+Sets a new intensity of normals of the waves.
+### Arguments
+
+- *float* **intensity** - The intensity of normals of the waves
+
+## float getGeometryNormalIntensity () const
+
+Returns the current intensity of normals of the waves.
+### Return value
+
+Current intensity of normals of the waves
+## void setBeaufort ( float beaufort )
+
+Sets a new Beaufort wind force scale value, from 0 (Calm) to 12 (Hurricane). Available when the *Beauforts* mode [is set](../../../api/library/objects/class.objectwaterglobal_usc.md#setWavesMode_int_void).
+### Arguments
+
+- *float* **beaufort** - The Beaufort value from 0 (Calm) to 12 (Hurricane)
+
+## float getBeaufort () const
+
+Returns the current Beaufort wind force scale value, from 0 (Calm) to 12 (Hurricane). Available when the *Beauforts* mode [is set](../../../api/library/objects/class.objectwaterglobal_usc.md#setWavesMode_int_void).
+### Return value
+
+Current Beaufort value from 0 (Calm) to 12 (Hurricane)
+## int getNumLayers () const
+
+Returns the current number of wave layers. Available when the *Layers* mode [is set](../../../api/library/objects/class.objectwaterglobal_usc.md#setWavesMode_int_void).
+### Return value
+
+Current number of wave layers
+## int getNumWaves () const
+
+Returns the current number of simulated waves. Available when the *Manual* mode [is set](../../../api/library/objects/class.objectwaterglobal_usc.md#setWavesMode_int_void).
+### Return value
+
+Current number of simulated waves
+## void setWavesMode ( int mode )
+
+Sets a new [wave generation mode](../../../objects/objects/water/water_object.md#creating_waves).
+### Arguments
+
+- *int* **mode** - The wave generation mode
+
+## int getWavesMode () const
+
+Returns the current [wave generation mode](../../../objects/objects/water/water_object.md#creating_waves).
+### Return value
+
+Current wave generation mode
+## int getVisualFieldMask () const
+
+Returns the current FieldHeight visual mask of the assigned material on the Global Water.
+### Return value
+
+Current FieldHeight visual mask of the assigned material on the Global Water
+## int getPhysicsFieldMask () const
+
+Returns the current FieldHeight physics mask of the assigned material on the Global Water.
+### Return value
+
+Current FieldHeight physics mask of the assigned material on the Global Water
+## void setIntersectionSteepnessQuality ( int quality )
+
+Sets a new wave steepness calculation quality used in [intersection calculations](#intersections).
+### Arguments
+
+- *int* **quality** - The wave steepness calculation quality used in intersection calculations
+
+## int getIntersectionSteepnessQuality () const
+
+Returns the current wave steepness calculation quality used in [intersection calculations](#intersections).
+### Return value
+
+Current wave steepness calculation quality used in intersection calculations
+## void setIntersectionAmplitudeThreshold ( float threshold )
+
+Sets a new threshold of amplitude values that will not participate in [intersection calculations](#intersections).
+### Arguments
+
+- *float* **threshold** - The threshold of amplitude values that will not participate in intersection calculations
+
+## float getIntersectionAmplitudeThreshold () const
+
+Returns the current threshold of amplitude values that will not participate in [intersection calculations](#intersections).
+### Return value
+
+Current threshold of amplitude values that will not participate in intersection calculations
+## void setIntersectionPrecision ( float precision )
+
+Sets a new intersection precision which represents an error between the real value of the water intersection point and the calculated value. The default value is 0.25.
+### Arguments
+
+- *float* **precision** - The intersection precision which represents an error between the real value of the water intersection point and the calculated value
+
+## float getIntersectionPrecision () const
+
+Returns the current intersection precision which represents an error between the real value of the water intersection point and the calculated value. The default value is 0.25.
+### Return value
+
+Current intersection precision which represents an error between the real value of the water intersection point and the calculated value
+## void setFetchSteepnessQuality ( int quality )
+
+Sets a new wave steepness calculation quality used in [height and normal calculations](#fetch). Low quality is usually sufficient for calm water and large floating objects. If the waves are big, or you want to simulate small floating objects, you may need to increase the quality. Higher quality gives a more precise result but affects performance. The default is [STEEPNESS_QUALITY_LOW](../../../api/library/objects/class.objectwaterglobal_usc.md#STEEPNESS_QUALITY_LOW).
+### Arguments
+
+- *int* **quality** - The wave steepness calculation quality used in height and normal calculations
+
+## int getFetchSteepnessQuality () const
+
+Returns the current wave steepness calculation quality used in [height and normal calculations](#fetch). Low quality is usually sufficient for calm water and large floating objects. If the waves are big, or you want to simulate small floating objects, you may need to increase the quality. Higher quality gives a more precise result but affects performance. The default is [STEEPNESS_QUALITY_LOW](../../../api/library/objects/class.objectwaterglobal_usc.md#STEEPNESS_QUALITY_LOW).
+### Return value
+
+Current wave steepness calculation quality used in height and normal calculations
+## void setFetchAmplitudeThreshold ( float threshold )
+
+Sets a new threshold for amplitude values that will not participate in [height and normal calculations](#fetch). The more you cut off, the less accurate the height value you get, but the faster are the calculations. The default value is 0.1f.
+### Arguments
+
+- *float* **threshold** - The threshold for amplitude values that will not participate in height and normal calculations
+
+## float getFetchAmplitudeThreshold () const
+
+Returns the current threshold for amplitude values that will not participate in [height and normal calculations](#fetch). The more you cut off, the less accurate the height value you get, but the faster are the calculations. The default value is 0.1f.
+### Return value
+
+Current threshold for amplitude values that will not participate in height and normal calculations
+## void setWavesSpeedScale ( float scale )
+
+Sets a new scale value that affects the speed of all the waves. The resulting wave speed is calculated as ***sqrt(gravity * 2 * pi / wave_length) * waves_speed_scale***, where *gravity* = 9.81 m/s2.
+### Arguments
+
+- *float* **scale** - The scale value that affects the speed of all the waves
+
+## float getWavesSpeedScale () const
+
+Returns the current scale value that affects the speed of all the waves. The resulting wave speed is calculated as ***sqrt(gravity * 2 * pi / wave_length) * waves_speed_scale***, where *gravity* = 9.81 m/s2.
+### Return value
+
+Current scale value that affects the speed of all the waves
+## void setWindAffect ( float affect )
+
+Sets a new value determining how much the wind direction affects the waves, in range [0;1]. If you set it to 1, all waves will be directed along the wind direction.
+### Arguments
+
+- *float* **affect** - The value determining how much the wind direction affects the waves
+
+## float getWindAffect () const
+
+Returns the current value determining how much the wind direction affects the waves, in range [0;1]. If you set it to 1, all waves will be directed along the wind direction.
+### Return value
+
+Current value determining how much the wind direction affects the waves
+## void setWindDirectionAngle ( float angle )
+
+Sets a new angle that determines the wind direction.
+### Arguments
+
+- *float* **angle** - The angle that determines the wind direction
+
+## float getWindDirectionAngle () const
+
+Returns the current angle that determines the wind direction.
+### Return value
+
+Current angle that determines the wind direction
+## float getMeanLevel () const
+
+Returns the current average Z coordinate of the water object.
+### Return value
+
+Current average Z coordinate of the water object
+## void setAnimationTime ( float time )
+
+Sets a new water animation time value for water synchronization. It is used for effects, such as normals, caustics, and foam.
+### Arguments
+
+- *float* **time** - The water animation time value for water synchronization
+
+## float getAnimationTime () const
+
+Returns the current water animation time value for water synchronization. It is used for effects, such as normals, caustics, and foam.
+### Return value
+
+Current water animation time value for water synchronization
+## void setActiveWater ( int water )
+
+Sets a new value indicating if the global water object is active. If there are more than one global water nodes in the scene, only the active one will be rendered.
+### Arguments
+
+- *int* **water** - The value indicating if the global water object is active
+
+## int isActiveWater () const
+
+Returns the current value indicating if the global water object is active. If there are more than one global water nodes in the scene, only the active one will be rendered.
+### Return value
+
+Current value indicating if the global water object is active
+## unsigned int getBackfaceMaterialID () const
+
+Returns the current runtime material ID of the internal backface material of the water. The engine inherits a hidden material from the assigned water material to represent the back (underwater) side of the water surface with its own material mask and feature bits; pixels showing the water backface reference this ID. If the backface material does not exist, *[MATERIAL_ID_NONE](../../../api/library/rendering/class.material_usc.md#MATERIAL_ID_NONE)* is returned.
+### Return value
+
+Current runtime material ID of the internal backface material of the water
 ---
 
 ## static ObjectWaterGlobal ( )
 
 Constructor. Creates a new global water object.
-## int getPhysicsFieldMask ( )
-
-Returns the FieldHeight physics mask of the assigned material on the Global Water.
-### Return value
-
-The FieldHeight physics mask.
-## int getVisualFieldMask ( )
-
-Returns the FieldHeight visual mask of the assigned material on the Global Water.
-### Return value
-
-The FieldHeight visual mask.
-## float getMeanLevel ( )
-
-Returns the average Z coordinate of the water object.
-### Return value
-
-The Z coordinate value.
-## void setAnimationTime ( float time )
-
-
-Sets water animation time value for water synchronization. It is used for effects, such as normals, caustics, and foam.
-
-
-### Arguments
-
-- *float* **time** - Water animation time value.
-
-## float getAnimationTime ( )
-
-Returns water animation time value for water synchronization.
-### Return value
-
-Water animation time value.
 ## void setLayerName ( int layer , string value )
 
 Sets a new name for the wave layer. Available when the *Layers* mode [is set](../../../api/library/objects/class.objectwaterglobal_usc.md#setWavesMode_int_void).
@@ -361,12 +1719,6 @@ Swaps two specified wave layers. Available when the *Layers* mode [is set](../..
 - *int* **num_0** - Layer1 number.
 - *int* **num_1** - Layer2 number.
 
-## int getNumLayers ( )
-
-Returns the current number of wave layers. Available when the *Layers* mode [is set](../../../api/library/objects/class.objectwaterglobal_usc.md#setWavesMode_int_void).
-### Return value
-
-Number of wave layers.
 ## void removeLayer ( int layer )
 
 Removes a given wave layer. Available when the *Layers* mode [is set](../../../api/library/objects/class.objectwaterglobal_usc.md#setWavesMode_int_void).
@@ -478,12 +1830,6 @@ Returns the distance between successive crests of the given wave. Available when
 ### Return value
 
 Length, in units.
-## int getNumWaves ( )
-
-Returns the current number of simulated waves. Available when the *Manual* mode [is set](../../../api/library/objects/class.objectwaterglobal_usc.md#setWavesMode_int_void).
-### Return value
-
-Number of waves.
 ## void removeWave ( int index )
 
 Removes the wave having a specified number. Available when the *Manual* mode [is set](../../../api/library/objects/class.objectwaterglobal_usc.md#setWavesMode_int_void).
@@ -505,51 +1851,12 @@ Adds a wave if the *Manual* mode [is set](../../../api/library/objects/class.obj
 ### Return value
 
 Number of the added wave.
-## float getWindAffect ( )
-
-Returns the current value determining how much the wind direction affects the waves.
-### Return value
-
-Wind influence value in range [0;1].
-## void setWindAffect ( float affect )
-
-Sets how much the wind direction affects the waves.
-### Arguments
-
-- *float* **affect** - Wind influence in range [0;1]. If you set it to 1, all waves will be directed along the wind direction.
-
-## float getWindDirectionAngle ( )
-
-Returns the angle that determines the wind direction.
-### Return value
-
-Angle, in degrees.
-## void setWindDirectionAngle ( float angle )
-
-Sets the angle that determines the wind direction.
-### Arguments
-
-- *float* **angle** - Wind direction angle, in degrees.
-
 ## static int type ( )
 
 Returns the type of the node.
 ### Return value
 
 [Object](../../../api/library/objects/class.object_usc.md) type identifier.
-## void setActiveWater ( int water )
-
-Sets a value indicating if the global water object is active. If there are more than one global water nodes in the scene, only the active one will be rendered.
-### Arguments
-
-- *int* **water** - **1** to set the global water object as active, **0** - to set it as inactive.
-
-## int isActiveWater ( )
-
-Returns a value indicating if the global water object is active.
-### Return value
-
-**1** if the global water object is active, **0** - if it is inactive.
 ## float fetchHeight ( Vec3 position )
 
 Returns a height offset of the specified point relative to the current water level calculated at this point. E.g. in case the specified point is (0, 0, -3) and the current water level calculated for this point is equal to 5, the function shall return 8.
@@ -579,84 +1886,6 @@ Returns a normal vector to the water surface at the specified point (to orient o
 ### Return value
 
 Normal vector.
-## void setFetchAmplitudeThreshold ( float threshold )
-
-Sets the threshold for amplitude values that will not participate in [height and normal calculations](#fetch). The more you cut off, the less accurate the height value you get, but the faster are the calculations.
-### Arguments
-
-- *float* **threshold** - Amplitude threshold. The default value is 0.1f.
-
-## float getFetchAmplitudeThreshold ( )
-
-Returns the current threshold for amplitude values that will not participate in [height and normal calculations](#fetch).
-### Return value
-
-Amplitude threshold.
-## void setFetchSteepnessQuality ( int quality )
-
-Sets the wave steepness calculation quality used in [height and normal calculations](#fetch). Low quality is usually sufficient for calm water and large floating objects. If the waves are big, or you want to simulate small floating objects, you may need to increase the quality. Higher quality gives a more precise result but affects performance.
-### Arguments
-
-- *int* **quality** - Quality value.
-
-## int getFetchSteepnessQuality ( )
-
-Returns the wave steepness calculation quality used in [height and normal calculations](#fetch).
-### Return value
-
-Number of iterations (0 to 4). The default number is 0.
-## float getIntersectionAmplitudeThreshold ( )
-
-Returns the current threshold of amplitude values that will not participate in [intersection calculations](#intersections).
-### Return value
-
-Amplitude threshold.
-## void setIntersectionAmplitudeThreshold ( float threshold )
-
-Sets the threshold for amplitude values that will not participate in [intersection calculations](#intersections). The default value is 0.1f.
-### Arguments
-
-- *float* **threshold** - Amplitude threshold.
-
-## void setIntersectionPrecision ( float precision )
-
-Sets an intersection precision which represents an error between the real value of the water intersection point and the calculated value. The default value is 0.25.
-### Arguments
-
-- *float* **precision** - Precision for intersection detection.
-
-## float getIntersectionPrecision ( )
-
-Returns current intersection precision which represents an error between the real value of the water intersection point and the calculated value.
-### Return value
-
-Precision for intersection detection.
-## void setIntersectionSteepnessQuality ( int quality )
-
-Sets the wave steepness calculation quality used in [intersection calculations](#intersections). Low quality is usually sufficient for calm water and large floating objects. If the waves are big, or you want to simulate small floating objects, you may need to increase the quality. Higher quality gives a more precise result but affects performance.
-### Arguments
-
-- *int* **quality** - Number of iterations (0 to 4). The default number is 0.
-
-## int getIntersectionSteepnessQuality ( )
-
-Returns the wave steepness calculation quality used in [intersection calculations](#intersections). Low quality is usually sufficient for calm water and large floating objects. If the waves are big, or you want to simulate small floating objects, you may need to increase the quality. Higher quality gives a more precise result but affects performance.
-### Return value
-
-Steepness quality.
-## void setSoftInteraction ( float intersection )
-
-Sets soft intersection of water with the shoreline and surfaces of objects.
-### Arguments
-
-- *float* **intersection** - Soft intersection value.
-
-## float getSoftInteraction ( )
-
-Returns the current soft intersection of water with the shoreline and surfaces of objects.
-### Return value
-
-Soft intersection value.
 ## void takeSyncData ( Stream stream )
 
 Writes wave synchronization data to the specified stream.
@@ -670,1230 +1899,3 @@ Reads wave synchronization data from the specified stream and applies it to the 
 ### Arguments
 
 - *[Stream](../../../api/library/common/class.stream_usc.md)* **stream** - Stream with wave synchronization data to be applied.
-
-## void setWavesMode ( int mode )
-
-Sets the [wave generation mode](../../../objects/objects/water/water_object.md#creating_waves).
-### Arguments
-
-- *int* **mode** - A desired wave mode.
-
-## int getWavesMode ( )
-
-Returns the current [wave generation mode](../../../objects/objects/water/water_object.md#creating_waves).
-### Return value
-
-Wave mode.
-## void setBeaufort ( float beaufort )
-
-Sets the Beaufort wind force scale value.
-### Arguments
-
-- *float* **beaufort** - Beaufort value from 0 (Calm) to 12 (Hurricane). Available when the *Beauforts* mode [is set](../../../api/library/objects/class.objectwaterglobal_usc.md#setWavesMode_int_void).
-
-## float getBeaufort ( )
-
-Returns the current Beaufort wind force scale value. Available when the *Beauforts* mode [is set](../../../api/library/objects/class.objectwaterglobal_usc.md#setWavesMode_int_void).
-### Return value
-
-Beaufort value.
-## void setGeometryNormalIntensity ( float intensity )
-
-Sets the intensity of normals of the waves.
-### Arguments
-
-- *float* **intensity** - Intensity value.
-
-## float getGeometryNormalIntensity ( )
-
-Returns the current intensity of normals of the waves.
-### Return value
-
-Intensity value.
-## void setTextureNormalBlur ( float blur )
-
-Sets the blurring ratio for the procedurally generated normals. This parameter enables you to reduce pixelation of the normal map, and make it less pronounced. It is recommended to use small values for correction, when necessary. This affects the normals generated for [Field Height](../../../objects/effects/fields/field_height/index.md) and [Field Shoreline](../../../objects/effects/fields/field_shoreline/index.md).
-### Arguments
-
-- *float* **blur** - Normal blur value.
-
-## float getTextureNormalBlur ( )
-
-Returns the current blurring ratio for the procedurally generated normals. This parameter enables you to reduce pixelation of the normal map, and make it less pronounced. It is recommended to use small values for correction, when necessary. This affects the normals generated for [Field Height](../../../objects/effects/fields/field_height/index.md) and [Field Shoreline](../../../objects/effects/fields/field_shoreline/index.md).
-### Return value
-
-Normal blur value.
-## void setTextureNormalIntensity ( float intensity )
-
-Sets the intensity of procedurally generated normals. This affects the normals generated for [Field Height](../../../objects/effects/fields/field_height/index.md) and [Field Shoreline](../../../objects/effects/fields/field_shoreline/index.md).
-### Arguments
-
-- *float* **intensity** - Intensity value.
-
-## float getTextureNormalIntensity ( )
-
-Returns the current intensity of procedurally generated normals. This affects the normals generated for [Field Height](../../../objects/effects/fields/field_height/index.md) and [Field Shoreline](../../../objects/effects/fields/field_shoreline/index.md).
-### Return value
-
-Intensity value.
-## void setDetailTexturePath ( string path )
-
-Sets a path to the location of a [normal detail texture](../../../objects/objects/water/water_object.md#detail_normal_map).
-### Arguments
-
-- *string* **path** - Detail texture path.
-
-## string getDetailTexturePath ( )
-
-Returns the current path to the location of a [normal detail texture](../../../objects/objects/water/water_object.md#detail_normal_map).
-### Return value
-
-Detail texture path.
-## void setDetail0UVSize ( vec2 size )
-
-Sets the size of the first sample of the [normal detail texture](../../../objects/objects/water/water_object.md#detail_normal_map).
-### Arguments
-
-- *vec2* **size** - Size value.
-
-## vec2 getDetail0UVSize ( )
-
-Returns the current size of the first sample of the [normal detail texture](../../../objects/objects/water/water_object.md#detail_normal_map).
-### Return value
-
-Size value.
-## void setDetail0UVSpeed ( vec2 speed )
-
-Sets the speed of the first sample of the [normal detail texture](../../../objects/objects/water/water_object.md#detail_normal_map).
-### Arguments
-
-- *vec2* **speed** - Speed value.
-
-## vec2 getDetail0UVSpeed ( )
-
-Returns the current speed of the first sample of the [normal detail texture](../../../objects/objects/water/water_object.md#detail_normal_map).
-### Return value
-
-Speed value.
-## void setDetail0Intensity ( float intensity )
-
-Sets the intensity of the first sample of the [normal detail texture](../../../objects/objects/water/water_object.md#detail_normal_map).
-### Arguments
-
-- *float* **intensity** - Intensity value.
-
-## float getDetail0Intensity ( )
-
-Returns the current intensity of the first sample of the [normal detail texture](../../../objects/objects/water/water_object.md#detail_normal_map).
-### Return value
-
-Intensity value.
-## void setDetail1UVSize ( vec2 size )
-
-Sets the size of the second sample of the [normal detail texture](../../../objects/objects/water/water_object.md#detail_normal_map).
-### Arguments
-
-- *vec2* **size** - Size value.
-
-## vec2 getDetail1UVSize ( )
-
-Returns the current size of the second sample of the [normal detail texture](../../../objects/objects/water/water_object.md#detail_normal_map).
-### Return value
-
-Size value.
-## void setDetail1UVSpeed ( vec2 speed )
-
-Sets the speed of the second sample of the [normal detail texture](../../../objects/objects/water/water_object.md#detail_normal_map).
-### Arguments
-
-- *vec2* **speed** - Speed of the detail texture.
-
-## vec2 getDetail1UVSpeed ( )
-
-Returns the current speed of the second sample of the [normal detail texture](../../../objects/objects/water/water_object.md#detail_normal_map).
-### Return value
-
-Speed value.
-## void setDetail1Intensity ( float intensity )
-
-Sets the intensity of the second sample of the [normal detail texture](../../../objects/objects/water/water_object.md#detail_normal_map).
-### Arguments
-
-- *float* **intensity** - Intensity value.
-
-## float getDetail1Intensity ( )
-
-Returns the current intensity of the first sample of the [normal detail texture](../../../objects/objects/water/water_object.md#detail_normal_map).
-### Return value
-
-Intensity value.
-## void setDistantWavesTexturePath ( string path )
-
-Sets the path to the [normal map](../../../objects/objects/water/water_object.md#distant_waves_normal_map) of the [distant waves](../../../objects/objects/water/water_object.md#distant_waves).
-### Arguments
-
-- *string* **path** - Path to the [normal map](../../../objects/objects/water/water_object.md#distant_waves_normal_map).
-
-## string getDistantWavesTexturePath ( )
-
-Returns the current path to the [normal map](../../../objects/objects/water/water_object.md#distant_waves_normal_map) of the [distant waves](../../../objects/objects/water/water_object.md#distant_waves).
-### Return value
-
-Path to the [normal map](../../../objects/objects/water/water_object.md#distant_waves_normal_map).
-## void setDistantWavesUVTransform ( vec4 transform )
-
-Specifies the UV transform for the [distant waves](../../../objects/objects/water/water_object.md#distant_waves) normal map.
-### Arguments
-
-- *vec4* **transform** - The first two values (x, y) represent the scale texture coordinates along the X and Y axes. The third and forth (z, w) specify the speed of movement animation.
-
-## vec4 getDistantWavesUVTransform ( )
-
-Returns the current UV transform for the [distant waves](../../../objects/objects/water/water_object.md#distant_waves) normal map.
-### Return value
-
-The first two values (x, y) represent the scale texture coordinates along the X and Y axes. The third and forth (z, w) specify the speed of movement animation.
-## void setDistantWavesIntensity ( float scale )
-
-Sets the intensity for [distant waves](../../../objects/objects/water/water_object.md#distant_waves).
-> **Notice:** Unavailable for modes with Beaufort levels blending.
-
-### Arguments
-
-- *float* **scale** - Intensity value.
-
-## float getDistantWavesIntensity ( )
-
-Returns the current intensity value for [distant waves](../../../objects/objects/water/water_object.md#distant_waves).
-> **Notice:** Unavailable for modes with Beaufort levels blending.
-
-### Return value
-
-Intensity value.
-## void setDistantWavesBlendDistanceStart ( float start )
-
-Sets the fade-in start distance for [distant waves](../../../objects/objects/water/water_object.md#distant_waves).
-### Arguments
-
-- *float* **start** - Fade-in start distance.
-
-## float getDistantWavesBlendDistanceStart ( )
-
-Returns the current fade-in start distance for [distant waves](../../../objects/objects/water/water_object.md#distant_waves).
-### Return value
-
-Fade-in start distance.
-## void setDistantWavesBlendDistanceEnd ( float end )
-
-Sets the fade-in end distance for [distant waves](../../../objects/objects/water/water_object.md#distant_waves).
-### Arguments
-
-- *float* **end** - Fade-in end distance.
-
-## float getDistantWavesBlendDistanceEnd ( )
-
-Returns the current fade-in end distance for [distant waves](../../../objects/objects/water/water_object.md#distant_waves).
-### Return value
-
-Fade end distance.
-## void setDistantWavesBlendMax ( float value )
-
-Sets the value representing the maximum amount of [distant waves](../../../objects/objects/water/water_object.md#distant_waves) in the crossfade zone where the main geometry waves fade out and distant waves fade in.
-### Arguments
-
-- *float* **value** - A value representing the maximum amount of distant waves. Range: [0; 1], the default value is 0.
-
-## float getDistantWavesBlendMax ( )
-
-Returns the current value representing the maximum amount of [distant waves](../../../objects/objects/water/water_object.md#distant_waves) in the crossfade zone where the main geometry waves fade out and distant waves fade in.
-### Return value
-
-A value representing the maximum amount of distant waves.
-## void setDistantWavesBlendMin ( float value )
-
-Sets the value representing the minimum amount of [distant waves](../../../objects/objects/water/water_object.md#distant_waves) in the crossfade zone where the main geometry waves fade out and distant waves fade in.
-### Arguments
-
-- *float* **value** - A value representing the minimum amount of distant waves. Range: [0; 1], the default value is 0.
-
-## float getDistantWavesBlendMin ( )
-
-Returns the current value representing the minimum amount of [distant waves](../../../objects/objects/water/water_object.md#distant_waves) in the crossfade zone where the main geometry waves fade out and distant waves fade in.
-### Return value
-
-A value representing the minimum amount of distant waves.
-## void setFoamTexturePath ( string path )
-
-Sets the path to the [foam texture](../../../objects/objects/water/water_object.md#texture).
-### Arguments
-
-- *string* **path** - Path to the foam texture.
-
-## string getFoamTexturePath ( )
-
-Returns the current path to the [foam texture](../../../objects/objects/water/water_object.md#texture).
-### Return value
-
-Path to the foam texture.
-## void setFoam0UVScale ( float scale )
-
-Sets the UV scale for the first sample of the foam texture.
-### Arguments
-
-- *float* **scale** - Scale value.
-
-## float getFoam0UVScale ( )
-
-Returns the current UV scale for the first sample of the foam texture.
-### Return value
-
-Scale value.
-## void setFoam0UVSpeed ( float speed )
-
-Sets the speed for the first sample of the foam texture.
-### Arguments
-
-- *float* **speed** - Speed value.
-
-## float getFoam0UVSpeed ( )
-
-Returns the current speed for the first sample of the foam texture.
-### Return value
-
-Speed value.
-## void setFoam1UVScale ( float scale )
-
-Sets the UV scale for the second sample of the foam texture.
-### Arguments
-
-- *float* **scale** - Scale value.
-
-## float getFoam1UVScale ( )
-
-Returns the current UV scale for the second sample of the foam texture.
-### Return value
-
-Scale value.
-## void setFoam1UVSpeed ( float speed )
-
-Sets the speed for the second sample of the foam texture.
-### Arguments
-
-- *float* **speed** - Speed value.
-
-## float getFoam1UVSpeed ( )
-
-Returns the current speed for the second sample of the foam texture.
-### Return value
-
-Speed value.
-## void setFoamPeakContrast ( float contrast )
-
-Sets the foam contrast on the wave peaks.
-### Arguments
-
-- *float* **contrast** - Contrast value.
-
-## float getFoamPeakContrast ( )
-
-Returns the current foam contrast on the wave peaks.
-### Return value
-
-Contrast value.
-## void setFoamPeakIntensity ( float intensity )
-
-Sets the foam intensity on the wave peaks.
-### Arguments
-
-- *float* **intensity** - Intensity value.
-
-## float getFoamPeakIntensity ( )
-
-Returns the current foam intensity on the wave peaks.
-### Return value
-
-Intensity value.
-## void setFoamWhitecapContrast ( float contrast )
-
-Sets the foam contrast on the white caps.
-### Arguments
-
-- *float* **contrast** - Contrast value.
-
-## float getFoamWhitecapContrast ( )
-
-Returns the current foam contrast on the white caps.
-### Return value
-
-Contrast value.
-## void setFoamWhitecapIntensity ( float intensity )
-
-Sets the foam intensity on the white caps.
-### Arguments
-
-- *float* **intensity** - Intensity value.
-
-## float getFoamWhitecapIntensity ( )
-
-Returns the current foam intensity on the white caps.
-### Return value
-
-Intensity value.
-## void setFoamWindContrast ( float contrast )
-
-Sets the contrast for the foam generated based on the wind direction.
-### Arguments
-
-- *float* **contrast** - Contrast value.
-
-## float getFoamWindContrast ( )
-
-Returns the current contrast for the foam generated based on the wind direction.
-### Return value
-
-Contrast value.
-## void setFoamWindIntensity ( float intensity )
-
-Sets the intensity for the foam generated based on the wind direction.
-### Arguments
-
-- *float* **intensity** - Intensity value.
-
-## float getFoamWindIntensity ( )
-
-Returns the current intensity for the foam generated based on the wind direction.
-### Return value
-
-Intensity value.
-## void setFieldHeightFoamContrast ( float contrast )
-
-Sets the contrast of the foam generated from the [FieldHeight](../../../objects/effects/fields/field_height/index.md) objects placed in Global Water.
-### Arguments
-
-- *float* **contrast** - Contrast value.
-
-## float getFieldHeightFoamContrast ( )
-
-Returns the current contrast of the foam generated from the [FieldHeight](../../../objects/effects/fields/field_height/index.md) objects placed in Global Water.
-### Return value
-
-Contrast value.
-## void setFieldHeightFoamIntensity ( float intensity )
-
-Sets the intensity of the foam generated from the [FieldHeight](../../../objects/effects/fields/field_height/index.md) objects placed in Global Water.
-### Arguments
-
-- *float* **intensity** - Intensity value.
-
-## float getFieldHeightFoamIntensity ( )
-
-Returns the current intensity of the foam generated from the [FieldHeight](../../../objects/effects/fields/field_height/index.md) objects placed in Global Water.
-### Return value
-
-Intensity value.
-## void setFoamContactIntensity ( float intensity )
-
-Sets the foam intensity near shores or different objects in water.
-### Arguments
-
-- *float* **intensity** - Intensity value.
-
-## float getFoamContactIntensity ( )
-
-Returns the current foam intensity near shores or different objects in water.
-### Return value
-
-Intensity value.
-## void setFoamTextureAffect ( float affect )
-
-Sets the visibility of the foam texture. It can be used to create additional effects, e.g., foam bubbles.
-### Arguments
-
-- *float* **affect** - Texture affect value.
-
-## float getFoamTextureAffect ( )
-
-Sets the visibility of the foam texture.
-### Return value
-
-Texture affect value.
-## void setSubsurfaceColor ( vec4 color )
-
-Sets the [water subsurface scattering (SSS) color](../../../objects/objects/water/water_object.md#color).
-### Arguments
-
-- *vec4* **color** - Color value.
-
-## vec4 getSubsurfaceColor ( )
-
-Returns the current [water subsurface scattering (SSS) color](../../../objects/objects/water/water_object.md#color).
-### Return value
-
-Color value.
-## void setSubsurfaceAmbientIntensity ( float intensity )
-
-Sets the [intensity of subsurface scattering](../../../objects/objects/water/water_object.md#ambient_intensity) for ambient lighting.
-### Arguments
-
-- *float* **intensity** - Intensity value. The lower the value, the faster the light rays dissipate in water.
-
-## float getSubsurfaceAmbientIntensity ( )
-
-Returns the current [intensity of subsurface scattering](../../../objects/objects/water/water_object.md#ambient_intensity) for ambient lighting.
-### Return value
-
-Intensity value.
-## void setSubsurfaceWaveIntensity ( float intensity )
-
-Sets the intensity of [light rays passing through waves](../../../objects/objects/water/water_object.md#intensity_through_waves).
-### Arguments
-
-- *float* **intensity** - Intensity value. The lower the value, the faster the light rays dissipate in water.
-
-## float getSubsurfaceWaveIntensity ( )
-
-Returns the current intensity of [light rays passing through waves](../../../objects/objects/water/water_object.md#intensity_through_waves).
-### Return value
-
-Intensity value.
-## void setSubsurfaceWaveFoamIntensity ( float intensity )
-
-Sets the intensity of [subsurface scattering near the foam areas](../../../objects/objects/water/water_object.md#intensity_around_foam).
-### Arguments
-
-- *float* **intensity** - Intensity value.
-
-## float getSubsurfaceWaveFoamIntensity ( )
-
-Returns the current intensity of subsurface scattering near the foam areas.
-### Return value
-
-Intensity value.
-## void setSubsurfaceDecalsIntensity ( float intensity )
-
-Sets the intensity of subsurface scattering of diffuse lighting for decals.
-### Arguments
-
-- *float* **intensity** - New subsurface scattering intensity value to be set.
-
-## float getSubsurfaceDecalsIntensity ( )
-
-Returns the current intensity of subsurface scattering of diffuse lighting for decals.
-### Return value
-
-Current subsurface scattering intensity value.
-## void setDepthLUTTexturePath ( string path )
-
-Sets the path to the [LUT texture](../../../objects/objects/water/water_object.md#depth_lut) that shows the color of the bottom.
-### Arguments
-
-- *string* **path** - Path to the texture.
-
-## string getDepthLUTTexturePath ( )
-
-Returns the current path to the [LUT texture](../../../objects/objects/water/water_object.md#depth_lut) that shows the color of the bottom.
-### Return value
-
-Path to the texture.
-## void setUnderwaterFogColor ( vec4 color )
-
-Sets the [underwater fog color](../../../objects/objects/water/water_object.md#fog_color). The Sun and Environment lighting affect this parameter to create the final underwater fog color.
-### Arguments
-
-- *vec4* **color** - Color value.
-
-## vec4 getUnderwaterFogColor ( )
-
-Returns the current [underwater fog color](../../../objects/objects/water/water_object.md#fog_color).
-### Return value
-
-Color value.
-## void setUnderwaterFogTransparency ( float transparency )
-
-Sets the [transparency of the underwater fog](../../../objects/objects/water/water_object.md#fog_transparency).
-### Arguments
-
-- *float* **transparency** - Transparency value. The higher the value, the more transparent the underwater fog is.
-
-## float getUnderwaterFogTransparency ( )
-
-Returns the current [transparency of the underwater fog](../../../objects/objects/water/water_object.md#fog_transparency).
-### Return value
-
-Transparency value.
-## void setUnderwaterFogDepth ( float depth )
-
-Sets the [distance from the water surface](../../../objects/objects/water/water_object.md#fog_lighting_depth) up to which the light affects the underwater color.
-### Arguments
-
-- *float* **depth** - Depth value, in units.
-
-## float getUnderwaterFogDepth ( )
-
-Returns the current [distance from the water surface](../../../objects/objects/water/water_object.md#fog_lighting_depth) up to which the light affects the underwater color.
-### Return value
-
-Depth value, in units.
-## void setUnderwaterFogOffset ( float offset )
-
-Sets the height offset for lighting.
-### Arguments
-
-- *float* **offset** - Offset value.
-
-## float getUnderwaterFogOffset ( )
-
-Returns the current height offset for lighting.
-### Return value
-
-Offset value.
-## void setUnderwaterFogEnvironmentInfluence ( float influence )
-
-Sets the degree of impact of the environment lighting on the final underwater color.
-### Arguments
-
-- *float* **influence** - Influence value.
-
-## float getUnderwaterFogEnvironmentInfluence ( )
-
-Returns the current degree of impact of the environment lighting on the final underwater color.
-### Return value
-
-Influence value.
-## void setUnderwaterFogSunInfluence ( float influence )
-
-Sets the degree of impact of the sun lighting on the final underwater color.
-### Arguments
-
-- *float* **influence** - Influence value.
-
-## float getUnderwaterFogSunInfluence ( )
-
-Returns the current degree of impact of the sun lighting on the final underwater color.
-### Return value
-
-Influence value.
-## void setUnderwaterShaftIntensity ( float intensity )
-
-Sets the intensity of the underwater sun shafts.
-### Arguments
-
-- *float* **intensity** - Intensity value.
-
-## float getUnderwaterShaftIntensity ( )
-
-Returns the current intensity of the underwater sun shafts.
-### Return value
-
-Intensity value.
-## void setWaterlineSize ( float size )
-
-Sets the [size of the borderline](../../../objects/objects/water/water_object.md#waterline_size) between the overwater and underwater environments.
-### Arguments
-
-- *float* **size** - Waterline size.
-
-## float getWaterlineSize ( )
-
-Returns the current [size of the borderline](../../../objects/objects/water/water_object.md#waterline_size) between the overwater and underwater environments.
-### Return value
-
-Waterline size.
-## void setUnderwaterDofDistance ( float distance )
-
-Sets the focal distance for the [underwater DOF effect](../../../objects/objects/water/water_object.md#underwater_dof).
-### Arguments
-
-- *float* **distance** - Focal distance.
-
-## float getUnderwaterDofDistance ( )
-
-Returns the current focal distance for the [underwater DOF effect](../../../objects/objects/water/water_object.md#underwater_dof).
-### Return value
-
-Focal distance.
-## void setPlanarReflectionDistance ( float distance )
-
-Sets the distance from the reflection viewport camera to the reflected object. This distance sums up to the distance from the camera to the reflective surface plus the distance from object to reflective surface.
-### Arguments
-
-- *float* **distance** - Distance, in units.
-
-## float getPlanarReflectionDistance ( )
-
-Returns the current distance from the reflection viewport camera to the reflected object. This distance sums up to the distance from the camera to the reflective surface plus the distance from object to reflective surface.
-### Return value
-
-Distance, in units.
-## void setPlanarReflectionPivotOffset ( vec3 offset )
-
-Sets the position of the reflection pivot point.
-### Arguments
-
-- *vec3* **offset** - Pivot point offset.
-
-## vec3 getPlanarReflectionPivotOffset ( )
-
-Returns the current position of the reflection pivot point.
-### Return value
-
-Pivot point offset.
-## void setReflectionRoughness ( float roughness )
-
-Sets the environment [reflection roughness](../../../objects/objects/water/water_object.md#roughness) of the water surface. This parameter helps to tweak reflections on the water surface relative to the environment.
-### Arguments
-
-- *float* **roughness** - Roughness value.
-
-## float getReflectionRoughness ( )
-
-Returns the current environment [reflection roughness](../../../objects/objects/water/water_object.md#roughness) of the water surface. This parameter helps to tweak reflections on the water surface relative to the environment.
-### Return value
-
-Roughness value.
-## void setReflectionOcclusion ( float occlusion )
-
-Sets the [occlusion factor for environment reflections](../../../objects/objects/water/water_object.md#occlusion) on parts of the water surface with negative normals. Using this parameter enables simulation of reflection of waves on the water surface removing too bright areas on waves close to the horizon.
-### Arguments
-
-- *float* **occlusion** - Occlusion value. Minimum value is 0 - no occlusion. By the higher values, occlusion is performed for reflections on parts of the water surface with negative normals that have a certain slope. The higher the value, the less intensive reflections are on the surface parts with negative normals.
-
-## float getReflectionOcclusion ( )
-
-Returns the current [occlusion factor for environment reflections](../../../objects/objects/water/water_object.md#occlusion) on parts of the water surface with negative normals. Using this parameter enables simulation of reflection of waves on the water surface removing too bright areas on waves close to the horizon.
-### Return value
-
-Occlusion value.
-## void setReflectionOcclusionSlope ( float slope )
-
-Sets the slope of negative normals of the water surface, at which occlusion is performed for wave reflections.
-### Arguments
-
-- *float* **slope** - Slope value.
-
-## float getReflectionOcclusionSlope ( )
-
-Returns the current slope of negative normals of the water surface, at which occlusion is performed for wave reflections.
-### Return value
-
-Slope value.
-## void setCausticsTexturePath ( string path )
-
-Sets the path to the [3D Caustic texture](../../../objects/objects/water/water_object.md#caustics_texture) which determines the [pattern of light rays](../../../objects/objects/water/water_object.md#enable_caustics) refracted by the water surface. The texture is 1-channeled: *R* value defines the caustics pattern.
-### Arguments
-
-- *string* **path** - Path to the texture.
-
-## string getCausticsTexturePath ( )
-
-Returns the current path to the [3D Caustic texture](../../../objects/objects/water/water_object.md#caustics_texture) which determines the [pattern of light rays](../../../objects/objects/water/water_object.md#enable_caustics) refracted by the water surface.
-### Return value
-
-Path to the texture.
-## void setCausticUVTransform ( vec4 transform )
-
-Sets the [UV Transform](../../../objects/objects/water/water_object.md#caustics_uv_transform) coordinates for the caustic texture.
-### Arguments
-
-- *vec4* **transform** - Transform coordinates.
-
-## vec4 getCausticUVTransform ( )
-
-Returns the current [UV Transform](../../../objects/objects/water/water_object.md#caustics_uv_transform) coordinates for the caustic texture.
-### Return value
-
-Transform coordinates.
-## void setCausticDistanceFade ( float fade )
-
-Sets the [distance from the water surface](../../../objects/objects/water/water_object.md#caustics_distance_fade) downwards, at which light shapes fade.
-### Arguments
-
-- *float* **fade** - Distance, in units.
-
-## float getCausticDistanceFade ( )
-
-Returns the current [distance from the water surface](../../../objects/objects/water/water_object.md#caustics_distance_fade) downwards, at which light shapes fade.
-### Return value
-
-Distance, in units.
-## void setCausticAnimationSpeed ( float speed )
-
-Sets the movement speed of the light patterns.
-### Arguments
-
-- *float* **speed** - Speed value.
-
-## float getCausticAnimationSpeed ( )
-
-Returns the current movement speed of the light patterns.
-### Return value
-
-Speed value.
-## void setCausticBrightness ( float brightness )
-
-Sets the brightness of the light shapes.
-### Arguments
-
-- *float* **brightness** - Brightness value.
-
-## float getCausticBrightness ( )
-
-Returns the current brightness of the light shapes.
-### Return value
-
-Brightness value.
-## void setFieldShorelineLUTTexturePath ( string path )
-
-Sets the path to the LUT texture used for shoreline wetness effect.
-### Arguments
-
-- *string* **path** - Path to the texture.
-
-## string getFieldShorelineLUTTexturePath ( )
-
-Returns the current path to the LUT texture used for shoreline wetness effect.
-### Return value
-
-Path to the texture.
-## void setFieldShorelineWaveSpeed ( float speed )
-
-Sets the speed of tidal waves.
-### Arguments
-
-- *float* **speed** - Wave speed value.
-
-## float getFieldShorelineWaveSpeed ( )
-
-Returns the current speed of tidal waves.
-### Return value
-
-Wave speed value.
-## void setFieldShorelineWaveTiling ( float tiling )
-
-Sets the frequency of tidal waves.
-### Arguments
-
-- *float* **tiling** - Tiling value.
-
-## float getFieldShorelineWaveTiling ( )
-
-Returns the current frequency of tidal waves.
-### Return value
-
-Tiling value.
-## void setFieldShorelineWaveHeight ( float height )
-
-Sets the height of oncoming tidal waves.
-### Arguments
-
-- *float* **height** - Height value.
-
-## float getFieldShorelineWaveHeight ( )
-
-Returns the current height of oncoming tidal waves.
-### Return value
-
-Height value.
-## void setFieldShorelineWaveFalloff ( float falloff )
-
-Sets the visibility gradient of waves coming from sea to the shore.
-### Arguments
-
-- *float* **falloff** - Falloff value.
-
-## float getFieldShorelineWaveFalloff ( )
-
-Returns the current visibility gradient of waves coming from sea to the shore.
-### Return value
-
-Falloff value.
-## void setFieldShorelineWaveExponent ( float exponent )
-
-Sets the nonlinearity of tidal waves frequency and movement speed depending on their distance from the shoreline.
-### Arguments
-
-- *float* **exponent** - Exponent value.
-
-## float getFieldShorelineWaveExponent ( )
-
-Returns the current nonlinearity of tidal waves frequency and movement speed.
-### Return value
-
-Exponent value.
-## void setFieldShorelineWaveFrontExponent ( float exponent )
-
-Sets the semi-transparency of the foam at an angle to the wind direction. Allows making the foam visible only on the windward side.
-### Arguments
-
-- *float* **exponent** - Exponent value.
-
-## float getFieldShorelineWaveFrontExponent ( )
-
-Returns the current semi-transparency of the foam at an angle to the wind direction. Allows making the foam visible only on the windward side.
-### Return value
-
-Exponent value.
-## void setFieldShorelineFoamStretching ( float stretching )
-
-Sets the width of the Shoreline LUT texture that creates a tidal wave.
-### Arguments
-
-- *float* **stretching** - Stretching value.
-
-## float getFieldShorelineFoamStretching ( )
-
-Returns the current width of the Shoreline LUT texture that creates a tidal wave.
-### Return value
-
-Stretching value.
-## void setFieldShorelineFoamIntensity ( float intensity )
-
-Sets the degree of foam intensity along the shoreline.
-### Arguments
-
-- *float* **intensity** - Intensity value.
-
-## float getFieldShorelineFoamIntensity ( )
-
-Returns the current degree of foam intensity along the shoreline.
-### Return value
-
-Intensity value.
-## void setFieldShorelineFoamExponent ( float exponent )
-
-Sets the visibility of the foam texture pattern.
-### Arguments
-
-- *float* **exponent** - Exponent value.
-
-## float getFieldShorelineFoamExponent ( )
-
-Returns the current visibility of the foam texture pattern.
-### Return value
-
-Exponent value.
-## void setFieldShorelineMaskTiling ( float tiling )
-
-Sets a size of the foam procedural pattern used to reduce the foam tiling effect when seen from above.
-### Arguments
-
-- *float* **tiling** - Tiling value.
-
-## float getFieldShorelineMaskTiling ( )
-
-Returns the current size of the foam procedural pattern used to reduce the foam tiling effect.
-### Return value
-
-Tiling value.
-## void setFieldShorelineBeaufortFalloff ( float falloff )
-
-Sets the Beaufort falloff value that provides height control of main geometry waves near the shoreline.
-### Arguments
-
-- *float* **falloff** - Falloff value.
-
-## float getFieldShorelineBeaufortFalloff ( )
-
-Returns the current Beaufort falloff value that provides height control of main geometry waves near the shoreline.
-### Return value
-
-Falloff value.
-## void setShorelineWetnessIntensity ( float intensity )
-
-Sets the intensity of the wetness effect along the shoreline.
-### Arguments
-
-- *float* **intensity** - Wetness intensity value.
-
-## float getShorelineWetnessIntensity ( )
-
-Returns the current intensity of the wetness effect along the shoreline.
-### Return value
-
-Wetness intensity value.
-## void setShorelineWetnessDistance ( float distance )
-
-Sets the spread of the wetness area along the shoreline.
-### Arguments
-
-- *float* **distance** - Wetness distance value, in units.
-
-## float getShorelineWetnessDistance ( )
-
-Returns the current spread of the wetness area along the shoreline.
-### Return value
-
-Wetness distance value, in units.
-## void setShorelineWetnessOffset ( float offset )
-
-Sets the offset of the wetness area from the water.
-### Arguments
-
-- *float* **offset** - Wetness offset value, in units.
-
-## float getShorelineWetnessOffset ( )
-
-Returns the current offset of the wetness area from the water.
-### Return value
-
-Wetness offset value, in units.
-## void setAuxiliaryColor ( vec4 color )
-
-Sets the color that goes into the auxiliary buffer. *Alpha* is the blend factor.
-### Arguments
-
-- *vec4* **color** - Auxiliary color.
-
-## vec4 getAuxiliaryColor ( )
-
-Returns the current color that goes into the auxiliary buffer.
-### Return value
-
-Auxiliary color.
-## void setRefractionScale ( float scale )
-
-Sets the scale of the [water refraction](../../../objects/objects/water/water_object.md#refraction_scale).
-### Arguments
-
-- *float* **scale** - Refraction scale value.
-
-## float getRefractionScale ( )
-
-Returns the current scale of the [water refraction](../../../objects/objects/water/water_object.md#refraction_scale).
-### Return value
-
-Refraction scale value.
-## void setDecalsDistortion ( float distortion )
-
-Distortion of [decals](../../../objects/decals/index.md) projected onto water.
-### Arguments
-
-- *float* **distortion** - Distortion value.
-
-## float getDecalsDistortion ( )
-
-Returns the current distortion of [decals](../../../objects/decals/index.md) projected onto water.
-### Return value
-
-Distortion value.
-## void setDecalsSoftInteraction ( float interaction )
-
-Sets a new soft intersection of water with decals.
-### Arguments
-
-- *float* **interaction** - Soft intersection value.
-
-## float getDecalsSoftInteraction ( )
-
-Returns the current soft intersection of water with decals.
-### Return value
-
-Soft intersection value.
-## void setFieldHeightSteepness ( float steepness )
-
-Sets the sharpness of the crests for the waves generated from the [FieldHeight](../../../objects/effects/fields/field_height/index.md) objects placed in Global Water.
-### Arguments
-
-- *float* **steepness** - Steepness value.
-
-## float getFieldHeightSteepness ( )
-
-Returns the current sharpness of the crests for the waves generated from the [FieldHeight](../../../objects/effects/fields/field_height/index.md) objects placed in Global Water.
-### Return value
-
-Steepness value.
-## void setUnderwaterDOF ( int underwaterdof )
-
-Enables/disables the [underwater DOF](../../../objects/objects/water/water_object.md#underwater_dof) effect.
-### Arguments
-
-- *int* **underwaterdof** - **1** to enable underwater DOF effect, **0** to disable it.
-
-## int isUnderwaterDOF ( )
-
-Returns a value indicating if the [underwater DOF](../../../objects/objects/water/water_object.md#underwater_dof) effect is enabled.
-### Return value
-
-**1** if underwater DOF effect is enabled, otherwise, **0**.
-## void setPlanarReflection ( int reflection )
-
-Enables/disables the use of planar reflections on the water surface instead of SSR. It is better to use this option for undisturbed water (0-2 Beaufort). Enabling the option activates [Planar Reflection MapSize](../../../api/library/objects/class.objectwaterglobal_usc.md#setPlanarReflectionMapSizeType_int_void) and Planar Reflection parameters.
-### Arguments
-
-- *int* **reflection** - **1** to enable planar reflections, **0** to disable them.
-
-## int isPlanarReflection ( )
-
-Returns a value indicating if the planar reflections option is enabled.
-### Return value
-
-**1** if planar reflections option is enabled, otherwise, **0**.
-## void setPlanarReflectionMapSizeType ( int type )
-
-Sets the size of the planar reflection map. The higher the value, the better the quality is.
-### Arguments
-
-- *int* **type** - Size of the planar reflection map.
-
-## int getPlanarReflectionMapSizeType ( )
-
-Returns the current size of the planar reflection map.
-### Return value
-
-Size of the planar reflection map.
-## void setPlanarReflectionViewportMask ( int mask )
-
-Sets the viewport [mask](../../../principles/bit_masking/index.md#viewport) of the reflection camera. A surface has its reflection rendered, if its viewport mask and its material's viewport mask match this mask.
-### Arguments
-
-- *int* **mask** - Viewport mask.
-
-## int getPlanarReflectionViewportMask ( )
-
-Returns the current viewport [mask](../../../principles/bit_masking/index.md#viewport) of the reflection camera. A surface has its reflection rendered, if its viewport mask and its material's viewport mask match this mask.
-### Return value
-
-Viewport mask.
-## void setCaustics ( int caustics )
-
-Enables/disables the effect of [light rays refraction](../../../objects/objects/water/water_object.md#enable_caustics) by the water surface.
-### Arguments
-
-- *int* **caustics** - **1** to enable the caustics, **0** to disable them.
-
-## int isCaustics ( )
-
-Returns a value indicating if the [caustics effect](../../../objects/objects/water/water_object.md#enable_caustics) is enabled.
-### Return value
-
-**1** if the caustics effect is enabled, otherwise, **0**.
-## void setCausticsDistortion ( int distortion )
-
-Enables/disables the [caustics distortion](../../../objects/objects/water/water_object.md#caustics_distortion) option. This effect removes pixelation and makes caustics look smoother. When smoothing is not required, you can disable this option to gain performance.
-### Arguments
-
-- *int* **distortion** - **1** to enable caustics distortion, **0** to disable it.
-
-## int isCausticsDistortion ( )
-
-Returns a value indicating if the [caustics distortion](../../../objects/objects/water/water_object.md#caustics_distortion) effect is enabled.
-### Return value
-
-**1** if caustics distortion is enabled, otherwise, **0**.
-## void setFieldShorelineEnabled ( int enabled )
-
-Enables/disables the effect of the [FieldShoreline](../../../objects/effects/fields/field_shoreline/index.md) object on the Global Water object. Enabling this option makes available the group of Field Shoreline states.
-### Arguments
-
-- *int* **enabled** - **1** to enable FieldShoreline, **0** to disable it.
-
-## int isFieldShorelineEnabled ( )
-
-Checks if the assigned material on the Global Water object has enabled [FieldShoreline](../../../objects/effects/fields/field_shoreline/index.md) interaction option.
-### Return value
-
-**1** if the FieldShoreline interaction option is enabled, otherwise, **0**.
-## void setFieldShorelineHighPrecision ( int precision )
-
-Enables/disables [improved interpolation](../../../objects/objects/water/water_object.md#high_precision) between the adjacent pixels of the shoreline texture to reduce stepping artifacts. This can be noticed when looking at the waterline separating overwater and underwater. This option should be used only when [geometry](../../../api/library/objects/class.objectwaterglobal_usc.md#setFieldShorelineGeometry_int_void) and/or [normal](../../../api/library/objects/class.objectwaterglobal_usc.md#setFieldShorelineNormal_int_void) states are enabled.
-### Arguments
-
-- *int* **precision** - **1** to enable high precision, **0** to disable it.
-
-## int isFieldShorelineHighPrecision ( )
-
-Returns a value indicating if the [high precision](../../../objects/objects/water/water_object.md#high_precision) of the shoreline is enabled. If enabled, this option improves interpolation between the adjacent pixels of the shoreline texture to reduce stepping artifacts.
-### Return value
-
-**1** if high precision is enabled, otherwise, **0**.
-## void setFieldShorelineNormal ( int normal )
-
-Enables/disables calculation of normals for geometry of shoreline waves. This option significantly reduces performance and can be used in cases, when really large waves are required. Enabling just the [geometry](../../../api/library/objects/class.objectwaterglobal_usc.md#setFieldShorelineGeometry_int_void) state to simulate distortion of the water surface by a shoreline wave is enough in most cases.
-### Arguments
-
-- *int* **normal** - **1** to enable, **0** to disable.
-
-## int isFieldShorelineNormal ( )
-
-Returns a value indicating if calculation of normals for geometry of shoreline waves is enabled.
-### Return value
-
-**1** if enabled, otherwise, **0**.
-## void setFieldShorelineGeometry ( int geometry )
-
-Enables/disables [rendering of wave geometry](../../../objects/objects/water/water_object.md#fieldshoreline_geometry) for shoreline waves. If disabled, the water surface remains flat. Disabling this option in cases where wave geometry is hardly noticeable (e.g. a flight simulator) gives a performance gain.
-### Arguments
-
-- *int* **geometry** - **1** to enable, **0** to disable.
-
-## int isFieldShorelineGeometry ( )
-
-Returns a value indicating if [rendering of wave geometry](../../../objects/objects/water/water_object.md#fieldshoreline_geometry) for shoreline waves is enabled.
-### Return value
-
-**1** if enabled, otherwise, **0**.
-## void setFieldShorelineFoam ( int foam )
-
-Enables/disables [rendering of foam](../../../objects/objects/water/water_object.md#fieldshoreline_foam) for shoreline zones.
-### Arguments
-
-- *int* **foam** - **1** to enable, **0** to disable.
-
-## int isFieldShorelineFoam ( )
-
-Returns a value indicating if [rendering of foam](../../../objects/objects/water/water_object.md#fieldshoreline_foam) for shoreline zones is enabled.
-### Return value
-
-**1** if enabled, otherwise, **0**.
-## void setAuxiliary ( int auxiliary )
-
-Enables/disables the [auxiliary rendering pass](../../../objects/objects/water/water_object.md#auxiliary) for the material. Can be used for custom post-effects, such as thermal vision, night vision, etc. Enabling the option activates the [Auxiliary Color](../../../api/library/objects/class.objectwaterglobal_usc.md#setAuxiliaryColor_vec4_void) parameter.
-### Arguments
-
-- *int* **auxiliary** - **1** to enable, **0** to disable.
-
-## int isAuxiliary ( )
-
-Returns a value indicating if the auxiliary rendering pass for the material is enabled.
-### Return value
-
-**1** if enabled, otherwise, **0**.
-## void setFieldHeightEnabled ( int enabled )
-
-Enables/disables the effect of [FieldHeight](../../../objects/effects/fields/field_height/index.md) object on the Global Water object.
-### Arguments
-
-- *int* **enabled** - **1** to enable, **0** to disable.
-
-## int isFieldHeightEnabled ( )
-
-Checks if the assigned material on the Global Water object has enabled [FieldHeight](../../../objects/effects/fields/field_height/index.md) interaction option.
-### Return value
-
-**1** if the FieldHeight interaction option is enabled, otherwise, **0**.
-## void setFieldSpacerEnabled ( int enabled )
-
-Enables/disables the effect of [FieldSpacer](../../../objects/effects/fields/field_spacer/index.md) object on the Global Water object.
-### Arguments
-
-- *int* **enabled** - **1** to enable, **0** to disable.
-
-## int isFieldSpacerEnabled ( )
-
-Returns a value indicating if the effect of [FieldSpacer](../../../objects/effects/fields/field_spacer/index.md) object on the Global Water object is enabled.
-### Return value
-
-**1** if enabled, otherwise, **0**.
-## void setWavesSpeedScale ( float scale )
-
-Sets a scale value that affects the speed of all the waves. The resulting wave speed is calculated as ***sqrt(gravity * 2 * pi / wave_length) * waves_speed_scale***, where *gravity* = 9.81 m/s2.
-### Arguments
-
-- *float* **scale** - Scale value.
-
-## float getWavesSpeedScale ( )
-
-Returns the current scale value that affects the speed of all the waves.
-### Return value
-
-Scale value.

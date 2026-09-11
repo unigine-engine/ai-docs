@@ -21,16 +21,16 @@ The angle of billboards rotation. this angle is set for the billboard at the end
 The velocity with which billboards move to the end of the light beam.
 ## float Step
 
-The distance between neighboring billboards. the step controls how many billboards are used to render the volume projected object. the bigger the step, the less billboards are used to render the object.
+The distance between neighboring billboards. the step controls how many billboards are used to render the volume projected object. the bigger the step, the less billboards are used to render the object. The provided value will be saturated in the range [0.1; 1]. By the value of 1, the beam is rendered discrete.
 ## float Fov
 
-The width of the light beam, which is specified as the angle of the beam cone.
+The width of the light beam, which is specified as the angle of the beam cone, in degrees. The provided value will be saturated in the range [10;90].
 ## float Radius
 
 The length of the light beam along the z axis in units.
 ## float Size
 
-The size of the smallest billboard at the beginning of the light beam.
+The size of the smallest billboard at the beginning of the light beam, in units. If a too small value is provided, 0.001 will be used instead.
 ### Members
 
 ---

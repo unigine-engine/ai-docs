@@ -80,11 +80,7 @@
 
 - [SplineSegment Class (CPP)](../../../api/library/worlds/class.splinesegment_cpp.md)
 
-- [WorldSwitcher Class (CS)](../../../api/library/worlds/class.worldswitcher_cs.md)
-
 - [WorldSwitcher Class (CPP)](../../../api/library/worlds/class.worldswitcher_cpp.md)
-
-- [WorldSwitcher Class (USC)](../../../api/library/worlds/class.worldswitcher_usc.md)
 
 - [WorldTransformJoint Class (USC)](../../../api/library/worlds/class.worldtransformjoint_usc.md)
 

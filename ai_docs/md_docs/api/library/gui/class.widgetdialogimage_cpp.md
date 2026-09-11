@@ -12,6 +12,19 @@ This class creates dialog window with an image preview of adjustable scale.
 
 ### Members
 
+## void setTexture ( const char * texture )
+
+Sets a new name of the image whose preview and properties are displayed in the dialog.
+### Arguments
+
+- *const char ** **texture** - The name of the image whose preview and properties are displayed in the dialog
+
+## const char * getTexture () const
+
+Returns the current name of the image whose preview and properties are displayed in the dialog.
+### Return value
+
+Current name of the image whose preview and properties are displayed in the dialog
 ---
 
 ## static WidgetDialogImagePtr create ( const Ptr < Gui > & gui , const char * str = 0 )
@@ -42,16 +55,3 @@ Returns the image, preview and properties of which should be displayed in the di
 ### Return value
 
 Image, preview and properties of which are displayed in the dialog.
-## void setTexture ( const char * texture )
-
-Sets a name of the image, preview and properties of which should be displayed in the dialog.
-### Arguments
-
-- *const char ** **texture** - Path to an image file.
-
-## const char * getTexture ( ) const
-
-Returns a name of the image, preview and properties of which should be displayed in the dialog.
-### Return value
-
-Path to the image file.

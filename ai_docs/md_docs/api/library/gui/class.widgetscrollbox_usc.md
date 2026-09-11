@@ -26,6 +26,252 @@ The object of this class looks as follows:
 
 ### Members
 
+## WidgetScroll getHScroll () const
+
+Returns the current horizontal scroller object.
+### Return value
+
+Current horizontal scroller object
+## void setHScrollValue ( int value )
+
+Sets a new position (and also automatically the size) of the horizontal scroller. That is, it returns the width of the currently invisible area that determines the size of the slider. The minimum value is 0, the maximum value is the difference between the object width and the frame width.
+### Arguments
+
+- *int* **value** - The position (and also automatically the size) of the horizontal scroller
+
+## int getHScrollValue () const
+
+Returns the current position (and also automatically the size) of the horizontal scroller. That is, it returns the width of the currently invisible area that determines the size of the slider. The minimum value is 0, the maximum value is the difference between the object width and the frame width.
+### Return value
+
+Current position (and also automatically the size) of the horizontal scroller
+## int getHScrollStepSize () const
+
+Returns the current step of the horizontal scroller. This step is used to increment the scroll position.
+### Return value
+
+Current step of the horizontal scroller
+## int getHScrollFrameSize () const
+
+Returns the current width of the currently visible area.
+### Return value
+
+Current width of the currently visible area
+## int getHScrollObjectSize () const
+
+Returns the current width of the whole object that should be scrolled.
+### Return value
+
+Current width of the whole object that should be scrolled
+## void setHScrollHidden ( int hidden )
+
+Sets a new flag indicating if a horizontal scroll bar is hidden, disabled or always rendered. One of the *[SCROLL_RENDER_MODE](#SCROLL_RENDER_MODE)* values.
+### Arguments
+
+- *int* **hidden** - The flag indicating if a horizontal scroll bar is hidden, disabled or always rendered
+
+## int getHScrollHidden () const
+
+Returns the current flag indicating if a horizontal scroll bar is hidden, disabled or always rendered. One of the *[SCROLL_RENDER_MODE](#SCROLL_RENDER_MODE)* values.
+### Return value
+
+Current flag indicating if a horizontal scroll bar is hidden, disabled or always rendered
+## void setHScrollEnabled ( int enabled )
+
+Sets a new value indicating if horizontal scrolling is enabled.
+### Arguments
+
+- *int* **enabled** - The horizontal scrolling
+
+## int isHScrollEnabled () const
+
+Returns the current value indicating if horizontal scrolling is enabled.
+### Return value
+
+Current horizontal scrolling
+## WidgetScroll getVScroll () const
+
+Returns the current vertical scroller object.
+### Return value
+
+Current vertical scroller object
+## void setVScrollValue ( int value )
+
+Sets a new position (and also the size) of the vertical scroller. That is, it returns the height of the currently invisible area that determines the size of the slider. The minimum value is 0, the maximum value is the difference between the object height and the frame height.
+### Arguments
+
+- *int* **value** - The position (and also the size) of the vertical scroller
+
+## int getVScrollValue () const
+
+Returns the current position (and also the size) of the vertical scroller. That is, it returns the height of the currently invisible area that determines the size of the slider. The minimum value is 0, the maximum value is the difference between the object height and the frame height.
+### Return value
+
+Current position (and also the size) of the vertical scroller
+## int getVScrollStepSize () const
+
+Returns the current step of the vertical scroller. This step is used to increment the scroll position.
+### Return value
+
+Current step of the vertical scroller
+## int getVScrollFrameSize () const
+
+Returns the current height of the currently visible area.
+### Return value
+
+Current height of the currently visible area
+## int getVScrollObjectSize () const
+
+Returns the current height of the whole object that should be scrolled.
+### Return value
+
+Current height of the whole object that should be scrolled
+## void setVScrollHidden ( int hidden )
+
+Sets a new flag indicating if a vertical scroll bar is hidden, disabled or always rendered. One of the *[SCROLL_RENDER_MODE](#SCROLL_RENDER_MODE)* values.
+### Arguments
+
+- *int* **hidden** - The flag indicating if a vertical scroll bar is hidden, disabled or always rendered
+
+## int getVScrollHidden () const
+
+Returns the current flag indicating if a vertical scroll bar is hidden, disabled or always rendered. One of the *[SCROLL_RENDER_MODE](#SCROLL_RENDER_MODE)* values.
+### Return value
+
+Current flag indicating if a vertical scroll bar is hidden, disabled or always rendered
+## void setVScrollEnabled ( int enabled )
+
+Sets a new value indicating if vertical scrolling is enabled.
+### Arguments
+
+- *int* **enabled** - The vertical scrolling
+
+## int isVScrollEnabled () const
+
+Returns the current value indicating if vertical scrolling is enabled.
+### Return value
+
+Current vertical scrolling
+## int getScrollScale () const
+
+Returns the current divisor used to convert integer values into floating point values.
+### Return value
+
+Current divisor used to convert integer values into floating point values
+## void setBackground ( int background )
+
+Sets a new value indicating if the background is rendered.
+### Arguments
+
+- *int* **background** - The value indicating if the background is rendered
+
+## int getBackground () const
+
+Returns the current value indicating if the background is rendered.
+### Return value
+
+Current value indicating if the background is rendered
+## void setBorder ( int border )
+
+Sets a new flag indicating if a one-pixel border is rendered around the widget content (in a shape of a box). The default is 1 (use a border).
+### Arguments
+
+- *int* **border** - The flag indicating if a one-pixel border is rendered around the widget content (in a shape of a box)
+
+## int getBorder () const
+
+Returns the current flag indicating if a one-pixel border is rendered around the widget content (in a shape of a box). The default is 1 (use a border).
+### Return value
+
+Current flag indicating if a one-pixel border is rendered around the widget content (in a shape of a box)
+## int getPaddingBottom () const
+
+Returns the current bottom padding for the widget content.
+### Return value
+
+Current bottom padding for the widget content
+## int getPaddingTop () const
+
+Returns the current top padding for the widget content.
+### Return value
+
+Current top padding for the widget content
+## int getPaddingRight () const
+
+Returns the current right-side padding for the widget content.
+### Return value
+
+Current right-side padding for the widget content
+## int getPaddingLeft () const
+
+Returns the current left-side padding for the widget content.
+### Return value
+
+Current left-side padding for the widget content
+## void setVscrollColor ( vec4 color )
+
+Sets a new color used for the widget's vertical scroll.
+### Arguments
+
+- *vec4* **color** - The color used for the widget's vertical scroll
+
+## vec4 getVscrollColor () const
+
+Returns the current color used for the widget's vertical scroll.
+### Return value
+
+Current color used for the widget's vertical scroll
+## void setHscrollColor ( vec4 color )
+
+Sets a new color used for the widget's horizontal scroll.
+### Arguments
+
+- *vec4* **color** - The color used for the widget's horizontal scroll
+
+## vec4 getHscrollColor () const
+
+Returns the current color used for the widget's horizontal scroll.
+### Return value
+
+Current color used for the widget's horizontal scroll
+## void setBackgroundColor ( vec4 color )
+
+Sets a new background color used for the widget.
+### Arguments
+
+- *vec4* **color** - The background color used for the widget
+
+## vec4 getBackgroundColor () const
+
+Returns the current background color used for the widget.
+### Return value
+
+Current background color used for the widget
+## void setBorderColor ( vec4 color )
+
+Sets a new border color for the widget.
+### Arguments
+
+- *vec4* **color** - The border color for the widget
+
+## vec4 getBorderColor () const
+
+Returns the current border color for the widget.
+### Return value
+
+Current border color for the widget
+## int getSpaceY () const
+
+Returns the current vertical space between the widgets in the box and between them and the box border.
+### Return value
+
+Current vertical space between the widgets in the box and between them and the box border
+## int getSpaceX () const
+
+Returns the current horizontal space between the widgets in the box and between them and the box border.
+### Return value
+
+Current horizontal space between the widgets in the box and between them and the box border
 ---
 
 ## static WidgetScrollBox ( Gui gui , int x = 0 , int y = 0 )
@@ -45,82 +291,6 @@ Constructor. Creates a box with scrolling based on given parameters and adds it 
 - *int* **x** - Horizontal space between the widgets in the box and between them and the box border. This is an optional parameter.
 - *int* **y** - Vertical space between the widgets in the box and between them and the box border. This is an optional parameter.
 
-## void setBorder ( int border )
-
-Sets a flag indicating if a one-pixel border is rendered around the widget content (in a shape of a box). The default is 1 (use a border).
-### Arguments
-
-- *int* **border** - Positive number to enable a border, 0 to disable it.
-
-## int getBorder ( )
-
-Returns a flag indicating if a one-pixel border is rendered around the widget content (in a shape of a box). The default is 1 (use a border).
-### Return value
-
-Positive number if a border is enabled; otherwise, 0.
-## void setHScrollEnabled ( int enabled )
-
-Sets a value indicating if horizontal scrolling is enabled.
-### Arguments
-
-- *int* **enabled** - Positive number to enable horizontal scrolling, 0 to disable it.
-
-## int isHScrollEnabled ( )
-
-Returns a value indicating if horizontal scrolling is enabled.
-### Return value
-
-Positive number if scrolling is enabled; otherwise, 0.
-## int getHScrollFrameSize ( )
-
-Returns the width of the currently visible area.
-### Return value
-
-Width of the visible area in pixels.
-## void setHScrollHidden ( int hidden )
-
-Sets a flag indicating if a horizontal scroll bar is hidden, disabled or always rendered.
-### Arguments
-
-- *int* **hidden** - Hide flag, one of the *[SCROLL_RENDER_MODE](#SCROLL_RENDER_MODE)* values.
-
-## int getHScrollHidden ( )
-
-Returns a flag indicating if a horizontal scroll bar is hidden, disabled or always rendered.
-### Return value
-
-Hide flag:
-- 0 if a scroll bar is always rendered.
-- 1 if a scroll bar is automatically hidden when necessary. For example, if the container area is big enough to show all elements, the scroll bar is not rendered. And vice versa, if not all elements can be shown at once, a scroll bar is rendered.
-- 2 if a scroll bar is always hidden. In this mode, scroll bar bounds, though a bar itself is not rendered, are still taken into account when the widget bounds are calculated.
-- 3 if a scroll bar is always hidden and its size is not added to widget bounds.
-
-
-## int getHScrollObjectSize ( )
-
-Returns the width of the whole object that should be scrolled.
-### Return value
-
-Width of the object being scrolled in pixels.
-## int getHScrollStepSize ( )
-
-Returns the step of the horizontal scroller. This step is used to increment the scroll position.
-### Return value
-
-Step of the horizontal scroller in pixels.
-## void setHScrollValue ( int value )
-
-Sets a position (and also the size) of the horizontal scroller. That is, it sets the width of the currently invisible area that determines the size of the slider.
-### Arguments
-
-- *int* **value** - Position of the scroller. The minimum value is 0, the maximum value is the difference between the object width and the frame width.
-
-## int getHScrollValue ( )
-
-Returns the current position (and also automatically the size) of the horizontal scroller. That is, it returns the width of the currently invisible area that determines the size of the slider.
-### Return value
-
-Position of the horizontal scroller.
 ## void setPadding ( int l , int r , int t , int b )
 
 Sets widget paddings for all sides. Padding clears an area around the content of a widget (inside of it).
@@ -131,36 +301,6 @@ Sets widget paddings for all sides. Padding clears an area around the content of
 - *int* **t** - Top padding in pixels.
 - *int* **b** - Bottom padding in pixels.
 
-## int getPaddingBottom ( )
-
-Returns the current bottom padding for the widget content.
-### Return value
-
-Bottom padding in pixels.
-## int getPaddingLeft ( )
-
-Returns the current left-side padding for the widget content.
-### Return value
-
-Left-side padding in pixels.
-## int getPaddingRight ( )
-
-Returns the current right-side padding for the widget content.
-### Return value
-
-Right-side padding in pixels.
-## int getPaddingTop ( )
-
-Returns the current top padding for the widget content.
-### Return value
-
-Top padding in pixels.
-## int getScrollScale ( )
-
-Returns the divisor used to convert integer values into floating point values.
-### Return value
-
-Divisor used to scale integers.
 ## void setSpace ( int x , int y )
 
 Sets a space between the widgets in the box and between them and the box border.
@@ -168,161 +308,3 @@ Sets a space between the widgets in the box and between them and the box border.
 
 - *int* **x** - Horizontal space. If a negative value is specified, 0 will be used instead.
 - *int* **y** - Vertical space. If a negative value is specified, 0 will be used instead.
-
-## int getSpaceX ( )
-
-Returns the horizontal space between the widgets in the box and between them and the box border.
-### Return value
-
-Horizontal space.
-## int getSpaceY ( )
-
-Returns the vertical space between the widgets in the box and between them and the box border.
-### Return value
-
-Vertical space.
-## void setVScrollEnabled ( int enabled )
-
-Sets a value indicating if vertical scrolling is enabled.
-### Arguments
-
-- *int* **enabled** - Positive number to enable vertical scrolling, 0 to disable it.
-
-## int isVScrollEnabled ( )
-
-Returns a value indicating if vertical scrolling is enabled.
-### Return value
-
-Positive number if scrolling is enabled; otherwise, 0.
-## int getVScrollFrameSize ( )
-
-Returns the height of the currently visible area.
-### Return value
-
-Height of the visible area in pixels.
-## void setVScrollHidden ( int hidden )
-
-Sets a flag indicating if a vertical scroll bar is hidden, disabled or always rendered.
-### Arguments
-
-- *int* **hidden** - Hide flag:
-
-  - 0 if a scroll bar is always rendered.
-  - 1 if a scroll bar is automatically hidden when necessary. For example, if the container area is big enough to show all elements, the scroll bar is not rendered. And vice versa, if not all elements can be shown at once, a scroll bar is rendered.
-  - 2 if a scroll bar is always hidden. In this mode, scroll bar bounds, though a bar itself is not rendered, are still taken into account when the widget bounds are calculated.
-  - 3 if a scroll bar is always hidden and its size is not added to widget bounds.
-
-## int getVScrollHidden ( )
-
-Returns a flag indicating if a vertical scroll bar is hidden, disabled or always rendered.
-### Return value
-
-Hide flag:
-- 0 if a scroll bar is always rendered.
-- 1 if a scroll bar is automatically hidden when necessary. For example, if the container area is big enough to show all elements, the scroll bar is not rendered. And vice versa, if not all elements can be shown at once, a scroll bar is rendered.
-- 2 if a scroll bar is always hidden. In this mode, scroll bar bounds, though a bar itself is not rendered, are still taken into account when the widget bounds are calculated.
-- 3 if a scroll bar is always hidden and its size is not added to widget bounds.
-
-
-## int getVScrollObjectSize ( )
-
-Returns the height of the whole object that should be scrolled.
-### Return value
-
-Height of the object being scrolled in pixels.
-## int getVScrollStepSize ( )
-
-Returns the step of the vertical scroller. This step is used to increment the scroll position.
-### Return value
-
-Step of the vertical scroller in pixels.
-## void setVScrollValue ( int value )
-
-Sets the position (and also the size) of the vertical scroller. That is, it sets the height of the currently invisible area that determines the size of the slider.
-### Arguments
-
-- *int* **value** - Position of the scroller. The minimum value is 0, the maximum value is the difference between the object height and the frame height.
-
-## int getVScrollValue ( )
-
-Returns the current position (and also the size) of the vertical scroller. That is, it returns the height of the currently invisible area that determines the size of the slider.
-### Return value
-
-Position of the vertical scroller.
-## void setBorderColor ( vec4 color )
-
-Sets the border color for the widget.
-### Arguments
-
-- *vec4* **color** - Four-component vector specifying the color in the RGBA format.
-
-## vec4 getBorderColor ( )
-
-Returns the current border color for the widget.
-### Return value
-
-Four-component vector specifying the color in the RGBA format.
-## void setBackgroundColor ( vec4 color )
-
-Sets the background color to be used for the widget.
-### Arguments
-
-- *vec4* **color** - Four-component vector specifying the color in the RGBA format.
-
-## vec4 getBackgroundColor ( )
-
-Returns the current background color used for the widget.
-### Return value
-
-Four-component vector specifying the color in the RGBA format.
-## void setHscrollColor ( vec4 color )
-
-Sets the color to be used for the widget's horizontal scroll.
-### Arguments
-
-- *vec4* **color** - Four-component vector specifying the color in the RGBA format.
-
-## vec4 getHscrollColor ( )
-
-Returns the current color used for the widget's horizontal scroll.
-### Return value
-
-Four-component vector specifying the color in the RGBA format.
-## void setVscrollColor ( vec4 color )
-
-Sets the color to be used for the widget's vertical scroll.
-### Arguments
-
-- *vec4* **color** - Four-component vector specifying the color in the RGBA format.
-
-## vec4 getVscrollColor ( )
-
-Returns the current color used for the widget's vertical scroll.
-### Return value
-
-Four-component vector specifying the color in the RGBA format.
-## void setBackground ( int background )
-
-Sets a value indicating if a background should be rendered.
-### Arguments
-
-- *int* **background** - 1 to render a background, 0 not to render.
-
-## int getBackground ( )
-
-Returns a value indicating if the background is rendered.
-### Return value
-
-1 if the background is rendered, 0 if not.
-## WidgetScroll getVScroll ( )
-
-Returns the vetical scroller object.
-### Return value
-
-Vetical scroller.
-## WidgetScroll getHScroll ( )
-
-Returns the horizontal scroller object.
-### Return value
-
-Horizontal scroller.

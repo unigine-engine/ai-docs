@@ -253,7 +253,7 @@ Returns the current value indicating if the body has the priority of handling de
 
 ### Return value
 
-**true** if high priority of handling detected contacts for the body is enabled; otherwise **false**.
+**true** if high priority of handling detected contacts for the body is enabled ; otherwise **false**.
 ## void setFreezable ( bool freezable )
 
 Sets a new value indicating if the object is freezable, meaning that it is not simulated if both its linear and angular velocities are below "freeze" ones (see *[setFrozenLinearVelocity](#setFrozenLinearVelocity_float_void) and [setFrozenAngularVelocity](#setFrozenAngularVelocity_float_void)* functions).
@@ -266,7 +266,7 @@ Sets a new value indicating if the object is freezable, meaning that it is not s
 Returns the current value indicating if the object is freezable, meaning that it is not simulated if both its linear and angular velocities are below "freeze" ones (see *[setFrozenLinearVelocity](#setFrozenLinearVelocity_float_void) and [setFrozenAngularVelocity](#setFrozenAngularVelocity_float_void)* functions).
 ### Return value
 
-**true** if the "freezable" state of the body is enabled; otherwise **false**.
+**true** if the "freezable" state of the body is enabled ; otherwise **false**.
 ## void setShapeBased ( bool based )
 
 Sets a new value indicating if mass and inertia of the body are bound to its shape properties and cannot be changed manually.
@@ -279,7 +279,7 @@ Sets a new value indicating if mass and inertia of the body are bound to its sha
 Returns the current value indicating if mass and inertia of the body are bound to its shape properties and cannot be changed manually.
 ### Return value
 
-**true** if calculation of mass and inertia based on shape properties is enabled; otherwise **false**.
+**true** if calculation of mass and inertia based on shape properties is enabled ; otherwise **false**.
 ---
 
 ## static BodyRigidPtr create ( )

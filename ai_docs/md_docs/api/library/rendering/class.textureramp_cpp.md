@@ -66,13 +66,13 @@ Returns the current texture flags.
 Current texture flags.
 ## bool isDefaultAll () const
 
-Returns the current value indicating if the values of all curve channels are the default ones which were previously set via [setDefaultCurve](#setDefaultCurve_int_Curve2d_void).
+Returns the current value indicating if the values of all curve channels are the default ones which were previously set via *[setDefaultCurve()](../../...md#setDefaultCurve_int_Curve2d_void)*.
 ### Return value
 
-**true** if the values of all curve channels are the default ones which were previously set via [setDefaultCurve](#setDefaultCurve_int_Curve2d_void); otherwise **false**.
+**true** if the values of all curve channels are the default ones which were previously set via *[setDefaultCurve()](../../...md#setDefaultCurve_int_Curve2d_void)*; otherwise **false**.
 ## Event<> getEventChanged () const
 
-event triggered on changing the ramp texture. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered on changing the ramp texture. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -208,7 +208,7 @@ publisher->getEventChanged().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## static TextureRampPtr create ( int num_channels , int resolution , int flags )
@@ -308,7 +308,9 @@ Loads the ramp texture data from the given [Json](../../../api/library/common/cl
 ## void saveState ( const Ptr < Stream > & stream ) const
 
 Saves the state of the ramp texture into a binary stream.
-**Example** using saveState() and [restoreState()](#restoreState_Stream_void) methods:
+
+
+**Example** using *saveState()* and *[restoreState()](#restoreState_Stream_void)* methods:
 
 
 ```cpp
@@ -335,8 +337,11 @@ ramp->restoreState(blob_state);
 
 ## void restoreState ( const Ptr < Stream > & stream ) const
 
+
 Restores the state of the ramp texture from the binary stream.
-**Example** using [saveState()](#saveState_Stream_void) and restoreState() methods:
+
+
+**Example** using *[saveState()](#saveState_Stream_void)* and *restoreState()* methods:
 
 
 ```cpp

@@ -48,7 +48,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventApplyDiff () const
 
 The event handler signature is as follows: *myhandler()*
@@ -65,7 +65,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventTextureDraw () const
 
 The event handler signature is as follows: *myhandler()*
@@ -82,7 +82,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## int terrainLoad ( WorldBoundBox bb )

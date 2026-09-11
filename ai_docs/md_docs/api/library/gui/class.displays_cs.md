@@ -99,13 +99,13 @@ public partial class DisplaysClass : Component
 The index of the main system display.
 ## 🔒︎ int DefaultSystemDPI
 
-The dots/pixels-per-inch value.
+The default system dots/pixels-per-inch value.
 ## 🔒︎ int Num
 
 The number of available video displays.
 ## 🔒︎ int Current
 
-The index of the display that is currently under cursor.
+The index of the display that is currently under the cursor.
 ### Members
 
 ---

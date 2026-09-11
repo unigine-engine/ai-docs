@@ -13,41 +13,39 @@ This structure represents a [forearm](../../../../code/plugins/ultraleap/index_c
 
 ### Members
 
----
+## double getWidth () const
 
-## double getWidth ( ) const
-
-Returns the width of the forearm, in meters.
+Returns the current width of the forearm, in meters.
 ### Return value
 
-The width of the forearm, in meters.
-## Math:: vec3 getDirection ( ) const
+Current width of the forearm, in meters
+## Math:: vec3 getDirection () const
 
-Returns the normalized direction in which the arm is pointing (from elbow to wrist).
+Returns the current normalized direction in which the arm is pointing (from elbow to wrist).
 ### Return value
 
-The normalized direction in which the arm is pointing (from elbow to wrist).
-## Math:: Vec3 getPositionElbow ( ) const
+Current normalized direction in which the arm is pointing (from elbow to wrist)
+## Math:: Vec3 getPositionElbow () const
 
-Returns the coordinates of the elbow position.
+Returns the current coordinates of the elbow position.
 ### Return value
 
-The coordinates of the elbow position.
-## Math:: Vec3 getPositionWrist ( ) const
+Current coordinates of the elbow position
+## Math:: Vec3 getPositionWrist () const
 
-Returns the coordinates of the end of the bone, closest to the finger tip (distal).
+Returns the current coordinates of the wrist position.
 ### Return value
 
-The coordinates of the wrist position.
-## Math:: Vec3 getCenter ( ) const
+Current coordinates of the wrist position
+## Math:: Vec3 getCenter () const
 
-Returns the coordinates of the center of the forearm.
+Returns the current coordinates of the center of the forearm.
 ### Return value
 
-The coordinates of the center of the forearm.
-## UltraleapHand * getHand ( ) const
+Current coordinates of the center of the forearm
+## UltraleapHand * getHand () const
 
-Returns the object for the hand.
+Returns the current object for the hand.
 ### Return value
 
-The object for the hand.
+Current object for the hand

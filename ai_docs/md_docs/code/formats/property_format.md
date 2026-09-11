@@ -58,6 +58,7 @@ Version of the `.prop` file.
 
 Name of the property. Manual properties inherited from a manual property refer to it by name. This name is also used to generate GUID for the manual property at run time. This GUID is used by child user properties to refer to their manual parent.
 
+
 > **Notice:** You cannot use two manual properties with the same name.
 
 
@@ -99,6 +100,7 @@ Available values:
 
 
 Flag indicating if settings of the property can be modified in the [UnigineEditor](../../editor2/properties_settings/index.md) or via [code](../../api/library/common/class.property_cpp.md).
+
 
 > **Notice:** [Manual](../../principles/properties/index.md#manual) properties are displayed as read-only in the Editor regardless of the value of this flag.
 
@@ -325,7 +327,7 @@ Attribute that contains a set of values of the [switch](#parameter_type) paramet
 ```
 
 
-> **Notice:** The space in the *items* attribute declaration is also a symbol included in the item name. Thus, **items="red, green"** shall produce the items with the following names: **"red"** and **" green"** (with the space before the word).
+> **Notice:** The space in the *items* attribute declaration is also a symbol included in the item name. Thus, **items="red,�green"** shall produce the items with the following names: **"red"** and **" green"** (with the space before the word).
 
 
 For example, if a property switch parameter is declared as follows:
@@ -360,6 +362,7 @@ Minimum and maximum available values of the *[integer](../../api/library/common/
 
 
 Unique name of the parameter.
+
 
 > **Notice:** Reserved attribute names ("name", "type", etc.) cannot be used.
 

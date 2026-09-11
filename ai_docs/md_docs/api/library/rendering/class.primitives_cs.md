@@ -35,7 +35,7 @@ Creates a dynamic mesh in a form of a box.
 
 ### Return value
 
-[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md) instance.
+*[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md)* instance.
 ## ObjectMeshDynamic CreateCapsule ( float radius , float height , int stacks = 16 , int slices = 32 )
 
 Creates a dynamic mesh in a form of a capsule.
@@ -48,7 +48,7 @@ Creates a dynamic mesh in a form of a capsule.
 
 ### Return value
 
-[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md) instance.
+*[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md)* instance.
 ## ObjectMeshDynamic CreateCylinder ( float radius , float height , int stacks = 1 , int slices = 32 )
 
 Creates a dynamic mesh in a form of a cylinder.
@@ -61,7 +61,7 @@ Creates a dynamic mesh in a form of a cylinder.
 
 ### Return value
 
-[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md) instance.
+*[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md)* instance.
 ## ObjectMeshDynamic CreateDodecahedron ( float radius )
 
 Creates a dynamic mesh in a form of a dodecahedron.
@@ -71,7 +71,7 @@ Creates a dynamic mesh in a form of a dodecahedron.
 
 ### Return value
 
-[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md) instance.
+*[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md)* instance.
 ## ObjectMeshDynamic CreateIcosahedron ( float radius )
 
 Creates a dynamic mesh in a form of an icosahedron.
@@ -81,7 +81,7 @@ Creates a dynamic mesh in a form of an icosahedron.
 
 ### Return value
 
-[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md) instance.
+*[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md)* instance.
 ## ObjectMeshDynamic CreatePlane ( float width , float height , float step )
 
 Creates a dynamic mesh in a form of a plane. It is divided into equal squares whose size is defined by the given step.
@@ -93,7 +93,7 @@ Creates a dynamic mesh in a form of a plane. It is divided into equal squares wh
 
 ### Return value
 
-[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md) instance.
+*[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md)* instance.
 ## ObjectMeshDynamic CreatePrism ( float size_0 , float size_1 , float height , int sides = 8 )
 
 Creates a dynamic mesh in a form of a prism.
@@ -106,7 +106,7 @@ Creates a dynamic mesh in a form of a prism.
 
 ### Return value
 
-[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md) instance.
+*[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md)* instance.
 ## ObjectMeshDynamic CreateSphere ( float radius , int stacks = 16 , int slices = 32 )
 
 Creates a dynamic mesh in a form of a sphere.
@@ -118,13 +118,13 @@ Creates a dynamic mesh in a form of a sphere.
 
 ### Return value
 
-[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md) instance.
+*[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md)* instance.
 ## void AddBoxSurface ( ObjectMeshDynamic object , vec3 size , mat4 transform )
 
 Appends a box of the specified size to ObjectMeshDynamic.
 ### Arguments
 
-- *[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md)* **object** - [ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md) instance.
+- *[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md)* **object** - *[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md)* instance.
 - *vec3* **size** - Box size along the X, Y and Z axes.
 - *mat4* **transform** - Box transformation matrix.
 
@@ -133,7 +133,7 @@ Appends a box of the specified size to ObjectMeshDynamic.
 Appends a capsule of the specified size to ObjectMeshDynamic. The stacks and slices specify the surface's subdivision.
 ### Arguments
 
-- *[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md)* **object** - [ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md) instance.
+- *[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md)* **object** - *[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md)* instance.
 - *float* **radius** - Capsule radius.
 - *float* **height** - Capsule height along the central axis.
 - *mat4* **transform** - Capsule transformation matrix.
@@ -145,7 +145,7 @@ Appends a capsule of the specified size to ObjectMeshDynamic. The stacks and sli
 Appends a cylinder of the specified size to ObjectMeshDynamic. The stacks and slices specify the surface's subdivision.
 ### Arguments
 
-- *[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md)* **object** - [ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md) instance.
+- *[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md)* **object** - *[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md)* instance.
 - *float* **radius** - Cylinder radius.
 - *float* **height** - Cylinder height.
 - *mat4* **transform** - Cylinder transformation matrix.
@@ -157,7 +157,7 @@ Appends a cylinder of the specified size to ObjectMeshDynamic. The stacks and sl
 Appends a dodecahedron (a polyhedron with twelve flat faces) of the specified size to ObjectMeshDynamic.
 ### Arguments
 
-- *[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md)* **object** - [ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md) instance.
+- *[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md)* **object** - *[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md)* instance.
 - *float* **radius** - Dodecahedron radius.
 - *mat4* **transform** - Transformation matrix.
 
@@ -166,7 +166,7 @@ Appends a dodecahedron (a polyhedron with twelve flat faces) of the specified si
 Appends a icosahedron (a polyhedron with twenty flat faces) of the specified size to ObjectMeshDynamic.
 ### Arguments
 
-- *[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md)* **object** - [ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md) instance.
+- *[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md)* **object** - *[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md)* instance.
 - *float* **radius** - Icosahedron radius.
 - *mat4* **transform** - Transformation matrix.
 
@@ -175,7 +175,7 @@ Appends a icosahedron (a polyhedron with twenty flat faces) of the specified siz
 Appends a plane surface to the dynamic mesh. The plane is divided into equal squares, size of which is defined by the given step.
 ### Arguments
 
-- *[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md)* **object** - [ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md) instance.
+- *[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md)* **object** - *[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md)* instance.
 - *float* **width** - Width of the plane.
 - *float* **height** - Height of the plane.
 - *float* **step** - Step of surface subdivision (vertical and horizontal).
@@ -186,7 +186,7 @@ Appends a plane surface to the dynamic mesh. The plane is divided into equal squ
 Appends a prism to the dynamic mesh.
 ### Arguments
 
-- *[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md)* **object** - [ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md) instance.
+- *[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md)* **object** - *[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md)* instance.
 - *float* **size_0** - Radius of the circle circumscribed about the top prism base.
 - *float* **size_1** - Radius of the circle circumscribed about the bottom prism base.
 - *float* **height** - Dimension of the prism's central axis.
@@ -198,7 +198,7 @@ Appends a prism to the dynamic mesh.
 Appends a sphere surface to the dynamic mesh. The stacks and slices specify the surface's subdivision.
 ### Arguments
 
-- *[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md)* **object** - [ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md) instance.
+- *[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md)* **object** - *[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cs.md)* instance.
 - *float* **radius** - Sphere radius.
 - *mat4* **transform** - Transformation matrix.
 - *int* **stacks** - Number of stacks that divide the sphere radially.

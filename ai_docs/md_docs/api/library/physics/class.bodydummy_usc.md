@@ -10,8 +10,6 @@ This class is used to create a dummy body that serves as unmoving, non-interacti
 
 ## BodyDummy Class
 
-### Members
-
 ---
 
 ## static BodyDummy ( )

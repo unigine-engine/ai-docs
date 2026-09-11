@@ -12,6 +12,19 @@ This class is used to create a [volume box](../../../objects/effects/volumetrics
 
 ### Members
 
+## void setSize ( vec3 size )
+
+Sets a new dimensions of the volume box, in units. If a negative value is provided, 0 will be used instead.
+### Arguments
+
+- *vec3* **size** - The dimensions of the volume box
+
+## vec3 getSize () const
+
+Returns the current dimensions of the volume box, in units. If a negative value is provided, 0 will be used instead.
+### Return value
+
+Current dimensions of the volume box
 ---
 
 ## static ObjectVolumeBox ( vec3 size )
@@ -21,19 +34,6 @@ Constructor. Creates a new volume box object with given dimensions.
 
 - *vec3* **size** - Dimensions of the new volume box object in units.
 
-## void setSize ( vec3 size )
-
-Updates volume box dimensions.
-### Arguments
-
-- *vec3* **size** - New dimensions of the volume box in units. If a negative value is provided, 0 will be used instead.
-
-## vec3 getSize ( )
-
-Returns volume box dimensions.
-### Return value
-
-Dimensions of the volume box in units.
 ## static int type ( )
 
 Returns the type of the node.

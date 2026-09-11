@@ -287,6 +287,11 @@ An **internal** material is a runtime material that is not saved on a disk. When
     - [Vertex ID Node](../../content/materials/graph/node_library/input/vertex_id.md)
     - [Instance ID Node](../../content/materials/graph/node_library/input/instance_id.md)
     - [Material Mask Node](../../content/materials/graph/node_library/input/material_mask.md)
+    - [Surface Parameters Node](../../content/materials/graph/node_library/input/surface_parameters.md)
+    - [Current Surface Parameters Node](../../content/materials/graph/node_library/input/current_surface_parameters.md)
+    - [Material Parameters Node](../../content/materials/graph/node_library/input/material_parameters.md)
+    - [Material Parameters by ID Node](../../content/materials/graph/node_library/input/material_parameters_by_id.md)
+    - [Surface ID Rendering Mode Node](../../content/materials/graph/node_library/input/surface_id_rendering_mode.md)
     - [Up Node](../../content/materials/graph/node_library/input/up.md)
     - [Down Node](../../content/materials/graph/node_library/input/down.md)
     - [Forward Node](../../content/materials/graph/node_library/input/forward.md)
@@ -602,5 +607,15 @@ An **internal** material is a runtime material that is not saved on a disk. When
     - [debug_materials](../../content/materials/library/debug/debug_materials/index.md)
 
 - [Custom Materials](../../content/materials/custom.md)
+
+- [Custom Parameters for Surfaces and Materials](../../content/materials/custom_parameters/index.md)
+
+  - [Quick Start](../../content/materials/custom_parameters/quick_start.md)
+  - [Surface ID, Material ID and Buffers](../../content/materials/custom_parameters/ids_and_buffers.md)
+  - [Declaring Parameters and Setting Values (CS)](../../content/materials/custom_parameters/declaring_and_setting_cs.md)
+  - [Declaring Parameters and Setting Values (CPP)](../../content/materials/custom_parameters/declaring_and_setting_cpp.md)
+  - [Reading Parameters](../../content/materials/custom_parameters/reading_parameters.md)
+
+- [Custom Render Parameters](../../content/materials/render_parameters.md)
 
 - [Scriptable Materials](../../content/materials/scriptable.md)

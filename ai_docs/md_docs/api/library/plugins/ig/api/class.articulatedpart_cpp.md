@@ -3,7 +3,8 @@
 **Header:** #include <plugins/Unigine/IG/UnigineIG.h>
 
 
-This class represents the IG Articulated Part interface.
+This class represents the *IG Articulated Part* interface.
+
 
 > **Notice:** IG plugin must be loaded.
 

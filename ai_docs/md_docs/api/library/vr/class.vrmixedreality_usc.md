@@ -477,7 +477,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventCameraPropertyUpdateFlickerCompensation () const
 
 The event handler signature is as follows: *myhandler()*
@@ -494,7 +494,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventCameraPropertyUpdateISO () const
 
 The event handler signature is as follows: *myhandler()*
@@ -511,7 +511,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventCameraPropertyUpdateWhiteBalance () const
 
 The event handler signature is as follows: *myhandler()*
@@ -528,7 +528,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventCameraPropertyUpdateExposureTime () const
 
 The event handler signature is as follows: *myhandler()*
@@ -545,7 +545,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventChromakeyUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -562,7 +562,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventDeviceDisconnected () const
 
 The event handler signature is as follows: *myhandler()*
@@ -579,7 +579,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventDeviceConnected () const
 
 The event handler signature is as follows: *myhandler()*
@@ -596,7 +596,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventCameraPropertyUpdateVSTReprojection () const
 
 The event handler signature is as follows: *myhandler()*
@@ -613,7 +613,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## void setCameraVSTReprojectionMode ( )
 
 ***Console*:**`vr_mixed_reality_camera_vst_reprojection_mode`Sets a new reprojection mode of VST.

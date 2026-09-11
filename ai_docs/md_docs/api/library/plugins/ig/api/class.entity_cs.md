@@ -3,6 +3,7 @@
 
 This class represents the IG Entity interface.
 
+
 > **Notice:** IG plugin must be loaded.
 
 
@@ -60,8 +61,8 @@ This class represents the IG Entity interface.
 
 | Name | Description |
 |---|---|
-| **COORDINATE_SYSTEM_WORLD** = 0 | If the reference coordinate system is set to this value, and the entity is a top-level (non-child) entity, the velocity and acceleration are defined relative to the database. Linear velocity and acceleration describe a path along and above the surface of the geoid. Angular velocity and acceleration describe a rotation relative to a reference plane. If the entity is a child entity, the velocity and acceleration are defined relative to the parent’s local coordinate system. |
-| **COORDINATE_SYSTEM_LOCAL** = 1 | If the reference coordinate system is set to this value, the velocity and acceleration are defined relative to the entity’s local coordinate system. |
+| **COORDINATE_SYSTEM_WORLD** = 0 | If the reference coordinate system is set to this value, and the entity is a top-level (non-child) entity, the velocity and acceleration are defined relative to the database. Linear velocity and acceleration describe a path along and above the surface of the geoid. Angular velocity and acceleration describe a rotation relative to a reference plane. If the entity is a child entity, the velocity and acceleration are defined relative to the parent�s local coordinate system. |
+| **COORDINATE_SYSTEM_LOCAL** = 1 | If the reference coordinate system is set to this value, the velocity and acceleration are defined relative to the entity�s local coordinate system. |
 
 ### Properties
 
@@ -85,7 +86,7 @@ The retardation rate, the parameter that specifies the magnitude of an accelerat
 The maximum velocity that the entity can sustain.
 ## Entity.COORDINATE_SYSTEM ExtrapolationCoordSystem
 
-The reference coordinate system to which the linear and angular velocity and acceleration are applied. If the reference coordinate system is set to [WORLD](#COORDINATE_SYSTEM_WORLD), and the entity is a top-level (non-child) entity, the velocity and acceleration are defined relative to the database. Linear velocity and acceleration describe a path along and above the surface of the geoid. Angular velocity and acceleration describe a rotation relative to a reference plane. If the entity is a child entity, the velocity and acceleration are defined relative to the parent’s local coordinate system. If the reference coordinate system is set to [LOCAL](#COORDINATE_SYSTEM_LOCAL), the velocity and acceleration are defined relative to the entity’s local coordinate system.
+The reference coordinate system to which the linear and angular velocity and acceleration are applied. If the reference coordinate system is set to [WORLD](#COORDINATE_SYSTEM_WORLD), and the entity is a top-level (non-child) entity, the velocity and acceleration are defined relative to the database. Linear velocity and acceleration describe a path along and above the surface of the geoid. Angular velocity and acceleration describe a rotation relative to a reference plane. If the entity is a child entity, the velocity and acceleration are defined relative to the parent�s local coordinate system. If the reference coordinate system is set to [LOCAL](#COORDINATE_SYSTEM_LOCAL), the velocity and acceleration are defined relative to the entity�s local coordinate system.
 ## bool Interpolation
 
 The a value indicating if interpolation and extrapolation are enabled.
@@ -100,7 +101,7 @@ The entity's animation playback mode.
 The entity's animation playback direction.
 ## Entity.CLAMP_HEIGHT_MODE GroundClampHeightMode
 
-The value of the **clamp height mode** parameter used for [clamping](#setGroundClamp_int_void). By default, the Ground Clamp Height Mode is set to RELATIVE — the entity is clamped to the ground and the height is calculated from the ground. With the mode set to IGNORE, the entity is clamped to the ground and the height is ignored.
+The value of the **clamp height mode** parameter used for [clamping](#setGroundClamp_int_void). By default, the Ground Clamp Height Mode is set to RELATIVE � the entity is clamped to the ground and the height is calculated from the ground. With the mode set to IGNORE, the entity is clamped to the ground and the height is ignored.
 ## Entity.CLAMP GroundClamp
 
 The value of the **Ground/Ocean Clamp** parameter.
@@ -180,7 +181,7 @@ Detaches the entity from its parent.
 Returns the value of the **Attach State** parameter. It specifies whether the entity is be attached as a child to a [parent](#getParentID_llong).
 ### Return value
 
-**Attach State** parameter value. 1 the entity shall be or remain attached to the entity specified by the [Parent ID parameter](#getParentID_llong); 0 — the entity shall be detached from its parent.
+**Attach State** parameter value. 1 the entity shall be or remain attached to the entity specified by the [Parent ID parameter](#getParentID_llong); 0 � the entity shall be detached from its parent.
 ## dvec3 GetGroundClampPoint ( )
 
 Returns the current ground clamping point coordinates for the entity. Clamping is performed relative to the ground and sea level.

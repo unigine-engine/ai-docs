@@ -1,7 +1,7 @@
 # Geo Coordinates
 
 
-> **Notice:** These parameters are available in UnigineEditor only when the project is configured to use the **[Geodetics](../../../code/plugins/geodetics/index.md)** plugin and this plugin is [loaded](../../../code/plugins/geodetics/index.md#launch) on the start-up.
+> **Notice:** These parameters are available in UnigineEditor only when the project is configured to use the **[Geodetics](../../../code/plugins/geodetics/index_cpp.md)** plugin and this plugin is [loaded](../../../code/plugins/geodetics/index_cpp.md#launch) on the start-up.
 
 
 When working with models of the real world in your application with a georeferenced terrain, it is natural to position nodes using their geo-coordinates (*latitude, longitude, altitude*) instead of *X*, *Y*, and *Z* coordinates.

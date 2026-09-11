@@ -58,14 +58,14 @@ Returns the current custom mouse pointer currently in use.
 ### Return value
 
 Current sprite with a custom mouse pointer, or NULL if the standard mouse pointer is used.
-## void setMouseEnabled ( )
+## void setMouseEnabled ( int enabled )
 
 Sets a new value indicating if the mouse cursor is rendered.
 ### Arguments
 
-- **enabled** - The rendering of the mouse cursor
+- *int* **enabled** - The rendering of the mouse cursor
 
-## isMouseEnabled () const
+## int isMouseEnabled () const
 
 Returns the current value indicating if the mouse cursor is rendered.
 ### Return value
@@ -136,27 +136,27 @@ Returns the current font size of a tooltip.
 ### Return value
 
 Current font size of a tooltip.
-## void setToolTipEnabled ( )
+## void setToolTipEnabled ( int enabled )
 
 Sets a new value indicating if tooltips are available.
 ### Arguments
 
-- **enabled** - The tooltips display
+- *int* **enabled** - The tooltips display
 
-## isToolTipEnabled () const
+## int isToolTipEnabled () const
 
 Returns the current value indicating if tooltips are available.
 ### Return value
 
 Current tooltips display
-## void setTransparentAlpha ( )
+## void setTransparentAlpha ( float alpha )
 
 Sets a new alpha value of a transparent widget. A widget is transparent, if it uses blending.
 ### Arguments
 
-- **alpha** - The alpha value of a transparent widget. **0** means completely transparent.
+- *float* **alpha** - The alpha value of a transparent widget. **0** means completely transparent.
 
-## getTransparentAlpha () const
+## float getTransparentAlpha () const
 
 Returns the current alpha value of a transparent widget. A widget is transparent, if it uses blending.
 ### Return value
@@ -175,14 +175,14 @@ Returns the current font color of a transparent widget. A widget is transparent,
 ### Return value
 
 Current font color of a transparent widget. The default is equivalent to **#869caa** (light bluish).
-## void setTransparentEnabled ( )
+## void setTransparentEnabled ( int enabled )
 
 Sets a new value indicating if a widget can be rendered as [transparent](../../../code/gui/rc.md#transparent) (i.e. change its color accordingly), when necessary. For example, it can indicate whether the drop-down list of combobox is transparent or not.
 ### Arguments
 
-- **enabled** - The rendering of a widget as transparent
+- *int* **enabled** - The rendering of a widget as transparent
 
-## isTransparentEnabled () const
+## int isTransparentEnabled () const
 
 Returns the current value indicating if a widget can be rendered as [transparent](../../../code/gui/rc.md#transparent) (i.e. change its color accordingly), when necessary. For example, it can indicate whether the drop-down list of combobox is transparent or not.
 ### Return value
@@ -214,19 +214,19 @@ Returns the current font color of a disabled widget.
 ### Return value
 
 Current font color of a disabled widget. The default is equivalent to **#869caa** (light bluish).
-## void setDisabledEnabled ( bool enabled )
+## void setDisabledEnabled ( int enabled )
 
 Sets a new value indicating if a widget can be rendered as [disabled](../../../code/gui/rc.md#disabled) (i.e. change its color accordingly), when necessary.
 ### Arguments
 
-- *bool* **enabled** - Set **true** to enable rendering of a widget as disabled; **false** - to disable it.
+- *int* **enabled** - The rendering of a widget as disabled
 
-## bool isDisabledEnabled () const
+## int isDisabledEnabled () const
 
 Returns the current value indicating if a widget can be rendered as [disabled](../../../code/gui/rc.md#disabled) (i.e. change its color accordingly), when necessary.
 ### Return value
 
-**true** if rendering of a widget as disabled is enabled; otherwise **false**.
+Current rendering of a widget as disabled
 ## void setFocusedAlpha ( float alpha )
 
 Sets a new alpha value of a focused widget.
@@ -253,19 +253,32 @@ Returns the current font color of a focused widget.
 ### Return value
 
 Current font color of a focused widget. The default is equivalent to **#ffffff** (white).
-## void setFocusedEnabled ( bool enabled )
+## void setFocusedPermanent ( int permanent )
+
+Sets a new value indicating if the permanent color of the focused widget is changed.
+### Arguments
+
+- *int* **permanent** - The change of the permanent color of the focused widget
+
+## int isFocusedPermanent () const
+
+Returns the current value indicating if the permanent color of the focused widget is changed.
+### Return value
+
+Current change of the permanent color of the focused widget
+## void setFocusedEnabled ( int enabled )
 
 Sets a new value indicating if a widget can be rendered as [focused](../../../code/gui/rc.md#focused) on (i.e. change its color accordingly), when necessary.
 ### Arguments
 
-- *bool* **enabled** - Set **true** to enable rendering of a widget as focused on; **false** - to disable it.
+- *int* **enabled** - The rendering of a widget as focused on
 
-## bool isFocusedEnabled () const
+## int isFocusedEnabled () const
 
 Returns the current value indicating if a widget can be rendered as [focused](../../../code/gui/rc.md#focused) on (i.e. change its color accordingly), when necessary.
 ### Return value
 
-**true** if rendering of a widget as focused on is enabled; otherwise **false**.
+Current rendering of a widget as focused on
 ## void setDefaultAlpha ( float alpha )
 
 Sets a new standard alpha value of a widget.
@@ -382,32 +395,32 @@ Returns the current screen width.
 ### Return value
 
 Current screen width, in [logical units](../../../principles/dpi/index.md).
-## void setHidden ( bool hidden )
+## void setHidden ( int hidden )
 
-Sets a new value indicating if a widget is rendered visible.
+Sets a new value indicating if the GUI is hidden (not rendered).
 ### Arguments
 
-- *bool* **hidden** - Set **true** to enable the widget rendering as visible; **false** - to disable it.
+- *int* **hidden** - The true if the GUI is hidden, false if it is shown
 
-## bool isHidden () const
+## int isHidden () const
 
-Returns the current value indicating if a widget is rendered visible.
+Returns the current value indicating if the GUI is hidden (not rendered).
 ### Return value
 
-**true** if the widget rendering as visible is enabled; otherwise **false**.
-## void setEnabled ( bool enabled )
+Current true if the GUI is hidden, false if it is shown
+## void setEnabled ( int enabled )
 
 Sets a new
 ### Arguments
 
-- *bool* **enabled** - Set **true** to enable the GUI; **false** - to disable it.
+- *int* **enabled** - The the GUI
 
-## bool isEnabled () const
+## int isEnabled () const
 
 Returns the current
 ### Return value
 
-**true** if the GUI is enabled; otherwise **false**.
+Current the GUI
 ## bool isActive () const
 
 Returns the current value indicating if any widget in the GUI is in focus.
@@ -416,7 +429,7 @@ Returns the current value indicating if any widget in the GUI is in focus.
 **true** if any widget in the GUI is in focus; otherwise **false**.
 ## WidgetVBox getVBox () const
 
-Returns the current root widget of the GUI.
+Returns the current root widget of the GUI (a [WidgetVBox](../../../api/library/gui/class.widgetvbox_usc.md)).
 ### Return value
 
 Current root widget of the GUI.
@@ -531,7 +544,7 @@ Sets a new value indicating if the OS mouse pointer is displayed, or if the appl
 Returns the current value indicating if the OS mouse pointer is displayed, or if the application cursor is used only.
 ### Return value
 
-**true** if displaying of OS mouse pointer is enabled; otherwise **false**.
+**true** if displaying of OS mouse pointer is enabled ; otherwise **false**.
 ## void setMouseButtons ( int buttons )
 
 Sets a new mouse buttons the input of which is received.
@@ -626,7 +639,33 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
+## void setGlobalCursorMode ( int mode )
+
+Sets a new default cursor movement mode applied to all text edit widgets of this GUI whose own *CursorMode* property is set to *CURSOR_MODE_AUTO*. Reading this property never returns *CURSOR_MODE_AUTO*: it resolves to *CURSOR_MODE_LOGICAL* (the effective default).
+### Arguments
+
+- *int* **mode** - The default cursor mode for text edit widgets
+
+## int getGlobalCursorMode () const
+
+Returns the current default cursor movement mode applied to all text edit widgets of this GUI whose own *CursorMode* property is set to *CURSOR_MODE_AUTO*. Reading this property never returns *CURSOR_MODE_AUTO*: it resolves to *CURSOR_MODE_LOGICAL* (the effective default).
+### Return value
+
+Current default cursor mode for text edit widgets
+## void setGlobalTextDirection ( int direction )
+
+Sets a new default base text direction applied to all widgets of this GUI whose own *TextDirection* property is set to *TEXT_DIRECTION_AUTO*. The default value is *TEXT_DIRECTION_AUTO* (the direction is detected from the text content).
+### Arguments
+
+- *int* **direction** - The default base text direction for widgets
+
+## int getGlobalTextDirection () const
+
+Returns the current default base text direction applied to all widgets of this GUI whose own *TextDirection* property is set to *TEXT_DIRECTION_AUTO*. The default value is *TEXT_DIRECTION_AUTO* (the direction is detected from the text content).
+### Return value
+
+Current default base text direction for widgets
 ---
 
 ## engine.gui. getCurrent ( )
@@ -655,19 +694,6 @@ Checks if a given widget belongs to the GUI.
 ### Return value
 
 **1** if the widget belongs to the GUI; otherwise, **0**.
-## void engine.gui. setFocusedPermanent ( int permanent )
-
-Changes the permanent color of the focused widget.
-### Arguments
-
-- *int* **permanent** - **1** - a font color is overridden with the global GUI focused color; **0** - a font color is unchanged.
-
-## int engine.gui. isFocusedPermanent ( )
-
-Returns a value indicating if the permanent color of the focused widget is changed.
-### Return value
-
-**1** if the font color is overridden with the global GUI focused color; **0** if the font color is unchanged.
 ## int engine.gui. getKeyActivity ( unsigned int key )
 
 Checks if a given key already has a special purpose for the widget in focus.
@@ -1002,7 +1028,7 @@ Returns the path to the regular font currently used for widgets in the current G
 Path to the font file.
 ## int engine.gui. setFontPaths ( string normal_path , string bold_path , string italic_path , string bold_italic_path )
 
-Changes the set of fonts — regular, bold, italic, and italic bold — used for widgets in the current GUI.
+Changes the set of fonts � regular, bold, italic, and italic bold � used for widgets in the current GUI.
 ### Arguments
 
 - *string* **normal_path** - Path to the regular font file.

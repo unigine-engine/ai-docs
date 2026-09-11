@@ -17,6 +17,7 @@ Dialogs script is located in `data/scripts/common` directory of UNIGINE SDK.
 
 Available dialogs are:
 
+
 - **DialogMessage** - message dialog with configurable set of buttons
 - **DialogColor** - color palette
 - **DialogFile** - file load/save dialog with tabs support

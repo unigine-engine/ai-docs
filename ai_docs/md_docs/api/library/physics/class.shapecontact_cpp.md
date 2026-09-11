@@ -10,125 +10,125 @@ This class stores the result of a physical contact (coordinates of the point, co
 
 ### Members
 
----
+## void setObject ( const Ptr < Object >& object )
 
-## static ShapeContactPtr create ( )
-
-ShapeContact class constructor.
-## void setID ( int id )
-
-Sets a new contact ID.
+Sets a new object participating in the contact.
 ### Arguments
 
-- *int* **id** - Contact ID.
+- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Object](../../../api/library/objects/class.object_cpp.md)>&* **object** - The object participating in the contact
 
-## int getID ( )
+## Ptr < Object > getObject () const
 
-Returns the contact ID.
+Returns the current object participating in the contact.
 ### Return value
 
-Contact ID.
-## void setSurface ( int surface )
+Current object participating in the contact
+## void setShape1 ( const Ptr < Shape >& shape1 )
 
-Sets a new contact surface number.
+Sets a new second shape participating in the contact.
 ### Arguments
 
-- *int* **surface** - Contact surface number.
+- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Shape](../../../api/library/physics/class.shape_cpp.md)>&* **shape1** - The second shape participating in the contact
 
-## int getSurface ( )
+## Ptr < Shape > getShape1 () const
 
-Returns the contact surface number.
+Returns the current second shape participating in the contact.
 ### Return value
 
-Contact surface number.
-## void setTime ( float time )
+Current second shape participating in the contact
+## void setShape0 ( const Ptr < Shape >& shape0 )
 
-Sets the time when the contact occurs. In case of CCD (for spheres or capsules), it's the time starting from the current physics simulation tick to the moment when the calculated contact is bound to happen. In case of non-continuous collision detection, it is always 0.
+Sets a new first shape participating in the contact.
 ### Arguments
 
-- *float* **time** - Contact time, in milliseconds.
+- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Shape](../../../api/library/physics/class.shape_cpp.md)>&* **shape0** - The first shape participating in the contact
 
-## float getTime ( )
+## Ptr < Shape > getShape0 () const
 
-Returns the time when the contact occurs. In case of CCD (for spheres or capsules), it returns the time starting from the current physics simulation tick to the moment when the calculated contact is bound to happen. In case of non-continuous collision detection, 0 is always returned.
+Returns the current first shape participating in the contact.
 ### Return value
 
-Contact time, in milliseconds.
+Current first shape participating in the contact
+## void setNormal ( const Math:: vec3 & normal )
+
+Sets a new normal coordinates at the contact point.
+### Arguments
+
+- *const  Math::[vec3](../../../api/library/math/class.vec3_cpp.md)&* **normal** - The normal coordinates at the contact point
+
+## Math:: vec3 getNormal () const
+
+Returns the current normal coordinates at the contact point.
+### Return value
+
+Current normal coordinates at the contact point
+## void setPoint ( const Math:: Vec3 & point )
+
+Sets a new coordinates of the contact point, in world coordinates.
+### Arguments
+
+- *const  Math::[Vec3](../../../api/library/math/class.vec3_cpp.md)&* **point** - The coordinates of the contact point, in world coordinates
+
+## Math:: Vec3 getPoint () const
+
+Returns the current coordinates of the contact point, in world coordinates.
+### Return value
+
+Current coordinates of the contact point, in world coordinates
 ## void setDepth ( float depth )
 
 Sets a new penetration depth of the contact. This distance is measured along the contact [normal](#getNormal_vec3).
 ### Arguments
 
-- *float* **depth** - Contact depth, in units.
+- *float* **depth** - The penetration depth of the contact
 
-## float getDepth ( )
+## float getDepth () const
 
-Returns the penetration depth of the contact. This distance is measured along the contact [normal](#getNormal_vec3).
+Returns the current penetration depth of the contact. This distance is measured along the contact [normal](#getNormal_vec3).
 ### Return value
 
-Contact depth, in units.
-## void setPoint ( const Math:: Vec3 & point )
+Current penetration depth of the contact
+## void setTime ( float time )
 
-Sets new coordinates of the contact point.
+Sets a new time when the contact occurs. In case of [CCD](../../../api/library/physics/class.shape_cpp.md#isContinuous_int), it returns the time starting from the current physics simulation tick to the moment when the calculated contact is bound to happen. In case of non-continuous collision detection, 0 is always returned.
 ### Arguments
 
-- *const  Math::[Vec3](../../../api/library/math/class.vec3_cpp.md) &* **point** - Coordinates of the contact point, in world coordinate system.
+- *float* **time** - The time when the contact occurs
 
-## Math:: Vec3 getPoint ( )
+## float getTime () const
 
-Returns the coordinates of the contact point.
+Returns the current time when the contact occurs. In case of [CCD](../../../api/library/physics/class.shape_cpp.md#isContinuous_int), it returns the time starting from the current physics simulation tick to the moment when the calculated contact is bound to happen. In case of non-continuous collision detection, 0 is always returned.
 ### Return value
 
-Coordinates of the contact point, in world coordinate system.
-## void setNormal ( const Math:: vec3 & normal )
+Current time when the contact occurs
+## void setSurface ( int surface )
 
-Sets new normal coordinates at the contact point.
+Sets a new contact surface number.
 ### Arguments
 
-- *const  Math::[vec3](../../../api/library/math/class.vec3_cpp.md) &* **normal** - Normal coordinates at the contact point.
+- *int* **surface** - The contact surface number
 
-## Math:: vec3 getNormal ( )
+## int getSurface () const
 
-Returns the normal coordinates at the contact point.
+Returns the current contact surface number.
 ### Return value
 
-Normal coordinates at the contact point.
-## void setShape0 ( const Ptr < Shape > & shape0 )
+Current contact surface number
+## void setID ( int id )
 
-Sets the first shape participating in the contact.
+Sets a new contact id.
 ### Arguments
 
-- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Shape](../../../api/library/physics/class.shape_cpp.md)> &* **shape0** - First shape participating in the contact.
+- *int* **id** - The contact id
 
-## Ptr < Shape > getShape0 ( )
+## int getID () const
 
-Returns the first shape participating in the contact.
+Returns the current contact id.
 ### Return value
 
-First shape participating in the contact.
-## void setShape1 ( const Ptr < Shape > & shape1 )
+Current contact id
+---
 
-Sets the second shape participating in the contact.
-### Arguments
+## static ShapeContactPtr create ( )
 
-- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Shape](../../../api/library/physics/class.shape_cpp.md)> &* **shape1** - Second shape participating in the contact.
-
-## Ptr < Shape > getShape1 ( )
-
-Returns the second shape participating in the contact.
-### Return value
-
-Second shape participating in the contact.
-## void setObject ( const Ptr < Object > & val )
-
-Sets the object participating in the contact.
-### Arguments
-
-- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Object](../../../api/library/objects/class.object_cpp.md)> &* **val** - Contact object.
-
-## Ptr < Object > getObject ( )
-
-Returns the object participating in the contact.
-### Return value
-
-Contact object.
+ShapeContact class constructor.

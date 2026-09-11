@@ -79,7 +79,7 @@ Sets a new value indicating if the compression of the albedo texture enabled.
 Returns the current value indicating if the compression of the albedo texture enabled.
 ### Return value
 
-**true** if the albedo texture compression is enabled; otherwise **false**.
+**true** if the albedo texture compression is enabled ; otherwise **false**.
 ## void setEnabledHeightTextureCompression ( bool compression )
 
 Sets a new value indicating if the compression of the height texture enabled.
@@ -92,7 +92,7 @@ Sets a new value indicating if the compression of the height texture enabled.
 Returns the current value indicating if the compression of the height texture enabled.
 ### Return value
 
-**true** if the height texture compression is enabled; otherwise **false**.
+**true** if the height texture compression is enabled ; otherwise **false**.
 ## void setEnabledOpacityHeightTextureCompression ( bool compression )
 
 Sets a new value indicating if the compression of the opacity height texture enabled.
@@ -105,7 +105,7 @@ Sets a new value indicating if the compression of the opacity height texture ena
 Returns the current value indicating if the compression of the opacity height texture enabled.
 ### Return value
 
-**true** if the opacity height texture compression is enabled; otherwise **false**.
+**true** if the opacity height texture compression is enabled ; otherwise **false**.
 ## UGUID getGUID () const
 
 Returns the current [GUID](../../../../api/library/filesystem/class.uguid_cpp.md) of the `.lmap` file containing landscape map data.
@@ -127,7 +127,7 @@ Returns the current path to the directory that is used to store the cache. By de
 Current path to the directory that stores the cache.
 ## Event<const Ptr < LandscapeMapFileCompression > &> getEventEnd () const
 
-Event triggered when {event_description}. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+Event triggered on completion of the landscape map file compression. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -263,10 +263,10 @@ publisher->getEventEnd().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < LandscapeMapFileCompression > &> getEventProgress () const
 
-Event triggered when {event_description}. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+Event triggered on the landscape map file compression progress. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -402,10 +402,10 @@ publisher->getEventProgress().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < LandscapeMapFileCompression > &> getEventBegin () const
 
-Event triggered when {event_description}. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+Event triggered at the beginning of the landscape map file compression. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -541,7 +541,7 @@ publisher->getEventBegin().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## LandscapeMapFileCompression ( )
@@ -552,10 +552,10 @@ Constructor.
 Starts the landscape map file compression process.
 ### Arguments
 
-- *bool* **is_safe** - true to make the Engine automatically call *filesClose()/fileOpen()* methods when performing operations (before modifying an `.lmap` file the Engine should release files via *filesClose()*, while after modification *fileOpen()* should be called), false — to call *filesClose()/fileOpen()* methods manually. The Landscape class has two overloads for the *filesClose()* method: > **Notice:** When **is_safe = true** the Engine shall always call *filesClose(reload_files)* with complete data reloading.
+- *bool* **is_safe** - true to make the Engine automatically call *filesClose()/fileOpen()* methods when performing operations (before modifying an `.lmap` file the Engine should release files via *filesClose()*, while after modification *fileOpen()* should be called), false � to call *filesClose()/fileOpen()* methods manually. The Landscape class has two overloads for the *filesClose()* method: > **Notice:** When **is_safe = true** the Engine shall always call *filesClose(reload_files)* with complete data reloading.
 
-  - [*filesClose()*](../../../../api/library/objects/landscape_terrain/class.landscape_cpp.md#filesClose_void) — to be called in case of moving an `.lmap` file (no data reloading is performed as the file itself was not modified — saves time on reloading data)
-  - [*filesClose(reload_files)*](../../../../api/library/objects/landscape_terrain/class.landscape_cpp.md#filesClose_VECUGUID_void) — to be called in case of deleting or modifying an `.lmap` file.
+  - [*filesClose()*](../../../../api/library/objects/landscape_terrain/class.landscape_cpp.md#filesClose_void) � to be called in case of moving an `.lmap` file (no data reloading is performed as the file itself was not modified � saves time on reloading data)
+  - [*filesClose(reload_files)*](../../../../api/library/objects/landscape_terrain/class.landscape_cpp.md#filesClose_VECUGUID_void) � to be called in case of deleting or modifying an `.lmap` file.
 
 ### Return value
 
@@ -565,10 +565,10 @@ true if the compression operation is successful; otherwise, false.
 Starts the landscape map file decompression process.
 ### Arguments
 
-- *bool* **is_safe** - true to make the Engine automatically call *filesClose()/fileOpen()* methods when performing operations (before modifying an `.lmap` file the Engine should release files via *filesClose()*, while after modification *fileOpen()* should be called), false — to call *filesClose()/fileOpen()* methods manually. The Landscape class has two overloads for the *filesClose()* method: > **Notice:** When **is_safe = true** the Engine shall always call *filesClose(reload_files)* with complete data reloading.
+- *bool* **is_safe** - true to make the Engine automatically call *filesClose()/fileOpen()* methods when performing operations (before modifying an `.lmap` file the Engine should release files via *filesClose()*, while after modification *fileOpen()* should be called), false � to call *filesClose()/fileOpen()* methods manually. The Landscape class has two overloads for the *filesClose()* method: > **Notice:** When **is_safe = true** the Engine shall always call *filesClose(reload_files)* with complete data reloading.
 
-  - [*filesClose()*](../../../../api/library/objects/landscape_terrain/class.landscape_cpp.md#filesClose_void) — to be called in case of moving an `.lmap` file (no data reloading is performed as the file itself was not modified — saves time on reloading data)
-  - [*filesClose(reload_files)*](../../../../api/library/objects/landscape_terrain/class.landscape_cpp.md#filesClose_VECUGUID_void) — to be called in case of deleting or modifying an `.lmap` file.
+  - [*filesClose()*](../../../../api/library/objects/landscape_terrain/class.landscape_cpp.md#filesClose_void) � to be called in case of moving an `.lmap` file (no data reloading is performed as the file itself was not modified � saves time on reloading data)
+  - [*filesClose(reload_files)*](../../../../api/library/objects/landscape_terrain/class.landscape_cpp.md#filesClose_VECUGUID_void) � to be called in case of deleting or modifying an `.lmap` file.
 
 ### Return value
 
@@ -584,10 +584,10 @@ Sets the type of the compressor used for the specified mask.
 - *int* **mask** - Mask number.
 - *[Landscape::COMPRESSOR_TYPE](../../../../api/library/objects/landscape_terrain/class.landscape_cpp.md#COMPRESSOR_TYPE)* **compressor_type** - Compressor type:
 
-  - 0 – None
-  - 1 – Our Method
-  - 2 – LZ4
-  - 3 – Zlib
+  - 0 � None
+  - 1 � Our Method
+  - 2 � LZ4
+  - 3 � Zlib
 
 ## void setMaskOpacityCompressor ( int mask , Landscape::COMPRESSOR_TYPE compressor_type )
 
@@ -597,10 +597,10 @@ Sets the type of the compressor used for the opacity data of the specified mask.
 - *int* **mask** - Mask number.
 - *[Landscape::COMPRESSOR_TYPE](../../../../api/library/objects/landscape_terrain/class.landscape_cpp.md#COMPRESSOR_TYPE)* **compressor_type** - Compressor type:
 
-  - 0 – None
-  - 1 – Our Method
-  - 2 – LZ4
-  - 3 – Zlib
+  - 0 � None
+  - 1 � Our Method
+  - 2 � LZ4
+  - 3 � Zlib
 
 ## void setCompressorAll ( Landscape::COMPRESSOR_TYPE compressor_type )
 
@@ -609,10 +609,10 @@ Sets the type of the compressor used to compress all data.
 
 - *[Landscape::COMPRESSOR_TYPE](../../../../api/library/objects/landscape_terrain/class.landscape_cpp.md#COMPRESSOR_TYPE)* **compressor_type** - Compressor type:
 
-  - 0 – None
-  - 1 – Our Method
-  - 2 – LZ4
-  - 3 – Zlib
+  - 0 � None
+  - 1 � Our Method
+  - 2 � LZ4
+  - 3 � Zlib
 
 ## int getMaskCompressor ( int mask )
 
@@ -624,10 +624,10 @@ Returns the current type of the compressor used for the specified mask.
 ### Return value
 
 Compressor type:
-- 0 – None
-- 1 – Our Method
-- 2 – LZ4
-- 3 – Zlib
+- 0 � None
+- 1 � Our Method
+- 2 � LZ4
+- 3 � Zlib
 
 
 ## int getMaskOpacityCompressor ( int mask )
@@ -640,10 +640,10 @@ Returns the current type of the compressor used for the opacity data of the spec
 ### Return value
 
 Compressor type:
-- 0 – None
-- 1 – Our Method
-- 2 – LZ4
-- 3 – Zlib
+- 0 � None
+- 1 � Our Method
+- 2 � LZ4
+- 3 � Zlib
 
 
 ## void setEnabledMaskTextureCompression ( int mask , bool enable )

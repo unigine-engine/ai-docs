@@ -33,9 +33,9 @@ Node synchronization mask.
 |---|---|
 | **NODE_FLAGS** = 1 | Update only simple node flag (*enabled*, *immovable*, etc.) |
 | **TRANSFORM** = 1 << 1 | Update node transform (with interpolation). |
-| **BASE** = 3 | Update base information NODEFLAGS & TRANSFORM. |
+| **BASE** = 3 | Update base information *NODEFLAGS & TRANSFORM*. |
 | **DERIVED** = 31 << 3 | Update information of derived class (11111000 - without the first 3 bits). This mask allows synchronizing the node subtype (such as player, light, decal, etc.) parameters. |
-| **OBJECT** = 1 << 3 | Update object parameters. All other parameters of objects except for NODE_FLAGS and TRANSFORM (particles trasform for object particles, bones transform for object skinned) |
+| **OBJECT** = 1 << 3 | Update object parameters. All other parameters of objects except for *NODE_FLAGS* and *TRANSFORM* (particles trasform for object particles, bones transform for object skinned) |
 | **OBJECT_SURFACE** = 1 << 4 | Update all parameters of surfaces (surface flags and information about inherited materials for each surface). |
 
 ## DEFAULT_SYNC_NODES
@@ -58,31 +58,62 @@ The total number of materials in the synchronization queue.
 The total number of nodes in the synchronization queue.
 ## byte DefaultSyncNodes
 
-The Current mask defining types of nodes that will be synchronized automatically after world loading.
+The mask defining types of nodes that will be synchronized automatically after world loading. This mask can be used for optimization reasons limiting the number of nodes to be synchronized and thus reducing network load. For example, you can restrict automatic synchronization to global water, and clouds only:
+```csharp
+master.SetDefaultSyncNodes(Unigine.Plugins.Syncker.Master.DEFAULT_SYNC_NODES.WATER_GLOBAL | Unigine.Plugins.Syncker.Master.DEFAULT_SYNC_NODES.CLOUD_LAYER);
+```
+
+
 ## bool SyncWorldLoad
 
-The true if synchronization of world loading is enabled; otherwise, false.
+The value indicating whether synchronization of world loading via the UDP protocol is enabled.
 ## bool SyncRender
 
-The A value indicating if synchronization of all render parameters is enabled.
+The A value indicating if synchronization of all render parameters via the UDP protocol (light scattering, occlusion, etc.) is enabled.
 > **Notice:** When all slaves use the same rendering settings, synchronization of render parameters can be disabled.
 
 
 ## bool SyncViewOffset
 
-The true if synchronization of view offset for projections is enabled; otherwise, false.
+The value indicating whether synchronization of view offset for projections is enabled.
 ## bool SyncPlayer
 
-The true if synchronization of the current player is enabled; otherwise, false.
+The value indicating whether synchronization of the current player's parameters via the UDP protocol is enabled.
+The following parameters are synchronized:
+
+
+- Its transformation
+- Projection matrix
+- Viewport mask
+- Mask for reflections
+- Applied post-materials (if any)
+
+
+> **Notice:** Current player synchronization is used only when all slaves use the same camera.
+
+
 ## 🔒︎ int NumSlaves
 
 The total number of the slaves connected to the master.
 ## bool AllowExtraSlaves
 
-The true if new Slaves can connect to the Master after starting the session; otherwise, false.
+The value indicating whether new Slaves can connect to the Master after starting the session. This can be used, for example, to connect a Slave which is used as a tool for configuring projections and does not operate as an IG.
 ## float SendRate
 
-The Frequency of sending packets to Slaves.
+The
+frequency of sending packets to Slaves. Use this method when network load is too high and slows down the whole IG system. It is recommended to use this method with [interpolation](../../../../api/library/plugins/syncker/class.syncker_syncker_cs.md#setInterpolation_int_void) enabled.
+
+
+```cpp
+//On the Master
+master->setSendRate(15.0f); // send packets 15 times per second
+
+//Both on the Master and all Slaves
+syncker->setInterpolationPeriod(0.1f); // 100 ms delay
+
+```
+
+
 ### Members
 
 ---
@@ -129,7 +160,10 @@ Returns the name of the world file currently loaded on the specified slave.
 Name of the world file currently loaded on the specified slave.
 ## void AddSyncNode ( Node node , byte sync_mask = SYNC_MASK::NODE_FLAGS | SYNC_MASK::TRANSFORM )
 
+
 Enables synchronization of parameters of the given node via the UDP protocol.
+
+
 > **Notice:** Scene nodes are not synchronized by default, this method is used to add a particular node to the synchronization queue.
 
 
@@ -140,7 +174,10 @@ Enables synchronization of parameters of the given node via the UDP protocol.
 
 ## void AddSyncNodes ( Node [] nodes , byte sync_mask = SYNC_MASK::NODE_FLAGS | SYNC_MASK::TRANSFORM )
 
+
 Enables synchronization of parameters of given nodes via the UDP protocol.
+
+
 > **Notice:** Scene nodes are not synchronized by default, this method is used to add particular nodes to the synchronization queue.
 
 
@@ -217,7 +254,10 @@ Removes the specified nodes from the synchronization queue.
 Removes all nodes from the synchronization queue.
 ## void AddSyncMaterial ( Material material )
 
+
 Enables synchronization of the given material via the UDP protocol.
+
+
 > **Notice:** Scene materials are not synchronized by default, this method is used to add a particular material to the synchronization queue.
 
 
@@ -227,7 +267,10 @@ Enables synchronization of the given material via the UDP protocol.
 
 ## void AddSyncMaterials ( Material [] materials )
 
+
 Enables synchronization of given materials via the UDP protocol.
+
+
 > **Notice:** Scene materials are not synchronized by default, this method is used to add particular materials to the synchronization queue.
 
 
@@ -281,7 +324,10 @@ Removes the specified materials from the synchronization queue.
 Removes all materials from the synchronization queue.
 ## bool CreateNode ( Node node , byte sync_mask = 0 )
 
+
 Synchronizes creation of the given node on all Slaves. This method is **to be called after node creation on the Master**.
+
+
 > **Notice:** It is recommended to use the [*loadNode()*](#loadNode_cstr_uchar_Mat4_Node) or [*loadNodereference()*](#loadNodeReference_cstr_uchar_Mat4_NodeReference) methods whenever possible as this approach **allows adding nodes of all types**, unlike the [*createNode()*](#createNode_Node_uchar_bool) method that supports only a limited number of them.
 
  **Example:**
@@ -319,7 +365,10 @@ Returns a value indicating if the given node was created via the [*createNode()*
 true if the given node was created via the [*createNode()*](#createNode_Node_uchar_bool) method; otherwise, false.
 ## void SetCustomPlayer ( string name , Player player )
 
+
 Sets the specified player for the view, view group, or computer with the specified name.
+
+
 > **Notice:** Synchronization of the [main master camera](../../../../code/plugins/syncker/index.md#main_camera) is disabled.
 
 
@@ -344,7 +393,7 @@ Loads a world from the specified file on the Master and all Slaves. Syncker is a
 
 ## Node LoadNode ( string path , byte sync_mask = 0 , mat4 init_transform )
 
-Loads a node from the specified file to the world on the Master and all Slaves and places it to the specified ititial transformation. This is a network analogue of the [loadNode()](../../../../api/library/engine/class.world_cs.md#loadNode_cstr_int_Node) method of the *World* class. By default, the loaded node is not synchronized, which is suitable for static objects at run time and at the same time saves performance. For dynamic objects to be synchronized, the suitable synchronization mask should be set.
+Loads a node from the specified file to the world on the Master and all Slaves and places it to the specified ititial transformation. This is a network analogue of the *[loadNode()](../../../../api/library/engine/class.world_cs.md#loadNode_cstr_int_Node)* method of the *World* class. By default, the loaded node is not synchronized, which is suitable for static objects at run time and at the same time saves performance. For dynamic objects to be synchronized, the suitable synchronization mask should be set.
 ### Arguments
 
 - *string* **path** - Path to the `*.node` file.
@@ -356,7 +405,7 @@ Loads a node from the specified file to the world on the Master and all Slaves a
 Loaded node or nullptr if an error has occurred.
 ## Node LoadNode ( string path , byte sync_mask = 0 )
 
-Loads a node from the specified file to the world on the Master and all Slaves and places it at the origin with the default transformation. This is a network analogue of the [loadNode()](../../../../api/library/engine/class.world_cs.md#loadNode_cstr_int_Node) method of the *World* class. By default, the loaded node is not synchronized, which is suitable for static objects at run time and at the same time saves performance. For dynamic objects to be synchronized, the suitable synchronization mask should be set.
+Loads a node from the specified file to the world on the Master and all Slaves and places it at the origin with the default transformation. This is a network analogue of the *[loadNode()](../../../../api/library/engine/class.world_cs.md#loadNode_cstr_int_Node)* method of the *World* class. By default, the loaded node is not synchronized, which is suitable for static objects at run time and at the same time saves performance. For dynamic objects to be synchronized, the suitable synchronization mask should be set.
 ### Arguments
 
 - *string* **path** - Path to the `*.node` file.

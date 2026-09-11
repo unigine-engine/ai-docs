@@ -4,7 +4,7 @@
 Interface for path loading, manipulating and saving.
 
 
-The **path** is a spline along which an object can be moved. Such splines can be created, for example, in 3ds Max and then [exported](../../../tools/plugins/3dsmax/index.md#path_export) to a `*.path` file. Or, they can be created in the code by means of the *Path* class and then saved to the `*.path` file.
+The **path** is a spline along which an object can be moved. Such splines can be created, for example, in 3ds Max and then exported to a `*.path` file. Or, they can be created in the code by means of the *Path* class and then saved to the `*.path` file.
 
 
 > **Warning:** There is no connection between functions of the *Path* class and pathfinding-related functions.
@@ -92,7 +92,7 @@ Returns the angular velocity of the object moving along the path at the specifie
 ### Arguments
 
 - *float* **time** - Time in seconds.
-- *bool* **loop** - Flag indicating if the path is close.
+- *bool* **loop** - Flag indicating if the path is looped. The default is 0 (path isn't looped).
 
 ### Return value
 
@@ -213,7 +213,7 @@ Returns the linear velocity of the object moving along the path at the specified
 ### Arguments
 
 - *float* **time** - Time in seconds.
-- *bool* **loop** - Flag indicating if the path is looped.
+- *bool* **loop** - Flag indicating if the path is looped. The default is 0 (path isn't looped).
 
 ### Return value
 
@@ -224,7 +224,7 @@ Returns the position of the object moving along the path at the specified time. 
 ### Arguments
 
 - *float* **time** - Time in seconds.
-- *bool* **loop** - Flag indicating if the path is looped.
+- *bool* **loop** - Flag indicating if the path is looped. The default is 0 (path isn't looped).
 
 ### Return value
 
@@ -235,7 +235,7 @@ Returns the rotation of the object moving along the path at the specified time. 
 ### Arguments
 
 - *float* **time** - Time in seconds.
-- *bool* **loop** - Flag indicating if the path is looped.
+- *bool* **loop** - Flag indicating if the path is looped. The default is 0 (path isn't looped).
 
 ### Return value
 
@@ -246,7 +246,7 @@ Returns the scale of the object moving along the path at the specified time. If 
 ### Arguments
 
 - *float* **time** - Time in seconds.
-- *bool* **loop** - Flag indicating if the path is looped.
+- *bool* **loop** - Flag indicating if the path is looped. The default is 0 (path isn't looped).
 
 ### Return value
 
@@ -257,7 +257,7 @@ Returns the transformation of the object moving along the path at the specified 
 ### Arguments
 
 - *float* **time** - Time in seconds.
-- *bool* **loop** - Flag indicating if the path is looped.
+- *bool* **loop** - Flag indicating if the path is looped. The default is 0 (path isn't looped).
 
 ### Return value
 
@@ -286,7 +286,7 @@ Returns 1 if the operation was a success; otherwise, 0 is returned.
 Removes the specified frame.
 ### Arguments
 
-- *int* **num** - The frame number.
+- *int* **num** - Frame number.
 
 ## bool Save ( string name )
 

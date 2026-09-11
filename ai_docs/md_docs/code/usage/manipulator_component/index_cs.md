@@ -89,7 +89,7 @@ private Unigine.Node GetNodeUnderCursor()
 Now let's put it all together and add a keyboard handler to switch the current manipulator. For example, let's use **Z, X, C** keys to select *Translator, Rotator, Scaler* Manipulators accordingly. The selected widget will be displayed on the screen where the object is located (i.e. it will have the same transformation).
 
 
-1. Create a new [C# component](../../../principles/component_system/component_system_cs/index.md) — *Manipulator*. Double-click it in the Asset Browser to edit code in your IDE.
+1. Create a new [C# component](../../../principles/component_system/component_system_cs/index.md) � *Manipulator*. Double-click it in the Asset Browser to edit code in your IDE.
 2. Copy the code below and paste it to your component.
 3. Assign *Manipulator* to any enabled node in the world and click *Play*.
 

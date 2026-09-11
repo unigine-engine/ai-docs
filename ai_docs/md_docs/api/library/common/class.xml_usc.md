@@ -252,8 +252,9 @@ Returns the current number of arguments.
 Current number of arguments.
 ## int getNumChildren () const
 
-Returns the current Returns a number of children contained in the node.
+Returns the current number of children contained in the node.
 In the standard XML model the child nodes can be of the following types: node, text node and comment. The data of the XML node is considered to be an unnamed child node, resulting in correct parsing of such a code:
+
 
 ```xml
 <text>
@@ -262,7 +263,10 @@ In the standard XML model the child nodes can be of the following types: node, t
 
 ```
 
- Hence if a node has the data, it will add to the number of its children.
+
+Hence if a node has the data, it will add to the number of its children.
+
+
 ### Return value
 
 Current
@@ -296,7 +300,7 @@ Creates an XML tree with a given node as a root.
 ### Arguments
 
 - *string* **name** - Name of the node that will be a root.
-- *string* **args** - Optional arguments to the root node. If provided, they should be in this form: *arg1=\"value1\" arg2=\"value2\" …* If values do not contain spaces, escaped quotes can be omitted.
+- *string* **args** - Optional arguments to the root node. If provided, they should be in this form: *arg1=\"value1\" arg2=\"value2\" �* If values do not contain spaces, escaped quotes can be omitted.
 
 ## bool setArg ( )
 
@@ -365,7 +369,10 @@ Sets a value of a given boolean argument.
 **1** if the operation was successful; otherwise, **0**.
 ## int getBoolArg ( string name , int value )
 
+
 Returns a value of a given boolean argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -376,10 +383,13 @@ Returns a value of a given boolean argument.
 
 ### Return value
 
-**1** if the argument has a value *1*, *true* or *TRUE*; **0**, if the argument has a value *0*, *false* or *FALSE*; otherwise, **0**.
+**1** if the argument has a value 1, true or TRUE; **0**, if the argument has a value 0, false or FALSE; otherwise, **0**.
 ## int getBoolArg ( string name )
 
+
 Returns a value of a given boolean argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -392,7 +402,10 @@ Returns a value of a given boolean argument.
 **1** if the argument has a value of 1, **1** or TRUE; or **0**, if the argument has a value 0, **0** or FALSE; otherwise, 0.
 ## getChild ( int num )
 
+
 Returns a child node by its name or index number in the child list.
+
+
 > **Notice:** To check if a child with a given name exists, use the [*isChild()*](#isChild_cstr_int) method.
 
 
@@ -436,7 +449,10 @@ Sets a value of a given *dmat4* argument.
 Always **1**.
 ## dmat4 getDMat4Arg ( string name )
 
+
 Returns a value of a given *dmat4* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -460,7 +476,10 @@ Sets a value of a given *double* argument.
 Always **1**.
 ## double getDoubleArg ( string name , double value )
 
+
 Returns a value of a given *double* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -474,7 +493,10 @@ Returns a value of a given *double* argument.
 Argument value.
 ## double getDoubleArg ( string name )
 
+
 Returns a value of a given *double* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -522,7 +544,10 @@ Sets a value of a given *dvec3* argument.
 Always **1**.
 ## dvec3 getDVec3Arg ( string name )
 
+
 Returns a value of a given *dvec3* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -546,7 +571,10 @@ Sets a value of a given *dvec4* argument.
 Always **1**.
 ## dvec4 getDVec4Arg ( string name )
 
+
 Returns a value of a given *dvec4* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -570,7 +598,10 @@ Sets a value of a given *float* argument.
 Always **1**.
 ## float getFloatArg ( string name , float value )
 
+
 Returns a value of a given *float* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -584,7 +615,10 @@ Returns a value of a given *float* argument.
 Argument value.
 ## float getFloatArg ( string name )
 
+
 Returns a value of a given *float* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -617,7 +651,10 @@ Sets a value for a given *int* argument in a given number notation. By default, 
 **1** if the value is set successfully; otherwise, **0**.
 ## int getIntArg ( string name )
 
+
 Returns a value of a given *int* argument.
+
+
 > **Notice:** To check whether the argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -630,7 +667,10 @@ Returns a value of a given *int* argument.
 Argument value.
 ## int getIntArg ( string name , int value )
 
+
 Returns a value of a given *int* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -683,7 +723,10 @@ Sets a value of a given *ivec2* argument.
 Always **1**.
 ## ivec2 getIVec2Arg ( string name )
 
+
 Returns a value of a given *ivec2* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -707,7 +750,10 @@ Sets a value of a given *ivec3* argument.
 Always **1**.
 ## ivec3 getIVec3Arg ( string name )
 
+
 Returns a value of a given *ivec3* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -731,7 +777,10 @@ Sets a value of a given *ivec4* argument.
 Always **1**.
 ## ivec4 getIVec4Arg ( string name )
 
+
 Returns a value of a given *ivec4* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -755,7 +804,10 @@ Sets a value of a given *mat4* argument.
 Always **1**.
 ## mat4 getMat4Arg ( string name )
 
+
 Returns a value of a given *mat4* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -779,7 +831,10 @@ Sets a value of a given *quat* argument.
 Always **1**.
 ## quat getQuatArg ( string name )
 
+
 Returns a value of a given *quat* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -839,7 +894,10 @@ Sets a value of a given *vec2* argument.
 Always **1**.
 ## vec2 getVec2Arg ( string name )
 
+
 Returns a value of a given *vec2* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -863,7 +921,10 @@ Sets a value of a given *vec3* argument.
 Always **1**.
 ## vec3 getVec3Arg ( string name )
 
+
 Returns a value of a given *vec3* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -887,7 +948,10 @@ Sets a value of a given *vec4* argument.
 Always **1**.
 ## vec4 getVec4Arg ( string name )
 
+
 Returns a value of a given *vec4* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -979,13 +1043,13 @@ Searches for the number of the XML node child by name.
 
 ### Return value
 
-The number of the XML node child if it is exists; otherwise, **-1**.
+The number of the XML node child if it is exists; otherwise, -1.
 ## bool load ( bool skip_errors = false )
 
 Loads an XML document and sets the current node to be the root of the parsed tree.
 ### Arguments
 
-- *bool* **skip_errors** - **1** to enable automatic skipping of errors (the file will be loaded in any case); **0** — to disable it (the file will not be loaded in case of any error).
+- *bool* **skip_errors** - **1** to enable automatic skipping of errors (the file will be loaded in any case); **0** � to disable it (the file will not be loaded in case of any error).
 
 ### Return value
 
@@ -1027,14 +1091,14 @@ Removes a child node and its descendants from the current XML node.
 Removed child node and its descendants, if they are found; otherwise, 0.
 ## bool save ( bool binary = false )
 
-Formats the tree of the current node and writes it to the specified file in the specified format. Creates the given file path if it doesn’t exist yet (including subdirectories).
+Formats the tree of the current node and writes it to the specified file in the specified format. Creates the given file path if it doesn�t exist yet (including subdirectories).
 ### Arguments
 
-- *bool* **binary** - Binary format flag: use true to save data to a binary file, or **false** - to save it to a text file.
+- *bool* **binary** - Binary format flag: use true to save data to a binary file, or false - to save it to a text file.
 
 ### Return value
 
-**true** if the file is written successfully; otherwise, **false**.
+true if the file is written successfully; otherwise, false.
 ## String symbols ( string arg1 )
 
 Replaces ampersand characters with character entity references.
@@ -1047,7 +1111,7 @@ Replaces ampersand characters with character entity references.
 String which contains replaced ampersand characters with character entity references.
 ## int setPaletteArg ( string name , Palette value )
 
-Sets a palette value of a given argument.
+Sets a *palette* value of a given argument.
 ### Arguments
 
 - *string* **name** - The argument name.
@@ -1058,7 +1122,7 @@ Sets a palette value of a given argument.
 Always **1**.
 ## Palette getPaletteArg ( string name )
 
-Returns a palette value of a specified argument.
+Returns a *palette* value of a specified argument.
 ### Arguments
 
 - *string* **name** - The argument name.
@@ -1068,14 +1132,14 @@ Returns a palette value of a specified argument.
 Value of the argument, if it is found; otherwise, **0**.
 ## void setPaletteData ( Palette data )
 
-Sets a palette content for the node. This can be done only for nodes with no children.
+Sets a *palette* content for the node. This can be done only for nodes with no children.
 ### Arguments
 
 - *[Palette](../../../api/library/common/class.palette_usc.md)* **data** - Content to set.
 
 ## Palette getPaletteData ( )
 
-Returns a palette interpretation of data stored in the node.
+Returns a *palette* interpretation of data stored in the node.
 ### Return value
 
 Data stored in the node.
@@ -1098,7 +1162,10 @@ Sets a *long* value of a given argument.
 Always **1**.
 ## long getLongArg ( string name )
 
+
 Returns a value of a given *long* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -1111,7 +1178,10 @@ Returns a value of a given *long* argument.
 The argument value.
 ## long getLongArg ( string name , long value )
 
+
 Returns a value of a given *long* argument.
+
+
 > **Notice:** To check if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 

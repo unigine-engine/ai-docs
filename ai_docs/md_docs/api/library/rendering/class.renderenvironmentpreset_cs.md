@@ -6,6 +6,7 @@ The class represents an [environment preset](../../../editor2/settings/render_se
 
 To get an instance of the class, use the *[Render.getEnvironmentPreset()](../../../api/library/rendering/class.render_cs.md#getEnvironmentPreset_int_RenderEnvironmentPreset)* method:
 
+
 ```csharp
 // get the second environment preset
 RenderEnvironmentPreset preset = Render.GetEnvironmentPreset(1);
@@ -128,6 +129,9 @@ The Falloff of the Fresnel effect for Mie intensity.
 ## float HazeScatteringMieIntensity
 
 The Current minimum Mie intensity value for geometry-occluded areas in the [0.0f, 1.0f] range.
+## float HazePhysicalVisibilityThreshold
+
+The threshold for the physical haze visibility factor: visibility is normalized by this value, so lower thresholds make the haze reach its full density sooner. The default value is 1.
 ### Members
 
 ---

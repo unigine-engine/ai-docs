@@ -48,6 +48,63 @@ To increase performance, you can use point indices instead of point coordinates.
 
 ### Members
 
+## int getNumPolygons () const
+
+Returns the current number of polygons drawn in the canvas widget.
+### Return value
+
+Current number of polygons drawn in the canvas widget
+## int getNumLines () const
+
+Returns the current number of lines drawn in the canvas widget.
+### Return value
+
+Current number of lines drawn in the canvas widget
+## int getNumTexts () const
+
+Returns the current number of text strings drawn in the canvas widget.
+### Return value
+
+Current number of text strings drawn in the canvas widget
+## void setTransform ( mat4 transform )
+
+Sets a new transformation matrix applied to all primitives on the canvas widget.
+### Arguments
+
+- *mat4* **transform** - The transformation matrix applied to all primitives on the canvas widget
+
+## mat4 getTransform () const
+
+Returns the current transformation matrix applied to all primitives on the canvas widget.
+### Return value
+
+Current transformation matrix applied to all primitives on the canvas widget
+## void setColor ( vec4 color )
+
+Sets a new background color of the canvas widget.
+### Arguments
+
+- *vec4* **color** - The background color of the canvas widget
+
+## vec4 getColor () const
+
+Returns the current background color of the canvas widget.
+### Return value
+
+Current background color of the canvas widget
+## void setTexture ( string texture )
+
+Sets a new path to the texture used by default for new polygons added to the canvas widget.
+### Arguments
+
+- *string* **texture** - The path to the default texture for new polygons added to the canvas widget
+
+## const char * getTexture () const
+
+Returns the current path to the texture used by default for new polygons added to the canvas widget.
+### Return value
+
+Current path to the default texture for new polygons added to the canvas widget
 ---
 
 ## static WidgetCanvas ( Gui gui )
@@ -60,19 +117,6 @@ Constructor. Creates a new canvas widget and adds it to the specified GUI.
 ## static WidgetCanvas ( )
 
 Constructor. Creates a new canvas widget and adds it to the Engine GUI.
-## void setColor ( vec4 color )
-
-Sets a background color for the canvas widget.
-### Arguments
-
-- *vec4* **color** - Background color.
-
-## vec4 getColor ( )
-
-Returns the background color of the canvas widget.
-### Return value
-
-Background color.
 ## void setImage ( Image image )
 
 Sets the image used as the default texture for new polygons added to the canvas widget.
@@ -204,12 +248,6 @@ Returns the number of the points that form line segments.
 ### Return value
 
 The number of line segment points.
-## int getNumLines ( )
-
-Returns the number of lines drawn in the canvas widget.
-### Return value
-
-The number of lines.
 ## int getNumPolygonIndices ( int polygon )
 
 Returns the total number of indices set for points of the specified polygon.
@@ -230,18 +268,6 @@ Returns the number of points that form the specified polygon.
 ### Return value
 
 The number of polygon points.
-## int getNumPolygons ( )
-
-Returns the number of polygons drawn in the canvas widget.
-### Return value
-
-The number of polygons.
-## int getNumTexts ( )
-
-Returns the number of text strings drawn in the canvas widget.
-### Return value
-
-The number of text strings.
 ## int getPolygon ( int num )
 
 Returns the canvas element ID of the polygon by its number.
@@ -718,19 +744,6 @@ Returns the current transformation matrix of the specified text.
 ### Return value
 
 Transformation matrix.
-## void setTexture ( string texture )
-
-Sets the texture that will be used by default for new polygons added to the canvas widget.
-### Arguments
-
-- *string* **texture** - Path to the texture.
-
-## string getTexture ( )
-
-Returns the path to the texture used by default for new polygons added to the canvas widget.
-### Return value
-
-Path to the texture.
 ## int getTextWidth ( int text )
 
 Returns the width of the given text element on the canvas widget.
@@ -741,19 +754,6 @@ Returns the width of the given text element on the canvas widget.
 ### Return value
 
 Text width in pixels.
-## void setTransform ( mat4 transform )
-
-Sets a transformation matrix applied to all primitives on the canvas widget.
-### Arguments
-
-- *mat4* **transform** - Transformation matrix.
-
-## mat4 getTransform ( )
-
-Returns a transformation matrix applied to all primitives on the canvas widget.
-### Return value
-
-Transformation matrix.
 ## int addLine ( int order = 0 )
 
 Adds a new line to the canvas widget. By default, it is rendered in white color.

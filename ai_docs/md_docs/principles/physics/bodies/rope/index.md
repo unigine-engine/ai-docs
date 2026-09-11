@@ -38,7 +38,7 @@ The only acceptable mesh type for a *Rope* body is a **cylinder**. You can use a
 5. [Assign](#assign) the *Rope* body to the created dynamic mesh object.
 
 
-## Assigning a Rope Body
+## Assigning Rope Body
 
 
 To assign a *Rope* body to an object via [UnigineEditor](../../../../editor2/index.md) perform the following steps:
@@ -47,7 +47,7 @@ To assign a *Rope* body to an object via [UnigineEditor](../../../../editor2/ind
 1. Open the *[World Hierarchy](../../../../editor2/interface/index.md#world_hierarchy)* window.
 2. Select a [**dynamic mesh**](../../../../objects/objects/mesh_dynamic/index.md) object to assign a *Rope* body to. > **Notice:** Make sure that the object's mesh meets [requirements](#requirements)!
 3. Go to the ***Physics*** tab in the *[Parameters](../../../../editor2/interface/index.md#parameters)* window and assign a physical [body](../../../../principles/physics/bodies/index.md) to the selected object by selecting *Body -> **Rope***. ![Adding a body](../add_body.jpg)
-4. Set the body's name and change other parameters, if necessary.
+4. Set the body's name and change other [parameters](#parameters), if necessary.
 
 
 ## Attaching a Rope
@@ -106,9 +106,9 @@ For example, we need to create a rope that is glued to the hand of a *Mesh Skinn
 |---|---|
 | Collision | Toggles collision detection for the rope body on and off. |
 | Name | Name of the body. This name may become helpful for identification when creating joints, detecting contacts, handling callbacks, etc. |
-| Iterations Mode | The mode that determines how the number of iterations for solving the constraints of the particles body is calculated. By selecting the suitable mode for each rope body you'll have flexibility in fine-tuning of performance and simulation quality. - ***Body Iterations Only*** — the resulting number of iterations is equal to the [value set for the body](#iterations). - ***Global Iterations * Body Iterations*** — the resulting number of iterations is equal to the [value set for the body](#iterations) multiplied by the [global physics iterations number](../../../../editor2/settings/physics_global/index.md#iterations). |
+| Iterations Mode | The mode that determines how the number of iterations for solving the constraints of the particles body is calculated. By selecting the suitable mode for each rope body you'll have flexibility in fine-tuning of performance and simulation quality. - ***Body Iterations Only*** � the resulting number of iterations is equal to the [value set for the body](#iterations). - ***Global Iterations * Body Iterations*** � the resulting number of iterations is equal to the [value set for the body](#iterations) multiplied by the [global physics iterations number](../../../../editor2/settings/physics_global/index.md#iterations). |
 | Iterations | The number of **iterations** controls the accuracy of the solution of rope inner joints. This number indicates how many times the joints are solved per [physics frame](../../../../code/fundamentals/execution_sequence/index.md#framerates). Joints are solved in a random order to provide more predictable stretching results. - **Low number of iterations** results in faster simulation. However, in this case the rope is more prone to stretching and looks more elastic. The minimum value is 1. - **High number of iterations** provides more accurate solution of constraints. In this case the rope looks stiffer. The maximum value is 16. > **Notice:** Increased number of iterations is considerably expensive and at some point ceases to bring a noticeable benefit, so it should be kept within a reasonable cost-effectiveness limit. Increasing the number of iterations may help to avoid twitching of a rope. |
-| Mass | [Mass of the body](../../../../principles/physics/bodies/index.md#mass), in kilograms. > **Notice:** **Do not use real masses**, this can make physics simulation unstable. Adjust mass values when necessary to achieve realistic behavior (e.g. for a wheel mass of **25** kg it might be better to set **60** kg for a car body instead of 2000 kg). It is very important to ensure mass balance – avoid connection of too heavy bodies to very light ones, otherwise the joints may become unstable! |
+| Mass | [Mass of the body](../../../../principles/physics/bodies/index.md#mass), in kilograms. > **Notice:** **Do not use real masses**, this can make physics simulation unstable. Adjust mass values when necessary to achieve realistic behavior (e.g. for a wheel mass of **25** kg it might be better to set **60** kg for a car body instead of 2000 kg). It is very important to ensure mass balance � avoid connection of too heavy bodies to very light ones, otherwise the joints may become unstable! |
 | Radius | Radius of the particles forming the rope body and represented as sphere shapes. Rope particles use continuous collision detection, so higher values are preferable for more robust behavior. Collisions between the particles are not calculated and should not be considered when setting a radius. Be careful, however, as particles too big in diameter can provide incorrect interaction with environment (twitching or blowing up of the rope). Too low radius results in poor collision handling. |
 | Rigidity | Additional constraint of the rope motion to control its stiffness and flexibility: - **Lower** values make the rope elastic, flexible and easily deformable. - **Higher** values make the rope stiffer and less prone to deformation. |
 | Friction | Friction coefficient of the body, enables modeling of rough rubbing of surfaces. The higher the value, the less tendency the body has to slide. |

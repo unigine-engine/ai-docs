@@ -5,14 +5,13 @@
 
 Compress class is used to compress and decompress data using the following algorithms:
 
-- **Jackalless** — recommended. UNIGINE compression method optimized for compressing 2D and 3D textures. It provides better results than **LZ4** and **Zlib** without deteriorating the quality.
-- **LZ4** — temporary option, planned to be removed in the upcoming releases.
-- **Zlib** — for high compression ratio (can provide up to 2 times higher compression ratio, but takes up to 20 times longer).
+
+- **Jackalless** � recommended. UNIGINE compression method optimized for compressing 2D and 3D textures. It provides better results than **LZ4** and **Zlib** without deteriorating the quality.
+- **LZ4** � temporary option, planned to be removed in the upcoming releases.
+- **Zlib** � for high compression ratio (can provide up to 2 times higher compression ratio, but takes up to 20 times longer).
 
 
 ## Compress Class
-
-### Members
 
 ---
 

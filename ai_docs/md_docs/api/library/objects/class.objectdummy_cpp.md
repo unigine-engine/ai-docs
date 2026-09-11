@@ -10,8 +10,6 @@ A [dummy object](../../../objects/objects/dummy/index.md) can be used when an in
 
 ## ObjectDummy Class
 
-### Members
-
 ---
 
 ## static ObjectDummyPtr create ( )

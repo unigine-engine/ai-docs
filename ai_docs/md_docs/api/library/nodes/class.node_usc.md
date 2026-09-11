@@ -459,7 +459,7 @@ Returns the current value indicating if interaction with [World Clutters](../../
 
 ### Return value
 
-**true** if interaction with [World Clutters](../../../api/library/worlds/class.worldclutter_usc.md) and [Mesh Clutters](../../../api/library/objects/class.objectmeshclutter_usc.md) is enabled; otherwise **false**.
+**true** if interaction with [World Clutters](../../../api/library/worlds/class.worldclutter_usc.md) and [Mesh Clutters](../../../api/library/objects/class.objectmeshclutter_usc.md) is enabled ; otherwise **false**.
 ## void setGrassInteractionEnabled ( bool enabled )
 
 Sets a new value indicating if interaction with [Grass](../../../api/library/objects/class.objectgrass_usc.md) nodes is enabled for the node.
@@ -478,7 +478,7 @@ Returns the current value indicating if interaction with [Grass](../../../api/li
 
 ### Return value
 
-**true** if interaction with [Grass](../../../api/library/objects/class.objectgrass_usc.md) nodes is enabled; otherwise **false**.
+**true** if interaction with [Grass](../../../api/library/objects/class.objectgrass_usc.md) nodes is enabled ; otherwise **false**.
 ## void setTriggerInteractionEnabled ( bool enabled )
 
 Sets a new value indicating if interaction with [WorldTrigger](../../../api/library/worlds/class.worldtrigger_usc.md) nodes is enabled for the node.
@@ -497,7 +497,7 @@ Returns the current value indicating if interaction with [WorldTrigger](../../..
 
 ### Return value
 
-**true** if interaction with [World Triggers](../../../api/library/worlds/class.worldtrigger_usc.md) is enabled; otherwise **false**.
+**true** if interaction with [World Triggers](../../../api/library/worlds/class.worldtrigger_usc.md) is enabled ; otherwise **false**.
 ## void setImmovable ( )
 
 Sets a new value indicating if the node is an immovable (clutter) object, which means it is moved to a separate spatial tree for immovable (static) objects optimizing node management. There are several restrictions on nodes considered immovable. Any action affecting the spatial tree is prohibited and causes a warning: you cannot change the node state (enabled/disabled), surfaces, bounds, trasformation, visibility distance, as well as move the node, assign a non-dummy physical body or even disable the *Immovable* flag as it also leads to rebiulding of the spatial tree.
@@ -529,7 +529,7 @@ Sets a new value indicating if the node handle is displayed. This option is vali
 Returns the current value indicating if the node handle is displayed. This option is valid only for invisible nodes, such as light and sound sources, particle systems and world-managing nodes ( [WorldOccluder](../../../api/library/worlds/class.worldoccluder_usc.md), triggers, expressions, etc.)
 ### Return value
 
-**true** if displaying of the node handle is enabled; otherwise **false**.
+**true** if displaying of the node handle is enabled ; otherwise **false**.
 ## void setEnabled ( bool enabled )
 
 Sets a new value indicating if the node and its parent nodes are enabled.
@@ -542,7 +542,7 @@ Sets a new value indicating if the node and its parent nodes are enabled.
 Returns the current value indicating if the node and its parent nodes are enabled.
 ### Return value
 
-**true** if the node is enabled; otherwise **false**.
+**true** if the node is enabled ; otherwise **false**.
 ## bool isExtern () const
 
 Returns the current value indicating if the node is an extern node (its type is one of the following: *[NODE_EXTERN](#NODE_EXTERN), [OBJECT_EXTERN](#OBJECT_EXTERN), [WORLD_EXTERN](#WORLD_EXTERN)*).
@@ -573,9 +573,15 @@ Returns the current value indicating if the node is an obstacle node (its type i
 ### Return value
 
 **true** if the node is an obstacle node; otherwise **false**.
+## bool isExperimentalNavigation () const
+
+Returns the current value indicating if a given node belongs to the experimental navigation system, that is, if its type falls within the [EXPERIMENTAL_NAVIGATION_BEGIN](#EXPERIMENTAL_NAVIGATION_BEGIN) .. [EXPERIMENTAL_NAVIGATION_END](#EXPERIMENTAL_NAVIGATION_END) range.
+### Return value
+
+**true** if the node belongs to the experimental navigation system; otherwise **false**.
 ## bool isNavigation () const
 
-Returns the current value indicating if a given node is a navigation node.
+Returns the current value indicating if a given node is a navigation node, that is, if its type falls within the [NAVIGATION_BEGIN](#NAVIGATION_BEGIN) .. [NAVIGATION_END](#NAVIGATION_END) range. The range covers the navigation areas only. Nodes of the experimental navigation system occupy a range of their own and are reported by [IsExperimentalNavigation](#IsExperimentalNavigation).
 ### Return value
 
 **true** if the node is a navigation node; otherwise **false**.
@@ -688,13 +694,13 @@ Sets a new value indicating if saving to `*.world` file is enabled for the node 
 Returns the current value indicating if saving to `*.world` file is enabled for the node and all its children (if any).
 ### Return value
 
-**true** if saving to `*.world` file for the node and all its children (if any) is enabled; otherwise **false**.
+**true** if saving to `*.world` file for the node and all its children (if any) is enabled ; otherwise **false**.
 ## bool isSaveToWorldEnabledSelf () const
 
 Returns the current value indicating if saving to `*.world` file is enabled for the node.
 ### Return value
 
-**true** if saving to `*.world` file for the node is enabled; otherwise **false**.
+**true** if saving to `*.world` file for the node is enabled ; otherwise **false**.
 ## void setShowInEditorEnabled ( bool enabled )
 
 Sets a new value indicating if displaying in the *World Hierarchy* window of the [UnigineEditor](../../../editor2/index.md) is enabled for the node.
@@ -713,13 +719,13 @@ Returns the current value indicating if displaying in the *World Hierarchy* wind
 
 ### Return value
 
-**true** if displaying in the *World Hierarchy* window of the [UnigineEditor](../../../editor2/index.md) for the node is enabled; otherwise **false**.
+**true** if displaying in the *World Hierarchy* window of the [UnigineEditor](../../../editor2/index.md) for the node is enabled ; otherwise **false**.
 ## bool isShowInEditorEnabledSelf () const
 
 Returns the current value indicating if displaying in the *World Hierarchy* window of the [UnigineEditor](../../../editor2/index.md) is enabled for the node.
 ### Return value
 
-**true** if displaying in the *World Hierarchy* window of the [UnigineEditor](../../../editor2/index.md) for the node is enabled; otherwise **false**.
+**true** if displaying in the *World Hierarchy* window of the [UnigineEditor](../../../editor2/index.md) for the node is enabled ; otherwise **false**.
 ## int getNumWorldTriggers () const
 
 Returns the current number of World Triggers inside which the node is located at the moment.
@@ -743,7 +749,7 @@ Current bounding box with world coordinates.
 Returns the current
 ### Return value
 
-**true** if the node is a landscape layer is enabled; otherwise **false**.
+**true** if the node is a landscape layer is enabled ; otherwise **false**.
 ## Mat4 getIWorldTransform () const
 
 Returns the current inverse transformation matrix of the node for transformations in the world coordinates.
@@ -791,7 +797,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventPropertyNodeSlotsChanged () const
 
 The event handler signature is as follows: *myhandler()*
@@ -808,7 +814,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventPropertyNodeAdd () const
 
 The event handler signature is as follows: *myhandler()*
@@ -825,7 +831,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventPropertyNodeRemove () const
 
 The event handler signature is as follows: *myhandler()*
@@ -842,7 +848,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventPropertyChangeEnabled () const
 
 The event handler signature is as follows: *myhandler()*
@@ -859,7 +865,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventPropertyNodeSwap () const
 
 The event handler signature is as follows: *myhandler()*
@@ -876,7 +882,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventPropertySurfaceAdd () const
 
 The event handler signature is as follows: *myhandler()*
@@ -893,7 +899,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventPropertySurfaceRemove () const
 
 The event handler signature is as follows: *myhandler()*
@@ -910,7 +916,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventCacheNodeAdd () const
 
 The event handler signature is as follows: *myhandler()*
@@ -927,7 +933,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventNodeLoad () const
 
 The event handler signature is as follows: *myhandler()*
@@ -944,7 +950,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventNodeRemove () const
 
 The event handler signature is as follows: *myhandler()*
@@ -961,7 +967,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventNodeChangeEnabled () const
 
 The event handler signature is as follows: *myhandler()*
@@ -978,7 +984,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventNodeClone () const
 
 The event handler signature is as follows: *myhandler()*
@@ -995,7 +1001,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventNodeSwap () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1012,13 +1018,13 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## bool isCache () const
 
 Returns the current value indicating whether the node or any of its parent nodes are stored in the cache.
 ### Return value
 
-**true** if the node in the cache is enabled; otherwise **false**.
+**true** if the node in the cache is enabled ; otherwise **false**.
 ## const char * getSrcFilePath () const
 
 Returns the current path to the source of the node. For example, a relative path to the `*.world` file with a description of this node, or the identifier of the source `*.node` in the format `guid://...`

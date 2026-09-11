@@ -10,11 +10,11 @@ Collision detection algorithms, regardless of their implementation, usually oper
 There are two types of collisions implemented in UNIGINE depending on the types of colliding objects:
 
 
-- **Shape — Shape collision**: between two objects with physical properties assigned (i.e. having a [body](../../../principles/physics/bodies/index.md) and at least one [shape](../../../principles/physics/shapes/index.md), *both must be enabled*). In this case contact points between the shapes are found.
-- **Shape — Surface collision**: between an object with physical properties assigned and a non-physical object (i.e. without physical representation). If the [surface](../../../start/index.md#surface) has the *Collision* flag set, it can also passively participate in physical interaction and prevent the physical object from going through. In this case, contact points between the shape and surface polygons are computed.
+- **Shape � Shape collision**: between two objects with physical properties assigned (i.e. having a [body](../../../principles/physics/bodies/index.md) and at least one [shape](../../../principles/physics/shapes/index.md), *both must be enabled*). In this case contact points between the shapes are found.
+- **Shape � Surface collision**: between an object with physical properties assigned and a non-physical object (i.e. without physical representation). If the [surface](../../../start/index.md#surface) has the *Collision* flag set, it can also passively participate in physical interaction and prevent the physical object from going through. In this case, contact points between the shape and surface polygons are computed.
 
 
-> **Warning:** Don't scale meshes that are going to participate in collision detection — physics doesn't work properly with scaled objects. To avoid scaling, reimport the mesh with the required [scale](../../../editor2/fbx/index.md#fbx_scale).
+> **Warning:** Don't scale meshes that are going to participate in collision detection � physics doesn't work properly with scaled objects. To avoid scaling, reimport the mesh with the required [scale](../../../editor2/fbx/index.md#fbx_scale).
 
 
 In order for an object to participate in collision detection (i.e. be a **collider**), it must be added to a specific BSP-tree representing the physics scene. Collision detection is automatically enabled for an object if it has a [body](../../../principles/physics/bodies/index.md) assigned or at least one of its surfaces has the *Collision* flag set. The algorithm of enabling/disabling collision detection is illustrated below.
@@ -44,14 +44,14 @@ In order for an object to participate in collision detection (i.e. be a **collid
 The whole process is divided into the following stages and phases:
 
 
-1. [**Collision Detection**](#detection) — during this phase we find all collisions with all contact points and collect all necessary information.
-2. [**Collision Response**](#collision_response) — it is the result of collision (e.g. two balls bounce off of each other). Without the response there would be no difference between collision and intersection of two objects. [Friction](../../../principles/physics/bodies/index.md#friction), [restitution](../../../principles/physics/bodies/index.md#restitution) and other parameters are taken into account in calculation of collision response.
-3. [**Callbacks Execution**](#callbacks) — custom user-defined actions to be performed on certain physics-related events.
+1. [**Collision Detection**](#detection) � during this phase we find all collisions with all contact points and collect all necessary information.
+2. [**Collision Response**](#collision_response) � it is the result of collision (e.g. two balls bounce off of each other). Without the response there would be no difference between collision and intersection of two objects. [Friction](../../../principles/physics/bodies/index.md#friction), [restitution](../../../principles/physics/bodies/index.md#restitution) and other parameters are taken into account in calculation of collision response.
+3. [**Callbacks Execution**](#callbacks) � custom user-defined actions to be performed on certain physics-related events.
 
 
 ![](collision_phases.jpg)
 
-*Phases: (a) — collision detection, (b) — collision response*
+*Phases: (a) � collision detection, (b) � collision response*
 
 
 ### Detecting Collisions
@@ -66,7 +66,7 @@ Checking all pairs of objects for collision is too time consuming, especially if
 Actually, there are no broad and narrow phases *per se*, so on the next step all collisions ([shape-shape](#collision_types) and [shape-surface](#collision_types)) along with contact points are found for all colliding bodies, i.e., if they are intersecting or have the distance between them less than the value of [penetration tolerance](../../../editor2/settings/physics_global/index.md#penetration_tolerance). Contact points are represented by their coordinates, normals, depth of shapes penetration, relative velocity (between two bodies), relative friction and restitution. So, here we collect all the data that is required to resolve collisions later.
 
 
-In a constrained physics simulation some objects influence the motion of others, while others don’t. Thus, these objects can be grouped into **islands**, which are self-contained groups of bodies that can influence the motion of each other in the group through constraint forces/impulses, but do not affect objects belonging to other islands. So, all contacting bodies as well as the ones having joints that connect them are combined in an island.
+In a constrained physics simulation some objects influence the motion of others, while others don�t. Thus, these objects can be grouped into **islands**, which are self-contained groups of bodies that can influence the motion of each other in the group through constraint forces/impulses, but do not affect objects belonging to other islands. So, all contacting bodies as well as the ones having joints that connect them are combined in an island.
 
 
 ![](islands.gif)
@@ -91,7 +91,7 @@ So, we've got all necessary information about collisions, now something has to b
 *Collision response*
 
 
-At this stage all found contacts are cached together with contacts from the previous frame — to ensure proper interaction. On the basis of gathered contact points data, UNIGINE computes the impulse a shape gets by collision. Contact points are solved in a pseudo-random order to achieve simulation stability and reproducibility.
+At this stage all found contacts are cached together with contacts from the previous frame � to ensure proper interaction. On the basis of gathered contact points data, UNIGINE computes the impulse a shape gets by collision. Contact points are solved in a pseudo-random order to achieve simulation stability and reproducibility.
 
 
 [Joints](../../../principles/physics/joints/index.md) are solved in the process of contact response calculation. The impulses that joints give the bodies attached to them are computed: how according to the current state of the joint, the bodies should respond to keep the joint unbroken (i.e. based on their masses, linear and angular velocities, change their movement direction and orientation), and how that response affects the joint (a joint can be broken by a too large impulse). Joints are also solved in the pseudo-random order.
@@ -106,11 +106,11 @@ The results of contact and joint solving are accumulated and applied to bodies. 
 There are two material parameters taken into account in the process of collison response calculation, which can be set for a [shape](../../../principles/physics/shapes/index.md#shape_params) and for a [surface](../../../start/index.md#surface) as well:
 
 
-- **Restitution** — the degree of relative kinetic energy retained after a collision. It depends on the elasticity of the materials of colliding bodies.
+- **Restitution** � the degree of relative kinetic energy retained after a collision. It depends on the elasticity of the materials of colliding bodies.
 
   - The minimum value of **0** indicates *inelastic* collisions (a piece of soft clay hitting the floor)
   - The maximum value of **1** represents highly *elastic* collisions (a rubber ball bouncing off a wall)
-- **Friction** — the force that impedes the relative motion of two surfaces in contact. The higher the value, the less tendency the body has to slide.
+- **Friction** � the force that impedes the relative motion of two surfaces in contact. The higher the value, the less tendency the body has to slide.
 
 
 > **Notice:** In case if an object contains a surface and a shape, both with specified restitution and friction, only the shape's parameters are to be used.
@@ -132,7 +132,7 @@ Regarding the way the time scale is considered, two basic approaches to finding 
 
 
 - **Discrete collision detection** is performed in certain intervals of time and each frame is treated separately from others. In general, discretization improves performance. However, when a project framerate is already low, a small fast-moving object is likely to teleport from one point to another instead of moving there smoothly and collision will not be detected.
-- **[Continuous collision detection](../../../principles/physics/simulation.md#ccd)** does not suffer this problem as the moving body is extruded along its trajectory (between two adjacent frames). In cases when something gets into this volume and a collision is detected, the body is taken back in time to correct the collision reaction. > **Notice:** Continuous collision detection is available for [sphere](../../../principles/physics/shapes/index.md#sphere) and [capsule](../../../principles/physics/shapes/index.md#capsule) shapes only.
+- **[Continuous collision detection](../../../principles/physics/simulation.md#ccd)** does not suffer this problem as the moving body is extruded along its trajectory (between two adjacent frames). In cases when something gets into this volume and a collision is detected, the body is taken back in time to correct the collision reaction. > **Notice:** By default, continuous collision detection is enabled only for [sphere](../../../principles/physics/shapes/index.md#sphere) and [capsule](../../../principles/physics/shapes/index.md#capsule) shapes. For other shape types, it must be [enabled manually](../../../api/library/physics/class.shape_cpp.md#setContinuous_int_void).
 
 
 ![](collision_detection.jpg)

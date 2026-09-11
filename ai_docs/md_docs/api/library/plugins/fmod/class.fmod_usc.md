@@ -42,3 +42,9 @@ Checks for errors and returns error code. To interpret the error, see [ERROR_TYP
 ### Return value
 
 true if an eror has orrurred, otherwise, false.
+## void loadOutputPlugin ( string path )
+
+Loads an *FMOD* output plugin library from the given file and makes it the active audio output of the *FMOD* system. Failures (for example, a missing file) are reported to the log.
+### Arguments
+
+- *string* **path** - Path to the plugin dynamic library.

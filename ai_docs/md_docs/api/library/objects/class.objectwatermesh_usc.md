@@ -18,6 +18,19 @@ UnigineScript sample
 
 ### Members
 
+## void setFieldMask ( int mask )
+
+Sets a new mask specifying the area of the applied [Field node](../../../objects/effects/fields/index.md). The integer is treated as a bit mask, where each bit is a separate mask.
+### Arguments
+
+- *int* **mask** - The mask specifying the area of the applied field node
+
+## int getFieldMask () const
+
+Returns the current mask specifying the area of the applied [Field node](../../../objects/effects/fields/index.md). The integer is treated as a bit mask, where each bit is a separate mask.
+### Return value
+
+Current mask specifying the area of the applied field node
 ---
 
 ## static ObjectWaterMesh ( )
@@ -30,19 +43,6 @@ Constructor. Creates a new water mesh object from a specified file.
 
 - *string* **path** - Path to the water mesh.
 
-## void setFieldMask ( int mask )
-
-Sets a field mask specifying the area of the [Field node](../../../objects/effects/fields/index.md) to be applied.
-### Arguments
-
-- *int* **mask** - An integer value, each bit of which is used to set a mask.
-
-## int getFieldMask ( )
-
-Returns the mask specifying the area of the applied Field node.
-### Return value
-
-The integer value, each bit of which sets a mask.
 ## float getHeight ( Vec3 position )
 
 Returns a height offset of a given point relatively to the water mesh surface.

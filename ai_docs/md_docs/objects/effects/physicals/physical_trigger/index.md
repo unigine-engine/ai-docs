@@ -1,6 +1,16 @@
 # Physical Trigger
 
 
+Trigger types available in UNIGINE:
+
+
+| [Node Trigger](../../../../objects/nodes/trigger/index.md) | [World Trigger](../../../../objects/worlds/world_trigger/index.md) | Physical Trigger |
+|---|---|---|
+| **Catches changes in the parent node state** (enabled/disabled, transforms changed) ![](../../../triggers_images/node_trigger.png) | **Catches nodes with bounds** entering/leaving the trigger area ![](../../../triggers_images/world_trigger.png) | **Catches physical objects** (with [body](../../../../principles/physics/bodies/index.md) and [shape](../../../../principles/physics/shapes/index.md)) entering/leaving the trigger area (detected by physical contact) ![](../../../triggers_images/physical_trigger.png) |
+| ![](../../../../vr_development/yes.png) **Used with:** Any node except [Dummy Node](../../../../objects/nodes/dummy/index.md) | ![](../../../../vr_development/yes.png) **Used with:** - All nodes having bounds (such nodes have the **[Triggers Interaction](../../../../editor2/node_parameters/transformation_common/index.md#common_params)** option in the Editor interface which should be enabled, **by default it is disabled**) - [Dummy Object](../../../../objects/objects/dummy/index.md) with [body](../../../../principles/physics/bodies/index.md) | ![](../../../../vr_development/yes.png) **Used with:** Physical objects (with [body](../../../../principles/physics/bodies/index.md) and [shape](../../../../principles/physics/shapes/index.md) assigned), such as: *[Dummy Object](../../../../objects/objects/dummy/index.md), [Static Mesh](../../../../objects/objects/mesh/index.md), [Skinned Mesh](../../../../objects/objects/mesh_skinned/index.md), [Dynamic Mesh](../../../../objects/objects/mesh_dynamic/index.md), [Billboards](../../../../objects/objects/billboards/index.md)* |
+| ![](../../../../vr_development/no.png) **Doesn't work with:** - [Dummy Node](../../../../objects/nodes/dummy/index.md) | ![](../../../../vr_development/no.png) **Doesn't work with:** [Dummy Node](../../../../objects/nodes/dummy/index.md), [Node Reference](../../../../objects/nodes/reference/index.md), [Node Layer](../../../../objects/nodes/layer/index.md), [World Switcher](../../../../objects/worlds/world_switcher/index.md), [World Transform Path](../../../../objects/worlds/world_transforms/transform_path/index.md), [World Transform Joint](../../../../objects/worlds/world_transforms/transform_bone/index.md), [World Expression](../../../../objects/worlds/world_expression/index.md) [Dummy Object](../../../../objects/objects/dummy/index.md) with no [body](../../../../principles/physics/bodies/index.md) assigned | ![](../../../../vr_development/no.png) **Doesn't work with:** - Non-physical [objects](../../../../objects/objects/index.md) (no [physical body](../../../../principles/physics/bodies/index.md) and [shape](../../../../principles/physics/shapes/index.md)) - Nodes that are not [objects](../../../../objects/objects/index.md) |
+
+
 The **Physical Trigger** is a node that triggers events when physical objects get inside or outside it. There are 4 types of physical triggers based on their shape:
 
 
@@ -69,7 +79,7 @@ In the *Physical Trigger* section (*[Parameters](../../../../editor2/node_parame
 | Edit Size | Toggles the editing mode for the *Physical Trigger* node. When enabled, the size or the radius of the node (depending on its [type](#type)) can be changed: each side/axis is highlighted with the colored rectangle/circle. To change the size/radius, drag the corresponding rectangle/circle. ![](editing_mode.png) *Editing of sphere-shaped physical trigger* |
 |---|---|
 | Physical Mask | The *Physical* mask of the *Physical Trigger* must [match](../../../../principles/bit_masking/index.md) the *Physical* mask of the physical object. Otherwise, the *Physical Trigger* won't trigger events when the object enters or leaves it. |
-| Collision Mask | - In case of the physical object, the *Collision* mask of the *Physical Trigger* must [match](../../../../principles/bit_masking/index.md) the *Collision* mask of the physical object's shape. - In case of the non-physical collider object, the *Collision* mask of the *Physical Trigger* must [match](../../../../principles/bit_masking/index.md) the *Collision* mask of the object's surface. |
+| Collision Mask | The *Collision* mask of the *Physical Trigger* must [match](../../../../principles/bit_masking/index.md) the *Collision* mask of the physical object's shape. |
 | Type | Type of the *Physical Trigger*: *sphere, capsule, cylinder*, or *box*. |
 | Size | Size of the *Physical Trigger*, namely: - *Radius* in case of a sphere - *Radius* and *height* in case of a capsule or a cylinder - *Dimensions* in case of a box |
 

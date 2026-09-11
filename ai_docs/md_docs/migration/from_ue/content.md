@@ -84,7 +84,7 @@ In *Unreal Editor*, you are likely to be used to configuring LODs for a Static M
 *Configuring LODS inStatic Mesh Editor*
 
 
-In UNIGINE, it is much more handy to store all LODs in a single `.fbx` model, in this case a *Static Mesh* created based on the asset will have several surfaces corresponing to LODs. Levels of detail are defined based on distances — in a more low-level manner to make fine tuning available. Surfaces have [visibility settings](../../editor2/node_parameters/visual_representation/index.md#surface_lods) for this purpose. You can set the minimum and maximum visibility distances from the camera for each surface. For **Cross Fading** use the *Minimum Fade* and *Maximum Fade* values.
+In UNIGINE, it is much more handy to store all LODs in a single `.fbx` model, in this case a *Static Mesh* created based on the asset will have several surfaces corresponing to LODs. Levels of detail are defined based on distances � in a more low-level manner to make fine tuning available. Surfaces have [visibility settings](../../editor2/node_parameters/visual_representation/index.md#surface_lods) for this purpose. You can set the minimum and maximum visibility distances from the camera for each surface. For **Cross Fading** use the *Minimum Fade* and *Maximum Fade* values.
 
 
 ![Surface LOD Settings](lods_unigine.png)
@@ -339,7 +339,7 @@ In UNIGINE, you can use a **[Sky](../../objects/objects/sky/index.md)** object r
 To simulate fog in *Unreal Engine*, you are accustomed to use different types of actors, such as *AtmosphericFog, ExponentialHeightFog* with the support for *Volumetric Fog*.
 
 
-For the same purpose in UNIGINE you can use **[Environment Haze](../../editor2/settings/render_settings/environment/index.md#haze)** in the *Solid* mode or, if the difference between haze and fog is crucial for your project, use **[Volumetric Objects](../../objects/effects/volumetrics/index.md)** — they are great for simulating light beams and shafts, fog and shaped clouds.
+For the same purpose in UNIGINE you can use **[Environment Haze](../../editor2/settings/render_settings/environment/index.md#haze)** in the *Solid* mode or, if the difference between haze and fog is crucial for your project, use **[Volumetric Objects](../../objects/effects/volumetrics/index.md)** � they are great for simulating light beams and shafts, fog and shaped clouds.
 
 
 ### Global Illumination
@@ -362,7 +362,7 @@ For the same purpose in UNIGINE you can use **[Environment Haze](../../editor2/s
 In UNIGINE, lightmaps are also supported and baked using the integrated *[GPU Lightmapper](../../editor2/lighting/gi/lightmaps.md)* tool.
 
 
-UNIGINE provides another advanced solution for static GI — **Voxel-Based Global Illumination** provided by *[Voxel Probe](../../objects/lights/voxelprobe/index.md)*.
+UNIGINE provides another advanced solution for static GI � **Voxel-Based Global Illumination** provided by *[Voxel Probe](../../objects/lights/voxelprobe/index.md)*.
 
 
 ![](unigine_voxel_gi.jpg)
@@ -370,13 +370,13 @@ UNIGINE provides another advanced solution for static GI — **Voxel-Based Globa
 *UNIGINE Voxel-Based Global Illumination*
 
 
-*Voxel Probe* is a box-shaped volume composed of voxels of fixed size, providing both pre-calculated indirect lighting and [diffuse (blurred) reflections](../../objects/lights/voxelprobe/index.md#reflections_parameters). One of advantages of this approach — there is no need in UV coordinates, any geometry will contribute to GI with no issues.
+*Voxel Probe* is a box-shaped volume composed of voxels of fixed size, providing both pre-calculated indirect lighting and [diffuse (blurred) reflections](../../objects/lights/voxelprobe/index.md#reflections_parameters). One of advantages of this approach � there is no need in UV coordinates, any geometry will contribute to GI with no issues.
 
 
 Light baking is performed using *[Bake Lighting](../../editor2/lighting/gi/bake_lighting/index.md)* tool.
 
 
-Similar to using *Lightmass Importance Volume* in *UE4*, you can make insets — *Voxel Probes* with more dense grid — to bake more details of GI where necessary.
+Similar to using *Lightmass Importance Volume* in *UE4*, you can make insets � *Voxel Probes* with more dense grid � to bake more details of GI where necessary.
 
 
 As concerns realtime, *Unreal Engine* supports SSGI solution providing real-time GI simulation in screen space. For such cases UNIGINE features the **[SSRTGI](../../editor2/settings/render_settings/global_illumination/index.md) (Screen-Space Ray-Traced Global Illumination)** technology, which incorporates ray-traced *SSGI, SSAO and Bent Normals* in screen space, enhancing overall connectedness of the scene a lot.
@@ -593,7 +593,7 @@ Follow the [Working with Large Number of Objects](../../content/optimization/geo
 ### Billboards
 
 
-In *UE4*, you use **Billboard** rendering component — a 2D texture rendered always facing the camera that can be used to replace a complex 3D mesh at some distance from the camera, thus reducing the load on GPU.
+In *UE4*, you use **Billboard** rendering component � a 2D texture rendered always facing the camera that can be used to replace a complex 3D mesh at some distance from the camera, thus reducing the load on GPU.
 
 
 ![](ue_billboard.png)
@@ -667,7 +667,7 @@ All runtime spikes, bottlenecks, and performance issues can be tracked using the
 
 - **[Performance Profiler](../../tools/profiling/profiler/index.md)**, an analog for the *Profiler* tool in *Unreal Engine*, displays performance data in a timeline in several modes. ![](../../tools/profiling/profiler/profiler.png)
 - **[Microprofile](../../tools/profiling/microprofile/index_cpp.md)**, an advanced CPU/GPU profiler with support for per-frame inspection. [![](../../tools/profiling/microprofile/microprofile_sm.jpg)](../../tools/profiling/microprofile/microprofile.jpg)
-- **[Content Profiler](../../editor2/assets_optimize/content_profiler/index.md)** — a tool helping to [optimize texture assets](../../editor2/assets_optimize/content_profiler/texture_profiler.md) and [monitor the content surface-related settings](../../editor2/assets_optimize/content_profiler/surface_profiler.md). ![](../../editor2/assets_optimize/content_profiler/texture_profiler.png)
+- **[Content Profiler](../../editor2/assets_optimize/content_profiler/index.md)** � a tool helping to [optimize texture assets](../../editor2/assets_optimize/content_profiler/texture_profiler.md) and [monitor the content surface-related settings](../../editor2/assets_optimize/content_profiler/surface_profiler.md). ![](../../editor2/assets_optimize/content_profiler/texture_profiler.png)
 
 
 #### See Also

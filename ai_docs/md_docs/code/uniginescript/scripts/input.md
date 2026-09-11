@@ -30,7 +30,7 @@ The Input scripts are located in `data/scripts/input` directory of the UNIGINE S
 #### Button
 
 
-**Button** of the input device gives only off/on digital signal, indicating two discrete values: “0” and “1”. The user's application reacts accordingly.
+**Button** of the input device gives only off/on digital signal, indicating two discrete values: �0� and �1�. The user's application reacts accordingly.
 
 
 #### Axis
@@ -83,13 +83,15 @@ The syntax of the configuration stored in the XML file is the following:
 
 **Сontrols tag** is used to describe control action map. Action tags are included into this tag. *Сontrols tag* has the following attribute:
 
-- *Definition* — definition file name, where action attributes are defined.
+
+- *Definition* � definition file name, where action attributes are defined.
 
 
 **Action tag** describes action configuration, identified by its name (name attribute required). Action tag can contain Input tags.
 
 
 **Input tag** contains input configuration. It has the following attributes:
+
 
 - *Device* is a required attribute. It specifies input device name and is used to identify input device. Specifying *keyboard* and *mouse* as input devices is sufficient for all types of keyboards and mice.
 - *State* is a required attribute. It specifies input device state number and is used to map input to a particular input device axis or button. > **Notice:** Direct names of the buttons can't be used, as each input device has its own states and state names. They also depend on the installed driver. Taking these facts into consideration, the names are not universal. >  However, controls can be edited [using GUI interface](#gui_edit5). In this case, there is no need to specify the exact state number and it is possible to see input state names.
@@ -166,14 +168,14 @@ Create 2 configuration files: **controls_def.xml** and **controls.xml**.
 *Action tag* has the following attributes:
 
 
-- *Name* — action name.
-- *Min* — minimum axis value for application accepted input.
-- *Max* — maximum axis value for application accepted input.
-- *Neutral* — neutral axis value for application accepted input.
-- *Type* — action type:
+- *Name* � action name.
+- *Min* � minimum axis value for application accepted input.
+- *Max* � maximum axis value for application accepted input.
+- *Neutral* � neutral axis value for application accepted input.
+- *Type* � action type:
 
   - *State* specifies the action having effect until the corresponding input is pressed. In other words, state action is used when it is necessary to change something continuously according to key / axis state. An example is car steering. > **Notice:** In the case of a *state* action, *getState()* returns the current input state (corrected according to the input range and action range).
-  - *Switch* is used when it is necessary to toggle something on and off. It allows to handle key up and key down events (just one at a time). An example is turning car head lights on and off. > **Notice:** In the case of a *switch* action, the current state is irrelevant, but rather the difference between the current and the previous state matters. > - When the key is pressed down, *getState()* returns the maximum value. > - When the key is up, *getState()* returns **-1** * maximum value. > - If the key did not change its state since the previous update, the function will return the minimum value.
+  - *Switch* is used when it is necessary to toggle something on and off. It allows to handle key up and key down events (just one at a time). An example is turning car head lights on and off. > **Notice:** In the case of a *switch* action, the current state is irrelevant, but rather the difference between the current and the previous state matters. > > > - When the key is pressed down, *getState()* returns the maximum value. > - When the key is up, *getState()* returns **-1** * maximum value. > - If the key did not change its state since the previous update, the function will return the minimum value.
 
 
 **Controls** file binds input with actions:
@@ -198,6 +200,7 @@ Create 2 configuration files: **controls_def.xml** and **controls.xml**.
 
 To load control configuration use:
 
+
 ```cpp
 // somewhere in initialization code
 
@@ -207,7 +210,10 @@ control.loadFromFile("you_config_file.xml");
 
 ```
 
- To check control states use:
+
+To check control states use:
+
+
 ```cpp
 // somewhere in the update() code
 
@@ -302,6 +308,7 @@ We are going to use the following controls definition and binding files:
 
 `controls_def.xml` file
 
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <controls_def>
@@ -315,6 +322,7 @@ We are going to use the following controls definition and binding files:
 
 
 `controls.xml` file
+
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

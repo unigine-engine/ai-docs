@@ -9,7 +9,7 @@ All components that are required to work in IG should be inherited from this cla
 ### Usage Example
 
 
-The *WaterDropAircraftController* component described [here](../../../../../ig/custom_component.md) illustrates the use of [saveState()](#saveState_const_BlobPtr_ref_void) and [restoreState()](#restoreState_const_BlobPtr_ref_void): if Master has already discharged a certain portion of water and then a Slave is connected, the Slave won't discharge the total volume again — Master saves the current payload and sends it to the Slave, and the Slave discharges only the remaining volume of water.
+The *WaterDropAircraftController* component described [here](../../../../../ig/custom_component.md) illustrates the use of [saveState()](#saveState_const_BlobPtr_ref_void) and [restoreState()](#restoreState_const_BlobPtr_ref_void): if Master has already discharged a certain portion of water and then a Slave is connected, the Slave won't discharge the total volume again � Master saves the current payload and sends it to the Slave, and the Slave discharges only the remaining volume of water.
 
 
 ```cpp

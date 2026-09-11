@@ -62,7 +62,7 @@ During panoramic rendering 4 viewports are seamlessly stitched into one for extr
 ## Enabling Panoramic Rendering
 
 
-To enable panoramic rendering for your application, open the [console](../../../../code/console/index.md) and run the `render_viewport_mode` command with the required panoramic mode (1-8). For example, to enable 180 degree panorama with curved edges:
+To enable panoramic rendering for your application, open the [console](../../../../code/console/index.md) and run the `render_viewport_mode` command with the required panoramic mode (1-9). For example, to enable 180 degree panorama with curved edges:
 
 
 ```text
@@ -91,7 +91,7 @@ render_viewport_mode 7 render_panorama_fisheye_fov 30
 ```
 
 
-> **Notice:** Available only when `render_viewport_mode` is set to one of the fisheye panorama modes (5-8).
+> **Notice:** Available only when `render_viewport_mode` is set to one of the fisheye panorama modes (5-9).
 
 
 ## Multi-Monitor Mode

@@ -61,20 +61,20 @@ Sets a new value indicating if back-and-forth movements of the mouse (by y-axis)
 Returns the current value indicating if back-and-forth movements of the mouse (by y-axis) are inverted: when the mouse is moved upward, the camera looks downwards, and when the mouse is moved downwards, the camera looks upwards. this mode is available only to control the camera.
 ### Return value
 
-**true** if the inverted state of the mouse is enabled; otherwise **false**.
+**true** if the inverted state of the mouse is enabled ; otherwise **false**.
 ## void setMouseRawInput ( bool input )
 
-Sets a new value indicating which type of mouse data is used to control the camera — raw ([Input::getMouseDeltaRaw()](../../../api/library/controls/class.input_cpp.md#getMouseDeltaRaw_ivec2)) or processed by the OS ([Input::getMouseDeltaPosition()](../../../api/library/controls/class.input_cpp.md#getMouseDeltaPosition_ivec2)).
+Sets a new value indicating which type of mouse data is used to control the camera � raw ([Input::getMouseDeltaRaw()](../../../api/library/controls/class.input_cpp.md#getMouseDeltaRaw_ivec2)) or processed by the OS ([Input::getMouseDeltaPosition()](../../../api/library/controls/class.input_cpp.md#getMouseDeltaPosition_ivec2)).
 ### Arguments
 
 - *bool* **input** - Set **true** to enable mode using raw mouse data to control the camera; **false** - to disable it.
 
 ## bool isMouseRawInput () const
 
-Returns the current value indicating which type of mouse data is used to control the camera — raw ([Input::getMouseDeltaRaw()](../../../api/library/controls/class.input_cpp.md#getMouseDeltaRaw_ivec2)) or processed by the OS ([Input::getMouseDeltaPosition()](../../../api/library/controls/class.input_cpp.md#getMouseDeltaPosition_ivec2)).
+Returns the current value indicating which type of mouse data is used to control the camera � raw ([Input::getMouseDeltaRaw()](../../../api/library/controls/class.input_cpp.md#getMouseDeltaRaw_ivec2)) or processed by the OS ([Input::getMouseDeltaPosition()](../../../api/library/controls/class.input_cpp.md#getMouseDeltaPosition_ivec2)).
 ### Return value
 
-**true** if mode using raw mouse data to control the camera is enabled; otherwise **false**.
+**true** if mode using raw mouse data to control the camera is enabled ; otherwise **false**.
 ## void setMouseEnabled ( bool enabled )
 
 Sets a new value indicating if the mouse is enabled.
@@ -87,7 +87,7 @@ Sets a new value indicating if the mouse is enabled.
 Returns the current value indicating if the mouse is enabled.
 ### Return value
 
-**true** if the mouse is enabled; otherwise **false**.
+**true** if the mouse is enabled ; otherwise **false**.
 ## void setAlwaysRun ( int run = 0 )
 
 Sets a new value indicating if the player is running by default. If the player is in this mode, the *Run* control will switch them to walking. A positive integer enables this mode, 0 disables it.
@@ -113,7 +113,7 @@ Sets a new value indicating if input handling for current application window is 
 Returns the current value indicating if input handling for current application window is enabled.
 ### Return value
 
-**true** if input handling for current application window is enabled; otherwise **false**.
+**true** if input handling for current application window is enabled ; otherwise **false**.
 ## void setMouseHandle ( Input::MOUSE_HANDLE handle )
 
 Sets a new mouse behavior mode.
@@ -139,7 +139,7 @@ Sets a new value indicating if current controls configuration settings are autom
 Returns the current value indicating if current controls configuration settings are automatically saved to the corresponding controls config file (`configs/default.controls` by default) on loading, closing, and saving the world, as well as on the Engine shutdown.
 ### Return value
 
-**true** if automatic saving of current controls configuration settings is enabled; otherwise **false**.
+**true** if automatic saving of current controls configuration settings is enabled ; otherwise **false**.
 ## void setPath ( const char * path )
 
 Sets a new path to the [controls configuration file](../../../code/configuration_file_cpp.md#controls) (default: `configs/default.controls`). The path can be specified as an absolute path or relative to the *[*-data_path*](../../../code/command_line.md#data_path)* or *<project_name>* folder if the *[*-project_name*](../../../code/command_line.md#project_name)* is set.
@@ -287,13 +287,17 @@ Returns the key currently used to switch off the [grab mode](../../../api/librar
 Key used to switch off the [grab mode](../../../api/library/controls/class.input_cpp.md#setMouseGrab_int_void) of the mouse pointer, one of the preset [KEY_](../../../api/library/controls/class.input_cpp.md#KEY) codes.
 ## int load ( )
 
-***Console*:**`controls_config_load`Loads controls configuration settings from a [controls configuration file](../../../code/configuration_file_cpp.md) (`configs/default.controls` by default). To change the path to the controls configuration file use the [*setPath()*](#setPath_cstr_void) method.
+***Console*:**`controls_config_load`Loads controls configuration settings from a [controls configuration file](../../../code/configuration_file_cpp.md) (`configs/default.controls` by default).
+To change the path to the controls configuration file use the [*setPath()*](#setPath_cstr_void) method.
+
 ### Return value
 
 1 if controls configuration settings are successfully loaded from a file; otherwise, 0.
 ## int save ( ) const
 
-***Console*:**`controls_config_save`Saves controls configuration settings to a [controls configuration file](../../../code/configuration_file_cpp.md) (`configs/default.controls` by default). To change the path to the controls configuration file use the [*setPath()*](#setPath_cstr_void) method.
+***Console*:**`controls_config_save`Saves controls configuration settings to a [controls configuration file](../../../code/configuration_file_cpp.md) (`configs/default.controls` by default).
+To change the path to the controls configuration file use the [*setPath()*](#setPath_cstr_void) method.
+
 ### Return value
 
 1 if controls configuration settings are successfully saved to a file; otherwise, 0.

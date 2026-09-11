@@ -49,7 +49,7 @@ For convenience, the diffuse texture is subdivided into chunks. Each chunk is re
 | Texture | Type | Setting |
 |---|---|---|
 | Diffuse | RGBA: - RGB values store the grass color information. - A value stores transparency information and defines which parts of the grass chunks will be rendered colored and which ones will be cut by alpha testing. | Set in the *Textures* tab of the *[grass_base](../../../content/materials/library/grass_base/index.md)* material. |
-| Mask | RGBA8: each channel controls distribution of the chunks in the vertical column of the grass diffuse texture. - Red channel specifies the areas of growth for the 1st texture column. - Green — for the 2nd texture column. - Blue — for the 3rd texture column. - Alpha — for the 4th texture column. > **Notice:** In case R8, RG8, or RGB8 texture is used as a mask, the [diffuse texture](../../../content/materials/library/grass_base/index.md#texture_diffuse) must have only one, two, or three columns. So, if your diffuse texture contains, for example, only 1 vertical column, the R8 texture should be used. 0 mask channel values (no color) create areas where grass should not grow. Non-zero channel values create a grassy area: the higher the value, the denser grass grows. If the mask texture is not set, the default white texture is used. It doesn't have a predefined amount of channels: the type of this texture depends on the value set in the *Num Textures* field. So, if *Num Textures = 2*, the default mask texture will be RG8. | Set in the *ObjectGrass -> Node* tab -> *Grass* section - > *Mask Image* field. |
+| Mask | RGBA8: each channel controls distribution of the chunks in the vertical column of the grass diffuse texture. - Red channel specifies the areas of growth for the 1st texture column. - Green � for the 2nd texture column. - Blue � for the 3rd texture column. - Alpha � for the 4th texture column. > **Notice:** In case R8, RG8, or RGB8 texture is used as a mask, the [diffuse texture](../../../content/materials/library/grass_base/index.md#texture_diffuse) must have only one, two, or three columns. So, if your diffuse texture contains, for example, only 1 vertical column, the R8 texture should be used. 0 mask channel values (no color) create areas where grass should not grow. Non-zero channel values create a grassy area: the higher the value, the denser grass grows. If the mask texture is not set, the default white texture is used. It doesn't have a predefined amount of channels: the type of this texture depends on the value set in the *Num Textures* field. So, if *Num Textures = 2*, the default mask texture will be RG8. | Set in the *ObjectGrass -> Node* tab -> *Grass* section - > *Mask Image* field. |
 
 
 For example, we have the following diffuse and mask textures:
@@ -138,7 +138,7 @@ Bending means sloping of a grass quad forward or backward at a certain angle.
 Let's compare the following examples:
 
 
-| If we set the *Min Height* value equal to 1 with the *Spread* value of 0.3, the height interval for the grass in the areas with the lowest density is from 0.7 (i.e., 1 - 0.3) to 1.3 (i.e., 1 + 0.3), meaning that each grass quad has its own height selected randomly from this interval. | With the Min Height value equal to 1.2 and the Spread value of 1, the height interval for the grass in the areas with the lowest density is from 0.2 (i.e., 1.2 - 1) to 2.2 (i.e., 1.2 + 1), meaning that each grass quad has its own height selected randomly from this interval. |
+| If we set the *Min Height* value equal to 1 with the *Spread* value of 0.3, the height interval for the grass in the areas with the lowest density is from 0.7 (i.e., 1�-�0.3) to 1.3 (i.e., 1�+�0.3), meaning that each grass quad has its own height selected randomly from this interval. | With the Min Height value equal to 1.2 and the Spread value of 1, the height interval for the grass in the areas with the lowest density is from 0.2 (i.e., 1.2�-�1) to 2.2 (i.e., 1.2�+�1), meaning that each grass quad has its own height selected randomly from this interval. |
 |---|---|
 | ![](min_height_default.jpg) *Min Height = 1; Spread = 0.3* | ![](min_height_custom.jpg) *Min Height = 1.2; Spread = 1* |
 
@@ -146,7 +146,7 @@ Let's compare the following examples:
 It works the same way for *Max Height*.
 
 
-| For the *Max Height* value equal to 3 and the Spread value equal to 0.3, the height interval for the grass in the areas with the highest density is from 2.7 (i.e., 3 - 0.3) to 3.3 (i.e., 3 + 0.3), meaning that each grass quad has its own height selected randomly from this interval. | For the *Max Height* value equal to 3 and the Spread value equal to 1, the height interval for the grass in the areas with the highest density is from 2 (i.e., 3 - 1) to 4 (i.e., 3 + 1), meaning that each grass quad has its own height selected randomly from this interval. |
+| For the *Max Height* value equal to 3 and the Spread value equal to 0.3, the height interval for the grass in the areas with the highest density is from 2.7 (i.e., 3�-�0.3) to 3.3 (i.e., 3�+�0.3), meaning that each grass quad has its own height selected randomly from this interval. | For the *Max Height* value equal to 3 and the Spread value equal to 1, the height interval for the grass in the areas with the highest density is from 2 (i.e., 3�-�1) to 4 (i.e., 3�+�1), meaning that each grass quad has its own height selected randomly from this interval. |
 |---|---|
 | ![](max_height_default.jpg) *Max Height = 3; Spread = 0.3* | ![](max_height_custom.jpg) *Max Height = 3; Spread = 1* |
 
@@ -183,7 +183,7 @@ Rotation of grass quads adds more diversity. This parameter specifies the rotati
 ### Texture Slots
 
 
-On one single field, it may be necessary to simulate grass that had grown in good and bad conditions, shooting young grass blades and withered straw. The grass [diffuse texture](../../../content/materials/library/grass_base/index.md#texture_diffuse) can have 4 x n slots, each containing a separate grass cluster, plant, or flower. The number of *horizontal rows* in the texture can be from 1 to 4. However, the number of *vertical columns* may vary depending on the way the grass distribution is specified:
+On one single field, it may be necessary to simulate grass that had grown in good and bad conditions, shooting young grass blades and withered straw. The grass [diffuse texture](../../../content/materials/library/grass_base/index.md#texture_diffuse) can have 4�x�n slots, each containing a separate grass cluster, plant, or flower. The number of *horizontal rows* in the texture can be from 1 to 4. However, the number of *vertical columns* may vary depending on the way the grass distribution is specified:
 
 
 - If the [image mask](#mask) is used to specify grass density distribution, the number of diffuse texture columns *can be less* than 4. > **Notice:** The number of diffuse texture columns in this case is determined by the number of channels in the [mask texture](#mask) (e.g., diffuse texture must have 1 column if an **R8** mask is used).
@@ -272,7 +272,7 @@ The mask is an **RGBA8** texture. Each channel of this texture controls distribu
 
 
 - **Red** channel specifies the areas of growth for the 1st texture column. If there are several grass clusters in a vertical column, they are randomly spread across the masked area.
-- **Green** — for the 2nd texture column.
+- **Green** � for the 2nd texture column.
 - **Blue** - for the 3rd texture column.
 - **Alpha** - for the 4th texture column.
 

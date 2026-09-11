@@ -110,9 +110,9 @@ The controls are stored in a *preset*. There are 2 types of presets that are use
 There are 3 built-in presets:
 
 
-| UNIGINE 2 | The main preset. Hot keys and key combinations that are used in this preset are usual for many 3D editors, for example, 3D-Coat, Maya, Marmoset, Unreal Engine, Unity, and so on. |
+| UNIGINE�2 | The main preset. Hot keys and key combinations that are used in this preset are usual for many 3D editors, for example, 3D-Coat, Maya, Marmoset, Unreal Engine, Unity, and so on. |
 |---|---|
-| UNIGINE 2 QWERTZ | This preset contains hotkeys and key combinations for QWERTZ keyboards. |
+| UNIGINE�2�QWERTZ | This preset contains hotkeys and key combinations for QWERTZ keyboards. |
 | 3ds Max | This preset contains hotkeys and key combinations that are used in 3ds Max. |
 
 

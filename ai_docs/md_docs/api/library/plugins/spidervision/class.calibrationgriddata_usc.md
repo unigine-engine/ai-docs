@@ -243,7 +243,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## void setBackgroundColor ( )
 
 Sets a new background color of the calibration grid.

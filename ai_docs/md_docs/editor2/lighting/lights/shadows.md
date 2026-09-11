@@ -84,7 +84,7 @@ To get shadows from a light source cached:
 After that, the light source will provide static cached shadows only. After changing light's position, rotation or parameters, it should be rebaked for proper shadow casting.
 
 
-> **Notice:** It is not recommended to bake shadows for lights stored in multiple [*Node References*](../../../objects/nodes/reference/index.md) that refer to the same `.node` asset — the assigned textures will be lost. However, you can save a light source to a node reference after baking its shadows and clone, if needed. Make sure the *Automatic Rebake* option is disabled; otherwise, the shadow map will be re-baked.
+> **Notice:** It is not recommended to bake shadows for lights stored in multiple *[Node References](../../../objects/nodes/reference/index.md)* that refer to the same `.node` asset � the assigned textures will be lost. However, you can save a light source to a *Node Reference* after baking its shadows and clone, if needed. Make sure the *Automatic Rebake* option is disabled; otherwise, the shadow map will be re-baked.
 
 
 World light sources require additional adjustments. For more details refer to the [Shadow Settings](../../../objects/lights/world/index.md#shadow_settings) of the World light.

@@ -1,8 +1,10 @@
-# UNIGINE 2.21 Project
+# UNIGINE 2.22 Project
+
+<!-- UNIGINE-AI:BEGIN — managed by UNIGINE. Do not edit inside this block; it is overwritten on update. Add your own instructions BELOW the END marker. -->
 
 ## Engine Documentation
 
-`ai_docs/` contains the full UNIGINE 2.21 documentation. Search here before writing any engine code.
+`ai_docs/` contains the full UNIGINE 2.22 documentation. Search here before writing any engine code.
 
 - `ai_docs/README.md` — engine key concepts, conventions, and common pitfalls. **Read this first** — it covers coordinate system, component lifecycle, physics rules, and other things that differ from other 3D engines
 - `ai_docs/md_docs/SUMMARY.md` — flat index of all documentation pages with brief descriptions. Use this for searching by keyword
@@ -17,7 +19,7 @@ These rules are non-negotiable. Violating them produces broken code and wastes t
 1. **ALWAYS search docs before using ANY UNIGINE API.**
    UNIGINE API names are unique to this engine. They do NOT match Unity, Unreal, Godot, or any other engine. Search by TASK, not by guessed method name.
    - ✗ WRONG: assume `Input::isKeyPressed()` exists because it sounds right
-   - ✓ RIGHT: search `ai_docs/md_docs/` for "keyboard input" → find `Input::isKeyDown()`
+   - ✓ RIGHT: search `ai_docs/md_docs/` for "keyboard input" → find the input API, then check **which** method fits (see pitfall: `isKeyDown` vs `isKeyPressed` below)
 
 2. **NEVER fabricate method names, parameter types, console commands, or Editor menu items.**
    If you cannot find it in documentation — say so. Do not invent plausible-sounding names. This includes:
@@ -44,7 +46,7 @@ These rules are non-negotiable. Violating them produces broken code and wastes t
 
 ## IMPORTANT RULES
 
-7. **UNIGINE ≠ other engines.** Do not transfer assumptions from Unity/Unreal/Godot. Same-sounding concepts may work differently.
+7. **UNIGINE ≠ other engines.** Do not transfer assumptions from Unity/Unreal/Godot. Same-sounding concepts may work differently. Example: a habit from other engines is flipping `scale` to `-1` to mirror an object — in UNIGINE don't do this; reimport the asset with the correct scale instead.
 
 8. **C++ API ≠ C# API.** Method names, patterns, and available members differ between C++ and C#. Do not assume a C++ method exists in C#:
    - C++: `node->setWorldPosition(pos)` → C#: `node.WorldPosition = pos` (property, not method)
@@ -67,6 +69,15 @@ These rules are non-negotiable. Violating them produces broken code and wastes t
        - C++: build (if not already built) and run the application (components are initialized at startup together with the component system)
     Components do not appear in the Editor until these steps are completed.
 
+14. **Code-only by default.** Do not edit scene/asset files (`.world`, `.node`, `.prop`, `.mesh`, anything under `data/`) unless the user explicitly asks. If a change requires editing an asset, don't do it silently — write it as a TODO note for the user to do by hand.
+
+15. **Component rules.** (1) Don't inherit one component from another — it's slower and clutters the Editor with the parent's properties. Prefer composition. (2) `.prop` files are **regenerated** from component code — never hand-edit them; change the component, not the `.prop`.
+
+16. **Mind WHERE you found it, and who acts.** The documentation covers many different areas (API reference, Editor UI, concepts, guides, formats, deployment, …). An answer found in one area does not transfer to another — the **API reference won't tell you about the Editor, and Editor docs won't tell you about the API**. Two roles: **you write code; the user operates the Editor and other tools by hand.** So:
+    - If a task is solved in the Editor or another tool (a button, a menu, a panel, a manual step), don't try to do it in code — give the user clear step-by-step instructions instead.
+    - If a task is code, don't answer "click such-and-such menu" — write the code.
+    - When you find an answer, check which area of the docs it came from and confirm it matches what the task actually needs.
+
 ## VERIFICATION CHECKLIST
 
 Before finalizing any UNIGINE API usage, verify:
@@ -77,6 +88,7 @@ Before finalizing any UNIGINE API usage, verify:
 - [ ] Return type handled correctly
 - [ ] Console commands verified in docs (do NOT fabricate)
 - [ ] If any step fails — search again or tell the user honestly
+- [ ] Task is **actually** done, not assumed — a build "succeeded" means the build log shows exit code 0 (not "I built it"); a deletion is confirmed by checking the object is gone. Don't claim completion without the artifact.
 
 ## SEARCH STRATEGY
 
@@ -87,3 +99,7 @@ Before finalizing any UNIGINE API usage, verify:
 5. If still not found — tell the user. Warn explicitly before answering from general knowledge
 
 **Search efficiently:** grep for specific methods/keywords, do NOT read entire large API reference files. Target your search.
+
+<!-- UNIGINE-AI:END -->
+
+<!-- Add your own project-specific instructions below. This area is yours — updates never touch it. -->

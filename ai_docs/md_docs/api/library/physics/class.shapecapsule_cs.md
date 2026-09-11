@@ -24,16 +24,16 @@ UnigineScript samples:
 
 ## float Height
 
-The current height of the capsule.
+The height of the capsule, in units.
 ## float Radius
 
-The current radius of the capsule.
+The radius of the capsule, in units.
 ## 🔒︎ vec3 TopCap
 
-The coordinates of the center of the bottom hemisphere of the capsule.
+The coordinates of the center of the top hemisphere of the capsule.
 ## 🔒︎ vec3 BottomCap
 
-The coordinates of the center of the top hemisphere of the capsule.
+The coordinates of the center of the bottom hemisphere of the capsule.
 ### Members
 
 ---
@@ -57,16 +57,3 @@ Constructor. Creates a new capsule with given dimensions and adds it to a given 
 - *[Body](../../../api/library/physics/class.body_cs.md)* **body** - Body, to which the capsule will belong.
 - *float* **radius** - Radius of the capsule in units.
 - *float* **height** - Height of the capsule in units.
-
-## vec3 GetBottomCap ( )
-
-Returns the coordinates of the center of the top hemisphere of the capsule.
-### Return value
-
-Coordinates of the center of the capsule's top hemisphere.
-## vec3 GetTopCap ( )
-
-Returns the coordinates of the center of the bottom hemisphere of the capsule.
-### Return value
-
-Coordinates of the center of the capsule's bottom hemisphere.

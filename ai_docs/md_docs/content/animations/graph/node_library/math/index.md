@@ -50,7 +50,7 @@ Arithmetic, trigonometric, and common math operations on numeric and vector valu
 
 - [Floor Node](../../../../../content/animations/graph/node_library/math/floor.md)
 
-- [Ceil Node](../../../../../content/animations/graph/node_library/math/ceil.md)
+- [Ceiling Node](../../../../../content/animations/graph/node_library/math/ceil.md)
 
 - [Round Node](../../../../../content/animations/graph/node_library/math/round.md)
 
@@ -83,3 +83,7 @@ Arithmetic, trigonometric, and common math operations on numeric and vector valu
 - [Base-E Logarithm Node](../../../../../content/animations/graph/node_library/math/log.md)
 
 - [To Int Node](../../../../../content/animations/graph/node_library/math/to_int.md)
+
+- [Euler to Quat Node](../../../../../content/animations/graph/node_library/math/euler_to_quat.md)
+
+- [Quat to Euler Node](../../../../../content/animations/graph/node_library/math/quat_to_euler.md)

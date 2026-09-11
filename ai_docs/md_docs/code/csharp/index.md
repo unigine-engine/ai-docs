@@ -27,8 +27,6 @@ This section contains information about the Unigine C# API.
 - [C# Usage Examples](../../code/csharp/usage/index.md)
 
   - [C# Component System](../../code/csharp/usage/using_cs_component_system/index.md)
-  - [Plugin Class](../../code/csharp/usage/plugins.md)
-  - [Package Class](../../code/csharp/usage/packages.md)
   - [Widget Dialog](../../code/csharp/usage/widgetdialog.md)
   - [Extending UnigineScript](../../code/csharp/usage/script/index.md)
 

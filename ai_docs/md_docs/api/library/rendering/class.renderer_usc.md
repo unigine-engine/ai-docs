@@ -74,12 +74,6 @@ Returns the current texture that stores intensity of the [screen-space bevel eff
 ### Return value
 
 Current texture storing intensity of the bevels. The texture is **RGBA8**, the intensity value is written to the **R** channel.
-## getTextureGBufferMaterialMask () const
-
-Returns the current [Gbuffer material mask texture](../../../principles/render/sequence/index.md#material_mask).
-### Return value
-
-Current Gbuffer material mask texture.
 ## getTextureGBufferNormal () const
 
 Returns the current [Gbuffer normal texture](../../../principles/render/sequence/index.md#normal).
@@ -214,7 +208,7 @@ Returns the current [depth texture](../../../principles/render/sequence/index.md
 Current depth texture.
 ## getTextureNormalUnpack () const
 
-Returns the current texture that stores unpacked normals. Available for the following post-effects: SSR, SSGI, SSRTGI, Shadows screen space.
+Returns the current texture that stores unpacked normals. Available for the following post-effects: SSR, SSGI, SSRTGI, Screen-Space Shadows.
 ### Return value
 
 Current texture that stores unpacked normals.
@@ -268,14 +262,14 @@ Returns the current screen width.
 Current screen width.
 ## getCurrentLight () const
 
-Returns the current rendered light source. This method can be used to obtain shadow maps for a certain light source in an [event handler](../../../api/library/rendering/class.render_usc.md#getEventBegin_Event) (see [BeginShadows](../../../api/library/rendering/class.render_usc.md#getEventBeginShadows_Event) event).
+Returns the current rendered light source. This method can be used to obtain shadow maps for a certain light source in an [event handler](../../../api/library/rendering/class.render_usc.md#getEventBegin_Event) (see *[BeginShadows](../../../api/library/rendering/class.render_usc.md#getEventBeginShadows_Event)* event).
 ### Return value
 
 Current rendered light source.
 ## void setObliqueFrustum ( bool frustum )
 
 Sets a new value indicating if the viewing frustum is oblique.
-> **Notice:** It is recommended to set oblique viewing frustum using this method, as it doesn't affect the projection matrix. To specify the near clipping plane use the [setObliqueFrustumPlane()](#setObliqueFrustumPlane_Vec4_void) method.
+> **Notice:** It is recommended to set oblique viewing frustum using this method, as it doesn't affect the projection matrix. To specify the near clipping plane use the *[setObliqueFrustumPlane()](#setObliqueFrustumPlane_Vec4_void)* method.
 
 ### Arguments
 
@@ -284,7 +278,7 @@ Sets a new value indicating if the viewing frustum is oblique.
 ## bool isObliqueFrustum () const
 
 Returns the current value indicating if the viewing frustum is oblique.
-> **Notice:** It is recommended to set oblique viewing frustum using this method, as it doesn't affect the projection matrix. To specify the near clipping plane use the [setObliqueFrustumPlane()](#setObliqueFrustumPlane_Vec4_void) method.
+> **Notice:** It is recommended to set oblique viewing frustum using this method, as it doesn't affect the projection matrix. To specify the near clipping plane use the *[setObliqueFrustumPlane()](#setObliqueFrustumPlane_Vec4_void)* method.
 
 ### Return value
 
@@ -367,13 +361,13 @@ Current viewport mask.
 Returns the current value indicating if stereo rendering is enabled.
 ### Return value
 
-**true** if stereo rendering is enabled; otherwise **false**.
+**true** if stereo rendering is enabled ; otherwise **false**.
 ## bool isShadow () const
 
 Returns the current value indicating if shadows are rendered.
 ### Return value
 
-**true** if shadows rendering is enabled; otherwise **false**.
+**true** if shadows rendering is enabled ; otherwise **false**.
 ## bool isReflection () const
 
 Returns the current value indicating if reflection rendering is in progress.
@@ -403,7 +397,7 @@ Current buffer containing camera parameters to be passed to a custom shader.
 Returns the current value indicating if peripheral stereo rendering is enabled.
 ### Return value
 
-**true** if peripheral stereo rendering is enabled; otherwise **false**.
+**true** if peripheral stereo rendering is enabled ; otherwise **false**.
 ## CBufferTonemapper getShaderCBufferTonemapper () const
 
 Returns the current buffer containing tone mapping parameters to be passed to a custom shader. This method can be used in a [event handler](../../../api/library/rendering/class.render_usc.md#getEventBegin_Event) to obtain tone mapping parameters at a certain stage of the rendering sequence and pass them to a custom shader.
@@ -423,14 +417,74 @@ Returns the current value indicating if the VR rendering mode is enabled.
 ### Return value
 
 Current the VR rendering mode
+## ivec2 getOutputResolution () const
+
+Returns the current resolution, in pixels, of the final output (target) image of the current frame: the resolution the image is presented or upscaled to.
+### Return value
+
+Current resolution of the final output image
+## ivec2 getRenderResolution () const
+
+Returns the current actual internal resolution, in pixels, at which the current frame is rendered. It differs from the output resolution when dynamic resolution or an upscaler is active: in that case it is the per-frame varying input resolution of the upscaler.
+### Return value
+
+Current actual internal render resolution of the current frame
+## ivec2 getRenderResolutionMax () const
+
+Returns the current upper bound of the internal render resolution for the current configuration. With dynamic resolution enabled, the per-frame render resolution moves between the minimum and this bound; otherwise it matches the render resolution.
+### Return value
+
+Current upper bound of the internal render resolution
+## ivec2 getRenderResolutionMin () const
+
+Returns the current lower bound of the internal render resolution for the current configuration. With dynamic resolution enabled, the per-frame render resolution moves between this bound and the maximum; otherwise it matches the render resolution.
+### Return value
+
+Current lower bound of the internal render resolution
+## Texture getTextureGBufferReactiveMask () const
+
+Returns the current reactive mask texture of the G-buffer of the current frame: a single-channel screen texture into which transparent materials with reactivity enabled write their reactivity factor. It is consumed by the temporal upscalers to reduce ghosting on surfaces whose color changes cannot be explained by motion vectors (transparency, particles). The texture exists only while an upscaler is enabled.
+### Return value
+
+Current reactive mask texture of the G-buffer
+## Texture getTextureGBufferSurfaceID () const
+
+Returns the current surface ID texture of the opaque G-buffer (*R32U*, one surface ID per pixel). The buffer is cleared to the sky ID each frame, so pixels not covered by any opaque surface are marked as sky.
+### Return value
+
+Current surface ID texture of the opaque G-buffer
+## Texture getTextureSurfaceIDDecal () const
+
+Returns the current surface ID texture of the decal stage (*R32U*). A separate per-stage buffer exists only when *[SurfaceIDMultilayered](../../../api/library/rendering/class.render_usc.md#isSurfaceIDMultilayered_int)* is enabled; otherwise, the composite scene surface ID texture is returned.
+### Return value
+
+Current surface ID texture of the decal stage
+## Texture getTextureSurfaceIDScene () const
+
+Returns the current composite scene surface ID texture: the opaque surface IDs with the decal, transparency, and water surface IDs composited on top (*R32U*). When *[SurfaceIDMultilayered](../../../api/library/rendering/class.render_usc.md#isSurfaceIDMultilayered_int)* is disabled, this is the same texture as the G-buffer surface ID texture.
+### Return value
+
+Current composite scene surface ID texture
+## Texture getTextureSurfaceIDTransparent () const
+
+Returns the current surface ID texture of the transparent stage (*R32U*). A separate per-stage buffer exists only when *[SurfaceIDMultilayered](../../../api/library/rendering/class.render_usc.md#isSurfaceIDMultilayered_int)* is enabled; otherwise, the composite scene surface ID texture is returned.
+### Return value
+
+Current surface ID texture of the transparent stage
+## Texture getTextureSurfaceIDWater () const
+
+Returns the current surface ID texture of the water stage (*R32U*). A separate per-stage buffer exists only when *[SurfaceIDMultilayered](../../../api/library/rendering/class.render_usc.md#isSurfaceIDMultilayered_int)* is enabled; otherwise, the composite scene surface ID texture is returned.
+### Return value
+
+Current surface ID texture of the water stage
 ---
 
 ## int hasGeodeticPivot ( )
 
-Returns a value indicating if the rendering scene has a GeodeticPivot.
+Returns a value indicating if the rendering scene has a *GeodeticPivot*.
 ### Return value
 
-**1** if the rendering scene has a GeodeticPivot; otherwise, **0**.
+**1** if the rendering scene has a *GeodeticPivot*; otherwise, **0**.
 ## int isNode ( )
 
 Returns a value indicating if node rendering is in progress.
@@ -547,8 +601,12 @@ Returns a value indicating if rendering of the visualizer is enabled.
 **1** if rendering of the visualizer is enabled; otherwise, **0**.
 ## Texture createCustomTexture3D ( string name , int width , int height , int depth , int format , int flags = 0 )
 
+
 Creates a custom 3D texture. Such textures can be used in your materials.
+
+
 In your [base material](../../../content/materials/index.md#base_materials):
+
 
 ```xml
 <!-- ... -->
@@ -559,6 +617,7 @@ In your [base material](../../../content/materials/index.md#base_materials):
 
 
 Create a corresponding custom texture via code:
+
 
 ```cpp
 // ...
@@ -582,8 +641,12 @@ Create a corresponding custom texture via code:
 New created custom 3D texture.
 ## Texture createCustomTexture2D ( string name , int width , int height , int format , int flags = 0 )
 
+
 Creates a custom 2D texture array. Such texture can be used in your materials.
+
+
 In your [base material](../../../content/materials/index.md#base_materials):
+
 
 ```xml
 <!-- ... -->
@@ -594,6 +657,7 @@ In your [base material](../../../content/materials/index.md#base_materials):
 
 
 Create a corresponding custom texture via code:
+
 
 ```cpp
 // ...
@@ -616,7 +680,10 @@ Create a corresponding custom texture via code:
 New created custom 2D texture.
 ## Texture createCustomTexture2DArray ( string name , int width , int height , int depth , int format , int flags = 0 )
 
+
 Creates a custom 2D texture array. Such texture can be used in your materials.
+
+
 ```xml
 <!-- ... -->
 <texture type="texture_name"/>
@@ -626,6 +693,7 @@ Creates a custom 2D texture array. Such texture can be used in your materials.
 
 
 Create a corresponding custom texture via code:
+
 
 ```cpp
 // ...
@@ -671,7 +739,7 @@ Returns a buffer containing scattering parameters to be passed to a custom shade
 Buffer containing scattering parameters to be passed to a custom shader.
 ## Light getCurrentLight ( )
 
-Returns the currently rendered light source. This method can be used to obtain shadow maps for a certain light source in a [event handler](../../../api/library/rendering/class.render_usc.md#getEventBegin_Event) (see [BeginShadows](../../../api/library/rendering/class.render_usc.md#getEventBeginShadows_Event) event).
+Returns the currently rendered light source. This method can be used to obtain shadow maps for a certain light source in a [event handler](../../../api/library/rendering/class.render_usc.md#getEventBegin_Event) (see *[BeginShadows](../../../api/library/rendering/class.render_usc.md#getEventBeginShadows_Event)* event).
 ### Return value
 
 Currently rendered light source.
@@ -693,7 +761,7 @@ Currently used environment cubemap texture.
 Resets the environment cubemap texture to default (no environment texture is used).
 ## Texture getTextureNormalUnpack ( )
 
-Returns the texture that stores unpacked normals. Available for the following post-effects: SSR, SSGI, SSRTGI, Shadows screen space.
+Returns the texture that stores unpacked normals. Available for the following post-effects: SSR, SSGI, SSRTGI, Screen-Space Shadows.
 ### Return value
 
 The texture that stores unpacked normals.
@@ -732,3 +800,9 @@ Returns a value indicating if *[depth pre-pass](../../../principles/render/seque
 ### Return value
 
 true if depth pre-pass is used; otherwise false.
+## int useReactiveMask ( )
+
+Returns a value indicating if the reactive mask of the G-buffer is used in the current rendering, which is the case when a temporal upscaler is enabled.
+### Return value
+
+true if the reactive mask is used in the current rendering; otherwise, false.

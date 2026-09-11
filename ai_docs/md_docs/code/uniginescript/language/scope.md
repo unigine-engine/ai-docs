@@ -11,7 +11,7 @@
 > **Notice:** For variables, scope determines their accessibility and lifetime. However, lifetime is not limited by a current scope (see details [below](#lifetime)).
 
 
-How large the scope is depends on where the identifier is declared. For example, if a variable is declared at the top of a class then it will be accessible to all of the class methods. If it’s declared in a method then it can only be used in that method.
+How large the scope is depends on where the identifier is declared. For example, if a variable is declared at the top of a class then it will be accessible to all of the class methods. If it�s declared in a method then it can only be used in that method.
 
 
 A pair of curly braces (**{}**) defines a new scope.

@@ -989,7 +989,7 @@ Now that our library is ready, we should perform the following steps to use it i
 
 
 1. First, let us [create a new project](../../../sdk/projects/index_cpp.md#creation) named **MyProject** that will use our library. Let it be a simple project using C++.
-2. Put the created plugin library module (a `*.dll` or `*.so` file) to the corresponding project's directory — `bin/plugins/<vendor_name>/<plugin_name>`. For more information about plugin naming and the paths to plugin folders, please refer to the [Creating C++ Plugin](../../../code/cpp/plugin.md#path_to_plugin_files) article. > **Notice:** Make sure your project's binary and plugin library have the **same precision and version**.
+2. Put the created plugin library module (a `*.dll` or `*.so` file) to the corresponding project's directory � `bin/plugins/<vendor_name>/<plugin_name>`. For more information about plugin naming and the paths to plugin folders, please refer to the [Creating C++ Plugin](../../../code/cpp/plugin.md#path_to_plugin_files) article. > **Notice:** Make sure your project's binary and plugin library have the **same precision and version**.
 3. Put the file in your custom format (`my_scene.myext`) to the `data` folder of the project.
 4. Provide plugin loading in one of the following ways:
 

@@ -21,6 +21,7 @@ This object is accessible via the corresponding method of the [DisplaysConfig](.
 | Name | Description |
 |---|---|
 | **WALL** = 0 | Wall multi-channel visualization configuration. |
+| **CAVE** = 1 | The group is a CAVE room group (see the CAVEGroupData class). |
 
 ### Members
 
@@ -81,3 +82,17 @@ Loads the viewport group data from the specified stream.
 ### Arguments
 
 - *const [Ptr](../../../../api/library/common/class.ptr_cpp.md)<[Stream](../../../../api/library/common/class.stream_cpp.md)> &* **stream** - Stream the data from which is to be loaded.
+
+## void copy ( const GroupData & data )
+
+Copies the name and all layout parameters from another group of the same type and resets the generated flag, so the group must be generated again.
+### Arguments
+
+- *const [GroupData](../../../../api/library/plugins/spidervision/class.groupdata_cpp.md) &* **data** - Source group to copy the parameters from; must be of the same type as this group, otherwise the call does nothing.
+
+## void generate ( )
+
+Creates the group's member viewports in the displays configuration and applies the group parameters to them. Does nothing if the group has already been generated.
+## void refresh ( )
+
+Recomputes and re-applies the derived parameters (position, rotation, size, pixel density, window size and mode, render mode) of every member viewport from the current group parameters. Most parameter setters call it automatically for a generated group.

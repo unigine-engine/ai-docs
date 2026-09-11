@@ -16,7 +16,7 @@ The game that you will create is a simple top-down shooter with physics mechanic
 You will acquire some basic [UNIGINE Editor](../../editor2/index.md) skills and knowledge about the UNIGINE engine in general. The basic workflow for game logic implementation with the C++ Component System is given below.
 
 
-[C++ Component System](../../principles/component_system/component_system_cpp/index.md) enables you to implement your application's logic via a set of building blocks — components, and assign these blocks to objects (*nodes*), giving them additional functionality. A logic component integrates a [node](../../start/index.md#node), a C++ class, containing logic implementation (actions to be performed), and a [property](../../principles/properties/index.md) defining a set of additional parameters to be used.
+[C++ Component System](../../principles/component_system/component_system_cpp/index.md) enables you to implement your application's logic via a set of building blocks � components, and assign these blocks to objects (*nodes*), giving them additional functionality. A logic component integrates a [node](../../start/index.md#node), a C++ class, containing logic implementation (actions to be performed), and a [property](../../principles/properties/index.md) defining a set of additional parameters to be used.
 
 
 In this tutorial you will learn how to:

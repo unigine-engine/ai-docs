@@ -29,7 +29,7 @@ Adding third-party libraries to a UNIGINE project allows you to extend functiona
 If you already have an existing software framework and plan to use UNIGINE primarily for real-time 3D visualization, then embedding UNIGINE into your existing application might be the best option.
 
 
-For example, if you need to send messages between devices or sync media streams, it’s better to connect through network protocols instead of embedding the Engine directly. Several approaches for network-based integration are described further in this article. Use these methods as a starting point when planning the most suitable integration strategy for your project.
+For example, if you need to send messages between devices or sync media streams, it�s better to connect through network protocols instead of embedding the Engine directly. Several approaches for network-based integration are described further in this article. Use these methods as a starting point when planning the most suitable integration strategy for your project.
 
 
 ## Adding Third-Party Libraries
@@ -187,9 +187,9 @@ int AppSystemLogic::shutdown()
 In this example, the external library is called from System Logic, so all methods are executed according to the Engine's Execution Sequence.
 
 
-- *init()* — initialization stage (see: [Engine Initialization](../../code/fundamentals/execution_sequence/init.md))
-- *update()* — per-frame update stage (see: [Engine Main Loop](../../code/fundamentals/execution_sequence/main_loop.md))
-- *shutdown()* — shutdown stage (see: [Engine Shutdown](../../code/fundamentals/execution_sequence/shutdown.md))
+- *init()* � initialization stage (see: [Engine Initialization](../../code/fundamentals/execution_sequence/init.md))
+- *update()* � per-frame update stage (see: [Engine Main Loop](../../code/fundamentals/execution_sequence/main_loop.md))
+- *shutdown()* � shutdown stage (see: [Engine Shutdown](../../code/fundamentals/execution_sequence/shutdown.md))
 
 
 #### Event-Based Library Integration

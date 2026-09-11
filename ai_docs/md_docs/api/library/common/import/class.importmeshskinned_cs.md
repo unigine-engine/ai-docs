@@ -1,7 +1,7 @@
 # Unigine::ImportMeshSkinned Class (CS)
 
 
-This class is an intermediate representation of a skinned mesh from a source file. Unlike [ImportMesh](../../../../api/library/common/import/class.importmesh_cs.md) (used for static geometry), it also stores a reference to an [ImportSkeleton](../../../../api/library/common/import/class.importskeleton_cs.md) for joint-based deformation and a path to the associated animation file. During import, it is converted to a MeshSkinned asset.
+This class is an intermediate representation of a skinned mesh from a source file. Unlike *[ImportMesh](../../../../api/library/common/import/class.importmesh_cs.md)* (used for static geometry), it also stores a reference to an *[ImportSkeleton](../../../../api/library/common/import/class.importskeleton_cs.md)* for joint-based deformation and a path to the associated animation file. During import, it is converted to a *MeshSkinned* asset.
 
 
 ## ImportMeshSkinned Class

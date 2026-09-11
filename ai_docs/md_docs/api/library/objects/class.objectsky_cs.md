@@ -22,7 +22,7 @@ UnigineScript samples:
 
 ## bool Spherical
 
-The A value indicating whether a sky background cube map should be mapped onto a whole sphere rather then a hemisphere.
+The value indicating whether a sky background cube map should be mapped onto a whole sphere rather then a hemisphere.
 ### Members
 
 ---

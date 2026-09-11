@@ -256,8 +256,6 @@ int init() {
 
 ## NodeExternBase Class
 
-### Members
-
 ---
 
 ## int getClassID ( )

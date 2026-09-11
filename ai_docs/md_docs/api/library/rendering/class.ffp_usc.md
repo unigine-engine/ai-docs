@@ -8,7 +8,7 @@
 Interface for fixed function pipeline.
 
 
-Ffp class in Unigine differs from the classic OpenGL FFP implementation. For example, Unigine [Visualizer](../../../code/console/index.md#visualizer) and [Texture Buffers for Debugging](../../../code/console/index.md#render_show_textures) are implemented by using Ffp. Ffp uses already implemented D3D12 and Vulkan shader programs (without creating materials, etc.) to render.
+Ffp class in Unigine differs from the classic OpenGL FFP implementation. For example, Unigine [Visualizer](../../../code/console/index.md#visualizer) and [Texture Buffers for Debugging](../../../code/console/index.md#render_show_textures) are implemented by using FFP. FFP uses already implemented D3D12 and Vulkan shader programs (without creating materials, etc.) to render.
 
 
 This interface enables to render basic geometric primitives. For example, it can be used to draw a project watermark.
@@ -25,28 +25,71 @@ This interface enables to render basic geometric primitives. For example, it can
 
 ### Members
 
----
+## int getNumIndices () const
 
-## void addIndices ( )
+Returns the current number of indices in the current primitive batch.
+### Return value
 
-Adds the specified array of indices to Ffp.
+Current number of indices in the current primitive batch.
+## int getNumVertex () const
+
+Returns the current number of vertices in the current primitive batch.
+### Return value
+
+Current number of vertices in the current primitive batch.
+## void setTransform ( mat4 transform )
+
+Sets a new Transformation matrix of the rendered primitive.
 ### Arguments
 
-## void addVertex ( )
+- *mat4* **transform** - The Transformation matrix of the rendered primitive.
 
-Adds the specified vertex array to Ffp.
+## mat4 getTransform () const
+
+Returns the current Transformation matrix of the rendered primitive.
+### Return value
+
+Current Transformation matrix of the rendered primitive.
+## bool isEnabled () const
+
+Returns the current a value indicating if the FFP is enabled.
+### Return value
+
+**true** if FFP is enabled is enabled ; otherwise **false**.
+## void setMode ( int mode )
+
+Sets a new FFP mode.
 ### Arguments
 
+- *int* **mode** - The FFP mode.
+
+## int getMode () const
+
+Returns the current FFP mode.
+### Return value
+
+Current FFP mode.
 ## void setTextureSample ( int sample )
 
 Sets a new texture sample flag.
 ### Arguments
 
-- *int* **sample** - Texture sample flag to be set, one of the *[TEXTURE_SAMPLE_*](#TEXTURE_SAMPLE_2D)* values.
+- *int* **sample** - The texture sample flag, one of the *[TEXTURE_SAMPLE_*](#TEXTURE_SAMPLE_2D)* values.
 
-## int getTextureSample ( )
+## int getTextureSample () const
 
 Returns the current texture sample flag.
 ### Return value
 
-Current texture sample flag used, one of the *[TEXTURE_SAMPLE_*](#TEXTURE_SAMPLE_2D)* values.
+Current texture sample flag, one of the *[TEXTURE_SAMPLE_*](#TEXTURE_SAMPLE_2D)* values.
+---
+
+## void addIndices ( )
+
+Adds the specified array of indices to FFP.
+### Arguments
+
+## void addVertex ( )
+
+Adds the specified vertex array to FFP.
+### Arguments

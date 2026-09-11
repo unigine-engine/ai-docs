@@ -13,7 +13,7 @@ This class is used to manage a fragment of terrain data on the GPU side (e.g. mo
 The total number of mipmaps for the textures (maximum value among all data layers).
 ## 🔒︎ ivec2 Resolution
 
-The current texture resolution.
+The texture resolution.
 ## 🔒︎ RenderTarget RenderTarget
 
 The [render target](../../../../api/library/rendering/class.rendertarget_cs.md) containing terrain data.
@@ -37,18 +37,6 @@ Creates a new LandscapeTextures object to store the data for a terrain area of t
 
 - *ivec2* **resolution** - Two-component vector containing texture resolution along X and Y axes.
 
-## Texture GetHeight ( )
-
-Returns height data as an R32F texture.
-### Return value
-
-Texture (R32F) containing height data.
-## Texture GetAlbedo ( )
-
-Returns albedo data as an RGBA8 texture. Opacity data is stored in the alpha-channel.
-### Return value
-
-Texture (RGBA8) containing albedo data.
 ## Texture GetMask ( int num )
 
 Returns mask data as an RGBA8 texture.
@@ -61,12 +49,6 @@ Returns mask data as an RGBA8 texture.
 ### Return value
 
 Texture (RGBA8) containing mask data.
-## Texture GetOpacityHeight ( )
-
-Returns opacity information for height data as an R32F texture.
-### Return value
-
-Texture (R32F) containing opacity information for height texture.
 ## Texture GetOpacityMask ( int num )
 
 Returns opacity information for mask data as an RGBA8 texture.
@@ -89,18 +71,6 @@ Returns the texture of the specified type.
 ### Return value
 
 Texture of the specified type.
-## RenderTarget GetRenderTarget ( )
-
-Returns the [render target](../../../../api/library/rendering/class.rendertarget_cs.md) containing terrain data.
-### Return value
-
-[Render target](../../../../api/library/rendering/class.rendertarget_cs.md) containing terrain data.
-## ivec2 GetResolution ( )
-
-Returns the current texture resolution.
-### Return value
-
-Two-component vector containing texture resolution along X and Y axes.
 ## void CreateMipmaps ( )
 
 Generates mipmaps for the textures of all data layers.

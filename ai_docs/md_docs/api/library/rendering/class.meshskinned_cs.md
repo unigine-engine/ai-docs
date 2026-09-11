@@ -13,8 +13,8 @@ Key concepts:
 - Source joints - the joint hierarchy (names, parent-child relationships, bind poses) referenced by this mesh.
 - Surfaces - subsets of geometry, each with its own vertex/index data and bounding volumes.
 - Morph targets - per-surface variants of vertex positions, normals, and tangents for blend shape animation.
-- Coordinate indices (CIndices) - indices into the vertex position buffer.
-- Triangle indices (TIndices) - indices into the unique vertex attribute buffer (normals, tangents, UVs).
+- Coordinate indices (*CIndices*) - indices into the vertex position buffer.
+- Triangle indices (*TIndices*) - indices into the unique vertex attribute buffer (normals, tangents, UVs).
 
 
 ## MeshSkinned Class

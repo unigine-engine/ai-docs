@@ -12,6 +12,25 @@
 
 ### Members
 
+## int getNumBillboards () const
+
+Returns the current total number of billboards contained in and managed by billboards object.
+### Return value
+
+Current total number of billboards contained in and managed by billboards object
+## void setDepthSort ( int sort )
+
+Sets a new value indicating whether depth sorting (in the back-to-front order) is enabled for billboards. this option should be enabled, if [alpha blending](../../../principles/render/blending/index.md) is used for the billboard material (except for the additive blending).
+### Arguments
+
+- *int* **sort** - The value indicating whether depth sorting (in the back-to-front order) is enabled for billboards
+
+## int getDepthSort () const
+
+Returns the current value indicating whether depth sorting (in the back-to-front order) is enabled for billboards. this option should be enabled, if [alpha blending](../../../principles/render/blending/index.md) is used for the billboard material (except for the additive blending).
+### Return value
+
+Current value indicating whether depth sorting (in the back-to-front order) is enabled for billboards
 ---
 
 ## static ObjectBillboards ( )
@@ -53,19 +72,6 @@ Returns the position of the specified billboard.
 ### Return value
 
 Billboard position coordinates.
-## void setDepthSort ( int sort )
-
-Sets a value indicating if billboards should be sorted in the back-to-front order according to their position. This option should be enabled, if [alpha blending](../../../principles/render/blending/index.md) is used for the billboard material (except for the additive blending).
-### Arguments
-
-- *int* **sort** - 1 to enable the depth sorting, 0 to disable it. The default is 0.
-
-## int getDepthSort ( )
-
-Returns a value indicating whether depth sorting (in the back-to-front order) is enabled for billboards. This option should be enabled, if [alpha blending](../../../principles/render/blending/index.md) is used for the billboard material (except for the additive blending).
-### Return value
-
-**1** if the depth sorting is enabled; otherwise, **0**.
 ## void setHeight ( int num , float height )
 
 Updates a height of a given billboard.
@@ -102,12 +108,6 @@ Returns the normal vector of a given billboard (used only with [billboards_impos
 ### Return value
 
 Billboard normal coordinates local to the object.
-## int getNumBillboards ( )
-
-Returns the total number of billboards contained in and managed by Billboards object.
-### Return value
-
-Number of billboards.
 ## void setTexCoord ( int num , vec4 texcoord )
 
 Sets texture coordinates for a given billboard (a texture atlas can be used).

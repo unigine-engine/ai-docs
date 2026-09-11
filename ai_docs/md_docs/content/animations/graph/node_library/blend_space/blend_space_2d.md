@@ -1,4 +1,4 @@
-# BlendSpace 2D
+# Blend Space 2D
 
 
 ![](../img/blendspace_2d.png)
@@ -28,8 +28,10 @@ See **[Blend Spaces](../../../../../content/animations/blend_spaces/index.md)** 
 
 | Name | Display name of the blend space node. Must be unique within the graph. |
 |---|---|
-| Axis X Label | Display name for the X axis (e.g., Speed). Also updates the **X** input label on the node. |
-| Axis Y Label | Display name for the Y axis (e.g., Direction). Also updates the **Y** input label on the node. |
+| Axis X | Display name for the X axis (e.g., Speed). Also updates the **X** input label on the node. |
+| Axis Y | Display name for the Y axis (e.g., Direction). Also updates the **Y** input label on the node. |
+| Grid X | Number of grid cells along the X axis, for visual reference only. Range: 1 to 20. |
+| Grid Y | Number of grid cells along the Y axis, for visual reference only. Range: 1 to 20. |
 | Axis Min | Minimum value for both axes. |
 | Axis Max | Maximum value for both axes. |
 | Mode | Interpolation mode: Cartesian (standard 2D distance) or Polar (angle-based, useful for directional blending). |

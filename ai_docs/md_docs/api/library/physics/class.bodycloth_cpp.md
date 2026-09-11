@@ -29,6 +29,25 @@ This class is used to simulate a flat deformable [cloth bodies](../../../princip
 
 ### Members
 
+## int getNumIndices () const
+
+Returns the current number of particle indices in the cloth body.
+### Return value
+
+Current number of particle indices
+## void setTwoSided ( int sided )
+
+Sets a new value indicating if the cloth is one- or two-sided (1 - two-sided, 0 - one-sided). If two-sided, its material should not be [two-sided](../../../api/library/rendering/class.material_cpp.md#setTwoSided_int_void) at the same time.
+### Arguments
+
+- *int* **sided** - The cloth two-sided flag
+
+## int getTwoSided () const
+
+Returns the current value indicating if the cloth is one- or two-sided (1 - two-sided, 0 - one-sided). If two-sided, its material should not be [two-sided](../../../api/library/rendering/class.material_cpp.md#setTwoSided_int_void) at the same time.
+### Return value
+
+Current cloth two-sided flag
 ---
 
 ## static BodyClothPtr create ( )
@@ -41,12 +60,6 @@ Constructor. Creates a cloth body with default properties for a given object.
 
 - *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Object](../../../api/library/objects/class.object_cpp.md)> &* **object** - Object represented with the new cloth body.
 
-## int getNumIndices ( )
-
-Returns the number of particle indices.
-### Return value
-
-Number of particle indices.
 ## int getParticleIndex ( int num )
 
 Returns the particle index by its number.
@@ -57,16 +70,3 @@ Returns the particle index by its number.
 ### Return value
 
 The particle index.
-## void setTwoSided ( int sided )
-
-Set a value indicating if the cloth is one- or two-sided. (If two-sided, its material should not be [two-sided](../../../api/library/rendering/class.material_cpp.md#setTwoSided_int_void) at the same time).
-### Arguments
-
-- *int* **sided** - Positive value, if the cloth should be two-sided; **0** if one-sided.
-
-## int getTwoSided ( )
-
-Returns a value indicating if the cloth is one- or two-sided. (If two-sided, its material should not be [two-sided](../../../api/library/rendering/class.material_cpp.md#setTwoSided_int_void) at the same time).
-### Return value
-
-**1** if the cloth is rendered one-sided; **0** if one-sided.

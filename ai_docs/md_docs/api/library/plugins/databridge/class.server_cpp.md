@@ -8,8 +8,6 @@ This class is inherited from [NetworkInstance](../../../../api/library/plugins/d
 
 ## Server Class
 
-### Members
-
 ---
 
 ## bool init ( NetworkInstance::ADDRESSING_METHOD in_addressing_method , const char * broadcast_address , const char * multicast_address , unsigned short udp_port )

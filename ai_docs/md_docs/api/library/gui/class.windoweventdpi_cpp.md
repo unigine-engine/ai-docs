@@ -18,6 +18,32 @@
 
 ### Members
 
+## void setAction ( WindowEventDpi::ACTION action )
+
+Sets a new type of the DPI action performed with the window during the event.
+### Arguments
+
+- *[WindowEventDpi::ACTION](../../../api/library/gui/class.windoweventdpi_cpp.md#ACTION)* **action** - The type of the DPI action performed with the window during the event
+
+## WindowEventDpi::ACTION getAction () const
+
+Returns the current type of the DPI action performed with the window during the event.
+### Return value
+
+Current type of the DPI action performed with the window during the event
+## void setDpi ( int dpi )
+
+Sets a new DPI level.
+### Arguments
+
+- *int* **dpi** - The DPI level
+
+## int getDpi () const
+
+Returns the current DPI level.
+### Return value
+
+Current DPI level
 ---
 
 ## WindowEventDpi ( )
@@ -63,30 +89,3 @@ Window DPI event constructor.
 - *const  Math::[ivec2](../../../api/library/math/class.ivec2_cpp.md) &* **size** - Size of the window.
 - *[WindowEventDrop::ACTION](../../../api/library/gui/class.windoweventdrop_cpp.md#ACTION)* **action** - Type of the DPI action performed with the window during the event.
 - *int* **dpi** - The DPI level.
-
-## void setAction ( WindowEventDpi::ACTION action )
-
-Sets the type of the DPI action performed with the window during the event.
-### Arguments
-
-- *[WindowEventDpi::ACTION](../../../api/library/gui/class.windoweventdpi_cpp.md#ACTION)* **action** - Type of the DPI action performed with the window during the event.
-
-## WindowEventDpi::ACTION getAction ( ) const
-
-Returns the type of the DPI action performed with the window during the event.
-### Return value
-
-The type of the DPI action performed with the window during the event.
-## void setDpi ( int dpi )
-
-Sets the DPI level.
-### Arguments
-
-- *int* **dpi** - The DPI level.
-
-## int getDpi ( ) const
-
-Returns the current DPI level.
-### Return value
-
-The DPI level.

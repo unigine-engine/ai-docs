@@ -8,7 +8,7 @@
 This class provides functionality for the [editor script](../../../code/fundamentals/execution_sequence/app_logic_system.md#editor_logic) that loads and manages the hierarchy of nodes displayed in the editor.
 
 
-> **Notice:** C++ methods running editor script functions are described in the [Engine class](../../../api/library/engine/class.engine_cpp.md) reference.
+> **Notice:** C++ methods running editor script functions are described in the *[Engine](../../../api/library/engine/class.engine_cpp.md)* class reference.
 
 
 ## Editor Class
@@ -18,7 +18,7 @@ This class provides functionality for the [editor script](../../../code/fundamen
 ## void setPlayer ( const Ptr < Player >& player )
 
 Sets a new player used in the Editor mode at the moment.
-> **Notice:** Editor player is handled differently than in-game players. Parameters set directly for the player are ignored; instead, Editor player uses [Camera](../../../editor2/camera_settings/index.md) parameters set via the interface. (See Editor scripts in `data/core/editor` folder for implementation.)
+> **Notice:** Editor player is handled differently than in-game players. Parameters set directly for the player are ignored; instead, *Editor* player uses [Camera](../../../editor2/camera_settings/index.md) parameters set via the interface. (See Editor scripts in `data/core/editor` folder for implementation.)
 
 
 ### Arguments
@@ -28,7 +28,7 @@ Sets a new player used in the Editor mode at the moment.
 ## Ptr < Player > getPlayer () const
 
 Returns the current player used in the Editor mode at the moment.
-> **Notice:** Editor player is handled differently than in-game players. Parameters set directly for the player are ignored; instead, Editor player uses [Camera](../../../editor2/camera_settings/index.md) parameters set via the interface. (See Editor scripts in `data/core/editor` folder for implementation.)
+> **Notice:** Editor player is handled differently than in-game players. Parameters set directly for the player are ignored; instead, *Editor* player uses [Camera](../../../editor2/camera_settings/index.md) parameters set via the interface. (See Editor scripts in `data/core/editor` folder for implementation.)
 
 
 ### Return value
@@ -36,7 +36,10 @@ Returns the current player used in the Editor mode at the moment.
 Current editor player.
 ## void setVRPlayer ( const Ptr < Player >& vrplayer )
 
-Sets a new player used to render VR in the Editor mode at the moment. If VR Player has not been set, VR is rendered to the [Editor Player](#getPlayer_Player); if the Editor Player hasn't been set either, the [Game Player](../../../api/library/engine/class.game_cpp.md#getPlayer_Player) is used for rendering.
+Sets a new player used to render VR in the Editor mode at the moment.
+If VR Player has not been set, VR is rendered to the [Editor Player](#getPlayer_Player); if the *Editor* Player hasn't been set either, the [Game Player](../../../api/library/engine/class.game_cpp.md#getPlayer_Player) is used for rendering.
+
+
 > **Notice:** Editor player is handled differently than in-game players. Parameters set directly for the player are ignored; instead, Editor player uses [Camera](../../../editor2/camera_settings/index.md) parameters set via the interface. (See Editor scripts in `data/core/editor` folder for implementation.)
 
 
@@ -46,7 +49,10 @@ Sets a new player used to render VR in the Editor mode at the moment. If VR Play
 
 ## Ptr < Player > getVRPlayer () const
 
-Returns the current player used to render VR in the Editor mode at the moment. If VR Player has not been set, VR is rendered to the [Editor Player](#getPlayer_Player); if the Editor Player hasn't been set either, the [Game Player](../../../api/library/engine/class.game_cpp.md#getPlayer_Player) is used for rendering.
+Returns the current player used to render VR in the Editor mode at the moment.
+If VR Player has not been set, VR is rendered to the [Editor Player](#getPlayer_Player); if the *Editor* Player hasn't been set either, the [Game Player](../../../api/library/engine/class.game_cpp.md#getPlayer_Player) is used for rendering.
+
+
 > **Notice:** Editor player is handled differently than in-game players. Parameters set directly for the player are ignored; instead, Editor player uses [Camera](../../../editor2/camera_settings/index.md) parameters set via the interface. (See Editor scripts in `data/core/editor` folder for implementation.)
 
 
@@ -78,7 +84,7 @@ Sets a new value of the *Enabled* parameter. The *Enabled* parameter controls al
 Returns the current value of the *Enabled* parameter. The *Enabled* parameter controls all internal additional engine processing (for example, reloading of textures when their recording time is changed and so on). For example, the *Enabled* parameter can be set to 0 when using Syncker in order to increase engine performance (as Syncker operates inside the editor environment and can reduce engine performance).
 ### Return value
 
-**true** if the *Enabled* parameter is enabled; otherwise **false**.
+**true** if the *Enabled* parameter is enabled ; otherwise **false**.
 ## bool isLoaded () const
 
 Returns the current value indicating if the editor is already loaded.
@@ -132,7 +138,7 @@ Returns a value indicating if the given player is an Editor player.
 true if the *Player* is an Editor player; otherwise, false.
 ## Ptr < Node > getIntersection ( const Math:: Vec3 & p0 , const Math:: Vec3 & p1 , bool use_handlers = true )
 
-Searches for all of the nodes intersected by the line traced from **p0** to **p1**. The node closest to the start point is returned.
+Searches for all of the nodes intersected by the line traced from p0 to p1. The node closest to the start point is returned.
 ### Arguments
 
 - *const  Math::[Vec3](../../../api/library/math/class.vec3_cpp.md) &* **p0** - Line start point coordinates
@@ -144,7 +150,7 @@ Searches for all of the nodes intersected by the line traced from **p0** to **p1
 The first intersected node found along the line; otherwise, *nullptr*, if there was no intersection.
 ## Ptr < Node > getIntersection ( const Math:: Vec3 & p0 , const Math:: Vec3 & p1 , const Ptr < WorldIntersection > & intersection , bool use_handlers = true )
 
-Searches for all of the nodes intersecting the line. The node closest to the start point is returned. The intersection result will be presented as a WorldIntersection instance.
+Searches for all of the nodes intersecting the line. The node closest to the start point is returned. The intersection result will be presented as a *WorldIntersection* instance.
 ### Arguments
 
 - *const  Math::[Vec3](../../../api/library/math/class.vec3_cpp.md) &* **p0** - Line start point coordinates.
@@ -157,7 +163,7 @@ Searches for all of the nodes intersecting the line. The node closest to the sta
 The first intersected node found along the line; otherwise, *nullptr*, if there was no intersection.
 ## Ptr < Node > getIntersection ( const Math:: Vec3 & p0 , const Math:: Vec3 & p1 , const Ptr < WorldIntersectionNormal > & intersection , bool use_handlers = true )
 
-Searches for all of the nodes intersecting the line. The node closest to the start point is returned. The intersection result will be presented as a WorldIntersectionNormal instance.
+Searches for all of the nodes intersecting the line. The node closest to the start point is returned. The intersection result will be presented as a *WorldIntersectionNormal* instance.
 ### Arguments
 
 - *const  Math::[Vec3](../../../api/library/math/class.vec3_cpp.md) &* **p0** - Line start point coordinates.
@@ -170,7 +176,7 @@ Searches for all of the nodes intersecting the line. The node closest to the sta
 The first intersected node found along the line; otherwise, *nullptr*, if there was no intersection.
 ## Ptr < Node > getIntersection ( const Math:: Vec3 & p0 , const Math:: Vec3 & p1 , const Ptr < WorldIntersectionTexCoord > & intersection , bool use_handlers = true )
 
-Searches for all of the nodes intersecting the line. The node closest to the start point is returned. The intersection result will be presented as a WorldIntersectionTexCoord node.
+Searches for all of the nodes intersecting the line. The node closest to the start point is returned. The intersection result will be presented as a *WorldIntersectionTexCoord* node.
 ### Arguments
 
 - *const  Math::[Vec3](../../../api/library/math/class.vec3_cpp.md) &* **p0** - Start point of the line.
@@ -193,6 +199,18 @@ Finds all nodes intersected by the specified bound frustum and puts them to the 
 ### Return value
 
 true if intersected nodes are found; otherwise, false.
+## bool getIntersection ( const Math:: WorldBoundFrustum & bf , Vector < Ptr < Node >> & OUT_bound_nodes , Vector < Ptr < Node >> & OUT_handler_nodes )
+
+Performs a frustum selection query returning two kinds of hits separately: nodes whose bounds intersect the given frustum, and nodes whose visualizer handler points fall inside it.
+### Arguments
+
+- *const  Math::[WorldBoundFrustum](../../../api/library/math/bounds/class.worldboundfrustum_cpp.md) &* **bf** - Bounding frustum where intersection search is to be performed.
+- *[Vector](../../../api/library/containers/vector/class.vector_cpp.md)<[Ptr](../../../api/library/common/class.ptr_cpp.md)<[Node](../../../api/library/nodes/class.node_cpp.md)>> &* **OUT_bound_nodes** - Output vector filled with all nodes whose bounds intersect the frustum. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
+- *[Vector](../../../api/library/containers/vector/class.vector_cpp.md)<[Ptr](../../../api/library/common/class.ptr_cpp.md)<[Node](../../../api/library/nodes/class.node_cpp.md)>> &* **OUT_handler_nodes** - Output vector filled with nodes whose visualizer handler point (the on-screen node icon) lies inside the frustum. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
+
+### Return value
+
+true if at least one node was found in either list; otherwise, false.
 ## Ptr < Node > getIntersection ( const Math:: Vec3 & p0 , const Math:: Vec3 & p1 , CallbackBase2 < Ptr < Node >, bool *> * node_filter , CallbackBase3 < Ptr < Object >, int, bool *> * surface_filter , bool use_handlers = true )
 
 Searches for all nodes intersected by the line traced from **p0** to **p1**, ignoring the ones defined by the specified **filters**. The node closest to the start point is returned (if any).

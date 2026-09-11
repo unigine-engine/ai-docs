@@ -204,7 +204,7 @@ For example, if you apply these textures to the following grass field and set th
 |---|---|
 
 
-The texture that is used to color the grass is usually generated based on the terrain's albedo colors. The texture and the terrain size may differ, but dimensions of the the spatial noise texture should be equal to some power of two (for example, 1024 × 1024, 2048 × 2048, and so on).
+The texture that is used to color the grass is usually generated based on the terrain's albedo colors. The texture and the terrain size may differ, but dimensions of the the spatial noise texture should be equal to some power of two (for example, 1024�נ1024, 2048�נ2048, and so on).
 
 
 > **Notice:** The texture is present only if **[Noise](#option_color_noise)** is enabled.

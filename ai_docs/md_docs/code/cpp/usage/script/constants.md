@@ -15,6 +15,7 @@ Constants are variables, the value of which does not change no matter what happe
 
 Constants are exported in the similar way as [variables](../../../../code/cpp/usage/script/variables.md):
 
+
 1. Create a pointer to an external constant via `MakeExternConstant()`.
 2. Register the constant via `Unigine::Interpreter::addExternVariable()`.
 3. All variables are exported into a global namespace. To limit the scope of variable, use [library namespace](../../../../code/cpp/usage/script/namespace.md).
@@ -72,6 +73,7 @@ log.message("Integer: %d\nFloat: %f\n",int_constant,float_constant);
 
 
 The following results will be printed into the console:
+
 
 ```text
 Integer: 0

@@ -9,6 +9,12 @@ This class is used to manage a fragment of terrain data on the CPU side (e.g. mo
 
 ### Members
 
+## Math:: ivec2 getResolution () const
+
+Returns the current image resolution.
+### Return value
+
+Current image resolution
 ---
 
 ## Ptr < LandscapeImages > LandscapeImages ( const Math:: ivec2 & resolution )
@@ -73,12 +79,6 @@ Returns the image of the specified type.
 ### Return value
 
 Image of the specified type.
-## Math:: ivec2 getResolution ( )
-
-Returns the current image resolution.
-### Return value
-
-Two-component vector containing image resolution along X and Y axes.
 ## void resize ( Math:: ivec2 new_resolution )
 
 Sets a new image resolution.

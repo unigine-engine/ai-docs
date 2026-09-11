@@ -1,7 +1,7 @@
 # Static Mesh
 
 
-A ![](mesh.png)  **static mesh** is an object that represents a collection of vertices, edges and triangular faces (organized in polygons) defining the object's geometry. The static mesh can be moved, rotated and scaled, but cannot be modified: vertices of the static mesh are immutable.
+A ![](mesh.png) �**static mesh** is an object that represents a collection of vertices, edges and triangular faces (organized in polygons) defining the object's geometry. The static mesh can be moved, rotated and scaled, but cannot be modified: vertices of the static mesh are immutable.
 
 
 Static meshes are usually used to add non-animated geometry: buildings, furniture, vehicles, and so on.

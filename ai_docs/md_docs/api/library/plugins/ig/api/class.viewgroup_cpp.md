@@ -7,6 +7,7 @@
 
 This class represents the IG View group interface.
 
+
 > **Notice:** IG plugin must be loaded.
 
 
@@ -14,6 +15,12 @@ This class represents the IG View group interface.
 
 ### Members
 
+## int getID () const
+
+Returns the current ID of the view group.
+### Return value
+
+Current View group ID.
 ---
 
 ## int getID ( ) const

@@ -67,7 +67,7 @@ This chapter matches common *Unity* software terms on the left and their UNIGINE
 ## Project and SDK Management
 
 
-As a *Unity* software user, you are accustomed to use **Unity Hub** — the application that streamlines the way you find, download and manage your projects and installations.
+As a *Unity* software user, you are accustomed to use **Unity Hub** � the application that streamlines the way you find, download and manage your projects and installations.
 
 
 **[UNIGINE SDK Browser](../../sdk/index.md)** is the first step to start working with UNIGINE Engine. This application enables you to manage your projects and installed SDKs, as well as gives you access to the samples and the knowledge base.
@@ -81,7 +81,7 @@ As a *Unity* software user, you are accustomed to use **Unity Hub** — the appl
 UNIGINE provides several [programming workflows](../../code/fundamentals/programming_overview/index.md), to easily adapt your experience of scripting in *Unity* software, it is recommended to use [C# Component System](../../migration/from_unity/code.md). [Creating a project](../../sdk/projects/index_cpp.md#creation) using this workflow in SDK Browser is done as follows:
 
 
-1. Click *Create Project* on the *C++ Empty* template card in the *Templates* tab. ![](../../sdk/projects/create_project_cs.png) > **Notice:** If you want to make a project compatible with one of the supported VR headsets, use the **VR C#** template instead. This will enable required plugins, add template assets and components (more about [VR-compatibility](../../start/vr/index_cpp.md)).
+1. Click *Create Project* on the *C++ Empty* template card in the *Templates* tab. ![](../../sdk/projects/create_project_cs.png) > **Notice:** If you want to make a project compatible with one of the supported VR headsets, use the **VR C#** template instead. This will enable required plugins, add template assets and components (more about [VR-compatibility](../../vr_development/vr_template/index.md)).
 2. Click *Create New Project*.
 3. Once the new project is created, it will appear in the *My Projects* tab. Click ***Open Editor*** to open it in UnigineEditor.
 
@@ -276,7 +276,7 @@ The concept of the Scene in both engines is the same. However, *Unity* software 
 
 | Unity software | UNIGINE |
 |---|---|
-| ![Unity Coordinate System (left-handed)](unity_cs.png) *Unity* software uses a **left-handed** coordinate system where the vertical direction is usually represented by the **+Y** axis. One unit is one meter. **Axes and Directions:** - **X** — right (+), left (-) - **Y** — up (+), down (-) - **Z** — forwards (+), backwards (-) Positive rotation angle sets the rotation clockwise. File format: `*.scene` | ![UNIGINE Coordinate System (right-handed)](unigine_cs.png) UNIGINE uses a **right-handed** coordinate system where the vertical direction is usually represented by the **+Z** axis. One unit is one meter. **Axes and Directions:** - **X** — right (+), left (-) - **Y** — forwards (+), backwards (-) - **Z** — up (+), down (-) Positive rotation angle sets the rotation counterclockwise. File format: `*.world` |
+| ![Unity Coordinate System (left-handed)](unity_cs.png) *Unity* software uses a **left-handed** coordinate system where the vertical direction is usually represented by the **+Y** axis. One unit is one meter. **Axes and Directions:** - **X** � right (+), left (-) - **Y** � up (+), down (-) - **Z** � forwards (+), backwards (-) Positive rotation angle sets the rotation clockwise. File format: `*.scene` | ![UNIGINE Coordinate System (right-handed)](unigine_cs.png) UNIGINE uses a **right-handed** coordinate system where the vertical direction is usually represented by the **+Z** axis. One unit is one meter. **Axes and Directions:** - **X** � right (+), left (-) - **Y** � forwards (+), backwards (-) - **Z** � up (+), down (-) Positive rotation angle sets the rotation counterclockwise. File format: `*.world` |
 
 
 ### Scene Objects
@@ -287,7 +287,7 @@ This section gives a brief description of basic scene objects in both engines as
 
 | Unity software | UNIGINE |
 |---|---|
-| ![](unity_hierarchy.png) *Hierarchy window* Basic scene object — **GameObject**. GameObjects are containers for all other Components. Components add functionality to the GameObject. Every GameObject has the *Transform* component by default. GameObjects can be organized into a hierarchy (parent-child relation). | ![](unigine_world_hierarchy.png) *World Nodes Hierarchy window* **Node** is a basic type from which all types of scene objects are inherited. Some of them appear visually: [Objects](../../objects/objects/index.md), [Decals](../../objects/decals/index.md), and [Effects](../../objects/effects/index.md) — they all have [surfaces](../../start/index.md#surface) to represent their geometry (mesh), while others ([Light Sources](../../objects/lights/index.md), [Players](../../objects/players/index.md), etc.) are invisible. Basic functionality of a node is determined by its type. Additional functionality can be added using [properties](../../principles/properties/index.md) and a [component system](../../principles/component_system/index.md). Each node has a transformation matrix, which encodes its position, rotation, and scale in the world. Nodes can be organized into a hierarchy (parent-child relation). > **Notice:** All scene objects added to the scene regardless of their type are called nodes. |
+| ![](unity_hierarchy.png) *Hierarchy window* Basic scene object � **GameObject**. GameObjects are containers for all other Components. Components add functionality to the GameObject. Every GameObject has the *Transform* component by default. GameObjects can be organized into a hierarchy (parent-child relation). | ![](unigine_world_hierarchy.png) *World Nodes Hierarchy window* **Node** is a basic type from which all types of scene objects are inherited. Some of them appear visually: [Objects](../../objects/objects/index.md), [Decals](../../objects/decals/index.md), and [Effects](../../objects/effects/index.md) � they all have [surfaces](../../start/index.md#surface) to represent their geometry (mesh), while others ([Light Sources](../../objects/lights/index.md), [Players](../../objects/players/index.md), etc.) are invisible. Basic functionality of a node is determined by its type. Additional functionality can be added using [properties](../../principles/properties/index.md) and a [component system](../../principles/component_system/index.md). Each node has a transformation matrix, which encodes its position, rotation, and scale in the world. Nodes can be organized into a hierarchy (parent-child relation). > **Notice:** All scene objects added to the scene regardless of their type are called nodes. |
 
 
 #### Prefabs

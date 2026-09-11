@@ -96,7 +96,7 @@ The path to the skin used for buttons.
 The path to the skin used for icons.
 ## int CurrentItem
 
-The currently selected item.
+The number of the currently selected item.
 ## 🔒︎ int NumItems
 
 The number of items in the combobox.

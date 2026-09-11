@@ -120,6 +120,7 @@ You can also assign a saved preset to a world as follows: select the world in th
   - [Materials Quality](../../editor2/settings/render_settings/materials_quality/index.md)
   - [Shading Quality](../../editor2/settings/render_settings/shading_quality/index.md)
   - [Custom Post Materials](../../editor2/settings/render_settings/custom_post/index.md)
+  - [Custom Parameters](../../editor2/settings/render_settings/custom_parameters/index.md)
   - [Debug Materials](../../editor2/settings/render_settings/debug/index.md)
   - [Custom Composite Materials](../../editor2/settings/render_settings/custom_composite/index.md)
   - [Wireframe Color](../../editor2/settings/render_settings/wireframe_color/index.md)
@@ -127,5 +128,7 @@ You can also assign a saved preset to a world as follows: select the world in th
 - [Global Physics Settings](../../editor2/settings/physics_global/index.md)
 
 - [Global Sound Settings](../../editor2/settings/sound_global/index.md)
+
+- [Navigation Settings (Experimental)](../../editor2/settings/navigation/index.md)
 
 - [Controls Settings](../../editor2/settings/controls/index.md)

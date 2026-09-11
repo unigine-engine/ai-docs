@@ -1,7 +1,7 @@
 # Unigine::Ellipsoid Class (CS)
 
 
-The Ellipsoid class handles the geodetic transformations:
+The *Ellipsoid* class handles the geodetic transformations:
 
 
 - Specifies the Ellipsoid settings: semimajor axis, flattening coefficient
@@ -9,10 +9,10 @@ The Ellipsoid class handles the geodetic transformations:
 - Solves direct and inverse geodetic problems with different calculation mode (Great Circle and Vincenty algorithms)
 
 
-This class is used to create an Ellipsoid instance to the [GeodeticPivot](../../../api/library/geodetics/class.geodeticpivot_cs.md) class.
+This class is used to create an Ellipsoid instance to the *[GeodeticPivot](../../../api/library/geodetics/class.geodeticpivot_cs.md)* class.
 
 
-Here is a code snippet of the Ellipsoid class usage:
+Here is a code snippet of the *Ellipsoid* class usage:
 
 
 ```csharp
@@ -49,16 +49,16 @@ The squared eccentricity calculated along the semimajor axis.
 The mean radius of the ellipsoid.
 ## 🔒︎ double SemiminorAxis
 
-The Semiminor axis of the ellipsoid in units.
+The semiminor axis of the ellipsoid, in units.
 ## int Mode
 
-The calculation mode int value: 1 if the mode is MODE_ACCURATE, 0 if the mode is MODE_FAST.
+The calculation mode int value: 1 if the mode is [MODE_ACCURATE](#MODE_ACCURATE), 0 if the mode is [MODE_FAST](#MODE_FAST).
 ## double Flattening
 
-The Flattening coefficient of the ellipsoid.
+The flattening coefficient of the ellipsoid. If the value is 0, the ellipsoid has a sphere shape, for 1 the ellipsoid has a circle (completely flat) shape.
 ## double SemimajorAxis
 
-The Semimajor axis length of the ellipsoid in units.
+The semimajor axis length of the ellipsoid, in units.
 ### Members
 
 ---
@@ -77,6 +77,7 @@ Constructor. Creates a new Ellipsoid class instance (WGS84 Ellipsoid).
 ## dvec3 GetENUSurfacePoint ( dvec3 geodetic_origin , dvec3 tangent_point )
 
 Returns surface point by using tangent point coordinates.
+
 > **Notice:** The Up-axis (Z+) direction in ENU points upward along the ellipsoid normal, while in UNIGINE implementation of ENU it goes from the Earth's center.
 
 ### Arguments
@@ -90,6 +91,7 @@ Surface point coordinates.
 ## dvec3 GetENUTangentPoint ( dvec3 geodetic_origin , dvec3 surface_point )
 
 Returns tangent point ENU coordinates based on the geographical coordinates.
+
 > **Notice:** The Up-axis (Z+) direction in ENU points upward along the ellipsoid normal, while in UNIGINE implementation of ENU it goes from the Earth's center.
 
 ### Arguments
@@ -103,6 +105,7 @@ Tangent point coordinates.
 ## quat GetENUWorldRotation ( dvec3 geodetic_origin )
 
 Returns the world rotation quaternion in ENU coordinates.
+
 > **Notice:** The Up-axis (Z+) direction in ENU points upward along the ellipsoid normal, while in UNIGINE implementation of ENU it goes from the Earth's center.
 
 ### Arguments
@@ -115,6 +118,7 @@ World rotation in ENU coordinates.
 ## dmat4 GetENUWorldTransform ( dvec3 geodetic_origin )
 
 Returns the world transformation matrix in ENU coordinates.
+
 > **Notice:** The Up-axis (Z+) direction in ENU points upward along the ellipsoid normal, while in UNIGINE implementation of ENU it goes from the Earth's center.
 
 ### Arguments
@@ -133,6 +137,7 @@ Returns a value indicating if the geodetics feature is enabled.
 ## dvec3 GetNEDSurfacePoint ( dvec3 geodetic_origin , dvec3 tangent_point )
 
 Returns surface point by using tangent point coordinates.
+
 > **Notice:** The Down-axis direction in NED points downward along the ellipsoid normal, while in UNIGINE implementation of NED it goes through the Earth's center.
 
 ### Arguments
@@ -146,6 +151,7 @@ Surface point coordinates.
 ## dvec3 GetNEDTangentPoint ( dvec3 geodetic_origin , dvec3 surface_point )
 
 Returns tangent point NED coordinates based on the geographical coordinates.
+
 > **Notice:** The Down-axis direction in NED points downward along the ellipsoid normal, while in UNIGINE implementation of NED it goes through the Earth's center.
 
 ### Arguments
@@ -159,6 +165,7 @@ Tangent point coordinates.
 ## quat GetNEDWorldRotation ( dvec3 geodetic_origin )
 
 Returns the world rotation quaternion in NED coordinates.
+
 > **Notice:** The Down-axis direction in NED points downward along the ellipsoid normal, while in UNIGINE implementation of NED it goes through the Earth's center.
 
 ### Arguments
@@ -171,6 +178,7 @@ World rotation in NED coordinates.
 ## dmat4 GetNEDWorldTransform ( dvec3 geodetic_origin )
 
 Returns the world transformation matrix in NED coordinates.
+
 > **Notice:** The Down-axis direction in NED points downward along the ellipsoid normal, while in UNIGINE implementation of NED it goes through the Earth's center.
 
 ### Arguments
@@ -212,6 +220,7 @@ Cartesian coordinates.
 ## dvec3 ToENU ( dvec3 geodetic_origin , dvec3 geodetic_coords )
 
 Converts geodetic coordinates to ENU (East, North, Up).
+
 > **Notice:** The Up-axis (Z+) direction in ENU points upward along the ellipsoid normal, while in UNIGINE implementation of ENU it goes from the Earth's center.
 
 ### Arguments
@@ -236,6 +245,7 @@ Ellipsoid coordinates (latitude (degrees), longitude (degrees) and altitude (met
 ## dvec3 ToNED ( dvec3 geodetic_origin , dvec3 geodetic_coords )
 
 Converts geodetics coordinates to NED (North, East, Down).
+
 > **Notice:** The Down-axis direction in NED points downward along the ellipsoid normal, while in UNIGINE implementation of NED it goes through the Earth's center.
 
 ### Arguments

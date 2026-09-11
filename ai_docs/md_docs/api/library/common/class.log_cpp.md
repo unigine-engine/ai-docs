@@ -55,11 +55,15 @@ int ID = 10;
 
 You can [subscribe for events](#getEventMessage_Event) to define custom actions on various types of messages printed to the *Log*. The signature of the handler function must be as follows:
 
+
 ```cpp
 void handler_function_name(const char * message_text);
 ```
 
- Here is an example of tracking error messages via event handlers:
+
+Here is an example of tracking error messages via event handlers:
+
+
 ```cpp
 void error_handler(const char * message_text)
 {
@@ -84,7 +88,10 @@ Log::error("An ERROR has occurred!\n");
 
 ## void setDialogFatalEnabled ( bool enabled )
 
-Sets a new value indicating if displaying *Fatal* dialog messages is enabled (when disabled, the corresponding message will be printed to the log). Can be used, for example, to disable when running console tools like *[Runtimes Generator](../../../tools/runtimes_generator/index.md)* or *[Build Tool](../../../editor2/projects/build_project.md#console_build)* (use the `-dialog_fatal_enabled` command).
+Sets a new value indicating if displaying *Fatal* dialog messages is enabled (when disabled, the corresponding message will be printed to the log).
+Can be used, for example, to disable when running console tools like *[Runtimes Generator](../../../tools/runtimes_generator/index.md)* or *[Build Tool](../../../editor2/projects/build_project.md#console_build)* (use the `-dialog_fatal_enabled` command).
+
+
 > **Notice:** Available for Windows OS only.
 
 ### Arguments
@@ -93,15 +100,18 @@ Sets a new value indicating if displaying *Fatal* dialog messages is enabled (wh
 
 ## bool isDialogFatalEnabled () const
 
-Returns the current value indicating if displaying *Fatal* dialog messages is enabled (when disabled, the corresponding message will be printed to the log). Can be used, for example, to disable when running console tools like *[Runtimes Generator](../../../tools/runtimes_generator/index.md)* or *[Build Tool](../../../editor2/projects/build_project.md#console_build)* (use the `-dialog_fatal_enabled` command).
+Returns the current value indicating if displaying *Fatal* dialog messages is enabled (when disabled, the corresponding message will be printed to the log).
+Can be used, for example, to disable when running console tools like *[Runtimes Generator](../../../tools/runtimes_generator/index.md)* or *[Build Tool](../../../editor2/projects/build_project.md#console_build)* (use the `-dialog_fatal_enabled` command).
+
+
 > **Notice:** Available for Windows OS only.
 
 ### Return value
 
-**true** if displaying *Fatal* dialog messages is enabled; otherwise **false**.
+**true** if displaying *Fatal* dialog messages is enabled ; otherwise **false**.
 ## Event<const char*> getEventMessage () const
 
-event triggered when a message has been printed to the log. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a message has been printed to the log. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 <details>
 <summary>See Example | Close</summary>
@@ -245,10 +255,10 @@ Log::getEventMessage().setEnabled(true);
  The event handler signature is as follows: *myhandler(const char * **text**)*
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const char*> getEventWarning () const
 
-event triggered when a warning has been printed to the log. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a warning has been printed to the log. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 <details>
 <summary>See Example | Close</summary>
@@ -392,10 +402,10 @@ Log::getEventWarning().setEnabled(true);
  The event handler signature is as follows: *myhandler(const char * **text**)*
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const char*> getEventError () const
 
-event triggered when an error message has been printed to the log. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when an error message has been printed to the log. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 <details>
 <summary>See Example | Close</summary>
@@ -539,10 +549,10 @@ Log::getEventError().setEnabled(true);
  The event handler signature is as follows: *myhandler(const char * **text**)*
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const char*> getEventFatal () const
 
-event triggered when a fatal error message has been printed to the log. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a fatal error message has been printed to the log. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 <details>
 <summary>See Example | Close</summary>
@@ -689,7 +699,7 @@ Log::getEventFatal().setEnabled(true);
 The event handler signature is as follows: *myhandler(const char * **text**)*
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## void error ( const char * format , ... )
@@ -703,6 +713,7 @@ Prints an error message to the console and the log file.
 ## void fatal ( const char * format , ... )
 
 Prints a fatal error message to the log file and quits the engine.
+
 > **Notice:** Available for Windows OS only.
 
 ### Arguments

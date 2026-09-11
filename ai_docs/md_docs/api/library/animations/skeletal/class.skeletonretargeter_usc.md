@@ -18,7 +18,7 @@ Use the static [findRetargeter()](#findRetargeter_ConstSkeleton_ConstSkeleton_Sk
 
 ### Members
 
-## getType () const
+## int getType () const
 
 Returns the current type of this retargeter instance, identifying which subclass strategy it implements.
 ### Return value
@@ -30,6 +30,18 @@ Returns the current human-readable name of the retargeter type.
 ### Return value
 
 Current retargeter type name.
+## UGUID getFirstFileGUID () const
+
+Returns the current GUID of the first of the two skeleton files this retargeter was registered for.
+### Return value
+
+Current file GUID of the first skeleton
+## UGUID getSecondFileGUID () const
+
+Returns the current GUID of the second of the two skeleton files this retargeter was registered for.
+### Return value
+
+Current file GUID of the second skeleton
 ---
 
 ## void retarget ( int retarget_direction , SkeletonPoseDecomposed out_pose , SkeletonPoseDecomposed compatible_pose )

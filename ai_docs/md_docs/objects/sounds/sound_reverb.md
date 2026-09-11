@@ -52,7 +52,7 @@ For comfortable concentration on the displayed image, sound snapping is strongly
 When a sound wave reaches an obstacle, a smaller part of it is absorbed by the material depending on its rigidity and density characteristics. But the most part bounces off and then reaches the listener's ears. It can also continue to the next obstacle to be bounced off for the second time. This sounds are called the first-order and second-order reflections. Though being perceived a split second later than the original sound, they are still interpreted by the brain as one integrated sound because of their similarity and closeness in time. The integrated sound not only seems to be louder, but it may take some tone coloration.
 
 
-Even in complete darkness, the listener can orient basing on the sound environment cues. Of course, it is not possible to reproduce the exact location geometry, but the character of the reflections gives some indication of the immediate surroundings. For example, a strong and immediate primary reflection tells that the walls are close. The change in tonal coloration indicates the reflective quality of the wall — whether it is highly reflective or somewhat absorptive that mutes reflections.
+Even in complete darkness, the listener can orient basing on the sound environment cues. Of course, it is not possible to reproduce the exact location geometry, but the character of the reflections gives some indication of the immediate surroundings. For example, a strong and immediate primary reflection tells that the walls are close. The change in tonal coloration indicates the reflective quality of the wall � whether it is highly reflective or somewhat absorptive that mutes reflections.
 
 
 ### Reflection Gain

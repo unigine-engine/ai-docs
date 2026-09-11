@@ -17,7 +17,7 @@ Here are some general notes that are valid for any of the formats listed above.
 - All data is in the little-endian notation.
 - *float* is a 32-bit IEEE754 floating-point type. It has a range of **3.4 e-38** to **3.4 e+38**.
 - *int* here is a compact signed integer. > **Notice:** To read / write compact integer values use *[readInt2()](../../api/library/common/class.stream_cpp.md#readInt2_int)* / *[writeInt2()](../../api/library/common/class.stream_cpp.md#writeInt2_int_int)* methods respectively.
-- *int32* is a signed 32-bit two's complement integer. It has a range of **–2,147,483,648** to **2,147,483,647**.
+- *int32* is a signed 32-bit two's complement integer. It has a range of **�2,147,483,648** to **2,147,483,647**.
 - *long* is a signed 64-bit integer.
 - *short* is a signed 16-bit integer. It has a range of **-32,768** to **32,767**.
 - *unsigned short* is an unsigned 16-bit integer. It has a range of **0** to **65,535**.

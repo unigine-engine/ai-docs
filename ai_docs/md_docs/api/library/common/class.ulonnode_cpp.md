@@ -11,12 +11,14 @@ Each ULON node has a **type**, a **name**, and a **value**. It can also have chi
 
 A node is declared as follows:
 
+
 ```text
 NodeType node_name = node_value
 ```
 
 
 ULON nodes can be of the following types:
+
 
 - ***Boolean*** *Node node = true*
 - ***Integer number*** *Node node = 1234*
@@ -41,13 +43,18 @@ ULON nodes can be of the following types:
 
 For each node a condition can be specified, if the condition fails the ULON node with all its children is ignored. Thus you can dynamically build the hierarchy of ULON nodes with a great degree of flexibility.
 
+
 > **Notice:** Conditions are not parsed and executed automatically, processing of conditions is the responsibility of the user of the ULON format (e.g. in case of materials [UnigineScript](../../../code/uniginescript/index.md) and [UUSL](../../../code/uusl/index.md) are used).
 
+
 Conditions are specified after the node's name, starting with the **if** keyword, the condition itself is enclosed in brackets **[ ... ]**.
+
+
 Condition of the parent node is added to the condition of the child: **(parent_conditon) && (child_conditon)**
 
 
 **Example:**
+
 
 ```text
 Node parent if[var == 10 || var == 5]
@@ -62,7 +69,10 @@ Node parent if[var == 10 || var == 5]
 
 ```
 
- The resulting conditions for each node are as follows:
+
+The resulting conditions for each node are as follows:
+
+
 - **parent** condition: (var1 == 10 || var1 == 5)
 - **child_0** condition: (var1 == 10 || var1 == 5) && (var2 == 3)
 - **child_1** condition: (var1 == 10 || var1 == 5) && (var2 == 4)
@@ -146,10 +156,13 @@ Checks whether an [argument](../../../api/library/common/class.ulonarg_cpp.md) w
 
 ### Return value
 
-**true** if an argument with the specified name exists; otherwise, **false**.
+true if an argument with the specified name exists; otherwise, false.
 ## float getArgFloat ( const char * name , float ret = 0 ) const
 
+
 Returns the value of the ULON node [argument](../../../api/library/common/class.ulonarg_cpp.md) with the specified name as a float.
+
+
 > **Notice:** To check, if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -163,7 +176,10 @@ Returns the value of the ULON node [argument](../../../api/library/common/class.
 Float value of the ULON node argument, if it exists; otherwise a default value set via the *ret* parameter.
 ## int getArgInt ( const char * name , int ret = 0 ) const
 
+
 Returns the value of the ULON node [argument](../../../api/library/common/class.ulonarg_cpp.md) with the specified name as an integer.
+
+
 > **Notice:** To check, if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -177,7 +193,10 @@ Returns the value of the ULON node [argument](../../../api/library/common/class.
 Integer value of the ULON node argument, if it exists; otherwise a default value set via the *ret* parameter.
 ## long long getArgLong ( const char * name , long long ret = 0 ) const
 
+
 Returns the value of the ULON node [argument](../../../api/library/common/class.ulonarg_cpp.md) with the specified name as a 64-bit long long.
+
+
 > **Notice:** To check, if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -191,7 +210,10 @@ Returns the value of the ULON node [argument](../../../api/library/common/class.
 64-bit long long value of the ULON node argument, if it exists; otherwise a default value set via the *ret* parameter.
 ## bool getArgBool ( const char * name , bool ret = false ) const
 
+
 Returns the value of the ULON node [argument](../../../api/library/common/class.ulonarg_cpp.md) with the specified name as a boolean.
+
+
 > **Notice:** To check, if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -205,7 +227,10 @@ Returns the value of the ULON node [argument](../../../api/library/common/class.
 Boolean value of the ULON node argument, if it exists; otherwise a default value set via the *ret* parameter.
 ## char getArgChar ( const char * name , char ret = 0 ) const
 
+
 Returns the value of the ULON node [argument](../../../api/library/common/class.ulonarg_cpp.md) with the specified name as a char.
+
+
 > **Notice:** To check, if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -219,7 +244,10 @@ Returns the value of the ULON node [argument](../../../api/library/common/class.
 Char value of the ULON node argument, if it exists; otherwise a default value set via the *ret* parameter.
 ## const char * getArgStr ( const char * name , const char * ret = "" ) const
 
+
 Returns the value of the ULON node [argument](../../../api/library/common/class.ulonarg_cpp.md) with the specified name as a string.
+
+
 > **Notice:** To check, if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 
@@ -233,7 +261,10 @@ Returns the value of the ULON node [argument](../../../api/library/common/class.
 String value of the ULON node argument, if it exists; otherwise a default value set via the *ret* parameter.
 ## Vector < String > getArgArray ( const char * name ) const
 
+
 Returns the value of the ULON node [argument](../../../api/library/common/class.ulonarg_cpp.md) with the specified name as an array of strings.
+
+
 > **Notice:** To check, if an argument exists, use the [*isArg()*](#isArg_cstr_int) method.
 
 

@@ -119,7 +119,7 @@ Available values:
 
 
 - 0 - displayed (by default)
-- 1  - hidden
+- 1  �- �hidden
 
 
 ### manual
@@ -135,7 +135,7 @@ Available values:
 
 
 - 0 - manual (by default)
-- 1  - not manual
+- 1  �- �not manual
 
 
 ### Usage Example
@@ -174,13 +174,13 @@ Available values for both attributes:
 - zero - RGBA components of the source/destination image color are multiplied by zero.
 - one - RGBA components of the source/destination image color are multiplied by one.
 - src_color - RGBA components of the source/destination image color are multiplied by the mR, mG, mB, mA components (per component).
-- one_minus_src_color - RGBA components of the source/destination image color are multiplied by the 1 - mR , 1 - mG , 1 - mB , 1 - mA  components (per component).
+- one_minus_src_color - RGBA components of the source/destination image color are multiplied by the 1�- �mR , 1�- �mG , 1�- �mB , 1�- �mA  components (per component).
 - src_alpha - RGBA components of the source/destination image color are multiplied by the mA component.
-- one_minus_src_alpha - RGBA components of the source/destination image color are multiplied by the 1 - mA  component.
+- one_minus_src_alpha - RGBA components of the source/destination image color are multiplied by the 1�- �mA  component.
 - dest_color - RGBA components of the source/destination image color are multiplied by the bR, bG, bB, bA components (per component).
-- one_minus_dest_color - RGBA components of the source/destination image color are multiplied by the 1 - bR , 1 - bG , 1 - bB , 1 - bA  components (per component).
+- one_minus_dest_color - RGBA components of the source/destination image color are multiplied by the 1�- �bR , 1�- �bG , 1�- �bB , 1�- �bA  components (per component).
 - dest_alpha - RGBA components of the source/destination image color are multiplied by the bA component.
-- one_minus_dest_alpha - RGBA components of the source/destination image color are multiplied by the 1 - bA  component. Where mR, mG, mB, mA are normalized Red, Blue, Green and Alpha material image channels; bR, bG, bB, bA are normalized Red, Blue, Green and Alpha background image channels.
+- one_minus_dest_alpha - RGBA components of the source/destination image color are multiplied by the 1�- �bA  component. Where mR, mG, mB, mA are normalized Red, Blue, Green and Alpha material image channels; bR, bG, bB, bA are normalized Red, Blue, Green and Alpha background image channels.
 
 
 ### Usage Example
@@ -285,7 +285,7 @@ Available values:
 ### overlap
 
 
-A flag indicating if an [Overlap](../../../editor2/materials_settings/index.md#overlap) option is enabled for a material.
+A flag indicating if an Overlap option is enabled for a material.
 
 
 Available values:
@@ -428,8 +428,8 @@ A flag, indicating if the anisotropy for the texture is enabled.
 Available values:
 
 
-- 0  - enabled (by default)
-- 1  - disabled
+- 0  �- �enabled (by default)
+- 1  �- �disabled
 
 
 ### filter
@@ -441,9 +441,9 @@ A type of the texture filtering.
 Available values:
 
 
-- point  - point
-- linear  - linear
-- bilinear  - bilinear
+- point  � - point �
+- linear  � - linear �
+- bilinear  � - bilinear �
 
 
 ### Usage Example

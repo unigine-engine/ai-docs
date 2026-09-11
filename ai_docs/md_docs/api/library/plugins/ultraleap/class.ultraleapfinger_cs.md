@@ -26,7 +26,7 @@ This structure represents a [finger](../../../../code/plugins/ultraleap/index_cs
 
 ## 🔒︎ UltraleapFinger.TYPE Type
 
-The finger type. One of the [TYPE](#TYPE) values.
+The type of the finger. One of the [TYPE_*](#TYPE_THUMB) values.
 ## 🔒︎ bool IsExtended
 
 The value indicating if the finger is extended.
@@ -48,6 +48,3 @@ The object for the intermediate phalange bone.
 ## 🔒︎ UltraleapBone BoneDistal
 
 The object for the distal phalange bone.
-### Members
-
----

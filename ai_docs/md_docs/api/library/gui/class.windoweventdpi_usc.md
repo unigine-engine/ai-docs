@@ -9,6 +9,32 @@
 
 ### Members
 
+## void setAction ( int action )
+
+Sets a new type of the DPI action performed with the window during the event.
+### Arguments
+
+- *int* **action** - The type of the DPI action performed with the window during the event
+
+## int getAction () const
+
+Returns the current type of the DPI action performed with the window during the event.
+### Return value
+
+Current type of the DPI action performed with the window during the event
+## void setDpi ( int dpi )
+
+Sets a new DPI level.
+### Arguments
+
+- *int* **dpi** - The DPI level
+
+## int getDpi () const
+
+Returns the current DPI level.
+### Return value
+
+Current DPI level
 ---
 
 ## WindowEventDpi ( )
@@ -54,30 +80,3 @@ Window DPI event constructor.
 - *ivec2* **size** - Size of the window.
 - *int* **action** - Type of the DPI action performed with the window during the event.
 - *int* **dpi** - The DPI level.
-
-## void setAction ( int action )
-
-Sets the type of the DPI action performed with the window during the event.
-### Arguments
-
-- *int* **action** - Type of the DPI action performed with the window during the event.
-
-## int getAction ( )
-
-Returns the type of the DPI action performed with the window during the event.
-### Return value
-
-The type of the DPI action performed with the window during the event.
-## void setDpi ( int dpi )
-
-Sets the DPI level.
-### Arguments
-
-- *int* **dpi** - The DPI level.
-
-## int getDpi ( )
-
-Returns the current DPI level.
-### Return value
-
-The DPI level.

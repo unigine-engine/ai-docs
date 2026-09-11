@@ -1,7 +1,11 @@
 # Multi-Monitor and Multi-Projection Presets
 
 
-The plugin has presets that help to automatically create the *Wall* configuration of displays.
+The plugin has presets that help to automatically create such configurations as *Wall* and *CAVE*.
+
+
+| ![](display_wall.png) *Display Wall* | ![](cave_projection.png) *CAVE projection* |
+|---|---|
 
 
 ## Wall Preset
@@ -50,3 +54,35 @@ You can **ungroup** the *Wall* group: select the root item and press the **U** h
 
 
 ![](hotkey_u.gif)
+
+
+## CAVE Preset
+
+
+The *CAVE* (Cave Automatic Virtual Environment) generator creates a CAVE room made of *Display*-type viewports. The **left**, **back**, and **right** walls and the **bottom** (floor) are always created, while the **front** wall and the **top** (ceiling) are optional.
+
+
+To open the *CAVE* generator, select *Generate -> CAVE* in the menu. The *Generate CAVE* window will open with the following parameters:
+
+
+![](cave_generator_window.png)
+
+
+| Name | Name of the group that is displayed in the left panel of the SpiderVision Setup window. |
+|---|---|
+| Center Offset | Offsets the center of the generated CAVE group relative to its default position. The value is set in meters. |
+| Wall Size | Specifies the dimensions (width and height) of the generated CAVE walls. The value is set in meters. |
+| Floor Size | Specifies the dimensions (width and depth) of the generated CAVE floor and ceiling. The value is set in meters. |
+| Pixel Density | Specifies the pixel density that will be assigned to the generated CAVE group. The value is set in pixels per meter: the render texture size is calculated automatically from the physical screen dimensions and the specified pixel density, preserving the correct aspect ratio. |
+| Window Size | Specifies the size of the generated application windows, in pixels. |
+| Exclusive Fullscreen | Enables [exclusive fullscreen](../../../../../principles/render/output/multi_monitor/spidervision_plugin/displays_setup.md#window_mode) mode for all generated windows. If disabled, the windows are created in the *Borderless Windowed* mode. |
+| Stereo | Specifies whether the generated viewports use *Mono* (single image) or *Stereo* (side-by-side stereo image) [rendering](../../../../../principles/render/output/multi_monitor/spidervision_plugin/displays_setup.md#render_mode). |
+| Inverse | Generates viewports configured for rear-projection systems (the walls are flipped). Enable this option when the image is projected onto the back side of the screen. |
+| Use Front Side | Adds the front wall when generating the CAVE. |
+| Use Top Side | Adds the ceiling when generating the CAVE. |
+
+
+Click *Generate* to create the group. All parameters, except *Use Front Side* and *Use Top Side*, may be reconfigured later as you select the *CAVE* group parent item in the viewports tab.
+
+
+To synchronize the project and launch the application across the CAVE machines, use the [IG Control Panel](../../../../../ig/ig_control_panel.md) tool.

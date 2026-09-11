@@ -36,15 +36,15 @@ Returns the current skeleton associated with this pose. Determines the joint hie
 ### Return value
 
 Current skeleton for this pose.
-## getNumTransforms () const
+## int getNumTransforms () const
 
 Returns the current total number of joint transforms in the pose, matching the number of joints in the assigned skeleton.
 ### Return value
 
 Current number of joint transforms.
-## getSpaceType () const
+## SkeletonPoseMatrix::SPACE_TYPE getSpaceType () const
 
-Returns the current current coordinate space of the pose transforms.
+Returns the current coordinate space of the pose transforms.
 ### Return value
 
 Current coordinate space type.

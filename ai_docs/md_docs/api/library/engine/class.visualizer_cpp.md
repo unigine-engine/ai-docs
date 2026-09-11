@@ -151,7 +151,7 @@ Sets a new value indicating if the visualizer (rendering of helper objects like 
 Returns the current value indicating if the visualizer (rendering of helper objects like handlers and bound boxes) is enabled.
 ### Return value
 
-**true** if value indicating if the visualizer is enabled is enabled; otherwise **false**.
+**true** if value indicating if the visualizer is enabled is enabled ; otherwise **false**.
 ## void setMode ( Visualizer::MODE mode )
 
 Sets a new [visualizer mode](#MODE) controlling the way all visual helpers are displayed. You can choose to display Visualizer with or without depth testing, or turn it off completely.
@@ -178,13 +178,16 @@ Current total number of handlers.
 
 ## void clear ( )
 
+
 Clears all internal primitives created by calls to *renderSmth* functions. These primitives are accumulated in the internal buffer and then rendered together.
+
+
 > **Notice:** This method can be used to render several viewports with visualizer.
 
 
 ## void renderPoint2D ( const Math:: vec2 & v , float size , const Math:: vec4 & color , float order = 0.0f , float duration = 0.0f ) const
 
-Renders a 2D point of a given size and color. 2D points are rendered in the screen plane; coordinates of the upper left corner are (0; 0), of the lower right corner—(1; 1).
+Renders a 2D point of a given size and color. 2D points are rendered in the screen plane; coordinates of the upper left corner are (0; 0), of the lower right corner�(1; 1).
 ### Arguments
 
 - *const  Math::[vec2](../../../api/library/math/class.vec2_cpp.md) &* **v** - Point coordinates.
@@ -206,11 +209,11 @@ Renders a 3D point of a given size and color. 3D points are rendered in the worl
   - **false** - use the world space dimensions
   - **true** - use the screen space dimensions
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false — to disable it.
+- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false � to disable it.
 
 ## void renderLine2D ( const Math:: vec2 & v0 , const Math:: vec2 & v1 , const Math:: vec4 & color , float order = 0.0f , float duration = 0.0f )
 
-Renders a 2D line of a given color. 2D lines are rendered in the screen plane; coordinates of the upper left corner are **(0; 0)**, of the lower right corner — **(1; 1)**.
+Renders a 2D line of a given color. 2D lines are rendered in the screen plane; coordinates of the upper left corner are **(0; 0)**, of the lower right corner � **(1; 1)**.
 ### Arguments
 
 - *const  Math::[vec2](../../../api/library/math/class.vec2_cpp.md) &* **v0** - Starting point of the line.
@@ -228,11 +231,11 @@ Renders a 3D line of a given color. 3D lines are rendered in the world space.
 - *const  Math::[Vec3](../../../api/library/math/class.vec3_cpp.md) &* **v1** - Ending point of the line.
 - *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md) &* **color** - Line color.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false — to disable it.
+- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false � to disable it.
 
 ## void renderLine2D ( const Math:: vec2 & v0 , const Math:: vec2 & v1 , const Math:: vec2 & v2 , const Math:: vec4 & color , float order = 0.0f , float duration = 0.0f )
 
-Renders a 2D line of a given color by using 3 points. 2D lines are rendered in the screen plane; coordinates of the upper left corner are **(0; 0)**, of the lower right corner — **(1; 1)**.
+Renders a 2D line of a given color by using 3 points. 2D lines are rendered in the screen plane; coordinates of the upper left corner are **(0; 0)**, of the lower right corner � **(1; 1)**.
 ### Arguments
 
 - *const  Math::[vec2](../../../api/library/math/class.vec2_cpp.md) &* **v0** - Coordinates of the starting point of the line.
@@ -252,11 +255,11 @@ Renders a 3D line of a given color. 3D lines are rendered in the world space.
 - *const  Math::[Vec3](../../../api/library/math/class.vec3_cpp.md) &* **v2** - Coordinates of the ending point of the line.
 - *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md) &* **color** - Line color.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false — to disable it.
+- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false � to disable it.
 
 ## void renderLine2D ( const Math:: vec2 & v0 , const Math:: vec2 & v1 , const Math:: vec2 & v2 , const Math:: vec2 & v3 , const Math:: vec4 & color , float order = 0.0f , float duration = 0.0f )
 
-Renders a 2D line of a given color. 2D lines are rendered in the screen plane; coordinates of the upper left corner are **(0; 0)**, of the lower right corner — **(1; 1)**.
+Renders a 2D line of a given color. 2D lines are rendered in the screen plane; coordinates of the upper left corner are **(0; 0)**, of the lower right corner � **(1; 1)**.
 ### Arguments
 
 - *const  Math::[vec2](../../../api/library/math/class.vec2_cpp.md) &* **v0** - Coordinates of the starting point of the line.
@@ -278,11 +281,11 @@ Renders a 3D line of a given color. 3D lines are rendered in the world space.
 - *const  Math::[Vec3](../../../api/library/math/class.vec3_cpp.md) &* **v3** - Coordinates of the ending point of the line.
 - *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md) &* **color** - Color, in which the line will be rendered.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false — to disable it.
+- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false � to disable it.
 
 ## void renderTriangle2D ( const Math:: vec2 & v0 , const Math:: vec2 & v1 , const Math:: vec2 & v2 , const Math:: vec4 & color , float order = 0.0f , float duration = 0.0f ) const
 
-Renders a 2D triangle of a given color. 2D triangles are rendered in the screen plane; coordinates of the upper left corner are **(0; 0)**, of the lower right corner—**(1; 1)**.
+Renders a 2D triangle of a given color. 2D triangles are rendered in the screen plane; coordinates of the upper left corner are **(0; 0)**, of the lower right corner�**(1; 1)**.
 ### Arguments
 
 - *const  Math::[vec2](../../../api/library/math/class.vec2_cpp.md) &* **v0** - Coordinates of the first vertex.
@@ -302,11 +305,11 @@ Renders a 3D triangle of a given color. 3D triangles are rendered in the world s
 - *const  Math::[Vec3](../../../api/library/math/class.vec3_cpp.md) &* **v2** - Coordinates of the third vertex.
 - *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md) &* **color** - Triangle color.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false — to disable it.
+- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false � to disable it.
 
 ## void renderQuad2D ( const Math:: vec2 & v0 , const Math:: vec2 & v1 , const Math:: vec2 & v2 , const Math:: vec2 & v3 , const Math:: vec4 & color , float order = 0.0f , float duration = 0.0f ) const
 
-Renders a 2D quad of a given color. 2D quads are rendered in the screen plane; coordinates of the upper left corner are **(0; 0)**, of the lower right corner—**(1; 1)**.
+Renders a 2D quad of a given color. 2D quads are rendered in the screen plane; coordinates of the upper left corner are **(0; 0)**, of the lower right corner�**(1; 1)**.
 ### Arguments
 
 - *const  Math::[vec2](../../../api/library/math/class.vec2_cpp.md) &* **v0** - Coordinates of the first vertex.
@@ -328,7 +331,7 @@ Renders a 3D quad of a given color. 3D quads are rendered in the world space.
 - *const  Math::[Vec3](../../../api/library/math/class.vec3_cpp.md) &* **v3** - Coordinates of the fourth vertex.
 - *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md) &* **color** - Color, in which the quad will be rendered.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false — to disable it.
+- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false � to disable it.
 
 ## void renderBillboard3D ( const Math:: Vec3 & v , float size , const Math:: vec4 & texcoord , bool screen_space = false , float duration = 0.0f , bool depth_test = true ) const
 
@@ -348,7 +351,7 @@ Renders a 3D billboard of the specified size. You can customize billboard image 
   - **false** - use the world space dimensions
   - **true** - use the screen space dimensions
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false — to disable it.
+- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false � to disable it.
 
 ## void renderVector ( const Math:: Vec3 & position_start , const Math:: Vec3 & position_end , const Math:: vec4 & color , float arrow_size = 0.25f , bool screen_space = false , float duration = 0.0f , bool depth_test = true ) const
 
@@ -364,7 +367,7 @@ Renders a vector of a given color.
   - **false** - use the world space dimensions
   - **true** - use the screen space dimensions
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false — to disable it.
+- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false � to disable it.
 
 ## void renderDirection ( const Math:: Vec3 & position , const Math:: vec3 & direction , const Math:: vec4 & color , float arrow_size = 0.25f , bool screen_space = true , float duration = 0.0f , bool depth_test = true ) const
 
@@ -380,7 +383,7 @@ Renders a direction vector of a given color.
   - **false** - use the world space dimensions
   - **true** - use the screen space dimensions
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false — to disable it.
+- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false � to disable it.
 
 ## void renderBox ( const Math:: vec3 & size , const Math:: Mat4 & transform , const Math:: vec4 & color , float duration = 0.0f , bool depth_test = true ) const
 
@@ -391,7 +394,7 @@ Renders a box of a given color.
 - *const  Math::[Mat4](../../../api/library/math/class.mat4_cpp.md) &* **transform** - Transformation matrix, which is used to position the box.
 - *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md) &* **color** - Color, in which the box will be rendered.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false — to disable it.
+- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false � to disable it.
 
 ## void renderFrustum ( const Math:: mat4 & projection , const Math:: Mat4 & transform , const Math:: vec4 & color , float duration = 0.0f , bool depth_test = true ) const
 
@@ -402,7 +405,7 @@ Renders a wireframe frustum of a given color.
 - *const  Math::[Mat4](../../../api/library/math/class.mat4_cpp.md) &* **transform** - Transformation matrix used to position the frustum.
 - *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md) &* **color** - Color, in which the frustum will be rendered.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false — to disable it.
+- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false � to disable it.
 
 ## void renderCircle ( float radius , const Math:: Mat4 & transform , const Math:: vec4 & color , float duration = 0.0f , bool depth_test = true ) const
 
@@ -413,7 +416,7 @@ Renders a wireframe circle of a given color.
 - *const  Math::[Mat4](../../../api/library/math/class.mat4_cpp.md) &* **transform** - Transformation matrix used to position the circle.
 - *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md) &* **color** - Circle color.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false — to disable it.
+- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false � to disable it.
 
 ## void renderSector ( float radius , float angle , const Math:: Mat4 & transform , const Math:: vec4 & color , float duration = 0.0f , bool depth_test = true ) const
 
@@ -425,7 +428,7 @@ Renders a wireframe sector of a given color.
 - *const  Math::[Mat4](../../../api/library/math/class.mat4_cpp.md) &* **transform** - Transformation matrix used to position the sector.
 - *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md) &* **color** - Sector color.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false — to disable it.
+- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false � to disable it.
 
 ## void renderCone ( float radius , float angle , const Math:: Mat4 & transform , const Math:: vec4 & color , float duration = 0.0f , bool depth_test = true ) const
 
@@ -437,7 +440,7 @@ Renders a wireframe cone of a given color.
 - *const  Math::[Mat4](../../../api/library/math/class.mat4_cpp.md) &* **transform** - Transformation matrix used to position the cone.
 - *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md) &* **color** - Color, in which the cone will be rendered.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false — to disable it.
+- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false � to disable it.
 
 ## void renderSphere ( float radius , const Math:: Mat4 & transform , const Math:: vec4 & color , float duration = 0.0f , bool depth_test = true ) const
 
@@ -448,7 +451,7 @@ Renders a wireframe sphere of a given color.
 - *const  Math::[Mat4](../../../api/library/math/class.mat4_cpp.md) &* **transform** - Transformation matrix used to position the sphere.
 - *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md) &* **color** - Sphere color.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false — to disable it.
+- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false � to disable it.
 
 ## void renderCapsule ( float radius , float height , const Math:: Mat4 & transform , const Math:: vec4 & color , float duration = 0.0f , bool depth_test = true ) const
 
@@ -460,7 +463,7 @@ Renders a wireframe capsule (capped cylinder) of a given color.
 - *const  Math::[Mat4](../../../api/library/math/class.mat4_cpp.md) &* **transform** - Transformation matrix used to position the capsule.
 - *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md) &* **color** - Capsule color.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false — to disable it.
+- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false � to disable it.
 
 ## void renderCylinder ( float radius , float height , const Math:: Mat4 & transform , const Math:: vec4 & color , float duration = 0.0f , bool depth_test = true ) const
 
@@ -472,7 +475,7 @@ Renders a wireframe cylinder of a given color.
 - *const  Math::[Mat4](../../../api/library/math/class.mat4_cpp.md) &* **transform** - Transformation matrix used to position the cylinder.
 - *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md) &* **color** - Cylinder color.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false — to disable it.
+- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false � to disable it.
 
 ## void renderEllipse ( const Math:: vec3 & radius , const Math:: Mat4 & transform , const Math:: vec4 & color , float duration = 0.0f , bool depth_test = true ) const
 
@@ -483,7 +486,7 @@ Renders a wireframe ellipse of a given color.
 - *const  Math::[Mat4](../../../api/library/math/class.mat4_cpp.md) &* **transform** - Transformation matrix for the ellipse.
 - *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md) &* **color** - Ellipse color.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false — to disable it.
+- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false � to disable it.
 
 ## void renderSolidBox ( const Math:: vec3 & size , const Math:: Mat4 & transform , const Math:: vec4 & color , float duration = 0.0f , bool depth_test = true ) const
 
@@ -494,7 +497,7 @@ Renders a solid box of a given color.
 - *const  Math::[Mat4](../../../api/library/math/class.mat4_cpp.md) &* **transform** - Transformation matrix used to position the solid box.
 - *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md) &* **color** - Box color.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false — to disable it.
+- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false � to disable it.
 
 ## void renderSolidSphere ( float radius , const Math:: Mat4 & transform , const Math:: vec4 & color , float duration = 0.0f , bool depth_test = true ) const
 
@@ -505,7 +508,7 @@ Renders a solid sphere of a given color.
 - *const  Math::[Mat4](../../../api/library/math/class.mat4_cpp.md) &* **transform** - Transformation matrix used to position the solid sphere.
 - *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md) &* **color** - Sphere color.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false — to disable it.
+- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false � to disable it.
 
 ## void renderSolidCapsule ( float radius , float height , const Math:: Mat4 & transform , const Math:: vec4 & color , float duration = 0.0f , bool depth_test = true ) const
 
@@ -517,7 +520,7 @@ Renders a solid capsule af a given color.
 - *const  Math::[Mat4](../../../api/library/math/class.mat4_cpp.md) &* **transform** - Transformation matrix used to position the capsule.
 - *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md) &* **color** - Capsule color.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false — to disable it.
+- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false � to disable it.
 
 ## void renderSolidCylinder ( float radius , float height , const Math:: Mat4 & transform , const Math:: vec4 & color , float duration = 0.0f , bool depth_test = true ) const
 
@@ -529,7 +532,7 @@ Renders a solid cylinder of a given color.
 - *const  Math::[Mat4](../../../api/library/math/class.mat4_cpp.md) &* **transform** - Transformation matrix used to position the cylinder.
 - *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md) &* **color** - Cylinder color.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false — to disable it.
+- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false � to disable it.
 
 ## void renderSolidEllipse ( const Math:: vec3 & radius , const Math:: Mat4 & transform , const Math:: vec4 & color , float duration = 0.0f , bool depth_test = true ) const
 
@@ -540,7 +543,7 @@ Renders a solid ellipse of a given color.
 - *const  Math::[Mat4](../../../api/library/math/class.mat4_cpp.md) &* **transform** - Transformation matrix used to position the ellipse.
 - *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md) &* **color** - Ellipse color.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false — to disable it.
+- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false � to disable it.
 
 ## void renderRectangle ( const Math:: vec4 & rectangle , const Math:: vec4 & color , float duration = 0.0f )
 
@@ -560,7 +563,7 @@ Renders the bounding box of a given color.
 - *const  Math::[Mat4](../../../api/library/math/class.mat4_cpp.md) &* **transform** - Transformation matrix for the bounding box.
 - *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md) &* **color** - Color, in which the box will be rendered.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false — to disable it.
+- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false � to disable it.
 
 ## void renderBoundSphere ( const Math:: BoundSphere & bs , const Math:: Mat4 & transform , const Math:: vec4 & color , float duration = 0.0f , bool depth_test = true )
 
@@ -571,7 +574,7 @@ Renders the bounding sphere of a given color.
 - *const  Math::[Mat4](../../../api/library/math/class.mat4_cpp.md) &* **transform** - Transformation matrix for the bounding sphere.
 - *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md) &* **color** - Color, in which the sphere will be rendered.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false — to disable it.
+- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false � to disable it.
 
 ## void renderNodeBoundBox ( const Ptr < Node > & node , const Math:: vec4 & color , float duration = 0.0f , bool depth_test = true )
 
@@ -581,7 +584,7 @@ Renders an axis-aligned bound box of a given node.
 - *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Node](../../../api/library/nodes/class.node_cpp.md)> &* **node** - Node, for which the bound box is rendered.
 - *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md) &* **color** - Color, in which the box will be rendered.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false — to disable it.
+- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false � to disable it.
 
 ## void renderNodeBoundSphere ( const Ptr < Node > & node , const Math:: vec4 & color , float duration = 0.0f , bool depth_test = true )
 
@@ -591,7 +594,7 @@ Renders a bound sphere of a given node.
 - *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Node](../../../api/library/nodes/class.node_cpp.md)> &* **node** - Node, for which the bound sphere is rendered.
 - *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md) &* **color** - Color, in which the sphere will be rendered.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false — to disable it.
+- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false � to disable it.
 
 ## void renderObjectSurfaceBoundBox ( const Ptr < Object > & object , int surface , const Math:: vec4 & color , float duration = 0.0f , bool depth_test = true )
 
@@ -602,7 +605,7 @@ Renders a bound box of a given object surface.
 - *int* **surface** - The number of the target surface in the object.
 - *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md) &* **color** - Color, in which the box will be rendered.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false — to disable it.
+- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false � to disable it.
 
 ## void renderObjectSurfaceBoundSphere ( const Ptr < Object > & object , int surface , const Math:: vec4 & color , float duration = 0.0f , bool depth_test = true )
 
@@ -613,7 +616,7 @@ Renders a bound sphere of a given object surface.
 - *int* **surface** - The number of the target surface in the object.
 - *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md) &* **color** - Color, in which the sphere will be rendered.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
-- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false — to disable it.
+- *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false � to disable it.
 
 ## void renderNodeHandler ( const Ptr < Node > & node , float duration = 0.0f ) const
 
@@ -689,7 +692,10 @@ Renders a message in a given color. Message position is specified in world coord
 
 ## Ptr < Node > getHandlerNode ( int num ) const
 
+
 Returns the handler node by its index.
+
+
 > **Notice:** The handler index may change every frame depending on the camera transforms (i.e. how many handlers are visible in the current frame), therefore it is not recommended to save and reuse this value.
 
 
@@ -775,3 +781,18 @@ Renders a solid version of the mesh loaded from the specified file path in the g
 - *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md) &* **color** - Color, in which the mesh's wireframe will be rendered.
 - *float* **duration** - Time period (in seconds) during which the rendered element shall be displayed. The default value of 0 means that the visualizer is rendered for 1 frame only.
 - *bool* **depth_test** - true to enable depth testing for the element (if it should be obscured by elements closer to the camera); false - to disable it.
+
+## void clearNodeTypeIcons ( )
+
+Removes all custom per-node-type handler icons set via **[setNodeTypeIcon()](../../...md#setNodeTypeIcon_int_cstr_int)**, so all node handlers revert to the default icon.
+## bool setNodeTypeIcon ( Node::TYPE type , const char * path )
+
+Replaces the billboard icon the visualizer draws for node handlers of the given node type (the per-node icons shown when visualizer node handlers are enabled). Node types without a custom icon keep the default handler icon.
+### Arguments
+
+- *[Node::TYPE](../../../api/library/nodes/class.node_cpp.md#TYPE)* **type** - Node type, one of the *Node::TYPE* values.
+- *const char ** **path** - Path to the icon image file.
+
+### Return value
+
+true if the icon is set successfully; otherwise, false (the type is out of range or the image cannot be loaded).

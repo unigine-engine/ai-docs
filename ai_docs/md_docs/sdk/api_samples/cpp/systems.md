@@ -74,7 +74,7 @@ Two custom thread types are demonstrated:
 2. **CountedThread** - performs a finite number of iterations before completing.
 
 
-Threads are started during component initialization and executed in parallel with the main engine loop. The infinite thread is explicitly stopped via *[stop()](../../../api/library/common/mt/class.thread_cpp.md#stop_int)* once the counted thread completes all iterations.
+Threads are started during component initialization and executed in parallel with the main engine loop. The infinite thread is explicitly stopped via *[stop()](../../../api/library/common/mt/class.thread_cpp.md#stop_bool)* once the counted thread completes all iterations.
 
 
 This sample illustrates basic principles of multithreading and can serve as a foundation for offloading computations or *I/O* operations from the main thread.

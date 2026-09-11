@@ -7,7 +7,7 @@
 You compose a graph by connecting nodes in a visual editor. Each node performs a specific operation: playing an animation clip, blending between poses, evaluating conditions, or performing math. The resulting graph is automatically compiled and applied to a character's skeleton at runtime.
 
 
-Animation Graph works with skinned meshes and animation clips that are created in external DCC tools (such as 3ds Max, Maya, or Blender) and imported into UNIGINE as `FBX`, `glTF`, or `USD` files. The UnigineEditor converts them to native `*.mesh_skinned`, `*.skeleton`, and `*.anim` assets. The graph itself does not create animations - it controls how existing animations are played, combined, and transitioned between.
+Animation Graph works with skinned meshes and animation clips that are created in external DCC tools (such as *3ds Max, Maya*, or *Blender*) and imported into UNIGINE as `FBX, glTF`, or `USD` files. The UnigineEditor converts them to native `*.mesh_skinned, *.skeleton`, and `*.anim` assets. The graph itself does not create animations - it controls how existing animations are played, combined, and transitioned between.
 
 
 ## Key Concepts
@@ -41,7 +41,7 @@ Animation Graph works with skinned meshes and animation clips that are created i
 ### Parameters
 
 
-**Parameters** are the interface between the animation graph and application code. Each parameter has a name, a [data type](#data_types) (such as Float, Bool, or Trigger), and a default value. You define parameters in the graph editor and read or write their values at runtime via the [AnimScript](../../api/library/animations/skeletal/class.animscript_cpp.md) class API.
+**Parameters** are the interface between the animation graph and application code. Each parameter has a name, a [data type](#data_types) (such as Float, Bool, or Trigger), and a default value. You define parameters in the graph editor and read or write their values at runtime via the *[AnimScript](../../api/library/animations/skeletal/class.animscript_cpp.md)* class API.
 
 
 ![](custom_parameter.png)
@@ -100,12 +100,13 @@ Every port in the graph has a data type. The following types are available:
 | ![](graph/node_library/img/types/float.png) **Float** | ![](graph/node_library/img/types/vec2.png) **Vec2** | ![](graph/node_library/img/types/vec3.png) **Vec3** | ![](graph/node_library/img/types/vec4.png) **Vec4** |
 |---|---|---|---|
 | ![](graph/node_library/img/types/int.png) **Int** | ![](graph/node_library/img/types/ivec2.png) **Ivec2** | ![](graph/node_library/img/types/ivec3.png) **Ivec3** | ![](graph/node_library/img/types/ivec4.png) **Ivec4** |
-| ![](graph/node_library/img/types/mat3.png) **Mat3** - a 3×3 matrix. | ![](graph/node_library/img/types/mat4.png) **Mat4** - a 4×4 matrix. |  |  |
+| ![](graph/node_library/img/types/mat3.png) **Mat3** - a 3�3 matrix. | ![](graph/node_library/img/types/mat4.png) **Mat4** - a 4�4 matrix. |  |  |
 | ![](graph/node_library/img/types/quat.png) **Quat** - a quaternion, used for rotations. |  |  |  |
 | ![](graph/node_library/img/types/bool.png) **Bool** - a boolean value (true or false). |  |  |  |
 | ![](graph/node_library/img/types/trigger.png) **Trigger** - a one-shot boolean that automatically resets after being consumed. Used for one-time events such as starting a jump. |  |  |  |
 | ![](graph/node_library/img/types/anim_pose.png) **AnimPose** - animation pose data containing bone transforms for a skeleton. |  |  |  |
 | ![](graph/node_library/img/types/anim_asset.png) **Animation** - a reference to an animation asset. |  |  |  |
+| ![](graph/node_library/img/types/constraint.png) **ConstraintRef** - a reference to a joint limit definition. It is produced by the joint limit nodes and consumed by the **[Joint Limit Set](../../content/animations/graph/node_library/skeleton/joint_limit_set.md)**, **[IK Chain](../../content/animations/graph/node_library/skeleton/ik_chain.md)**, and **[Look At Chain](../../content/animations/graph/node_library/skeleton/look_at_chain.md)** nodes. |  |  |  |
 | ![](graph/node_library/img/types/undefined.png) **Undefined** - a universal port type resolved automatically based on the connected port. For example, an Undefined input that receives a Vec3 connection becomes a Vec3 port. |  |  |  |
 
 
@@ -137,6 +138,8 @@ This section covers all aspects of working with animation graphs - from preparin
 
 - [Retargeting](../../content/animations/retargeting/index.md)
 
+- [Procedural Skeleton Control](../../content/animations/procedural_control/index.md)
+
 - [Animation Graph Nodes](../../content/animations/graph/node_library/index.md)
 
   - [Animation](../../content/animations/graph/node_library/animation/index.md)
@@ -144,40 +147,62 @@ This section covers all aspects of working with animation graphs - from preparin
     - [Animation Asset Node](../../content/animations/graph/node_library/animation/animation_asset.md)
     - [Animation Player Node](../../content/animations/graph/node_library/animation/animation_player.md)
     - [Animation Pose Node](../../content/animations/graph/node_library/animation/animation_pose.md)
-  - [Blending](../../content/animations/graph/node_library/blend/index.md)
+  - [Blend](../../content/animations/graph/node_library/blend/index.md)
 
     - [Blend Poses Node](../../content/animations/graph/node_library/blend/blend_poses.md)
     - [Make Additive Node](../../content/animations/graph/node_library/blend/make_additive.md)
     - [Apply Additive Node](../../content/animations/graph/node_library/blend/apply_additive.md)
   - [Blend Space](../../content/animations/graph/node_library/blend_space/index.md)
 
-    - [BlendSpace 2D Node](../../content/animations/graph/node_library/blend_space/blend_space_2d.md)
-    - [BlendSpace 2D Sync Node](../../content/animations/graph/node_library/blend_space/blend_space_2d_sync.md)
+    - [Blend Space 2D Node](../../content/animations/graph/node_library/blend_space/blend_space_2d.md)
+    - [Blend Space 2D Sync Node](../../content/animations/graph/node_library/blend_space/blend_space_2d_sync.md)
+  - [Transform](../../content/animations/graph/node_library/transform/index.md)
+
+    - [Get Joint Transform Node](../../content/animations/graph/node_library/transform/get_joint_transform.md)
+    - [Set Joint Transform Node](../../content/animations/graph/node_library/transform/set_joint_transform.md)
+    - [Position Space Node](../../content/animations/graph/node_library/transform/position_space.md)
+    - [Direction Space Node](../../content/animations/graph/node_library/transform/direction_space.md)
+    - [Rotation Space Node](../../content/animations/graph/node_library/transform/rotation_space.md)
+  - [Skeleton](../../content/animations/graph/node_library/skeleton/index.md)
+
+    - [Two Bone IK Node](../../content/animations/graph/node_library/skeleton/two_bone_ik.md)
+    - [IK Chain Node](../../content/animations/graph/node_library/skeleton/ik_chain.md)
+    - [Joint Look At Node](../../content/animations/graph/node_library/skeleton/joint_look_at.md)
+    - [Look At Chain Node](../../content/animations/graph/node_library/skeleton/look_at_chain.md)
+    - [Joint Hinge Limit Node](../../content/animations/graph/node_library/skeleton/joint_hinge_limit.md)
+    - [Joint Cone Limit Node](../../content/animations/graph/node_library/skeleton/joint_cone_limit.md)
+    - [Joint Cone Asym Limit Node](../../content/animations/graph/node_library/skeleton/joint_cone_asym_limit.md)
+    - [Joint Twist Limit Node](../../content/animations/graph/node_library/skeleton/joint_twist_limit.md)
+    - [Joint Hinge Twist Limit Node](../../content/animations/graph/node_library/skeleton/joint_hinge_twist_limit.md)
+    - [Joint Cone Twist Limit Node](../../content/animations/graph/node_library/skeleton/joint_cone_twist_limit.md)
+    - [Joint Cone Asym Twist Limit Node](../../content/animations/graph/node_library/skeleton/joint_cone_asym_twist_limit.md)
+    - [Joint Limit Set Node](../../content/animations/graph/node_library/skeleton/joint_limit_set.md)
   - [State Machine](../../content/animations/graph/node_library/state_machine/index.md)
 
     - [State Machine Node](../../content/animations/graph/node_library/state_machine/state_machine.md)
     - [State Node](../../content/animations/graph/node_library/state_machine/state.md)
     - [Condition Node](../../content/animations/graph/node_library/state_machine/condition.md)
     - [State Portal Node](../../content/animations/graph/node_library/state_machine/state_portal.md)
-  - [Sub Graph](../../content/animations/graph/node_library/subgraph/index.md)
+  - [Subgraph](../../content/animations/graph/node_library/subgraph/index.md)
 
     - [SubGraph Node](../../content/animations/graph/node_library/subgraph/sub_graph.md)
     - [SubGraph Inputs Node](../../content/animations/graph/node_library/subgraph/sub_graph_inputs.md)
     - [SubGraph Outputs Node](../../content/animations/graph/node_library/subgraph/sub_graph_outputs.md)
+    - [Preview Output Pose Node](../../content/animations/graph/node_library/subgraph/preview_output_pose.md)
   - [Output](../../content/animations/graph/node_library/output/index.md)
 
     - [Output Pose Node](../../content/animations/graph/node_library/output/output_pose.md)
   - [Result](../../content/animations/graph/node_library/result/index.md)
 
     - [Transition Result Node](../../content/animations/graph/node_library/result/transition_result.md)
-  - [Portals](../../content/animations/graph/node_library/portal/index.md)
+  - [Portal](../../content/animations/graph/node_library/portal/index.md)
 
     - [Portal In Node](../../content/animations/graph/node_library/portal/portal_in.md)
     - [Portal Out Node](../../content/animations/graph/node_library/portal/portal_out.md)
   - [Expression](../../content/animations/graph/node_library/expression/index.md)
 
     - [Expression Node](../../content/animations/graph/node_library/expression/expression.md)
-  - [Time and Conditions](../../content/animations/graph/node_library/time/index.md)
+  - [Time](../../content/animations/graph/node_library/time/index.md)
 
     - [Time Node](../../content/animations/graph/node_library/time/time.md)
     - [State Time Node](../../content/animations/graph/node_library/time/state_time.md)
@@ -225,7 +250,7 @@ This section covers all aspects of working with animation graphs - from preparin
     - [Absolute Node](../../content/animations/graph/node_library/math/abs.md)
     - [Sign Node](../../content/animations/graph/node_library/math/sign.md)
     - [Floor Node](../../content/animations/graph/node_library/math/floor.md)
-    - [Ceil Node](../../content/animations/graph/node_library/math/ceil.md)
+    - [Ceiling Node](../../content/animations/graph/node_library/math/ceil.md)
     - [Round Node](../../content/animations/graph/node_library/math/round.md)
     - [Frac Node](../../content/animations/graph/node_library/math/frac.md)
     - [Square Root Node](../../content/animations/graph/node_library/math/sqrt.md)
@@ -242,7 +267,9 @@ This section covers all aspects of working with animation graphs - from preparin
     - [Base-10 Logarithm Node](../../content/animations/graph/node_library/math/log10.md)
     - [Base-E Logarithm Node](../../content/animations/graph/node_library/math/log.md)
     - [To Int Node](../../content/animations/graph/node_library/math/to_int.md)
-  - [Comparison and Logic](../../content/animations/graph/node_library/comparison/index.md)
+    - [Euler to Quat Node](../../content/animations/graph/node_library/math/euler_to_quat.md)
+    - [Quat to Euler Node](../../content/animations/graph/node_library/math/quat_to_euler.md)
+  - [Logic](../../content/animations/graph/node_library/comparison/index.md)
 
     - [Branch Node](../../content/animations/graph/node_library/comparison/branch.md)
     - [And Node](../../content/animations/graph/node_library/comparison/and.md)

@@ -24,56 +24,56 @@ Retarget translation mode for a joint, defining how joint translations are trans
 
 ### Members
 
-## isEditingHierarchy () const
+## bool isEditingHierarchy () const
 
 Returns the current value indicating whether the skeleton hierarchy is currently being edited.
 ### Return value
 
-Current the skeleton is in hierarchy editing mode.
-## getNumJoints () const
+**true** if the skeleton is in hierarchy editing mode; otherwise **false**.
+## int getNumJoints () const
 
 Returns the current total number of joints in the skeleton.
 ### Return value
 
 Current number of joints.
-## getNumBlendMasks () const
+## int getNumBlendMasks () const
 
 Returns the current total number of blend masks defined for the skeleton.
 ### Return value
 
 Current number of blend masks.
-## getNumBlendTimeProfiles () const
+## int getNumBlendTimeProfiles () const
 
 Returns the current total number of blend time profiles defined for the skeleton.
 ### Return value
 
 Current number of blend time profiles.
-## getNumBlendWeightProfiles () const
+## int getNumBlendWeightProfiles () const
 
 Returns the current total number of blend weight profiles defined for the skeleton.
 ### Return value
 
 Current number of blend weight profiles.
-## void setRetargetDataEnabled ( )
+## void setRetargetDataEnabled ( bool enabled )
 
 Sets a new value indicating whether retarget data is enabled for this skeleton. Retarget data defines per-joint translation modes used when transferring animations between different skeletons.
 ### Arguments
 
-- **enabled** - The retarget data is enabled.
+- *bool* **enabled** - Set **true** to enable retarget data; **false** - to disable it.
 
-## isRetargetDataEnabled () const
+## bool isRetargetDataEnabled () const
 
 Returns the current value indicating whether retarget data is enabled for this skeleton. Retarget data defines per-joint translation modes used when transferring animations between different skeletons.
 ### Return value
 
-Current retarget data is enabled.
-## getFileGUID () const
+**true** if retarget data is enabled ; otherwise **false**.
+## UGUID getFileGUID () const
 
 Returns the current GUID of the skeleton file.
 ### Return value
 
 Current file GUID of the skeleton.
-## getSystemMemoryUsage () const
+## size_t getSystemMemoryUsage () const
 
 Returns the current amount of system memory used by the skeleton, in bytes.
 ### Return value

@@ -12,6 +12,19 @@ This class is used to get the type of the window event.
 
 ### Members
 
+## void setAction ( int action )
+
+Sets a new type of the generic action performed with the window during the event.
+### Arguments
+
+- *int* **action** - The type of the generic action performed with the window during the event
+
+## int getAction () const
+
+Returns the current type of the generic action performed with the window during the event.
+### Return value
+
+Current type of the generic action performed with the window during the event
 ---
 
 ## WindowEventGeneric ( )
@@ -56,17 +69,3 @@ Generic window event constructor.
 - *ivec2* **position** - Position of the window.
 - *ivec2* **size** - Size of the window.
 - *int* **action** - Type of the generic action performed with the window during the event.
-
-## void setAction ( int action )
-
-Sets the type of the generic action performed with the window during the event.
-### Arguments
-
-- *int* **action** - The type of the generic action performed with the window during the event.
-
-## int getAction ( )
-
-Returns the type of the generic action performed with the window during the event.
-### Return value
-
-The type of the generic action performed with the window during the event.

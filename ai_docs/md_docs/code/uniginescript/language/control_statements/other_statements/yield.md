@@ -53,6 +53,6 @@ int foo() {
 }
 forloop(int i = 0; 10) foo();
 
-// the result is: one, two, three, one, two, …
+// the result is: one, two, three, one, two, �
 
 ```

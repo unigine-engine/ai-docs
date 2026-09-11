@@ -12,11 +12,11 @@ This class represents a container of path patterns (***wildcards***) that can be
 Supported wildcard characters:
 
 
-- `*` — matches any sequence of characters except `/`.
-- `**` — matches any sequence of directories (including none), allowing patterns to span multiple directory levels.
-- `?` — matches exactly one character except `/` (ASCII only).
-- `[...]` — matches exactly one character from a set or range (e.g., `[a-z0-9]`, `[abc]`). Also supports POSIX character classes: `[:alnum:]`, `[:alpha:]`, `[:digit:]`, `[:lower:]`, `[:upper:]`, `[:space:]`, `[:punct:]`, `[:xdigit:]`.
-- `[!...]` or `[^...]` — matches exactly one character NOT in the set (e.g., `[!0-9]`).
+- `*` � matches any sequence of characters except `/`.
+- `**` � matches any sequence of directories (including none), allowing patterns to span multiple directory levels.
+- `?` � matches exactly one character except `/` (ASCII only).
+- `[...]` � matches exactly one character from a set or range (e.g., `[a-z0-9]`, `[abc]`). Also supports POSIX character classes: `[:alnum:]`, `[:alpha:]`, `[:digit:]`, `[:lower:]`, `[:upper:]`, `[:space:]`, `[:punct:]`, `[:xdigit:]`.
+- `[!...]` or `[^...]` � matches exactly one character NOT in the set (e.g., `[!0-9]`).
 
 
 Pattern matching rules:

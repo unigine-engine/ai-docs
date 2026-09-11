@@ -66,12 +66,12 @@ Parameters described below represent John Hable's artist-friendly tonemapping cu
 ![](tonemapping_formula.gif)
 
 
-- **A** — Shoulder Scale
-- **B** — Linear Scale
-- **C** — Linear Angle
-- **D** — Toe Scale
-- **E** — Toe Numerator
-- **F** — Toe Denominator
+- **A** � Shoulder Scale
+- **B** � Linear Scale
+- **C** � Linear Angle
+- **D** � Toe Scale
+- **E** � Toe Numerator
+- **F** � Toe Denominator
 
 
 ![](tonemapping_curve.png)
@@ -184,13 +184,13 @@ For more details about tone mapping curve construction see the article on [Filmi
 **Color Correction LUT** (Lookup Texture) is an optimized way of performing color grading in a post effect. Instead of tweaking individual color grading parameters, only a single texture is used to produce the corrected image. The lookup is performed by using the original image color as a vector to address the lookup texture.
 
 
-One of the most common applications of lookup tables is to use them to see how images look in different media, such as TV/video or film, which have different color capabilities. Using a lookup table designed to mimic a certain display medium gives a much better idea what your current work will look like after it’s transferred to that medium.
+One of the most common applications of lookup tables is to use them to see how images look in different media, such as TV/video or film, which have different color capabilities. Using a lookup table designed to mimic a certain display medium gives a much better idea what your current work will look like after it�s transferred to that medium.
 
 
 **Advantages** of using a Color correction LUT include:
 
 
-- **Better performance** — realtime computation is replaced by a simple array indexing operation.
+- **Better performance** � realtime computation is replaced by a simple array indexing operation.
 - **More professional workflow opportunities**, where all color transforms can be defined using professional image editing software (such as Photoshop or GIMP), which provides a more precise result.
 
 

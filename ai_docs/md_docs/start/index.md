@@ -200,7 +200,7 @@ You can [reparent](../content/materials/graph/materials_reparent/index.md) a mat
 ### Property
 
 
-A [**property**](../principles/properties/index.md) is a "material" for application logic. It specifies the way the object will behave and interact with other objects and the scene environment. Properties can have parameters of various types — from a simple *integer* representing your character's hit points, to *node, material, file* (for textures, meshes, sounds, etc.), or *property*, which simplifies access to various resources.
+A [**property**](../principles/properties/index.md) is a "material" for application logic. It specifies the way the object will behave and interact with other objects and the scene environment. Properties can have parameters of various types � from a simple *integer* representing your character's hit points, to *node, material, file* (for textures, meshes, sounds, etc.), or *property*, which simplifies access to various resources.
 
 
 ![](../code/fundamentals/file_access/assign_prop_params.gif)
@@ -273,7 +273,7 @@ Lighting in your worlds is created by placing **Light Sources**. These nodes con
 ![](lighting.png)
 
 
-There are different kinds of lights and they emit light in different ways. A light bulb, for example, emits light in all directions — in UNIGINE it is represented by the [**omni light**](../objects/lights/omni/index.md). A projector or car headlights emit a cone of light in a certain direction — [**projected light**](../objects/lights/proj/index.md). Light beams that come from the sun appear to be parallel, as their source is located so far away. To simulate this type of lighting in UNIGINE, the [**world light**](../objects/lights/world/index.md) is used.
+There are different kinds of lights and they emit light in different ways. A light bulb, for example, emits light in all directions � in UNIGINE it is represented by the [**omni light**](../objects/lights/omni/index.md). A projector or car headlights emit a cone of light in a certain direction � [**projected light**](../objects/lights/proj/index.md). Light beams that come from the sun appear to be parallel, as their source is located so far away. To simulate this type of lighting in UNIGINE, the [**world light**](../objects/lights/world/index.md) is used.
 
 
 To learn more about lighting in UNIGINE, see the [Lighting Video Tutorial](../videotutorials/essentials/lights.md).
@@ -301,7 +301,7 @@ In *UnigineEditor* all rendering settings (such as global illumination, shadows,
 ## How Do We Hear Sounds?
 
 
-Next to the visual component, sound is a very important domain of real-time technologies. It is the key resource for creating the proper feeling of immersion in the virtual world. For example, rolling echo cues us to anticipate a scene to take place in a lofty dome. Soft tapping of a stone hit by an incautious foot or a car whooshing by with lightning speed — all that can be modelled aurally. UNIGINE offers a multi-channel sound system with support for binaural HRTF-based sound, various 3D effects, sound occlusion and multiple [reverberation zones](../objects/sounds/sound_reverb.md). You can assign any *MP3, WAV*, or *OGA* sound to be played by contact of the objects simulating their [physical properties](#physics) on the level of sound. For the moving sources, like a car, the [Doppler](../objects/sounds/sound_source.md#doppler) effect is applied so that the movement of the sound source relative to the listener is authentically imitated.
+Next to the visual component, sound is a very important domain of real-time technologies. It is the key resource for creating the proper feeling of immersion in the virtual world. For example, rolling echo cues us to anticipate a scene to take place in a lofty dome. Soft tapping of a stone hit by an incautious foot or a car whooshing by with lightning speed � all that can be modelled aurally. UNIGINE offers a multi-channel sound system with support for binaural HRTF-based sound, various 3D effects, sound occlusion and multiple [reverberation zones](../objects/sounds/sound_reverb.md). You can assign any *MP3, WAV*, or *OGA* sound to be played by contact of the objects simulating their [physical properties](#physics) on the level of sound. For the moving sources, like a car, the [Doppler](../objects/sounds/sound_source.md#doppler) effect is applied so that the movement of the sound source relative to the listener is authentically imitated.
 
 
 ![](sound_system.png)
@@ -424,11 +424,11 @@ UNIGINE has three **main logic components**, Each of them has a set of functions
 - [**System Logic**](../code/fundamentals/execution_sequence/app_logic_system.md#systemlogic) is the code that is run during the whole application life cycle (its scope exists even when switching between worlds).
 
   - For applications written using UnigineScript, the system logic is written to the [system script](../code/fundamentals/execution_sequence/app_logic_system.md#system_script) file (`unigine.usc`).
-  - For applications that use C++ `AppSystemLogic.cpp` is created, and for C# applications — `AppSystemLogic.cs`. This file is stored in the `source/` folder of your project. It has [implemented methods](../api/library/common/logic/class.systemlogic_cpp.md) to put your logic code inside.
+  - For applications that use C++ `AppSystemLogic.cpp` is created, and for C# applications � `AppSystemLogic.cs`. This file is stored in the `source/` folder of your project. It has [implemented methods](../api/library/common/logic/class.systemlogic_cpp.md) to put your logic code inside.
 - [**World Logic**](../code/fundamentals/execution_sequence/app_logic_system.md#worldlogic) is the logic of the [virtual world](#world). The logic takes effect only when the world is loaded.
 
   - For applications written using UnigineScript, the world logic is written to the [world script](../code/fundamentals/execution_sequence/app_logic_system.md#world_script) file (`*.usc` named after your project) and is loaded and unloaded together with the corresponding world.
-  - For applications that use C++ `AppWorldLogic.cpp` is created, and for C# applications — `AppWorldLogic.cs`. This file is stored in the `source/` folder of your project and stays loaded during the whole engine runtime. It has [implemented methods](../api/library/common/logic/class.worldlogic_cpp.md) to put your logic code inside.
+  - For applications that use C++ `AppWorldLogic.cpp` is created, and for C# applications � `AppWorldLogic.cs`. This file is stored in the `source/` folder of your project and stays loaded during the whole engine runtime. It has [implemented methods](../api/library/common/logic/class.worldlogic_cpp.md) to put your logic code inside.
 - [**Editor Logic**](../code/fundamentals/execution_sequence/app_logic_system.md#editorlogic). This component is to be used in case you need to implement your own Editor. It has more implemented methods providing you with clear understanding of the current Engine events (a node has been created, a property has been deleted, a material has been changed, etc.).
 
 
@@ -438,7 +438,7 @@ It is highly recommended that you familiarize yourself with the [execution seque
 #### Component System
 
 
-**Component System** enables you to implement your application's logic via a set of building blocks — **components**, and assign these blocks to [nodes](#node) extending their basic functionality. You can add a component to a node via code or via UnigineEditor.
+**Component System** enables you to implement your application's logic via a set of building blocks � **components**, and assign these blocks to [nodes](#node) extending their basic functionality. You can add a component to a node via code or via UnigineEditor.
 
 
 ![](../code/fundamentals/file_access/assign_prop_params.gif)

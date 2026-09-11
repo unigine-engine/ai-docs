@@ -3,10 +3,12 @@
 **Header:** #include <UnigineLogic.h>
 
 
-WorldLogic class is used to control the logic of the world. Methods of this class are called after corresponding methods of the world script **only if the world is loaded**.
+The *WorldLogic* class is used to control the logic of the world. Methods of this class are called after corresponding methods of the world script **only if the world is loaded**.
 
 
 > **Notice:** Instances of the WorldLogic class should not be added or removed via the corresponding methods of the Engine class (*[addWorldLogic()](../../../../api/library/engine/class.engine_cpp.md#addWorldLogic_WorldLogic_ptr_bool) / [removeWorldLogic()](../../../../api/library/engine/class.engine_cpp.md#removeWorldLogic_WorldLogic_ptr_bool)*) while the world is loaded and the world script is being executed (as you can't change a world script while the world is loaded). In such a case **there's no guarantee that *init() / shutdown()* methods shall be called**:
+>
+>
 > - the ***init()*** method shall not be called if the WorldLogic is added after opening the world;
 > - the ***shutdown()*** method shall not be called if the WorldLogic is removed before closing the world.
 
@@ -20,8 +22,6 @@ WorldLogic class is used to control the logic of the world. Methods of this clas
 
 ## WorldLogic Class
 
-### Members
-
 ---
 
 ## virtual int init ( )
@@ -29,19 +29,19 @@ WorldLogic class is used to control the logic of the world. Methods of this clas
  Engine calls this function on world initialization and initializes resources for a world scene during the world start.
 ### Return value
 
-Returns **1** if there were no errors; otherwise, **0**.
+Returns true if there were no errors; otherwise, false.
 ## virtual int shutdown ( )
 
 Engine calls this function on world shutdown. Here you can delete resources that were created during world script execution to avoid memory leaks.
 ### Return value
 
-Returns **1** if there were no errors; otherwise, **0**.
+Returns true if there were no errors; otherwise, false.
 ## virtual int update ( )
 
 Engine calls this function before updating each render frame. You can specify here all logic-related functions you want to be called every frame while your application executes.
 ### Return value
 
-Returns **1** if there were no errors; otherwise, **0**.
+Returns true if there were no errors; otherwise, false.
 ## virtual void updateSyncThread ( int id , int size )
 
 Engine calls this function before the [*update()*](#update_int) and the [*postUpdate()*](#postUpdate_int).
@@ -67,20 +67,25 @@ Engine calls this function before the [*update()*](#update_int) and the [*postUp
 Engine calls this function before rendering each render frame. You can correct behavior after the state of the node has been updated. Similar to the world script's [*postUpdate()*](../../../../code/fundamentals/execution_sequence/code_update.md#code_postUpdate) function.
 ### Return value
 
-Returns **1** if there were no errors; otherwise, **0**.
+Returns true if there were no errors; otherwise, false.
 ## virtual int updatePhysics ( )
 
 Engine calls this function before updating each physics frame. This function is used to control physics in your application. The engine calls *updatePhysics()* with the fixed rate (60 times per second by default) regardless of the fps number. Similar to the world script's [*updatePhysics()*](../../../../code/fundamentals/execution_sequence/code_update.md#code_updatePhysics) function.
 ### Return value
 
-Returns **1** if there were no errors; otherwise, **0**.
+Returns true if there were no errors; otherwise, false.
 ## virtual int swap ( )
 
-Engine calls this function after the following processes are completed: rendering (CPU portion), physics calculations and pathfinding, GUI rendering, and all Async threads. The function is designed to operate with the results of the updateAsyncThread() method — all other methods (threads) have already been performed and are idle. After this function, only two actions occur:
+
+Engine calls this function after the following processes are completed: rendering (CPU portion), physics calculations and pathfinding, GUI rendering, and all Async threads. The function is designed to operate with the results of the *updateAsyncThread()* method � all other methods (threads) have already been performed and are idle. After this function, only two actions occur:
+
+
 - All objects that are queued for deletion are deleted.
 - Profiler is updated.
 
- This function is similar to the world script's [*swap()*](../../../../code/fundamentals/execution_sequence/code_update.md#code_swap) function.
+
+This function is similar to the world script's [*swap()*](../../../../code/fundamentals/execution_sequence/code_update.md#code_swap) function.
+
 ### Return value
 
-Returns **1** if there were no errors; otherwise, **0**.
+Returns true if there were no errors; otherwise, false.

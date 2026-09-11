@@ -6,7 +6,7 @@
 The functions below are used to control property loading and management within the project: you can [get](#getProperty_int_Property), [clone](#cloneProperty_UGUID_cstr_cstr_Property), [inherit](#inheritProperty_UGUID_cstr_cstr_Property), or [remove](#removeProperty_UGUID_int_int_int) any property within the project. [Reparenting](#reparentProperty_UGUID_UGUID_int_int) is supported for all [non-manual](../../../api/library/common/class.property_cs.md#isManual_int) and [editable](../../../api/library/common/class.property_cs.md#isEditable_int) properties.
 
 
-> **Notice:** To modify a single property, use functions of the [Property](../../../api/library/common/class.property_cs.md) class.
+> **Notice:** To modify a single property, use functions of the *[Property](../../../api/library/common/class.property_cs.md)* class.
 
 
 ### Handling Events
@@ -52,7 +52,7 @@ Here is an example of tracking property removal via events:
 The total number of properties loaded for the project.
 ## 🔒︎ Event< Property > EventRemoved
 
-The event triggered when a property is removed. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a property is removed. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -146,7 +146,7 @@ Properties.EventRemoved.Enabled = true;
 
 ## 🔒︎ Event< Property > EventReparented
 
-The event triggered when the parent of a property is changed. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when the parent of a property is changed. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -240,7 +240,7 @@ Properties.EventReparented.Enabled = true;
 
 ## 🔒︎ Event< Property > EventRenamed
 
-The event triggered when the [name](../../../api/library/common/class.property_cs.md#name_path) of a property is changed. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when the [name](../../../api/library/common/class.property_cs.md#name_path) of a property is changed. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -334,7 +334,7 @@ Properties.EventRenamed.Enabled = true;
 
 ## 🔒︎ Event< Property > EventMoved
 
-The event triggered when the [path](../../../api/library/common/class.property_cs.md#name_path) of a property is changed. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when the [path](../../../api/library/common/class.property_cs.md#name_path) of a property is changed. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -428,7 +428,7 @@ Properties.EventMoved.Enabled = true;
 
 ## 🔒︎ Event< Property > EventCreated
 
-The event triggered when a new property is created. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a new property is created. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -529,7 +529,7 @@ The value indicating if validation for properties is enabled. Can be used to tem
 
 ## Property GetProperty ( int num )
 
-Returns a property by its number. The returned property can be modified by using methods of the [Property](../../../api/library/common/class.property_cs.md) class.
+Returns a property by its number. The returned property can be modified by using methods of the *[Property](../../../api/library/common/class.property_cs.md)* class.
 ```csharp
 Property[] my_properties = new Property[properties.getNumProperties()];
 for (int i = 0; i < properties.getNumProperties(); i++)
@@ -592,7 +592,10 @@ Name of the property.
 
 ## Property CloneProperty ( UGUID guid , string name = 0 , string path = 0 )
 
+
 Clones the property and assigns the specified name and path to the clone.
+
+
 > **Notice:** Without a name the cloned property won't be displayed in the properties hierarchy, without a path it won't be saved when *[saveProperties()](#saveProperties_int)* is called.
 
 
@@ -607,67 +610,70 @@ Clones the property and assigns the specified name and path to the clone.
 [Property](../../../api/library/common/class.property_cs.md) instance if the property with the specified GUID exists or nullptr.
 ## Property FindProperty ( string name )
 
-Searches for a property with the given name. The returned property can be managed using the methods of the [Property](../../../api/library/common/class.property_cs.md) class.
+Searches for a property with the given name. The returned property can be managed using the methods of the *[Property](../../../api/library/common/class.property_cs.md)* class.
 ### Arguments
 
 - *string* **name** - Property name.
 
 ### Return value
 
-Property, if it is found (an instance of the [Property](../../../api/library/common/class.property_cs.md) class); otherwise, nullptr.
+Property, if it is found (an instance of the *[Property](../../../api/library/common/class.property_cs.md)* class); otherwise, nullptr.
 ## Property FindManualProperty ( string name )
 
-Searches for a manual property with the given name. The returned property can be managed using the methods of the [Property](../../../api/library/common/class.property_cs.md) class.
+Searches for a manual property with the given name. The returned property can be managed using the methods of the *[Property](../../../api/library/common/class.property_cs.md)* class.
 ### Arguments
 
 - *string* **name** - Manual property name.
 
 ### Return value
 
-Manual property, if it is found (an instance of the [Property](../../../api/library/common/class.property_cs.md) class); otherwise, nullptr.
+Manual property, if it is found (an instance of the *[Property](../../../api/library/common/class.property_cs.md)* class); otherwise, nullptr.
 ## Property FindPropertyByGUID ( UGUID guid )
 
-Searches for a property with the given GUID. The returned property can be managed using the methods of the [Property](../../../api/library/common/class.property_cs.md) class.
+Searches for a property with the given GUID. The returned property can be managed using the methods of the *[Property](../../../api/library/common/class.property_cs.md)* class.
 ### Arguments
 
 - *[UGUID](../../../api/library/filesystem/class.uguid_cs.md)* **guid** - Property [GUID](../../../api/library/filesystem/class.uguid_cs.md).
 
 ### Return value
 
-Property, if it is found (an instance of the [Property](../../../api/library/common/class.property_cs.md) class); otherwise, nullptr.
+Property, if it is found (an instance of the *[Property](../../../api/library/common/class.property_cs.md)* class); otherwise, nullptr.
 ## Property FindPropertyByPath ( string path )
 
-Searches for a property with the given path. The returned property can be managed using the methods of the [Property](../../../api/library/common/class.property_cs.md) class.
+Searches for a property with the given path. The returned property can be managed using the methods of the *[Property](../../../api/library/common/class.property_cs.md)* class.
 ### Arguments
 
 - *string* **path** - Property [path](../../../api/library/common/class.property_cs.md#name_path).
 
 ### Return value
 
-Property, if it is found (an instance of the [Property](../../../api/library/common/class.property_cs.md) class); otherwise, nullptr.
+Property, if it is found (an instance of the *[Property](../../../api/library/common/class.property_cs.md)* class); otherwise, nullptr.
 ## Property FindPropertyByFileGUID ( UGUID guid )
 
-Searches for a property with the given `*.prop` file GUID. The returned property can be managed using the methods of the [Property](../../../api/library/common/class.property_cs.md) class.
+Searches for a property with the given `*.prop` file GUID. The returned property can be managed using the methods of the *[Property](../../../api/library/common/class.property_cs.md)* class.
 ### Arguments
 
 - *[UGUID](../../../api/library/filesystem/class.uguid_cs.md)* **guid** - Property file [GUID](../../../api/library/filesystem/class.uguid_cs.md).
 
 ### Return value
 
-Property, if it is found (an instance of the [Property](../../../api/library/common/class.property_cs.md) class); otherwise, nullptr.
+Property, if it is found (an instance of the *[Property](../../../api/library/common/class.property_cs.md)* class); otherwise, nullptr.
 ## Property LoadProperty ( string path )
 
-Loads a property from the specified `*.prop` file. The returned property can be managed using the methods of the [Property](../../../api/library/common/class.property_cs.md) class.
+Loads a property from the specified `*.prop` file. The returned property can be managed using the methods of the *[Property](../../../api/library/common/class.property_cs.md)* class.
 ### Arguments
 
 - *string* **path** - Path to the `*.prop` file to load a property from.
 
 ### Return value
 
-Property, if it is loaded successfully (an instance of the [Property](../../../api/library/common/class.property_cs.md) class); otherwise, nullptr.
+Property, if it is loaded successfully (an instance of the *[Property](../../../api/library/common/class.property_cs.md)* class); otherwise, nullptr.
 ## Property InheritProperty ( UGUID guid , string name = 0 , string path = 0 )
 
+
 Inherits a property from the given property and assigns the specified name and path to the new property.
+
+
 > **Notice:** Without a name the inherited property won't be displayed in the properties hierarchy, without a path it won't be saved when *[saveProperties()](#saveProperties_int)* is called.
 
 
@@ -682,7 +688,10 @@ Inherits a property from the given property and assigns the specified name and p
 [Property](../../../api/library/common/class.property_cs.md) instance if the property with the specified GUID exists or nullptr.
 ## bool RemoveProperty ( UGUID guid , bool remove_file = 0 , bool remove_children = 1 )
 
+
 Removes the property with the specified GUID.
+
+
 > **Notice:** A root property (the property that has no parent) or a [non-editable](../../../api/library/common/class.property_cs.md#isEditable_int) property cannot be removed using this function.
 
 
@@ -697,7 +706,10 @@ Removes the property with the specified GUID.
 true if the property is removed successfully; otherwise, false.
 ## bool RenameProperty ( UGUID guid , string new_name )
 
+
 Changes the [name](../../../api/library/common/class.property_cs.md#name_path) of the property with the specified GUID.
+
+
 > **Notice:** - The name of the `*.prop` file is not affected.
 > - This method is not available for the [manual](../../../api/library/common/class.property_cs.md#isManual_int) and [non-editable](../../../api/library/common/class.property_cs.md#isEditable_int) properties.
 
@@ -712,7 +724,7 @@ Changes the [name](../../../api/library/common/class.property_cs.md#name_path) o
 true if the property is renamed successfully; otherwise, false.
 ## bool ReplaceProperty ( Property property , Property new_property )
 
- Replaces the specified property with a new one for all nodes and surfaces. The new property that replaces the specified one must exist. For example, if you have 3 nodes with the same property, calling this method will change this property to the specified one for all these nodes.
+Replaces the specified property with a new one for all nodes and surfaces. The new property that replaces the specified one must exist. For example, if you have 3 nodes with the same property, calling this method will change this property to the specified one for all these nodes.
 ### Arguments
 
 - *[Property](../../../api/library/common/class.property_cs.md)* **property** - Property to be replaced.
@@ -723,7 +735,10 @@ true if the property is renamed successfully; otherwise, false.
 true if the property is replaced successfully; otherwise, false.
 ## bool ReparentProperty ( UGUID guid , UGUID new_parent , bool save_all_values = 0 )
 
+
 Sets a new parent for the specified property. Both properties with given GUIDs must exist.
+
+
 > **Notice:** The method isn't available for the [manual](../../../api/library/common/class.property_cs.md#isManual_int) and [non-editable](../../../api/library/common/class.property_cs.md#isEditable_int) properties.
 
 
@@ -738,13 +753,19 @@ Sets a new parent for the specified property. Both properties with given GUIDs m
 true if the parent for the property is changed successfully; otherwise, false.
 ## void ReloadProperties ( )
 
+
 Reloads all `*.prop` files from all data folders.
+
+
 > **Notice:** If new `*.prop` files are found, they will be loaded automatically. The hierarchy will be rebuilt if necessary, while keeping all overridden parameter values.
 
 
 ## int SaveProperties ( )
 
+
 Saves all properties that can be saved to corresponding `*.prop` files.
+
+
 > **Notice:** This method will save only the properties that:
 > - are not [manual](../../../api/library/common/class.property_cs.md#isManual_int)
 > - are [editable](../../../api/library/common/class.property_cs.md#isEditable_int)

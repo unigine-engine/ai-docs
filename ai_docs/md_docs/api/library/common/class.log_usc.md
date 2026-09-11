@@ -36,7 +36,10 @@ The following code demonstrates how to print various types of messages.
 
 ## void setDialogFatalEnabled ( int enabled )
 
-Sets a new value indicating if displaying *Fatal* dialog messages is enabled (when disabled, the corresponding message will be printed to the log). Can be used, for example, to disable when running console tools like *[Runtimes Generator](../../../tools/runtimes_generator/index.md)* or *[Build Tool](../../../editor2/projects/build_project.md#console_build)* (use the `-dialog_fatal_enabled` command).
+Sets a new value indicating if displaying *Fatal* dialog messages is enabled (when disabled, the corresponding message will be printed to the log).
+Can be used, for example, to disable when running console tools like *[Runtimes Generator](../../../tools/runtimes_generator/index.md)* or *[Build Tool](../../../editor2/projects/build_project.md#console_build)* (use the `-dialog_fatal_enabled` command).
+
+
 > **Notice:** Available for Windows OS only.
 
 ### Arguments
@@ -45,7 +48,10 @@ Sets a new value indicating if displaying *Fatal* dialog messages is enabled (wh
 
 ## int isDialogFatalEnabled () const
 
-Returns the current value indicating if displaying *Fatal* dialog messages is enabled (when disabled, the corresponding message will be printed to the log). Can be used, for example, to disable when running console tools like *[Runtimes Generator](../../../tools/runtimes_generator/index.md)* or *[Build Tool](../../../editor2/projects/build_project.md#console_build)* (use the `-dialog_fatal_enabled` command).
+Returns the current value indicating if displaying *Fatal* dialog messages is enabled (when disabled, the corresponding message will be printed to the log).
+Can be used, for example, to disable when running console tools like *[Runtimes Generator](../../../tools/runtimes_generator/index.md)* or *[Build Tool](../../../editor2/projects/build_project.md#console_build)* (use the `-dialog_fatal_enabled` command).
+
+
 > **Notice:** Available for Windows OS only.
 
 ### Return value
@@ -56,19 +62,19 @@ Current displaying *Fatal* dialog messages
 The event handler signature is as follows: *myhandler()*
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventWarning () const
 
 The event handler signature is as follows: *myhandler()*
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventError () const
 
 The event handler signature is as follows: *myhandler()*
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventFatal () const
 
 > **Notice:** Available for Windows OS only.
@@ -76,7 +82,7 @@ Event reference.
 The event handler signature is as follows: *myhandler()*
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## void log.error ( string format , ... )
@@ -90,6 +96,7 @@ Prints an error message to the console and the log file.
 ## void log.fatal ( string format , ... )
 
 Prints a fatal error message to the log file and quits the engine.
+
 > **Notice:** Available for Windows OS only.
 
 ### Arguments

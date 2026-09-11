@@ -71,3 +71,44 @@ As a result, you will get your meshes, terrains, worlds, nodes, splines, materia
 
 
 As soon as migration is completed, run the Editor to have the project assets "indexed".
+
+
+## Material Mask Renamed to Surface ID
+
+
+The material state that enables writing the per-surface identifier has been renamed: the surface identifier and the [custom parameters](../../content/materials/custom_parameters/index.md) stored under it are now called **Surface ID** instead of **Material Mask**. The state keeps its previous behavior and still drives the classic [material mask](../../principles/bit_masking/index.md#material_mask) � only the names have changed:
+
+
+| File | Was | Now |
+|---|---|---|
+| Materials (`*.mat`) inherited from *mesh_base* and *particles_base* | transparent_material_mask | transparent_surface_id (*Surface ID*) |
+| Graph-based materials (`*.mgraph`) and subgraphs (`*.msubgraph`) | material_mask_write | surface_id_write (*Write Surface ID*) |
+
+
+Both renames are performed by [automatic upgrade](#automatic_upgrade): materials, material graphs and subgraphs stored in the project's `/data` folder are updated for you, and the values of the states are preserved.
+
+
+> **Notice:** Content stored outside the `/data` folder (mount points, for example) is not covered by the automatic mode � upgrade it [manually](#manual_upgrade), as usual.
+
+
+What automatic upgrade cannot do for you:
+
+
+- Custom base materials (`*.basemat`) that declare a state of their own with the old name, and the shaders that read it: rename the state and the corresponding define by hand.
+- Application code, scripts and configuration files that refer to the state by name.
+
+
+> **Warning:** Writing the Surface ID is off by default for alpha-blend materials, particles and decals, because it costs performance. A material graph created anew comes out with **Write Surface ID** enabled for mesh materials and disabled for decal ones. Check the state on the materials that a Surface ID consumer depends on � a segmentation view or a picking shader gets nothing from a surface whose material writes no ID.
+
+
+## Lights Migration
+
+
+The shadow pipeline has been reworked for better quality, stability, and consistency across *World*, *Omni*, and *Proj* lights. Shadow penumbra is now calculated using **PCSS** (Percentage-Closer Soft Shadows): the width of the penumbra is estimated by searching for the occluders that cast the shadow, which keeps contact shadows sharp and softens the shadow the farther it stretches away.
+
+
+Whether this requires anything from you depends on how the project used penumbra:
+
+
+- **Penumbra was not used** - [Penumbra Mode](../../editor2/settings/render_settings/shadows/index.md#penumbra_mode) is set to *Disabled* for the project. Such shadows require no reconfiguration, they will look better by default. Additionally try changing the [number of cascades](../../objects/lights/world/index.md#number_of_cascades) of a *World* light: their maximum has been raised to 16, and a new cascade placement mode has been added.
+- **Penumbra was used and tuned**. [Automatic upgrade](#automatic_upgrade) overwrites the [Penumbra](../../objects/lights/parameters/index.md#penumbra) value of every *World*, *Omni*, and *Proj* light: 5.0 is written for *World* lights and 2.0 for *Omni* and *Proj* lights. These are the values the first version of PCSS was tuned for, and they are well above the current default of 0.5, so migrated shadows are likely to come out too soft � reduce the value for the lights where that happens. > **Warning:** PCSS penumbra is more expensive than the previous algorithm. However, the same softness is now reached with lower values. For fine-tuning, start with the [Penumbra](../../objects/lights/parameters/index.md#penumbra) value of the light itself, then adjust [World Light Blocker Search Radius](../../editor2/settings/render_settings/shadows/index.md#world_blocker_search_radius) and [Omni/Proj Light Blocker Search Radius](../../editor2/settings/render_settings/shadows/index.md#omni_proj_blocker_search_radius), which may give better penumbra for finer object shadows.

@@ -3,7 +3,7 @@
 > **Warning:** The scope of applications for UnigineScript is limited to implementing materials-related logic (material expressions, scriptable materials, brush materials). Do not use UnigineScript as a language for application logic, please consider C#/C++ instead, as these APIs are the preferred ones. Availability of new Engine features in UnigineScript (beyond its scope of applications) is not guaranteed, as the current level of support assumes only fixing critical issues.
 
 
-This class is the top-level container for all data extracted from a source file during import. It manages the scene graph (a hierarchy of [ImportNode](../../../../api/library/common/import/class.importnode_usc.md) elements) and parallel collections of scene components. During import, an [Importer](../../../../api/library/common/import/class.importer_usc.md) populates the ImportScene, and then an [ImportProcessor](../../../../api/library/common/import/class.importprocessor_usc.md) converts its contents into UNIGINE assets.
+This class is the top-level container for all data extracted from a source file during import. It manages the scene graph (a hierarchy of *[ImportNode](../../../../api/library/common/import/class.importnode_usc.md)* elements) and parallel collections of scene components. During import, an *[Importer](../../../../api/library/common/import/class.importer_usc.md)* populates the *ImportScene*, and then an *[ImportProcessor](../../../../api/library/common/import/class.importprocessor_usc.md)* converts its contents into UNIGINE assets.
 
 
 A scene can include the following components:
@@ -21,8 +21,6 @@ A scene can include the following components:
 
 
 ## ImportScene Class
-
-### Members
 
 ---
 

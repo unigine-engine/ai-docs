@@ -24,7 +24,10 @@ Returns a transformation matrix (cube viewing matrix) for the specified face of 
 Cube viewing matrix.
 ## mat4 frustum ( float left , float right , float bottom , float top , float znear , float zfar )
 
+
 Returns perspective projection matrix:
+
+
 | 2.0 * znear / (right - left) | 0.0 | (right + left) / (right - left) | 0.0 |
 |---|---|---|---|
 | 0.0 | 2.0 * znear / (top - bottom) | (top + bottom) / (top - bottom) | 0.0 |
@@ -75,7 +78,10 @@ Returns inverse of a quaternion. The inverse of a quaternion is a quaternion tha
 Inverse of the quaternion.
 ## Variable inverse4 ( mat4 matrix )
 
-Inverts a matrix that consists of a 3×4 sub-matrix (upper left) and a translation vector. The last row of the matrix is ignored. Compared to the [inverse()](#inverse_variable) function, this one is a bit faster and, which is more important, more stable. A matrix suitable for such inversion looks like this:
+
+Inverts a matrix that consists of a 3�4 sub-matrix (upper left) and a translation vector. The last row of the matrix is ignored. Compared to the [inverse()](#inverse_variable) function, this one is a bit faster and, which is more important, more stable. A matrix suitable for such inversion looks like this:
+
+
 | *m00* | *m10* | *m20* | *m30* |
 |---|---|---|---|
 | *m01* | *m11* | *m21* | *m31* |
@@ -103,7 +109,10 @@ Returns the oblique projection matrix for the specified projection matrix to acc
 Oblique projection matrix.
 ## Variable orthoTangent ( vec3 tangent , vec3 binormal , vec3 normal )
 
+
 Calculates the tangent space basis basing on the 3 given ortho basis vectors.
+
+
 > **Notice:** The **w** component will contain the sign of the binormal.
 
 
@@ -120,6 +129,7 @@ Tangent space basis.
 
 
 The following example demonstrates how to convert the mesh tangent vector to the normal and binormal vectors. The mesh tangent vector is calculated via the *orthoTangent()* function.
+
 
 ```cpp
 vec3 t = vec3(1.0f,0.0f,0.0f); // the tangent basis: tangent vector
@@ -145,7 +155,10 @@ log.message("n: %s\n",typeinfo(compact_tangent_mat.normal));
 
 ## Variable orthoTangent ( vec4 tangent , vec3 normal )
 
+
 Calculates the tangent space basis basing on the given ortho basis vectors.
+
+
 > **Notice:** The **w** component will contain the sign of the binormal.
 
 
@@ -159,7 +172,10 @@ Calculates the tangent space basis basing on the given ortho basis vectors.
 Tangent space basis.
 ## mat4 ortho ( float left , float right , float bottom , float top , float znear , float zfar )
 
+
 Returns parallel projection matrix:
+
+
 | 2.0 / (right - left) | 0.0 | 0.0 | -(right + left) / (right - left) |
 |---|---|---|---|
 | 0.0 | 2.0 / (top - bottom) | 0.0 | -(top + bottom) / (top - bottom) |
@@ -242,7 +258,10 @@ Resets the transformation scale by replacing the scale component of the transfor
 Output matrix.
 ## mat4 rotateX ( float angle )
 
+
 Returns rotation matrix for the given angle around X axis:
+
+
 | 1.0 | 0.0 | 0.0 | 0.0 |
 |---|---|---|---|
 | 0.0 | cos | -sin | 0.0 |
@@ -259,7 +278,10 @@ Returns rotation matrix for the given angle around X axis:
 Rotation matrix.
 ## mat4 rotateY ( float angle )
 
+
 Returns rotation matrix for the given angle around Y axis:
+
+
 | cos | 0.0 | sin | 0.0 |
 |---|---|---|---|
 | 0.0 | 1.0 | 0.0 | 0.0 |
@@ -276,7 +298,10 @@ Returns rotation matrix for the given angle around Y axis:
 Rotation matrix.
 ## mat4 rotateZ ( float angle )
 
+
 Returns rotation matrix for the given angle around Z axis:
+
+
 | cos | -sin | 0.0 | 0.0 |
 |---|---|---|---|
 | sin | cos | 0.0 | 0.0 |
@@ -332,7 +357,10 @@ Rotates the **source** vector towards the **target** vector by an angular step o
 
 ### Return value
 
+
 Resulting vector/quaternion. The type of return value depends on the argument type:
+
+
 - [vec3](../../../api/library/math/class.vec3_usc.md) for *vec3* arguments
 - [quat](../../../api/library/math/class.quat_usc.md) for *quat* arguments
 
@@ -373,7 +401,10 @@ Returns the rotation quaternion for the specified source and target directions. 
 
 ## mat4 scale ( float x , float y , float z )
 
+
 Returns scaling matrix for the specified scaling vector (X, Y, Z):
+
+
 | X | 0.0 | 0.0 | 0.0 |
 |---|---|---|---|
 | 0.0 | Y | 0.0 | 0.0 |
@@ -392,7 +423,10 @@ Returns scaling matrix for the specified scaling vector (X, Y, Z):
 Scaling matrix.
 ## mat4 scale ( vec3 vector )
 
+
 Returns scaling matrix for the specified scaling vector (X, Y, Z):
+
+
 | X | 0.0 | 0.0 | 0.0 |
 |---|---|---|---|
 | 0.0 | Y | 0.0 | 0.0 |
@@ -409,7 +443,10 @@ Returns scaling matrix for the specified scaling vector (X, Y, Z):
 Scaling matrix.
 ## Variable translate ( Variable v )
 
+
 Returns translation matrix:
+
+
 | 1.0 | 0.0 | 0.0 | X |
 |---|---|---|---|
 | 0.0 | 1.0 | 0.0 | Y |
@@ -423,14 +460,20 @@ Returns translation matrix:
 
 ### Return value
 
+
 Translation matrix:
+
+
 - *mat4*, if the input argument is *vec3*
 - *dmat4* if the argument is *dvec3*
 
 
 ## Variable translate ( Variable x , Variable y , Variable z )
 
+
 Returns the translation matrix:
+
+
 | 1.0 | 0.0 | 0.0 | X |
 |---|---|---|---|
 | 0.0 | 1.0 | 0.0 | Y |
@@ -446,14 +489,20 @@ Returns the translation matrix:
 
 ### Return value
 
+
 Translation matrix:
+
+
 - *mat4*, if the first input argument is *int* or *float*
 - *dmat4*, if the first argument is *double*
 
 
 ## mat4 transpose ( mat4 matrix )
 
+
 Returns the transpose matrix of the input matrix:
+
+
 | m00 | m10 | m20 | m30 |
 |---|---|---|---|
 | m01 | m11 | m21 | m31 |
@@ -470,11 +519,11 @@ Returns the transpose matrix of the input matrix:
 Transposed matrix.
 ## Variable transpose3 ( mat4 matrix )
 
-Transposes the upper left 3×3 sub-matrix of a matrix.
+Transposes the upper left 3�3 sub-matrix of a matrix.
 ### Arguments
 
 - *mat4* **matrix** - Matrix, a part of which will be transposed.
 
 ### Return value
 
-*Matrix*, in which the upper left 3×3 sub-matrix is transposed.
+*Matrix*, in which the upper left 3�3 sub-matrix is transposed.

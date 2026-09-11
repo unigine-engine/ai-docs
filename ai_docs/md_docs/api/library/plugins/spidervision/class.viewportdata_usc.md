@@ -233,7 +233,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventWarpChanged () const
 
 The event handler signature is as follows: *myhandler()*
@@ -250,7 +250,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventEasyblendChanged () const
 
 The event handler signature is as follows: *myhandler()*
@@ -267,7 +267,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventBlendChanged () const
 
 The event handler signature is as follows: *myhandler()*
@@ -284,7 +284,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventMaskChanged () const
 
 The event handler signature is as follows: *myhandler()*
@@ -301,7 +301,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventColorChanged () const
 
 The event handler signature is as follows: *myhandler()*
@@ -318,7 +318,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventDebugChanged () const
 
 The event handler signature is as follows: *myhandler()*
@@ -335,7 +335,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventSomethingChanged () const
 
 The event handler signature is as follows: *myhandler()*
@@ -352,7 +352,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## void setViewportRendering ( int rendering )
 
 Sets a new value indicating whether the viewport rendering is enabled.
@@ -366,6 +366,45 @@ Returns the current value indicating whether the viewport rendering is enabled.
 ### Return value
 
 Current viewport rendering
+## void setPixelDensity ( float density )
+
+Sets a new rendering resolution of the viewport in pixels per meter, used for display-type viewports: the render texture size is calculated automatically from the physical screen dimensions and the specified pixel density, preserving the correct aspect ratio. The default value is 1200.
+### Arguments
+
+- *float* **density** - The rendering resolution of the viewport, in pixels per meter
+
+## float getPixelDensity () const
+
+Returns the current rendering resolution of the viewport in pixels per meter, used for display-type viewports: the render texture size is calculated automatically from the physical screen dimensions and the specified pixel density, preserving the correct aspect ratio. The default value is 1200.
+### Return value
+
+Current rendering resolution of the viewport, in pixels per meter
+## void setRenderMode ( int mode )
+
+Sets a new rendering mode of the viewport, one of the *RENDER_MODE_** values: a single (mono) image or a side-by-side stereo pair. The default is the mono mode.
+### Arguments
+
+- *int* **mode** - The rendering mode of the viewport
+
+## int getRenderMode () const
+
+Returns the current rendering mode of the viewport, one of the *RENDER_MODE_** values: a single (mono) image or a side-by-side stereo pair. The default is the mono mode.
+### Return value
+
+Current rendering mode of the viewport
+## void setSwapEyesInStereoMode ( int mode )
+
+Sets a new value indicating if the left and right eye images are exchanged in stereo mode. Use this option if the stereo signal is reversed due to the display or projection hardware configuration. Has no effect in the mono mode.
+### Arguments
+
+- *int* **mode** - The swapping of the eye images in stereo mode
+
+## int isSwapEyesInStereoMode () const
+
+Returns the current value indicating if the left and right eye images are exchanged in stereo mode. Use this option if the stereo signal is reversed due to the display or projection hardware configuration. Has no effect in the mono mode.
+### Return value
+
+Current swapping of the eye images in stereo mode
 ---
 
 ## void update ( )

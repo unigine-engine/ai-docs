@@ -16,8 +16,6 @@ Interface for widget extern handling. It serves to create external user widgets 
 
 ## WidgetExtern Class
 
-### Members
-
 ---
 
 ## static WidgetExtern ( Gui gui , int class_id )

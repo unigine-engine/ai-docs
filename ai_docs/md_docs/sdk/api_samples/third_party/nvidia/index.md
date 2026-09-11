@@ -22,7 +22,7 @@ The difference in *GPU -> CPU* texture transfer performance made via CUDA 12.3 a
 ![](cuda_engine_comparison.png)
 
 
-You can check the results on your PC just by launching the [CUDATextureTransfer](#cuda_texture_transfer) sample and enabling the *[Profiler](../../../../tools/profiling/profiler/index.md)*.
+You can check the results on your PC just by launching the [CUDATextureTransfer](#texture_transfer) sample and enabling the *[Profiler](../../../../tools/profiling/profiler/index.md)*.
 
 
 ## CUDAMeshDynamic
@@ -36,7 +36,7 @@ Vertices of a shared dynamic mesh are processed on GPU using CUDA.
 To build the sample, use CUDA [Toolkit v12.4](https://developer.nvidia.com/cuda-12-4-0-download-archive).
 
 
-**On Linux:** after installing the CUDA Toolkit, make sure that the **PATH** environment variable includes `/usr/local/cuda-12.2/bin`.
+**On Linux:** after installing the CUDA Toolkit, make sure that the **PATH** environment variable includes `/usr/local/cuda-12.4/bin`.
 
 
 **SDK Path:***<SAMPLES_PROJECT_PATH>/source\samples\3rdparty\CUDAMeshDynamic*
@@ -51,7 +51,7 @@ Particles in a shared structured buffer are updated on GPU using CUDA, and raste
 To build the sample, use CUDA [Toolkit v12.4](https://developer.nvidia.com/cuda-12-4-0-download-archive).
 
 
-**On Linux:** after installing the CUDA Toolkit, make sure that the **PATH** environment variable includes `/usr/local/cuda-12.2/bin`.
+**On Linux:** after installing the CUDA Toolkit, make sure that the **PATH** environment variable includes `/usr/local/cuda-12.4/bin`.
 
 
 **SDK Path:***<SAMPLES_PROJECT_PATH>/source\samples\3rdparty\StructuredBufferWrite*
@@ -66,7 +66,7 @@ A shared texture is processed with CUDA and copied from video memory to RAM into
 To build the sample, use CUDA [Toolkit v12.4](https://developer.nvidia.com/cuda-12-4-0-download-archive).
 
 
-**On Linux:** after installing the CUDA Toolkit, make sure that the **PATH** environment variable includes `/usr/local/cuda-12.2/bin`.
+**On Linux:** after installing the CUDA Toolkit, make sure that the **PATH** environment variable includes `/usr/local/cuda-12.4/bin`.
 
 
 **SDK Path:***<SAMPLES_PROJECT_PATH>/source\samples\3rdparty\CUDATextureTransfer*
@@ -81,7 +81,7 @@ A shared texture is processed with CUDA and displayed on the Unigine *Object* as
 To build the sample, use CUDA [Toolkit v12.4](https://developer.nvidia.com/cuda-12-4-0-download-archive).
 
 
-**On Linux:** after installing the CUDA Toolkit, make sure that the **PATH** environment variable includes `/usr/local/cuda-12.2/bin`.
+**On Linux:** after installing the CUDA Toolkit, make sure that the **PATH** environment variable includes `/usr/local/cuda-12.4/bin`.
 
 
 **SDK Path:***<SAMPLES_PROJECT_PATH>/source\samples\3rdparty\CUDATextureWrite*

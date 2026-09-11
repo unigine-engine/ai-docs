@@ -6,6 +6,7 @@ UNIGINE provides *automatic conversion* of art assets via [UnigineEditor](../../
 
 To learn more on automatic assets conversion, read the [Asset Types](../../editor2/assets_workflow/asset_types.md) and [Assets and Runtime Files](../../editor2/assets_workflow/assets_runtimes.md) articles.
 
+
 > **Notice:** We recommend you to use automatic conversion, as it is the simplest way to get assets in native formats.
 
 

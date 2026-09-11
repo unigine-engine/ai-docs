@@ -29,6 +29,3 @@ The coordinates of the center of the forearm.
 ## 🔒︎ UltraleapHand Hand
 
 The object for the hand.
-### Members
-
----

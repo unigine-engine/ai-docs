@@ -11,7 +11,7 @@
 Typically, to use a **[CPUShader](../../../../api/library/common/mt/class.cpushader_cpp.md)**, you need to inherit from the base **[CPUShader](../../../../api/library/common/mt/class.cpushader_cpp.md)** class and manually implement the *process()* method. However, **CPUShaderCallable** allows you to pass in the processing logic and cleanup logic directly as function objects without writing a custom class or managing inheritance.
 
 
-It also manages an internal shared state of type **State** whose lifetime is tied to the shader — it is automatically destroyed via the provided destroy function when the shader is deleted.
+It also manages an internal shared state of type **State** whose lifetime is tied to the shader � it is automatically destroyed via the provided destroy function when the shader is deleted.
 
 
 Use the [makeCPUShader()](../../../../api/library/common/class.unigine.namespace_cpp.md#makeCPUShader_State_Process_Destroy) helper function to create instances conveniently.

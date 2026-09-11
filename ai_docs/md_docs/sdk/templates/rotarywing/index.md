@@ -1,6 +1,9 @@
 # Rotary-Wing Flight Simulator Template
 
 
+![](../rotarywing/img/rotarywing_template.png)
+
+
 A configurable flight simulation template featuring a rotary-wing aircraft. It supports multi-monitor rendering as well as VR and XR modes.
 
 
@@ -14,6 +17,9 @@ A configurable flight simulation template featuring a rotary-wing aircraft. It s
 
 
 The template supports the full aircraft operation cycle from takeoff to landing, multiple control devices and camera modes, a HUD and basic avionics, ground and water traffic, as well as environmental interaction including weather effects and lighting.
+
+
+> **Warning:** The [IG Aviation Add-on](../../../sdk/addons/aircraft/index.md) is already included in this template. Do not add it again, as duplicating the add-on may cause conflicts.
 
 
 ## Features
@@ -99,3 +105,42 @@ The template features a rotary-wing aircraft designed to demonstrate key feature
   - Multi-monitor rendering support
   - VR mode
   - XR mode with chroma key support
+
+
+## Main Menu
+
+
+At runtime, click the ***Windows*** button in the top-left corner to open the main menu, from which the following configuration panels can be accessed:
+
+
+![](../modules/main_desc/img/rotary_menu.png)
+
+
+- **[Weather Configurator](../../../sdk/templates/rotarywing/weather.md)** - adjust time of day, weather conditions, and wind.
+- **[Input Configurator](../../../sdk/templates/rotarywing/controls.md)** - set up controls and device bindings.
+- **[Profile Configurator](../../../sdk/templates/rotarywing/controls.md#input_profile)** - manage input profiles for different devices and controller models.
+- **[JSBSim Properties](../../../sdk/templates/rotarywing/jsbsim.md)** - browse the list of JSBSim properties of the currently loaded aircraft model.
+- **[HUD Configuration](../../../sdk/templates/rotarywing/avionics_hud.md)** - configure flight instrument data displayed in the viewport.
+- **Tutorial** - follow the step-by-step template training tool.
+- **VR Options** - configure VR (available when a headset is connected).
+- **Quality Settings** - switch between rendering presets *(Low / Medium / High)*.
+- **[Sensor Configurator](../../../sdk/templates/rotarywing/sensors.md)** - enable and configure available sensors.
+- **[Picture-in-Picture Display](../../../sdk/templates/rotarywing/sensors.md#widgetpictureinpicture_component)** - adjust PiP window layout in third-person mode.
+
+
+## Template Tutorial
+
+
+![](../modules/main_desc/img/tutorial_r.png)
+
+
+On application startup, you will see the *Tutorial* window, which guides you through the core template features. By following its steps, you can try basic vehicle controls using default input bindings, try flight model-specific systems and switch between camera modes to explore the environment from different perspectives.
+
+
+![](../modules/main_desc/img/tutorial_ui_r.png)
+
+
+## Using the Template For Project Creation
+
+
+The template is designed as a ***flexible foundation for [customization](../../../sdk/templates/rotarywing/custom.md)***, enabling the use of different flight models and real-world locations. Dynamic interaction with the environment makes crashes feel impactful, supports practicing realistic scenarios, and simplifies onboarding for a vehicle control, making it suitable for both professional simulators and game development.

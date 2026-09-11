@@ -1,7 +1,7 @@
 # Skinned Mesh (Legacy)
 
 
-A ![](mesh.png) **skinned mesh (legacy)** is a monolithic object that contains both mesh geometry and a built-in animation player. It is usually used for rendering characters with a bone-based animation or a morph target animation (also known as blend shapes).
+A ![](mesh.png)�**skinned mesh (legacy)** is a monolithic object that contains both mesh geometry and a built-in animation player. It is usually used for rendering characters with a bone-based animation or a morph target animation (also known as blend shapes).
 
 
 > **Notice:** For new projects, use the modern approach: a [Skinned Mesh](../../../objects/objects/mesh_skinned/index.md) for rendering and a [Skeleton Pose](../../../objects/animations/nodeskeletonpose/index.md) node for animation control. The modern setup separates rendering from animation logic, supports [animation graphs](../../../content/animations/index.md), and provides a cleaner architecture. The *Skinned Mesh (Legacy)* is kept for backward compatibility with existing projects.
@@ -119,7 +119,7 @@ Each bone of a *skinned mesh (legacy)* can be bound to a separate node to contro
 | Bind Node | Node whose transformation is used to control the transformation of the bone. |
 | Node Transform Basis | Defines which transformation of the bound node (*World* or *Local*) is to be used to override the transformation of the selected bone. |
 | Bone Transform Basis | Defines which transformation of the selected bone is to be overridden by the [node's](#bind_node) transformation: - World coordinates - Coordinates relative to the *skinned mesh (legacy)* object - Coordinates of the parent bone |
-| Bind Mode | Defines the type of blending of node's and bone's transformations: - **Override** — replace bone's transformation with the transformation of the node. - **Additive** — node's transformation is added to the current transformation of the bone. |
+| Bind Mode | Defines the type of blending of node's and bone's transformations: - **Override** � replace bone's transformation with the transformation of the node. - **Additive** � node's transformation is added to the current transformation of the bone. |
 | Position Offset | *Translation* part of the additional transformation matrix applied to the node's transformation before applying it to bone's transformation. This parameter serves for the purpose of additional correction of the node's transform for the bone's basis. |
 | Rotation Offset | *Rotation* part of the additional transformation matrix applied to the node's transformation before applying it to bone's transformation. This parameter serves for the purpose of additional correction of the node's transform for the bone's basis. |
 | Scale Offset | *Scaling* part of the additional transformation matrix applied to the node's transformation before applying it to bone's transformation. This parameter serves for the purpose of additional correction of the node's transform for the bone's basis. |
@@ -169,7 +169,7 @@ For meshes containing morph targets, the *Morph Targets Preview* list is availab
 ![](morph_targets_preview.png)
 
 
-Each target has a slider that allows configuring its weight — the extent of the morph target's effect on the resulting view of the model.
+Each target has a slider that allows configuring its weight � the extent of the morph target's effect on the resulting view of the model.
 
 
 ***Basis*** represents the original position of all vertices of the mesh, and its slider is shown for reference.

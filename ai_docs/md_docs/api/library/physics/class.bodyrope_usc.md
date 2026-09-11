@@ -22,8 +22,6 @@ This class is used to simulate [ropes, cables, wires](../../../principles/physic
 
 ## BodyRope Class
 
-### Members
-
 ---
 
 ## static BodyRope ( )

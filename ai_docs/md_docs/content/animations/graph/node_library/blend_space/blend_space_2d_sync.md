@@ -1,4 +1,4 @@
-# BlendSpace 2D Sync
+# Blend Space 2D Sync
 
 
 ![](../img/blendspace_2d_sync.png)
@@ -25,8 +25,10 @@ See **[Blend Spaces](../../../../../content/animations/blend_spaces/index.md)** 
 
 | Name | Display name of the blend space node. Must be unique within the graph. |
 |---|---|
-| Axis X Label | Display name for the X axis. Also updates the **X** input label on the node. |
-| Axis Y Label | Display name for the Y axis. Also updates the **Y** input label on the node. |
+| Axis X | Display name for the X axis. Also updates the **X** input label on the node. |
+| Axis Y | Display name for the Y axis. Also updates the **Y** input label on the node. |
+| Grid X | Number of grid cells along the X axis, for visual reference only. Range: 1 to 20. |
+| Grid Y | Number of grid cells along the Y axis, for visual reference only. Range: 1 to 20. |
 | Axis Min | Minimum value for both axes. Default: -1.0. |
 | Axis Max | Maximum value for both axes. Default: 1.0. |
 | Mode | Interpolation mode: Cartesian or Polar. Default: Cartesian. |

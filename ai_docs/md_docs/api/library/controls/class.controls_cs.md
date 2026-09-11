@@ -45,7 +45,7 @@ Creates a smart pointer to Controls.
 Toggles the state of the given control on or off.
 ### Arguments
 
-- *int* **state** - State (one of *[CONTROLS_STATE_*](#STATE_AUX_0)* variables).
+- *int* **state** - Control state (one of *[CONTROLS_STATE_*](#STATE_AUX_0)* variables).
 - *int* **value** - Positive value to "press" the corresponding control; **0** to release it.
 
 ## int GetState ( int state )
@@ -53,7 +53,7 @@ Toggles the state of the given control on or off.
 Returns the state of a given control (pressed or unpressed).
 ### Arguments
 
-- *int* **state** - Control state number. Possible values are in range [STATE_FORWARD;NUM_STATES]. For full list of available controls see Unigine::Controls:: Enumeration.
+- *int* **state** - Control state (one of *[CONTROLS_STATE_*](#STATE_AUX_0)* variables).
 
 ### Return value
 
@@ -63,7 +63,7 @@ Returns the state of a given control (pressed or unpressed).
 Returns the state of a given control (pressed or unpressed) by the control state name.
 ### Arguments
 
-- *string* **name** - Name of the control state. For full list of available controls see Unigine::Controls:: Enumeration.
+- *string* **name** - Control state (one of *[CONTROLS_STATE_*](#STATE_AUX_0)* variables).
 
 ### Return value
 
@@ -73,7 +73,7 @@ Returns the state of a given control (pressed or unpressed) by the control state
 Returns the name of a given control state as a string.
 ### Arguments
 
-- *int* **state** - Control state number. Possible values are in range [STATE_FORWARD;NUM_STATES]. For full list of available controls see Unigine::Controls:: Enumeration.
+- *int* **state** - Control state (one of *[CONTROLS_STATE_*](#STATE_AUX_0)* variables).
 
 ### Return value
 
@@ -83,15 +83,17 @@ Name of the control state.
 Returns a control state and clears it to **0** (not pressed). This function allows to handle control only once even if it is kept pressed over several frames.
 ### Arguments
 
-- *int* **state** - State (one of *[CONTROLS_STATE_*](#STATE_AUX_0)* variables).
+- *int* **state** - Control state (one of *[CONTROLS_STATE_*](#STATE_AUX_0)* variables).
 
 ### Return value
 
-Returns the state of the given control: 1 if the control is pressed; otherwise,0.
+State of the given control: 1 if the control is pressed; otherwise, 0.
 ## bool SaveState ( Stream stream )
 
 Saves controls settings into the stream.
-**Example** using saveState() and [restoreState()](#restoreState_Stream_int) methods:
+
+
+**Example** using *saveState()* and *[restoreState()](#restoreState_Stream_int)* methods:
 
 
 ```csharp
@@ -119,11 +121,13 @@ controls.RestoreState(blob_state);
 
 ### Return value
 
-**true** if the controls settings are saved successfully; otherwise, **false**.
+true if the controls settings are saved successfully; otherwise, false.
 ## bool RestoreState ( Stream stream )
 
 Restores controls settings from the stream.
-**Example** using [saveState()](#saveState_Stream_int) and restoreState() methods:
+
+
+**Example** using *[saveState()](#saveState_Stream_int)* and *restoreState()* methods:
 
 
 ```csharp
@@ -151,4 +155,4 @@ controls.RestoreState(blob_state);
 
 ### Return value
 
-**true** if the controls settings are restored successfully; otherwise, **false**.
+true if the controls settings are restored successfully; otherwise, false.

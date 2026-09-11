@@ -27,8 +27,8 @@ In general, the process of generating the terrain in *Sandworm* is as follows:
 
 1. Add the [terrain data](../../../editor2/sandworm/workflow/landscape/index.md): heights and imagery.
 2. Add [masks](../../../editor2/sandworm/workflow/mask/index.md) for vegetation and details.
-3. Add objects such as [roads](../../../editor2/sandworm/workflow/roads/index.md), [point objects](../../../editor2/sandworm/workflow/points/index.md), [vegetation](../../../editor2/sandworm/workflow/vegetation/index.md), and [buildings](../../../editor2/sandworm/workflow/buildings/index.md), if any.
-4. Define the generation settings such as [terrain type](../../../editor2/sandworm/interface/index.md#terrain_type), [quality of generated data](../../../editor2/sandworm/generation/quality/index.md), and the [world](../../../editor2/sandworm/generation/output_dir_files/index.md) that will store the generated result.
+3. Add objects such as [roads](../../../editor2/sandworm/workflow/roads/index.md), [point objects](../../../editor2/sandworm/workflow/points/index.md), [spline objects](../../../editor2/sandworm/workflow/lines/index.md), [vegetation](../../../editor2/sandworm/workflow/vegetation/index.md), [rivers](../../../editor2/sandworm/sources/rivers/index.md), and [buildings](../../../editor2/sandworm/workflow/buildings/index.md), if any.
+4. Define the generation settings: [quality of generated data](../../../editor2/sandworm/generation/quality/index.md), [projection](../../../editor2/sandworm/generation/projection/index.md), and the [world](../../../editor2/sandworm/generation/output_dir_files/index.md) that will store the generated result. The [terrain type](../../../editor2/sandworm/interface/index.md#terrain_type) was chosen when the *Sandworm* project was created and cannot be changed here.
 5. [Generate](../../../editor2/sandworm/workflow/generate/index.md) the output.
 6. Open the world with the output terrain in *UnigineEditor*.
 

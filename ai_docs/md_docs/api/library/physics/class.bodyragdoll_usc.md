@@ -46,19 +46,19 @@ Returns the current copy of the skeleton root node storing a hierarchy of bones.
 ### Return value
 
 Current node, into which the bones will be exported.
-## void setFrameBased ( bool based )
+## void setFrameBased ( int based )
 
 Sets a new value indicating what approach is used for the ragdoll bones movement: according to the animation written in the file, or based on physics.
 ### Arguments
 
-- *bool* **based** - Set **true** to enable bones movement according to the animation written in the file; **false** - to disable it.
+- *int* **based** - The true if bones move according to the animation written in the file; false if their movement is based on physics
 
-## bool isFrameBased () const
+## int isFrameBased () const
 
 Returns the current value indicating what approach is used for the ragdoll bones movement: according to the animation written in the file, or based on physics.
 ### Return value
 
-**true** if bones movement according to the animation written in the file is enabled; otherwise **false**.
+Current true if bones move according to the animation written in the file; false if their movement is based on physics
 ## void setRigidity ( float rigidity )
 
 Sets a new rigidity of bones movement, i.e. how much interpolated linear and angular velocities of all bones affect velocities of each separate bone.

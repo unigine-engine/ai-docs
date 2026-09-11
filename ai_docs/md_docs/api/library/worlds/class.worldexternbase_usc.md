@@ -10,8 +10,6 @@ The base class, from which the [custom user-defined worlds](../../../api/library
 
 ## WorldExternBase Class
 
-### Members
-
 ---
 
 ## int getClassID ( )
@@ -54,14 +52,17 @@ Pre-render function, i.e. after the *update()* and before the *render()* functio
 Renders the handler for the external world.
 ## void renderVisualizer ( )
 
+
 Renders the visualizer.
+
+
 > **Notice:** You should enable the engine visualizer by the **show_visualizer 1** console command.
 
 
 ## int saveState ( Stream stream )
 
-Saves a world state into the stream.
-Saving into the stream requires creating a blob to save into. To restore the saved state the [restoreState()](#restoreState_Stream_int) method is used:
+
+Saves a world state into the stream. Saving into the stream requires creating a blob to save into. To restore the saved state the *[restoreState()](#restoreState_Stream_int)* method is used:
 
 
 ```cpp
@@ -91,8 +92,8 @@ worldExtern1.restoreState(blob_state);
 **1** on success; otherwise, **0**.
 ## int restoreState ( Stream stream )
 
-Restores a world state from the stream.
-Restoring from the stream requires creating a blob to save into and saving the state using the [saveState()](#saveState_Stream_int) method:
+
+Restores a world state from the stream. Restoring from the stream requires creating a blob to save into and saving the state using the *[saveState()](#saveState_Stream_int)* method:
 
 
 ```cpp

@@ -94,3 +94,130 @@ Returns a value indicating if the decal is to be ignored when baking *Global Ill
 ### Return value
 
 true if the decal is to be ignored when baking *Global Illumination* (lightmaps and probes); otherwise, false.
+## float GetSurfaceRenderCustomParameterFloat ( string name )
+
+Returns the current value of the custom surface parameter with the given name for the decal. If the parameter is not overridden for the decal, the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cs.md#getSurfaceParameters_CustomParameterLayout)* is returned.
+### Arguments
+
+- *string* **name** - Parameter name.
+
+### Return value
+
+Current parameter value, or 0 if no parameter with this name exists.
+## float GetSurfaceRenderCustomParameterFloat ( int param )
+
+Returns the current value of the custom surface parameter with the given number for the decal. If the parameter is not overridden for the decal, the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cs.md#getSurfaceParameters_CustomParameterLayout)* is returned.
+### Arguments
+
+- *int* **param** - Parameter number.
+
+### Return value
+
+Current parameter value.
+## int GetSurfaceRenderCustomParameterInt ( string name )
+
+Returns the current value of the custom surface parameter with the given name for the decal. If the parameter is not overridden for the decal, the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cs.md#getSurfaceParameters_CustomParameterLayout)* is returned.
+### Arguments
+
+- *string* **name** - Parameter name.
+
+### Return value
+
+Current parameter value, or 0 if no parameter with this name exists.
+## int GetSurfaceRenderCustomParameterInt ( int param )
+
+Returns the current value of the custom surface parameter with the given number for the decal. If the parameter is not overridden for the decal, the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cs.md#getSurfaceParameters_CustomParameterLayout)* is returned.
+### Arguments
+
+- *int* **param** - Parameter number.
+
+### Return value
+
+Current parameter value.
+## uint GetSurfaceRenderCustomParameterUInt ( string name )
+
+Returns the current value of the custom surface parameter with the given name for the decal. If the parameter is not overridden for the decal, the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cs.md#getSurfaceParameters_CustomParameterLayout)* is returned.
+### Arguments
+
+- *string* **name** - Parameter name.
+
+### Return value
+
+Current parameter value, or 0 if no parameter with this name exists.
+## uint GetSurfaceRenderCustomParameterUInt ( int param )
+
+Returns the current value of the custom surface parameter with the given number for the decal. If the parameter is not overridden for the decal, the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cs.md#getSurfaceParameters_CustomParameterLayout)* is returned.
+### Arguments
+
+- *int* **param** - Parameter number.
+
+### Return value
+
+Current parameter value.
+## bool IsSurfaceRenderCustomParameterOverridden ( int param )
+
+Checks if the custom surface parameter with the given number is overridden for the decal.
+### Arguments
+
+- *int* **param** - Parameter number.
+
+### Return value
+
+true if the parameter is overridden for the decal; otherwise, false.
+## void ResetSurfaceRenderCustomParameter ( int param )
+
+Resets the override of the custom surface parameter with the given number: the decal uses the default value from the *[surface parameters layout](../../../api/library/rendering/class.render_cs.md#getSurfaceParameters_CustomParameterLayout)* again.
+### Arguments
+
+- *int* **param** - Parameter number.
+
+## void ResetSurfaceRenderCustomParameters ( )
+
+Resets the overrides of all custom surface parameters of the decal.
+## void SetSurfaceRenderCustomParameterFloat ( string name , float value )
+
+Sets a new value of the custom surface parameter with the given name for the decal. The value overrides the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cs.md#getSurfaceParameters_CustomParameterLayout)*. If no parameter with this name exists in the layout, the method does nothing.
+### Arguments
+
+- *string* **name** - Parameter name.
+- *float* **value** - New parameter value.
+
+## void SetSurfaceRenderCustomParameterFloat ( int param , float value )
+
+Sets a new value of the custom surface parameter with the given number for the decal. The value overrides the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cs.md#getSurfaceParameters_CustomParameterLayout)*.
+### Arguments
+
+- *int* **param** - Parameter number.
+- *float* **value** - New parameter value.
+
+## void SetSurfaceRenderCustomParameterInt ( string name , int value )
+
+Sets a new value of the custom surface parameter with the given name for the decal. The value overrides the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cs.md#getSurfaceParameters_CustomParameterLayout)*. If no parameter with this name exists in the layout, the method does nothing.
+### Arguments
+
+- *string* **name** - Parameter name.
+- *int* **value** - New parameter value.
+
+## void SetSurfaceRenderCustomParameterInt ( int param , int value )
+
+Sets a new value of the custom surface parameter with the given number for the decal. The value overrides the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cs.md#getSurfaceParameters_CustomParameterLayout)*.
+### Arguments
+
+- *int* **param** - Parameter number.
+- *int* **value** - New parameter value.
+
+## void SetSurfaceRenderCustomParameterUInt ( string name , uint value )
+
+Sets a new value of the custom surface parameter with the given name for the decal. The value overrides the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cs.md#getSurfaceParameters_CustomParameterLayout)*. If no parameter with this name exists in the layout, the method does nothing.
+### Arguments
+
+- *string* **name** - Parameter name.
+- *uint* **value** - New parameter value.
+
+## void SetSurfaceRenderCustomParameterUInt ( int param , uint value )
+
+Sets a new value of the custom surface parameter with the given number for the decal. The value overrides the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cs.md#getSurfaceParameters_CustomParameterLayout)*.
+### Arguments
+
+- *int* **param** - Parameter number.
+- *uint* **value** - New parameter value.

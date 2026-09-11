@@ -375,7 +375,10 @@ Checks if the specified bounding frustum is inside the current bounding frustum.
 **true** if the specified bounding frustum is inside the bounding frustum; otherwise, **false**.
 ## bool InsideValid ( WorldBoundSphere bs )
 
+
 Checks if the given bounding sphere is inside the bounding frustum (assuming that the current bound coordinates are valid).
+
+
 > **Notice:** The method doesn't check if the minimum and maximum coordinates of the current bound are valid.
 
 
@@ -389,6 +392,7 @@ Checks if the given bounding sphere is inside the bounding frustum (assuming tha
 ## bool InsideValid ( WorldBoundBox bb )
 
 Checks if the given bounding box is inside the bounding frustum.
+
 > **Notice:** The method doesn't check if the minimum and maximum coordinates of the current bound are valid.
 
 ### Arguments
@@ -401,6 +405,7 @@ Checks if the given bounding box is inside the bounding frustum.
 ## bool InsideValid ( WorldBoundFrustum bf )
 
 Checks if the given bounding frustum is inside the current bounding frustum (assuming that the current bound coordinates are valid).
+
 > **Notice:** The method doesn't check if the minimum and maximum coordinates of the current bound are valid.
 
 ### Arguments
@@ -413,6 +418,7 @@ Checks if the given bounding frustum is inside the current bounding frustum (ass
 ## bool InsideValidFast ( WorldBoundSphere bs )
 
 Performs a fast check if the given bounding sphere is inside the current bounding frustum (assuming that the current bound coordinates are valid).
+
 > **Notice:** The method doesn't check the status of the current bound.
 
 ### Arguments
@@ -425,6 +431,7 @@ Performs a fast check if the given bounding sphere is inside the current boundin
 ## bool InsideValidFast ( WorldBoundBox bb )
 
 Performs a fast check if the given bounding box is inside the current bounding frustum (assuming that the current bound coordinates are valid).
+
 > **Notice:** The method doesn't check the status of the current bound.
 
 ### Arguments
@@ -437,6 +444,7 @@ Performs a fast check if the given bounding box is inside the current bounding f
 ## bool InsideValidFast ( WorldBoundFrustum bf )
 
 Performs a fast check if the given bounding frustum is inside the current bounding frustum (assuming that the current bound coordinates are valid).
+
 > **Notice:** The method doesn't check the status of the current bound.
 
 ### Arguments
@@ -479,6 +487,7 @@ Checks if the whole specified bounding frustum is inside the current bounding fr
 ## bool InsideAllValid ( WorldBoundSphere bs )
 
 Checks if the whole given bounding sphere is inside the current bounding frustum (assuming that the current bound coordinates are valid).
+
 > **Notice:** The method doesn't check if the minimum and maximum coordinates of the current bound are valid.
 
 ### Arguments
@@ -491,6 +500,7 @@ Checks if the whole given bounding sphere is inside the current bounding frustum
 ## bool InsideAllValid ( WorldBoundBox bb )
 
 Checks if the whole given bounding box is inside the current bounding frustum (assuming that the current bound coordinates are valid).
+
 > **Notice:** The method doesn't check if the minimum and maximum coordinates of the current bound are valid.
 
 ### Arguments
@@ -503,6 +513,7 @@ Checks if the whole given bounding box is inside the current bounding frustum (a
 ## bool InsideAllValid ( WorldBoundFrustum bf )
 
 Checks if the whole given bounding frustum is inside the current bounding frustum (assuming that the current bound coordinates are valid).
+
 > **Notice:** The method doesn't check if the minimum and maximum coordinates of the current bound are valid.
 
 ### Arguments
@@ -515,6 +526,7 @@ Checks if the whole given bounding frustum is inside the current bounding frustu
 ## bool InsideAllValidFast ( WorldBoundSphere bs )
 
 Performs a fast check if the whole given bounding sphere is inside the current bounding frustum (assuming that the current bound coordinates are valid).
+
 > **Notice:** The method doesn't check the status of the current bound.
 
 ### Arguments
@@ -527,6 +539,7 @@ Performs a fast check if the whole given bounding sphere is inside the current b
 ## bool InsideAllValidFast ( WorldBoundBox bb )
 
 Performs a fast check if the whole given bounding box is inside the current bounding frustum (assuming that the current bound coordinates are valid).
+
 > **Notice:** The method doesn't check the status of the current bound.
 
 ### Arguments
@@ -539,6 +552,7 @@ Performs a fast check if the whole given bounding box is inside the current boun
 ## bool InsideAllValidFast ( WorldBoundFrustum bf )
 
 Performs a fast check if the whole given bounding frustum is inside the current bounding frustum (assuming that the current bound coordinates are valid).
+
 > **Notice:** The method doesn't check the status of the current bound.
 
 ### Arguments
@@ -580,7 +594,10 @@ Checks if the given bounding frustum is inside the volume defined by the planes 
 **true** if the given bounding frustum is inside the volume; otherwise, **false**.
 ## bool InsidePlanesValid ( WorldBoundSphere bs )
 
+
 Checks if the given bounding sphere is inside the volume defined by the planes of the current bounding frustum.
+
+
 > **Notice:** The method doesn't check the status of the current bound.
 
 
@@ -593,7 +610,10 @@ Checks if the given bounding sphere is inside the volume defined by the planes o
 **true** if the given bounding sphere is inside the volume; otherwise, **false**.
 ## bool InsidePlanesValid ( WorldBoundBox bb )
 
+
 Checks if the given bounding box is inside the volume defined by the planes of the current bounding frustum.
+
+
 > **Notice:** The method doesn't check the status of the current bound.
 
 
@@ -606,7 +626,10 @@ Checks if the given bounding box is inside the volume defined by the planes of t
 **true** if the given bounding box is inside the volume; otherwise, **false**.
 ## bool InsidePlanesValid ( WorldBoundFrustum bf )
 
+
 Checks if the given bounding frustum is inside the volume defined by the planes of the current bounding frustum.
+
+
 > **Notice:** The method doesn't check the status of the current bound.
 
 
@@ -619,7 +642,10 @@ Checks if the given bounding frustum is inside the volume defined by the planes 
 **true** if the given bounding frustum is inside the volume; otherwise, **false**.
 ## bool InsidePlanesValidFast ( WorldBoundSphere bs )
 
+
 Performs a fast check if the given bounding sphere is inside the volume defined by the planes of the current bounding frustum.
+
+
 > **Notice:** The method doesn't check the status of the current bound.
 
 
@@ -632,7 +658,10 @@ Performs a fast check if the given bounding sphere is inside the volume defined 
 **true** if the given bounding sphere is inside the volume; otherwise, **false**.
 ## bool InsidePlanesValidFast ( WorldBoundBox bb )
 
+
 Performs a fast check if the given bounding box is inside the volume defined by the planes of the current bounding frustum.
+
+
 > **Notice:** The method doesn't check the status of the current bound.
 
 
@@ -645,7 +674,10 @@ Performs a fast check if the given bounding box is inside the volume defined by 
 **true** if the given bounding box is inside the volume; otherwise, **false**.
 ## bool InsidePlanesValidFast ( WorldBoundFrustum bf )
 
+
 Performs a fast check if the given bounding frustum is inside the volume defined by the planes of the current bounding frustum.
+
+
 > **Notice:** The method doesn't check the status of the current bound.
 
 

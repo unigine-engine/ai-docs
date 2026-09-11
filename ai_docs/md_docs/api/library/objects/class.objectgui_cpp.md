@@ -29,6 +29,121 @@ UnigineScript samples:
 
 ### Members
 
+## int getScreenHeight () const
+
+Returns the current screen height of the gui object.
+### Return value
+
+Current screen height of the gui object
+## int getScreenWidth () const
+
+Returns the current screen width of the gui object.
+### Return value
+
+Current screen width of the gui object
+## float getPhysicalHeight () const
+
+Returns the current physical height of the gui object.
+### Return value
+
+Current physical height of the gui object
+## float getPhysicalWidth () const
+
+Returns the current physical width of the gui object.
+### Return value
+
+Current physical width of the gui object
+## void setPolygonOffset ( float offset )
+
+Sets a new offset of the gui object above the background to avoid z-fighting. If a negative value is provided, 0 will be used instead.
+### Arguments
+
+- *float* **offset** - The offset of the gui object above the background to avoid z-fighting
+
+## float getPolygonOffset () const
+
+Returns the current offset of the gui object above the background to avoid z-fighting. If a negative value is provided, 0 will be used instead.
+### Return value
+
+Current offset of the gui object above the background to avoid z-fighting
+## void setControlDistance ( float distance )
+
+Sets a new distance at which the gui becomes controllable.
+### Arguments
+
+- *float* **distance** - The distance at which the gui becomes controllable
+
+## float getControlDistance () const
+
+Returns the current distance at which the gui becomes controllable.
+### Return value
+
+Current distance at which the gui becomes controllable
+## void setMouseMode ( int mode )
+
+Sets a new mouse mode. One of the [MOUSE_*](#MOUSE_VIRTUAL) variables.
+### Arguments
+
+- *int* **mode** - The mouse mode
+
+## int getMouseMode () const
+
+Returns the current mouse mode. One of the [MOUSE_*](#MOUSE_VIRTUAL) variables.
+### Return value
+
+Current mouse mode
+## void setMouseShow ( bool show )
+
+Sets a new value indicating if the mouse cursor is rendered in the gui object.
+### Arguments
+
+- *bool* **show** - value indicating if the mouse cursor is rendered in the gui object
+
+## bool isMouseShow () const
+
+Returns the current value indicating if the mouse cursor is rendered in the gui object.
+### Return value
+
+value indicating if the mouse cursor is rendered in the gui object
+## void setDepthTest ( bool test )
+
+Sets a new value indicating if the gui object uses depth test.
+### Arguments
+
+- *bool* **test** - value indicating if the gui object uses depth test
+
+## bool isDepthTest () const
+
+Returns the current value indicating if the gui object uses depth test.
+### Return value
+
+value indicating if the gui object uses depth test
+## void setBackground ( bool background )
+
+Sets a new value indicating if gui background (black screen) is rendered.
+### Arguments
+
+- *bool* **background** - value indicating if gui background (black screen) is rendered
+
+## bool isBackground () const
+
+Returns the current value indicating if gui background (black screen) is rendered.
+### Return value
+
+value indicating if gui background (black screen) is rendered
+## void setBillboard ( bool billboard )
+
+Sets a new value indicating if the gui object is a billboard.
+### Arguments
+
+- *bool* **billboard** - value indicating if the gui object is a billboard
+
+## bool isBillboard () const
+
+Returns the current value indicating if the gui object is a billboard.
+### Return value
+
+value indicating if the gui object is a billboard
 ---
 
 ## static ObjectGuiPtr create ( float width , float height , const char * name = 0 )
@@ -40,58 +155,6 @@ Constructor. Creates a new GUI object with given properties.
 - *float* **height** - Physical height of the new GUI object in units.
 - *const char ** **name** - Path to the folder with GUI skin (the [RC file](../../../code/gui/rc.md) and textures). If no value is specified, the default gui skin will be used.
 
-## void setBackground ( bool background )
-
-Sets a value indicating if the GUI background (black screen) should be rendered.
-### Arguments
-
-- *bool* **background** - true to render GUI background, false to keep it transparent.
-
-## bool isBackground ( ) const
-
-Returns a value indicating if GUI background (black screen) is rendered.
-### Return value
-
-true if background is rendered; otherwise, false.
-## void setBillboard ( bool billboard )
-
-Sets a value indicating if the GUI object should be a billboard.
-### Arguments
-
-- *bool* **billboard** - true to render the GUI object as a billboard; otherwise, false.
-
-## bool isBillboard ( ) const
-
-Returns a value indicating if the GUI object is a billboard.
-### Return value
-
-**true** if GUI object is a billboard; otherwise, **false**.
-## void setControlDistance ( float distance )
-
-Sets a distance at which the GUI becomes controllable.
-### Arguments
-
-- *float* **distance** - New distance in units. If a negative value is provided, 0 will be used instead.
-
-## float getControlDistance ( ) const
-
-Returns the distance, at which the GUI becomes controllable.
-### Return value
-
-Distance in units.
-## void setDepthTest ( bool test )
-
-Sets a value indicating if depth test should be used for the GUI object.
-### Arguments
-
-- *bool* **test** - true to use depth test; otherwise, false.
-
-## bool isDepthTest ( ) const
-
-Returns a value indicating if the GUI object uses depth test.
-### Return value
-
-true if the GUI object uses depth test; otherwise, false.
 ## Ptr < Gui > getGui ( ) const
 
 Returns a [Gui](../../../api/library/gui/class.gui_cpp.md) instance associated with the object. This function is used when assigning a widget to the GUI object.
@@ -111,38 +174,6 @@ Sets mouse cursor position in the [virtual control mode](#MOUSE_VIRTUAL).
 - *int* **mouse_button** - Mouse button status. Set 1 to indicate that the button is clicked; otherwise, 0.
 - *int* **mouse_show** - Mouse cursor status. Set 1 to show mouse cursor; otherwise, 0.
 
-## void setMouseMode ( int mode )
-
-Sets mouse mode. This method can be used to set a [virtual control mode](#MOUSE_VIRTUAL) for the mouse.
-### Arguments
-
-- *int* **mode** - Mouse mode. One of the [MOUSE_*](#MOUSE_VIRTUAL) variables.
-
-## int getMouseMode ( ) const
-
-Returns the current mouse mode.
-### Return value
-
-Mouse mode. One of the [MOUSE_*](#MOUSE_VIRTUAL) variables.
-## void setMouseShow ( bool show )
-
-Sets a value indicating if the mouse cursor should be rendered in the GUI object.
-### Arguments
-
-- *bool* **show** - true to render the mouse cursor; otherwise, false.
-
-## bool isMouseShow ( ) const
-
-Returns a value indicating if the mouse cursor is rendered in the GUI object.
-### Return value
-
-true if the cursor is rendered; otherwise, false.
-## float getPhysicalHeight ( ) const
-
-Returns the physical height of the GUI object.
-### Return value
-
-Height in units.
 ## void setPhysicalSize ( float width , float height )
 
 Sets physical dimensions of the GUI object.
@@ -151,31 +182,6 @@ Sets physical dimensions of the GUI object.
 - *float* **width** - New width in units. If a negative value is provided, 0 will be used instead.
 - *float* **height** - New height in units. If a negative value is provided, 0 will be used instead.
 
-## float getPhysicalWidth ( ) const
-
-Returns the physical width of the GUI object.
-### Return value
-
-Width in units.
-## void setPolygonOffset ( float offset )
-
-Sets an offset of the GUI object above the background to avoid z-fighting.
-### Arguments
-
-- *float* **offset** - Polygon offset in units. If a negative value is provided, 0 will be used instead.
-
-## float getPolygonOffset ( ) const
-
-Returns an offset of the GUI object above the background to avoid z-fighting.
-### Return value
-
-Polygon offset in units.
-## int getScreenHeight ( ) const
-
-Returns the screen height of the GUI object.
-### Return value
-
-Height in pixels.
 ## void setScreenSize ( int width , int height )
 
 Sets screen dimensions of the GUI object.
@@ -184,12 +190,6 @@ Sets screen dimensions of the GUI object.
 - *int* **width** - New width in pixels. If a negative value is provided, 0 will be used instead.
 - *int* **height** - New height in pixels. If a negative value is provided, 0 will be used instead.
 
-## int getScreenWidth ( ) const
-
-Returns the screen width of the GUI object.
-### Return value
-
-Width in pixels.
 ## static int type ( )
 
 Returns the type of the node.

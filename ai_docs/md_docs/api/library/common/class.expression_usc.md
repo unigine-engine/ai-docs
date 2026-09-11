@@ -145,6 +145,8 @@ Argument value.
 ## int saveState ( Stream stream )
 
 Saves the expression data (all its parameters) to the specified binary stream.
+
+
 **Example** using saveState() and [restoreState()](#restoreState_Stream_int) methods:
 
 
@@ -176,6 +178,8 @@ e1.restoreState(blob_state);
 ## int restoreState ( Stream stream )
 
 Restores the data of the expression (all its parameters) from the specified binary stream.
+
+
 **Example** using saveState() and [restoreState()](#restoreState_Stream_int) methods:
 
 

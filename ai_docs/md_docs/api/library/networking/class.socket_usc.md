@@ -13,12 +13,14 @@ This class provides basic functionality for network interaction using stream soc
 
 In this example we create UDP sockets: server and five clients.
 
+
 - The server sends broadcast packets containing the ID of the receiving client.
 - Each client processes only the messages, that were addressed to it.
 - In the world's *update()* method the server sends messages addressed to clients **2** and **5**.
 
 
 In the `<your_unigine_project>.cpp` file we do the following:
+
 
 - First, we describe our client and server and declare server and array of clients.
 - In the world's *init()* method we initialize our clients.
@@ -247,8 +249,6 @@ API examples demonstrating how to manage sockets via API.
 
 
 ## Socket Class
-
-### Members
 
 ---
 

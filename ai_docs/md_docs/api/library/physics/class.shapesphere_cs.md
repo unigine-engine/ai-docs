@@ -26,10 +26,10 @@ UnigineScript samples:
 
 ## vec3 Center
 
-The current coordinates of the center of the sphere.
+The center of the sphere, in world coordinates.
 ## float Radius
 
-The current radius of the sphere.
+The radius of the sphere, in units.
 ### Members
 
 ---

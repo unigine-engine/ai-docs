@@ -3,6 +3,7 @@
 
 Unigine supports two types of coordinate precision:
 
+
 - [Single precision](#single_precision) coordinates
 - [Double precision](#double_precision) coordinates
 
@@ -22,6 +23,7 @@ You can create and use all data types for your custom functions no matter what e
 Single precision coordinates are suitable for not very large worlds where all meshes are positioned relatively close to the zero of coordinates. Depending on the size of meshes (small objects are more prone to precision artifacts) single precision allows to render worlds up to 10-20 thousands units from the center.
  In case of single coordinates precision, script functions that deal with coordinates take and return the following arguments (see the list of functions [below](#function_diffs)):
 
+
 - [float](../../code/uniginescript/language/data_types.md#float)
 - [vec3](../../code/uniginescript/language/data_types.md#vec3)
 - [vec4](../../code/uniginescript/language/data_types.md#vec4)
@@ -33,6 +35,7 @@ Single precision coordinates are suitable for not very large worlds where all me
 
 Double precision coordinates allows to create large worlds without any imprecision artifacts or jittering due to big distance from the center of coordinates. The created worlds can be virtually limitless. However, it is more costly from performance point of view.
  In case of double coordinates precision, script functions that deal with coordinates in most cases take and return arguments that can hold bigger values:
+
 
 - [double](../../code/uniginescript/language/data_types.md#double)
 - [dvec3](../../code/uniginescript/language/data_types.md#dvec3)
@@ -51,6 +54,7 @@ Double precision coordinates allows to create large worlds without any imprecisi
 
 
 If you want your code to support both single and double precision builds, use the following data types that start with the capital letter. The engine will automatically substitute these types with appropriate ones in runtime, without having to handle it manually in code.
+
 
 - **Scalar** for either *float* (single precision) or *double* (double precision)
 - **Vec3** for either *vec3* or *dvec3*

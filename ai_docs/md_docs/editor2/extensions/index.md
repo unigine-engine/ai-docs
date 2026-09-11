@@ -38,12 +38,12 @@ Here is a brief description of the main components:
 
 
 - ***QPluginLoader*** is responsible for plugin loading and providing meta data.
-- *[**Editor::PluginInfo**](/api/editor/class_unigine_editor_1_1_plugin_info.md)* — plugin [meta data](#plugin_meta) parsing and storage, interaction with plugin interface, it also contains the current plugin state and information on a possible plugin initialization error.
-- *[**Editor::PluginManager**](/api/editor/class_unigine_editor_1_1_plugin_manager.md)* — a manager class responsible for locating plugins, building plugin loading queue, as well as loading and removing plugins.
-- *[**Editor::Plugin**](/api/editor/class_unigine_editor_1_1_plugin.md)* — the basic class all Editor plugins inherit from, it has the following declaration: <details> <summary>Editor::Plugin Class Declaration | Close</summary> ***Editor::Plugin* Class Declaration** ```cpp namespace Editor { class EDITOR_API Plugin { public: Plugin(); virtual ~Plugin(); // Plugin's life cycle. virtual bool init()     = 0; virtual void shutdown() = 0; }; } // namespace Editor // Associates the given Identifier (a string literal) to the interface class called Editor::Plugin. Q_DECLARE_INTERFACE(Editor::Plugin, "com.unigine.EditorPlugin") ``` </details> It has two abstract methods defining the plugin's [life cycle](#plugin_lifecycle), you should override them for your custom plugin: > **Notice:** The `Q_DECLARE_INTERFACE` macro adds the interface to Qt's metasystem.
+- *[**Editor::PluginInfo**](/api/editor/class_unigine_editor_1_1_plugin_info.md)* � plugin [meta data](#plugin_meta) parsing and storage, interaction with plugin interface, it also contains the current plugin state and information on a possible plugin initialization error.
+- *[**Editor::PluginManager**](/api/editor/class_unigine_editor_1_1_plugin_manager.md)* � a manager class responsible for locating plugins, building plugin loading queue, as well as loading and removing plugins.
+- *[**Editor::Plugin**](/api/editor/class_unigine_editor_1_1_plugin.md)* � the basic class all Editor plugins inherit from, it has the following declaration: <details> <summary>Editor::Plugin Class Declaration | Close</summary> ***Editor::Plugin* Class Declaration** ```cpp namespace Editor { class EDITOR_API Plugin { public: Plugin(); virtual ~Plugin(); // Plugin's life cycle. virtual bool init()     = 0; virtual void shutdown() = 0; }; } // namespace Editor // Associates the given Identifier (a string literal) to the interface class called Editor::Plugin. Q_DECLARE_INTERFACE(Editor::Plugin, "com.unigine.EditorPlugin") ``` </details> It has two abstract methods defining the plugin's [life cycle](#plugin_lifecycle), you should override them for your custom plugin: > **Notice:** The `Q_DECLARE_INTERFACE` macro adds the interface to Qt's metasystem.
 
-  - ***init()*** — plugin initialization (returns initialization result)
-  - ***shutdown()*** — plugin shutdown
+  - ***init()*** � plugin initialization (returns initialization result)
+  - ***shutdown()*** � plugin shutdown
 
 
 ## Locating Plugins
@@ -52,7 +52,7 @@ Here is a brief description of the main components:
 Plugins having their libraries located in the directory given below, are automatically loaded and added to the list of available UnigineEditor plugins, no specific code is required:
 
 
-- `%project%/bin/plugins/` — for *Debug* and *Release* builds and any SDK build.
+- `%project%/bin/plugins/` � for *Debug* and *Release* builds and any SDK build.
 
 
 > **Notice:** All UNIGINE plugins, both for the Engine and UnigineEditor, should meet [requirements to their location (paths)](../../code/cpp/plugin.md#path_to_plugin_files) and comply with [naming convention](../../code/cpp/plugin.md#naming).
@@ -104,14 +104,14 @@ Each plugin must have additional information required by the plugin manager to f
 Here is a brief overview of the basic elements:
 
 
-- **Name** — plugin name displayed in UnigineEditor's Plugins List, and used as reference when describing other plugins dependencies.
-- **Vendor, Description** — additional information (optional).
-- **Version** — current plugin version.
-- **CompatVersion** — last binary compatible plugin version, defines which version of this plugin the current version is binary backward compatible with and is used to resolve dependencies on this plugin.
-- **[Dependencies](#plugin_dependencies)** — list of objects describing dependencies on other plugins.
-- **Name** — name of the plugin, on which this plugin relies.
-- **Type** — dependency type, can be either *required* or *optional*.
-- **Version** — version with which the plugin must be compatible to fill the dependency, in the form x.y.z. Can be empty if the version does not matter.
+- **Name** � plugin name displayed in UnigineEditor's Plugins List, and used as reference when describing other plugins dependencies.
+- **Vendor, Description** � additional information (optional).
+- **Version** � current plugin version.
+- **CompatVersion** � last binary compatible plugin version, defines which version of this plugin the current version is binary backward compatible with and is used to resolve dependencies on this plugin.
+- **[Dependencies](#plugin_dependencies)** � list of objects describing dependencies on other plugins.
+- **Name** � name of the plugin, on which this plugin relies.
+- **Type** � dependency type, can be either *required* or *optional*.
+- **Version** � version with which the plugin must be compatible to fill the dependency, in the form x.y.z. Can be empty if the version does not matter.
 
 
 Actually, the author creates a `.json.in` file, which is then used by CMake to generate the actual plugin `.json` meta data file, replacing variables like `EDITOR_VERSION` with their actual values.

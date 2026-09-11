@@ -36,7 +36,7 @@ The *BoundSphereIntersection.cs* component shows how to use *[World.GetIntersect
 This sample demonstrates how to create parametric 3D primitives at runtime in UNIGINE.
 
 
-It showcases the use of the **[Mesh](../../../api/library/rendering/class.mesh_cpp.md)** class and **[ObjectMeshDynamic](../../...md)** nodes to procedurally generate a variety of basic shapes (**Box, Sphere, Cylinder, Capsule, Prism with a custom number of sides** and **Plane**) via code.
+It showcases the use of the **[Mesh](../../../api/library/rendering/class.mesh_cpp.md)** class and **[ObjectMeshDynamic](../../../api/library/objects/class.objectmeshdynamic_cpp.md)** nodes to procedurally generate a variety of basic shapes (**Box, Sphere, Cylinder, Capsule, Prism with a custom number of sides** and **Plane**) via code.
 
 
 Each shape is constructed with a customizable size and resolution, added to a mesh surface, and placed in the world at a designated position.
@@ -139,7 +139,7 @@ A specified **.node** asset is instantiated repeatedly at timed intervals, with 
 This sample demonstrates how to find an intersection of a ray with geometry.
 
 
-The *LaserRayIntersection.cs* component casts a ray from the laser origin in its forward direction and uses *[World.GetIntersection()](../../../api/library/engine/class.world_cpp.md#getIntersection_Vec3_Vec3_int_WorldIntersection_)* to detect intersections with geometry. The method provides both the intersection point and the surface normal. Intersected object names are printed to the onscreen console overlay.
+The *LaserRayIntersection.cs* component casts a ray from the laser origin in its forward direction and uses *[World.GetIntersection()](../../../api/library/engine/class.world_cpp.md#getIntersection_Vec3_Vec3_int_WorldIntersection_Object)* to detect intersections with geometry. The method provides both the intersection point and the surface normal. Intersected object names are printed to the onscreen console overlay.
 
 
 If a hit is detected, the laser beam is resized to visually represent the exact distance between its origin and the intersection point. The hit effect object is shown at the intersection point, oriented in accordance with the surface normal. If no intersection is found, the laser beam keeps its default length and the effect remains hidden.

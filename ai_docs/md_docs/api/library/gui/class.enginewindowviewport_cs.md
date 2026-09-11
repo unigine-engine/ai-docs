@@ -76,7 +76,7 @@ The value indicating if the mouse pointer is bound to the engine window viewport
 The total number of children widgets of the engine window.
 ## 🔒︎ Event< EngineWindowViewport > EventCustomRender
 
-The Subscribing to this event makes the engine stop rendering the scene to this viewport — using this approach you may implement your own rendering to the viewport. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The Subscribing to this event makes the engine stop rendering the scene to this viewport � using this approach you may implement your own rendering to the viewport. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -167,3 +167,11 @@ Checks if the argument widget is the child of the current window viewport.
 ### Return value
 
 true if the widget is the child of the current window viewport; otherwise, false.
+## void CalculateEngineRenderResolution ( out ivec2 render_resolution_min , out ivec2 render_resolution_max , out ivec2 render_resolution )
+
+Calculates the actual internal render resolutions for this viewport window based on the current client render size and the global render settings (render border, supersampling, dynamic resolution bounds, and the upscaler input resolution when the viewport renders the full pipeline).
+### Arguments
+
+- *out ivec2* **render_resolution_min** - Output value: the minimum resolution the engine may render at (differs from the maximum only when dynamic resolution is enabled).
+- *out ivec2* **render_resolution_max** - Output value: the maximum resolution the engine may render at.
+- *out ivec2* **render_resolution** - Output value: the resolution the next frame is going to be rendered at.

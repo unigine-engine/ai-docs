@@ -32,10 +32,10 @@ To change the state's values use the corresponding [API methods](../../../../api
 ## Types of States
 
 
-- **StateToggle** (*bool*) — a switch that enables/disables the state
-- **StateSwitch** (*integer*) — a multiple-value switch based on array of items (mandatory argument)
-- **StateInt** (*integer*) — a state with an integer number (used to pass the state value via the API to the shader)
-- **State** — auto detection of the state type (if the *items* argument is present, then *[StateSwitch](#state_switch)*; otherwise *[StateToggle](#state_toggle)*)
+- **StateToggle** (*bool*) � a switch that enables/disables the state
+- **StateSwitch** (*integer*) � a multiple-value switch based on array of items (mandatory argument)
+- **StateInt** (*integer*) � a state with an integer number (used to pass the state value via the API to the shader)
+- **State** � auto detection of the state type (if the *items* argument is present, then *[StateSwitch](#state_switch)*; otherwise *[StateToggle](#state_toggle)*)
 
 
 ## Usage Examples
@@ -95,8 +95,8 @@ A flag indicating if state can be changed in the *[Parameters](../../../../edito
 Available values:
 
 
-- false — unchangeable
-- true — changeable (by default)
+- false � unchangeable
+- true � changeable (by default)
 
 
 ### title
@@ -138,8 +138,8 @@ A flag indicating if the state is hidden in the Editor.
 Available values:
 
 
-- false — shows the state in the Editor
-- true — hides the state in the Editor
+- false � shows the state in the Editor
+- true � hides the state in the Editor
 
 
 ### internal
@@ -154,8 +154,8 @@ A flag indicating if the state is hidden in the Editor and the state values are 
 Available values:
 
 
-- false — shows the state in the Editor and saves the state values for the inherited materials
-- true — hides the state in the Editor and does not save the state values for the inherited materials
+- false � shows the state in the Editor and saves the state values for the inherited materials
+- true � hides the state in the Editor and does not save the state values for the inherited materials
 
 
 ### items
@@ -179,28 +179,28 @@ Specifies what passes use this state.
 Available values:
 
 
-- wireframe — the wireframe pass
-- visualizer_solid — the visualizer solid pass
-- deferred — the deferred pass
-- auxiliary — the auxiliary pass
-- emission — the emission pass
-- refraction — the refraction pass
-- reflection — the reflection pass
-- transparent_blur — the transparent blur pass
-- ambient — the ambient pass
-- light_voxel_probe — the voxel probe light pass
-- light_environment_probe — the environment probe pass
-- light_omni — the omni-directional light pass
-- light_proj — the projected light pass
-- light_world — the world light pass
-- depth_pre_pass — the native depth pre-pass
-- shadow — the shadows pass
-- post — the post-process pass
-- light_all — the [environment probe](#texture_pass_light_environment_probe), [omni-directional light](#texture_pass_light_omni), [projected light](#texture_pass_light_proj), [world light](#texture_pass_light_world) passes
-- forward — the [environment probe](#texture_pass_light_environment_probe), [omni-directional light](#texture_pass_light_omni), [projected light](#texture_pass_light_proj), [world light](#texture_pass_light_world) and [ambient](#texture_pass_ambient) passes
-- transparent — the *[forward](#texture_pass_forward), [refraction](#texture_pass_refraction), [transparent blur](#texture_pass_transparent_blur)* passes
-- custom_pass_name — name of a custom rendering pass (up to 32 custom passes are supported)
-- object — [deferred](#texture_pass_deferred), [auxiliary](#texture_pass_auxiliary), [emission](#texture_pass_emission), [refraction](#texture_pass_refraction), [reflection](#texture_pass_reflection), [transparent blur](#texture_pass_transparent_blur), [ambient](#texture_pass_ambient), [voxel probe light](#texture_pass_light_voxel_probe), [environment probe](#texture_pass_light_environment_probe), [omni-directional light](#texture_pass_light_omni), [projected light](#texture_pass_light_proj), [world light](#texture_pass_light_world), [shadow](#texture_pass_shadow) and [native depth passes](#texture_pass_depth_pre_pass)
+- wireframe � the wireframe pass
+- visualizer_solid � the visualizer solid pass
+- deferred � the deferred pass
+- auxiliary � the auxiliary pass
+- emission � the emission pass
+- refraction � the refraction pass
+- reflection � the reflection pass
+- transparent_blur � the transparent blur pass
+- ambient � the ambient pass
+- light_voxel_probe � the voxel probe light pass
+- light_environment_probe � the environment probe pass
+- light_omni � the omni-directional light pass
+- light_proj � the projected light pass
+- light_world � the world light pass
+- depth_pre_pass � the native depth pre-pass
+- shadow � the shadows pass
+- post � the post-process pass
+- light_all � the [environment probe](#texture_pass_light_environment_probe), [omni-directional light](#texture_pass_light_omni), [projected light](#texture_pass_light_proj), [world light](#texture_pass_light_world) passes
+- forward � the [environment probe](#texture_pass_light_environment_probe), [omni-directional light](#texture_pass_light_omni), [projected light](#texture_pass_light_proj), [world light](#texture_pass_light_world) and [ambient](#texture_pass_ambient) passes
+- transparent � the *[forward](#texture_pass_forward), [refraction](#texture_pass_refraction), [transparent blur](#texture_pass_transparent_blur)* passes
+- custom_pass_name � name of a custom rendering pass (up to 32 custom passes are supported)
+- object � [deferred](#texture_pass_deferred), [auxiliary](#texture_pass_auxiliary), [emission](#texture_pass_emission), [refraction](#texture_pass_refraction), [reflection](#texture_pass_reflection), [transparent blur](#texture_pass_transparent_blur), [ambient](#texture_pass_ambient), [voxel probe light](#texture_pass_light_voxel_probe), [environment probe](#texture_pass_light_environment_probe), [omni-directional light](#texture_pass_light_omni), [projected light](#texture_pass_light_proj), [world light](#texture_pass_light_world), [shadow](#texture_pass_shadow) and [native depth passes](#texture_pass_depth_pre_pass)
 
 
 > **Notice:** To make one or more passes use this state, write passes in square brackets and separate them with spaces. For example:

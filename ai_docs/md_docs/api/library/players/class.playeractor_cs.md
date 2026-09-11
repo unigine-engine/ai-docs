@@ -31,7 +31,7 @@ The number of contacts, in which the player's capsule participates.
 The A shape, which approximates the actor in physical interactions.
 ## 🔒︎ Body Body
 
-The A [rigid body](../../../api/library/physics/class.bodyrigid_cs.md), if the body is [simulated physically](#isPhysical_int) (*isPhysical(1)*); otherwise a [dummy body](../../../api/library/physics/class.bodydummy_cs.md) will be returned (*isPhysical(0)*).
+The A [rigid body](../../../api/library/physics/class.bodyrigid_cs.md), if the body is [simulated physically](#isPhysical_int) (*isPhysical(1)*); otherwise a *[Dummy Body](../../../api/library/physics/class.bodydummy_cs.md)* will be returned (*isPhysical(0)*).
 ## int Ceiling
 
 The A value indicating if the actor touches the ceiling surface with its head.
@@ -76,10 +76,10 @@ The velocity of the actor, which is used while the actor runs.
 The default velocity of the actor.
 ## float MaxFriction
 
-The friction value set for the actor that is used when the actor doesn't move, i.e. stands still on the ground. see also getMinFriction().
+The friction value set for the actor that is used when the actor doesn't move, i.e. stands still on the ground. see also *getMinFriction()*.
 ## float MinFriction
 
-The friction value set for the actor that is used when the actor walks upon the ground. see also getMaxFriction().
+The friction value set for the actor that is used when the actor walks upon the ground. see also *getMaxFriction()*.
 ## float CollisionHeight
 
 The height of actor's capsule.
@@ -91,7 +91,7 @@ The radius of actor's capsule.
 The collision mask of the actor. two objects collide, if they both have matching masks (i.e. at least one bit matches).
 ## int Collision
 
-The A value indicating if collisions with a player's capsule should be taken into account. this method is valid only in case setPhysical() is set to 0 and does not handle collisions automatically.
+The A value indicating if collisions with a player's capsule should be taken into account. this method is valid only in case *setPhysical()* is set to 0 and does not handle collisions automatically.
 ## int PhysicsIntersectionMask
 
 The A [physics intersection mask](../../../principles/bit_masking/index.md#physics_intersection_mask) for a player.

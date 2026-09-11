@@ -20,8 +20,6 @@ A class for the [VRPN Plugin](../../../../code/plugins/vrpn/index_cpp.md) that a
 
 ## VrpnClient Class
 
-### Members
-
 ---
 
 ## VrpnAnalogDeviceInterface * createAnalogDevice ( const char * name )

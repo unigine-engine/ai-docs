@@ -17,7 +17,10 @@ This class represents a matrix of sixteen (4x4) float components.
 Default constructor. Produces an identity matrix.
 ## mat4 ( float v )
 
+
 Constructor. Initializes the matrix using a given scalar value.
+
+
 ```cpp
 mat4(2.0);
 
@@ -37,7 +40,10 @@ mat4(2.0);
 
 ## mat4 ( const mat3& m )
 
+
 Constructor. Initializes the matrix using a given [mat3](../../../api/library/math/class.mat3_cpp.md) source matrix (3x3). The matrix elements are filled using corresponding elements of the source matrix.
+
+
 ```text
 Resulting matrix:
     | m00  	 m01  	 m02	  0.0f |
@@ -68,7 +74,10 @@ Constructor. Initializes the matrix using a given [dmat4](../../../api/library/m
 
 ## mat4 ( const vec4& c0 , const vec4& c1 , const vec4& c2 , const vec4& c3 )
 
+
 Constructor. Initializes the matrix using given three [vec4](../../../api/library/math/class.vec4_cpp.md) vectors.
+
+
 ```text
 Resulting matrix:
     | col0.x  	 col1.x	  	col2.x	   col3.x |
@@ -88,12 +97,15 @@ M=  | col0.y   	 col1.y	  	col2.y     col3.y |
 
 ## explicit mat4 ( const quat& q )
 
+
 Constructor. Initializes the matrix using a given source [quaternion](../../../api/library/math/class.quat_cpp.md).
+
+
 ```text
 For the quaternion (x, y, z, w) the corresponding rotation matrix M is defined as follows:
-    | 1 - 2y² - 2z²    2xy + 2wz      	2xz - 2wy     	0.0f |
-M=  | 2xy - 2wz        1 - 2x² - 2z²    2yz + 2wx     	0.0f |
-    | 2xz + 2wy        2yz - 2wx        1 - 2x² - 2y² 	0.0f |
+    | 1 - 2y� - 2z�    2xy + 2wz      	2xz - 2wy     	0.0f |
+M=  | 2xy - 2wz        1 - 2x� - 2z�    2yz + 2wx     	0.0f |
+    | 2xz + 2wy        2yz - 2wx        1 - 2x� - 2y� 	0.0f |
     |  0.0f            0.0f        		0.0f 			1.0f |
 
 ```
@@ -121,7 +133,10 @@ Constructor. Initializes the matrix using a given [quaternion](../../../api/libr
 
 ## mat4 ( const mat2& m )
 
+
 Constructor. Initializes the matrix using a given [mat2](../../../api/library/math/class.mat2_cpp.md) source matrix (2x2). The matrix elements are filled using corresponding elements of the source matrix.
+
+
 ```text
 Resulting matrix:
     | m00  	 m01  	 0.0f	  0.0f |
@@ -138,7 +153,10 @@ M=  | m10    m11  	 0.0f     0.0f |
 
 ## mat4 ( float m00_ , float m10_ , float m20_ , float m30_ , float m01_ , float m11_ , float m21_ , float m31_ , float m02_ , float m12_ , float m22_ , float m32_ , float m03_ , float m13_ , float m23_ , float m33_ )
 
+
 Constructor. Initializes the matrix using a given float values.
+
+
 ```text
 Resulting matrix:
     | m00_  m01_  	m02_	 m03_ |
@@ -170,7 +188,10 @@ M=  | m10_  m11_  	m12_     m13_ |
 
 ## mat4 ( float m00_ , float m10_ , float m20_ , float m30_ , float m01_ , float m11_ , float m21_ , float m31_ , float m02_ , float m12_ , float m22_ , float m32_ , float m03_ , float m13_ , float m23_ , float m33_ , ConstexprTag )
 
+
 Constructor. Initializes the matrix using a given constant float values.
+
+
 ```text
 Resulting matrix:
     | m00_  m01_  	m02_	 m03_ |
@@ -203,7 +224,10 @@ M=  | m10_  m11_  	m12_     m13_ |
 
 ## mat4 ( float v , ConstexprTag )
 
+
 Constructor. Initializes the matrix using a given constant float value.
+
+
 ```text
 Resulting matrix:
     | v   v   v   v|
@@ -267,7 +291,10 @@ Sets the matrix with float values using the argument with double values.
 
 ## void set ( const mat2& m )
 
+
 Sets new matrix values using a given [mat2](../../../api/library/math/class.mat2_cpp.md) source matrix (2x2). The matrix elements are filled using corresponding elements of the source matrix.
+
+
 ```text
 Resulting matrix:
     | m00  	 m01  	 0.0f	  0.0f |
@@ -300,7 +327,10 @@ Sets new matrix values using a given [quaternion](../../../api/library/math/clas
 
 ## void set ( const mat3& m )
 
+
 Sets new matrix values using a given [mat3](../../../api/library/math/class.mat3_cpp.md) source matrix (3x3). The matrix elements are filled using corresponding elements of the source matrix.
+
+
 ```text
 Resulting matrix:
     | m00  	 m01  	 m02	  0.0f |
@@ -512,7 +542,10 @@ Returns the first three elements of the specified matrix row.
 The [vec3](../../../api/library/math/class.vec3_cpp.md) vector with the first three elements of the specified matrix row.
 ## void setScale ( const vec3& v )
 
+
 Fills the scaling matrix using a given [vec3](../../../api/library/math/class.vec3_cpp.md) source vector.
+
+
 ```text
 Scaling matrix:
     | v.x   	0.0f  	  0.0f	    0.0f |
@@ -535,7 +568,10 @@ Returns the three-component [vec3](../../../api/library/math/class.vec3_cpp.md) 
 Three-component vector with the scaling part of the matrix.
 ## void setTranslate ( const vec3& v )
 
+
 Fills the translation matrix using a given [vec3](../../../api/library/math/class.vec3_cpp.md) source vector.
+
+
 ```text
 Translation matrix:
     | 1.0f   	0.0f  	  0.0f	    v.x |

@@ -7,9 +7,9 @@ Unigine has different methods to detect intersections. Intersection is a shared 
 There are three main types of intersections:
 
 
-- **World intersection** — an intersection with [objects](../../../api/library/objects/class.object_cs.md) and [nodes](../../../api/library/nodes/class.node_cs.md).
-- **Physics intersection** — an intersection with [shapes](../../../api/library/physics/class.shape_cs.md) and [collision objects](../../../principles/physics/collision/index.md).
-- **Game intersection** — an intersection with pathfinding nodes such as [obstacles](../../../api/library/pathfinding/class.obstacle_cs.md).
+- **World intersection** � an intersection with [objects](../../../api/library/objects/class.object_cs.md) and [nodes](../../../api/library/nodes/class.node_cs.md).
+- **Physics intersection** � an intersection with [shapes](../../../api/library/physics/class.shape_cs.md) and [collision objects](../../../principles/physics/collision/index.md).
+- **Game intersection** � an intersection with pathfinding nodes such as [obstacles](../../../api/library/pathfinding/class.obstacle_cs.md).
 
 
 The *[Shape](../../../api/library/physics/class.shape_cs.md)* and *[Object](../../../api/library/objects/class.object_cs.md)* classes have their own *getIntersection()* functions. These functions are used to detect intersections with a specific shape or a specific surface of the object.
@@ -162,8 +162,8 @@ These functions return the value indicating the result of the intersection searc
 For *WorldBoundFrustum*, there are [two modes of getting intersections](#frustrum_search):
 
 
-- Intersections with the objects that are **visible** inside the frustum — *[GetVisibleIntersection()](../../../api/library/engine/class.world_cs.md#getVisibleIntersection_Vec3_WorldBoundFrustum_VECObject_float_int)*
-- Intersections with all objects inside the frustum, both **visible** and **invisible** — *[GetIntersection()](../../../api/library/engine/class.world_cs.md#getIntersection_WorldBoundFrustum_VECObject_int)*
+- Intersections with the objects that are **visible** inside the frustum � *[GetVisibleIntersection()](../../../api/library/engine/class.world_cs.md#getVisibleIntersection_Vec3_WorldBoundFrustum_VECObject_float_int)*
+- Intersections with all objects inside the frustum, both **visible** and **invisible** � *[GetIntersection()](../../../api/library/engine/class.world_cs.md#getIntersection_WorldBoundFrustum_VECObject_int)*
 
 
 #### Finding Objects Intersected by a Bounding Box
@@ -240,8 +240,8 @@ public partial class Intersections : Component
 For *[WorldBoundFrustum](../../../api/library/math/bounds/class.worldboundfrustum_cs.md)*, there are two modes of getting intersections:
 
 
-- Intersections with the objects that are **visible** inside the frustum (within the rendering [visibility distance](../../../editor2/settings/render_settings/visibility_distances/index.md) and the object's [LOD](../../../principles/world_management/index.md#lods) is visible by the camera) — *[GetVisibleIntersection()](../../../api/library/engine/class.world_cs.md#getVisibleIntersection_Vec3_WorldBoundFrustum_VECObject_float_int)*
-- Intersections with all objects inside the frustum, both **visible** and **invisible** (either occluded by something or out of the visibility distance) — *[GetIntersection()](../../../api/library/engine/class.world_cs.md#getIntersection_WorldBoundFrustum_VECObject_int)*
+- Intersections with the objects that are **visible** inside the frustum (within the rendering [visibility distance](../../../editor2/settings/render_settings/visibility_distances/index.md) and the object's [LOD](../../../principles/world_management/index.md#lods) is visible by the camera) � *[GetVisibleIntersection()](../../../api/library/engine/class.world_cs.md#getVisibleIntersection_Vec3_WorldBoundFrustum_VECObject_float_int)*
+- Intersections with all objects inside the frustum, both **visible** and **invisible** (either occluded by something or out of the visibility distance) � *[GetIntersection()](../../../api/library/engine/class.world_cs.md#getIntersection_WorldBoundFrustum_VECObject_int)*
 
 
 In the example below, the engine checks intersections of *WorldBoundFrustum* with all objects, both visible and invisible. The frustum itself is highlighted blue, and the objects that are inside the frustum are highlighted red for 20 seconds.
@@ -363,9 +363,9 @@ The following functions are used to find the nearest intersected object with the
 These functions return an intersection information and a pointer to the nearest object to the start point (**p0**). Information about the intersection can be presented in standard vectors or in the following format that you pass to functions as arguments:
 
 
-- *WorldIntersection **intersection*** — the *[WorldIntersection](../../../api/library/worlds/class.worldintersection_cs.md)* class instance. By using this class you can get the intersection point (coordinates), the index of the intersected triangle of the object and the index of the intersected surface.
-- *WorldIntersectionNormal **normal*** — the *[WorldIntersectionNormal](../../../api/library/worlds/class.worldintersectionnormal_cs.md)* class instance. By using this class you can get only the normal of the intersection point.
-- *WorldIntersectionTexCoord **texcoord*** — the *[WorldIntersectionTexCoord](../../../api/library/worlds/class.worldintersectiontexcoord_cs.md)* class instance. By using this class you can get only the texture coordinates of the intersection point.
+- *WorldIntersection **intersection*** � the *[WorldIntersection](../../../api/library/worlds/class.worldintersection_cs.md)* class instance. By using this class you can get the intersection point (coordinates), the index of the intersected triangle of the object and the index of the intersected surface.
+- *WorldIntersectionNormal **normal*** � the *[WorldIntersectionNormal](../../../api/library/worlds/class.worldintersectionnormal_cs.md)* class instance. By using this class you can get only the normal of the intersection point.
+- *WorldIntersectionTexCoord **texcoord*** � the *[WorldIntersectionTexCoord](../../../api/library/worlds/class.worldintersectiontexcoord_cs.md)* class instance. By using this class you can get only the texture coordinates of the intersection point.
 
 
 These functions detect intersection with surfaces (polygons) of meshes. But there are some conditions to detect the intersection with the surface:

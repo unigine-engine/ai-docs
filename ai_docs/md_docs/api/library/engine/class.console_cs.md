@@ -9,13 +9,15 @@ Controls [console](../../../code/console/index.md)-related parameters.
 ### Onscreen Console Overlay
 
 
-By default the console overlay is disabled. To make it output console messages to the application screen it should be [enabled](#isOnscreen_int). You can adjust the overlay’s behavior and appearance as well as specify the messages that will be printed exclusively to the onscreen overlay and will not be written to the console.
- ![](overlay.png)
+By default the console overlay is disabled. To make it output console messages to the application screen it should be [enabled](#isOnscreen_int). You can adjust the overlay�s behavior and appearance as well as specify the messages that will be printed exclusively to the onscreen overlay and will not be written to the console.
+
+
+![](overlay.png)
 
 *Onscreen Overlay with custom parameters and colored text*
 
 
-You can customize the console font by using the [setFontSize()](#setFontSize_int_void), [setMessageColor()](#setMessageColor_vec4_void), [setWarningColor()](#setWarningColor_vec4_void), and [setErrorColor()](#setErrorColor_vec4_void) methods. See the following example:
+You can customize the console font by using the *[setFontSize()](#setFontSize_int_void), [setMessageColor()](#setMessageColor_vec4_void), [setWarningColor()](#setWarningColor_vec4_void)*, and *[setErrorColor()](#setErrorColor_vec4_void)* methods. See the following example:
 
 
 ```csharp
@@ -46,13 +48,13 @@ private void Init()
 ### Adding Console Command with Several Arguments
 
 
-The Console class can be used to create custom user console commands with a different number of arguments. This section provides an example of how to create a custom console command with several arguments.
+The *Console* class can be used to create custom user console commands with a different number of arguments. This section provides an example of how to create a custom console command with several arguments.
 
-  Prior KnowledgeIt is supposed that you have already [created an empty C# project](../../../code/csharp/application.md#empty_application) by using UNIGINE SDK Browser.
+  Prior KnowledgeIt is supposed that you have already [created an empty C# project](../../../code/csharp/application.md#empty_application) by using UNIGINE *SDK Browser*.
 In the example below, we perform the following actions:
 
 
-- Define and implement [*AppWorldLogic*](../../../code/fundamentals/execution_sequence/app_logic_system.md) instance methods for console commands.
+- Define and implement *[AppWorldLogic](../../../code/fundamentals/execution_sequence/app_logic_system.md)* instance methods for console commands.
 - Get the console instance (which has a singleton implementation) and add a new command.
 
 
@@ -60,6 +62,7 @@ In the example below, we perform the following actions:
 
 
 In this example, we define three methods in the `AppWorldLogic.cs` file: one as a callback for a console command and another two methods for actions depending on the number of arguments:
+
 
 - *choose_command()* selects the appropriate method.
 - *action_no_args()* is called if there are no console arguments.
@@ -234,7 +237,7 @@ The color for ordinary messages in the console.
 The background color for the console.
 ## 🔒︎ Event<string, Console.LEVEL > EventOutput
 
-The event triggered when a text is output to the console. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when a text is output to the console. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 <details>
 <summary>See Example | Close</summary>
@@ -838,7 +841,10 @@ Gets the error messages written to the console and the onscreen overlay.
 
 ## static void WriteLine ( string text )
 
+
 Writes the text followed by the line terminator to the console and the onscreen overlay.
+
+
 > **Notice:** The [onscreen overlay](#onscreen_console_overlay) must be [enabled](#isOnscreen_int) for the text to be seen.
 
 
@@ -848,7 +854,10 @@ Writes the text followed by the line terminator to the console and the onscreen 
 
 ## static void WriteLine ( vec4 color , string text )
 
+
 Writes the text followed by the line terminator to the console and the onscreen overlay.
+
+
 > **Notice:** The [onscreen overlay](#onscreen_console_overlay) must be [enabled](#isOnscreen_int) for the text to be seen.
 
 
@@ -859,7 +868,10 @@ Writes the text followed by the line terminator to the console and the onscreen 
 
 ## static void WriteLine ( Console.LEVEL level , string text )
 
+
 Writes the text followed by the line terminator to the console and the onscreen overlay.
+
+
 > **Notice:** The [onscreen overlay](#onscreen_console_overlay) must be [enabled](#isOnscreen_int) for the text to be seen.
 
 
@@ -870,7 +882,10 @@ Writes the text followed by the line terminator to the console and the onscreen 
 
 ## static void OnscreenWrite ( string text )
 
+
 Writes the text to the onscreen overlay only.
+
+
 > **Notice:** The [onscreen overlay](#onscreen_console_overlay) must be [enabled](#isOnscreen_int) for the text to be seen.
 
 
@@ -880,7 +895,10 @@ Writes the text to the onscreen overlay only.
 
 ## static void OnscreenWrite ( vec4 color , string text )
 
+
 Writes the text to the onscreen overlay only.
+
+
 > **Notice:** The [onscreen overlay](#onscreen_console_overlay) must be [enabled](#isOnscreen_int) for the text to be seen.
 
 
@@ -891,7 +909,10 @@ Writes the text to the onscreen overlay only.
 
 ## static void OnscreenWrite ( Console.LEVEL level , string text )
 
+
 Writes the text to the onscreen overlay only.
+
+
 > **Notice:** The [onscreen overlay](#onscreen_console_overlay) must be [enabled](#isOnscreen_int) for the text to be seen.
 
 
@@ -902,7 +923,10 @@ Writes the text to the onscreen overlay only.
 
 ## static void OnscreenWriteLine ( string text )
 
+
 Writes the text only to the onscreen overlay followed by the line terminator.
+
+
 > **Notice:** The [console overlay](#onscreen_console_overlay) must be [enabled](#isOnscreen_int) for the text to be seen on the screen.
 
 
@@ -912,7 +936,10 @@ Writes the text only to the onscreen overlay followed by the line terminator.
 
 ## static void OnscreenWriteLine ( vec4 color , string text )
 
+
 Writes the text only to the onscreen overlay followed by the line terminator.
+
+
 > **Notice:** The [console overlay](#onscreen_console_overlay) must be [enabled](#isOnscreen_int) for the text to be seen on the screen.
 
 
@@ -923,7 +950,10 @@ Writes the text only to the onscreen overlay followed by the line terminator.
 
 ## static void OnscreenWriteLine ( Console.LEVEL level , string text )
 
+
 Writes the text only to the onscreen overlay followed by the line terminator.
+
+
 > **Notice:** The [console overlay](#onscreen_console_overlay) must be [enabled](#isOnscreen_int) for the text to be seen on the screen.
 
 
@@ -934,7 +964,10 @@ Writes the text only to the onscreen overlay followed by the line terminator.
 
 ## static void Message ( vec4 color , string format , ... )
 
+
 Writes the ordinary message to the console and the onscreen overlay.
+
+
 > **Notice:** The [onscreen overlay](#onscreen_console_overlay) must be [enabled](#isOnscreen_int) for the text to be seen.
 
 
@@ -946,7 +979,10 @@ Writes the ordinary message to the console and the onscreen overlay.
 
 ## static void Message ( string format , ... )
 
+
 Writes the ordinary message to the console and the onscreen overlay.
+
+
 > **Notice:** The [onscreen overlay](#onscreen_console_overlay) must be [enabled](#isOnscreen_int) for the text to be seen.
 
 
@@ -957,7 +993,10 @@ Writes the ordinary message to the console and the onscreen overlay.
 
 ## static void Warning ( string format , ... )
 
+
 Writes the warning message to the console and the onscreen overlay.
+
+
 > **Notice:** The [onscreen overlay](#onscreen_console_overlay) must be [enabled](#isOnscreen_int) for the text to be seen.
 
 
@@ -968,7 +1007,10 @@ Writes the warning message to the console and the onscreen overlay.
 
 ## static void Error ( string format , ... )
 
+
 Writes the error message to the console and the onscreen overlay.
+
+
 > **Notice:** The [onscreen overlay](#onscreen_console_overlay) must be [enabled](#isOnscreen_int) for the text to be seen.
 
 
@@ -979,7 +1021,10 @@ Writes the error message to the console and the onscreen overlay.
 
 ## static void MessageLine ( vec4 color , string format , ... )
 
+
 Writes the ordinary message to the console and the onscreen overlay followed by the line terminator.
+
+
 > **Notice:** The [onscreen overlay](#onscreen_console_overlay) must be [enabled](#isOnscreen_int) for the text to be seen.
 
 
@@ -991,7 +1036,10 @@ Writes the ordinary message to the console and the onscreen overlay followed by 
 
 ## static void MessageLine ( string format , ... )
 
+
 Writes the ordinary message to the console and the onscreen overlay followed by the line terminator.
+
+
 > **Notice:** The [onscreen overlay](#onscreen_console_overlay) must be [enabled](#isOnscreen_int) for the text to be seen.
 
 
@@ -1002,7 +1050,10 @@ Writes the ordinary message to the console and the onscreen overlay followed by 
 
 ## static void WarningLine ( string format , ... )
 
+
 Writes the warning message to the console and the onscreen overlay followed by the line terminator.
+
+
 > **Notice:** The [onscreen overlay](#onscreen_console_overlay) must be [enabled](#isOnscreen_int) for the text to be seen.
 
 
@@ -1013,7 +1064,10 @@ Writes the warning message to the console and the onscreen overlay followed by t
 
 ## static void ErrorLine ( string format , ... )
 
+
 Writes the error message to the console and the onscreen overlay followed by the line terminator.
+
+
 > **Notice:** The [onscreen overlay](#onscreen_console_overlay) must be [enabled](#isOnscreen_int) for the text to be seen.
 
 
@@ -1024,7 +1078,10 @@ Writes the error message to the console and the onscreen overlay followed by the
 
 ## static void OnscreenMessage ( vec4 color , string format , ... )
 
+
 Writes the ordinary message to the onscreen overlay only.
+
+
 > **Notice:** The [console overlay](#onscreen_console_overlay) must be [enabled](#isOnscreen_int) for the text to be seen on the screen.
 
 
@@ -1036,7 +1093,10 @@ Writes the ordinary message to the onscreen overlay only.
 
 ## static void OnscreenMessage ( string format , ... )
 
+
 Writes the ordinary message to the onscreen overlay only.
+
+
 > **Notice:** The [console overlay](#onscreen_console_overlay) must be [enabled](#isOnscreen_int) for the text to be seen on the screen.
 
 
@@ -1047,7 +1107,10 @@ Writes the ordinary message to the onscreen overlay only.
 
 ## static void OnscreenWarning ( string format , ... )
 
+
 Writes the warning message to the onscreen overlay only.
+
+
 > **Notice:** The [console overlay](#onscreen_console_overlay) must be [enabled](#isOnscreen_int) for the text to be seen on the screen.
 
 
@@ -1058,7 +1121,10 @@ Writes the warning message to the onscreen overlay only.
 
 ## static void OnscreenError ( string format , ... )
 
+
 Writes the error message to the onscreen overlay only.
+
+
 > **Notice:** The [console overlay](#onscreen_console_overlay) must be [enabled](#isOnscreen_int) for the text to be seen on the screen.
 
 
@@ -1069,7 +1135,10 @@ Writes the error message to the onscreen overlay only.
 
 ## static void OnscreenMessageLine ( vec4 color , string format , ... )
 
+
 Writes the ordinary message only to the onscreen overlay followed by the line terminator.
+
+
 > **Notice:** The [console overlay](#onscreen_console_overlay) must be [enabled](#isOnscreen_int) for the text to be seen on the screen.
 
 
@@ -1081,7 +1150,10 @@ Writes the ordinary message only to the onscreen overlay followed by the line te
 
 ## static void OnscreenMessageLine ( string format , ... )
 
+
 Writes the ordinary message only to the onscreen overlay followed by the line terminator.
+
+
 > **Notice:** The [console overlay](#onscreen_console_overlay) must be [enabled](#isOnscreen_int) for the text to be seen on the screen.
 
 
@@ -1092,7 +1164,10 @@ Writes the ordinary message only to the onscreen overlay followed by the line te
 
 ## static void OnscreenWarningLine ( string format , ... )
 
+
 Writes the warning message only to the onscreen overlay followed by the line terminator.
+
+
 > **Notice:** The [console overlay](#onscreen_console_overlay) must be [enabled](#isOnscreen_int) for the text to be seen on the screen.
 
 
@@ -1103,7 +1178,10 @@ Writes the warning message only to the onscreen overlay followed by the line ter
 
 ## static void OnscreenErrorLine ( string format , ... )
 
+
 Writes the error message only to the onscreen overlay followed by the line terminator.
+
+
 > **Notice:** The [console overlay](#onscreen_console_overlay) must be [enabled](#isOnscreen_int) for the text to be seen on the screen.
 
 
@@ -1111,3 +1189,25 @@ Writes the error message only to the onscreen overlay followed by the line termi
 
 - *string* **format** - Formatted text.
 - *...*  - Arguments, multiple allowed.
+
+## int GetNumPresetNames ( string name )
+
+Returns the number of presets registered for the given preset console variable (for example, render_aa_preset), including the trailing custom preset that is always reserved for user-overridden settings.
+### Arguments
+
+- *string* **name** - Name of the console variable.
+
+### Return value
+
+Number of presets, or 0 if the variable does not exist or is not a preset variable.
+## string GetPresetName ( string name , int num )
+
+Returns the name of the preset with the given number for the specified preset console variable. The last preset is always named custom.
+### Arguments
+
+- *string* **name** - Name of the console variable.
+- *int* **num** - Preset number, in the [0; **[GetNumPresetNames()](../../...md#getNumPresetNames_cstr_int)**) range.
+
+### Return value
+
+Name of the preset, or an empty string if the variable is not found, is not a preset variable, or the number is out of range.

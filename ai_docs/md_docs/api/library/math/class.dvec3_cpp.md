@@ -5,7 +5,7 @@
 
 This class represents a vector of 3 double components.
 
-> **Warning:** Do not use the fourth component in the structure (*align*) as it may be implicitly changed by the structure’s operations.
+> **Warning:** Do not use the fourth component in the structure (*align*) as it may be implicitly changed by the structure�s operations.
 
 
 ## dvec3 Struct
@@ -93,6 +93,7 @@ Constructor. Initializes the vector using a given pointer to the array of double
 ## dvec3 ( const __m128d& v0 , const __m128d& v1 )
 
 Constructor. Initializes the vector using two [__m128d](https://docs.microsoft.com/en-us/cpp/cpp/m128d?view=msvc-160) (4 floats) variables.
+
 > **Notice:** We do not recommend to use this method unless you have a clear understanding of SSE2.
 
 ### Arguments

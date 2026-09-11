@@ -39,7 +39,7 @@ Current right hand.
 ## void setVisualizerEnabled ( int enabled = 0 )
 
 ***Console*:**`vr_hand_tracking_visualizer_enabled`Sets a new  value indicating if the visualizer for hands is enabled. When set to 1, the engine will draw a simple debug skeleton of the hands, showing bones only. This option requires the [Visualizer](../../../code/console/index.md#show_visualizer) to be enabled.
-![](../../../../../../../../../en/docs/future/api/library/vr/ht_command_visualizer.png)
+![](../../../api/library/vr/ht_command_visualizer.png)
 
  This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
 ### Arguments
@@ -49,7 +49,7 @@ Current right hand.
 ## int isVisualizerEnabled () const
 
 ***Console*:**`vr_hand_tracking_visualizer_enabled`Returns the current  value indicating if the visualizer for hands is enabled. When set to 1, the engine will draw a simple debug skeleton of the hands, showing bones only. This option requires the [Visualizer](../../../code/console/index.md#show_visualizer) to be enabled.
-![](../../../../../../../../../en/docs/future/api/library/vr/ht_command_visualizer.png)
+![](../../../api/library/vr/ht_command_visualizer.png)
 
  This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
 ### Return value
@@ -58,7 +58,7 @@ Current the visualizer for hands The default value is **false**.
 ## void setShowBasis ( int basis = 0 )
 
 ***Console*:**`vr_hand_tracking_show_basis`Sets a new  value indicating if the visualizer for the coordinate axes (basis) of each hand bone is enabled. This option requires the [Hand visualizer](#vr_hand_tracking_visualizer_enabled) to be enabled.
-![](../../../../../../../../../en/docs/future/api/library/vr/ht_command_bone_basis.png)
+![](../../../api/library/vr/ht_command_bone_basis.png)
 
  This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
 ### Arguments
@@ -68,7 +68,7 @@ Current the visualizer for hands The default value is **false**.
 ## int isShowBasis () const
 
 ***Console*:**`vr_hand_tracking_show_basis`Returns the current  value indicating if the visualizer for the coordinate axes (basis) of each hand bone is enabled. This option requires the [Hand visualizer](#vr_hand_tracking_visualizer_enabled) to be enabled.
-![](../../../../../../../../../en/docs/future/api/library/vr/ht_command_bone_basis.png)
+![](../../../api/library/vr/ht_command_bone_basis.png)
 
  This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
 ### Return value
@@ -77,7 +77,7 @@ Current the visualizer for the basis of each hand bone The default value is **fa
 ## void setShowVelocity ( int velocity = 0 )
 
 ***Console*:**`vr_hand_tracking_show_velocity`Sets a new  value indicating if the visualizer for the velocity vectors of each hand bone is enabled. Useful for debugging motion-based interactions like swipes or throws. This option requires the [Hand visualizer](#vr_hand_tracking_visualizer_enabled) to be enabled.
-![](../../../../../../../../../en/docs/future/api/library/vr/ht_command_bone_velocity.png)
+![](../../../api/library/vr/ht_command_bone_velocity.png)
 
  This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
 ### Arguments
@@ -87,7 +87,7 @@ Current the visualizer for the basis of each hand bone The default value is **fa
 ## int isShowVelocity () const
 
 ***Console*:**`vr_hand_tracking_show_velocity`Returns the current  value indicating if the visualizer for the velocity vectors of each hand bone is enabled. Useful for debugging motion-based interactions like swipes or throws. This option requires the [Hand visualizer](#vr_hand_tracking_visualizer_enabled) to be enabled.
-![](../../../../../../../../../en/docs/future/api/library/vr/ht_command_bone_velocity.png)
+![](../../../api/library/vr/ht_command_bone_velocity.png)
 
  This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
 ### Return value
@@ -96,7 +96,7 @@ Current the visualizer for the velocity vectors of each hand bone The default va
 ## void setShowBoneSizes ( int sizes = 0 )
 
 ***Console*:**`vr_hand_tracking_show_bone_sizes`Sets a new  value indicating if the visualizer for the size of each hand bone is enabled. Displays red spheres representing the size (radius) of each bone, providing a visual reference for the physical dimensions of the tracked hand. This option requires the [Hand visualizer](#vr_hand_tracking_visualizer_enabled) to be enabled.
-![](../../../../../../../../../en/docs/future/api/library/vr/ht_command_bone_sizes.png)
+![](../../../api/library/vr/ht_command_bone_sizes.png)
 
  This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
 ### Arguments
@@ -106,7 +106,7 @@ Current the visualizer for the velocity vectors of each hand bone The default va
 ## int isShowBoneSizes () const
 
 ***Console*:**`vr_hand_tracking_show_bone_sizes`Returns the current  value indicating if the visualizer for the size of each hand bone is enabled. Displays red spheres representing the size (radius) of each bone, providing a visual reference for the physical dimensions of the tracked hand. This option requires the [Hand visualizer](#vr_hand_tracking_visualizer_enabled) to be enabled.
-![](../../../../../../../../../en/docs/future/api/library/vr/ht_command_bone_sizes.png)
+![](../../../api/library/vr/ht_command_bone_sizes.png)
 
  This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
 ### Return value

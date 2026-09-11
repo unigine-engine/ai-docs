@@ -63,49 +63,49 @@ The number of [bodies](../../../principles/physics/bodies/index.md) present with
 The duration of the [collision detection phase](../../../principles/physics/simulation.md#collision_detection), during which collisions between objects are found.
 ## 🔒︎ int Frame
 
-The current frame of physics update.
+The frame of physics update.
 ## int NumIterations
 
-The current number of iterations used to solve contacts and constraints.
+The number of iterations used to solve contacts and constraints.
 ## int NumFrozenFrames
 
-The current number of frames, during which an object should keep certain angular and linear velocities to become frozen.
+The number of frames, during which an object should keep certain angular and linear velocities to become frozen.
 ## 🔒︎ float CurrentSubframeTime
 
-The current time that can be used when shifting between physics update frames.
+The time that can be used when shifting between physics update frames.
 ## float Scale
 
 The value used to scale a frame duration.
 ## float PenetrationTolerance
 
-The value indicating how deeply one object can penetrate another.
+The how deeply one object can penetrate another.
 ## float PenetrationFactor
 
 The penalty force factor. **0** means no penalty force in contacts. The maximum value is **1**.
 ## float MaxLinearVelocity
 
-The current maximum possible linear velocity.
+The maximum possible linear velocity.
 ## float MaxAngularVelocity
 
-The current maximum possible angular velocity.
+The maximum possible angular velocity.
 ## float LinearDamping
 
-The current linear damping value.
+The linear damping value.
 ## float IFps
 
 The physics frame duration.
 ## vec3 Gravity
 
-The current gravity value.
+The gravity value.
 ## float FrozenLinearVelocity
 
-The current linear velocity threshold for freezing object simulation. an object stops to be updated if its linear velocity remains lower than this threshold during the number of [Frozen frames](#setNumFrozenFrames_int_void) (together with angular one).
+The linear velocity threshold for freezing object simulation. an object stops to be updated if its linear velocity remains lower than this threshold during the number of [Frozen frames](#setNumFrozenFrames_int_void) (together with angular one).
 ## float FrozenAngularVelocity
 
-The current angular velocity threshold for freezing object simulation. an object stops to be updated if its angular velocity remains lower than this threshold during the number of [Frozen frames](#setNumFrozenFrames_int_void) (together with linear one).
+The angular velocity threshold for freezing object simulation. an object stops to be updated if its angular velocity remains lower than this threshold during the number of [Frozen frames](#setNumFrozenFrames_int_void) (together with linear one).
 ## float AngularDamping
 
-The current angular damping value.
+The angular damping value.
 ## float Distance
 
 The distance after which the physics will not be simulated.
@@ -120,10 +120,9 @@ The user string data associated with the world. this string is written directly 
 The flag indicating if the Engine fps is synchronized to physics one. Such fps limitation makes it possible to calculate physics each rendered frame (rather then interpolate it when this flag is unset). In this mode, there are no twitching of physical objects if they have non-linear velocities. If the Engine fps is lower than the physics one, this flag has no effect.
 ## bool Determinism
 
-The value indicating if objects are updated in a definite order or not. the default is 0 (the update order may change). Deterministic mode ensures that all contacts are solved in the predefined order and visualization of physics in the world is repetitive (on one computer). When this mode is enabled the Engine performs additional sorting of bodies, shapes and joints inside islands after building them. Deterministic mode is unavailable in case there are missed frames — it is simply impossible. Moreover, there may be differences between visualization of physics on different hardware (e.g., AMD and Intel).
+The value indicating if objects are updated in a definite order or not. the default is 0 (the update order may change). Deterministic mode ensures that all contacts are solved in the predefined order and visualization of physics in the world is repetitive (on one computer). When this mode is enabled the Engine performs additional sorting of bodies, shapes and joints inside islands after building them. Deterministic mode is unavailable in case there are missed frames - it is simply impossible. Moreover, there may be differences between visualization of physics on different hardware (e.g., AMD and Intel).
 > **Notice:** Determinism is guaranteed if there are no missed frames, the same Engine version is used, and the CPUs perform SSE operations similarly.
 > Please note that deterministic mode does not come for free, it may eat up 10-20% of the frame rate, and it also depends on the scene a lot.
-
 
 ## bool Enabled
 
@@ -131,9 +130,9 @@ The value indicating if physics simulation is enabled. the default is 1.
 ## float MissedFrameLifetime
 
 The lifetime for [missed frames](../../../principles/physics/simulation.md#missed_frames). This value defines how long missed frames are to be kept in the catch-up buffer. In case the current Engine framerate is lower than the [fixed Physics framerate](../../../principles/physics/simulation.md#simulation_rate), some of the physics frames get skipped and the simulation starts looking like in a slo-mo effect (e.g., if the target physics framerate is 60 FPS, when the Engine updates at 30 FPS, the simulation will look 2 times slower). The Physics module will try to catch up everything missed later, when possible (e.g. when the Engine framerate grows higher, while [waiting for GPU](../../../code/fundamentals/execution_sequence/index.md#waiting_gpu) to complete rendering). The missed frames are kept in a buffer for some time (lifetime), as it expires the frame is removed from the buffer and becomes lost forever.
-## Physics.UPDATE_MODE UpdateMode
+## UPDATE_MODE UpdateMode
 
-The current [physics update mode](../../../principles/physics/simulation.md#update_mode). Physics can be updated either asynchronously (in parallel with rendering) or in the Main thread before rendering. The [async](#UPDATE_MODE_ASYNC_RENDERING) mode is the fastest one and is used by default, however, it has a one-frame lag (calculation results are applied in the next frame) and some nuances regarding user code execution in some cases.
+The [physics update mode](../../../principles/physics/simulation.md#update_mode). Physics can be updated either asynchronously (in parallel with rendering) or in the Main thread before rendering. The [async](#UPDATE_MODE_ASYNC_RENDERING) mode is the fastest one and is used by default, however, it has a one-frame lag (calculation results are applied in the next frame) and some nuances regarding user code execution in some cases.
 ## bool StableFPS
 
 The value indicating if frame time stabilization is enabled. In case the current Engine framerate is much higher than the [fixed Physics framerate](../../../principles/physics/simulation.md#simulation_rate) (e.g. 120 FPS vs 60 FPS), the physics won't be updated each rendering frame (e.g. it may update during every second frame). The resulting frame time will become unstable, shorter-longer-shorter-longer (*render -> render+physics -> render -> render+physics...*). This option ensures stable frame time for smoother user experience removing unwanted "hiccups" (however, the average framerate is decreased).
@@ -142,12 +141,12 @@ The value indicating if frame time stabilization is enabled. In case the current
 ## bool ShowContacts
 
 The value indicating if the visualization of physical interactions between the physical bodies is enabled.
-## Physics.SHOW_TYPE ShowShapes
+## SHOW_TYPE ShowShapes
 
-The shape visualization mode.
+The mode used to visualize physical shapes: one of the [SHOW_TYPE_*](#SHOW_TYPE_DISABLED) values.
 ## float ShowShapesDistance
 
-The distance from the camera within which the shapes are visualized.
+The distance within which physical shapes are visualized.
 ## bool ShowCollisionSurfaces
 
 The value indicating if the collision surface visualization is enabled.
@@ -381,12 +380,6 @@ Checks if a shape with a given ID exists.
 ### Return value
 
 true if a shape with a given ID exists; otherwise, false.
-## float GetWaitTime ( )
-
-Returns the time period during which the physics module waits for the completion of rendering process.
-### Return value
-
-Waiting phase duration value, milliseconds.
 ## void AddUpdateNode ( Node node )
 
 Adds the node for which physical state should be updated. If a node is not added with this function, it won't be updated when out of physics [simulation distance](#setDistance_float_void).

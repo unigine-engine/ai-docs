@@ -20,6 +20,7 @@ An example can be found in `<UnigineSDK>/source/csharp/samples/Api/Scripts/Varia
 
 Let's say, you declared a number of variables on C# side. To export them, you will need to do the following:
 
+
 1. Register the variable via *Unigine.Interpreter.addExternVariable()* (the same as the C++ API *[Unigine::Interpreter::addExternVariable()](../../../../api/library/common/class.interpreter_cpp.md#addExternVariable_const_char_ptr_ExternVariableBase_ptr_int_void)* function.
 
 
@@ -89,6 +90,7 @@ int init() {
 
 
 The following results will be printed into the console after launching the application:
+
 
 ```text
 int:		int: 13

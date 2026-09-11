@@ -13,8 +13,8 @@ You can select type(s) of data to be generated. This may speed up the process of
 For *Landscape Terrain*, you can toggle generation of the following types of data:
 
 
-- *Terrain Data* — elevation, imagery, mask data generated as details in *Landscape Terrain*, and vegetation.
-- *Vector Objects* — roads, points, buildings.
+- *Terrain Data* � elevation, imagery, mask data generated as details in *Landscape Terrain*, and vegetation.
+- *Vector Objects* � roads, points, buildings.
 
 
 ## Terrain Global Data Types
@@ -26,8 +26,8 @@ For *Landscape Terrain*, you can toggle generation of the following types of dat
 For *Terrain Global*, you can toggle generation of the following types of data:
 
 
-- *Elevation/Height* — elevation data.
-- *Imagery/Color* — imagery data.
-- *Details* — details of the *Terrain Global* object.
-- *Landcover Objects* — vegetation.
-- *Vector Objects* — roads, points, buildings.
+- *Elevation/Height* � elevation data.
+- *Imagery/Color* � imagery data.
+- *Details* � details of the *Terrain Global* object.
+- *Landcover Objects* � vegetation.
+- *Vector Objects* � roads, points, buildings.

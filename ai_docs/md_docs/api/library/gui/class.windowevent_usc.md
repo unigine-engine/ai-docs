@@ -10,95 +10,93 @@ The class to process window events. It allows getting the type, time of creation
 
 ### Members
 
----
+## int getType () const
 
-## int getType ( )
-
-Returns the type of the window event.
+Returns the current type of the window event. One of the [WINDOW_EVENT_*](#WINDOW_EVENT) values.
 ### Return value
 
-Type of the window event, one of the [WINDOW_EVENT_WINDOW_EVENT](#WINDOW_EVENT) values.
-## string getTypeName ( )
+Current type of the window event
+## const char * getTypeName () const
 
-Returns the name of the window event.
+Returns the current name of the window event.
 ### Return value
 
-The name of the window event.
+Current name of the window event
 ## void setTimestamp ( long timestamp )
 
-Sets a timestamp of the event.
+Sets a new timestamp of the event, in milliseconds.
 ### Arguments
 
-- *long* **timestamp** - Timestamp of the event, in milliseconds.
+- *long* **timestamp** - The timestamp of the event
 
-## long getTimestamp ( )
+## long getTimestamp () const
 
-Returns the timestamp of the event.
+Returns the current timestamp of the event, in milliseconds.
 ### Return value
 
-The timestamp of the event, in milliseconds.
-## void setWinID ( long winid )
+Current timestamp of the event
+## void setWinID ( long id )
 
-Sets the identifier of the window.
+Sets a new identifier of the window.
 ### Arguments
 
-- *long* **winid** - Identifier of the window.
+- *long* **id** - The identifier of the window
 
-## long getWinID ( )
+## long getWinID () const
 
-Returns the identifier of the window.
+Returns the current identifier of the window.
 ### Return value
 
-The identifier of the window.
+Current identifier of the window
 ## void setMousePosition ( ivec2 position )
 
-Sets the position of the mouse at the event creation.
+Sets a new mouse position at the event creation.
 ### Arguments
 
-- *ivec2* **position** - Position of the mouse at the event creation.
+- *ivec2* **position** - The mouse position at the event creation
 
-## ivec2 getMousePosition ( )
+## ivec2 getMousePosition () const
 
-Returns the mouse position at the event creation.
+Returns the current mouse position at the event creation.
 ### Return value
 
-The position of the mouse at the event creation.
+Current mouse position at the event creation
 ## void setPosition ( ivec2 position )
 
-Sets the window position at the event creation.
+Sets a new window position at the event creation.
 ### Arguments
 
-- *ivec2* **position** - Position of the window at the event creation.
+- *ivec2* **position** - The window position at the event creation
 
-## ivec2 getPosition ( )
+## ivec2 getPosition () const
 
-Returns the window position at the event creation.
+Returns the current window position at the event creation.
 ### Return value
 
-The position of the window at the event creation.
+Current window position at the event creation
 ## void setSize ( ivec2 size )
 
-Sets the window size at the event creation.
+Sets a new window size at the event creation.
 ### Arguments
 
-- *ivec2* **size** - Size of the window at the event creation.
+- *ivec2* **size** - The window size at the event creation
 
-## ivec2 getSize ( )
+## ivec2 getSize () const
 
-Returns the window size at the event creation.
+Returns the current window size at the event creation.
 ### Return value
 
-The size of the window at the event creation.
+Current window size at the event creation
 ## void setWindow ( EngineWindow window )
 
-Sets the window for which the event has been created.
+Sets a new window for which the event has been created.
 ### Arguments
 
-- *[EngineWindow](../../../api/library/gui/class.enginewindow_usc.md)* **window** - Window for which the event has been created.
+- *[EngineWindow](../../../api/library/gui/class.enginewindow_usc.md)* **window** - The window for which the event has been created
 
-## EngineWindow getWindow ( )
+## EngineWindow getWindow () const
 
-Returns the window for which the event has been created.
+Returns the current window for which the event has been created.
 ### Return value
 
-The window for which the event has been created.
+Current window for which the event has been created

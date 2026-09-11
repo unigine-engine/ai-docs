@@ -10,8 +10,6 @@ The base class, from which the [custom user-defined objects](../../../api/librar
 
 ## ObjectExternBase Class
 
-### Members
-
 ---
 
 ## int getClassID ( )
@@ -182,25 +180,25 @@ Surface number.
 Returns a value indicating that the object has a create function.
 ### Return value
 
-Returns **1** if the object has a create function.
+**1** if the object has a create function; otherwise, **0**.
 ## int hasLods ( )
 
 Returns a value indicating if the object has LODs.
 ### Return value
 
-Returns **1** if the object has surface LODs.
+**1** if the object has surface LODs; otherwise, **0**.
 ## int hasRender ( )
 
 Returns a value indicating that the object has a render function.
 ### Return value
 
-Returns **1** if the object has a render function.
+**1** if the object has a render function; otherwise, **0**.
 ## int hasShadow ( )
 
 Returns a value indicating that the object has a shadow function.
 ### Return value
 
-Returns **1** if the object has a shadow function.
+**1** if the object has a shadow function; otherwise, **0**.
 ## int loadWorld ( Xml xml )
 
 Loads an object state from the Xml.
@@ -276,7 +274,7 @@ object.restoreState(blob_state);
 
 ### Return value
 
-**1** on success; otherwise, **0**.
+Returns **1** if the object state was successfully saved into the stream; otherwise, **0** is returned.
 ## int restoreState ( Stream stream )
 
 Restores an object state from the stream.
@@ -307,7 +305,7 @@ object.restoreState(blob_state);
 
 ### Return value
 
-**1** on success; otherwise, **0**.
+Returns **1** if the object state was successfully restored from the stream; otherwise, **0** is returned.
 ## int saveWorld ( Xml xml )
 
 Saves an object state into the Xml.

@@ -58,8 +58,8 @@ The exported heightmap is imported to UNIGINE as follows. In the **Landscape Lay
 
   - For the **normalized** heightmap, indicate the minimum and maximum heights taken from the *Min* and *Max* values.
   - The **unnormalized** map does not require setting the height values.
-- In the *Landscape Asset* section, set the actual size of your terrain in meters, the same as *Terrain Width* and *Length* in World Creator 2.
-- Check the *Current Data Density* value. It shows the meter-to-pixel ratio, the same as *Precision* in World Creator 2.
+- In the *Landscape Asset* section, set the actual size of your terrain in meters, the same as *Terrain Width* and *Length* in *World Creator 2*.
+- Check the *Current Data Density* value. It shows the meter-to-pixel ratio, the same as *Precision* in *World Creator 2*.
 - In the *Import settings* section, check the *Resolution* values. They define the resolution of the heightmap in pixels. They are set automatically in most cases, but can also be adjusted, if required.
 
 

@@ -57,7 +57,7 @@ To demonstrate dynamic behavior, several **Obstacles** are moved using the **Rot
 This sample demonstrates how to calculate and visualize 2D navigation paths using the **[Navigation Sector](../../../objects/navigations/navigation/navigation_sector/index.md)** objects and *[PathRoute](../../../api/library/pathfinding/class.pathroute_cpp.md)* class. Unlike navigation meshes, sectors allow defining modular navigable areas that can be enabled, disabled, or moved dynamically at runtime.
 
 
-This 2D version is well-suited for top-down navigation, grid-based layouts, or layered 2D gameplay. For more complex 3D navigation scenarios, see the *[navigation_sectors_3d](#csharp_component_samples_navigation_sectors_3d)* sample.
+This 2D version is well-suited for top-down navigation, grid-based layouts, or layered 2D gameplay. For more complex 3D navigation scenarios, see the sample.
 
 
 The main logic is implemented in the **PathRoute2D** component, which creates a *[PathRoute](../../../api/library/pathfinding/class.pathroute_cpp.md)* class instance and uses *[Create2D()](../../../api/library/pathfinding/class.pathroute_cpp.md#create2D_Vec3_Vec3_int_void)* to compute a path through the active navigation sectors. If the route is successfully resolved, the path is drawn on screen using *[RenderVisualizer()](../../../api/library/pathfinding/class.pathroute_cpp.md#renderVisualizer_vec4_void)*. The radius parameter is set manually to ensure the generated path accounts for the agent's size, avoiding collisions with nearby geometry.
@@ -75,7 +75,7 @@ Sectors are especially useful when navigation space needs to change at runtime -
 This sample demonstrates how to calculate and visualize 3D navigation paths using the **[Navigation Sector](../../../objects/navigations/navigation/navigation_sector/index.md)** objects and *[PathRoute](../../../api/library/pathfinding/class.pathroute_cpp.md)* class via the C# API. Unlike navigation meshes, sectors allow defining modular navigable areas that can be enabled, disabled, or moved dynamically at runtime.
 
 
-This setup is useful for multilevel structures or modular environments where the layout changes dynamically. For simpler 2D navigation scenarios, see the *[navigation_sectors_2d](#csharp_component_samples_navigation_sectors_2d)* sample.
+This setup is useful for multilevel structures or modular environments where the layout changes dynamically. For simpler 2D navigation scenarios, see the sample.
 
 
 The main logic is implemented in the **PathRoute3D** component, which creates a *PathRoute* class instance and uses *[Create3D()](../../../api/library/pathfinding/class.pathroute_cpp.md#create3D_Vec3_Vec3_int_void)* to compute a path through the active navigation sectors. If the route is successfully resolved, the path is drawn on the screen using *[RenderVisualizer()](../../../api/library/pathfinding/class.pathroute_cpp.md#renderVisualizer_vec4_void)*. The radius parameter is set manually to ensure the generated path accounts for the agent's size, avoiding collisions with nearby geometry.

@@ -25,10 +25,10 @@ The object of this class looks as follows:
 
 ## string Text
 
-The current floating text set to be over the icon.
+The floating text placed over the icon.
 ## int TextAlign
 
-The current alignment flag set for the floating text over the icon.
+The alignment flag set for the floating text over the icon. One of the [GUI_ALIGN_*](../../../api/library/gui/class.gui_cs.md) variables. The default is *ALIGN_CENTER*.
 ## string Texture
 
 The path to the icon image.
@@ -37,7 +37,7 @@ The path to the icon image.
 The value indicating if the icon serving as a toggle button is pressed.
 ## bool Toggleable
 
-The value indicating if the icon is a toggle button or a simple button. the default is 0.
+The value indicating if the icon is a toggle button or a simple button. The default is 0.
 ### Members
 
 ---

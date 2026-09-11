@@ -51,14 +51,14 @@ Current node, into which the bones will be exported.
 Sets a new value indicating what approach is used for the ragdoll bones movement: according to the animation written in the file, or based on physics.
 ### Arguments
 
-- *bool* **based** - Set **true** to enable bones movement according to the animation written in the file; **false** - to disable it.
+- *bool* **based** - true if bones move according to the animation written in the file; false if their movement is based on physics
 
 ## bool isFrameBased () const
 
 Returns the current value indicating what approach is used for the ragdoll bones movement: according to the animation written in the file, or based on physics.
 ### Return value
 
-**true** if bones movement according to the animation written in the file is enabled; otherwise **false**.
+true if bones move according to the animation written in the file; false if their movement is based on physics
 ## void setRigidity ( float rigidity )
 
 Sets a new rigidity of bones movement, i.e. how much interpolated linear and angular velocities of all bones affect velocities of each separate bone.

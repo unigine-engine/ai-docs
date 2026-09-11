@@ -3,7 +3,8 @@
 **Header:** #include <plugins/Unigine/IG/UnigineIG.h>
 
 
-This class represents the IG Symbol interface. A symbol is a single drawing primitive or a group of drawing primitives that may be drawn on a [symbol surface (plane)](../../../../../api/library/plugins/ig/api/class.symbolsplane_cpp.md) within a particular [view](../../../../../api/library/plugins/ig/api/class.view_cpp.md) or placed relative to a particular [entity](../../../../../api/library/plugins/ig/api/class.entity_cpp.md).
+This class represents the *IG Symbol* interface. A symbol is a single drawing primitive or a group of drawing primitives that may be drawn on a [symbol surface (plane)](../../../../../api/library/plugins/ig/api/class.symbolsplane_cpp.md) within a particular [view](../../../../../api/library/plugins/ig/api/class.view_cpp.md) or placed relative to a particular [entity](../../../../../api/library/plugins/ig/api/class.entity_cpp.md).
+
 
 > **Notice:** IG plugin must be loaded.
 

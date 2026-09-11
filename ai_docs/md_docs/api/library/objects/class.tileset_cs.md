@@ -3,6 +3,7 @@
 
 This class is used to manage a regular [tileset](../../../objects/objects/terrain/terrain_global/index.md#tiling) of the ObjectTerrainGlobal. The tileset can have an arbitrary number of tiles. Each tile is represented by the following elements:
 
+
 - **Data** - an image with tile data.
 - **Mask** - a single-channel image describing data weights. > **Notice:** In case if a tile has no mask, all weights are considered equal to 1.
 

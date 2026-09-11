@@ -7,6 +7,7 @@
 
 This class is used to create and modify a [field shoreline](../../../objects/effects/fields/field_shoreline/index.md). The field is applied to [global water](../../../api/library/objects/class.objectwaterglobal_cpp.md) and helps to create swashes near the shores and applies the wetness effect on objects near the shoreline.
 
+
 > **Notice:** A field shoreline object will affect water only if the *FieldShoreline interaction* option is enabled on the *States* tab of the [water_global_base](../../../content/materials/library/water_global_base/index.md) material.
 
 
@@ -70,13 +71,16 @@ Sets a new vec3 size vector of FieldShoreline.
 Returns the current vec3 size vector of FieldShoreline.
 ### Return value
 
-Current vec3 size vector of FieldShoreline.
+Current
+vec3 size vector of FieldShoreline.
+
+
 The default value is (**512.0f**, **512.0f**, **512.0f**).
 
 
 ## Event<> getEventProgress () const
 
-event triggered when shoreline is baked ([bakeWaterLevel()](#bakeWaterLevel_Image_int) is called). This event is called for each baking iteration, and the value from 0 to 1 (where 1 equals to 100%) is passed to the event. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when shoreline is baked ([bakeWaterLevel()](#bakeWaterLevel_Image_int) is called). This event is called for each baking iteration, and the value from 0 to 1 (where 1 equals to 100%) is passed to the event. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -212,7 +216,7 @@ publisher->getEventProgress().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## static FieldShorelinePtr create ( )

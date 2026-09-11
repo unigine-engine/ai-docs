@@ -66,7 +66,10 @@ Returns a value indicating if the specified Navigation area is a part of the Nav
 
 ## int Inside2D ( vec3 point , float radius )
 
+
 Depending on the type of the navigation area, the function performs the following:
+
+
 - For *navigation sectors*, it checks whether the given point is inside the navigation sector.  The height of the navigation sector (Z coordinate) is ignored.
 - For *navigation meshes*, it checks whether the given point is inside the navigation mesh and the distance from the point to the mesh is in range [-height;height]. Here height is a height of the navigation mesh.
 
@@ -81,7 +84,10 @@ Depending on the type of the navigation area, the function performs the followin
 **1** if the point is inside the navigation area; otherwise, **0**.
 ## int Inside3D ( vec3 point , float radius )
 
+
 Depending on the type of the navigation area, the function performs the following:
+
+
 - For *navigation sectors*, it checks whether the given point is inside the navigation area.  Notice that the height of the navigation sector (Z coordinate) is also taken into account.
 - For *navigation meshes*, it checks whether the given point is inside the navigation mesh and the distance from the point to the mesh is in range [0;height]. Here height is a height of the navigation mesh.
 

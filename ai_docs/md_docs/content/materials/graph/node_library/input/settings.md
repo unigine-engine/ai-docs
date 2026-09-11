@@ -16,7 +16,7 @@ Outputs the current [Number of samples per pixel](../../../../../principles/rend
 
 ##### Settings TAA
 
-Outputs 1 if [Temporal Anti-Aliasing](../../../../../principles/render/antialiasing/taa.md) is enabled, otherwise — 0.
+Outputs 1 if [Temporal Anti-Aliasing](../../../../../principles/render/antialiasing/taa.md) is enabled, otherwise � 0.
 
 
 #### Scattering Parameters
@@ -47,11 +47,11 @@ Outputs the [haze density](../../../../../editor2/settings/render_settings/envir
 
 ##### Settings Haze Solid
 
-Outputs 1 if the [Environment Haze Mode](../../../../../editor2/settings/render_settings/environment/index.md#haze_mode) is set to Solid, otherwise — 0.
+Outputs 1 if the [Environment Haze Mode](../../../../../editor2/settings/render_settings/environment/index.md#haze_mode) is set to Solid, otherwise � 0.
 
 ##### Settings Haze Visibility
 
-Outputs 1 if haze is enabled, otherwise — 0.
+Outputs 1 if haze is enabled, otherwise � 0.
 
 ##### Settings Haze Gradient
 
@@ -59,7 +59,7 @@ Outputs the [Environment haze gradient](../../../../../editor2/settings/render_s
 
 ##### Settings Haze Physical
 
-Outputs 1 if the [Environment Haze Mode](../../../../../editor2/settings/render_settings/environment/index.md#haze_physically_based) is set to Physical, otherwise — 0.
+Outputs 1 if the [Environment Haze Mode](../../../../../editor2/settings/render_settings/environment/index.md#haze_physically_based) is set to Physical, otherwise � 0.
 
 ##### Settings Haze Physical Start Height
 
@@ -95,7 +95,7 @@ Outputs the [Intensity of the impact of the sunlight on haze](../../../../../edi
 
 ##### Settings Haze Physical Screen Space Global Illumination
 
-Outputs 1 if the [Screen-Space Haze Global Illumination (SSHGI)](../../../../../editor2/settings/render_settings/environment/index.md#sshgi) effect is enabled, otherwise — 0. SSHGI is a screen-space effect ensuring consistency of haze color with the current color of Global Illumination.
+Outputs 1 if the [Screen-Space Haze Global Illumination (SSHGI)](../../../../../editor2/settings/render_settings/environment/index.md#sshgi) effect is enabled, otherwise � 0. SSHGI is a screen-space effect ensuring consistency of haze color with the current color of Global Illumination.
 
 ##### Settings Haze Scattering Mie Fresnel Power
 

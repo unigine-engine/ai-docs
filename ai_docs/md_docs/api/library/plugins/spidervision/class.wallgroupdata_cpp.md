@@ -100,7 +100,7 @@ Sets a new value indicating if automatic positioning of windows on the displays 
 Returns the current value indicating if automatic positioning of windows on the displays is enabled. If disabled, all windows are created with the position (0, 0) at the same place and are to be positioned manually.
 ### Return value
 
-**true** if automatic positioning of windows on the displays is enabled; otherwise **false**.
+**true** if automatic positioning of windows on the displays is enabled ; otherwise **false**.
 ## void setAspect ( float aspect )
 
 Sets a new
@@ -140,11 +140,16 @@ Returns the current
 ### Return value
 
 Current
----
+## void setPixelDensity ( float density )
 
-## void generate ( )
+Sets a new pixel density assigned to the viewports of the generated group, in pixels per meter: the render texture size is calculated automatically from the physical screen dimensions and the specified pixel density, preserving the correct aspect ratio. The default value is 1200.
+### Arguments
 
-Generates a group of viewports using the [createViewport()](../../../../api/library/plugins/spidervision/class.displaysconfig_cpp.md#createViewport_int_ViewportData) method.
-## void refresh ( )
+- *float* **density** - The pixel density of the generated group, in pixels per meter
 
-Updates the viewports' position and orientation based on the specified [size](#setSize_ivec2_void), [offset](#setOffset_vec2_void), [distance to viewer](#setDistanceToViewer_float_void), and [angle](#setAngle_float_void) values.
+## float getPixelDensity () const
+
+Returns the current pixel density assigned to the viewports of the generated group, in pixels per meter: the render texture size is calculated automatically from the physical screen dimensions and the specified pixel density, preserving the correct aspect ratio. The default value is 1200.
+### Return value
+
+Current pixel density of the generated group, in pixels per meter

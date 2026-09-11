@@ -145,7 +145,7 @@ Returns the current value indicating if the shader compiler forces the IEEE stri
 
 ### Return value
 
-**true** if forcing of IEEE strict compilation by the shader compiler is enabled; otherwise **false**.
+**true** if forcing of IEEE strict compilation by the shader compiler is enabled ; otherwise **false**.
 ## void setDisableExport ( bool export )
 
 Sets a new value indicating if shader [export to a file](../../../code/uusl/index.md#uusl_debug) is disabled. By default UNIGINE enables exporting a shader program to a file (e.g. for debug purposes). Shader files are created in a native language for the graphic API (*Direct3D* - `.hlsl` extension).
@@ -158,7 +158,7 @@ Sets a new value indicating if shader [export to a file](../../../code/uusl/inde
 Returns the current value indicating if shader [export to a file](../../../code/uusl/index.md#uusl_debug) is disabled. By default UNIGINE enables exporting a shader program to a file (e.g. for debug purposes). Shader files are created in a native language for the graphic API (*Direct3D* - `.hlsl` extension).
 ### Return value
 
-**true** if disabling of shader export to a file is enabled; otherwise **false**.
+**true** if disabling of shader export to a file is enabled ; otherwise **false**.
 ## void setDisableCompileError ( bool error )
 
 Sets a new value indicating if the shader compile error output is disabled.
@@ -171,10 +171,12 @@ Sets a new value indicating if the shader compile error output is disabled.
 Returns the current value indicating if the shader compile error output is disabled.
 ### Return value
 
-**true** if disabling of shader compile errors output is enabled; otherwise **false**.
+**true** if disabling of shader compile errors output is enabled ; otherwise **false**.
 ## void setWarningMode ( Shader::WARNING_MODE mode )
 
-Sets a new warning mode for the shader compiler. You can choose modes from the lowest (all shader compilation warnings are ignored) up to the highest level, when warnings are treated as errors. By default the *highest* level is used, setting *lower* levels may result in driver and OS crashes, so you use them at your own risk. The *[soft](#WARNING_MODE_SOFT)* level can be used if you have checked and you're absolutely sure that the warnings do not cause crashes.
+Sets a new warning mode for the shader compiler.
+You can choose modes from the lowest (all shader compilation warnings are ignored) up to the highest level, when warnings are treated as errors. By default the *highest* level is used, setting *lower* levels may result in driver and OS crashes, so you use them at your own risk. The *[soft](#WARNING_MODE_SOFT)* level can be used if you have checked and you're absolutely sure that the warnings do not cause crashes.
+
 > **Notice:** Available for DirectX only.
 
 ### Arguments
@@ -183,7 +185,9 @@ Sets a new warning mode for the shader compiler. You can choose modes from the l
 
 ## Shader::WARNING_MODE getWarningMode () const
 
-Returns the current warning mode for the shader compiler. You can choose modes from the lowest (all shader compilation warnings are ignored) up to the highest level, when warnings are treated as errors. By default the *highest* level is used, setting *lower* levels may result in driver and OS crashes, so you use them at your own risk. The *[soft](#WARNING_MODE_SOFT)* level can be used if you have checked and you're absolutely sure that the warnings do not cause crashes.
+Returns the current warning mode for the shader compiler.
+You can choose modes from the lowest (all shader compilation warnings are ignored) up to the highest level, when warnings are treated as errors. By default the *highest* level is used, setting *lower* levels may result in driver and OS crashes, so you use them at your own risk. The *[soft](#WARNING_MODE_SOFT)* level can be used if you have checked and you're absolutely sure that the warnings do not cause crashes.
+
 > **Notice:** Available for DirectX only.
 
 ### Return value
@@ -191,7 +195,10 @@ Returns the current warning mode for the shader compiler. You can choose modes f
 Current warning mode.
 ## void setOptimizationLevel ( int level )
 
-Sets a new optimization level for the shader compiler. One of the following values:
+Sets a new optimization level for the shader compiler.
+One of the following values:
+
+
 - 0 - Directs the compiler to skip optimization steps during code generation.
 - 1 - Directs the compiler to use the lowest optimization level. At this level the compiler might produce slower code but produces the code quicker.
 - 2 - Directs the compiler to use the second lowest optimization level.
@@ -208,7 +215,10 @@ Sets a new optimization level for the shader compiler. One of the following valu
 
 ## int getOptimizationLevel () const
 
-Returns the current optimization level for the shader compiler. One of the following values:
+Returns the current optimization level for the shader compiler.
+One of the following values:
+
+
 - 0 - Directs the compiler to skip optimization steps during code generation.
 - 1 - Directs the compiler to use the lowest optimization level. At this level the compiler might produce slower code but produces the code quicker.
 - 2 - Directs the compiler to use the second lowest optimization level.
@@ -234,7 +244,7 @@ Sets a new value indicating if compilation cache for the shader is disabled.
 Returns the current value indicating if compilation cache for the shader is disabled.
 ### Return value
 
-**true** if disabling of compilation cache for the shader is enabled; otherwise **false**.
+**true** if disabling of compilation cache for the shader is enabled ; otherwise **false**.
 ---
 
 ## static ShaderPtr create ( )
@@ -983,7 +993,7 @@ Compiles the shader with the specified vertex, geometry, and fragment subshaders
 - *const char ** **vertex** - Vertex subshader path.
 - *const char ** **geometry** - Geometry subshader path.
 - *const char ** **fragment** - Fragment subshader path.
-- *const char ** **defines** - User defines (for example, "OPENGL", "DIRECT3D11", or any other).
+- *const char ** **defines** - User defines (for example, "DIRECT3D12", or any other).
 - *unsigned long long* **key_cache** - Key cache.
 
 ### Return value
@@ -995,7 +1005,7 @@ Compiles the shader that includes subshaders. Depending on the types of the subs
 ### Arguments
 
 - *const char ** **shader** - Shader path.
-- *const char ** **defines** - User defines (for example, "OPENGL", "DIRECT3D11", or any other).
+- *const char ** **defines** - User defines (for example, "DIRECT3D12", or any other).
 - *unsigned long long* **key_cache** - Key cache.
 
 ### Return value
@@ -1008,7 +1018,7 @@ Validates the shader (whether it can be compiled or not).
 
 - *[Shader::SUB_SHADER](../../../api/library/rendering/class.shader_cpp.md#SUB_SHADER)* **type** - Subshader type.
 - *const char ** **shader** - Shader path.
-- *const char ** **defines** - User defines (for example, "OPENGL", "DIRECT3D11", or any other).
+- *const char ** **defines** - User defines (for example, "DIRECT3D12", or any other).
 
 ### Return value
 

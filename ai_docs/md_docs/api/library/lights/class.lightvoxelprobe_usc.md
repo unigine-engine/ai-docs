@@ -25,19 +25,6 @@ Returns the current file path for the lighting texture used for the *Voxel Probe
 ### Return value
 
 Current path to the texture file.
-## void setBakeVisibilityEnvironmentProbe ( int probe )
-
-Sets a new value indicating if environment probe light sources are to be baked to the *Voxel Probe*. you can use this option together with [additive blending](#BLEND_ADDITIVE) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make *Voxel Probes* independent of each other and combine them to produce some sort of dynamic GI effect.
-### Arguments
-
-- *int* **probe** - The baking of environment probe light sources to the *Voxel Probe*
-
-## int isBakeVisibilityEnvironmentProbe () const
-
-Returns the current value indicating if environment probe light sources are to be baked to the *Voxel Probe*. you can use this option together with [additive blending](#BLEND_ADDITIVE) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make *Voxel Probes* independent of each other and combine them to produce some sort of dynamic GI effect.
-### Return value
-
-Current baking of environment probe light sources to the *Voxel Probe*
 ## void setBakeVisibilityVoxelProbe ( int probe )
 
 Sets a new value indicating if other *Voxel Probe* light sources are to be baked to the *Voxel Probe*. you can use this option together with [additive blending](#BLEND_ADDITIVE) to provide more flexibility in [light baking](../../../editor2/lighting/gi/bake_lighting/index.md). Thus, you can make *Voxel Probes* independent of each other and combine them to produce some sort of dynamic GI effect.
@@ -190,7 +177,7 @@ Returns the current value indicating if cubic filtering is applied to specular r
 
 ### Return value
 
-**true** if cubic filtering for specular reflections textures is enabled; otherwise **false**.
+**true** if cubic filtering for specular reflections textures is enabled ; otherwise **false**.
 ## void setSpecularReflectionBias ( float bias )
 
 Sets a new specular reflections offset along the reflection vector.
@@ -268,7 +255,7 @@ Sets a new value indicating if specular reflections are enabled for the *Voxel P
 Returns the current value indicating if specular reflections are enabled for the *Voxel Probe*.
 ### Return value
 
-**true** if specular reflections for the *Voxel Probe* is enabled; otherwise **false**.
+**true** if specular reflections for the *Voxel Probe* is enabled ; otherwise **false**.
 ## void setDiffuseCubicFiltering ( bool filtering )
 
 Sets a new value indicating if cubic filtering is applied to *Voxel Probe* diffuse lighting.
@@ -281,7 +268,7 @@ Sets a new value indicating if cubic filtering is applied to *Voxel Probe* diffu
 Returns the current value indicating if cubic filtering is applied to *Voxel Probe* diffuse lighting.
 ### Return value
 
-**true** if cubic filtering for *Voxel Probe* diffuse lighting is enabled; otherwise **false**.
+**true** if cubic filtering for *Voxel Probe* diffuse lighting is enabled ; otherwise **false**.
 ## void setDiffuseNormalBias ( float bias )
 
 Sets a new bias of ambient lighting implemented as voxel projection offset along the normal to the surface.
@@ -346,7 +333,7 @@ Sets a new value indicating if sky color modulation for the *Voxel Probe* is ena
 Returns the current value indicating if sky color modulation for the *Voxel Probe* is enabled.
 ### Return value
 
-**true** if sky color modulation for the *Voxel Probe* is enabled; otherwise **false**.
+**true** if sky color modulation for the *Voxel Probe* is enabled ; otherwise **false**.
 ## void setAttenuationPower ( float power )
 
 Sets a new power of light attenuation used to simulate intensity gradual fading. This parameter determines how fast the intensity decreases up to the attenuation distance set for the light source.
@@ -444,7 +431,7 @@ Returns the type of the node.
 [LightVoxelProbe](../../../api/library/nodes/class.node_usc.md#LIGHT_VOXEL_PROBE) type identifier.
 ## long getVideoMemoryUsage ( )
 
-Returns a value defining how much memory the light texture takes according to its size. The memory is calculated in accordance to the following formula: ***Memory** = **SizeX** × **SizeY** × **SizeZ** × **Sides** × **FormatMemory***
+Returns a value defining how much memory the light texture takes according to its size. The memory is calculated in accordance to the following formula: ***Memory** = **SizeX** � **SizeY** � **SizeZ** � **Sides** � **FormatMemory***
 - **SizeX, SizeY, SizeZ** - the dimensions of the 3D light texture, in voxels.
 - **Sides** - number of sides of each voxel, equal to 6.
 - **FormatMemory** - a memory usage amount for the texture in RGBA16 format, equal to 8.

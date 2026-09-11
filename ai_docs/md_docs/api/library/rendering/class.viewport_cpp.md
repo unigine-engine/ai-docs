@@ -125,7 +125,10 @@ Sets a new type of lighting of the render node.
 Returns the current type of lighting of the render node.
 ### Return value
 
-Current lighting type. Can be one of the following:
+Current
+lighting type. Can be one of the following:
+
+
 - 0 - *[USAGE_WORLD_LIGHT](../../...md#USAGE_WORLD_LIGHT)* (use lighting from the [LightWorld](../../../api/library/lights/class.lightworld_cpp.md) set in the current loaded world).
 - 1 - *[USAGE_AUX_LIGHT](../../...md#USAGE_AUX_LIGHT)* (use lighting from the auxiliary virtual scene containing one LightWorld with 45 degrees slope angles along all axes, scattering is not used).
 - 2 - *[USAGE_NODE_LIGHT](../../...md#USAGE_NODE_LIGHT)* (use the node lighting).
@@ -146,14 +149,14 @@ Returns the current virtual camera offset (an offset after the perspective proje
 Current virtual camera offset in units.
 ## void setStereoRadius ( float radius )
 
-Sets a new radius for stereo — the half of the separation distance between the cameras (i.e. between eyes).
+Sets a new radius for stereo � the half of the separation distance between the cameras (i.e. between eyes).
 ### Arguments
 
 - *float* **radius** - The stereo radius in units. If a negative value is provided, 0 will be used instead.
 
 ## float getStereoRadius () const
 
-Returns the current radius for stereo — the half of the separation distance between the cameras (i.e. between eyes).
+Returns the current radius for stereo � the half of the separation distance between the cameras (i.e. between eyes).
 ### Return value
 
 Current stereo radius in units. If a negative value is provided, 0 will be used instead.
@@ -175,13 +178,13 @@ Current focal distance in units.
 Returns the current value indicating if the stereo rendering is enabled for the current viewport (one of the [stereo modes](../../../api/library/rendering/class.render_cpp.md#VIEWPORT_MODE_STEREO_ANAGLYPH) is set).
 ### Return value
 
-**true** if stereo rendering for the current viewport (one of the [stereo modes](../../../api/library/rendering/class.render_cpp.md#VIEWPORT_MODE_STEREO_ANAGLYPH)) is enabled; otherwise **false**.
+**true** if stereo rendering for the current viewport (one of the [stereo modes](../../../api/library/rendering/class.render_cpp.md#VIEWPORT_MODE_STEREO_ANAGLYPH)) is enabled ; otherwise **false**.
 ## bool isPanorama () const
 
 Returns the current value indicating if the panoramic rendering is enabled.
 ### Return value
 
-**true** if panoramic rendering is enabled; otherwise **false**.
+**true** if panoramic rendering is enabled ; otherwise **false**.
 ## void setRenderMode ( int mode )
 
 Sets a new render mode. The mode determines the set of buffers to be rendered.
@@ -198,7 +201,10 @@ Sets a new render mode. The mode determines the set of buffers to be rendered.
 Returns the current render mode. The mode determines the set of buffers to be rendered.
 ### Return value
 
-Current render mode, one of the following:
+Current
+render mode, one of the following:
+
+
 - *[RENDER_DEPTH](../../...md#RENDER_DEPTH)*
 - *[RENDER_DEPTH_GBUFFER](../../...md#RENDER_DEPTH_GBUFFER)*
 - *[RENDER_DEPTH_GBUFFER_FINAL](../../...md#RENDER_DEPTH_GBUFFER_FINAL)*
@@ -255,7 +261,7 @@ Sets a new value indicating if the aspect correction enabled for current viewpor
 Returns the current value indicating if the aspect correction enabled for current viewport.
 ### Return value
 
-**true** if the aspect correction is enabled; otherwise **false**.
+**true** if the aspect correction is enabled ; otherwise **false**.
 ## int getID () const
 
 Returns the current Viewport ID.
@@ -290,17 +296,21 @@ Returns the current cubemap defining the environment color.
 Current cubemap defining the environment color.
 ## void setUseTAAOffset ( bool taaoffset )
 
-Sets a new  value indicating if skipping render mode check is enabled for using TAA. Can be used to ensure proper TAA calculation when rendering mode for the *Viewport* is set to *[RENDER_DEPTH](../../...md#RENDER_DEPTH)*.
+Sets a new  value indicating if skipping render mode check is enabled for using TAA.
+Can be used to ensure proper TAA calculation when rendering mode for the *Viewport* is set to *[RENDER_DEPTH](../../...md#RENDER_DEPTH)*.
+
 ### Arguments
 
 - *bool* **taaoffset** - Set **true** to enable skipping render mode check when using TAA; **false** - to disable it.
 
 ## bool isUseTAAOffset () const
 
-Returns the current  value indicating if skipping render mode check is enabled for using TAA. Can be used to ensure proper TAA calculation when rendering mode for the *Viewport* is set to *[RENDER_DEPTH](../../...md#RENDER_DEPTH)*.
+Returns the current  value indicating if skipping render mode check is enabled for using TAA.
+Can be used to ensure proper TAA calculation when rendering mode for the *Viewport* is set to *[RENDER_DEPTH](../../...md#RENDER_DEPTH)*.
+
 ### Return value
 
-**true** if skipping render mode check when using TAA is enabled; otherwise **false**.
+**true** if skipping render mode check when using TAA is enabled ; otherwise **false**.
 ## void setLifetime ( int lifetime )
 
 Sets a new value indicating how many frames temporary viewport resources are available after the viewport stops rendering.
@@ -316,7 +326,7 @@ Returns the current value indicating how many frames temporary viewport resource
 Current number of frames during which temporary viewport resources are available after the viewport stops rendering
 ## Event<> getEventBegin () const
 
-event triggered when rendering of the frame begins. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when rendering of the frame begins. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -452,10 +462,10 @@ publisher->getEventBegin().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginEnvironment () const
 
-event triggered before the Environment rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the Environment rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -591,10 +601,10 @@ publisher->getEventBeginEnvironment().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndEnvironment () const
 
-event triggered after the Environment rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the Environment rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -730,10 +740,10 @@ publisher->getEventEndEnvironment().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginShadows () const
 
-event triggered before the shadows rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the shadows rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -869,10 +879,10 @@ publisher->getEventBeginShadows().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginWorldShadow () const
 
-event triggered before the stage of rendering shadows from World light sources. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the stage of rendering shadows from World light sources. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1008,10 +1018,10 @@ publisher->getEventBeginWorldShadow().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndWorldShadow () const
 
-event triggered after the stage of rendering shadows from World light sources. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the stage of rendering shadows from World light sources. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1147,10 +1157,10 @@ publisher->getEventEndWorldShadow().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginProjShadow () const
 
-event triggered before the stage of rendering shadows from Projected light sources. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the stage of rendering shadows from Projected light sources. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1286,10 +1296,10 @@ publisher->getEventBeginProjShadow().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndProjShadow () const
 
-event triggered after the stage of rendering shadows from Projected light sources. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the stage of rendering shadows from Projected light sources. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1425,10 +1435,10 @@ publisher->getEventEndProjShadow().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginOmniShadow () const
 
-event triggered before the stage of rendering shadows from Omni light sources. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the stage of rendering shadows from Omni light sources. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1564,10 +1574,10 @@ publisher->getEventBeginOmniShadow().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndOmniShadow () const
 
-event triggered after the stage of rendering shadows from Omni light sources. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the stage of rendering shadows from Omni light sources. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1703,10 +1713,10 @@ publisher->getEventEndOmniShadow().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndShadows () const
 
-event triggered after the shadows rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the shadows rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1842,10 +1852,10 @@ publisher->getEventEndShadows().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginScreen () const
 
-event triggered before the stage of rendering each screen (a stereo image has 2 screens, while a cubemap will have 6). You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the stage of rendering each screen (a stereo image has 2 screens, while a cubemap will have 6). You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1981,10 +1991,10 @@ publisher->getEventBeginScreen().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginMixedRealityBlendMaskColor () const
 
-event triggered before the mask for Mixed Reality is rendered (after Common Camera for clouds and before Opacity GBuffer). You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the mask for Mixed Reality is rendered (after Common Camera for clouds and before Opacity GBuffer). You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2120,10 +2130,10 @@ publisher->getEventBeginMixedRealityBlendMaskColor().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndMixedRealityBlendMaskColor () const
 
-event triggered after the mask for Mixed Reality is rendered (after Common Camera for clouds and before Opacity GBuffer). You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the mask for Mixed Reality is rendered (after Common Camera for clouds and before Opacity GBuffer). You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2259,10 +2269,10 @@ publisher->getEventEndMixedRealityBlendMaskColor().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginOpacityGBuffer () const
 
-event triggered before filling the Gbuffer. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before filling the Gbuffer. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2398,10 +2408,10 @@ publisher->getEventBeginOpacityGBuffer().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginAuxiliarySurfaces () const
 
-event triggered before auxiliary surfaces rendering. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before auxiliary surfaces rendering. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2537,10 +2547,10 @@ Viewport::getEventBeginAuxiliarySurfaces().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndAuxiliarySurfaces () const
 
-event triggered after auxiliary surfaces rendering. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after auxiliary surfaces rendering. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2676,10 +2686,10 @@ Viewport::getEventEndAuxiliarySurfaces().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndOpacityGBuffer () const
 
-event triggered after filling the Gbuffer. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after filling the Gbuffer. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2815,10 +2825,10 @@ publisher->getEventEndOpacityGBuffer().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginOpacityDecals () const
 
-event triggered before the opacity decals rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the opacity decals rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2954,10 +2964,10 @@ publisher->getEventBeginOpacityDecals().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndOpacityDecals () const
 
-event triggered after the opacity decals rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the opacity decals rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -3093,10 +3103,10 @@ publisher->getEventEndOpacityDecals().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventBeginAuxiliaryDecals () const
 
-event triggered before the auxiliary decals rendering. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the auxiliary decals rendering. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -3232,10 +3242,10 @@ Viewport::getEventBeginAuxiliaryDecals().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<> getEventEndAuxiliaryDecals () const
 
-event triggered after the auxiliary decals rendering. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the auxiliary decals rendering. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -3371,10 +3381,10 @@ Viewport::getEventEndAuxiliaryDecals().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginCurvature () const
 
-event triggered before the [SSBevel](../../../editor2/settings/render_settings/ssbevel/index.md) effect rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the [SSBevel](../../../editor2/settings/render_settings/ssbevel/index.md) effect rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -3510,10 +3520,10 @@ publisher->getEventBeginCurvature().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndCurvature () const
 
-event triggered after the [SSBevel](../../../editor2/settings/render_settings/ssbevel/index.md) effect rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the [SSBevel](../../../editor2/settings/render_settings/ssbevel/index.md) effect rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -3649,10 +3659,10 @@ publisher->getEventEndCurvature().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginCurvatureComposite () const
 
-event triggered before the curvature rendering stage for the [SSDirt](../../../editor2/settings/render_settings/ssdirt/index.md) effect. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the curvature rendering stage for the [SSDirt](../../../editor2/settings/render_settings/ssdirt/index.md) effect. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -3788,10 +3798,10 @@ publisher->getEventBeginCurvatureComposite().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndCurvatureComposite () const
 
-event triggered after the curvature rendering stage for the [SSDirt](../../../editor2/settings/render_settings/ssdirt/index.md) effect. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the curvature rendering stage for the [SSDirt](../../../editor2/settings/render_settings/ssdirt/index.md) effect. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -3927,10 +3937,10 @@ publisher->getEventEndCurvatureComposite().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginSSRTGI () const
 
-event triggered before the SSRTGI rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the SSRTGI rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -4066,10 +4076,10 @@ publisher->getEventBeginSSRTGI().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndSSRTGI () const
 
-event triggered after the SSRTGI rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the SSRTGI rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -4205,10 +4215,10 @@ publisher->getEventEndSSRTGI().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginOpacityLights () const
 
-event triggered before the opacity lightgs rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the opacity lightgs rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -4344,10 +4354,10 @@ publisher->getEventBeginOpacityLights().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndOpacityLights () const
 
-event triggered after the opacity lightgs rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the opacity lightgs rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -4483,10 +4493,10 @@ publisher->getEventEndOpacityLights().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginOpacityVoxelProbes () const
 
-event triggered before the opacity voxel probes rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the opacity voxel probes rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -4622,10 +4632,10 @@ publisher->getEventBeginOpacityVoxelProbes().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndOpacityVoxelProbes () const
 
-event triggered after the opacity voxel probes rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the opacity voxel probes rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -4761,10 +4771,10 @@ publisher->getEventEndOpacityVoxelProbes().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginOpacityEnvironmentProbes () const
 
-event triggered before the opacity environment probes rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the opacity environment probes rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -4900,10 +4910,10 @@ publisher->getEventBeginOpacityEnvironmentProbes().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndOpacityEnvironmentProbes () const
 
-event triggered after the opacity environment probes rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the opacity environment probes rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -5039,10 +5049,10 @@ publisher->getEventEndOpacityEnvironmentProbes().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginOpacityPlanarProbes () const
 
-event triggered before the opacity planar probes rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the opacity planar probes rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -5178,10 +5188,10 @@ publisher->getEventBeginOpacityPlanarProbes().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndOpacityPlanarProbes () const
 
-event triggered after the opacity planar probes rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the opacity planar probes rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -5317,10 +5327,10 @@ publisher->getEventEndOpacityPlanarProbes().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginRefractionBuffer () const
 
-event triggered before filling the refraction buffer. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before filling the refraction buffer. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -5456,10 +5466,10 @@ publisher->getEventBeginRefractionBuffer().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndRefractionBuffer () const
 
-event triggered after filling the refraction buffer. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after filling the refraction buffer. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -5595,10 +5605,10 @@ publisher->getEventEndRefractionBuffer().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginTransparentBlurBuffer () const
 
-event triggered before filling the transparent blur buffer. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before filling the transparent blur buffer. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -5734,10 +5744,10 @@ publisher->getEventBeginTransparentBlurBuffer().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndTransparentBlurBuffer () const
 
-event triggered after filling the transparent blur buffer. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after filling the transparent blur buffer. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -5873,10 +5883,10 @@ publisher->getEventEndTransparentBlurBuffer().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginSSSS () const
 
-event triggered before the Screen-Space Shadow Shafts rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the Screen-Space Shadow Shafts rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -6012,10 +6022,10 @@ publisher->getEventBeginSSSS().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndSSSS () const
 
-event triggered after the Screen-Space Shadow Shafts rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the Screen-Space Shadow Shafts rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -6151,10 +6161,10 @@ publisher->getEventEndSSSS().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginSSR () const
 
-event triggered before the SSR rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the SSR rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -6290,10 +6300,10 @@ publisher->getEventBeginSSR().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndSSR () const
 
-event triggered after the SSR rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the SSR rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -6429,10 +6439,10 @@ publisher->getEventEndSSR().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginSSAO () const
 
-event triggered before the SSAO rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the SSAO rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -6568,10 +6578,10 @@ publisher->getEventBeginSSAO().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndSSAO () const
 
-event triggered after the SSAO rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the SSAO rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -6707,10 +6717,10 @@ publisher->getEventEndSSAO().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginSSGI () const
 
-event triggered before the SSGI rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the SSGI rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -6846,10 +6856,10 @@ publisher->getEventBeginSSGI().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndSSGI () const
 
-event triggered after the SSGI rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the SSGI rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -6985,10 +6995,10 @@ publisher->getEventEndSSGI().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginSky () const
 
-event triggered before the sky rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the sky rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -7124,10 +7134,10 @@ publisher->getEventBeginSky().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndSky () const
 
-event triggered after the sky rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the sky rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -7263,10 +7273,10 @@ publisher->getEventEndSky().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginCompositeDeferred () const
 
-event triggered before the clouds deferred composite stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the clouds deferred composite stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -7402,10 +7412,10 @@ publisher->getEventBeginCompositeDeferred().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndCompositeDeferred () const
 
-event triggered after the clouds deferred composite stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the clouds deferred composite stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -7541,10 +7551,10 @@ publisher->getEventEndCompositeDeferred().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginTransparent () const
 
-event triggered before the transparent objects rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the transparent objects rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -7680,10 +7690,10 @@ publisher->getEventBeginTransparent().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginClouds () const
 
-event triggered before the clouds rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the clouds rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -7819,10 +7829,10 @@ publisher->getEventBeginClouds().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndClouds () const
 
-event triggered after the clouds rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the clouds rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -7958,10 +7968,10 @@ publisher->getEventEndClouds().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginWater () const
 
-event triggered before the water rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the water rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -8097,10 +8107,10 @@ publisher->getEventBeginWater().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginWaterGBuffer () const
 
-event triggered before the Water G-Buffer rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the Water G-Buffer rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -8236,10 +8246,10 @@ publisher->getEventBeginWaterGBuffer().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndWaterGBuffer () const
 
-event triggered after the Water G-Buffer rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the Water G-Buffer rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -8375,10 +8385,10 @@ publisher->getEventEndWaterGBuffer().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginWaterDecals () const
 
-event triggered before the water decals rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the water decals rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -8514,10 +8524,10 @@ publisher->getEventBeginWaterDecals().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndWaterDecals () const
 
-event triggered after the water decals rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the water decals rendering stage. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -8653,10 +8663,10 @@ publisher->getEventEndWaterDecals().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginWaterLights () const
 
-event triggered before the water lights rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the water lights rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -8792,10 +8802,10 @@ publisher->getEventBeginWaterLights().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndWaterLights () const
 
-event triggered after the water lights rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the water lights rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -8931,10 +8941,10 @@ publisher->getEventEndWaterLights().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginWaterVoxelProbes () const
 
-event triggered before the water voxel probes rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the water voxel probes rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -9070,10 +9080,10 @@ publisher->getEventBeginWaterVoxelProbes().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndWaterVoxelProbes () const
 
-event triggered after the water voxel probes rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the water voxel probes rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -9209,10 +9219,10 @@ publisher->getEventEndWaterVoxelProbes().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginWaterEnvironmentProbes () const
 
-event triggered before the water environment probes rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the water environment probes rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -9348,10 +9358,10 @@ publisher->getEventBeginWaterEnvironmentProbes().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndWaterEnvironmentProbes () const
 
-event triggered after the water environment probes rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the water environment probes rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -9487,10 +9497,10 @@ publisher->getEventEndWaterEnvironmentProbes().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginWaterPlanarProbes () const
 
-event triggered before the water planar probes rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the water planar probes rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -9626,10 +9636,10 @@ publisher->getEventBeginWaterPlanarProbes().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndWaterPlanarProbes () const
 
-event triggered after the water planar probes rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the water planar probes rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -9765,10 +9775,10 @@ publisher->getEventEndWaterPlanarProbes().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndWater () const
 
-event triggered after the water rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the water rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -9904,10 +9914,10 @@ publisher->getEventEndWater().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndTransparent () const
 
-event triggered after the transparent objects rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the transparent objects rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -10043,10 +10053,10 @@ publisher->getEventEndTransparent().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginSrgbCorrection () const
 
-event triggered before the sRGB correction stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the sRGB correction stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -10182,10 +10192,10 @@ publisher->getEventBeginSrgbCorrection().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndSrgbCorrection () const
 
-event triggered after the sRGB correction stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the sRGB correction stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -10321,10 +10331,10 @@ publisher->getEventEndSrgbCorrection().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginAdaptationColorAverage () const
 
-event triggered before the calculation of automatic exposure and white balance correction. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the calculation of automatic exposure and white balance correction. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -10460,10 +10470,10 @@ publisher->getEventBeginAdaptationColorAverage().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndAdaptationColorAverage () const
 
-event triggered after the calculation of automatic exposure and white balance correction. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the calculation of automatic exposure and white balance correction. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -10599,10 +10609,10 @@ publisher->getEventEndAdaptationColorAverage().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginAdaptationColor () const
 
-event triggered before the color adaptation rendering stage (automatic exposure and white balance correction). You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the color adaptation rendering stage (automatic exposure and white balance correction). You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -10738,10 +10748,10 @@ publisher->getEventBeginAdaptationColor().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndAdaptationColor () const
 
-event triggered after the color adaptation rendering stage (automatic exposure and white balance correction). You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the color adaptation rendering stage (automatic exposure and white balance correction). You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -10877,10 +10887,10 @@ publisher->getEventEndAdaptationColor().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginTAA () const
 
-event triggered before the Temporal Anti-Aliasing (TAA) pass. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the Temporal Anti-Aliasing (TAA) pass. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -11016,10 +11026,10 @@ publisher->getEventBeginTAA().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndTAA () const
 
-event triggered after the Temporal Anti-Aliasing (TAA) pass. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the Temporal Anti-Aliasing (TAA) pass. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -11155,10 +11165,10 @@ publisher->getEventEndTAA().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginCameraEffects () const
 
-event triggered before the camera effects stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the camera effects stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -11294,10 +11304,10 @@ publisher->getEventBeginCameraEffects().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndCameraEffects () const
 
-event triggered after the camera effects stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the camera effects stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -11433,10 +11443,10 @@ publisher->getEventEndCameraEffects().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginPostMaterials () const
 
-event triggered before the post materials rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the post materials rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -11572,10 +11582,10 @@ publisher->getEventBeginPostMaterials().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndPostMaterials () const
 
-event triggered after the post materials rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the post materials rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -11711,10 +11721,10 @@ publisher->getEventEndPostMaterials().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginDebugMaterials () const
 
-event triggered before the debug materials stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the debug materials stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -11850,10 +11860,10 @@ publisher->getEventBeginDebugMaterials().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndDebugMaterials () const
 
-event triggered after the debug materials stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the debug materials stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -11989,10 +11999,10 @@ publisher->getEventEndDebugMaterials().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventBeginVisualizer () const
 
-event triggered before the visualizer rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered before the visualizer rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -12128,10 +12138,10 @@ publisher->getEventBeginVisualizer().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndVisualizer () const
 
-event triggered after the visualizer rendering stage. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the visualizer rendering stage. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -12267,10 +12277,10 @@ publisher->getEventEndVisualizer().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndScreen () const
 
-event triggered after the stage of rendering each screen (a stereo image has 2 screens, while a cubemap will have 6). You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the stage of rendering each screen (a stereo image has 2 screens, while a cubemap will have 6). You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -12406,10 +12416,10 @@ publisher->getEventEndScreen().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEnd () const
 
-event triggered when rendering of the frame ends. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when rendering of the frame ends. You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -12545,10 +12555,10 @@ publisher->getEventEnd().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventEndVRQuadComposeEyeSwapchains () const
 
-Event triggered after composing VR viewports, enabling you to subscribe and perform certain actions (e.g. implement a binoculars effect using post-materials). You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+Event triggered after composing VR viewports, enabling you to subscribe and perform certain actions (e.g. implement a binoculars effect using post-materials). You can subscribe to events via *connect()* ï¿½and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -12684,12 +12694,158 @@ publisher->getEventEndVRQuadComposeEyeSwapchains().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
+## void setPanoramaFisheyeKannalaBrandtCoefficients ( const Math:: vec4 & coefficients )
+
+Sets a new four radial distortion coefficients (k1, k2, k3, k4) of the Kannala-Brandt fisheye camera model used by the corresponding panorama mode. They define the polynomial mapping the angle between the incoming ray and the optical axis to the normalized image radius. The default value (1, 0, 0, 0) corresponds to the pure equidistant projection. This mode reproduces the image geometry of a real calibrated fisheye camera, with the coefficients taken from the camera calibration data.
+### Arguments
+
+- *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md)&* **coefficients** - The radial distortion coefficients of the Kannala-Brandt model
+
+## Math:: vec4 getPanoramaFisheyeKannalaBrandtCoefficients () const
+
+Returns the current four radial distortion coefficients (k1, k2, k3, k4) of the Kannala-Brandt fisheye camera model used by the corresponding panorama mode. They define the polynomial mapping the angle between the incoming ray and the optical axis to the normalized image radius. The default value (1, 0, 0, 0) corresponds to the pure equidistant projection. This mode reproduces the image geometry of a real calibrated fisheye camera, with the coefficients taken from the camera calibration data.
+### Return value
+
+Current radial distortion coefficients of the Kannala-Brandt model
+## void setPanoramaFisheyeKannalaBrandtFocalLength ( const Math:: vec2 & length )
+
+Sets a new focal length intrinsics (fx, fy) of the calibrated fisheye camera, in pixels, used by the Kannala-Brandt panorama mode to convert pixel coordinates to normalized camera coordinates.
+### Arguments
+
+- *const  Math::[vec2](../../../api/library/math/class.vec2_cpp.md)&* **length** - The focal length intrinsics of the calibrated fisheye camera
+
+## Math:: vec2 getPanoramaFisheyeKannalaBrandtFocalLength () const
+
+Returns the current focal length intrinsics (fx, fy) of the calibrated fisheye camera, in pixels, used by the Kannala-Brandt panorama mode to convert pixel coordinates to normalized camera coordinates.
+### Return value
+
+Current focal length intrinsics of the calibrated fisheye camera
+## void setPanoramaFisheyeKannalaBrandtImageCircleRadius ( float radius )
+
+Sets a new radius of the valid image circle of the fisheye lens in normalized radial coordinates, used by the Kannala-Brandt panorama mode: pixels outside this radius are masked out, reproducing the image circle of the real lens.
+### Arguments
+
+- *float* **radius** - The radius of the valid image circle of the fisheye lens
+
+## float getPanoramaFisheyeKannalaBrandtImageCircleRadius () const
+
+Returns the current radius of the valid image circle of the fisheye lens in normalized radial coordinates, used by the Kannala-Brandt panorama mode: pixels outside this radius are masked out, reproducing the image circle of the real lens.
+### Return value
+
+Current radius of the valid image circle of the fisheye lens
+## void setPanoramaFisheyeKannalaBrandtImageDimensions ( const Math:: vec2 & dimensions )
+
+Sets a new dimensions (width, height), in pixels, of the calibrated camera image the Kannala-Brandt intrinsics refer to. The viewport coordinates are mapped to this pixel space before the intrinsics are applied.
+### Arguments
+
+- *const  Math::[vec2](../../../api/library/math/class.vec2_cpp.md)&* **dimensions** - The image dimensions the fisheye intrinsics refer to
+
+## Math:: vec2 getPanoramaFisheyeKannalaBrandtImageDimensions () const
+
+Returns the current dimensions (width, height), in pixels, of the calibrated camera image the Kannala-Brandt intrinsics refer to. The viewport coordinates are mapped to this pixel space before the intrinsics are applied.
+### Return value
+
+Current image dimensions the fisheye intrinsics refer to
+## void setPanoramaFisheyeKannalaBrandtPrincipalPoint ( const Math:: vec2 & point )
+
+Sets a new principal point intrinsics (cx, cy) of the calibrated fisheye camera, in pixels: the image position of the optical axis used by the Kannala-Brandt panorama mode.
+### Arguments
+
+- *const  Math::[vec2](../../../api/library/math/class.vec2_cpp.md)&* **point** - The principal point intrinsics of the calibrated fisheye camera
+
+## Math:: vec2 getPanoramaFisheyeKannalaBrandtPrincipalPoint () const
+
+Returns the current principal point intrinsics (cx, cy) of the calibrated fisheye camera, in pixels: the image position of the optical axis used by the Kannala-Brandt panorama mode.
+### Return value
+
+Current principal point intrinsics of the calibrated fisheye camera
+## void setPanoramaFisheyeKannalaBrandtSkew ( float skew )
+
+Sets a new skew (axis non-orthogonality) coefficient of the calibration matrix used by the Kannala-Brandt panorama mode. The value of 0 (default) corresponds to orthogonal pixel axes.
+### Arguments
+
+- *float* **skew** - The skew intrinsic of the calibrated fisheye camera
+
+## float getPanoramaFisheyeKannalaBrandtSkew () const
+
+Returns the current skew (axis non-orthogonality) coefficient of the calibration matrix used by the Kannala-Brandt panorama mode. The value of 0 (default) corresponds to orthogonal pixel axes.
+### Return value
+
+Current skew intrinsic of the calibrated fisheye camera
+## void setPanoramaFisheyeKannalaBrandtTangentialDistortion ( const Math:: vec2 & distortion )
+
+Sets a new tangential (decentering) distortion coefficients (p1, p2) of the calibrated fisheye camera used by the Kannala-Brandt panorama mode. The value (0, 0) means no tangential distortion.
+### Arguments
+
+- *const  Math::[vec2](../../../api/library/math/class.vec2_cpp.md)&* **distortion** - The tangential distortion coefficients of the calibrated fisheye camera
+
+## Math:: vec2 getPanoramaFisheyeKannalaBrandtTangentialDistortion () const
+
+Returns the current tangential (decentering) distortion coefficients (p1, p2) of the calibrated fisheye camera used by the Kannala-Brandt panorama mode. The value (0, 0) means no tangential distortion.
+### Return value
+
+Current tangential distortion coefficients of the calibrated fisheye camera
+## void setPanoramaForceDisableScreenSpaceEffects ( bool effects )
+
+Sets a new value indicating if screen-space and screen-dependent camera effects (such as SSR, SSAO, SSGI, motion blur, DOF, bloom, lens flares, local tonemapper) are forcibly disabled while the viewport renders a panorama. These effects are computed per panorama face and would produce visible seams between the faces. Enabled by default; when disabled, the effects stay as configured at the cost of per-face artifacts.
+### Arguments
+
+- *bool* **effects** - Set **true** to enable forced disabling of screen-space effects in panorama modes; **false** - to disable it.
+
+## bool isPanoramaForceDisableScreenSpaceEffects () const
+
+Returns the current value indicating if screen-space and screen-dependent camera effects (such as SSR, SSAO, SSGI, motion blur, DOF, bloom, lens flares, local tonemapper) are forcibly disabled while the viewport renders a panorama. These effects are computed per panorama face and would produce visible seams between the faces. Enabled by default; when disabled, the effects stay as configured at the cost of per-face artifacts.
+### Return value
+
+**true** if forced disabling of screen-space effects in panorama modes is enabled ; otherwise **false**.
+## void setPanoramaFisheyeKannalaBrandtChromaticAberration ( float aberration )
+
+Sets a new chromatic aberration intensity of the fisheye lens, used by the Kannala-Brandt panorama mode: the red channel is sampled at the radial distance scaled by (1 - value), the blue channel at (1 + value), reproducing lateral chromatic aberration of a real lens. 0 means no chromatic aberration.
+### Arguments
+
+- *float* **aberration** - The chromatic aberration intensity of the fisheye lens
+
+## float getPanoramaFisheyeKannalaBrandtChromaticAberration () const
+
+Returns the current chromatic aberration intensity of the fisheye lens, used by the Kannala-Brandt panorama mode: the red channel is sampled at the radial distance scaled by (1 - value), the blue channel at (1 + value), reproducing lateral chromatic aberration of a real lens. 0 means no chromatic aberration.
+### Return value
+
+Current chromatic aberration intensity of the fisheye lens
+## void setPanoramaFisheyeKannalaBrandtVignettingCoefficient5 ( float coefficient5 )
+
+Sets a new fifth coefficient of the fisheye vignetting polynomial, used by the Kannala-Brandt panorama mode: the coefficient at the 10th power of the normalized radial distance, kept separate because the coefficients vector holds only four components.
+### Arguments
+
+- *float* **coefficient5** - The fifth coefficient of the fisheye vignetting polynomial
+
+## float getPanoramaFisheyeKannalaBrandtVignettingCoefficient5 () const
+
+Returns the current fifth coefficient of the fisheye vignetting polynomial, used by the Kannala-Brandt panorama mode: the coefficient at the 10th power of the normalized radial distance, kept separate because the coefficients vector holds only four components.
+### Return value
+
+Current fifth coefficient of the fisheye vignetting polynomial
+## void setPanoramaFisheyeKannalaBrandtVignettingCoefficients ( const Math:: vec4 & coefficients )
+
+Sets a new first four coefficients of the fisheye vignetting polynomial, used by the Kannala-Brandt panorama mode: the vignetting intensity is an even-order polynomial of the radial distance normalized by the image circle radius, with these values as the coefficients at the 2nd, 4th, 6th, and 8th powers.
+### Arguments
+
+- *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md)&* **coefficients** - The first four coefficients of the fisheye vignetting polynomial
+
+## Math:: vec4 getPanoramaFisheyeKannalaBrandtVignettingCoefficients () const
+
+Returns the current first four coefficients of the fisheye vignetting polynomial, used by the Kannala-Brandt panorama mode: the vignetting intensity is an even-order polynomial of the radial distance normalized by the image circle radius, with these values as the coefficients at the 2nd, 4th, 6th, and 8th powers.
+### Return value
+
+Current first four coefficients of the fisheye vignetting polynomial
 ---
 
 ## static ViewportPtr create ( )
 
+
 Creates a new viewport with default settings.
+
+
 > **Notice:** We don't recommend creating a viewport every frame, as such approach is unoptimal and exhaust GPU resources. Create viewports in **init()** instead, to have them cached for further use.
 
 
@@ -12723,7 +12879,7 @@ Removes specified [skip flags](#SKIP_SHADOWS) from the list of currently used on
 Renders an image from the specified camera. This method is used to integrate the engine to a 3rd party renderer.
 
 
-To render an image from the camera to the [RenderTarget](../../../api/library/rendering/class.rendertarget_cpp.md) interface, do the following:
+To render an image from the camera to the *[RenderTarget](../../../api/library/rendering/class.rendertarget_cpp.md)* interface, do the following:
 
 
 ```cpp
@@ -12775,7 +12931,7 @@ Renders an image of the specified size from the camera to a 2D texture.
 - *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Texture](../../../api/library/rendering/class.texture_cpp.md)> &* **texture** - Target 2D [texture](../../../api/library/rendering/class.texture_cpp.md) to save the result to.
 - *int* **width** - Texture width, in pixels.
 - *int* **height** - Texture height, in pixels.
-- *bool* **hdr** - HDR flag. > **Notice:** This parameter determines the format of the 2D texture: > - **1** - texture format will be set to [**RGBA16F**](../../../api/library/rendering/class.texture_cpp.md#FORMAT_RGBA16F) > - **0** - texture format will be set to [**RGBA8**](../../../api/library/rendering/class.texture_cpp.md#FORMAT_RGBA8)
+- *bool* **hdr** - HDR flag. > **Notice:** This parameter determines the format of the 2D texture: > > > - **1** - texture format will be set to [**RGBA16F**](../../../api/library/rendering/class.texture_cpp.md#FORMAT_RGBA16F) > - **0** - texture format will be set to [**RGBA8**](../../../api/library/rendering/class.texture_cpp.md#FORMAT_RGBA8)
 
 ## void renderTextureCube ( const Ptr < Camera > & camera , const Ptr < Texture > & texture , bool local_space = false )
 
@@ -12794,7 +12950,7 @@ Renders the image from the camera to the cube map of the specified size.
 - *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Camera](../../../api/library/rendering/class.camera_cpp.md)> &* **camera** - Camera, an image from which should be rendered.
 - *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Texture](../../../api/library/rendering/class.texture_cpp.md)> &* **texture** - Target cube map to save the result to.
 - *int* **size** - Cube map edge size.
-- *bool* **hdr** - HDR flag. > **Notice:** This parameter determines the format of the 2D texture: > - **1** - texture format will be set to [**RGBA16F**](../../../api/library/rendering/class.texture_cpp.md#FORMAT_RGBA16F) > - **0** - texture format will be set to [**RGBA8**](../../../api/library/rendering/class.texture_cpp.md#FORMAT_RGBA8)
+- *bool* **hdr** - HDR flag. > **Notice:** This parameter determines the format of the 2D texture: > > > - **1** - texture format will be set to [**RGBA16F**](../../../api/library/rendering/class.texture_cpp.md#FORMAT_RGBA16F) > - **0** - texture format will be set to [**RGBA8**](../../../api/library/rendering/class.texture_cpp.md#FORMAT_RGBA8)
 - *bool* **local_space** - A flag indicating if the camera angle should be used for the cube map rendering.
 
 ## void renderNode ( const Ptr < Camera > & camera , const Ptr < Node > & node )
@@ -12825,7 +12981,7 @@ Renders the given node with all children to the 2D texture of the specified size
 - *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Texture](../../../api/library/rendering/class.texture_cpp.md)> &* **texture** - Target 2D [texture](../../../api/library/rendering/class.texture_cpp.md) to save the result to.
 - *int* **width** - Texture width, in pixels.
 - *int* **height** - Texture height, in pixels.
-- *bool* **hdr** - HDR flag. > **Notice:** This parameter determines the format of the 2D texture: > - **1** - texture format will be set to [**RGBA16F**](../../../api/library/rendering/class.texture_cpp.md#FORMAT_RGBA16F) > - **0** - texture format will be set to [**RGBA8**](../../../api/library/rendering/class.texture_cpp.md#FORMAT_RGBA8)
+- *bool* **hdr** - HDR flag. > **Notice:** This parameter determines the format of the 2D texture: > > > - **1** - texture format will be set to [**RGBA16F**](../../../api/library/rendering/class.texture_cpp.md#FORMAT_RGBA16F) > - **0** - texture format will be set to [**RGBA8**](../../../api/library/rendering/class.texture_cpp.md#FORMAT_RGBA8)
 
 ## void renderNodeTexture2D ( const Ptr < Camera > & camera , const Ptr < Node > & node , const Ptr < Texture > & texture )
 
@@ -12864,7 +13020,7 @@ Renders given nodes with all their children to the 2D texture of the specified s
 - *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Texture](../../../api/library/rendering/class.texture_cpp.md)> &* **texture** - Target 2D [texture](../../../api/library/rendering/class.texture_cpp.md) to save the result to.
 - *int* **width** - Texture width, in pixels.
 - *int* **height** - Texture height, in pixels.
-- *int* **hdr** - HDR flag. > **Notice:** This parameter determines the format of the 2D image: > - **1** - texture format will be set to [**RGBA16F**](../../../api/library/rendering/class.texture_cpp.md#FORMAT_RGBA16F) > - **0** - texture format will be set to [**RGBA8**](../../../api/library/rendering/class.texture_cpp.md#FORMAT_RGBA8)
+- *int* **hdr** - HDR flag. > **Notice:** This parameter determines the format of the 2D image: > > > - **1** - texture format will be set to [**RGBA16F**](../../../api/library/rendering/class.texture_cpp.md#FORMAT_RGBA16F) > - **0** - texture format will be set to [**RGBA8**](../../../api/library/rendering/class.texture_cpp.md#FORMAT_RGBA8)
 
 ## void renderNodesTexture2D ( const Ptr < Camera > & camera , const Vector < Ptr < Node >> & nodes , const Ptr < Texture > & texture )
 
@@ -12901,7 +13057,10 @@ Renders a stereo image for HMDs having context (peripheral) and focus displays. 
 
 ## void setStereoHiddenAreaMesh ( const Ptr < Mesh > & hidden_area_mesh_left , const Ptr < Mesh > & hidden_area_mesh_right )
 
+
 Sets custom meshes to be used for culling pixels, that are not visible in VR.
+
+
 > **Notice:** Requires [render_stereo_hidden_area](../../../code/console/index.md#render_stereo_hidden_area) = 2
 
 

@@ -28,6 +28,7 @@ Coordinates of the **"up" vector** are additionally stored for each point of the
 
 It is possible to obtain an interpolated value for any point belonging to a segment, this can be used for various purposes (e.g. to change road profile). Interpolated "up" vector can be calculated as follows (pseudocode):
 
+
 ```cpp
 vec3 lerpUpVector(vec3 start_up, vec3 end_up, float t) const
 {
@@ -44,6 +45,7 @@ A world spline graph consists of segments and has a list of source nodes (curren
 
 
 WorldSplineGraph has the following features:
+
 
 - Points of the spline graph are managed via the [SplinePoint](../../../api/library/worlds/class.splinepoint_cpp.md) class.
 - Segments of the spline graph are managed via the [SplineSegment](../../../api/library/worlds/class.splinesegment_cpp.md) class.
@@ -90,7 +92,7 @@ Returns the current value indicating if the world spline graph is curved.
 **true** if the world spline graph is curved; otherwise **false**.
 ## Event<const Ptr < WorldSplineGraph > &> getEventRebuildingFinished () const
 
-event triggered after the world spline graph is rebuilt. The world spline graph uses a deferred rebuild. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the world spline graph is rebuilt. The world spline graph uses a deferred rebuild. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -226,10 +228,10 @@ publisher->getEventRebuildingFinished().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < WorldSplineGraph > &, const Ptr < SplineSegment > &> getEventSegmentRemoved () const
 
-event triggered when a segment of the world spline graph is removed. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a segment of the world spline graph is removed. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -365,10 +367,10 @@ publisher->getEventSegmentRemoved().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < WorldSplineGraph > &, const Ptr < SplineSegment > &> getEventSegmentChanged () const
 
-event triggered when a segment of the world spline graph is modified. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a segment of the world spline graph is modified. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -504,10 +506,10 @@ publisher->getEventSegmentChanged().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < WorldSplineGraph > &, const Ptr < SplineSegment > &> getEventSegmentAdded () const
 
-event triggered when a segment is added to the world spline graph. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a segment is added to the world spline graph. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -643,10 +645,10 @@ publisher->getEventSegmentAdded().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < WorldSplineGraph > &, const Ptr < SplinePoint > &> getEventPointRemoved () const
 
-event triggered when a point of the world spline graph is removed. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a point of the world spline graph is removed. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -782,10 +784,10 @@ publisher->getEventPointRemoved().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < WorldSplineGraph > &, const Ptr < SplinePoint > &> getEventPointChanged () const
 
-event triggered when a point of the world spline graph is modified. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a point of the world spline graph is modified. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -921,10 +923,10 @@ publisher->getEventPointChanged().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < WorldSplineGraph > &, const Ptr < SplinePoint > &> getEventPointAdded () const
 
-event triggered when a point is added to the world spline graph. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a point is added to the world spline graph. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1060,7 +1062,7 @@ publisher->getEventPointAdded().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## static WorldSplineGraphPtr create ( )
@@ -1099,13 +1101,19 @@ Loads source nodes assigned to the specified spline segment immediately.
 Clears the world spline graph.
 ## void makeCurved ( )
 
+
 Curves the world spline graph using its geodetic pivot. The spline file is saved upon completion of the curving operation.
+
+
 > **Notice:** The world spline graph must be a child of a [Geodetic Pivot](../../../api/library/geodetics/class.geodeticpivot_cpp.md) node.
 
 
 ## void makeFlat ( )
 
+
 Flattens the world spline graph using its geodetic pivot. The spline file is saved upon completion of the flattening operation.
+
+
 > **Notice:** The world spline graph must be a child of a [Geodetic Pivot](../../../api/library/geodetics/class.geodeticpivot_cpp.md) node.
 
 
@@ -1147,7 +1155,10 @@ Gets a mesh used by a node with the specified index, placed along the specified 
 
 ## void getPointNodeMesh ( const Ptr < Mesh > & mesh , const Ptr < SplinePoint > & point , int node_index , bool bake_transform = false )
 
+
 Exports a mesh with the specified index placed as the specified [spline point](../../../api/library/worlds/class.splinepoint_cpp.md) to the specified target mesh.
+
+
 > **Notice:** Due to the nature of the mesh, there will be visual artifacts connected with the float precision, in case an exported node is located very far from the origin (around 10,000 m and further). In this case we advise exporting it without baking transformation.
 
 
@@ -1170,7 +1181,10 @@ Creates a new [spline point](../../../api/library/worlds/class.splinepoint_cpp.m
 New [spline point](../../../api/library/worlds/class.splinepoint_cpp.md).
 ## void removeSplinePoint ( const Ptr < SplinePoint > & point , bool merge = 0 )
 
+
 Removes the specified spline point from the world spline graph. You can set the *merge* flag to merge [spline segments](../../../api/library/worlds/class.splinesegment_cpp.md) sharing this point as their start and end points.
+
+
 > **Notice:** Segment merging is available only when the point to be removed is shared by two segments, otherwise the *merge* flag is ignored and all segments sharing this point are also removed.
 
 

@@ -94,7 +94,7 @@ The value indicating if the joint is broken or intact.
 The value indicating if collisions between the connected bodies are enabled.
 ## 🔒︎ bool IsEnabledSelf
 
-The value indicating is the joint is enabled.
+The value indicating if the joint is enabled by its own flag, regardless of the effective enabled state derived from the connected bodies.
 ## bool Enabled
 
 The value indicating if the joint calculations are enabled.
@@ -118,7 +118,7 @@ The node possessing the second body connected to the joint.
 The node possessing the first body connected to the joint.
 ## 🔒︎ Event< Joint > EventBroken
 
-The Event triggered when the joint breaks. The event handler must receive a *Joint* as an argument. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The Event triggered when the joint breaks. The event handler must receive a *Joint* as an argument. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 

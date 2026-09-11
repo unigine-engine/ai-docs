@@ -11,6 +11,15 @@ Represents a global mixer bus.
 
 ## Bus Class
 
+### Enums
+
+## PORT_INDEX
+
+Output-port index values used for routing the bus signal on platforms with auxiliary audio ports.
+| Name | Description |
+|---|---|
+| **PORT_INDEX_NONE** = 0xffffffffffffffff | The bus is not routed to any specific auxiliary output port and outputs normally. |
+
 ### Members
 
 ## void setPaused ( bool paused )
@@ -25,7 +34,7 @@ Sets a new pause state for the bus.
 Returns the current pause state for the bus.
 ### Return value
 
-**true** if pause state for the bus is enabled; otherwise **false**.
+**true** if pause state for the bus is enabled ; otherwise **false**.
 ## void setVolume ( float volume )
 
 Sets a new volume level in range [-inf; inf].
@@ -51,13 +60,26 @@ Sets a new mute state for the bus.
 Returns the current mute state for the bus.
 ### Return value
 
-**true** if mute state for the bus is enabled; otherwise **false**.
+**true** if mute state for the bus is enabled ; otherwise **false**.
 ## bool isValid () const
 
 Returns the current value indicating if the bus reference is valid.
 ### Return value
 
 **true** if bus reference is valid; otherwise **false**.
+## void setPortIndex ( Bus::PORT_INDEX index )
+
+Sets a new output-port index the signal of the underlying *FMOD Studio* bus is routed to, used on platforms with auxiliary audio ports (for example, controller speakers). The *PORT_INDEX_NONE* value routes the bus normally.
+### Arguments
+
+- *[Bus::PORT_INDEX](../../../../api/library/plugins/fmod/class.bus_cpp.md#PORT_INDEX)* **index** - The output-port index of the bus
+
+## Bus::PORT_INDEX getPortIndex () const
+
+Returns the current output-port index the signal of the underlying *FMOD Studio* bus is routed to, used on platforms with auxiliary audio ports (for example, controller speakers). The *PORT_INDEX_NONE* value routes the bus normally.
+### Return value
+
+Current output-port index of the bus
 ---
 
 ## void stopAllEvents ( )

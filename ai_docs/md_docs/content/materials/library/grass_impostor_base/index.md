@@ -152,9 +152,9 @@ When the impostors are [oriented](../../../../objects/objects/grass/index.md#ori
 
 **Animation** option enables animation for objects (e.g., for plants swinging in the wind). Available modes:
 
-- **None** — animation is disabled.
-- **Animation** — standard animation is used. ![](animation_0.gif) *Standard Animation of Impostors*
-- **Field Animation** — standard animation is used together with animation produced by [Field Animation](../../../../objects/effects/fields/field_animation/index.md). ![](animation_1.gif) *Standard Animation of Impostors + Field Animation*
+- **None** � animation is disabled.
+- **Animation** � standard animation is used. ![](animation_0.gif) *Standard Animation of Impostors*
+- **Field Animation** � standard animation is used together with animation produced by [Field Animation](../../../../objects/effects/fields/field_animation/index.md). ![](animation_1.gif) *Standard Animation of Impostors + Field Animation*
 
 
 > **Notice:** Enabling this option activates the additional [Animation parameters](#parameters_animation).
@@ -328,7 +328,7 @@ The texture is 3-channelled (RGB).
 
 The texture is 1-channelled (R).
 
-- *R* — visibility mask.
+- *R* � visibility mask.
 
 
 > **Notice:** The texture is available only if **[Visibility Mask](#option_visibility_mask)** is enabled.

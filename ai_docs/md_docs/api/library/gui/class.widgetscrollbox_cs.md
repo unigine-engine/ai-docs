@@ -40,7 +40,7 @@ The object of this class looks as follows:
 The horizontal scroller object.
 ## int HScrollValue
 
-The position (and also automatically the size) of the horizontal scroller. That is, it returns the width of the currently invisible area that determines the size of the slider.
+The position (and also automatically the size) of the horizontal scroller. That is, it returns the width of the currently invisible area that determines the size of the slider. The minimum value is 0, the maximum value is the difference between the object width and the frame width.
 ## 🔒︎ int HScrollStepSize
 
 The step of the horizontal scroller. This step is used to increment the scroll position.
@@ -52,16 +52,16 @@ The width of the currently visible area.
 The width of the whole object that should be scrolled.
 ## WidgetScrollBox.SCROLL_RENDER_MODE HScrollHidden
 
-The flag indicating if a horizontal scroll bar is hidden, disabled or always rendered.
+The flag indicating if a horizontal scroll bar is hidden, disabled or always rendered. One of the *[SCROLL_RENDER_MODE](#SCROLL_RENDER_MODE)* values.
 ## bool HScrollEnabled
 
 The value indicating if horizontal scrolling is enabled.
 ## 🔒︎ WidgetScroll VScroll
 
-The vetical scroller object.
+The vertical scroller object.
 ## int VScrollValue
 
-The position (and also the size) of the vertical scroller. That is, it returns the height of the currently invisible area that determines the size of the slider.
+The position (and also the size) of the vertical scroller. That is, it returns the height of the currently invisible area that determines the size of the slider. The minimum value is 0, the maximum value is the difference between the object height and the frame height.
 ## 🔒︎ int VScrollStepSize
 
 The step of the vertical scroller. This step is used to increment the scroll position.
@@ -73,7 +73,7 @@ The height of the currently visible area.
 The height of the whole object that should be scrolled.
 ## WidgetScrollBox.SCROLL_RENDER_MODE VScrollHidden
 
-The flag indicating if a vertical scroll bar is hidden, disabled or always rendered.
+The flag indicating if a vertical scroll bar is hidden, disabled or always rendered. One of the *[SCROLL_RENDER_MODE](#SCROLL_RENDER_MODE)* values.
 ## bool VScrollEnabled
 
 The value indicating if vertical scrolling is enabled.

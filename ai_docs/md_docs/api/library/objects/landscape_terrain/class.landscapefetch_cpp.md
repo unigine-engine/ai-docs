@@ -296,7 +296,7 @@ Sets a new value indicating if heights data is engaged in the fetch/intersection
 Returns the current value indicating if heights data is engaged in the fetch/intersection request. When the data type is engaged, you can obtain it via the corresponding *get()* method. Disengaging unnecessary data when performing requests saves some performance (e.g., you can engage albedo data only if you need only color information at a certain point). This option is enabled by default.
 ### Return value
 
-**true** if engagement of height data in the fetch/intersection request is enabled; otherwise **false**.
+**true** if engagement of height data in the fetch/intersection request is enabled ; otherwise **false**.
 ## void setUsesNormal ( bool normal )
 
 Sets a new value indicating if normals data is engaged in the fetch/intersection request. When the data type is engaged, you can obtain it via the corresponding *get()* method. Disengaging unnecessary data when performing requests saves some performance (e.g., you can engage albedo data only if you need only color information at a certain point).
@@ -315,7 +315,7 @@ Returns the current value indicating if normals data is engaged in the fetch/int
 
 ### Return value
 
-**true** if engagement of normals data in the fetch/intersection request is enabled; otherwise **false**.
+**true** if engagement of normals data in the fetch/intersection request is enabled ; otherwise **false**.
 ## void setUsesAlbedo ( bool albedo )
 
 Sets a new value indicating if albedo data is engaged in the fetch/intersection request. When the data type is engaged, you can obtain it via the corresponding *get()* method. Disengaging unnecessary data when performing requests saves some performance (e.g., you can engage albedo data only if you need only color information at a certain point).
@@ -334,7 +334,7 @@ Returns the current value indicating if albedo data is engaged in the fetch/inte
 
 ### Return value
 
-**true** if engagement of albedo data in the fetch/intersection request is enabled; otherwise **false**.
+**true** if engagement of albedo data in the fetch/intersection request is enabled ; otherwise **false**.
 ## void setIntersectionPrecision ( float precision )
 
 Sets a new precision value used for intersection detection requested by [*intersectionForce()*](#intersectionForce_int) and [*intersectionAsync()*](#intersectionAsync_int_void) methods.
@@ -405,10 +405,10 @@ Sets a new value indicating if checking for terrain holes in the fetch/intersect
 Returns the current value indicating if checking for terrain holes in the fetch/intersection request is enabled. This option is enabled by default. When disabled terrain holes created using decals are ignored.
 ### Return value
 
-**true** if checking for terrain holes in the fetch/intersection request is enabled; otherwise **false**.
+**true** if checking for terrain holes in the fetch/intersection request is enabled ; otherwise **false**.
 ## Event<> getEventEnd () const
 
-Event triggered on fetch completion. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+Event triggered on fetch completion. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -544,10 +544,10 @@ publisher->getEventEnd().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<> getEventStart () const
 
-Event triggered at the beginning of the fetch process. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+Event triggered at the beginning of the fetch process. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -683,7 +683,7 @@ publisher->getEventStart().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## static LandscapeFetchPtr create ( )

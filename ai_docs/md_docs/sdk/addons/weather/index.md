@@ -4,7 +4,7 @@
 ![](index.png)
 
 
-> **Warning:** This add-on is compatible only with projects that use [double-precision coordinates](../../../sdk/projects/index_cpp.md#precision).
+> **Warning:** This add-on is no longer developed: no new features or fixes are planned for it. It runs on Windows with DirectX 12 only and is compatible only with projects that use [double-precision coordinates](../../../sdk/projects/index_cpp.md#precision).
 
 
 The *Weather* add-on provides a set of ready-to-use sample weather effects:

@@ -1,7 +1,7 @@
 # Patching Project Files
 
 
-> **Warning:** It is crucial to patch the code to include the Agility SDK — without it, your project will not run on DirectX 12, as DX12 without Agility SDK is not supported.
+> **Warning:** It is crucial to patch the code to include the Agility SDK � without it, your project will not run on DirectX 12, as DX12 without Agility SDK is not supported.
 
 
 Upgrading your project to a newer version may sometimes require changes to project files (such as adding new files) or source files (such as adding include directives). These changes are most commonly related to integrating new third-party libraries.

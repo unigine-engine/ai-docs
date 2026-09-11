@@ -93,7 +93,7 @@ Creates a new CPUShader instance.
 ### Arguments
 
 - *[PoolType](/api/library/common/mt/class.cpushader#PoolType)* **pool_** - Target execution pool.
-- *[Priority](#priority)* **priority_** - Task priority in the pool queue.
+- *[Priority](#Priority)* **priority_** - Task priority in the pool queue.
 - *[FrameSyncMode](#FrameSyncMode)* **frame_sync_** - Frame synchronization mode.
 
 ## CPUShader ( PoolType pool_ , Priority priority_ , FrameSyncMode frame_sync_ , WaitMode wait_mode_ )

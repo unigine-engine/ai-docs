@@ -1,7 +1,7 @@
 # C# Component System
 
 
-**Component System** enables you to implement your application's logic via a set of building blocks — **components**, and assign these blocks to nodes, giving them additional functionality. By combining these small and simple blocks you can create a very sophisticated logic system.
+**Component System** enables you to implement your application's logic via a set of building blocks � **components**, and assign these blocks to nodes, giving them additional functionality. By combining these small and simple blocks you can create a very sophisticated logic system.
 
 
 A logic component integrates a [node](../../../start/index.md#node) and a C# class, containing logic implementation (actions to be performed), defining a set of additional parameters to be used.
@@ -75,7 +75,7 @@ Ideally, you name things properly from the start. The name should be clean and r
 
 
 - Renaming your cs-asset in the *Asset Browser*. Component class and associated property will be renamed automatically. The only thing you have to do in this case is to replace all references to your component class in your source code with new ones in your preferred IDE via *Find&Replace*.
-- Using refactoring tools of your IDE (e.g., *[Rename symbol](https://code.visualstudio.com/docs/editor/refactoring#_rename-symbol)* in VS Code or *[Edit -> Refactor -> Rename](https://docs.microsoft.com/en-us/visualstudio/ide/reference/rename)* in *Visual Studio*). After renaming simply open UnigineEditor — the corresponding cs-asset and associated property will be renamed automatically keeping all references. Please be aware that in this case the name of the cs-file containing implementation of your component will change and the file will be removed from the project by your IDE as a missing one. So, you'll have to add the renamed file back to the project in the IDE.
+- Using refactoring tools of your IDE (e.g., *[Rename symbol](https://code.visualstudio.com/docs/editor/refactoring#_rename-symbol)* in VS Code or *[Edit -> Refactor -> Rename](https://docs.microsoft.com/en-us/visualstudio/ide/reference/rename)* in *Visual Studio*). After renaming simply open UnigineEditor � the corresponding cs-asset and associated property will be renamed automatically keeping all references. Please be aware that in this case the name of the cs-file containing implementation of your component will change and the file will be removed from the project by your IDE as a missing one. So, you'll have to add the renamed file back to the project in the IDE.
 
 
 ## Structure of a Component
@@ -116,17 +116,17 @@ Suppose you have a component implementing certain functionality, and you need a 
 Logic of components is implemented via a set of methods, that are called by the corresponding functions of the [world script](../../../code/fundamentals/execution_sequence/code_update.md):
 
 
-- **Init()** — create and initialize all necessary resources.
-- **UpdateAsyncThread()** — specify all logic functions you want to be called every frame independent of the rendering thread. > **Notice:** This method does not have protection locks, so it is not recommended to modify other components inside this method, unless you are absolutely sure, that these components won't be modified or removed elsewhere.
-- **UpdateSyncThread()** — specify all parallel logic functions you want to be executed before the Update(). This method can be used to perform some heavy resource-consuming calculations such as pathfinding, generation of procedural textures and so on. > **Notice:** This method should be used to call only the API methods related to the current node: the node itself, its materials and properties.
-- **Update()** — specify all logic functions you want to be called every frame.
-- **PostUpdate()** — correct behavior according to the updated node states in the same frame.
-- **UpdatePhysics()** — simulate physics: perform continuous operations (pushing a car forward depending on current motor's RPM, simulating a wind blowing constantly, perform immediate collision response, etc.).
-- **Swap()** — operate with the results of the *updateAsyncThread()* method — all other methods (threads) have already been performed and are idle. After this function, only two actions occur:
+- **Init()** � create and initialize all necessary resources.
+- **UpdateAsyncThread()** � specify all logic functions you want to be called every frame independent of the rendering thread. > **Notice:** This method does not have protection locks, so it is not recommended to modify other components inside this method, unless you are absolutely sure, that these components won't be modified or removed elsewhere.
+- **UpdateSyncThread()** � specify all parallel logic functions you want to be executed before the Update(). This method can be used to perform some heavy resource-consuming calculations such as pathfinding, generation of procedural textures and so on. > **Notice:** This method should be used to call only the API methods related to the current node: the node itself, its materials and properties.
+- **Update()** � specify all logic functions you want to be called every frame.
+- **PostUpdate()** � correct behavior according to the updated node states in the same frame.
+- **UpdatePhysics()** � simulate physics: perform continuous operations (pushing a car forward depending on current motor's RPM, simulating a wind blowing constantly, perform immediate collision response, etc.).
+- **Swap()** � operate with the results of the *updateAsyncThread()* method � all other methods (threads) have already been performed and are idle. After this function, only two actions occur:
 
   - All objects that are queued for deletion are deleted.
   - Profiler is updated.
-- **Shutdown()** — perform cleanup on component shutdown.
+- **Shutdown()** � perform cleanup on component shutdown.
 
 
 > **Notice:** You can set [multiple methods for each stage](../../../api/library/common/logic/component_system/cs/class.component.md#methods) (e.g. multiple *Update()* methods or just a single *Init()*).
@@ -227,7 +227,7 @@ In the window that opens the following run options are available:
 |---|---|
 | **Video API** | Graphics API to be used for rendering: - DirectX 12 - Vulkan |
 | **Resolution** | Screen size |
-| **Fullscreen** | Run the instance in one of the following modes: - Disable — application shall run in the windowed mode - Enable — application shall run in the fullscreen mode - Borderless Window — application shall run in the fullwindow mode, when an application window is rendered without decorations |
+| **Fullscreen** | Run the instance in one of the following modes: - Disable � application shall run in the windowed mode - Enable � application shall run in the fullscreen mode - Borderless Window � application shall run in the fullwindow mode, when an application window is rendered without decorations |
 | **VR Mode** | Enable compatibility with one of supported XR runtimes: - Disable - OpenVR - OpenXR - Varjo |
 | **Video Debug** | Enables the [debug context](../../../code/command_line.md#video_debug) of Vulkan or DirectX: - Disable - Messages - Asserts |
 | **Run Current World** | Run the current world opened in the Editor regardless of the default world set by logic. |
@@ -274,7 +274,7 @@ See the [Packing a Final Build for Publishing](../../../editor2/projects/build_p
 As an example, you can use components to implement logic of enemies chasing the player in your game: regardless of their size, shape, speed, all of them will check player's position, and try to find a path to move closer to it as fast as they can. The code will be basically the same, it'll just use different parameters (speed, mesh, or sounds maybe), so you can put all these parameters to a component (to be able to change them at any time) and the code to the corresponding component class (e.g. place enemies in the world in the *Init()* and chase the player in the *Update()* method).
 
 
-Then you should simply assign the component to all enemy objects and set up parameters (define meshes, sounds, etc.). The Component System will do the rest: execute your code at the corresponding stages of the Engine's [main loop](../../../code/fundamentals/execution_sequence/code_update.md) for all enemy objects using their specific parameters. Should you decide to modify your code later, you can do that in a single source — component class.
+Then you should simply assign the component to all enemy objects and set up parameters (define meshes, sounds, etc.). The Component System will do the rest: execute your code at the corresponding stages of the Engine's [main loop](../../../code/fundamentals/execution_sequence/code_update.md) for all enemy objects using their specific parameters. Should you decide to modify your code later, you can do that in a single source � component class.
 
 
 Integration with the *[**Microprofile**](../../../tools/profiling/microprofile/index_cpp.md)* tool, enables you to monitor overall performance of the Component System, as well as to add profiling information for your custom components.

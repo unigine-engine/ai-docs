@@ -133,7 +133,10 @@ Constructor. Creates an image converter by copying a given source image converte
 
 ## void SetRange ( int channel , dvec4 value )
 
+
 Sets the range to be applied at the image conversion.
+
+
 > **Notice:** The range of the final image will be clamped, if the set range values exceed the maximum values of the image conversion format.
 
 

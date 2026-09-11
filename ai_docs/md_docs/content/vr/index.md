@@ -59,7 +59,7 @@ Follow the recommendations given below to reduce the risk of VR Sickness and ens
 
 
 - You must maintain framerate equal to or greater than the HMD's display refresh rate. Ideally, it should be kept a little bit higher to make sure you always stay above. Lags and dropped frames produce judder which is discomforting in VR. So, make sure to optimize your project as much as possible.
-- The worst thing you can do to your user in VR is to display cinematic cutscenes or take control of camera movement in conflict with the user’s real-world self-motion. So, don't do that.
+- The worst thing you can do to your user in VR is to display cinematic cutscenes or take control of camera movement in conflict with the user�s real-world self-motion. So, don't do that.
 - The *Field of View* (FOV) must match the physical geometry of the headset and lenses. Otherwise, the world will look warped as you turn your head, which may cause discomfort and nausea. So, FOV value should be set automatically via the device's SDK and internal configuration. Avoid overriding it manually yourself and do not let users change it.
 - Avoid using camera bobbing effect to simulate walking (typical for the most first person games). Moving the camera up and down is annoying, it breaks VR experience and causes VR Sickness.
 - Zooming in or out with the camera is not recommended, as it can induce VR Sickness, particularly if doing so causes head and camera movements to fall out of 1-to-1 correspondence with each other.

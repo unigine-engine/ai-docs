@@ -205,6 +205,19 @@ Returns the current distance from the light source shape within which the light 
 ### Return value
 
 Current distance from the light source shape, within which the light source doesn't illuminate anything.
+## void setUseEnvironmentColor ( int color )
+
+Sets a new value indicating if the light color is modulated by the environment color. When enabled, the light color is multiplied by the color of the environment behind the light source (a blurred sample of the sky cubemap taken along the light direction), imitating a sky portal: a light source placed in a window follows the sky and the surroundings it faces. Takes effect only when the sky cubemap is available.
+### Arguments
+
+- *int* **color** - The taking the light color from the environment
+
+## int isUseEnvironmentColor () const
+
+Returns the current value indicating if the light color is modulated by the environment color. When enabled, the light color is multiplied by the color of the environment behind the light source (a blurred sample of the sky cubemap taken along the light direction), imitating a sky portal: a light source placed in a window follows the sky and the surroundings it faces. Takes effect only when the sky cubemap is available.
+### Return value
+
+Current taking the light color from the environment
 ---
 
 ## static LightProj ( vec4 color , float attenuation_distance , float fov , string name = 0 )

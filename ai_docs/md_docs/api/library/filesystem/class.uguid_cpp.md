@@ -77,6 +77,17 @@ Returns a hash for the UGUID value.
 ### Return value
 
 Hash generated for the UGUID value.
+## static bool lexicographicalLess ( const UGUID & left , const UGUID & right )
+
+Compares two values and returns a value indicating whether the first one goes before the second one. The order is the same on every platform, so it can be used to sort values into a stable sequence - when writing them to a file, for example.
+### Arguments
+
+- *const [UGUID](../../../api/library/filesystem/class.uguid_cpp.md) &* **left** - First value to be compared.
+- *const [UGUID](../../../api/library/filesystem/class.uguid_cpp.md) &* **right** - Second value to be compared.
+
+### Return value
+
+true if the first value goes before the second one; otherwise, false.
 ## void clear ( )
 
 Clears the UGUID value. All 40 bytes are set to 0.

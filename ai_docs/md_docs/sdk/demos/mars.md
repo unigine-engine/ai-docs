@@ -29,12 +29,12 @@ This demo showcases features of the *[Landscape Terrain](../../objects/objects/t
 To run this demo, the following is required:
 
 
-- Video memory: **minimum** 2 GB — this would allow running the demo with Low and Medium quality. With the memory less than this, the demo will not run.
+- Video memory: **minimum** 2 GB � this would allow running the demo with Low and Medium quality. With the memory less than this, the demo will not run.
 
-  - **Low** — 2048 MB
-  - **Medium** — 2048 MB
-  - **High** — 3072 MB
-  - **Ultra** — 4096 MB
+  - **Low** � 2048 MB
+  - **Medium** � 2048 MB
+  - **High** � 3072 MB
+  - **Ultra** � 4096 MB
 - Disk space: 12 GB
 
 

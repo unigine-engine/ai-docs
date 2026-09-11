@@ -20,26 +20,6 @@ To make the plugin available in the Editor:
 The **IG Editor Plugin** provides the following features.
 
 
-## Geodetics
-
-
-This window outputs current coordinates in the geodetics format.
-
-
-![](geodetics.png)
-
-
-- **DataBase Origin** — origin of the world (not editable)
-- **Camera** — camera geoposition
-- **Current Node** — geoposition of the selected node
-
-
-### Reload Geodetic System
-
-
-The **Reload Geodetic System** button recalculates the origin coordinates for the world. It is useful when the terrain or the geodetic pivot position was changed. In such cases the manual reload of the geodetic system is required to make the window show the new correct coordinates.
-
-
 ## DateTime
 
 
@@ -49,20 +29,20 @@ Allows to set up the date and time parameters which affect the sky and world ill
 ![](datetime.png)
 
 
-- **DateTime** — sets the current date and time
-- **Timezone** — sets the current UTC time zone for the date and time (e.g., for the *UTC-3:30* timezone the value will be equal to -3.5)
-- **Continuous Time** — enables or disables the passage of time
-- **Sun** — enables the sun and its light rendering and sets brightness intensity
-- **Moon** — enables the moon and its light rendering and sets brightness intensity
-- **Stars** — enables the stars rendering and sets their brightness intensity
+- **DateTime** � sets the current date and time
+- **Timezone** � sets the current UTC time zone for the date and time (e.g., for the *UTC-3:30* timezone the value will be equal to -3.5)
+- **Continuous Time** � enables or disables the passage of time
+- **Sun** � enables the sun and its light rendering and sets brightness intensity
+- **Moon** � enables the moon and its light rendering and sets brightness intensity
+- **Stars** � enables the stars rendering and sets their brightness intensity
 
 
 ### Buttons
 
 
-- **Show Sun Node** — selects the sun node in the *World Nodes* window
-- **Show Moon Node** — selects the moon node in the *World Nodes* window
-- **Save** — saves the data, time, and timezone to [configuration file](../ig/config.md)
+- **Show Sun Node** � selects the sun node in the *World Nodes* window
+- **Show Moon Node** � selects the moon node in the *World Nodes* window
+- **Save** � saves the data, time, and timezone to [configuration file](../ig/config.md)
 
 
 ## Meteo
@@ -103,9 +83,9 @@ To set up a custom weather region, do the following:
 The following buttons are provided to setup a region:
 
 
-- **Add Region** — adds a region.
-- **Remove Region** — removes the selected region.
-- **Edit Region** — enables edit mode for the selected region.
+- **Add Region** � adds a region.
+- **Remove Region** � removes the selected region.
+- **Edit Region** � enables edit mode for the selected region.
 
 
 #### Saving the Region Configuration
@@ -123,8 +103,8 @@ You can save the region via the *Save Region Mask* button as a texture on a disk
 Meteo Presets store the data about regions with layers and their parameters to a file of special format (`*.igmeteo`). The *IG:Meteo* window allows you to use presets the following ways:
 
 
-- **Save** — saves the region on a disk as a meteo preset.
-- **Load** — loads the meteo preset from a disk.
+- **Save** � saves the region on a disk as a meteo preset.
+- **Load** � loads the meteo preset from a disk.
 
 
 ### Layers
@@ -139,9 +119,9 @@ Layers comprise a vertical profile of the region. Various heights can store diff
 #### Types of Layers
 
 
-- **Base Layer** — base layer without any visual representation. Contains only parameters (visibility distance, temperature, humidity, etc.).
-- **Cloud Layer** — layer that describes the clouds.
-- **Precipitation Layer** — layer that describes the precipitation (rains or snow).
+- **Base Layer** � base layer without any visual representation. Contains only parameters (visibility distance, temperature, humidity, etc.).
+- **Cloud Layer** � layer that describes the clouds.
+- **Precipitation Layer** � layer that describes the precipitation (rains or snow).
 
 
 #### Setting Up Layers
@@ -185,9 +165,9 @@ Use the **Coverage** parameter to make clouds appear and stand out in the sky.
 Specifies the type of precipitation:
 
 
-- -1: **None** — no precipitation is set for this layer
-- 1: **Rain** — raindrops
-- 2: **Snow** — snowflakes
+- -1: **None** � no precipitation is set for this layer
+- 1: **Rain** � raindrops
+- 2: **Snow** � snowflakes
 
 
 ##### Setting Up Precipitations
@@ -220,8 +200,8 @@ The maximum frequency that can be set via the *IG Editor Plugin* is once per sec
 Specifies wind properties for this layer by setting the direction and force of the wind.
 
 
-- **Direction** — wind direction inside the layer
-- **Wind Force** — force of the wind for the layer
+- **Direction** � wind direction inside the layer
+- **Wind Force** � force of the wind for the layer
 
 
 ![](wind.png)
@@ -261,14 +241,14 @@ This window describes all types of clouds available in IG:
 Via this window you can add your own custom types of clouds or change the default ones. The following parameters are available:
 
 
-- **Cloud ID** — ID of the cloud in the list
-- **Name** — cloud name
-- **Material** — cloud material
-- **Tracker** — cloud track used for coverage changing
-- **Shadow** — power of the shadow cast by this cloud
-- **Elevation** — default elevation for this type of cloud (height above sea level)
-- **Thickness** — default thickness for this type of cloud
-- **Padding** — lower and upper bound for this type of cloud
+- **Cloud ID** � ID of the cloud in the list
+- **Name** � cloud name
+- **Material** � cloud material
+- **Tracker** � cloud track used for coverage changing
+- **Shadow** � power of the shadow cast by this cloud
+- **Elevation** � default elevation for this type of cloud (height above sea level)
+- **Thickness** � default thickness for this type of cloud
+- **Padding** � lower and upper bound for this type of cloud
 
 
 To understand the parameters' meaning, check the diagram below.
@@ -286,4 +266,4 @@ Clouds list and parameters are saved to the `ig_config.xml` file, so it can be r
 ![](other_settings.png)
 
 
-- **Visualize Collision Segments** — toggles visualization of collision segments in the Editor.
+- **Visualize Collision Segments** � toggles visualization of collision segments in the Editor.

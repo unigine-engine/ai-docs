@@ -37,7 +37,12 @@ The object of this class looks as follows:
 The text of the label.
 ## int TextAlign
 
-The alignment of the label.
+The alignment of the label text. One of the following variables:
+- [*GUI_ALIGN_LEFT*](../../../api/library/gui/class.gui_cs.md#ALIGN_LEFT)
+- [*GUI_ALIGN_CENTER*](../../../api/library/gui/class.gui_cs.md#ALIGN_CENTER)
+- [*GUI_ALIGN_RIGHT*](../../../api/library/gui/class.gui_cs.md#ALIGN_RIGHT)
+
+
 ### Members
 
 ---

@@ -7,7 +7,7 @@ This section provides information on typical errors displayed in SDK Browser and
 ## Activation Issues
 
 
-After registering on the *UNIGINE Developer* portal, you receive an email with a link to verify your email. As soon as you confirm your email address, your account is created — you can sign in to the Developer portal and SDK Browser. **Without confirming your email address you won't be able to sign in.**
+After registering on the *UNIGINE Developer* portal, you receive an email with a link to verify your email. As soon as you confirm your email address, your account is created � you can sign in to the Developer portal and SDK Browser. **Without confirming your email address you won't be able to sign in.**
 
 
 If you can't find the confirmation letter, please check the spam folder. The letter subject is: *[UNIGINE] Email confirmation*.
@@ -32,6 +32,9 @@ The same settings **must** be passed as a startup argument for UnigineEditor as 
 
 
 ![](custom_port.png)
+
+
+If licenses are served over the local network by the [Licensing Server](../sdk/licenses/licensing_server.md), see its [Troubleshooting](../troubleshooting/licensing_server.md) section for the licensing messages and discovery issues.
 
 
 ## Evaluation Kit Limitations

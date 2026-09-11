@@ -3,13 +3,10 @@
 **Inherits from:** AnimationBind
 
 
-This class is used to manage property parameter [bindings](../../../../principles/animations/index.md#animation_binding) of [animation objects](../../../../principles/animations/index.md#animation_object) via code. Animation objects serve as proxies in animation sequences and are bound to specific objects (materials, nodes, property parameters, or runtime objects like widgets and windows) at the playback stage.
+This binding points a channel at a parameter of a property, which is how a [sequence](../../../../api/library/animations/timeline/class.animationsequence_cs.md) animates the data your project keeps on its nodes and surfaces.
 
 
-Bindings are used to store, search, and obtain real engine objects that are actually animated.
-
-
-The property parameter to be animated can be bound either via the property asset, via a node or an object's surface to which the property holding the animated parameter is assigned depending on the specified [access mode](#setAccess_int_void). In case of accessing property parameter via a surface we'll get a child property inherited from the one assigned to this surface.
+The property is reached from an asset, from a node or from a surface, and the animated parameter inside it is addressed by its path.
 
 
 ## AnimationBindPropertyParameter Class
@@ -18,54 +15,31 @@ The property parameter to be animated can be bound either via the property asset
 
 ## ACCESS
 
-Access mode. Defines the way the animated material is obtained.
+Access mode. It decides the way the animated property is obtained.
 | Name | Description |
 |---|---|
-| **FROM_ASSET** = 0 | The material to be animated is obtained from a material asset (`.mat`). |
-| **FROM_NODE** = 1 | The material to be animated is obtained from a node. |
-| **FROM_SURFACE** = 2 | The material to be animated is obtained from a surface of an object. In this case we'll get a child property inherited from the one assigned to the surface. |
+| **UNKNOWN** = -1 | The way to obtain the property is not set. |
+| **FROM_ASSET** = 0 | The property is taken from a property asset, so the animation writes into the asset itself and reaches everything that uses it. |
+| **FROM_NODE** = 1 | The property is taken from a node it is assigned to. |
+| **FROM_SURFACE** = 2 | The property is taken from a surface it is assigned to. |
 
 ### Properties
 
 ## AnimationBindPropertyParameter.ACCESS Access
 
-The property parameter access mode. Defines the way the animated property parameter is obtained.
-## 🔒︎ UGUID PropertyDescriptionGUID
-
-The GUID of the property to which the animated parameter belongs.
-## 🔒︎ UGUID PropertyDescriptionFileGUID
-
-The GUID of the file describing the property to which the animated parameter belongs.
-## 🔒︎ int NodeDescriptionID
-
-The ID of the node, to which a property with the animated parameter belongs.
-## 🔒︎ string NodeDescriptionName
-
-The name of the node, to which a property with the animated parameter belongs.
+The access mode of the binding. It decides the way the animated property is obtained.
 ## 🔒︎ string NodePropertyDescriptionName
 
-The name of the node property, to which the animated parameter belongs.
+The name of the property the binding looks for on the node.
 ## 🔒︎ int NodePropertyDescriptionIndex
 
-The index of the node property, to which the animated parameter belongs.
-## 🔒︎ string SurfaceDescriptionName
+The slot of the property on the node, which tells apart several properties assigned to one node.
+## string SurfacePattern
 
-The name of the surface, to which a property with the animated parameter is assigned.
-## 🔒︎ int SurfaceDescriptionIndex
-
-The number of the surface, to which a property with the animated parameter is assigned.
+The pattern the surface names are matched against. It picks the surfaces the binding works on inside every object the target resolves to.
 ## string ParameterPath
 
-The path/name of the animated parameter in the property.
-## 🔒︎ Node Node
-
-The node with a property to which the animated parameter belongs.
-## 🔒︎ Property Property
-
-The animated property parameter.
-## 🔒︎ PropertyParameter PropertyParameter
-
-The animated property parameter.
+The path to the animated parameter inside the property.
 ### Members
 
 ---
@@ -73,34 +47,55 @@ The animated property parameter.
 ## AnimationBindPropertyParameter ( )
 
 Constructor. Creates an empty property parameter binding.
-## void SetPropertyDescription ( UGUID guid , UGUID file_guid )
+## void SetNodes ( Node [] OUT_nodes )
 
-Sets the description components of the animated property parameter. This method is used if the [access mode](#setAccess_int_void) is set to *[ACCESS.FROM_ASSET](../../../...md#ACCESS_FROM_ASSET)*.
+Points the binding at a set of nodes at once, so that one channel drives every one of them.
 ### Arguments
 
-- *[UGUID](../../../../api/library/filesystem/class.uguid_cs.md)* **guid** - GUID of the property to which the animated parameter belongs.
-- *[UGUID](../../../../api/library/filesystem/class.uguid_cs.md)* **file_guid** - GUID of the file describing the property to which the animated parameter belongs.
+- *[Node](../../../../api/library/nodes/class.node_cs.md)[]* **OUT_nodes** - Nodes the binding is to point at. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
 
-## void SetNodeDescription ( int id , string name )
+## void SetAssets ( UGUID [] OUT_file_guids )
 
-Sets the description components of the animated property parameter. This method is used if the [access mode](#setAccess_int_void) is set to *[ACCESS.FROM_NODE](../../../...md#ACCESS_FROM_NODE)*.
+Points the binding at a set of assets at once.
 ### Arguments
 
-- *int* **id** - ID of the node property, to which the animated parameter belongs.
-- *string* **name** - name of the node, to which a property with the animated parameter belongs.
+- *[UGUID](../../../../api/library/filesystem/class.uguid_cs.md)[]* **OUT_file_guids** - File GUIDs of the assets. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
 
 ## void SetNodePropertyDescription ( string name , int index )
 
-Sets the description components of the animated property parameter. This method is used if the [access mode](#setAccess_int_void) is set to *[ACCESS.FROM_ASSET](../../../...md#ACCESS_FROM_ASSET)* or *[ACCESS.FROM_SURFACE](../../../...md#ACCESS_FROM_SURFACE)*.
+Sets which property of the node is animated, by its name and the slot it takes.
 ### Arguments
 
-- *string* **name** - Name of the property, to which the animated parameter belongs.
-- *int* **index** - index of the property, to which the animated parameter belongs.
+- *string* **name** - Name of the property on the node.
+- *int* **index** - Slot of the property on the node.
 
-## void SetSurfaceDescription ( string name , int index )
+## int GetNumTargetSurfaceMatches ( int i )
 
-Sets the description components of the animated property parameter. This method is used if the [access mode](#setAccess_int_void) is set to *[ACCESS.FROM_SURFACE](../../../...md#ACCESS_FROM_SURFACE)*.
+Returns how many surfaces the specified target resolves to, which is what tells a surface pattern that found nothing from one that found many.
 ### Arguments
 
-- *string* **name** - number of the surface, to which a property with the animated parameter is assigned.
-- *int* **index** - number of the surface, to which a property with the animated parameter is assigned.
+- *int* **i** - Target number.
+
+### Return value
+
+Number of surfaces the target resolves to.
+## Node GetTargetResolvedNode ( int i )
+
+Returns the node the specified target of the binding resolves to in the loaded scene.
+### Arguments
+
+- *int* **i** - Target number.
+
+### Return value
+
+Node the target resolves to, or NULL (null in C#) if it resolves to none.
+## Property GetTargetResolvedProperty ( int i )
+
+Returns the property the specified target of the binding resolves to, that is, the property instance carried by the node the target names. This is the object the animated parameter is written into.
+### Arguments
+
+- *int* **i** - Target number.
+
+### Return value
+
+Property the target resolves to, or NULL (null in C#) if it resolves to none.

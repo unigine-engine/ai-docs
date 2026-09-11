@@ -187,6 +187,7 @@ Corresponds to an object of the *[WidgetVPaned](../../../api/library/gui/class.w
 
 ![vpaned container](widgets/vpaned.png)
 
+
 > **Notice:** This widget should contain exactly two children.
 
 
@@ -203,8 +204,8 @@ Attributes:
 
 ```xml
 <vpaned name="Test::vpaned" align="expand" value="-32767">
-	<hbox>…</hbox>
-	<hbox>…</hbox>
+	<hbox>�</hbox>
+	<hbox>�</hbox>
 </vpaned>
 
 ```
@@ -252,6 +253,7 @@ Corresponds to an object of the *[WidgetHPaned](../../../api/library/gui/class.w
 
 ![hpaned container](widgets/hpaned.png)
 
+
 > **Notice:** This widget should contain exactly two children.
 
 
@@ -268,8 +270,8 @@ Attributes:
 
 ```xml
 <hpaned name="Test::hpaned" align="expand" value="-32767">
-	<vbox>…</vbox>
-	<vbox>…</vbox>
+	<vbox>�</vbox>
+	<vbox>�</vbox>
 </hpaned>
 
 ```
@@ -448,7 +450,7 @@ Corresponds to an object of the *[WidgetTabBox](../../../api/library/gui/class.w
 Attributes:
 
 
-- *texture* Path to the tabbox texture of mini-icons. This texture is a bar of N pixels in width and N×M pixels in height.
+- *texture* Path to the tabbox texture of mini-icons. This texture is a bar of N pixels in width and N�M pixels in height.
 
 
 Specific children:
@@ -508,12 +510,12 @@ The example produces the following:
 ![Tabs with icons](examples/tabbox.png)
 
 
-The `menu_icons.png` image is a vertical strip of square (16×16 pixels) mini-icons that have a transparent background:
+The `menu_icons.png` image is a vertical strip of square (16�16 pixels) mini-icons that have a transparent background:
 
 
 ![tabbox icons](examples/tabbox_icons.png)
 
-*16×64 strip of mini-icons*
+*16�64 strip of mini-icons*
 
 
 See the article on [Skin Layout](../../../code/gui/skin/index.md) for more details.

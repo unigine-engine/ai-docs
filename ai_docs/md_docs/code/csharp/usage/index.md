@@ -8,10 +8,6 @@ This section contains a set of usage examples for C# API.
 
 - [C# Component System](../../../code/csharp/usage/using_cs_component_system/index.md)
 
-- [Plugin Class](../../../code/csharp/usage/plugins.md)
-
-- [Package Class](../../../code/csharp/usage/packages.md)
-
 - [Widget Dialog](../../../code/csharp/usage/widgetdialog.md)
 
 - [Extending UnigineScript](../../../code/csharp/usage/script/index.md)

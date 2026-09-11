@@ -28,12 +28,12 @@ Flags defining data from the Master to be ignored by the Slave.
 | Name | Description |
 |---|---|
 | **WORLD_LOAD** = 1 | Loading worlds. |
-| **GAME** = 1 << 1 | Game class (time and speed), for particles — ifps and seed. |
+| **GAME** = 1 << 1 | Game class (time and speed), for particles � ifps and seed. |
 | **PLAYER** = 1 << 2 | Current Master camera synchronization (every frame). |
 | **RENDER** = 1 << 3 | Render and post-effects settings. |
 | **NODES** = 1 << 4 | Nodes. |
 | **MATERIALS** = 1 << 5 | Materials. |
-| **SET_PLAYER** = 1 << 6 | Ignoring [setCustomPlayer()](../../../../api/library/plugins/syncker/class.syncker_master_cs.md#setCustomPlayer_cstr_Player_void) calls by the Master. |
+| **SET_PLAYER** = 1 << 6 | Ignoring *[setCustomPlayer()](../../../../api/library/plugins/syncker/class.syncker_master_cs.md#setCustomPlayer_cstr_Player_void)* calls by the Master. |
 | **VIEW_OFFSET** = 1 << 7 | Changing view offset parameters. |
 | **USER_DATA** = 1 << 8 | Processing user packets sent via [*sendMessage()*](../../../../api/library/plugins/syncker/class.syncker_syncker_cs.md#sendMessage_cstr_Blob_int_bool). |
 | **NODE_LOAD** = 1 << 9 | Loading nodes from `*.node` files. |
@@ -49,10 +49,10 @@ Flags defining data from the Master to be ignored by the Slave.
 
 ## int SkipFlags
 
-The A combination of currently used [skip flags](#SKIP_FLAGS).
+The [skip flags](#SKIP_FLAGS) enabling you to ignore certain information from the Master.
 ## 🔒︎ long ID
 
-The ID of the slave combined as follows: IP address (32 bits) + port number (16 bits).
+The ID of the Slave.
 ### Members
 
 ---
@@ -79,7 +79,10 @@ Returns the local ID of a dynamic node on the Slave by its ID on the Master. A S
 ID of the node on the Slave.
 ## void AddSyncNode ( Node node , int master_node_id )
 
+
 Enables synchronization of parameters of the given node via the UDP protocol.
+
+
 > **Notice:** Scene nodes are not synchronized by default, this method is used to add a particular node to the synchronization queue.
 
 
@@ -90,7 +93,10 @@ Enables synchronization of parameters of the given node via the UDP protocol.
 
 ## void AddSyncNodeID ( int slave_node_id , int master_node_id )
 
+
 Enables synchronization of parameters of the given node via the UDP protocol.
+
+
 > **Notice:** Scene nodes are not synchronized by default, this method is used to add a particular node (by its id) to the synchronization queue.
 
 
@@ -193,4 +199,6 @@ Clears all added callbacks of the specified type. Callback functions can be used
 ## void Reconnect ( )
 
 Allows the disconnected slave computer reconnect to the master computer.
+
+
 > **Notice:** To ensure the correct operation of this method, [SetAllowExtraSlaves](../../../../api/library/plugins/syncker/class.syncker_master_cs.md#setAllowExtraSlaves_int_void) should be set to false.

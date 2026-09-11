@@ -173,7 +173,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventProfileDumpEnd () const
 
 The event handler signature is as follows: *myhandler()*
@@ -190,7 +190,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## float engine.profiler. getValue ( string name )
@@ -205,7 +205,10 @@ Returns a value of the specified counter.
 Value of the counter in milliseconds.
 ## void engine.profiler. begin ( )
 
+
 Starts a counter with a given name and shows a colored graph (if the `show_profiler 1` console variable is set). The counter shows user how many millisecods have been spent for the operation that is performed between the *engine.profiler.begin()* and the *[engine.profiler.end()](#end_float)* functions.
+
+
 ```cpp
 int size = 128;
 ObjectMeshDynamic mesh;
@@ -232,7 +235,10 @@ engine.profiler.end();
 
 ## void engine.profiler. begin ( )
 
+
 Starts a counter with a given name. The counter shows user how many millisecods have been spent for the operation that is performed between the *engine.profiler.begin()* and the *[engine.profiler.end()](#end_float)* functions.
+
+
 ```cpp
 ObjectMeshDynamic mesh;
 // ...
@@ -258,7 +264,10 @@ Stops the last [activated](#begin_cstr_vec4_void) counter and returns its value.
 Value of the counter in milliseconds.
 ## int engine.profiler. beginMicro ( string name , int gpu = 0 )
 
+
 Starts a counter with a given name in the [Microprofile](../../../tools/profiling/microprofile/index.md) only, without overloading the [Performance Profiler](../../../tools/profiling/profiler/index.md) layout. The counter shows user how many millisecods have been spent for the operation that is performed between the *engine.profiler.beginMicro()* and the *[engine.profiler.endMicro()](#endMicro_int_void)* functions.
+
+
 > **Notice:** Each counter has an ID. Thus, several nested *beginMicro() / endMicro()* blocks can be created, which can't be done in the [Performance Profiler](../../../tools/profiling/profiler/index.md).
 
 
@@ -282,7 +291,7 @@ engine.profiler.endMicro(c_id);
 ### Arguments
 
 - *string* **name** - Name of the counter.
-- *int* **gpu** - **1** for the GPU counter; **0** — for the CPU counter. The default value is **0**.
+- *int* **gpu** - **1** for the GPU counter; **0** � for the CPU counter. The default value is **0**.
 
 ### Return value
 
@@ -296,7 +305,10 @@ Stops a previously [activated](#beginMicro_cstr_int_int) Microprofile counter wi
 
 ## void engine.profiler. initThread ( string name , int priority = 0 )
 
+
 Initiates the custom thread for Microprofile calculations to avoid spikes, which otherwise are registered by Microprofile on registering a new thread. This method shall be called at the beginning of the thread and before  and followed by  when the thread is not required anymore.
+
+
 ### Arguments
 
 - *string* **name** - Name of the thread displayed in Microprofile.

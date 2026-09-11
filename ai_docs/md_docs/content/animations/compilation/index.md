@@ -33,6 +33,12 @@ When you save the graph in the [**Animation Graph Editor**](../../../content/ani
 4. **Hot reload** - once compilation succeeds, the old library is unloaded and the new one is loaded. All AnimScript instances are re-initialized, so you see changes immediately without restarting.
 
 
+> **Warning:** If you are building the **Debug** version of the application in the IDE, make sure to launch the **Debug** version of the Editor. The same applies to **Release** versions - both must match for the animation script to work correctly.
+>
+>
+> ![](../../../learn/11_fps/img/debug.png)
+
+
 ## Compiler Setup
 
 
@@ -72,6 +78,19 @@ If errors occur during graph compilation, you will receive a red notification. C
 ![](build_failed.png)
 
 
+## Build Optimizations
+
+
+Because each animation graph is compiled into a standalone native library, rebuilding it takes time. The build is optimized differently depending on where the graph runs, so that both cases get what matters most to them.
+
+
+- **In Editor**, graphs are built in **preview** mode. Compiler optimizations are turned off and only the changed graph is recompiled, so rebuilds after an edit are fast. This keeps iteration quick while you work on the graph, at the cost of slower execution, which does not matter during editing.
+- **In a built application**, graphs are compiled with full optimizations for the fastest possible execution at runtime. UnigineEditor and the application use separate libraries, so the unoptimized editor build never ends up in your game.
+
+
+This is configured automatically: you do not need to set anything for the normal workflow. If you need to override the mode, for example to profile optimized scripts directly in the editor or to test a fast build in a running application, use the `anim_scripts_preview_build` console variable, or the equivalent [Animations](../../../api/library/animations/class.animations_cpp.md#isAnimScriptsPreviewBuild_int) class API.
+
+
 ## Console Commands and Variables
 
 
@@ -81,6 +100,10 @@ The following console tools are available for diagnosing compilation issues:
 | -anim_scripts_rebuild |  |
 |---|---|
 | **Description:** - **Command.** Manually triggers a rebuild of the animation scripts library. Equivalent to [Animations::rebuildAnimScripts()](../../../api/library/animations/class.animations_cpp.md#rebuildAnimScripts_void). |  |
+| -anim_scripts_rebuild_and_quit |  |
+| **Description:** - **Command.** Rebuilds the animation scripts library and then quits the engine. Useful for automated (headless) rebuilds. |  |
+| -anim_scripts_preview_build |  |
+| **Description:** Enables preview build mode for animation scripts: the scripts are compiled without optimizations, which makes rebuilds faster at the cost of slower runtime execution. The editor enables this mode automatically for fast iteration, while a built application uses fully optimized scripts. Override it only for special cases, such as profiling optimized scripts in the editor or testing a fast build in a running application. The same setting is available via the AnimScript class API. | **Arguments:** **0** - disabled (by default) **1** - enabled |
 | -anim_scripts_show_compilers |  |
 | **Description:** - **Command.** Prints a list of all detected C++ compilers and marks the currently active one. Useful for diagnosing why animation graph compilation is not working. |  |
 | -anim_scripts_compiler |  |

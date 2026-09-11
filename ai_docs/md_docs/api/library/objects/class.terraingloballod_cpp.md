@@ -20,105 +20,121 @@ This class is used to manage a single [LOD](../../../objects/objects/terrain/ter
 
 ### Members
 
----
-
 ## void setClearDistance ( float distance )
 
-Sets the clear distance of the LOD. Starting from this distance the tiles of the LOD are removed from memory.
+Sets a new clear distance of the lod. starting from this distance the tiles of the lod are removed from memory.
 ### Arguments
 
-- *float* **distance** - Clear distance, in units.
+- *float* **distance** - The clear distance of the lod
 
-## float getClearDistance ( )
+## float getClearDistance () const
 
-Returns the clear distance of the LOD. Starting from this distance the tiles of the LOD are removed from memory.
+Returns the current clear distance of the lod. starting from this distance the tiles of the lod are removed from memory.
 ### Return value
 
-Current clear distance, in units.
-## void setEnabled ( bool enabled )
-
-Enables or disables the LOD.
-### Arguments
-
-- *bool* **enabled** - **1** to enable the LOD, 0 to disable it.
-
-## bool isEnabled ( )
-
-Returns a value indicating if the LOD is enabled.
-### Return value
-
-**1** if the LOD is enabled; otherwise, 0.
+Current clear distance of the lod
 ## void setLoadDistance ( float distance )
 
-Sets the load distance for the LOD. Starting from this distance the tiles of the LOD are loaded into memory.
+Sets a new load distance for the lod. starting from this distance the tiles of the lod are loaded into memory.
 ### Arguments
 
-- *float* **distance** - Load distance, in units.
+- *float* **distance** - The load distance for the lod
 
-## float getLoadDistance ( )
+## float getLoadDistance () const
 
-Returns the current load distance for the LOD. Starting from this distance the tiles of the LOD are loaded into memory.
+Returns the current load distance for the lod. starting from this distance the tiles of the lod are loaded into memory.
 ### Return value
 
-Current load distance, in units.
-## void setPath ( const char * path )
+Current load distance for the lod
+## void setVisibleDistance ( float distance )
 
-Sets the path to the folder where the LOD is stored.
+Sets a new visibility distance. starting from this distance the tiles of the lod become visible.
 ### Arguments
 
-- *const char ** **path** - Path to the folder where the LOD is stored.
+- *float* **distance** - The visibility distance
 
-## const char * getPath ( )
+## float getVisibleDistance () const
 
-Returns the path to the folder where the LOD is stored.
+Returns the current visibility distance. starting from this distance the tiles of the lod become visible.
 ### Return value
 
-Path to the folder where the LOD is stored.
+Current visibility distance
+## void setViewportMask ( int mask )
+
+Sets a new bit mask for rendering into the viewport. the lod is rendered, if its mask matches the player's one.
+### Arguments
+
+- *int* **mask** - The bit mask for rendering into the viewport
+
+## int getViewportMask () const
+
+Returns the current bit mask for rendering into the viewport. the lod is rendered, if its mask matches the player's one.
+### Return value
+
+Current bit mask for rendering into the viewport
 ## void setTileDensity ( float density )
 
-Sets the density of LOD tiles.
+Sets a new density of lod tiles.
 ### Arguments
 
-- *float* **density** - LOD tile density, in meters per pixel.
+- *float* **density** - The density of lod tiles
 
-## float getTileDensity ( )
+## float getTileDensity () const
 
-Returns the current density of LOD tiles.
+Returns the current density of lod tiles.
 ### Return value
 
-Current LOD tile density, in meters per pixel.
+Current density of lod tiles
+## void setPath ( const char * path )
+
+Sets a new path to the folder where the lod is stored.
+### Arguments
+
+- *const char ** **path** - The path to the folder where the lod is stored
+
+## const char * getPath () const
+
+Returns the current path to the folder where the lod is stored.
+### Return value
+
+Current path to the folder where the lod is stored
+## void setEnabled ( bool enabled )
+
+Sets a new value indicating if the lod is enabled.
+### Arguments
+
+- *bool* **enabled** - value indicating if the lod is enabled
+
+## bool isEnabled () const
+
+Returns the current value indicating if the lod is enabled.
+### Return value
+
+value indicating if the lod is enabled
+## const char * getTypeName () const
+
+Returns the current Name of the terrain global LOD type. One of the following values:
+- TerrainGlobalLod
+- TerrainGlobalLodHeight
+
+
+### Return value
+
+Current Name of the terrain global LOD type
+## TerrainGlobalLod::TYPE getType () const
+
+Returns the current LOD type. One of the [TERRAIN_GLOBAL_LOD*](#TERRAIN_GLOBAL_LOD) variables.
+### Return value
+
+Current LOD type
+---
+
 ## Ptr < Tileset > getTileset ( )
 
 Returns the [tileset](../../../api/library/objects/class.tileset_cpp.md) for the LOD.
 ### Return value
 
 LOD [tileset](../../../api/library/objects/class.tileset_cpp.md).
-## void setViewportMask ( int mask )
-
-Sets the bit mask for rendering into the viewport. The LOD is rendered, if its mask matches the player's one.
-### Arguments
-
-- *int* **mask** - Viewport mask, an integer value each bit of which is a mask.
-
-## int getViewportMask ( )
-
-Returns the current bit mask for rendering into the viewport. The LOD is rendered, if its mask matches the player's one.
-### Return value
-
-Viewport mask, an integer value each bit of which is a mask.
-## void setVisibleDistance ( float distance )
-
-Sets the visibility distance. Starting from this distance the tiles of the LOD become visible.
-### Arguments
-
-- *float* **distance** - Visibility distance, in units.
-
-## float getVisibleDistance ( )
-
-Returns the current visibility distance. Starting from this distance the tiles of the LOD become visible.
-### Return value
-
-Current visibility distance, in units.
 ## int renamePath ( const char * new_path )
 
 Sets a new path to the folder where the LOD is stored.
@@ -132,17 +148,3 @@ Sets a new path to the folder where the LOD is stored.
 ## void reload ( )
 
 Reloads the LOD.
-## TerrainGlobalLod::TYPE getType ( )
-
-Returns the type of the LOD. This method is used to define whether it is a height LOD used for collision and intersection detection or an ordinary albedo, normal or detail mask LOD.
-### Return value
-
-LOD type, one of the [TYPE](#TYPE) values.
-## const char * getTypeName ( )
-
-Returns the name of the terrain global LOD type. This method is used to define whether it is a height LOD used for collision and intersection detection or an ordinary albedo, normal or detail mask LOD.
-### Return value
-
-Name of the terrain global LOD type. One of the following values:
-- TerrainGlobalLod
-- TerrainGlobalLodHeight

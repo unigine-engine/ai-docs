@@ -1,7 +1,7 @@
 # Unigine::Plugins::SpiderVision::WarpGridData Class (CS)
 
 
-The object of this class stores the information on the warp grid — a set of points and their handles that create a mesh based on which the displayed image is reshaped.
+The object of this class stores the information on the warp grid � a set of points and their handles that create a mesh based on which the displayed image is reshaped.
 
 
 Warping of the image is required to render the projected image on a distorted surface in such a way that it would look undistorted.

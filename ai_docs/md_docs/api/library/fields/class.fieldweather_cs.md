@@ -5,6 +5,7 @@
 
 This class is used to create and modify a [weather field](../../../objects/effects/fields/field_weather/index.md). The field is applied to [CloudLayer object](../../../api/library/objects/class.objectcloudlayer_cs.md) and specifies a local weather area. This type of field makes it possible to create local storms or clouds having their own coverage texture as well as to control their movement.
 
+
 > **Notice:** The number of weather fields on the scene is not limited as their impact on performance is not significant.
 
 

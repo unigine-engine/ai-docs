@@ -107,15 +107,15 @@ The following table lists the names for the parameters available out of the box 
 
 | `export_lights` |
 |---|
-| Exports the light nodes. - 0 — disabled - 1 — to enable (by default) |
+| Exports the light nodes. - 0 � disabled - 1 � to enable (by default) |
 | `export_cameras` |
-| Exports the camera nodes (*FbxExporter* only). - 0 — disable - 1 — enabled (by default) |
+| Exports the camera nodes (*FbxExporter* only). - 0 � disable - 1 � enabled (by default) |
 | `export_surface_to_node` |
-| Exports all surfaces as separate meshes inside the target FBX container / USD file. - 0 — disabled - 1 — to enable (by default) |
+| Exports all surfaces as separate meshes inside the target FBX container / USD file. - 0 � disabled - 1 � to enable (by default) |
 | `export_material_normal_maps` |
-| Exports normal maps of materials (*FbxExporter* only). - 0 — disabled - 1 — to enable (by default) |
+| Exports normal maps of materials (*FbxExporter* only). - 0 � disabled - 1 � to enable (by default) |
 | `reset_root_node_transformation` |
-| Resets the node's root transformation. - 0 — disabled (by default) - 1 — to enable |
+| Resets the node's root transformation. - 0 � disabled (by default) - 1 � to enable |
 
 
 ### See Also

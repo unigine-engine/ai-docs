@@ -92,7 +92,7 @@ The window will be rendered as follows:
 The window title.
 ## int TextAlign
 
-The alignment of the window title.
+The alignment of the window title. One of the **[ALIGN_*](../../../api/library/gui/class.gui_cs.md#ALIGN_BACKGROUND)** pre-defined variables.
 ## 🔒︎ int PaddingBottom
 
 The bottom padding for the widget content.
@@ -173,7 +173,7 @@ The bottom padding for the drag area.
 The value specifying if the window can be moved across the whole GUI or only within the parent widget. By default, this option is set to false, and the window can be moved only relevant to its parent.
 ## 🔒︎ int MinTextureWidth
 
-The minimum width of the window render — the width of the window texture from the GUI skin.
+The minimum width of the window render � the width of the window texture from the GUI skin.
 ## 🔒︎ int TextWidth
 
 The window header width.
@@ -185,7 +185,7 @@ The window header height.
 The value specifying if the callback processing for the window child widgets is enabled when the cursor is outside the window.
 ## 🔒︎ int MinTextureHeight
 
-The minimum height of the window render — the height of the window texture from the GUI skin.
+The minimum height of the window render � the height of the window texture from the GUI skin.
 ## int Stencil
 
 The value indicating if a widget cuts off its children along its set [bounds](../../../api/library/gui/class.widget_cs.md#setWidth_int_void). Everything that lies outside of them, is not rendered. This option works only if children have [ALIGN_OVERLAP](../../../api/library/gui/class.gui_cs.md#ALIGN_OVERLAP) flag set (otherwise, they will expand the box widget bounds and no cutting will be done).

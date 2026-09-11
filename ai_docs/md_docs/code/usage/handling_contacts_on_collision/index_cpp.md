@@ -28,7 +28,7 @@ Let's get some information about the contacts the blue box will have with other 
 The objects in the scene are dynamic ones, so to be able to [collide](../../../principles/physics/collision/index.md) they need a [body](../../../principles/physics/bodies/index.md) and a [collision shape](../../../principles/physics/shapes/index.md). Add a *Rigid body* and a shape to each object via the *Physics* tab of the *Parameters* window.
 
 
-Collisions are available for static objects as well (like buildings or ground) — simply enable the *[Collision](../../../editor2/node_parameters/physics/index.md#surface_collision)* option for the corresponding surface.
+Collisions are available for static objects as well (like buildings or ground) � simply enable the *[Collision](../../../editor2/node_parameters/physics/index.md#surface_collision)* option for the corresponding surface.
 
 
 ### Enabling High Priority Contacts

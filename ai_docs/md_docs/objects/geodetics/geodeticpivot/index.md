@@ -60,9 +60,9 @@ After adding the *Geodetic Pivot* on the scene, set up the parameters located in
 
 - **Location settings**. The geodetic location on the Earth of the pivot point. It is specified by 3 components:
 
-  - **Latitude** is the north–south position in degrees of a point on the Earth's surface. For example, Tomsk city latitude is 56.4977100. 0 value means equator, 90 value means the North Pole, -90 means the South Pole.
-  - **Longitude** is the east-west position in degrees of a point on the Earth's surface. For example, Tomsk city longitude is 84.9743700. 0 value means a prime meridian (Greenwich). This field supports two ranges: from -180 to 180 and from 0 to 360.
-  - **Altitude** is the height above sea level of a location. For example, Tomsk city altitude is 117 meters.
+  - **Latitude** is the north�south position in degrees of a point on the Earth's surface. For example, Abu Dhabi city latitude is 24.4667. 0 value means equator, 90 value means the North Pole, -90 means the South Pole.
+  - **Longitude** is the east-west position in degrees of a point on the Earth's surface. For example, Abu Dhabi city longitude is 54.3667. 0 value means a prime meridian (Greenwich). This field supports two ranges: from -180 to 180 and from 0 to 360.
+  - **Altitude** is the height above sea level of a location. For example, Abu Dhabi city altitude is 27 meters.
   - **Flat** geopositioning mode of the *Geodetic Pivot*. This mode should be used, when it is necessary only to set node positions via geo coordinates (latitude, longitude, altitude) without curving the terrain, clouds, etc.
 - **Ellipsoid settings**.
 

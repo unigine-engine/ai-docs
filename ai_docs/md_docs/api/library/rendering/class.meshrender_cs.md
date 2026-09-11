@@ -22,7 +22,10 @@ The  [set of usage flags](#USAGE_DYNAMIC_VERTEX) (*USAGE_DYNAMIC_VERTEX, USAGE_D
 
 ## 🔒︎ bool IsSupportedMultiThreadedLoad
 
-The support status for multi-threaded mesh loading. This feature is considered supported if the [GPU Upload heap](../../../code/console/index.md#d3d12_gpu_upload_heap) is available or *[USAGE_DYNAMIC_ALL](#USAGE_DYNAMIC_ALL)* is enabled.
+The support status for multi-threaded mesh loading.
+This feature is considered supported if the [GPU Upload heap](../../../code/console/index.md#d3d12_gpu_upload_heap) is available or *[USAGE_DYNAMIC_ALL](#USAGE_DYNAMIC_ALL)* is enabled.
+
+
 > **Notice:** This feature is supported for **DirectX 12** only.
 
 ### Members

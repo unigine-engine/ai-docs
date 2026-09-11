@@ -300,23 +300,23 @@ Returns the current multiplier value for the animation playback [time](#setTime_
 Current playback speed multiplier value.
 ## void setTime ( float time )
 
-Sets a new the animation time, in animation frames. The time count starts from the zero frame. If the time is set to be between frames, animation is blended. If the time is set outside the animation frame range, the animation is looped.
+Sets a new animation time, in animation frames. The time count starts from the zero frame. If the time is set to be between frames, animation is blended. If the time is set outside the animation frame range, the animation is looped.
 > **Notice:** *[setTime()](../../...md#setTime_float_void)* function corresponds to the [Play](../../../objects/objects/mesh_skinned_legacy/index.md#play) and [Stop](../../../objects/objects/mesh_skinned_legacy/index.md#stop) options in the editor. In all other cases use *[setLayerFrame()](../../...md#setLayerFrame_int_float_int_int_float)* to set the animation.
 
 
 ### Arguments
 
-- *float* **time** - The animation time, in animation frames.
+- *float* **time** - The animation time, in animation frames
 
 ## float getTime () const
 
-Returns the current the animation time, in animation frames. The time count starts from the zero frame. If the time is set to be between frames, animation is blended. If the time is set outside the animation frame range, the animation is looped.
+Returns the current animation time, in animation frames. The time count starts from the zero frame. If the time is set to be between frames, animation is blended. If the time is set outside the animation frame range, the animation is looped.
 > **Notice:** *[setTime()](../../...md#setTime_float_void)* function corresponds to the [Play](../../../objects/objects/mesh_skinned_legacy/index.md#play) and [Stop](../../../objects/objects/mesh_skinned_legacy/index.md#stop) options in the editor. In all other cases use *[setLayerFrame()](../../...md#setLayerFrame_int_float_int_int_float)* to set the animation.
 
 
 ### Return value
 
-Current animation time, in animation frames.
+Current animation time, in animation frames
 ## void setLoop ( bool loop )
 
 Sets a new value indicating if the animation is looped or played only once.
@@ -329,7 +329,7 @@ Sets a new value indicating if the animation is looped or played only once.
 Returns the current value indicating if the animation is looped or played only once.
 ### Return value
 
-**true** if playing of the animation in a loop is enabled; otherwise **false**.
+**true** if playing of the animation in a loop is enabled ; otherwise **false**.
 ## void setControlled ( bool controlled )
 
 Sets a new value indicating if the animation is controlled by a parent ObjectMeshSkinnedLegacy.
@@ -355,7 +355,7 @@ Sets a new value indicating if the dual-quaternion skinning mode is used. The du
 Returns the current value indicating if the dual-quaternion skinning mode is used. The dual-quaternion model is an accurate, computationally efficient, robust, and flexible method of representing rigid transforms and it is used in skeletal animation. See [a Wikipedia article on dual quaternions](https://en.wikipedia.org/wiki/Dual_quaternion) and [a beginners guide to dual-quaternions](http://cs.gmu.edu/~jmlien/teaching/cs451/uploads/Main/dual-quaternion.pdf) for more information.
 ### Return value
 
-**true** if dual-quaternion skinning mode is enabled; otherwise **false**.
+**true** if dual-quaternion skinning mode is enabled ; otherwise **false**.
 ## void setUpdateDistanceLimit ( float limit = 200 )
 
 Sets a new distance from the camera within which the object should be updated.
@@ -420,7 +420,7 @@ Sets a new value indicating if visualization for bones and their basis vectors i
 Returns the current value indicating if visualization for bones and their basis vectors is enabled. The visualizer can be used for debugging purposes showing positions of bones and their basis vectors for multiple meshes simultaneously.
 ### Return value
 
-**true** if visualization of bones and their basis vectors is enabled; otherwise **false**.
+**true** if visualization of bones and their basis vectors is enabled ; otherwise **false**.
 ## int getNumIKChains () const
 
 Returns the current number of [IK chains](#ik_chains) of the skinned mesh.
@@ -429,7 +429,7 @@ Returns the current number of [IK chains](#ik_chains) of the skinned mesh.
 Current number of IK chains.
 ## Event<const Ptr < ObjectMeshSkinnedLegacy > &> getEventEndBoneConstraints () const
 
-Event triggered after the bone rotation constraints are applied. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+Event triggered after the bone rotation constraints are applied. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 <details>
 <summary>See Example | Close</summary>
@@ -702,10 +702,10 @@ publisher->getEventEndBoneConstraints().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < ObjectMeshSkinnedLegacy > &> getEventBeginBoneConstraints () const
 
-Event triggered before the bone rotation constraints are applied. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+Event triggered before the bone rotation constraints are applied. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 <details>
 <summary>See Example | Close</summary>
@@ -978,10 +978,10 @@ publisher->getEventBeginBoneConstraints().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < ObjectMeshSkinnedLegacy > &> getEventEndIKSolvers () const
 
-Event triggered after the IK solvers are applied. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+Event triggered after the IK solvers are applied. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 <details>
 <summary>See Example | Close</summary>
@@ -1254,10 +1254,10 @@ publisher->getEventEndIKSolvers().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < ObjectMeshSkinnedLegacy > &> getEventBeginIKSolvers () const
 
-Event triggered before the IK solvers are applied. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+Event triggered before the IK solvers are applied. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 <details>
 <summary>See Example | Close</summary>
@@ -1530,10 +1530,10 @@ publisher->getEventBeginIKSolvers().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < ObjectMeshSkinnedLegacy > &> getEventEndLookAtSolvers () const
 
-Event triggered after the LookAtChain solvers are applied. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+Event triggered after the LookAtChain solvers are applied. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 <details>
 <summary>See Example | Close</summary>
@@ -1806,10 +1806,10 @@ publisher->getEventEndLookAtSolvers().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < ObjectMeshSkinnedLegacy > &> getEventBeginLookAtSolvers () const
 
-Event triggered before the LookAtChain solvers are applied. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+Event triggered before the LookAtChain solvers are applied. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 <details>
 <summary>See Example | Close</summary>
@@ -2082,10 +2082,10 @@ publisher->getEventBeginLookAtSolvers().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<float, const Ptr < ObjectMeshSkinnedLegacy > &> getEventUpdate () const
 
-Event triggered when the Engine calls the object update. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+Event triggered when the Engine calls the object update. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 <details>
 <summary>See Example | Close</summary>
@@ -2358,7 +2358,7 @@ publisher->getEventUpdate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## int getNumBoneConstraints () const
 
 Returns the current total number of bone rotation constraints.
@@ -2393,17 +2393,17 @@ Returns the current path to a file containing the specified animation.
 Current path to a file containing the specified animation.
 ## void setMeshProceduralMode ( bool mode )
 
-Sets a new value idicating if the [procedural mesh usage mode](#procedural_modification) is enabled for the object. With the procedural mode enabled, geometry of the **ObjectMeshSkinnedLegacy** can be modified via *[applyMeshProcedural()](../../...md#applyMeshProcedural_ConstMeshSkinned_int)*. Disabling the procedural mode restores the object's initial geometry, removing any changes applied. For skinned meshes, procedural geometry editing is done only through the direct main-thread workflow, unlike static meshes that can use asynchronous generation or [other update strategies](../../../api/library/objects/class.objectmeshstatic_cpp.md#procedural_workflow).
+Sets a new value indicating if the [procedural mesh usage mode](#procedural_modification) is enabled for the object. With the procedural mode enabled, geometry of the **ObjectMeshSkinnedLegacy** can be modified via *[applyMeshProcedural()](../../...md#applyMeshProcedural_ConstMeshSkinned_int)*. Disabling the procedural mode restores the object's initial geometry, removing any changes applied. For skinned meshes, procedural geometry editing is done only through the direct main-thread workflow, unlike static meshes that can use asynchronous generation or [other update strategies](../../../api/library/objects/class.objectmeshstatic_cpp.md#procedural_workflow).
 ### Arguments
 
-- *bool* **mode** - Set **true** to enable the procedural mode for the mesh; **false** - to disable it.
+- *bool* **mode** - value indicating if the procedural mesh usage mode is enabled for the object
 
 ## bool isMeshProceduralMode () const
 
-Returns the current value idicating if the [procedural mesh usage mode](#procedural_modification) is enabled for the object. With the procedural mode enabled, geometry of the **ObjectMeshSkinnedLegacy** can be modified via *[applyMeshProcedural()](../../...md#applyMeshProcedural_ConstMeshSkinned_int)*. Disabling the procedural mode restores the object's initial geometry, removing any changes applied. For skinned meshes, procedural geometry editing is done only through the direct main-thread workflow, unlike static meshes that can use asynchronous generation or [other update strategies](../../../api/library/objects/class.objectmeshstatic_cpp.md#procedural_workflow).
+Returns the current value indicating if the [procedural mesh usage mode](#procedural_modification) is enabled for the object. With the procedural mode enabled, geometry of the **ObjectMeshSkinnedLegacy** can be modified via *[applyMeshProcedural()](../../...md#applyMeshProcedural_ConstMeshSkinned_int)*. Disabling the procedural mode restores the object's initial geometry, removing any changes applied. For skinned meshes, procedural geometry editing is done only through the direct main-thread workflow, unlike static meshes that can use asynchronous generation or [other update strategies](../../../api/library/objects/class.objectmeshstatic_cpp.md#procedural_workflow).
 ### Return value
 
-**true** if the procedural mode for the mesh is enabled; otherwise **false**.
+value indicating if the procedural mesh usage mode is enabled for the object
 ## bool isLoaded () const
 
 Returns the current value indicating if the mesh is loaded (it is either a procedural one or has been loaded via the [setMeshPath()](#setMeshPath_cstr_void) method).
@@ -4346,3 +4346,39 @@ Returns the maximum angle restricting the bone rotation along the roll axis.
 ### Return value
 
 The maximum rotation angle.
+## bool isLayerAnimationStreaming ( int layer ) const
+
+Returns a value indicating if the animation on the specified layer is currently being loaded by the [data streaming](../../../principles/data_streaming/index.md) system. While the animation is streaming, the layer holds the first frame of this animation.
+### Arguments
+
+- *int* **layer** - Layer number.
+
+### Return value
+
+true if the animation assigned to the specified layer is still being streamed in; otherwise, false.
+## void resetLayerToBindPose ( int layer )
+
+Sets the skeleton's bind pose on the specified layer.
+### Arguments
+
+- *int* **layer** - Layer number.
+
+## void resetLayerToRestPose ( int layer )
+
+Sets the mesh's rest pose on the specified layer.
+### Arguments
+
+- *int* **layer** - Layer number.
+
+## bool loadAsyncRender ( )
+
+Requests asynchronous loading of the mesh for rendering. The mesh becomes available in one of the following frames, so the object keeps rendering whatever it already has until then.
+### Return value
+
+true if the request has been queued; otherwise, false.
+## bool loadForceRender ( )
+
+Loads the mesh for rendering immediately, blocking until it is done.
+### Return value
+
+true if the mesh has been loaded; otherwise, false.

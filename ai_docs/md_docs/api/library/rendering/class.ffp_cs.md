@@ -6,7 +6,7 @@
 Interface for fixed function pipeline.
 
 
-Ffp class in Unigine differs from the classic OpenGL FFP implementation. For example, Unigine [Visualizer](../../../code/console/index.md#visualizer) and [Texture Buffers for Debugging](../../../code/console/index.md#render_show_textures) are implemented by using Ffp. Ffp uses already implemented D3D12 and Vulkan shader programs (without creating materials, etc.) to render.
+Ffp class in Unigine differs from the classic OpenGL FFP implementation. For example, Unigine [Visualizer](../../../code/console/index.md#visualizer) and [Texture Buffers for Debugging](../../../code/console/index.md#render_show_textures) are implemented by using FFP. FFP uses already implemented D3D12 and Vulkan shader programs (without creating materials, etc.) to render.
 
 
 This interface enables to render basic geometric primitives. For example, it can be used to draw a project watermark.
@@ -62,20 +62,23 @@ The number of vertices in the current primitive batch.
 The Transformation matrix of the rendered primitive.
 ## 🔒︎ bool IsEnabled
 
-The Return a value indicating if the Ffp is enabled.
+The a value indicating if the FFP is enabled.
 ## int Mode
 
-The Current ffp mode.
+The FFP mode.
 ## int TextureSample
 
-The Current texture sample flag used, one of the *[TEXTURE_SAMPLE_*](#TEXTURE_SAMPLE_2D)* values.
+The texture sample flag.
 ### Members
 
 ---
 
 ## void SetColor ( uint color )
 
+
 Sets rendering color for the last added vertex.
+
+
 You can use [COLOR_*](#COLOR_BLACK) variables to set the color.
 
 
@@ -95,8 +98,11 @@ Sets rendering color for the last added vertex.
 
 ## void SetOrtho ( int width , int height )
 
+
 Sets orthographic projection to render the primitive.
-For example, the [`render_show_textures`](../../../code/console/index.md#render_show_textures) console command renders textures via Ffp by using orthographic projection.
+
+
+For example, the [`render_show_textures`](../../../code/console/index.md#render_show_textures) console command renders textures via FFP by using orthographic projection.
 
 
 ### Arguments
@@ -116,14 +122,14 @@ Sets texture coordinates for the last added vertex.
 
 ## void AddIndex ( int index )
 
-Adds given index to Ffp.
+Adds given index to FFP.
 ### Arguments
 
 - *int* **index** - Index of a vertex.
 
 ## void AddIndices ( int i0 , int i1 )
 
-Adds two given indices to Ffp.
+Adds two given indices to FFP.
 ### Arguments
 
 - *int* **i0** - The first index.
@@ -131,7 +137,7 @@ Adds two given indices to Ffp.
 
 ## void AddIndices ( ushort[] OUT_indices , int vertex_offset )
 
-Adds the specified array of indices to Ffp with the specified vertex offset.
+Adds the specified array of indices to FFP with the specified vertex offset.
 ### Arguments
 
 - *ushort[]* **OUT_indices** - Array of indices to be added. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
@@ -139,14 +145,14 @@ Adds the specified array of indices to Ffp with the specified vertex offset.
 
 ## void AddIndices ( ushort[] OUT_indices )
 
-Adds the specified array of indices to Ffp.
+Adds the specified array of indices to FFP.
 ### Arguments
 
 - *ushort[]* **OUT_indices** - Array of indices to be added. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
 
 ## void AddIndices ( int i0 , int i1 , int i2 , int i3 )
 
-Adds four given indices to Ffp.
+Adds four given indices to FFP.
 ### Arguments
 
 - *int* **i0** - The first index.
@@ -156,7 +162,7 @@ Adds four given indices to Ffp.
 
 ## void AddIndices ( int i0 , int i1 , int i2 )
 
-Adds three given indices to Ffp.
+Adds three given indices to FFP.
 ### Arguments
 
 - *int* **i0** - The first index.
@@ -165,10 +171,7 @@ Adds three given indices to Ffp.
 
 ## void AddLines ( int num )
 
-Adds a specified number of lines.
-This method does not add vertices; instead, it allocates indices, for which vertices should be then created with *addVertex()*. Indices will point to vertices starting from the last added vertex.
-
-
+Adds a specified number of lines. This method does not add vertices; instead, it allocates indices, for which vertices should be then created with *addVertex()*. Indices will point to vertices starting from the last added vertex.
 ### Arguments
 
 - *int* **num** - The number of lines.
@@ -189,21 +192,21 @@ Adds a specified number of triangles. This method does not add vertices; instead
 
 ## void AddVertex ( Vertex[] OUT_vertex )
 
-Adds the specified vertex array to Ffp.
+Adds the specified vertex array to FFP.
 ### Arguments
 
 - *Vertex[]* **OUT_vertex** - Array of vertices to be added. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
 
 ## void AddVertex ( Vertex vertex )
 
-Adds given vertex to Ffp.
+Adds given vertex to FFP.
 ### Arguments
 
 - *Vertex* **vertex** - Vertex.
 
 ## void AddVertex ( float x , float y , float z = 0.0f )
 
-Adds a vertex with given coordinates to Ffp.
+Adds a vertex with given coordinates to FFP.
 ### Arguments
 
 - *float* **x** - X coordinate of the vertex.
@@ -218,13 +221,13 @@ Begins rendering of lines. Specify a list of vertex or index data between *begin
 Begins rendering of triangles. Specify a list of primitives and vertex data between *beginTriangles()* and *endTriangles()*.
 ## void Disable ( )
 
-Disables Ffp rendering.
+Disables FFP rendering.
 ## void Enable ( int mode = MODE_DEFAULT , int texture_sample = 0 )
 
-Enables Ffp rendering.
+Enables FFP rendering.
 ### Arguments
 
-- *int* **mode** - Ffp mode.
+- *int* **mode** - FFP mode.
 - *int* **texture_sample** - Texture sampler flag to be set. One of the *[TEXTURE_SAMPLE_*](#TEXTURE_SAMPLE_2D)* values.
 
 ## void EndLines ( )

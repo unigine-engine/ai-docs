@@ -24,6 +24,44 @@ UnigineScript samples:
 
 ### Members
 
+## void setHeight ( float height )
+
+Sets a new height of the capsule, in units.
+### Arguments
+
+- *float* **height** - The height of the capsule, in units
+
+## float getHeight () const
+
+Returns the current height of the capsule, in units.
+### Return value
+
+Current height of the capsule, in units
+## void setRadius ( float radius )
+
+Sets a new radius of the capsule, in units.
+### Arguments
+
+- *float* **radius** - The radius of the capsule, in units
+
+## float getRadius () const
+
+Returns the current radius of the capsule, in units.
+### Return value
+
+Current radius of the capsule, in units
+## Vec3 getTopCap () const
+
+Returns the current coordinates of the center of the top hemisphere of the capsule.
+### Return value
+
+Current coordinates of the center of the top hemisphere of the capsule
+## Vec3 getBottomCap () const
+
+Returns the current coordinates of the center of the bottom hemisphere of the capsule.
+### Return value
+
+Current coordinates of the center of the bottom hemisphere of the capsule
 ---
 
 ## static ShapeCapsule ( )
@@ -45,42 +83,3 @@ Constructor. Creates a new capsule with given dimensions and adds it to a given 
 - *[Body](../../../api/library/physics/class.body_usc.md)* **body** - Body, to which the capsule will belong.
 - *float* **radius** - Radius of the capsule in units.
 - *float* **height** - Height of the capsule in units.
-
-## void setHeight ( float height )
-
-Sets a height of the capsule.
-### Arguments
-
-- *float* **height** - Height of the capsule in units.
-
-## float getHeight ( )
-
-Returns the current height of the capsule.
-### Return value
-
-Height of the capsule in units.
-## void setRadius ( float radius )
-
-Sets a radius of the capsule.
-### Arguments
-
-- *float* **radius** - Radius of the capsule in units.
-
-## float getRadius ( )
-
-Returns the current radius of the capsule.
-### Return value
-
-Radius of the capsule in units.
-## Vec3 getBottomCap ( )
-
-Returns the coordinates of the center of the top hemisphere of the capsule.
-### Return value
-
-Coordinates of the center of the capsule's top hemisphere.
-## Vec3 getTopCap ( )
-
-Returns the coordinates of the center of the bottom hemisphere of the capsule.
-### Return value
-
-Coordinates of the center of the capsule's bottom hemisphere.

@@ -320,7 +320,59 @@ Returns the current value indicating if the One Cascade Per Frame mode is enable
 
 ### Return value
 
-**true** if the One Cascade Per Frame mode is enabled; otherwise **false**.
+**true** if the One Cascade Per Frame mode is enabled ; otherwise **false**.
+## void setShadowCascadeOriginMode ( int mode )
+
+Sets a new mode defining what position is used as the origin of the shadow cascades, one of the *SHADOW_CASCADE_ORIGIN_MODE_** values: following the camera (default) or anchored at a manually set world point.
+### Arguments
+
+- *int* **mode** - The origin mode of the shadow cascades
+
+## int getShadowCascadeOriginMode () const
+
+Returns the current mode defining what position is used as the origin of the shadow cascades, one of the *SHADOW_CASCADE_ORIGIN_MODE_** values: following the camera (default) or anchored at a manually set world point.
+### Return value
+
+Current origin mode of the shadow cascades
+## void setShadowCascadeOriginPosition ( Vec3 position )
+
+Sets a new world-space anchor point for the shadow cascades, used when the cascade origin mode is set to manual. Ignored in the automatic mode.
+### Arguments
+
+- *Vec3* **position** - The world-space anchor point of the shadow cascades
+
+## Vec3 getShadowCascadeOriginPosition () const
+
+Returns the current world-space anchor point for the shadow cascades, used when the cascade origin mode is set to manual. Ignored in the automatic mode.
+### Return value
+
+Current world-space anchor point of the shadow cascades
+## void setShadowCascadePlacementMode ( int mode )
+
+Sets a new mode defining how the shadow cascades of the light are sized and placed, one of the *SHADOW_CASCADE_PLACEMENT_MODE_** values. The default is the uniform mode.
+### Arguments
+
+- *int* **mode** - The placement mode of the shadow cascades
+
+## int getShadowCascadePlacementMode () const
+
+Returns the current mode defining how the shadow cascades of the light are sized and placed, one of the *SHADOW_CASCADE_PLACEMENT_MODE_** values. The default is the uniform mode.
+### Return value
+
+Current placement mode of the shadow cascades
+## void setShadowFilterFar ( float far )
+
+Sets a new intensity of shadow filtering (blurring) for the far shadow cascades of the light, complementing the base shadow filter that acts on the near cascades. The higher the value, the less noticeable the stair-step effect at the edges of distant shadows. The effective filter width is interpolated per cascade between the near and far values. The default value is 1.
+### Arguments
+
+- *float* **far** - The intensity of shadow filtering for the far cascades
+
+## float getShadowFilterFar () const
+
+Returns the current intensity of shadow filtering (blurring) for the far shadow cascades of the light, complementing the base shadow filter that acts on the near cascades. The higher the value, the less noticeable the stair-step effect at the edges of distant shadows. The effective filter width is interpolated per cascade between the near and far values. The default value is 1.
+### Return value
+
+Current intensity of shadow filtering for the far cascades
 ---
 
 ## static LightWorld ( vec4 color )

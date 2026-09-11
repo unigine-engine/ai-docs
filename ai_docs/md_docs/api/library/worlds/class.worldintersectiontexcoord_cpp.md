@@ -11,12 +11,13 @@ This class stores the texture coordinates of the intersection point. You should 
 #### Usage Example
 
 
-The following example shows how you can get texture coordinates at the intersection point (vec4) by using the WorldIntersectionTexCoord class. In this example the line is an invisible traced line from the point of the camera (vec3 p0) to the point of the mouse pointer (vec3 p1). The executing sequence is the following:
+The following example shows how you can get texture coordinates at the intersection point (vec4) by using the *WorldIntersectionTexCoord* class. In this example the line is an invisible traced line from the point of the camera (*vec3 **p0***) to the point of the mouse pointer (*vec3 **p1***). The executing sequence is the following:
+
 
 - Define and initialize two points (p0 and p1) by using the *[Player::getDirectionFromScreen()](../../../api/library/players/class.player_cpp.md#getDirectionFromScreen_Vec3_Vec3_int_int_int_int_int_int_void)* function.
-- Create an instance of the WorldIntersectionTexCoord class to get the intersection information.
+- Create an instance of the *WorldIntersectionTexCoord* class to get the intersection information.
 - Check, if there is a intersection with an object. The [*World::getIntersection()*](../../../api/library/engine/class.world_cpp.md#getIntersection_vec3_vec3_int_Variable_Object) function returns an intersected object when the object intersects with the traced line.
-- In this example, when the object intersects with the traced line, all the surfaces of the intersected object change their material parameters. The WorldIntersectionTexCoord class instance gets the texture coordinates of the intersection point. You can get the texture coordinates by using the [*getTexCoord()*](#getTexCoord_vec4) function.
+- In this example, when the object intersects with the traced line, all the surfaces of the intersected object change their material parameters. The *WorldIntersectionTexCoord* class instance gets the texture coordinates of the intersection point. You can get the texture coordinates by using the [*getTexCoord()*](#getTexCoord_vec4) function.
 
 
 ```cpp
@@ -76,21 +77,21 @@ if (object)
 
 ### Members
 
+## void setTexCoord ( const Math:: vec4 & coord )
+
+Sets a new texture coordinates of the intersection point.
+### Arguments
+
+- *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md)&* **coord** - The texture coordinates of the intersection point.
+
+## Math:: vec4 getTexCoord () const
+
+Returns the current texture coordinates of the intersection point.
+### Return value
+
+Current texture coordinates of the intersection point.
 ---
 
 ## static WorldIntersectionTexCoordPtr create ( )
 
 The WorldIntersectionTexCoord constructor.
-## void setTexCoord ( const Math:: vec4 & coord )
-
-Sets new texture coordinates of the intersection point.
-### Arguments
-
-- *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md) &* **coord** - Texture coordinates of the intersection point.
-
-## Math:: vec4 getTexCoord ( ) const
-
-Returns texture coordinates of the intersection point.
-### Return value
-
-Texture coordinates of the intersection point (where vec4.xy is for the first UV channel, vec4.zw is for the second UV channel).

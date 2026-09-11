@@ -12,7 +12,7 @@ This class is used to create a [volume box](../../../objects/effects/volumetrics
 
 ## vec3 Size
 
-The Dimensions of the volume box.
+The dimensions of the volume box, in units. If a negative value is provided, 0 will be used instead.
 ### Members
 
 ---

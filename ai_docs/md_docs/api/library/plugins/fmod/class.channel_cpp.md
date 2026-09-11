@@ -51,7 +51,7 @@ Sets a new pause state for the channel.
 Returns the current pause state for the channel.
 ### Return value
 
-**true** if pause state of the channel is enabled; otherwise **false**.
+**true** if pause state of the channel is enabled ; otherwise **false**.
 ## void setPriority ( int priority )
 
 Sets a new priority used for virtual voice ordering. 0 means *the most important*, 256 means *the least important*. The priority is used as a coarse grain control for the virtual voice system. Channels with the lower priority will always be stolen before Channels with the higher ones. For Channels of the equal priority, those with the quietest audibility value will be stolen first.
@@ -77,7 +77,7 @@ Sets a new mute state. Mute is an additional control for volume, the effect of w
 Returns the current mute state. Mute is an additional control for volume, the effect of which is equivalent to setting the volume to zero.
 ### Return value
 
-**true** if mute (silent) state is enabled; otherwise **false**.
+**true** if mute (silent) state is enabled ; otherwise **false**.
 ## void setLoopCount ( int count )
 
 Sets a new number of times to loop before stopping.
@@ -116,7 +116,7 @@ Sets a new value indicating if the volume changes are ramped or instantaneous. I
 Returns the current value indicating if the volume changes are ramped or instantaneous. If not paused, volume changes are ramped to the target value to avoid a pop sound. This function allows you to override that setting and apply volume changes immediately.
 ### Return value
 
-**true** if ramped volume change is enabled; otherwise **false**.
+**true** if ramped volume change is enabled ; otherwise **false**.
 ## bool isPlaying () const
 
 Returns the current playing state.

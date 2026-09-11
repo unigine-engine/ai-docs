@@ -54,7 +54,7 @@ Enables soft interaction for volume boxes and other objects, so that the interac
 *Material Settings, Textures tab*
 
 
-Use of the texture depends on the [Attenuation](#states) state: if disabled, the density texture is used, if enabled—the attenuation texture is used for the cloud.
+Use of the texture depends on the [Attenuation](#states) state: if disabled, the density texture is used, if enabled�the attenuation texture is used for the cloud.
 
 
 ### Base Textures

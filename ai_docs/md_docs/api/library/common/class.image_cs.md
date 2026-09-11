@@ -66,7 +66,10 @@ The **Pixel** type is implemented as a union structure where ***Pixel.i*** and *
 - Use *[ToPixel()](../../...md#toPixel_vec4_Pixel)* to convert color values to a Pixel. ```csharp vec4 color = new vec4(0.5f, 0.5f, 0.0f, 1.0f); Image.Pixel pixel = image.ToPixel(color); image.Set2D(x, y, pixel); ```
 - Use *[ToVec4()](../../...md#toVec4_Pixel_vec4)* to read pixels as normalized float values. ```csharp Image.Pixel pixel = image.Get2D(x, y); vec4 color = image.ToVec4(pixel); ```
 
- In this case, the image format is determined automatically and type conversion is performed correctly.
+
+In this case, the image format is determined automatically and type conversion is performed correctly.
+
+
 #### Usage Example
 
 
@@ -457,7 +460,10 @@ Returns a color of a given pixel of a 2D image. Linear interpolation is used to 
 Pixel color represented by a [Pixel structure](#pixel).
 ## Image.Pixel Get2D ( float x , float y , Image.Pixel skip_pixel )
 
+
 Returns a color of a given pixel of a 2D image. Linear interpolation is used to get a color sample. Compressed formats are not supported.
+
+
 > **Notice:** If at least one of four interpolated pixels is equal to **skip_pixel**, the method will return **skip_pixel**.
 
 
@@ -492,7 +498,10 @@ Returns a color of a given pixel of a 2D image. Linear interpolation is used to 
 Pixel color represented by a [Pixel structure](#pixel).
 ## Image.Pixel Get2D ( vec2 uv , Image.Pixel skip_pixel )
 
+
 Returns a color of a given pixel of a 2D image. Linear interpolation is used to get a color sample. Compressed formats are not supported.
+
+
 > **Notice:** If at least one of four interpolated pixels is equal to **skip_pixel**, the method will return **skip_pixel**.
 
 
@@ -633,7 +642,10 @@ Returns a color of a given pixel of a 3D image. Linear interpolation is used to 
 Pixel color represented by a [Pixel structure](#pixel).
 ## Image.Pixel Get3DSmooth ( float x , float y , float z )
 
+
 Returns a color of a given pixel obtained using linear interpolation. Compressed formats are not supported.
+
+
 > **Notice:** This method returns pixel color with float components in the range [0.0f, 1.0f] regardless of the image format.
 
 
@@ -648,7 +660,10 @@ Returns a color of a given pixel obtained using linear interpolation. Compressed
 Pixel color represented by a [Pixel structure](#pixel) with float components in the range [0.0f, 1.0f].
 ## Image.Pixel Get3DSmooth ( vec3 uvw )
 
+
 Returns a color of a given pixel obtained using linear interpolation. Compressed formats are not supported.
+
+
 > **Notice:** This method returns pixel color with float components in the range [0.0f, 1.0f] regardless of the image format.
 
 
@@ -780,7 +795,10 @@ Sets a color of a given pixel. The image must be of the Cube Array type. Compres
 
 ## Image.Pixel GetCubeArray ( vec3 direction , int layer )
 
+
 Returns the color of a given pixel of the cube array image.
+
+
 > **Notice:** Compressed formats are not supported.
 
 
@@ -960,7 +978,10 @@ Returns the image offset on a given mipmap level.
 Image offset, in bytes.
 ## void SetPixels ( byte[] OUT_pixels )
 
+
 Sets image pixels to be taken from the specified source array.
+
+
 > **Notice:** This method simply performs pointer assignment (without copying data), therefore, it is fast. But make sure the source is not accidentally modified or deleted when its lifetime expires or otherwise.
 
 
@@ -1163,7 +1184,10 @@ Returns the image width on a given mipmap level.
 Image width if the image exists (its width is larger than 0); otherwise, 1.
 ## bool Blend ( Image image , int x0 , int y0 , int x1 , int y1 , int width , int height , float scale = 1.0f , bool safe = 0 )
 
+
 Blends the specified image with the current one. Blending takes place within a specified region. If the *safe* flag is set to 1, rendering of the blended images won't be performed outside the destination image boundaries. Compressed, combined, half-float and float formats are not supported. Images of different formats can be blended as follows:
+
+
 - R8 with R8, RG8;
 - RG8 with RG8, RGB8;
 - RGB8 with RGB8, RGBA8;
@@ -1224,7 +1248,10 @@ Sharpens the image. Only the 2D or cube image can be sharpened. Compressed and c
 Clears all data associated with the image and resets its type, format, size to default. Also the number of image layers and mipmaps is set to 1.
 ## bool Combine ( int new_format = -1 )
 
+
 Converts the image to a combined format. The following conversions are available:
+
+
 - RGB8 to RGB565
 - RGBA8 to RGBA4 if the format is specified as RGBA4; otherwise, RGBA8 is converted to RGB5A1 by default
 - RGBA16 to RGB10A2
@@ -1262,7 +1289,10 @@ Compares a region of a specified image with a specified region of the current im
 true if the regions match; otherwise, false.
 ## bool Compress ( int new_format = -1 )
 
+
 Converts the image to a compressed format. The following conversions are available:
+
+
 - R8 to ATI1
 - RG8 to ATI2
 - RGB8 to DXT1
@@ -1290,18 +1320,19 @@ Converts the image to a specified format. Compressed and combined images are aut
 true if the conversion is successful; otherwise, false.
 ## bool ConvertToType ( int type )
 
+
 Converts the image to a specified type. The following conversions are possible:
 
 
 | Source type | Target type | Target dimensions |
 |---|---|---|
-| 2D (height should be proportional to width) | 3D | width × height × height/width |
-| 2D (height should divide by four, width should divide by three) | Cube | width/4 × height/3 |
-| 3D | 2D | width × height*depth |
-| 3D | 2D texture array | width × height |
-| Cube | 2D | width*4 × height*3 |
-| Cube | 2D array texture | width × height |
-| 2D array texture | 2D | width × height*number of texture layers |
+| 2D (height should be proportional to width) | 3D | width � height � height/width |
+| 2D (height should divide by four, width should divide by three) | Cube | width/4 � height/3 |
+| 3D | 2D | width � height*depth |
+| 3D | 2D texture array | width � height |
+| Cube | 2D | width*4 � height*3 |
+| Cube | 2D array texture | width � height |
+| 2D array texture | 2D | width � height*number of texture layers |
 
 
 ### Arguments
@@ -1331,7 +1362,10 @@ Copies the data from the specified source image, resizing the source. The source
 **true** if the data was successfully copied from the source image; otherwise, **false**.
 ## bool Copy ( Image src_image , int layer )
 
+
 Copies data from the specified source image according to the specified **layer** parameter. Depending on the image and the source image types the **layer** parameter either defines the index of the layer/face to copy data FROM (source), or the index of the layer/face to copy data TO (destination):
+
+
 | Image | Source Image | Copy |
 |---|---|---|
 | Cube | 2D | Specified source 2D image is copied to the face of the cubemap image specified by the layer argument in the **[0; 5]** range: 2D_image **TO** cubemap_face[ ***layer*** ] |
@@ -1522,7 +1556,10 @@ Removes mipmaps generated for the image.
 true if mipmaps generated for the image are removed successfully; otherwise, false.
 ## bool Decombine ( )
 
+
 Automatically converts the image from the combined format to a correct one. The following conversions are available:
+
+
 - RGB565 to RGB8
 - RGBA4 to RGBA8
 - RGB5A1 to RGBA8
@@ -1540,7 +1577,10 @@ Decombines the loaded 2D-image and the mipmap images. The number of mipmaps must
 true if the 2D-image and mipmap image are successfully decombined; otherwise, false.
 ## bool Decompress ( )
 
+
 Decompresses the image from the compressed format to a correct one. The following conversions are available:
+
+
 - DXT1 to RGB8
 - DXT1 without alpha data to RGB8
 - DXT3 to RGBA8
@@ -1582,7 +1622,10 @@ Returns a value indicating if the source image has mipmaps.
 true if the image has mipmaps; otherwise, false.
 ## bool Info ( string path )
 
+
 Retrieves information about the specified image by it's path and stores it into current **Image** instance. The following file formats are supported:
+
+
 - *.texture
 - *.tga
 - *.jpg
@@ -1854,7 +1897,10 @@ Calculates the image range for each channel separately.
 
 ## void ChangeRange ( dvec4 range )
 
+
 Changes the image range.
+
+
 > **Notice:** The range of the final image will be clamped, if the set range values exceed the maximum values of the image format.
 
 
@@ -1864,7 +1910,10 @@ Changes the image range.
 
 ## void ChangeRange ( dvec4 range_r , dvec4 range_g , dvec4 range_b , dvec4 range_a )
 
+
 Changes the image range for each channel separately.
+
+
 > **Notice:** The range of the final image will be clamped, if the set range values exceed the maximum values of the image format.
 
 

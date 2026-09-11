@@ -26,10 +26,10 @@ UnigineScript samples:
 
 ## 🔒︎ bool IsCompiled
 
-The A value indicating if the given expression has been compiled. it is automatically called on world load or after *[setExpression()](#setExpression_cstr_int)* is used.
+The value indicating if the given expression has been compiled. it is automatically called on world load or after *[setExpression()](#setExpression_cstr_int)* is used.
 ## float IFps
 
-The current constant frame duration used to execute the expression. 0 means that the expression is executed at the same frame rate as the main application window.
+The constant frame duration used to execute the expression. It can be used to decrease the frame rate to get higher performance. 0 means that the expression is executed at the same frame rate as the main application window.
 ## float UpdateDistanceLimit
 
 The distance from the camera within which the object should be updated.
@@ -43,6 +43,8 @@ Constructor. Creates an arbitrary expression to be executed.
 ## bool SetExpression ( string src )
 
 Sets the arbitrary expression to be executed.
+
+
 > **Notice:** The expression passed as an argument must be wrapped with curly braces {} as they define the world expression scope.
 
 

@@ -133,7 +133,7 @@ The texture consists of 3 columns, each for a specific reason:
 3. Color of haze around the light source
 
 
-The top square of each column is for the *Sun*, the bottom one — for the *Moon* [scattering](../../../../objects/lights/world/index.md#light_settings) mode.
+The top square of each column is for the *Sun*, the bottom one � for the *Moon* [scattering](../../../../objects/lights/world/index.md#light_settings) mode.
 
 
 The texture (each column) is sampled vertically according to the time of day along the horizontal axis.

@@ -1,264 +1,203 @@
 # VR & XR Development
 
 
-**XR** (extended reality), is a general term for any enhanced technology combining the real and digital worlds to create new kinds of interactivity and perception. Essentially, this term is an umbrella under which the following types of applications:
+UNIGINE handles stereo rendering, head tracking, controller input, and device management for you - you focus on building your application. The VR API is hardware-agnostic: the same code runs on *Quest, HTC Vive, Varjo*, and other headsets without changes. Advanced features like hand tracking, eye tracking, foveated rendering, and mixed reality are available where the hardware supports them.
 
 
-- **Virtual Reality** (VR): is an immersive self-contained environment that makes the user feel inside a virtual or digitally reproduced real 3D world.
-- **[Mixed Reality](#mixed_reality)** (MR): user's real-world environment combined with the application's virtual environment with an ability to interact with each other.
-- **Augmented Reality** (AR): application's virtual content is projected onto physical glass or a display over a view of the real world. > **Notice:** Development of AR applications for mobile platforms is not currently supported.
+This article gives an overview of UNIGINE's VR capabilities, supported backends, and devices. For a step-by-step setup guide, see [*Getting Started with VR*](../vr_development/vr_template/index.md).
 
 
-These technologies provide new ways to train, educate, entertain, and collaborate.
+> **Notice:** Development of AR applications is not currently supported. This includes optical see-through AR (overlaying virtual content onto semi-transparent optics such as glass or prisms) and mobile AR (ARKit/ARCore).
 
 
-UNIGINE offers built-in functionality for development of Virtual Reality and [Mixed Reality](#mixed_reality) applications. It enables you to implement logic for various VR devices through a [single API interface](../api/library/vr/index.md) without using additional plugins.
+## What You Can Build
 
 
-> **Warning:** **Reprojection** on Linux is to be enabled manually.
+UNIGINE supports two types of XR applications:
+
+
+- **Virtual Reality** (VR) - a fully synthetic immersive environment rendered stereoscopically. The user is entirely inside a virtual world and interacts with it through controllers, hand tracking, or gaze. Typical use cases: training simulators, engineering visualization, design review, virtual prototyping.
+- **[Mixed Reality](#mixed_reality)** (MR)  - the virtual world is blended with a live camera feed from the headset, so the user sees both real and virtual objects at the same time. Useful when the user needs to stay aware of their physical surroundings - for example, operating real equipment while seeing virtual overlays, or collaborating with other people in the room. Requires a headset with passthrough cameras (Varjo XR, Quest 3, and others).
+
+
+## Quick Start
+
+
+To get a VR application running:
+
+
+1. Connect your headset and install its runtime software (SteamVR, Quest PC app, Varjo Base - depending on the device).
+2. Create or open a UNIGINE project. For new projects, start with the *[VR Template](../content/vr/index.md#vr_template)* (C++ or C#) available on the *Templates* tab in SDK Browser - it comes with preconfigured VR features, locomotion, and interaction mechanics that can serve as a base for any VR application.
+3. Launch the application with *[-vr_app openxr](../code/command_line.md#vr_app)* (or *openvr / varjo*, depending on your [backend](#vr_backends)). Any UNIGINE project can run in VR this way.
+
+
+The template's built-in mechanics are described in *Getting Started with the VR Template*.
+
+
+## Backends and Runtimes
+
+
+UNIGINE application communicates with VR headsets through two layers:
+
+
+- **Backend** - the engine-side integration that sets up stereo rendering and passes frames to the runtime.
+- **Runtime** - a background service on your PC (SteamVR, Horizon Link, Varjo Base, etc.) that manages the headset hardware: tracking, controllers, frame compositing.
+
+
+![](vr_stack.png)
+
+
+You write your application once using the [UNIGINE VR API](../vr_development/vr_api.md). The backend is chosen at launch time and depends on your target device. Features that are not available on a given backend or device can be queried at runtime, so your code does not need to branch per platform.
+
+
+### Which Backend to Choose
+
+
+UNIGINE supports three backends:
+
+
+- **OpenXR** - the default choice for most projects. Works with the widest range of devices.
+- **Varjo** - use this if you have a Varjo headset and need access to its full feature set (mixed reality, foveated rendering, motion prediction, Varjo Markers).
+- **OpenVR** - provides access to features not yet available in OpenXR: trackers, render models, and base stations.
+
+
+You select the backend at application start-up via the *[-vr_app](../code/command_line.md#vr_app)* command-line option:
+
+
+- *-vr_app openxr*
+- *-vr_app varjo*
+- *-vr_app openvr*
+
+
+Alternatively, you can set the default backend for all projects in SDK Browser under *Global Options → Default Video Options*:
+
+
+![](global_options.png)
+
+
+By default, VR is not initialized.
+
+
+### OpenXR
+
+
+![](openxr.png)
+
+
+***OpenXR*** is an open, royalty-free standard by the Khronos Group. It is the recommended backend for new projects because it supports the widest range of devices through a single API.
+
+
+The runtime depends on your headset: Quest devices work with the [Quest PC app](https://www.oculus.com/setup/) or [SteamVR](https://store.steampowered.com/about/); HTC Vive and other SteamVR-compatible devices use SteamVR; WMR headsets use the runtime built into Windows. Refer to your headset vendor's documentation for setup details.
+
+
+### Varjo
+
+
+![](varjo-logo.jpg)
+
+
+The ***Varjo*** backend is a dedicated integration for Varjo industrial-grade headsets. Use it when you need the full Varjo feature set: eye tracking, mixed reality with camera control, foveated rendering, motion prediction, and Varjo Markers.
+
+
+To get started, install *[Varjo Base](https://varjo.com/downloads/#varjo-base)* and *[SteamVR](https://store.steampowered.com/about/)* (required by the Varjo backend for controller and tracker input). Hand tracking is available via the *[Ultraleap plugin](../code/plugins/ultraleap/index_cpp.md)*.
+
+
+> **Notice:** Varjo headsets also work with the OpenXR backend (via Varjo Base as the OpenXR runtime), but some Varjo-specific features will not be available. See the [Supported Features](#vr_features) table for details.
+
+
+### OpenVR
+
+
+![](openvr.png)
+
+
+***OpenVR*** is a VR API by Valve. While OpenXR has become the industry standard, OpenVR remains the only backend that provides access to trackers, render models, and base stations. Choose it when your project depends on these features.
+
+
+OpenVR works exclusively through the ***SteamVR*** runtime - [install it via Steam](https://store.steampowered.com/about/).
+
+
+> **Warning:** **Reprojection** on Linux must be enabled manually.
 >
 >
 > Add the following line in the *"steamvr"* section of the `~/.steam/steam/config/steamvr.vrsettings` file:
 >
 >
 > ```xml
-> 	"steamvr" : {
-> 		"enableLinuxVulkanAsync" : true
->
-> 		/.../
-> 	}
+> "steamvr" : {
+> 	"enableLinuxVulkanAsync" : true
+> 	/.../
+> }
 >
 > ```
 
 
-### See Also
-
-
-- The article on [*Getting Started with VR*](../start/vr/index_cpp.md) to start developing VR projects in UNIGINE.
-- The section on [*Developing VR Applications*](https://learn.unigine.com/mod/page/view.php?id=112) of the [Basic Introductory Course on UNIGINE real-time 3D engine](https://learn.unigine.com/?redirect=0).
-- [*VR API Reference*](../start/vr/index_cpp.md) for details on managing VR via code.
-
-
-## VR System in UNIGINE
-
-
-The built-in VR system provides integration of ***OpenVR***, ***Varjo***, and ***OpenXR***.
-
-
-### OpenVR Integration
-
-
-![](openvr.png)
-
-
-***OpenVR*** is a comprehensive VR SDK (API and runtime) that allows access to VR hardware from various vendors without requiring that applications have specific knowledge of the hardware they are targeting.
-
-
-So, thanks to OpenVR integration, UNIGINE supports VR development for a wide range of VR devices, including the *Oculus Rift, HTC Vive*, and other OpenVR-compatible devices. The full list of supported devices is given [below](#vr_devices).
-
-
-### Varjo Integration and Supported Features
-
-
-![](varjo_xr-3_sm.jpg)
-
-*Image Courtesy of Varjo.*
-
-
-***Varjo's*** industrial-grade headsets with **eye-tracking** and **[mixed reality](#mixed_reality)** capabilities allow you to create VR and MR applications. With Mixed Reality, you can combine the real-world view from front-facing cameras mounted on the headset with the VR image.
-
-
-Moreover, there is **hand-tracking** in VR available for Varjo VR and XR headsets through the *[Ultraleap](../code/plugins/ultraleap/index_cpp.md)* integration plugin. It provides finger fidelity, two-hand performance, higher tracking robustness, and a lot of other improvements.
-
-
-Additionally, Varjo headsets **running with the OpenXR** runtime support native hand tracking without the need for extra plugins, offering a more streamlined and unified experience. Refer to [this article](../vr_development/vr_hand_tracking.md) to properly configure hand tracking with Varjo devices and choose the best setup for your project.
-
-
-The following table lists *Varjo* *native features* that are supported by UNIGINE VR system:
-
-
-| Varjo Features | VR System |
-|---|---|
-| Supported graphics APIs | DX12, Vulkan |
-| Human-eye resolution | ![Supported](yes.png) |
-| Eye tracking | ![Supported](yes.png) |
-| Eye tracking parameters | ![Supported](yes.png) |
-| Eye camera datastream | ![Not supported](no.png) |
-| Mixed reality (MR) | ![Supported](yes.png) |
-| MR environment reflections | ![Supported](yes.png) |
-| MR post-process shaders | ![Not supported](no.png) |
-| MR datastream | ![Supported](yes.png) |
-| Chroma keying | ![Supported](yes.png) |
-| Varjo Markers | ![Supported](yes.png) |
-| Depth buffer submission | ![Supported](yes.png) |
-| Velocity buffer submission | ![Supported](yes.png) |
-| Multi-app support | ![Not supported](no.png) |
-| Support for multiple layers | ![Supported](yes.png) |
-| Occlusion mask | ![Supported](yes.png) |
-| Instanced rendering | ![Not supported](no.png) |
-| Foveated rendering | ![Supported](yes.png) |
-| SLI-compatible | ![Not supported](no.png) |
-
-
-### OpenXR Integration
-
-
-![](openxr.png)
-
-
-***OpenXR*** is an open standard aimed at unifying the AR/VR/MR software development for broader hardware reach, reducing the effort for porting or re-writing code, providing seamless integration across diverse platforms and devices.
-
-
-The current implementation is a baseline for supporting VR via OpenXR API, which includes support for *DX11*, *DX12*, and *Vulkan* graphics APIs on Windows.
-
-
-## VR Development
-
-
-UNIGINE enables the development of VR applications for different VR platforms, including the ones that have released *OpenXR runtimes*.
-
-
-### Working with OpenVR
-
-
-To utilize ***OpenVR***, you need to install the *SteamVR* platform. OpenVR is not tied to a particular hardware, allowing projects to be used with *any VR device that supports SteamVR*.
-
-
-When developing for SteamVR, you should first [download and install Steam](https://store.steampowered.com/about/) and then launch SteamVR.
-
-
-> **Notice:** If you install one of the [HTC Vive HMDs](https://www.vive.com/us/setup/), SteamVR will be set automatically on the HMD's installation.
-
-
-For performance profiling, you can use the *[SteamVR Frame Timing](https://developer.valvesoftware.com/wiki/SteamVR/Frame_Timing)* tool.
-
-
-*[VR Template](../content/vr/index.md#vr_template)* provides the models of the following SteamVR-compatible controllers: *HTC Vive, HTC Vive Pro*, and *HTC Vive Cosmos*.
-
-
-### Working with OpenXR
-
-
-***OpenXR*** integration allows you to develop applications for OpenXR-compatible devices. It doesn't require SteamVR — you only need to choose the correct runtime depending on the device.
-
-
-For example, with Oculus HMDs, you need to install [Oculus Rift PC Runtime](https://www.oculus.com/setup/), launch the Oculus PC application, and enable OpenXR runtime (*Settings → General → OpenXR Runtime → Set Oculus as active*). It allows the engine to connect to the Oculus HMD through OpenXR, utilizing Oculus runtime. Such an approach simplifies development by using a single API instead of separate, hardware-specific APIs.
-
-
-> **Notice:** Alternatively, you can enable OpenXR runtime in SteamVR, and the engine will connect to the Oculus HMD *through OpenXR using SteamVR*. Moreover, some standalone headsets (like *Meta Quest* devices) have the option to install *Steam Link* allowing them to connect to a PC using SteamVR.
-
-
-> **Notice:** There is also an option to use *[XR Simulator](https://developer.oculus.com/documentation/unreal/xrsim-intro)* as an XR runtime for Quest headsets.
-
-
-For performance profiling, you can use the [Oculus PerfHud](https://developer.oculus.com/documentation/native/pc/dg-hud/?locale=ru_RU) tool. It displays a performance summary, including the frame rate of the application and the unused hardware performance available, latency timing, application render timing, information about the HMD version, and others. To use Oculus PerfHud with UNIGINE, follow the instructions in [Oculus documentation](https://developer.oculus.com/documentation/native/pc/dg-performance-indicator/).
-
-
-*[VR Template](../content/vr/index.md#vr_template)* provides the models of the *Oculus Touch* and *Oculus Quest* controllers that are compatible with Oculus HMDs only.
+## Supported Features
+
+
+Not every feature is available on every backend. Some features also depend on the headset hardware - use the [VR API](../vr_development/vr_api.md) to check what is available at runtime.
+
+
+| Feature | OpenXR | Varjo | OpenVR |
+|---|---|---|---|
+| **Eye Tracking** Gaze direction and eye state | ![Supported](yes.png) | ![Supported](yes.png) | ![Not supported](no.png) |
+| **Hand Tracking** Skeletal finger tracking without controllers | ![Supported](yes.png) | ![Supported](yes.png) (via [Ultraleap plugin](../code/plugins/ultraleap/index_cpp.md)) | ![Not supported](no.png) |
+| **Mixed Reality** Blending virtual content with a live camera feed | ![Supported](yes.png) | ![Supported](yes.png) | ![Not supported](no.png) |
+| **Foveated Rendering** Full resolution only where the user is looking, reducing GPU load | ![Supported](yes.png) | ![Supported](yes.png) | ![Not supported](no.png) |
+| **Motion Prediction** Extrapolating head pose to reduce perceived latency | ![Not supported](no.png) | ![Supported](yes.png) | ![Not supported](no.png) |
+| **Object Markers** Anchoring virtual objects to tracked physical markers | ![Not supported](no.png) | ![Supported](yes.png) | ![Not supported](no.png) |
+| **Trackers** Standalone tracked devices (e.g. Vive Trackers for body parts or props) | ![Not supported](no.png) | ![Not supported](no.png) | ![Supported](yes.png) |
+| **Base Stations** Access to tracking reference points in the play area | ![Not supported](no.png) | ![Not supported](no.png) | ![Supported](yes.png) |
+| **Render Models** 3D models of controllers provided by the runtime | ![Not supported](no.png) | ![Not supported](no.png) | ![Supported](yes.png) |
 
 
 ## Supported Devices
 
 
-The following VR device models are supported:
+The following devices are regularly tested with UNIGINE:
 
 
-- *Oculus Rift* / *Rift S* / *Quest* / *Quest 2* / *Quest 3* / *Quest Pro* (with Oculus Link cable / Oculus Link wireless / SteamLink)
-- *HTC Vive* / *Vive Pro* / *Focus* / *Cosmos*
-- *Varjo VR-1* / *VR-2* / *VR-3* / *XR-3* (with extended mixed reality support)
+- *Quest 2* / *Quest 3* / *Quest Pro* / *Rift* / *Rift S*
+- *HTC Vive* / *Vive Pro* / *Vive Focus* / *Vive Cosmos* / *Vive XR Elite*
+- *Varjo VR-1* / *VR-2* / *VR-3* / *XR-3* / *XR-4*
 - *PICO 4*
-- Windows Mixed Reality (WMR)-compatible
-- OpenVR-compatible
-- OpenXR-compatible
 
 
-> **Notice:** The list above includes devices that we test on a regular basis, so the range of supported devices may be wider.
+Any other OpenXR- or OpenVR-compatible headset should work as well, though specific features may vary.
 
 
-## Mixed Reality Development
+For performance profiling, use the tools provided by your runtime: [SteamVR Frame Timing](https://developer.valvesoftware.com/wiki/SteamVR/Frame_Timing) for SteamVR, [Oculus PerfHud](https://developer.oculus.com/documentation/native/pc/dg-hud/?locale=ru_RU) for Oculus devices. You can also use [XR Simulator](https://developer.oculus.com/documentation/unreal/xrsim-intro) as an OpenXR runtime for testing without a physical headset.
 
 
-Thanks to ***Varjo*** integration, you can implement *Mixed Reality* applications to be run with Varjo HMDs.
+## Mixed Reality
 
 
-UNIGINE supports **Varjo SDK 3.10.0** with chroma keying, so you can change environments quickly, along with depth testing enabling you to composite and sort real and virtual worlds together by utilizing the depth-sensing capabilities of *XR-3* and *XR-1*. Tracking of static or dynamic real-world objects using the video pass-through cameras via markers is also available now. With Alpha Blend capabilities you can blend your virtual environment with the real world enabling efficient collaboration in both.
+In a pure VR application the user is fully immersed in a synthetic world. Mixed Reality adds the real world back in: front-facing cameras on the headset capture the physical environment, and the engine composites virtual objects on top of the camera feed. The user sees both at the same time.
 
 
-You can also use **object markers** to track static or dynamic objects in the user environment in both XR and VR applications. VR apps without video pass-through rendering can use these markers to align virtual objects in the scene with physical objects in the real world.
+This matters when users need to stay aware of their physical surroundings - operating real equipment with virtual overlays, collaborating with other people in the room, or navigating a real workspace. MR is supported via the **Varjo** backend (Varjo XR headsets) and the **OpenXR** backend (devices with passthrough cameras, such as *Quest 3*).
 
 
-Check out the **[C++ VR Sample](...md)** showcasing *Mixed Reality* features.
+The Varjo backend also supports **object markers** - physical markers tracked by the headset cameras to anchor virtual objects to real-world positions (e.g., placing a virtual panel on a real desk).
 
 
-To develop an application, you need to install *[Varjo Base](https://varjo.com/downloads/#varjo-base)* and *[SteamVR](https://store.steampowered.com/about/)*.
-
-
-Mixed Reality management is performed via the *[VRMixedReality](../api/library/vr/class.vrmixedreality_cpp.md)* and *[VRMarkerObject](../api/library/vr/class.vrmarkerobject_cpp.md)* classes of UNIGINE API.
-
-
-## Supported Graphics APIs
-
-
-The following graphics APIs are supported out of the box:
-
-
-- DirectX 12
-- Vulkan
-
-
-## Initialization
-
-
-By default, VR is not initialized. To run the engine with VR, you need to specify the *[-vr_app](../code/command_line.md#vr_app)* command-line option on the application start-up.
-
-
-- For OpenVR: ```bash -vr_app openvr ```
-- For Varjo: ```bash -vr_app varjo ```
-- For OpenXR: ```bash -vr_app openxr ```
-
-
-## VR Input
-
-
-UNIGINE VR input system provides access to a wide range of VR devices: you can manage input from *VR controllers*, *head-mounted displays (HMDs)*, *base stations*, and *trackers*.
-
-
-For more details on types of VR devices and their examples, check the article on *[VR Input System](../vr_development/vr_input.md)*.
+Mixed Reality is managed via the *[VRMixedReality](../api/library/vr/class.vrmixedreality_cpp.md)* and *[VRMarkerObject](../api/library/vr/class.vrmarkerobject_cpp.md)* classes. Check out the **[C++ VR Template](../vr_development/vr_template/vr_template_mixed_reality/index.md)** to see MR features in action.
 
 
 ## VR Template
 
 
-UNIGINE provides a *[VR Template](../content/vr/index.md#vr_template)* that is used to facilitate the creation of a custom application for VR. It contains a set of 3D models of popular VR controllers and the implementation of basic mechanics such as grabbing and throwing objects, pressing buttons, opening/closing drawers, and a lot more.
+Rather than starting from scratch, you can use the *[VR Template](../content/vr/index.md#vr_template)* - a ready-made project with common VR interactions already implemented: grabbing and throwing objects, pressing buttons, opening and closing drawers, locomotion, and more.
 
 
-The template is created using the [Component System](../principles/component_system/index.md), so you can easily extend its functionality.
+The template is built on the [Component System](../principles/component_system/index.md), so you can extend it by adding your own components.
 
 
-Refer to the *[Getting Started with VR](../start/vr/index_cpp.md)* section to learn how to use the template for *C++/C# VR* project development.
+See [Getting Started with VR](../vr_development/vr_template/index.md) for a step-by-step guide on creating a project from the template.
 
 
-## Basic Workflow on Using VR
+## Next Steps
 
 
-Unlike other 3D applications, developing a **VR** application is more complex: you should set up a VR environment, add interactive elements, process user input from various VR devices, and so on.
-
-
-The general workflow of the VR application development in UNIGINE is the following:
-
-
-1. Set up your UNIGINE project for VR development:
-
-  1. Set up a VR device (check the instructions provided by the vendor, if necessary).
-  2. Configure the project to use the appropriate VR mode. You can perform it via SDK Browser for *C++/C#* projects or in UnigineEditor for C# projects, depending on your preferred method of running your application.
-  3. [Initialize VR](#vr_init).
-2. Create the VR environment:
-
-  - Create a 3D environment for your VR project by using 3rd-party 3D modeling and level design tools and UnigineEditor.
-  - Extend the VR environment with animations, sounds, videos, and other interactive elements.
-3. Make the VR environment more interactive:
-
-  - Implement components to extend the functionality of objects in the environment and process [user input](../vr_development/vr_input.md).
-  - Use [UNIGINE's VR Template](../start/vr/index_cpp.md) (available for C++ and C# APIs) that offers a basic set of VR components and allows users to move around and interact with objects in the environment.
-4. Debug and profile your VR application. Use the VR platform-specific and UNIGINE built-in profiling tools to improve performance.
-5. Build and deploy your VR application.
+- [*Getting Started with VR*](../vr_development/vr_template/index.md) - create and run your first VR project.
+- [*VR API Reference*](../api/library/vr/index.md) - the full class and method reference for managing VR via code.

@@ -222,6 +222,12 @@ The path to the custom icon for the final application's window.
 > **Notice:** Beware of severe slowdown when enabled. Available only during the Engine initialization (startup), has no effect at run time.
 
 
+## 🔒︎ int NumFallbackFonts
+
+The number of per-font fallback entries in the boot configuration (fonts for which an individual list of fallback fonts is defined). Fallback fonts are used by the GUI when the primary font lacks a glyph.
+## 🔒︎ int NumGlobalFontFallbacks
+
+The number of global fallback fonts in the boot configuration. Global fallbacks apply to every font and are checked after the font's own fallback list.
 ### Members
 
 ---
@@ -306,3 +312,101 @@ Sets a new name of the plugin with the given number specified in the `.boot` con
 
 - *int* **num** - Number of the plugin to be set in the list of the specified plugins, in the range from 0 to the [total number of plugins specified](#getNumExternPlugins_int).
 - *string* **value** - Name of the plugin with the given number specified in the `.boot` configuration file. Plugin library name goes without any prefixes and postfixes (e.g., `libNetwork_x64d.so` is listed as "**Network**").
+
+## int AddFallbackFont ( string font )
+
+Appends a new per-font fallback entry for the specified font, with an initially empty fallback list (populate it via **[AddFontFallback()](../../...md#addFontFallback_int_cstr_void)**).
+### Arguments
+
+- *string* **font** - Path to the font file the new entry is created for.
+
+### Return value
+
+Index of the new entry.
+## void AddFontFallback ( int font , string fallback_font )
+
+Appends a fallback font to the list of the per-font entry with the specified index.
+### Arguments
+
+- *int* **font** - Index of the per-font fallback entry.
+- *string* **fallback_font** - Path to the fallback font file to append.
+
+## void AddGlobalFontFallback ( string fallback_font )
+
+Appends a font to the global fallback list applied to every font.
+### Arguments
+
+- *string* **fallback_font** - Path to the fallback font file to append.
+
+## string GetFallbackFontName ( int num )
+
+Returns the font path of the per-font fallback entry with the specified index.
+### Arguments
+
+- *int* **num** - Index of the per-font fallback entry, in the [0; **[NumFallbackFonts](../../...md#getNumFallbackFonts_int)**) range.
+
+### Return value
+
+Path to the font file the entry is defined for.
+## string GetFontFallback ( int font , int fallback )
+
+Returns the path of the fallback font with the specified index in the given per-font entry.
+### Arguments
+
+- *int* **font** - Index of the per-font fallback entry.
+- *int* **fallback** - Index of the fallback font within the entry.
+
+### Return value
+
+Path to the fallback font file.
+## string GetGlobalFontFallback ( int num )
+
+Returns the path of the global fallback font with the specified index.
+### Arguments
+
+- *int* **num** - Index of the global fallback font, in the [0; **[NumGlobalFontFallbacks](../../...md#getNumGlobalFontFallbacks_int)**) range.
+
+### Return value
+
+Path to the global fallback font file.
+## int GetNumFontFallbacks ( int font )
+
+Returns the number of fallback fonts registered for the per-font entry with the specified index.
+### Arguments
+
+- *int* **font** - Index of the per-font fallback entry.
+
+### Return value
+
+Number of fallback fonts in the entry.
+## void RemoveFontFallback ( int font , int fallback )
+
+Removes the fallback font with the specified index from the given per-font entry.
+### Arguments
+
+- *int* **font** - Index of the per-font fallback entry.
+- *int* **fallback** - Index of the fallback font within the entry.
+
+## void RemoveGlobalFontFallback ( int num )
+
+Removes the global fallback font with the specified index.
+### Arguments
+
+- *int* **num** - Index of the global fallback font.
+
+## void SetFontFallback ( int font , int fallback , string fallback_font )
+
+Replaces the fallback font with the specified index in the given per-font entry.
+### Arguments
+
+- *int* **font** - Index of the per-font fallback entry.
+- *int* **fallback** - Index of the fallback font within the entry.
+- *string* **fallback_font** - Path to the new fallback font file.
+
+## void SetGlobalFontFallback ( int num , string fallback_font )
+
+Replaces the global fallback font with the specified index.
+### Arguments
+
+- *int* **num** - Index of the global fallback font.
+- *string* **fallback_font** - Path to the new fallback font file.

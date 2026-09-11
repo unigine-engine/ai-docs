@@ -15,7 +15,7 @@ The volume omni object is rendered as a flat rectangle and billboards around its
 
 ## float Attenuation
 
-The Attenuation that modulates smooth fading of the volume omni object when the camera looks at it from a side.
+The Attenuation that modulates smooth fading of the volume omni object when the camera looks at it from a side. If a too small value is provided, 1E-6 will be used instead.
 ## float Radius
 
 The size of billboards.

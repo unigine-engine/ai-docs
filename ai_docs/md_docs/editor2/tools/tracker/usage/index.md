@@ -16,7 +16,7 @@ The article contains the step-by-step implementation of fading-in/fading-out of 
   - For the second key frame, set *Time* = **1** and *Value* = **0**.
 
 
-> **Notice:** If any Z-fighting occurs, you can also adjust *[Rendering Order](../../../../editor2/materials_settings/index.md#order)* for the *box1* object’s material.
+> **Notice:** If any Z-fighting occurs, you can also adjust *[Rendering Order](../../../../editor2/materials_settings/index.md#order)* for the *box1* object�s material.
 
 
 The result will be the following:

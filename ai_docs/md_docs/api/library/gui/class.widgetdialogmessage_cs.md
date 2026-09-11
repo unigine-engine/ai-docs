@@ -12,10 +12,10 @@ This class creates a dialog window containing a message text string.
 
 ## string MessageText
 
-The text message of the dialog. the default is equal to the dialog title.
+The text message of the dialog. The default is equal to the dialog title.
 ## bool MessageHidden
 
-The value indicating if a text message in the widget is hidden or shown.
+The value indicating if the text message in the widget is hidden or shown.
 ### Members
 
 ---

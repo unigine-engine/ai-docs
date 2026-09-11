@@ -16,12 +16,12 @@ To see a terrain, **at least one *Landscape Layer Map* is required**. Data of ea
 There is a set of API classes used to manage the *Landscape Terrain* object:
 
 
-- *[ObjectLandscapeTerrain](../../../api/library/objects/landscape_terrain/class.objectlandscapeterrain_cs.md)* — managing general *Landscape Terrain* object parameters.
-- *[TerrainDetail](../../../api/library/objects/landscape_terrain/class.terraindetail_cs.md)* — managing terrain details that define its appearance. Details are organized into a hierarchy, each of them can have an unlimited number of children. Details are attached to detail masks and are drawn in accordance with their rendering order (the one with the highest order shall be rendered above all others).
-- *[TerrainDetailMask](../../../api/library/objects/landscape_terrain/class.terraindetailmask_cs.md)* — managing terrain detail masks. Each detail mask can have an unlimited number of details.
-- *[LandscapeFetch](../../../api/library/objects/landscape_terrain/class.landscapefetch_cs.md)* — getting terrain data at a certain point (e.g. a height request) or check for an intersection with a traced line.
-- *[LandscapeImages](../../../api/library/objects/landscape_terrain/class.landscapeimages_cs.md)* — to edit landscape terrain via API.
-- *[LandscapeTextures](../../../api/library/objects/landscape_terrain/class.landscapetextures_cs.md)* — to edit landscape terrain via API.
+- *[ObjectLandscapeTerrain](../../../api/library/objects/landscape_terrain/class.objectlandscapeterrain_cs.md)* � managing general *Landscape Terrain* object parameters.
+- *[TerrainDetail](../../../api/library/objects/landscape_terrain/class.terraindetail_cs.md)* � managing terrain details that define its appearance. Details are organized into a hierarchy, each of them can have an unlimited number of children. Details are attached to detail masks and are drawn in accordance with their rendering order (the one with the highest order shall be rendered above all others).
+- *[TerrainDetailMask](../../../api/library/objects/landscape_terrain/class.terraindetailmask_cs.md)* � managing terrain detail masks. Each detail mask can have an unlimited number of details.
+- *[LandscapeFetch](../../../api/library/objects/landscape_terrain/class.landscapefetch_cs.md)* � getting terrain data at a certain point (e.g. a height request) or check for an intersection with a traced line.
+- *[LandscapeImages](../../../api/library/objects/landscape_terrain/class.landscapeimages_cs.md)* � to edit landscape terrain via API.
+- *[LandscapeTextures](../../../api/library/objects/landscape_terrain/class.landscapetextures_cs.md)* � to edit landscape terrain via API.
 
 
 ### See Also
@@ -52,7 +52,7 @@ Before we get to code, perform the following:
 2. Open your project in UnigineEditor via the **Open Editor** button in *SDK Browser*.
 3. Save the following images to your computer: | Albedo Map | Height Map | |---|---| | ![Albedo Map](albedo.png) | ![Height Map](height.png) |
 4. Drag the `height.png` file directly to the *[Asset Browser](../../../editor2/assets_workflow/index.md#asset_browser)* window to add it to your project. In the Import Dialog for your height map, set *Image Format* to R32F and click **Yes**.
-5. Drag the `albedo.png` file directly to the *[Asset Browser](../../../editor2/assets_workflow/index.md#asset_browser)* window too. In the Import Dialog for your height map, set *Texture Preset* to **Albedo (RGB — color, A — opacity)** and click **Yes**.
+5. Drag the `albedo.png` file directly to the *[Asset Browser](../../../editor2/assets_workflow/index.md#asset_browser)* window too. In the Import Dialog for your height map, set *Texture Preset* to **Albedo (RGB � color, A � opacity)** and click **Yes**.
 
 
 ### Code
@@ -304,7 +304,7 @@ Let's create a new layer map for a crater, to do so, perform the following actio
 
 1. Save the following images to be used for the crater to your computer: | Crater Albedo Map | Crater Height Map | |---|---| | ![Crater Albedo Map](crater_albedo.png) | ![Crater Height Map](crater_height.png) |
 2. Switch to UnigineEditor and Drag the `crater_height.png` file directly to the *[Asset Browser](../../../editor2/assets_workflow/index.md#asset_browser)* window to add it to your project (just like you did before for the terrain's *Height* map). In the Import Dialog for your height map, set *Image Format* to **R32F** and click **Yes**.
-3. Drag the `crater_albedo.png` file directly to the *[Asset Browser](../../../editor2/assets_workflow/index.md#asset_browser)* window (just like you did before for the terrain's *Albedo* map). In the Import Dialog for your albedo map set *Texture Preset* to **Albedo (RGB — color, A — opacity)** and click **Yes**.
+3. Drag the `crater_albedo.png` file directly to the *[Asset Browser](../../../editor2/assets_workflow/index.md#asset_browser)* window (just like you did before for the terrain's *Albedo* map). In the Import Dialog for your albedo map set *Texture Preset* to **Albedo (RGB � color, A � opacity)** and click **Yes**.
 4. Select *Create -> Create Landscape Layer Map* in the *[Asset Browser](../../../editor2/assets_workflow/index.md#asset_browser)*. ![](create_lmap.png)
 5. Enter a name for the layer map: `crater`.
 6. Select your new `crater.lmap` asset and adjust its settings as shown below (assign our images, select blending mode and adjust heights range for the crater). ![](adjust_lmap.png)
@@ -471,7 +471,7 @@ Let us modify the *Heights* and *Albedo* data of the terrain, so we need two cus
 | ![Custom Albedo Map](custom_albedo.png) | ![Custom Height Map](custom_height.png) |
 
 
-Don't forget to set *Image Format* to **R32F** for your height map and set *Texture Preset* to **Albedo (RGB — color, A — opacity)** for your albedo map and reimport them with new settings.
+Don't forget to set *Image Format* to **R32F** for your height map and set *Texture Preset* to **Albedo (RGB � color, A � opacity)** for your albedo map and reimport them with new settings.
 
 
 ### Code

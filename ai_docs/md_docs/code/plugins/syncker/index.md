@@ -52,7 +52,7 @@ Moreover, *Syncker* offers you a flexible customization of the whole synchroniza
 ### Launching Order
 
 
-The order of launching *Master* and *Slave* applications does not matter: you can launch several *Slave* apps, then *Master*, and then the remaining *Slave* apps — synchronization will start automatically. *Master* starts the session as soon as all *Slave* apps are connected.
+The order of launching *Master* and *Slave* applications does not matter: you can launch several *Slave* apps, then *Master*, and then the remaining *Slave* apps � synchronization will start automatically. *Master* starts the session as soon as all *Slave* apps are connected.
 
 
 In case only *Master* is present (`-sync_count1`) and connection of additional *Slave* applications on the fly is enabled (`-sync_allow_extra_slaves1`), the session starts immediately and lasts forever (until *Master* is on).
@@ -67,10 +67,10 @@ In case only *Master* is present (`-sync_count1`) and connection of additional *
 In case there are a lot of *Slave* applications used, resulting in significant growth of the network load, it is recommended to try and reduce load by enabling *[broadcast](#addressing_broadcast)* or *[multicast](#addressing_multicast)* addressing modes. If changing the addressing mode does not solve the problem, you are recommended to adjust send rate, interpolation/extrapolation parameters.
 
 
-UNIGINE *Syncker* uses **Interpolated Snapshots** (IS) to tackle the problem of lost packets between *Master* and *Slave*. It works by taking two old, but known positions and interpolating the object between them. It is accomplished by having a buffer of received positions and rotations, along with the time they represent. We usually take our current local time minus some predefined amount — **interpolation period** (40 ms by default), then go into our buffer, find the two indices that are just before and just after this time and interpolate.
+UNIGINE *Syncker* uses **Interpolated Snapshots** (IS) to tackle the problem of lost packets between *Master* and *Slave*. It works by taking two old, but known positions and interpolating the object between them. It is accomplished by having a buffer of received positions and rotations, along with the time they represent. We usually take our current local time minus some predefined amount � **interpolation period** (40 ms by default), then go into our buffer, find the two indices that are just before and just after this time and interpolate.
 
 
-If we don't have a received position and rotation for the time we're looking for, the **extrapolation** (guessing) is used. It also has a limited time — **extrapolation period** (200 ms by default). If the extrapolation period is over but there are still no packets received, all objects will freeze.
+If we don't have a received position and rotation for the time we're looking for, the **extrapolation** (guessing) is used. It also has a limited time � **extrapolation period** (200 ms by default). If the extrapolation period is over but there are still no packets received, all objects will freeze.
 
 
 In most cases, this method provides a very accurate representation of the world to each *Slave*, as in general only already known positions of remote objects are rendered and in rare cases the system will try to extrapolate (guess) where an object is. This, however, comes at a cost, as we always render 40 ms (interpolation period) behind current time, so that new packets have time to arrive with data.
@@ -85,11 +85,11 @@ In most cases, this method provides a very accurate representation of the world 
 For sending and receiving messages between *Master* and *Slave*, *Syncker* uses a single UDP socket with the following five technologies:
 
 
-- **Reliable** — guarantees packet delivery using the so-called acknowledge packets. When *Master* sends a message, *Slave* reports that the message is received. In case *Slave* does not reply in a certain period of time, *Master* tries to re-send the message.
-- **Sequenced** — guarantees that all packets are received in the right order, finding all duplicates. Each packet has a number and until *Slave* receives the packet, *Master* shall not send next ones to it (with greater numbers).
-- **Merged** — small messages are combined into a greater one instead of sending them all one right after the other (send a single 100-bytes packet rather than sending 10 packets 10-bytes each). This makes sending acknowledge packets to the sender simpler and faster.
-- **Fragmented** — a large message exceeding the MTU size (*[Maximum Transmission Unit](https://en.wikipedia.org/wiki/Maximum_transmission_unit)*), shall be split into several packets having the MTU size. This ensures delivery of all packets protecting *Slave* from buffer overflow caused by a single large packet.
-- **Compressed** — all messages are compressed using the LZ4 algorithm before sending. This reduced network load, but slightly increases the load on the computer itself.
+- **Reliable** � guarantees packet delivery using the so-called acknowledge packets. When *Master* sends a message, *Slave* reports that the message is received. In case *Slave* does not reply in a certain period of time, *Master* tries to re-send the message.
+- **Sequenced** � guarantees that all packets are received in the right order, finding all duplicates. Each packet has a number and until *Slave* receives the packet, *Master* shall not send next ones to it (with greater numbers).
+- **Merged** � small messages are combined into a greater one instead of sending them all one right after the other (send a single 100-bytes packet rather than sending 10 packets 10-bytes each). This makes sending acknowledge packets to the sender simpler and faster.
+- **Fragmented** � a large message exceeding the MTU size (*[Maximum Transmission Unit](https://en.wikipedia.org/wiki/Maximum_transmission_unit)*), shall be split into several packets having the MTU size. This ensures delivery of all packets protecting *Slave* from buffer overflow caused by a single large packet.
+- **Compressed** � all messages are compressed using the LZ4 algorithm before sending. This reduced network load, but slightly increases the load on the computer itself.
 
 
 ![](sequences.png)
@@ -113,9 +113,9 @@ So, here's how the packets are delivered:
 Basically, you can use the following delivery modes for sending/receiving messages:
 
 
-- **Reliable** — Reliable and sequenced mode, enabled by default. All packets shall be delivered to the recipient in the exact order they were sent.
-- **Unreliable** — Pure *UDP*. Packets may be lost, duplicated, or received in an order that differs from the one they were sent. Packets are not compressed, fragmented, or merged. Everything is sent "as is". This mode is the fastest one as it requires no additional time for processing. You can use this mode for sending timestamped auxiliary data (e.g., for interpolation) having the size close to *MTU*. *Example*: sending 10 times a second positions of 10 aircrafts with the information on the current time, status of flaps, slats, ailerons, landing gears, etc.
-- **Sequenced** — Packets may be lost, but never duplicated, they arrive in the exact order they were sent. This mode can be used for sending auxiliary data having the size close to *MTU*. *Example*: sending each frame positions of 10 aircrafts with the information on the status of flaps, slats, ailerons, landing gears, etc.
+- **Reliable** � Reliable and sequenced mode, enabled by default. All packets shall be delivered to the recipient in the exact order they were sent.
+- **Unreliable** � Pure *UDP*. Packets may be lost, duplicated, or received in an order that differs from the one they were sent. Packets are not compressed, fragmented, or merged. Everything is sent "as is". This mode is the fastest one as it requires no additional time for processing. You can use this mode for sending timestamped auxiliary data (e.g., for interpolation) having the size close to *MTU*. *Example*: sending 10 times a second positions of 10 aircrafts with the information on the current time, status of flaps, slats, ailerons, landing gears, etc.
+- **Sequenced** � Packets may be lost, but never duplicated, they arrive in the exact order they were sent. This mode can be used for sending auxiliary data having the size close to *MTU*. *Example*: sending each frame positions of 10 aircrafts with the information on the status of flaps, slats, ailerons, landing gears, etc.
 
 
 Multiple systems may use the *Syncker*'s network simultaneously (e.g. *IG* and a user's *App* application). For convenience, all messages are sent and received via named channels. If the specified channel does not exist, it shall be created.
@@ -196,8 +196,8 @@ Consequently, reducing the lag (interpolation period) requires increasing the [s
 *Syncker* allows synchronizing views from multiple cameras. There are two types of cameras:
 
 
-- **Main master camera** — a single camera that corresponds to the main viewer's position. The [screen configuration](#screen_configs) determines viewports relative to this camera. *Example:* a camera in the plane's cockpit, corresponding the pilot's point of view.
-- **Auxiliary camera** — an additional camera (static or dynamic) that can be set anywhere in the scene. You can have as many cameras of this type as necessary. *Example:* a ground-based surveillance camera or a thermal imaging camera mounted on the plane's wing.
+- **Main master camera** � a single camera that corresponds to the main viewer's position. The [screen configuration](#screen_configs) determines viewports relative to this camera. *Example:* a camera in the plane's cockpit, corresponding the pilot's point of view.
+- **Auxiliary camera** � an additional camera (static or dynamic) that can be set anywhere in the scene. You can have as many cameras of this type as necessary. *Example:* a ground-based surveillance camera or a thermal imaging camera mounted on the plane's wing.
 
 
 By default, the main master camera is used. You can create auxiliary cameras and specify their viewports to be displayed by selected *Slave* apps. Such cameras are synchronized automatically.
@@ -209,7 +209,7 @@ By default, the main master camera is used. You can create auxiliary cameras and
 ## Screen Configurations
 
 
-To configure screens/projections, the [*SpiderVision* plugin](../../../principles/render/output/multi_monitor/spidervision_plugin/index.md) should be added to your project for both master and slaves. The order of plugins in the list matters — *SpiderVision* must be specified before *Syncker*:
+To configure screens/projections, the [*SpiderVision* plugin](../../../principles/render/output/multi_monitor/spidervision_plugin/index.md) should be added to your project for both master and slaves. The order of plugins in the list matters � *SpiderVision* must be specified before *Syncker*:
 
 
 ```bash
@@ -241,10 +241,10 @@ Two types of configuration can be used:
 Basically *Syncker* has 4 states:
 
 
-- **Wait for connections** — waiting until all *Slave* PCs are connected.
-- **Starting...** — *MTU* calculation and startup synchronization of all hosts.
-- **Session Started** — the session is started.
-- **Session Finished** — the session is over, all *Slave* PCs are disconnected.
+- **Wait for connections** � waiting until all *Slave* PCs are connected.
+- **Starting...** � *MTU* calculation and startup synchronization of all hosts.
+- **Session Started** � the session is started.
+- **Session Finished** � the session is over, all *Slave* PCs are disconnected.
 
 
 Let us consider *Syncker* running using broadcast addressing with *Master* and a single *Slave*:
@@ -260,6 +260,18 @@ Let us consider *Syncker* running using broadcast addressing with *Master* and a
 
 
 ## Using Syncker
+
+
+To **add the plugin to a new project**, start by [creating a project](../../../sdk/projects/index_cpp.md#creation) from a template. In the project creation dialog, open *Advanced Settings > Plugins*, enable the *Syncker* plugin, click *Add*, then select *Create New Project*.
+
+
+![](add_plugin.png)
+
+
+For **existing projects**, in the SDK Browser, open the *My Projects* tab, and click the three-dot menu on the project card. Select *Configure*, then click *Plugins*, enable the required plugin, click *Add*, and finish with *Configure Project*.
+
+
+![](../../../sdk/projects/other_actions.png)
 
 
 ### Simple Synchronized Demonstration
@@ -281,7 +293,7 @@ This is the simplest mode, you don't have to know IP addresses or ports neither 
 Then you simply do the following:
 
 
-- Run the *Master* application substituting the [System Runtime Script](../../../code/fundamentals/execution_sequence/app_logic_system.md#scripts) with the special one (`core/systems/syncker/unigine.cpp`) and providing necessary startup [command-line options](../../../code/plugins/syncker/options.md) to define it as *Master* and set the total number of host computers: ```bash <your_app> -sync_init 1 -extern_plugin "UnigineSyncker" -sync_master 1 -sync_count 2 ``` `-sync_count` here sets the total number of computers (*Slave* PCs + *Master*). In this simplest case `-sync_count 2` — means a single *Master* and a single *Slave*.
+- Run the *Master* application substituting the [System Runtime Script](../../../code/fundamentals/execution_sequence/app_logic_system.md#scripts) with the special one (`core/systems/syncker/unigine.cpp`) and providing necessary startup [command-line options](../../../code/plugins/syncker/options.md) to define it as *Master* and set the total number of host computers: ```bash <your_app> -sync_init 1 -extern_plugin "UnigineSyncker" -sync_master 1 -sync_count 2 ``` `-sync_count` here sets the total number of computers (*Slave* PCs + *Master*). In this simplest case `-sync_count 2` � means a single *Master* and a single *Slave*.
 - Run each *Slave* application using the same system script and indicating that the host is *Slave* (not *Master*): ```bash <your_app> -sync_init 1 -extern_plugin "UnigineSyncker" -sync_master 0 ```
 
 
@@ -332,6 +344,47 @@ The debug window will open:
 ![](syncker_debug_window.jpg)
 
 *Debug Window*
+
+
+## Wireshark Plugin for Syncker
+
+
+The Wireshark dissector plugin has been added for UNIGINE Syncker, making it easier to inspect and debug multi-display synchronization traffic.
+
+
+The plugin decodes Syncker UDP packets directly in Wireshark, including connection setup, time synchronization, MTU checks, reliable transport data, and internal synchronization messages. It also supports fragment reassembly, LZ4 decompression, dynamic slave port detection, protocol version selection, and double-precision builds.
+
+
+The plugin is **installed into Wireshark**, not into the UNIGINE or Syncker plugin directory. After installation, Wireshark automatically uses the dissector for captured Syncker traffic that matches the supported protocol format.
+
+
+To use the Syncker Wireshark plugin:
+
+
+1. Install Wireshark.
+2. Copy the Syncker dissector plugin file (`<UNIGINE SDK>source\plugins\Unigine\Syncker\wireshark\syncker.lua`) to the Wireshark personal plugins folder. You can find the exact Wireshark plugin folder in *Help -> About Wireshark -> Folders -> Personal Plugins*. Typical plugin folders are:
+
+  - Windows: %APPDATA%\Wireshark\plugins
+  - Linux: ~/.local/lib/wireshark/plugins
+3. Restart Wireshark.
+4. Start capturing traffic on the network interface used by Syncker.
+5. Run the Syncker-based application.
+6. Inspect the decoded Syncker packets in Wireshark.
+
+
+After Wireshark is restarted, the Syncker protocol data becomes available in the packet details view. The dissector can decode connection setup, time synchronization, MTU checks, reliable transport data, and internal synchronization messages.
+
+
+In Wireshark, open *Preferences -> Protocols -> Syncker* to configure the Syncker dissector. The settings must match the Syncker configuration and the UNIGINE build used by the captured application:
+
+
+![](syncker_settings.png)
+
+
+| Protocol Version | UNIGINE protocol version used by the project. Select the version that matches the application generating the captured traffic. |
+|---|---|
+| UDP Port | UDP port used by Syncker. Packets sent to or from this port are automatically decoded as Syncker traffic. |
+| Double Precision (UNIGINE_DOUBLE) | Toggle that specifies whether the captured application uses a double-precision UNIGINE build. |
 
 
 ## Troubleshooting

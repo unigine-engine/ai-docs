@@ -12,20 +12,61 @@ An [object](../../../objects/index.md) with a set of [surfaces](../../../princip
 
 ### Members
 
+## int getNumSurfaces () const
+
+Returns the current number of surfaces of the object.
+> **Notice:** For your convenience, *[ObjectMeshDynamic()()](../../../api/library/objects/class.objectmeshdynamic_usc.md#ObjectMeshDynamic_constPtrMesh_int)* initializes the object with one internal surface named "`dynamic`". The first call to *[addSurface()()](../../../api/library/objects/class.objectmeshdynamic_usc.md#addSurface_cstr_void)* simply assigns a user-defined name to this surface without changing the total surface count. To create additional surfaces, call *[addSurface()()](../../../api/library/objects/class.objectmeshdynamic_usc.md#addSurface_cstr_void)* again.
+
+
+### Return value
+
+Current number of surfaces of the object
+## void setEnabled ( int enabled )
+
+Sets a new value indicating if the node and its parent nodes are enabled.
+### Arguments
+
+- *int* **enabled** - The node
+
+## int isEnabled () const
+
+Returns the current value indicating if the node and its parent nodes are enabled.
+### Return value
+
+Current node
+## BodyRigid getBodyRigid () const
+
+Returns the current rigid body assigned to the object.
+### Return value
+
+Current rigid body assigned to the object
+## void setBody ( Body body )
+
+Sets a new physical body assigned to the object, or **NULL** (**0**) if no body is assigned.
+### Arguments
+
+- *[Body](../../../api/library/physics/class.body_usc.md)* **body** - The physical body assigned to the object
+
+## Body getBody () const
+
+Returns the current physical body assigned to the object, or **NULL** (**0**) if no body is assigned.
+### Return value
+
+Current physical body assigned to the object
+## int isVisibleShadow () const
+
+Returns the current value indicating if the object's shadow is rendered.
+### Return value
+
+Current the object's shadow is rendered
+## int isVisibleCamera () const
+
+Returns the current value indicating if the object is rendered.
+### Return value
+
+Current the object is rendered
 ---
 
-## Body getBody ( )
-
-Returns a physical body assigned to the object.
-### Return value
-
-Body assigned to the object or **NULL** (**0**), if no body is assigned.
-## BodyRigid getBodyRigid ( )
-
-Returns a rigid body assigned to the object.
-### Return value
-
-Rigid body assigned to the object or **NULL** (**0**), if no body is assigned or the body is not rigid.
 ## BoundBox getBoundBox ( int surface )
 
 Returns the bounding box of a given surface.
@@ -172,13 +213,6 @@ Returns the collision mask for a given surface.
 ### Return value
 
 Surface collision mask.
-## void setEnabled ( int enabled )
-
-Enables or disables the node.
-### Arguments
-
-- *int* **enabled** - **1** to enable the node, **0** to disable it.
-
 ## void setEnabled ( int enabled , int surface )
 
 Enables or disables a surface with the specified number. The disabled surface is not rendered, does not take part in collision detection, and does not cast shadows.
@@ -197,12 +231,6 @@ Returns a value indicating if a given surface is enabled.
 ### Return value
 
 **1** if the surface is enabled; otherwise, **0**.
-## int isEnabled ( )
-
-Returns a value indicating if the node and its parent nodes are enabled.
-### Return value
-
-Positive number if the node and its parent nodes are enabled; otherwise, **0**.
 ## void setIntersection ( int enabled , int surface )
 
 Enables or disables intersections with a given surface.
@@ -733,6 +761,60 @@ Returns minimum visibility distance of a given surface. It is the distance, star
 ### Return value
 
 Minimum visibility distance, in units.
+## void setExperimentalNavigation ( int enabled , int surface )
+
+Sets a value indicating if a given surface contributes to the walkable surface when an [ExperimentalNavigationMesh](../../../api/library/pathfinding/class.experimentalnavigationmesh_usc.md) is baked. Marking geometry is opt-in: a surface takes part in baking only when this flag is set, which keeps decoration and clutter out of the navigation mesh.
+### Arguments
+
+- *int* **enabled** - Navigation flag. The default value is false.
+- *int* **surface** - Surface number.
+
+## int getExperimentalNavigation ( int surface )
+
+Returns a value indicating if a given surface contributes to the walkable surface when a navigation mesh is baked.
+### Arguments
+
+- *int* **surface** - Surface number.
+
+### Return value
+
+true if the surface takes part in navigation mesh baking; otherwise, false.
+## void setExperimentalNavigationBakeMask ( int mask , int surface )
+
+Sets the bake mask of a given surface. The surface is taken in only by the navigation meshes whose own bake mask shares at least one bit with this one, which is how one scene feeds several navigation meshes with different geometry.
+### Arguments
+
+- *int* **mask** - [Bake mask](../../../principles/bit_masking/index.md#bake_mask). The default value is 1.
+- *int* **surface** - Surface number.
+
+## int getExperimentalNavigationBakeMask ( int surface )
+
+Returns the bake mask of a given surface.
+### Arguments
+
+- *int* **surface** - Surface number.
+
+### Return value
+
+Bake mask of the surface.
+## void setExperimentalNavigationArea ( int area , int surface )
+
+Sets the area stamped onto the navigation mesh polygons baked from a given surface. It is how a road, a patch of mud, or a metal walkway gets its own traversal cost without a volume being placed over it.
+### Arguments
+
+- *int* **area** - Area index from the registry of the [ExperimentalNavigation](../../../api/library/pathfinding/class.experimentalnavigation_usc.md) singleton. The default value is 63.
+- *int* **surface** - Surface number.
+
+## int getExperimentalNavigationArea ( int surface )
+
+Returns the area stamped onto the navigation mesh polygons baked from a given surface.
+### Arguments
+
+- *int* **surface** - Surface number.
+
+### Return value
+
+Area index of the surface.
 ## void setMaxVisibleDistance ( float distance , int surface )
 
 Updates the maximum visibility distance of a given surface. It is the distance, starting from which the surface begins to [fade out](#setMaxFadeDistance_float_int_void) until it becomes completely invisible.
@@ -843,15 +925,6 @@ Returns the number of hierarchy levels up to the reference object, which is used
 ### Return value
 
 Number of hierarchy levels.
-## int getNumSurfaces ( )
-
-Returns the number of surfaces of the object.
-> **Notice:** For your convenience, *[ObjectMeshDynamic()()](../../../api/library/objects/class.objectmeshdynamic_usc.md#ObjectMeshDynamic_constPtrMesh_int)* initializes the object with one internal surface named "`dynamic`". The first call to *[addSurface()()](../../../api/library/objects/class.objectmeshdynamic_usc.md#addSurface_cstr_void)* simply assigns a user-defined name to this surface without changing the total surface count. To create additional surfaces, call *[addSurface()()](../../../api/library/objects/class.objectmeshdynamic_usc.md#addSurface_cstr_void)* again.
-
-
-### Return value
-
-Number of surfaces.
 ## int getNumTriangles ( int surface )
 
 Returns the number of triangles comprising a given surface.
@@ -1240,18 +1313,6 @@ Returns the [GUID](../../../api/library/filesystem/class.uguid_usc.md) of a lost
 ### Return value
 
 Lost property [GUID](../../../api/library/filesystem/class.uguid_usc.md).
-## int isVisibleCamera ( )
-
-Checks if the object is rendered.
-### Return value
-
-**1** if the object is rendered; otherwise, **0**.
-## int isVisibleShadow ( )
-
-Checks if only the object shadow is rendered.
-### Return value
-
-**1** if the object shadow is rendered; otherwise, **0**.
 ## void setLightingMode ( int mode , int surface )
 
 Sets the lighting mode for the specified surface.
@@ -1349,3 +1410,28 @@ Returns the number of [Engine frame](../../../api/library/engine/class.engine_us
 ### Return value
 
 Number of frame, in which the specified surface was drawn last time.
+## bool isSurfaceRenderCustomParameterOverridden ( int surface , int param )
+
+Checks if the custom surface parameter with the given number is overridden for the given surface of the object.
+### Arguments
+
+- *int* **surface** - Surface number.
+- *int* **param** - Parameter number.
+
+### Return value
+
+**1** if the parameter is overridden for the surface; otherwise, **0**.
+## void resetSurfaceRenderCustomParameter ( int surface , int param )
+
+Resets the override of the custom surface parameter with the given number for the given surface: the surface uses the default value from the *[surface parameters layout](../../../api/library/rendering/class.render_usc.md#getSurfaceParameters_CustomParameterLayout)* again.
+### Arguments
+
+- *int* **surface** - Surface number.
+- *int* **param** - Parameter number.
+
+## void resetSurfaceRenderCustomParameters ( int surface )
+
+Resets the overrides of all custom surface parameters for the given surface of the object.
+### Arguments
+
+- *int* **surface** - Surface number.

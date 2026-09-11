@@ -22,7 +22,7 @@ The mouse sensitivity used to increase or decrease the speed of mouse movement.
 The value indicating if back-and-forth movements of the mouse (by y-axis) are inverted: when the mouse is moved upward, the camera looks downwards, and when the mouse is moved downwards, the camera looks upwards. this mode is available only to control the camera.
 ## bool MouseRawInput
 
-The value indicating which type of mouse data is used to control the camera — raw ([Input::getMouseDeltaRaw()](../../../api/library/controls/class.input_cs.md#getMouseDeltaRaw_ivec2)) or processed by the OS ([Input::getMouseDeltaPosition()](../../../api/library/controls/class.input_cs.md#getMouseDeltaPosition_ivec2)).
+The value indicating which type of mouse data is used to control the camera � raw ([Input::getMouseDeltaRaw()](../../../api/library/controls/class.input_cs.md#getMouseDeltaRaw_ivec2)) or processed by the OS ([Input::getMouseDeltaPosition()](../../../api/library/controls/class.input_cs.md#getMouseDeltaPosition_ivec2)).
 ## bool MouseEnabled
 
 The value indicating if the mouse is enabled.
@@ -167,13 +167,17 @@ Returns a control state and clears it to 0 (control is not pressed).
 **1** if the control is pressed; otherwise, **0**.
 ## int Load ( )
 
-***Console*:**`controls_config_load`Loads controls configuration settings from a [controls configuration file](../../../code/configuration_file_cs.md) (`configs/default.controls` by default). To change the path to the controls configuration file use the [*setPath()*](#setPath_cstr_void) method.
+***Console*:**`controls_config_load`Loads controls configuration settings from a [controls configuration file](../../../code/configuration_file_cs.md) (`configs/default.controls` by default).
+To change the path to the controls configuration file use the [*setPath()*](#setPath_cstr_void) method.
+
 ### Return value
 
 1 if controls configuration settings are successfully loaded from a file; otherwise, 0.
 ## int Save ( )
 
-***Console*:**`controls_config_save`Saves controls configuration settings to a [controls configuration file](../../../code/configuration_file_cs.md) (`configs/default.controls` by default). To change the path to the controls configuration file use the [*setPath()*](#setPath_cstr_void) method.
+***Console*:**`controls_config_save`Saves controls configuration settings to a [controls configuration file](../../../code/configuration_file_cs.md) (`configs/default.controls` by default).
+To change the path to the controls configuration file use the [*setPath()*](#setPath_cstr_void) method.
+
 ### Return value
 
 1 if controls configuration settings are successfully saved to a file; otherwise, 0.

@@ -28,6 +28,58 @@ The object of this class may look as follows:
 
 ### Members
 
+## void setText ( string text )
+
+Sets a new checkbox text label.
+### Arguments
+
+- *string* **text** - The checkbox text label
+
+## const char * getText () const
+
+Returns the current checkbox text label.
+### Return value
+
+Current checkbox text label
+## void setChecked ( int checked )
+
+Sets a new value indicating if the checkbox is selected.
+### Arguments
+
+- *int* **checked** - The true if the checkbox is selected, false otherwise
+
+## int isChecked () const
+
+Returns the current value indicating if the checkbox is selected.
+### Return value
+
+Current true if the checkbox is selected, false otherwise
+## void setUncheckedColor ( vec4 color )
+
+Sets a new color of the checkbox flag in the unchecked state.
+### Arguments
+
+- *vec4* **color** - The color of the checkbox flag in the unchecked state
+
+## vec4 getUncheckedColor () const
+
+Returns the current color of the checkbox flag in the unchecked state.
+### Return value
+
+Current color of the checkbox flag in the unchecked state
+## void setCheckedColor ( vec4 color )
+
+Sets a new color of the checkbox flag in the checked state.
+### Arguments
+
+- *vec4* **color** - The color of the checkbox flag in the checked state
+
+## vec4 getCheckedColor () const
+
+Returns the current color of the checkbox flag in the checked state.
+### Return value
+
+Current color of the checkbox flag in the checked state
 ---
 
 ## static WidgetCheckBox ( Gui gui , string str = 0 )
@@ -44,56 +96,3 @@ Constructor. Creates a checkbox with a given text label and adds it to the Engin
 ### Arguments
 
 - *string* **str** - Checkbox label. This is an optional parameter.
-
-## void setChecked ( int checked )
-
-Sets a value indicating if the checkbox is selected.
-### Arguments
-
-- *int* **checked** - Positive number to check (select) the checkbox, **0** to uncheck it.
-
-## int isChecked ( )
-
-Returns a value indicating if the checkbox is selected.
-### Return value
-
-Positive number if the checkbox is checked (selected); otherwise, **0**.
-## void setText ( string text )
-
-Sets a checkbox text label.
-### Arguments
-
-- *string* **text** - Checkbox label.
-
-## string getText ( )
-
-Returns the checkbox text label.
-### Return value
-
-Checkbox label.
-## void setCheckedColor ( vec4 color )
-
-Sets the color to be used for the checked widget's state.
-### Arguments
-
-- *vec4* **color** - The four-component vector specifying the color in the RGBA format.
-
-## vec4 getCheckedColor ( )
-
-Returns the current color used for the checked widget's state.
-### Return value
-
-The four-component vector specifying the color in the RGBA format.
-## void setUncheckedColor ( vec4 color )
-
-Sets the color to be used for the unchecked widget's state.
-### Arguments
-
-- *vec4* **color** - The four-component vector specifying the color in the RGBA format.
-
-## vec4 getUncheckedColor ( )
-
-Returns the current color used for the unchecked widget's state.
-### Return value
-
-The four-component vector specifying the color in the RGBA format.

@@ -6,7 +6,7 @@
 A singleton that controls the settings of the [loading screen](../../../code/gui/screens/index.md#loading). Demonstration of it gives UNIGINE the time to load all world nodes and resources. You can also show your own loading screen when needed.
 
 
-A loading screen displays a [texture](../../../code/gui/skin/index.md#splash) that is usually divided into two parts stacked vertically — the initial and final pictures — which are gradually blended from the beginning up to the end of loading to show the progress. Blending is performed based on the alpha channel of the outro (lower) part of the texture so pseudo-animation can be created using the alpha channel: regions of the lower half with small alpha values will be shown first, regions with larger alpha values will be shown last.
+A loading screen displays a [texture](../../../code/gui/skin/index.md#splash) that is usually divided into two parts stacked vertically � the initial and final pictures � which are gradually blended from the beginning up to the end of loading to show the progress. Blending is performed based on the alpha channel of the outro (lower) part of the texture so pseudo-animation can be created using the alpha channel: regions of the lower half with small alpha values will be shown first, regions with larger alpha values will be shown last.
 
 
 ### See Also
@@ -179,7 +179,7 @@ The value indicating if manual rendering of a loading screen is allowed.
 
 ## 🔒︎ Event EventRenderEnd
 
-The event triggered when rendering of the loading screen ends. The function is useful when you implement a custom loading screen rendering function, for example. The event handler must not take arguments. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when rendering of the loading screen ends. The function is useful when you implement a custom loading screen rendering function, for example. The event handler must not take arguments. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -273,7 +273,7 @@ LoadingScreen.EventRenderEnd.Enabled = true;
 
 ## 🔒︎ Event EventRenderBegin
 
-The event triggered when rendering of the loading screen begins. The function is useful when you implement a custom loading screen rendering function, for example. The event handler must not take arguments. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when rendering of the loading screen begins. The function is useful when you implement a custom loading screen rendering function, for example. The event handler must not take arguments. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 

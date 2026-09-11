@@ -205,3 +205,23 @@ Returns a value indicating if the decal is to be ignored when baking *Global Ill
 ### Return value
 
 **1** if the decal is to be ignored when baking *Global Illumination* (lightmaps and probes); otherwise, **0**.
+## bool isSurfaceRenderCustomParameterOverridden ( int param )
+
+Checks if the custom surface parameter with the given number is overridden for the decal.
+### Arguments
+
+- *int* **param** - Parameter number.
+
+### Return value
+
+**1** if the parameter is overridden for the decal; otherwise, **0**.
+## void resetSurfaceRenderCustomParameter ( int param )
+
+Resets the override of the custom surface parameter with the given number: the decal uses the default value from the *[surface parameters layout](../../../api/library/rendering/class.render_usc.md#getSurfaceParameters_CustomParameterLayout)* again.
+### Arguments
+
+- *int* **param** - Parameter number.
+
+## void resetSurfaceRenderCustomParameters ( )
+
+Resets the overrides of all custom surface parameters of the decal.

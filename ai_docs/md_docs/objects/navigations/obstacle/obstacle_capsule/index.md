@@ -12,8 +12,8 @@ The **Obstacle Capsule** is a capsule-shaped obstacle that is detected and bypas
 The size of the *Obstacle Capsule* is set using the following parameters:
 
 
-- **Radius** — the radius of the cylinder and hemispheres of the capsule.
-- **Height** — the height of the cylinder of the capsule.
+- **Radius** � the radius of the cylinder and hemispheres of the capsule.
+- **Height** � the height of the cylinder of the capsule.
 
 
 ### See also

@@ -11,9 +11,9 @@ This node provides a dynamic branch to the shader. If input Condition is true, t
 The compilation mode of the branch can be selected with the Mode dropdown parameter (double-click somewhere inside the node to see the dropdown):
 
 
-- **Flatten** — evaluate both sides of the branch and choose between the two resulting values. However, if the Condition receives a Constant as a value, one of the branches won't be used at all.
-- **Branch (DirectX only)** — evaluate only one side of the branch depending on the given condition. Available only for DirectX Graphics API.
-- **Auto** — the compiler auto selects the most appropriate mode.
+- **Flatten** � evaluate both sides of the branch and choose between the two resulting values. However, if the Condition receives a Constant as a value, one of the branches won't be used at all.
+- **Branch (DirectX only)** � evaluate only one side of the branch depending on the given condition. Available only for DirectX Graphics API.
+- **Auto** � the compiler auto selects the most appropriate mode.
 
 
 ## Usage Examples

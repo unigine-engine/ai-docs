@@ -20,8 +20,8 @@ This demo showcases integration of the Robot Operating System (*ROS 2*) with a U
 This demo requires at least two modules (ROS nodes) to be run simultaneously:
 
 
-- **ROS Vehicle** (Simulator) — renders the simulation and sensor data that can be sent via ROS to any other listening app and simulates physics (UNIGINE can also be used as Image Generator with physics and vehicle model calculated on separate nodes). Use *WASD* controls + mouse to move the overall view camera. To control the vehicles, use Teleop applications, the Simulator shall receive user input and move vehicles accordingly.
-- **ROS Control** (Teleop) — processes the input (control keys pressed) from the user and transmits it to other ROS nodes. To control two vehicles simultaneously, you can run two Teleop applications on the same PC or on different PCs in the local network. Another control application (e.g. your own implementation of control system of an autonomous vehicle) can be used instead of Teleop to control vehicles in the Simulator.
+- **ROS Vehicle** (Simulator) � renders the simulation and sensor data that can be sent via ROS to any other listening app and simulates physics (UNIGINE can also be used as Image Generator with physics and vehicle model calculated on separate nodes). Use *WASD* controls + mouse to move the overall view camera. To control the vehicles, use Teleop applications, the Simulator shall receive user input and move vehicles accordingly.
+- **ROS Control** (Teleop) � processes the input (control keys pressed) from the user and transmits it to other ROS nodes. To control two vehicles simultaneously, you can run two Teleop applications on the same PC or on different PCs in the local network. Another control application (e.g. your own implementation of control system of an autonomous vehicle) can be used instead of Teleop to control vehicles in the Simulator.
 
 
 The Simulator application sends data from cameras and sensors to *RViz 3D* visualization tool for ROS (included in the original ROS2 package) that renders point cloud visualization based on the sensor data received.

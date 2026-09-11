@@ -18,7 +18,7 @@ UnigineScript sample
 
 ## int FieldMask
 
-The mask specifying the area of the applied field node.
+The mask specifying the area of the applied [Field node](../../../objects/effects/fields/index.md). The integer is treated as a bit mask, where each bit is a separate mask.
 ### Members
 
 ---

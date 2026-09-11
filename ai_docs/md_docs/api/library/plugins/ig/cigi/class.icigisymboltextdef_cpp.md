@@ -75,7 +75,7 @@ Monospace:
 
 ## int getAlignment ( ) const
 
-Returns the value of the **Alignment** parameter specified in the packet. Specifies the position at which the IG shall place the symbol’s reference point in relation to the text.
+Returns the value of the **Alignment** parameter specified in the packet. Specifies the position at which the IG shall place the symbol�s reference point in relation to the text.
 ### Return value
 
 **Alignment** parameter value. One of the [CIGI_TEXT_ALIGN_*](#CIGI_TEXT_ALIGN_TOP_LEFT) values.

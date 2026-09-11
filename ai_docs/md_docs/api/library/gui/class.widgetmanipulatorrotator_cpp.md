@@ -17,8 +17,6 @@ This class creates a rotation manipulator around three axes in form of a sphere.
 
 ## WidgetManipulatorRotator Class
 
-### Members
-
 ---
 
 ## static WidgetManipulatorRotatorPtr create ( const Ptr < Gui > & gui )

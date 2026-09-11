@@ -29,10 +29,10 @@ This class is used to simulate a flat deformable [cloth bodies](../../../princip
 
 ## 🔒︎ int NumIndices
 
-The number of particle indices.
+The number of particle indices in the cloth body.
 ## int TwoSided
 
-The A value indicating if the cloth is one- or two-sided. (if two-sided, its material should not be [two-sided](../../../api/library/rendering/class.material_cs.md#setTwoSided_int_void) at the same time).
+The value indicating if the cloth is one- or two-sided (1 - two-sided, 0 - one-sided). If two-sided, its material should not be [two-sided](../../../api/library/rendering/class.material_cs.md#setTwoSided_int_void) at the same time.
 ### Members
 
 ---

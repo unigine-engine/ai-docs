@@ -7,7 +7,7 @@ Lightmapping is a static global illumination technique using precalculated textu
 [![](lightmapping_sm.jpg)](lightmapping.jpg)
 
 
-Lightmapping is the most efficient solution enabling to achieve realistic diffuse lighting and keep the high performance. It is capable of giving high-detailed global illumination combined with simulation of many light bounces. The number of bounces is the key aspect of creating realistic lighting in bright scenes. When you use lightmapping it doesn’t matter how many rays, bounces, or light sources are there, as everything is calculated once and then baked in textures.
+Lightmapping is the most efficient solution enabling to achieve realistic diffuse lighting and keep the high performance. It is capable of giving high-detailed global illumination combined with simulation of many light bounces. The number of bounces is the key aspect of creating realistic lighting in bright scenes. When you use lightmapping it doesn�t matter how many rays, bounces, or light sources are there, as everything is calculated once and then baked in textures.
 
 
 UNIGINE provides an integrated GPU-accelerated Lightmapper tool available in the *[Bake Lighting](../../../editor2/lighting/gi/bake_lighting/index.md)* window.

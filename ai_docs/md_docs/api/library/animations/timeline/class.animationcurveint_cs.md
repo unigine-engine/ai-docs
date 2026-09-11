@@ -22,6 +22,12 @@ The point of the whole animation timeline where this curve starts being applied,
 ## 🔒︎ float MaxTime
 
 The point of the whole animation timeline up to which this curve is applied, in units.
+## AnimationCurve.EXTRAPOLATION PreInfinity
+
+The way the curve behaves before its first key.
+## AnimationCurve.EXTRAPOLATION PostInfinity
+
+The way the curve behaves after its last key.
 ### Members
 
 ---
@@ -29,7 +35,7 @@ The point of the whole animation timeline up to which this curve is applied, in 
 ## AnimationCurveInt ( )
 
 Constructor. Creates a new animation curve instance containing integer values.
-## void Copy ( AnimationCurveInt curve )
+## void AssignFrom ( AnimationCurveInt curve )
 
 Copies all data (key points and tangents) from the specified source curve.
 ### Arguments
@@ -91,13 +97,14 @@ Moves the key point with the specified number to a new time position (preserving
 ### Return value
 
 New index of the key.
-## void SetKeyType ( int index , AnimationCurve.KEY_TYPE type )
+## void SetKeyType ( int index , AnimationCurve.KEY_TYPE type , float value_time_ratio = 1.0f )
 
 Sets the interpolation type for the specified key on the curve.
 ### Arguments
 
 - *int* **index** - Key point number, in the range from 0 to the [total number of key points](#getNumKeys_int) in the curve.
 - *[AnimationCurve.KEY_TYPE](../../../../api/library/animations/timeline/class.animationcurve_cs.md#KEY_TYPE)* **type** - Interpolation type set for the key, one of the [KEY_TYPE](../../../../api/library/animations/timeline/class.animationcurve_cs.md#KEY_TYPE) values.
+- *float* **value_time_ratio** - Number of units of value that make up one unit of time, taken into account when the handles of an [aligned](../../../../api/library/animations/timeline/class.animationcurve_cs.md#KEY_TYPE_ALIGNED) key are made collinear. The default value is 1.0f, which measures value and time on the same scale.
 
 ## AnimationCurve.KEY_TYPE GetKeyType ( int index )
 
@@ -137,13 +144,14 @@ Returns the current value for the specified key on the curve.
 ### Return value
 
 The integer value of the key.
-## void SetKeyLeftTangent ( int index , vec2 left_tangent )
+## void SetKeyLeftTangent ( int index , vec2 left_tangent , float value_time_ratio = 1.0f )
 
 Sets new coordinates for the left tangent at the specified key point of the curve.
 ### Arguments
 
 - *int* **index** - Key point number, in the range from 0 to the [total number of key points](#getNumKeys_int) in the curve.
 - *vec2* **left_tangent** - Coordinates of the left tangent at the specified key point to be set.
+- *float* **value_time_ratio** - Number of units of value that make up one unit of time, taken into account when the opposite handle of an [aligned](../../../../api/library/animations/timeline/class.animationcurve_cs.md#KEY_TYPE_ALIGNED) key is brought back in line with this one. The default value is 1.0f, which measures value and time on the same scale.
 
 ## vec2 GetKeyLeftTangent ( int index )
 
@@ -155,13 +163,14 @@ Returns the current coordinates for the left tangent at the specified key point 
 ### Return value
 
 Coordinates of the left tangent at the specified key point to be set.
-## void SetKeyRightTangent ( int index , vec2 right_tangent )
+## void SetKeyRightTangent ( int index , vec2 right_tangent , float value_time_ratio = 1.0f )
 
 Sets new coordinates for the right tangent at the specified key point of the curve.
 ### Arguments
 
 - *int* **index** - Key point number, in the range from 0 to the [total number of key points](#getNumKeys_int) in the curve.
 - *vec2* **right_tangent** - Coordinates of the right tangent at the specified key point to be set.
+- *float* **value_time_ratio** - Number of units of value that make up one unit of time, taken into account when the opposite handle of an [aligned](../../../../api/library/animations/timeline/class.animationcurve_cs.md#KEY_TYPE_ALIGNED) key is brought back in line with this one. The default value is 1.0f, which measures value and time on the same scale.
 
 ## vec2 GetKeyRightTangent ( int index )
 
@@ -173,12 +182,13 @@ Returns the current coordinates for the right tangent at the specified key point
 ### Return value
 
 Coordinates of the right tangent at the specified key point to be set.
-## void SetTypeOfAllKeys ( AnimationCurve.KEY_TYPE type )
+## void SetTypeOfAllKeys ( AnimationCurve.KEY_TYPE type , float value_time_ratio = 1.0f )
 
 Sets the interpolation type for all keys of the curve.
 ### Arguments
 
 - *[AnimationCurve.KEY_TYPE](../../../../api/library/animations/timeline/class.animationcurve_cs.md#KEY_TYPE)* **type** - Interpolation type set for the key, one of the [KEY_TYPE](../../../../api/library/animations/timeline/class.animationcurve_cs.md#KEY_TYPE) values.
+- *float* **value_time_ratio** - Number of units of value that make up one unit of time, taken into account when the handles of an [aligned](../../../../api/library/animations/timeline/class.animationcurve_cs.md#KEY_TYPE_ALIGNED) key are made collinear. The default value is 1.0f, which measures value and time on the same scale.
 
 ## void Clear ( )
 

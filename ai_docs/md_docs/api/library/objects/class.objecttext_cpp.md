@@ -110,14 +110,14 @@ Returns the current color of the text.
 ### Return value
 
 Current color of the text in the RGBA range.
-## void setTextWrapWidth ( )
+## void setTextWrapWidth ( float width )
 
 Sets a new text wrap width in units. The text will wrap if its physical size will be greater than the set value.
 ### Arguments
 
-- **width** - The [text wrap width](#setTextWrapWidth_float_void) in units. The value of 0 means that text wrapping is disabled.
+- *float* **width** - The [text wrap width](#setTextWrapWidth_float_void) in units. The value of 0 means that text wrapping is disabled.
 
-## getTextWrapWidth () const
+## float getTextWrapWidth () const
 
 Returns the current text wrap width in units. The text will wrap if its physical size will be greater than the set value.
 ### Return value
@@ -128,27 +128,27 @@ Current [text wrap width](#setTextWrapWidth_float_void) in units. The value of 0
 Sets a new value indicating if the text object uses depth test.
 ### Arguments
 
-- *int* **test** - The **1** to use depth test; otherwise, **0**.
+- *int* **test** - The value indicating if the text object uses depth test
 
 ## int getDepthTest () const
 
 Returns the current value indicating if the text object uses depth test.
 ### Return value
 
-Current **1** to use depth test; otherwise, **0**.
+Current value indicating if the text object uses depth test
 ## void setFontOutline ( int outline )
 
 Sets a new flag indicating if the text [outline](#setFontOutline_int_void) is enabled.
 ### Arguments
 
-- *int* **outline** - The **1** — to enable the outline; **0** — to disable.
+- *int* **outline** - The value indicating if the text outline is enabled
 
 ## int getFontOutline () const
 
 Returns the current flag indicating if the text [outline](#setFontOutline_int_void) is enabled.
 ### Return value
 
-Current **1** — to enable the outline; **0** — to disable.
+Current value indicating if the text outline is enabled
 ## void setFontVSpacing ( int vspacing )
 
 Sets a new vertical spacing between letters (kerning value). This parameter influences the text's physical size.
@@ -226,7 +226,7 @@ Sets a new flag indicating if the rich text is enabled. When enabled, the follow
 
 ### Arguments
 
-- *int* **rich** - The **1** — to enable the rich text; **0** — to disable.
+- *int* **rich** - The value indicating if the rich text is enabled
 
 ## int getFontRich () const
 
@@ -253,7 +253,7 @@ Returns the current flag indicating if the rich text is enabled. When enabled, t
 
 ### Return value
 
-Current **1** — to enable the rich text; **0** — to disable.
+Current value indicating if the rich text is enabled
 ## void setFontName ( const char * name )
 
 Sets a new path to the TTF font.
@@ -297,6 +297,19 @@ Returns the current number of lines in the text.
 ### Return value
 
 Current number of lines in the text.
+## void setTextDirection ( Gui::TextDirection direction )
+
+Sets a new base paragraph direction of the object's text, matching the *Gui::TEXT_DIRECTION_** values: automatic detection from the text content (default), left-to-right, or right-to-left.
+### Arguments
+
+- *[Gui::TextDirection](../../../api/library/gui/class.gui_cpp.md#TextDirection)* **direction** - The base direction of the object text
+
+## Gui::TextDirection getTextDirection () const
+
+Returns the current base paragraph direction of the object's text, matching the *Gui::TEXT_DIRECTION_** values: automatic detection from the text content (default), left-to-right, or right-to-left.
+### Return value
+
+Current base direction of the object text
 ---
 
 ## static ObjectTextPtr create ( )

@@ -5,6 +5,7 @@
 
 This class is used to manage the [IG configuration](../../../../../ig/config.md) via API.
 
+
 > **Notice:** IG plugin must be loaded.
 
 

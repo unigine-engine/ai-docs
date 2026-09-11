@@ -18,6 +18,19 @@ UnigineScript sample
 
 ### Members
 
+## void setFieldMask ( int mask )
+
+Sets a new mask specifying the area of the applied [Field node](../../../objects/effects/fields/index.md). The integer is treated as a bit mask, where each bit is a separate mask.
+### Arguments
+
+- *int* **mask** - The mask specifying the area of the applied field node
+
+## int getFieldMask () const
+
+Returns the current mask specifying the area of the applied [Field node](../../../objects/effects/fields/index.md). The integer is treated as a bit mask, where each bit is a separate mask.
+### Return value
+
+Current mask specifying the area of the applied field node
 ---
 
 ## static ObjectWaterMeshPtr create ( )
@@ -37,19 +50,6 @@ Constructor. Creates a new water mesh object from a specified file.
 
 - *const char ** **path** - Path to the water mesh.
 
-## void setFieldMask ( int mask )
-
-Sets a field mask specifying the area of the [Field node](../../../objects/effects/fields/index.md) to be applied.
-### Arguments
-
-- *int* **mask** - An integer value, each bit of which is used to set a mask.
-
-## int getFieldMask ( )
-
-Returns the mask specifying the area of the applied Field node.
-### Return value
-
-The integer value, each bit of which sets a mask.
 ## float getHeight ( const Math:: Vec3 & position )
 
 Returns a height offset of a given point relatively to the water mesh surface.
@@ -107,13 +107,13 @@ else {
 ### Return value
 
 1 if the mesh is copied successfully; otherwise, 0.
-## int setMeshPath ( const char * path , int force_load = 0 )
+## int setMeshPath ( const char * path , bool force_load = 0 )
 
 Sets a new path to the `.mesh` file to be used for the object and forces loading of the mesh.
 ### Arguments
 
 - *const char ** **path** - New path to the `.mesh` file to be set.
-- *int* **force_load** - Force flag.
+- *bool* **force_load** - Force flag.
 
   - If 1 is specified, the mesh with the new name will be loaded immediately from the file specified as the first argument for this function.
   - If 0 is specified, only the mesh name will be updated.

@@ -48,6 +48,63 @@ To increase performance, you can use point indices instead of point coordinates.
 
 ### Members
 
+## int getNumPolygons () const
+
+Returns the current number of polygons drawn in the canvas widget.
+### Return value
+
+Current number of polygons drawn in the canvas widget
+## int getNumLines () const
+
+Returns the current number of lines drawn in the canvas widget.
+### Return value
+
+Current number of lines drawn in the canvas widget
+## int getNumTexts () const
+
+Returns the current number of text strings drawn in the canvas widget.
+### Return value
+
+Current number of text strings drawn in the canvas widget
+## void setTransform ( const Math:: mat4 & transform )
+
+Sets a new transformation matrix applied to all primitives on the canvas widget.
+### Arguments
+
+- *const  Math::[mat4](../../../api/library/math/class.mat4_cpp.md)&* **transform** - The transformation matrix applied to all primitives on the canvas widget
+
+## Math:: mat4 getTransform () const
+
+Returns the current transformation matrix applied to all primitives on the canvas widget.
+### Return value
+
+Current transformation matrix applied to all primitives on the canvas widget
+## void setColor ( const Math:: vec4 & color )
+
+Sets a new background color of the canvas widget.
+### Arguments
+
+- *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md)&* **color** - The background color of the canvas widget
+
+## Math:: vec4 getColor () const
+
+Returns the current background color of the canvas widget.
+### Return value
+
+Current background color of the canvas widget
+## void setTexture ( const char * texture )
+
+Sets a new path to the texture used by default for new polygons added to the canvas widget.
+### Arguments
+
+- *const char ** **texture** - The path to the default texture for new polygons added to the canvas widget
+
+## const char * getTexture () const
+
+Returns the current path to the texture used by default for new polygons added to the canvas widget.
+### Return value
+
+Current path to the default texture for new polygons added to the canvas widget
 ---
 
 ## static WidgetCanvasPtr create ( const Ptr < Gui > & gui )
@@ -60,19 +117,6 @@ Constructor. Creates a new canvas widget and adds it to the specified GUI.
 ## static WidgetCanvasPtr create ( )
 
 Constructor. Creates a new canvas widget and adds it to the Engine GUI.
-## void setColor ( const Math:: vec4 & color )
-
-Sets a background color for the canvas widget.
-### Arguments
-
-- *const  Math::[vec4](../../../api/library/math/class.vec4_cpp.md) &* **color** - Background color.
-
-## Math:: vec4 getColor ( ) const
-
-Returns the background color of the canvas widget.
-### Return value
-
-Background color.
 ## void setImage ( const Ptr < Image > & image )
 
 Sets the image used as the default texture for new polygons added to the canvas widget.
@@ -204,12 +248,6 @@ Returns the number of the points that create line segments.
 ### Return value
 
 Number of line segment points.
-## int getNumLines ( ) const
-
-Returns the number of lines drawn in the canvas widget.
-### Return value
-
-Number of lines.
 ## int getNumPolygonIndices ( int polygon ) const
 
 Returns the total number of indices set for points of the specified polygon.
@@ -230,18 +268,6 @@ Returns the number of points that form the specified polygon.
 ### Return value
 
 Number of polygon points.
-## int getNumPolygons ( ) const
-
-Returns the number of polygons drawn in the canvas widget.
-### Return value
-
-Number of polygons.
-## int getNumTexts ( ) const
-
-Returns the number of text strings drawn in the canvas widget.
-### Return value
-
-Number of text strings.
 ## int getPolygon ( int num ) const
 
 Returns the canvas element ID of the polygon by its index.
@@ -689,19 +715,6 @@ Returns the current transformation matrix of the specified text.
 ### Return value
 
 Transformation matrix.
-## void setTexture ( const char * texture )
-
-Sets the texture that will be used by default for new polygons added to the canvas widget.
-### Arguments
-
-- *const char ** **texture** - Path to the texture.
-
-## const char * getTexture ( ) const
-
-Returns the path to the texture used by default for new polygons added to the canvas widget.
-### Return value
-
-Path to the texture.
 ## int getTextWidth ( int text ) const
 
 Returns the width of the given text element on the canvas widget.
@@ -712,19 +725,6 @@ Returns the width of the given text element on the canvas widget.
 ### Return value
 
 Text width in pixels.
-## void setTransform ( const Math:: mat4 & transform )
-
-Sets a transformation matrix applied to all primitives on the canvas widget.
-### Arguments
-
-- *const  Math::[mat4](../../../api/library/math/class.mat4_cpp.md) &* **transform** - Transformation matrix.
-
-## Math:: mat4 getTransform ( ) const
-
-Returns the transformation matrix applied to all primitives on the canvas widget.
-### Return value
-
-Transformation matrix.
 ## int addLine ( int order = 0 )
 
 Adds a new line to the canvas widget. By default, it is rendered in white color.

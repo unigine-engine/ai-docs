@@ -117,6 +117,18 @@ Returns the current up-axis mode used when computing the zero basis via the *[Ge
 ### Return value
 
 Current up-axis mode used when computing the zero basis via the *GeodeticPivot*.
+## int getProjectionMode () const
+
+Returns the current projection mode defining how the projected coordinate system of the world is specified, one of the *PROJECTION_MODE_** values.
+### Return value
+
+Current current projection mode
+## Event getEventInitialized () const
+
+Returns the current event triggered when the converter finishes initialization (see **[initialize()()](../../../...md#initialize_int)**). The event also fires when initialization completes without a usable geodetic data source, so check **[isInitialized()()](../../../...md#isInitialized_int)** in the callback.
+### Return value
+
+Current event triggered when the converter finishes initialization
 ---
 
 ## int initialize ( )
@@ -138,12 +150,12 @@ Transforms a 3D world position to geodetic coordinates (latitude, longitude, alt
 ### Return value
 
 Geodetic coordinates as (latitude, longitude, altitude). If the converter is not initialized, the input position is returned cast to a **dvec3**.
-## Vec3 geodeticToWorld ( dvec3 geodetic_coordinate )
+## Vec3 geodeticToWorld ( dvec3 geodetic_position )
 
 Transforms geodetic coordinates (latitude, longitude, altitude) to a 3D world position. In **[CONVERTER_GEODETIC_MODE_GEODETIC_PIVOT()](../../../...md#GEODETIC_MODE_GEODETIC_PIVOT)** mode, uses flat or curved pivot mapping depending on **[isTerrainCurved()()](../../../...md#isTerrainCurved_int)**. In plugin modes, delegates to the Geodetics plugin *[transformer](../../../../api/library/geodetics/geodetics_plugin/class.transformer_usc.md)* and extracts the translation component of the resulting transform matrix.
 ### Arguments
 
-- *dvec3* **geodetic_coordinate** - Geodetic coordinates as (latitude, longitude, altitude).
+- *dvec3* **geodetic_position** - Geodetic coordinates as (latitude, longitude, altitude).
 
 ### Return value
 
@@ -168,61 +180,61 @@ Converts a quaternion rotation in world space to Euler angles (pitch, roll, head
 ### Return value
 
 Euler angles in degrees as (pitch, roll, heading) decomposed in ZYX order.
-## quat geodeticEulerToRotation ( dvec3 geodetic_coordinate , vec3 euler )
+## quat geodeticEulerToRotation ( dvec3 geodetic_position , vec3 euler )
 
 Converts Euler angles defined in the local geodetic (ENU-aligned) frame at the given geodetic position to a quaternion rotation in world space. The local frame orientation is determined by *[getZeroRotation()()](../../../...md#getZeroRotation_dvec3_quat)* at that location. This is useful for placing objects whose heading, pitch, and roll are defined relative to the local horizon.
 ### Arguments
 
-- *dvec3* **geodetic_coordinate** - Geodetic coordinates (latitude, longitude, altitude) that define the local reference frame.
+- *dvec3* **geodetic_position** - Geodetic coordinates (latitude, longitude, altitude) that define the local reference frame.
 - *vec3* **euler** - Euler angles in degrees as (pitch, roll, heading) in the local geodetic frame, applied in ZYX order.
 
 ### Return value
 
 Quaternion representing the rotation in world space.
-## vec3 rotationToGeodeticEuler ( dvec3 geodetic_coordinate , quat rotation )
+## vec3 rotationToGeodeticEuler ( dvec3 geodetic_position , quat rotation )
 
 Converts a quaternion rotation in world space to Euler angles defined in the local geodetic (ENU-aligned) frame at the given geodetic position. This is the inverse of *[geodeticEulerToRotation()()](../../../...md#geodeticEulerToRotation_dvec3_vec3_quat)*.
 ### Arguments
 
-- *dvec3* **geodetic_coordinate** - Geodetic coordinates (latitude, longitude, altitude) that define the local reference frame.
+- *dvec3* **geodetic_position** - Geodetic coordinates (latitude, longitude, altitude) that define the local reference frame.
 - *quat* **rotation** - Quaternion representing the rotation in world space.
 
 ### Return value
 
 Euler angles in degrees as (pitch, roll, heading) in the local geodetic frame, decomposed in ZYX order.
-## quat getZeroRotation ( dvec3 geodetic_coordinate )
+## quat getZeroRotation ( dvec3 geodetic_position )
 
 Returns the quaternion rotation of the local geodetic reference frame at the given geodetic position. This is the rotation component extracted from *[getZeroBasis()()](../../../...md#getZeroBasis_dvec3_Mat4)*. An object with this rotation will have its forward axis pointing North and its up axis pointing away from the Earth's surface.
 ### Arguments
 
-- *dvec3* **geodetic_coordinate** - Geodetic coordinates (latitude, longitude, altitude) at which to compute the local frame orientation.
+- *dvec3* **geodetic_position** - Geodetic coordinates (latitude, longitude, altitude) at which to compute the local frame orientation.
 
 ### Return value
 
 Quaternion representing the local geodetic frame orientation in world space (zero heading, zero pitch, zero roll at that location).
-## Mat4 getZeroBasis ( dvec3 geodetic_coordinate )
+## Mat4 getZeroBasis ( dvec3 geodetic_position )
 
 Returns the full transform matrix of the local geodetic reference frame at the given geodetic position. The matrix encodes both the world-space position and the local orientation: X axis points East, Y axis points North, Z axis points Up (away from the Earth's surface). In flat-terrain *[GeodeticPivot](../../../../api/library/geodetics/class.geodeticpivot_usc.md)* mode, the Z component of the forward axis is zeroed to keep it horizontal.
 ### Arguments
 
-- *dvec3* **geodetic_coordinate** - Geodetic coordinates (latitude, longitude, altitude) at which to compute the local frame basis.
+- *dvec3* **geodetic_position** - Geodetic coordinates (latitude, longitude, altitude) at which to compute the local frame basis.
 
 ### Return value
 
 Transform matrix with position set to the world-space location and axes aligned to the local geodetic frame (East, North, Up).
-## vec3 getZeroUpDirection ( dvec3 geodetic_coordinate )
+## vec3 getZeroUpDirection ( dvec3 geodetic_position )
 
 Returns the up direction of the local geodetic reference frame at the given geodetic position in world space. This is the Z axis of the matrix returned by *[getZeroBasis()()](../../../...md#getZeroBasis_dvec3_Mat4)*, i.e. the direction pointing away from the Earth's surface at that location.
 ### Arguments
 
-- *dvec3* **geodetic_coordinate** - Geodetic coordinates (latitude, longitude, altitude) at which to compute the local up direction.
+- *dvec3* **geodetic_position** - Geodetic coordinates (latitude, longitude, altitude) at which to compute the local up direction.
 
 ### Return value
 
 Normalized vector pointing away from the Earth's surface at the given geodetic location, expressed in world space.
 ## Vec3 worldToProjection ( Vec3 world_position )
 
-Converts a world-space position to a projection-space position by adding the projection origin offset. This offset is the position of the world origin expressed in the projected coordinate system (e.g. UTM meters). Not applicable in **[CONVERTER_GEODETIC_MODE_GEODETIC_PIVOT()](../../../...md#GEODETIC_MODE_GEODETIC_PIVOT)** or **[CONVERTER_GEODETIC_MODE_NOT_AVAILABLE()](../../../...md#GEODETIC_MODE_NOT_AVAILABLE)** modes — the input is returned unchanged in those cases.
+Converts a world-space position to a projection-space position by adding the projection origin offset. This offset is the position of the world origin expressed in the projected coordinate system (e.g. UTM meters). Not applicable in **[CONVERTER_GEODETIC_MODE_GEODETIC_PIVOT()](../../../...md#GEODETIC_MODE_GEODETIC_PIVOT)** or **[CONVERTER_GEODETIC_MODE_NOT_AVAILABLE()](../../../...md#GEODETIC_MODE_NOT_AVAILABLE)** modes � the input is returned unchanged in those cases.
 ### Arguments
 
 - *Vec3* **world_position** - Position in 3D world space.
@@ -232,7 +244,7 @@ Converts a world-space position to a projection-space position by adding the pro
 Position in the projected coordinate system space (e.g. UTM meters). Equal to the input in GeodeticPivot or unavailable modes.
 ## Vec3 projectionToWorld ( Vec3 projection_position )
 
-Converts a projection-space position to a world-space position by subtracting the projection origin offset. This is the inverse of **worldToProjection()**. Not applicable in **[CONVERTER_GEODETIC_MODE_GEODETIC_PIVOT()](../../../...md#GEODETIC_MODE_GEODETIC_PIVOT)** or **[CONVERTER_GEODETIC_MODE_NOT_AVAILABLE()](../../../...md#GEODETIC_MODE_NOT_AVAILABLE)** modes — the input is returned unchanged in those cases.
+Converts a projection-space position to a world-space position by subtracting the projection origin offset. This is the inverse of **worldToProjection()**. Not applicable in **[CONVERTER_GEODETIC_MODE_GEODETIC_PIVOT()](../../../...md#GEODETIC_MODE_GEODETIC_PIVOT)** or **[CONVERTER_GEODETIC_MODE_NOT_AVAILABLE()](../../../...md#GEODETIC_MODE_NOT_AVAILABLE)** modes � the input is returned unchanged in those cases.
 ### Arguments
 
 - *Vec3* **projection_position** - Position in the projected coordinate system space (e.g. UTM meters).
@@ -240,49 +252,55 @@ Converts a projection-space position to a world-space position by subtracting th
 ### Return value
 
 Position in 3D world space. Equal to the input in GeodeticPivot or unavailable modes.
-## dvec3 geodeticToGeocentric ( dvec3 geodetic_coordinate , double major_axis = 6378137.0 , double minor_axis = 6356752.314245 )
+## dvec3 geodeticToGeocentric ( dvec3 geodetic_position , double major_axis = 6378137.0 , double minor_axis = 6356752.314245 )
 
-Converts geodetic coordinates (latitude, longitude, altitude) to geocentric (ECEF — Earth-Centered, Earth-Fixed) Cartesian coordinates using the closed-form ellipsoid equations. The default axis values correspond to the WGS84 ellipsoid.
+Converts geodetic coordinates (latitude, longitude, altitude) to geocentric (ECEF � Earth-Centered, Earth-Fixed) Cartesian coordinates using the closed-form ellipsoid equations. The default axis values correspond to the WGS84 ellipsoid.
 ### Arguments
 
-- *dvec3* **geodetic_coordinate** - Geodetic coordinates as (latitude in degrees, longitude in degrees, altitude in meters).
+- *dvec3* **geodetic_position** - Geodetic coordinates as (latitude in degrees, longitude in degrees, altitude in meters).
 - *double* **major_axis** - Semi-major axis of the reference ellipsoid in meters. Defaults to the WGS84 value of 6378137.0 m.
 - *double* **minor_axis** - Semi-minor axis of the reference ellipsoid in meters. Defaults to the WGS84 value of 6356752.314245 m.
 
 ### Return value
 
 ECEF Cartesian coordinates in meters as (X, Y, Z).
-## dvec3 geocentricToGeodetic ( dvec3 geocentric_coordinate , double major_axis = 6378137.0 , double minor_axis = 6356752.314245 )
+## dvec3 geocentricToGeodetic ( dvec3 geocentric_position , double major_axis = 6378137.0 , double minor_axis = 6356752.314245 )
 
-Converts geocentric (ECEF — Earth-Centered, Earth-Fixed) Cartesian coordinates to geodetic coordinates (latitude, longitude, altitude) using the closed-form solution for the reference ellipsoid. The default axis values correspond to the WGS84 ellipsoid.
+Converts geocentric (ECEF � Earth-Centered, Earth-Fixed) Cartesian coordinates to geodetic coordinates (latitude, longitude, altitude) using the closed-form solution for the reference ellipsoid. The default axis values correspond to the WGS84 ellipsoid.
 ### Arguments
 
-- *dvec3* **geocentric_coordinate** - ECEF Cartesian coordinates in meters as (X, Y, Z).
+- *dvec3* **geocentric_position** - ECEF Cartesian coordinates in meters as (X, Y, Z).
 - *double* **major_axis** - Semi-major axis of the reference ellipsoid in meters. Defaults to the WGS84 value of 6378137.0 m.
 - *double* **minor_axis** - Semi-minor axis of the reference ellipsoid in meters. Defaults to the WGS84 value of 6356752.314245 m.
 
 ### Return value
 
 Geodetic coordinates as (latitude in degrees, longitude in degrees, altitude in meters).
-## vec3 geocentricEulerToGeodeticEuler ( dvec3 geodetic_coordinate , vec3 geocentric_euler )
+## vec3 geocentricEulerToGeodeticEuler ( dvec3 geodetic_position , vec3 geocentric_euler )
 
-Converts an orientation expressed as geocentric Euler angles (Psi/Theta/Phi — yaw/pitch/roll in the ECEF body frame) to geodetic Euler angles (heading, pitch, roll relative to the local North-East-Down frame) at the given geodetic position. Useful for converting orientations received from systems that operate in the ECEF frame (e.g. DIS/HLA simulations) into locally intuitive heading/pitch/roll values.
+Converts an orientation expressed as geocentric Euler angles (Psi/Theta/Phi � yaw/pitch/roll in the ECEF body frame) to geodetic Euler angles (heading, pitch, roll relative to the local North-East-Down frame) at the given geodetic position. Useful for converting orientations received from systems that operate in the ECEF frame (e.g. DIS/HLA simulations) into locally intuitive heading/pitch/roll values.
 ### Arguments
 
-- *dvec3* **geodetic_coordinate** - Geodetic coordinates (latitude, longitude, altitude) that define the local NED reference frame used for the conversion.
-- *vec3* **geocentric_euler** - Orientation in the geocentric (ECEF) body frame as (Psi, Theta, Phi) in radians — yaw about Z, then pitch about Y, then roll about X.
+- *dvec3* **geodetic_position** - Geodetic coordinates (latitude, longitude, altitude) that define the local NED reference frame used for the conversion.
+- *vec3* **geocentric_euler** - Orientation in the geocentric (ECEF) body frame as (Psi, Theta, Phi) in radians � yaw about Z, then pitch about Y, then roll about X.
 
 ### Return value
 
 Euler angles in the local geodetic (NED) frame as (pitch, roll, heading) in radians.
-## vec3 geodeticEulerToGeocentricEuler ( dvec3 geodetic_coordinate , vec3 geodetic_euler )
+## vec3 geodeticEulerToGeocentricEuler ( dvec3 geodetic_position , vec3 geodetic_euler )
 
 Converts an orientation expressed as geodetic Euler angles (heading, pitch, roll relative to the local North-East-Down frame) to geocentric Euler angles (Psi/Theta/Phi in the ECEF body frame) at the given geodetic position. This is the inverse of **geocentricEulerToGeodeticEuler()** and is useful for converting locally defined orientations into the ECEF body frame for interoperability with simulation standards such as DIS/HLA.
 ### Arguments
 
-- *dvec3* **geodetic_coordinate** - Geodetic coordinates (latitude, longitude, altitude) that define the local NED reference frame used for the conversion.
-- *vec3* **geodetic_euler** - Euler angles in the local geodetic (NED) frame as (pitch, roll, heading) in degrees — heading about the local Down axis, pitch about the local East axis, roll about the local North axis.
+- *dvec3* **geodetic_position** - Geodetic coordinates (latitude, longitude, altitude) that define the local NED reference frame used for the conversion.
+- *vec3* **geodetic_euler** - Euler angles in the local geodetic (NED) frame as (pitch, roll, heading) in degrees � heading about the local Down axis, pitch about the local East axis, roll about the local North axis.
 
 ### Return value
 
-Orientation in the geocentric (ECEF) body frame as (Psi, Theta, Phi) in radians — yaw about Z, then pitch about Y, then roll about X.
+Orientation in the geocentric (ECEF) body frame as (Psi, Theta, Phi) in radians � yaw about Z, then pitch about Y, then roll about X.
+## Anchor getAnchor ( )
+
+Returns the anchor binding the engine's world space to the geocentric (ECEF) coordinate system (see the *[Anchor](../../../../api/library/geodetics/geodetics_plugin/class.anchor_usc.md)* class).
+### Return value
+
+Anchor of the converter.

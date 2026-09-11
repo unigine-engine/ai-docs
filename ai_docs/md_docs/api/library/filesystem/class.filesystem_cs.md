@@ -13,6 +13,7 @@ Files and packages stored outside the `data` directory are also added to the vir
 
 File System functions:
 
+
 - Provide control over [asynchronous loading](../../../api/library/filesystem/class.asyncqueue_cs.md) of files/meshes/images/nodes on demand under the `data` directory, including files in ZIP and UNG packages. Such packages are [automatically handled](../../../principles/filesystem/index_cs.md#file_packages) by the Engine and all their files are automatically added to the file system.
 - Allow adding directories (even with ZIP and UNG packages) that are [outside](../../../principles/filesystem/index_cs.md#mount_points) the `data` directory and provide [control over loading](../../../api/library/filesystem/class.asyncqueue_cs.md) such files.
 - Allow adding ZIP and UNG packages that are [outside the `data`](../../../principles/filesystem/index_cs.md#mount_points) directory. After that, files in such packages are accessed in a usual way, by specifying a path to the file only inside the package.
@@ -66,7 +67,7 @@ Log.Message("Basename: {0}\n", System.IO.Path.GetFileName(asset_virtual_filepath
 The total number of file modifiers registered in the file system.
 ## 🔒︎ Event< UGUID , string> EventFileChanged
 
-The Event triggered when the file is changed using the FileSystem API. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The Event triggered when the file is changed using the FileSystem API. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -160,7 +161,7 @@ FileSystem.EventFileChanged.Enabled = true;
 
 ## 🔒︎ Event< UGUID , string> EventFileRemoved
 
-The Event triggered when the file is removed using the FileSystem API. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The Event triggered when the file is removed using the FileSystem API. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -254,7 +255,7 @@ FileSystem.EventFileRemoved.Enabled = true;
 
 ## 🔒︎ Event< UGUID , string> EventFileAdded
 
-The Event triggered when the file is added using the FileSystem API. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The Event triggered when the file is added using the FileSystem API. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -348,7 +349,7 @@ FileSystem.EventFileAdded.Enabled = true;
 
 ## 🔒︎ Event< UGUID , string> EventFilesChanged
 
-The Event triggered at the end of the Engine's *Update()* containing the files changed during the frame. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The Event triggered at the end of the Engine's *Update()* containing the files changed during the frame. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -442,7 +443,7 @@ FileSystem.EventFilesChanged.Enabled = true;
 
 ## 🔒︎ Event< UGUID , string> EventFilesRemoved
 
-The Event triggered at the end of the Engine's *Update()* containing the files removed during the frame. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The Event triggered at the end of the Engine's *Update()* containing the files removed during the frame. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -536,7 +537,7 @@ FileSystem.EventFilesRemoved.Enabled = true;
 
 ## 🔒︎ Event< UGUID , string> EventFilesAdded
 
-The Event triggered at the end of the Engine's *Update()* containing the files added during the frame. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The Event triggered at the end of the Engine's *Update()* containing the files added during the frame. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 

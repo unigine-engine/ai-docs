@@ -12,6 +12,19 @@ This class is used to create a [volume sphere](../../../objects/effects/volumetr
 
 ### Members
 
+## void setRadius ( const Math:: vec3 & radius )
+
+Sets a new volume sphere radius values.
+### Arguments
+
+- *const  Math::[vec3](../../../api/library/math/class.vec3_cpp.md)&* **radius** - The volume sphere radius values
+
+## Math:: vec3 getRadius () const
+
+Returns the current volume sphere radius values.
+### Return value
+
+Current volume sphere radius values
 ---
 
 ## static ObjectVolumeSpherePtr create ( const Math:: vec3 & radius )
@@ -24,19 +37,6 @@ Constructor. Creates a new volume sphere object with given radius values.
 
 - *const  Math::[vec3](../../../api/library/math/class.vec3_cpp.md) &* **radius** - Radius values of the new volume sphere object in units. If a negative value is provided, **0** will be used instead.
 
-## void setRadius ( const Math:: vec3 & radius )
-
-Updates volume sphere radius values. If a [volume light](../../../content/materials/library/volume_light_base/index.md) material is assigned to an object, it is rendered based only on the radius value along the X axis. If its radius values along the Y or Z axes are smaller than along the X axis, the object is cut along them.
-### Arguments
-
-- *const  Math::[vec3](../../../api/library/math/class.vec3_cpp.md) &* **radius** - New radius values of the volume sphere in units. If a negative value is provided, 0 will be used instead.
-
-## Math:: vec3 getRadius ( ) const
-
-Returns the volume sphere radius values.
-### Return value
-
-The radius values of the volume sphere in units.
 ## static int type ( )
 
 Returns the type of the node.

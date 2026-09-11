@@ -41,7 +41,7 @@ The value indicating if the node and its parent nodes are enabled.
 The rigid body assigned to the object.
 ## Body Body
 
-The physical body assigned to the object.
+The physical body assigned to the object, or **NULL** (**0**) if no body is assigned.
 ## 🔒︎ bool IsVisibleShadow
 
 The value indicating if the object's shadow is rendered.
@@ -792,6 +792,60 @@ Returns minimum visibility distance of a given surface. It is the distance, star
 ### Return value
 
 Minimum visibility distance, in units.
+## void SetExperimentalNavigation ( bool enabled , int surface )
+
+Sets a value indicating if a given surface contributes to the walkable surface when an [ExperimentalNavigationMesh](../../../api/library/pathfinding/class.experimentalnavigationmesh_cs.md) is baked. Marking geometry is opt-in: a surface takes part in baking only when this flag is set, which keeps decoration and clutter out of the navigation mesh.
+### Arguments
+
+- *bool* **enabled** - Navigation flag. The default value is false.
+- *int* **surface** - Surface number.
+
+## bool GetExperimentalNavigation ( int surface )
+
+Returns a value indicating if a given surface contributes to the walkable surface when a navigation mesh is baked.
+### Arguments
+
+- *int* **surface** - Surface number.
+
+### Return value
+
+true if the surface takes part in navigation mesh baking; otherwise, false.
+## void SetExperimentalNavigationBakeMask ( int mask , int surface )
+
+Sets the bake mask of a given surface. The surface is taken in only by the navigation meshes whose own bake mask shares at least one bit with this one, which is how one scene feeds several navigation meshes with different geometry.
+### Arguments
+
+- *int* **mask** - [Bake mask](../../../principles/bit_masking/index.md#bake_mask). The default value is 1.
+- *int* **surface** - Surface number.
+
+## int GetExperimentalNavigationBakeMask ( int surface )
+
+Returns the bake mask of a given surface.
+### Arguments
+
+- *int* **surface** - Surface number.
+
+### Return value
+
+Bake mask of the surface.
+## void SetExperimentalNavigationArea ( int area , int surface )
+
+Sets the area stamped onto the navigation mesh polygons baked from a given surface. It is how a road, a patch of mud, or a metal walkway gets its own traversal cost without a volume being placed over it.
+### Arguments
+
+- *int* **area** - Area index from the registry of the [ExperimentalNavigation](../../../api/library/pathfinding/class.experimentalnavigation_cs.md) singleton. The default value is 63.
+- *int* **surface** - Surface number.
+
+## int GetExperimentalNavigationArea ( int surface )
+
+Returns the area stamped onto the navigation mesh polygons baked from a given surface.
+### Arguments
+
+- *int* **surface** - Surface number.
+
+### Return value
+
+Area index of the surface.
 ## void SetMaxVisibleDistance ( float distance , int surface )
 
 Updates the maximum visibility distance of a given surface. It is the distance, starting from which the surface begins to [fade out](#setMaxFadeDistance_float_int_void) until it becomes completely invisible.
@@ -1479,3 +1533,148 @@ Returns the number of [Engine frame](../../../api/library/engine/class.engine_cs
 ### Return value
 
 Number of frame, in which the specified surface was drawn last time.
+## float GetSurfaceRenderCustomParameterFloat ( int surface , string name )
+
+Returns the current value of the custom surface parameter with the given name for the given surface of the object. If the parameter is not overridden for the surface, the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cs.md#getSurfaceParameters_CustomParameterLayout)* is returned.
+### Arguments
+
+- *int* **surface** - Surface number.
+- *string* **name** - Parameter name.
+
+### Return value
+
+Current parameter value, or 0 if no parameter with this name exists.
+## float GetSurfaceRenderCustomParameterFloat ( int surface , int param )
+
+Returns the current value of the custom surface parameter with the given number for the given surface of the object. If the parameter is not overridden for the surface, the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cs.md#getSurfaceParameters_CustomParameterLayout)* is returned.
+### Arguments
+
+- *int* **surface** - Surface number.
+- *int* **param** - Parameter number.
+
+### Return value
+
+Current parameter value.
+## int GetSurfaceRenderCustomParameterInt ( int surface , string name )
+
+Returns the current value of the custom surface parameter with the given name for the given surface of the object. If the parameter is not overridden for the surface, the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cs.md#getSurfaceParameters_CustomParameterLayout)* is returned.
+### Arguments
+
+- *int* **surface** - Surface number.
+- *string* **name** - Parameter name.
+
+### Return value
+
+Current parameter value, or 0 if no parameter with this name exists.
+## int GetSurfaceRenderCustomParameterInt ( int surface , int param )
+
+Returns the current value of the custom surface parameter with the given number for the given surface of the object. If the parameter is not overridden for the surface, the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cs.md#getSurfaceParameters_CustomParameterLayout)* is returned.
+### Arguments
+
+- *int* **surface** - Surface number.
+- *int* **param** - Parameter number.
+
+### Return value
+
+Current parameter value.
+## uint GetSurfaceRenderCustomParameterUInt ( int surface , string name )
+
+Returns the current value of the custom surface parameter with the given name for the given surface of the object. If the parameter is not overridden for the surface, the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cs.md#getSurfaceParameters_CustomParameterLayout)* is returned.
+### Arguments
+
+- *int* **surface** - Surface number.
+- *string* **name** - Parameter name.
+
+### Return value
+
+Current parameter value, or 0 if no parameter with this name exists.
+## uint GetSurfaceRenderCustomParameterUInt ( int surface , int param )
+
+Returns the current value of the custom surface parameter with the given number for the given surface of the object. If the parameter is not overridden for the surface, the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cs.md#getSurfaceParameters_CustomParameterLayout)* is returned.
+### Arguments
+
+- *int* **surface** - Surface number.
+- *int* **param** - Parameter number.
+
+### Return value
+
+Current parameter value.
+## bool IsSurfaceRenderCustomParameterOverridden ( int surface , int param )
+
+Checks if the custom surface parameter with the given number is overridden for the given surface of the object.
+### Arguments
+
+- *int* **surface** - Surface number.
+- *int* **param** - Parameter number.
+
+### Return value
+
+true if the parameter is overridden for the surface; otherwise, false.
+## void ResetSurfaceRenderCustomParameter ( int surface , int param )
+
+Resets the override of the custom surface parameter with the given number for the given surface: the surface uses the default value from the *[surface parameters layout](../../../api/library/rendering/class.render_cs.md#getSurfaceParameters_CustomParameterLayout)* again.
+### Arguments
+
+- *int* **surface** - Surface number.
+- *int* **param** - Parameter number.
+
+## void ResetSurfaceRenderCustomParameters ( int surface )
+
+Resets the overrides of all custom surface parameters for the given surface of the object.
+### Arguments
+
+- *int* **surface** - Surface number.
+
+## void SetSurfaceRenderCustomParameterFloat ( int surface , string name , float value )
+
+Sets a new value of the custom surface parameter with the given name for the given surface of the object. The value overrides the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cs.md#getSurfaceParameters_CustomParameterLayout)*. If no parameter with this name exists in the layout, the method does nothing.
+### Arguments
+
+- *int* **surface** - Surface number.
+- *string* **name** - Parameter name.
+- *float* **value** - New parameter value.
+
+## void SetSurfaceRenderCustomParameterFloat ( int surface , int param , float value )
+
+Sets a new value of the custom surface parameter with the given number for the given surface of the object. The value overrides the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cs.md#getSurfaceParameters_CustomParameterLayout)*.
+### Arguments
+
+- *int* **surface** - Surface number.
+- *int* **param** - Parameter number.
+- *float* **value** - New parameter value.
+
+## void SetSurfaceRenderCustomParameterInt ( int surface , string name , int value )
+
+Sets a new value of the custom surface parameter with the given name for the given surface of the object. The value overrides the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cs.md#getSurfaceParameters_CustomParameterLayout)*. If no parameter with this name exists in the layout, the method does nothing.
+### Arguments
+
+- *int* **surface** - Surface number.
+- *string* **name** - Parameter name.
+- *int* **value** - New parameter value.
+
+## void SetSurfaceRenderCustomParameterInt ( int surface , int param , int value )
+
+Sets a new value of the custom surface parameter with the given number for the given surface of the object. The value overrides the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cs.md#getSurfaceParameters_CustomParameterLayout)*.
+### Arguments
+
+- *int* **surface** - Surface number.
+- *int* **param** - Parameter number.
+- *int* **value** - New parameter value.
+
+## void SetSurfaceRenderCustomParameterUInt ( int surface , string name , uint value )
+
+Sets a new value of the custom surface parameter with the given name for the given surface of the object. The value overrides the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cs.md#getSurfaceParameters_CustomParameterLayout)*. If no parameter with this name exists in the layout, the method does nothing.
+### Arguments
+
+- *int* **surface** - Surface number.
+- *string* **name** - Parameter name.
+- *uint* **value** - New parameter value.
+
+## void SetSurfaceRenderCustomParameterUInt ( int surface , int param , uint value )
+
+Sets a new value of the custom surface parameter with the given number for the given surface of the object. The value overrides the default value defined in the *[surface parameters layout](../../../api/library/rendering/class.render_cs.md#getSurfaceParameters_CustomParameterLayout)*.
+### Arguments
+
+- *int* **surface** - Surface number.
+- *int* **param** - Parameter number.
+- *uint* **value** - New parameter value.

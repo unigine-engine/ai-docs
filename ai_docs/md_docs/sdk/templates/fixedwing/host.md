@@ -11,10 +11,10 @@ To enable the host control mode, use one of the following startup commands depen
 
 
 ```text
-extern_plugin UnigineCIGIConnector
-extern_plugin UnigineDISConnector
+-extern_plugin UnigineCIGIConnector
+-extern_plugin UnigineDISConnector
 
 ```
 
 
-> **Notice:** Although this template supports the aircraft control via a host system, it is recommended to use the [Image Generator template](../../../sdk/templates/ig/index.md) for more consistent and reliable operation.
+> **Notice:** Although this template supports the aircraft control via a host system, it is recommended to use the [Image Generator template](../../../ig/index.md) for more consistent and reliable operation.

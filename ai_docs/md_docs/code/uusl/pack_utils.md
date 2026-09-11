@@ -129,7 +129,10 @@ Unpacks R16G16 into RGBA8.
 RGBA8 value.
 ## uint pack8888To32 ( float4 data )
 
+
 Packs RGBA8 to a 32-bit value.
+
+
 **This function is [API-dependent](#api_dependent).**
 
 
@@ -142,7 +145,10 @@ Packs RGBA8 to a 32-bit value.
 Packed 32-bit value.
 ## float4 pack32To8888 ( uint data )
 
+
 Unpacks a 32-bit value to RGBA8 value.
+
+
 **This function is [API-dependent](#api_dependent).**
 
 
@@ -155,7 +161,10 @@ Unpacks a 32-bit value to RGBA8 value.
 RGBA8 value.
 ## float2 pack32To1616 ( uint data )
 
+
 Unpacks 32-bit value into two 16-bit values.
+
+
 **This function is [API-dependent](#api_dependent).**
 
 
@@ -168,7 +177,10 @@ Unpacks 32-bit value into two 16-bit values.
 Vector of two 16-bit values.
 ## float2 pack32To1616 ( float data )
 
+
 Unpacks 32-bit value into two 16-bit values.
+
+
 **This function is [API-dependent](#api_dependent).**
 
 
@@ -181,7 +193,10 @@ Unpacks 32-bit value into two 16-bit values.
 Vector of two 16-bit values.
 ## float pack1616To32 ( float2 data )
 
+
 Packs two 16-bit values into a 32-bit one.
+
+
 **This function is [API-dependent](#api_dependent).**
 
 

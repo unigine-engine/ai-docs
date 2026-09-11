@@ -3,13 +3,50 @@
 **Header:** #include <UnigineWorlds.h>
 
 
-This class is used to manage individual points of the [world spline graph](../../../api/library/worlds/class.worldsplinegraph_cpp.md).
+This class is used to manage individual points of the [world spline graph](../../../api/library/worlds/class.worldsplinegraph_cpp.md) (*WorldSplineGraph*).
 
 
 ## SplinePoint Class
 
 ### Members
 
+## int getNumSources () const
+
+Returns the current total number of [source nodes](../../../api/library/worlds/class.worldsplinegraph_cpp.md#source_node) assigned to this spline point.
+### Return value
+
+Current total number of source nodes assigned to this spline point.
+## int getNumSegments () const
+
+Returns the current total number of [segments](../../../api/library/worlds/class.splinesegment_cpp.md) sharing this spline point.
+### Return value
+
+Current total number of segments sharing this spline point.
+## void setPosition ( const Math:: Vec3 & position )
+
+Sets a new position of the spline point.
+### Arguments
+
+- *const  Math::[Vec3](../../../api/library/math/class.vec3_cpp.md)&* **position** - The position of the spline point.
+
+## Math:: Vec3 getPosition () const
+
+Returns the current position of the spline point.
+### Return value
+
+Current position of the spline point.
+## Ptr < WorldSplineGraph > getParent () const
+
+Returns the current [*WorldSplineGraph*](../../../api/library/worlds/class.worldsplinegraph_cpp.md) node to which the spline point belongs.
+### Return value
+
+Current *WorldSplineGraph* node to which the spline point belongs.
+## int getNumNodes () const
+
+Returns the current total number of nodes placed at this spline point.
+### Return value
+
+Current total number of nodes placed at this spline point.
 ---
 
 ## void setEnabled ( bool enable , bool with_segments = 1 )
@@ -18,27 +55,14 @@ Sets a value indicating whether the spline point is enabled.
 ### Arguments
 
 - *bool* **enable** - **1** to enable the spline point, 0 to disable.
-- *bool* **with_segments** - Use **true** to enable all [segments](../../../api/library/worlds/class.splinesegment_cpp.md), to which the point belongs as well, false to enable the spline point only.
+- *bool* **with_segments** - Use true to enable all [segments](../../../api/library/worlds/class.splinesegment_cpp.md), to which the point belongs as well, false to enable the spline point only.
 
 ## bool isEnabled ( ) const
 
 Returns a value indicating whether the spline point is enabled.
 ### Return value
 
-**true** if the spline point is enabled; otherwise, **false**.
-## void setPosition ( const Math::Vec3& position )
-
-Sets a new position of the spline point.
-### Arguments
-
-- *const  Math::Vec3&* **position** - New position to be set.
-
-## Math:: Vec3 getPosition ( ) const
-
-Returns the current position of the spline point.
-### Return value
-
-Current spline point position.
+true if the spline point is enabled; otherwise, false.
 ## void getSplineSegments ( Vector < Ptr < SplineSegment > > & OUT_segments ) const
 
 Returns the list of segments, to which the spline point belongs, and puts them to the specified vector of [SplineSegment](../../../api/library/worlds/class.splinesegment_cpp.md) elements.
@@ -83,24 +107,6 @@ Returns a clone of the spline point.
 ### Return value
 
 Clone of the spline point.
-## Ptr < WorldSplineGraph > getParent ( ) const
-
-Returns the *WorldSplineGraph* node to which the spline point belongs.
-### Return value
-
-[*WorldSplineGraph*](../../../api/library/worlds/class.worldsplinegraph_cpp.md) node to which the spline point belongs.
-## int getNumSegments ( ) const
-
-Returns the total number of [segments](../../../api/library/worlds/class.splinesegment_cpp.md) sharing this spline point.
-### Return value
-
-Total number of segments sharing this spline point.
-## int getNumSources ( ) const
-
-Returns the total number of [source nodes](../../../api/library/worlds/class.worldsplinegraph_cpp.md#source_node) assigned to this spline point.
-### Return value
-
-Total number of source nodes assigned to this spline point.
 ## int getSourceNodeType ( const char * name ) const
 
 Returns the type of the [source node](../../../api/library/worlds/class.worldsplinegraph_cpp.md#source_node) with the specified name.
@@ -150,9 +156,3 @@ Returns a node assigned to the point by its number.
 ### Return value
 
 Node placed at this point at the specified position (number).
-## int getNumNodes ( ) const
-
-Returns the total number of nodes placed at this spline point.
-### Return value
-
-Total number of nodes placed at this spline point.

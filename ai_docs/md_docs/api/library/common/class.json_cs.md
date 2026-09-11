@@ -23,7 +23,8 @@ The Json node has a hierarchy structure: it can have child Json nodes and a pare
 
 The following code creates a Json node, adds child nodes with different types of values and saves the result to a `*.json` file:
 
-> **Notice:** When you add the *array*/*object* child nodes, you must call the *[setArray()](#setArray_void)*/*[setObject()](#setObject_void)* functions after *addChild()*.
+
+> **Notice:** When you add the *array*/*object* child nodes, you must call the *[setArray()](#setArray_void)/[setObject()](#setObject_void)* functions after *addChild()*.
 
 
 ```csharp
@@ -406,7 +407,10 @@ Constructor that creates a JSON node with a given name.
 
 ## void SetArray ( )
 
+
 Sets the array type to the current Json node.
+
+
 > **Notice:** This method can be called for a newly added node or for the existing node to change its type. However, in certain cases, this can lead to data loss. For example, if you change the type from *object* to *array*, names of the child nodes will be lost.
 
 
@@ -437,7 +441,6 @@ Returns a value indicating if the Json node has a bool type.
 1 if the Json has a bool type; otherwise, 0.
 ## Json GetChild ( int num )
 
-Returns the child node of the current Json node.
 ### Arguments
 
 - *int* **num** - Number of the child of the Json node.
@@ -447,7 +450,6 @@ Returns the child node of the current Json node.
 Child Json node.
 ## Json GetChild ( string name )
 
-Returns the child node of the current Json node.
 ### Arguments
 
 - *string* **name** - Name of the Json node.
@@ -603,10 +605,10 @@ Sets the reserved capacity of the Json node to store the specified number of chi
 Sets object type to the current Json node.
 ## int IsObject ( )
 
-Returns a value indicating if the Json node has an object type.
+Returns a value indicating if the Json node has an *object* type.
 ### Return value
 
-1 if the Json has an object type; otherwise, 0.
+1 if the Json has an *object* type; otherwise, 0.
 ## Json GetParent ( )
 
 Returns the parent node of the current Json node.
@@ -622,10 +624,10 @@ Sets a string value and type to the current Json node. The function automaticall
 
 ## string GetString ( )
 
-Returns the value of the current Json node as string.
+Returns the string value stored in this JSON node. Valid only when the node actually holds a string (**[IsString()](../../...md#isString_int)** returns true).
 ### Return value
 
-Value of the current Json node.
+String value of the current Json node.
 ## int IsString ( )
 
 Returns a value indicating if the Json node has a string type.
@@ -688,6 +690,8 @@ Loads the data to the current Json node from the file with a given path.
 ## int Parse ( string source )
 
 Parses a given string into the Json node.
+
+
 **Usage Example**
 
 
@@ -721,7 +725,7 @@ Now the json_2 node contains:
 1 if the string was parsed successfully; otherwise, 0.
 ## int Save ( string path )
 
-Saves the Json node into a file with a given path. Creates the given file path if it doesn’t exist yet (including subdirectories).
+Saves the Json node into a file with a given path. Creates the given file path if it doesn�t exist yet (including subdirectories).
 ### Arguments
 
 - *string* **path** - Path to the file.

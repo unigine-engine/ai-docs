@@ -88,7 +88,7 @@ Sets a new value indicating if the marker is tracked as dynamic (the marker pose
 Returns the current value indicating if the marker is tracked as dynamic (the marker pose is predicted).
 ### Return value
 
-**true** if the marker is tracked as dynamic is enabled; otherwise **false**.
+**true** if the marker is tracked as dynamic is enabled ; otherwise **false**.
 ## void setLifetime ( float lifetime )
 
 Sets a new lifetime of the marker.

@@ -16,7 +16,7 @@ SRAA is used in deferred rendering to achieve high-quality anti-aliasing by samp
 There are two stages in SRAA:
 
 
-1. **Depth prepass multisampling** generates depth position information at subpixel resolution. Subpixels are subdivision cells of a pixel. Depth prepass samples the geometry in the screen-space and stores samples’ position information in a G-buffer. ![](diagram_1.png)
+1. **Depth prepass multisampling** generates depth position information at subpixel resolution. Subpixels are subdivision cells of a pixel. Depth prepass samples the geometry in the screen-space and stores samples� position information in a G-buffer. ![](diagram_1.png)
 2. **Reconstruction pass** uses the custom *filter* after the deferred shading to refine the shading results and output a screen-resolution, antialiased frame. In the picture below you can see how the SRAA reconstructs one *subpixel*. ![](diagram_2.png) At each geometric sample, all shaded neighbors in a fixed radius are considered and their values are interpolated using our custom filter with weights to restore subpixel details. A neighboring sample with significantly different depth is considered to be across a geometric edge (blue line), and receives a low weight. The filter weights estimate distance between source and target samples by comparing their *depth* values.
 
 
@@ -24,8 +24,8 @@ UNIGINE's implementation of SRAA uses a depth *threshold* method to identify are
 
 
 Pros and Cons of SRAA:
- **+** Subpixel details and geometry reconstruction.
- **-** Costs performance.
+ �����**+** Subpixel details and geometry reconstruction.
+ �����**-** Costs performance.
 
 
 ![](TAA only.png) ![](TAA + SRAA.png)

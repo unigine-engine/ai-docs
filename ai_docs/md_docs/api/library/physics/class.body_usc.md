@@ -11,15 +11,20 @@ This class is used to simulate [physical bodies](../../../principles/physics/bod
 
 To transform a body, one of the following functions can be used:
 
+
 - [setTransform()](#setTransform_Mat4_void)
 - [setPreserveTransform()](#setPreserveTransform_Mat4_void)
 - [setVelocityTransform()](#setVelocityTransform_Mat4_void)
 
+
 All of these functions take effect when physics calculations are over and **[updatePhysics()()](../../../code/fundamentals/execution_sequence/main_loop.md#physics)** is performed. Only after that transformations of the body are applied to the rendered node. If a node needs to be transformed immediately after its physical body, **[flushTransform()()](../../...md#flushTransform_void)** is to be called.
+
+
 The simulation of the body can be [frozen](../../../principles/physics/bodies/index.md#freezing) (if the *[Frozen](#setFrozen_int_void)* flag is set).
 
 
 You can subscribe for certain events of a body to handle them:
+
 
 - *[Frozen](#getEventFrozen_Event)* - to perform some actions when a body [freezes/unfreezes](../../../principles/physics/bodies/index.md#freezing).
 - *[Position](#getEventPosition_Event)* - to perform some actions when a body changes its position.
@@ -135,64 +140,64 @@ Returns the current name of the body.
 ### Return value
 
 Current name of the body.
-## void setGravity ( bool gravity )
+## void setGravity ( int gravity )
 
 Sets a new value indicating if [gravity](../../../api/library/physics/class.physics_usc.md#setGravity_vec3_void) is affecting the body.
 ### Arguments
 
-- *bool* **gravity** - Set **true** to enable the body is affected by gravity; **false** - to disable it.
+- *int* **gravity** - The the body is affected by gravity
 
-## bool isGravity () const
+## int isGravity () const
 
 Returns the current value indicating if [gravity](../../../api/library/physics/class.physics_usc.md#setGravity_vec3_void) is affecting the body.
 ### Return value
 
-**true** if the body is affected by gravity; otherwise **false**.
-## void setImmovable ( bool immovable )
+Current the body is affected by gravity
+## void setImmovable ( int immovable )
 
-Sets a new value indicating if the body is immovable (static).
+Sets a new value indicating if the body is immovable (static), i.e. not affected by any forces or collisions.
 ### Arguments
 
-- *bool* **immovable** - Set **true** to enable the body is immovable (static); **false** - to disable it.
+- *int* **immovable** - The the body is immovable (static)
 
-## bool isImmovable () const
+## int isImmovable () const
 
-Returns the current value indicating if the body is immovable (static).
+Returns the current value indicating if the body is immovable (static), i.e. not affected by any forces or collisions.
 ### Return value
 
-**true** if the body is immovable (static); otherwise **false**.
-## void setFrozen ( bool frozen )
+Current the body is immovable (static)
+## void setFrozen ( int frozen )
 
-Sets a new value indicating if the body is [frozen](../../../principles/physics/bodies/index.md#frozen_velocities). When a body is frozen, it is not simulated (though its contacts are still calculated), until a collision with a frozen body occurs or some force is applied.
+Sets a new value indicating if the body is frozen. When a body is frozen, it is not simulated (though its contacts are still calculated) until a collision with a non-frozen body occurs or a force is applied.
 ### Arguments
 
-- *bool* **frozen** - Set **true** to enable the body frozen status; **false** - to disable it.
+- *int* **frozen** - The body simulation freezing
 
-## bool isFrozen () const
+## int isFrozen () const
 
-Returns the current value indicating if the body is [frozen](../../../principles/physics/bodies/index.md#frozen_velocities). When a body is frozen, it is not simulated (though its contacts are still calculated), until a collision with a frozen body occurs or some force is applied.
+Returns the current value indicating if the body is frozen. When a body is frozen, it is not simulated (though its contacts are still calculated) until a collision with a non-frozen body occurs or a force is applied.
 ### Return value
 
-**true** if the body frozen status is enabled; otherwise **false**.
-## bool isEnabledSelf () const
+Current body simulation freezing
+## int isEnabledSelf () const
 
-Returns the current value indicating if the body is enabled.
+Returns the current value indicating if the body is enabled by its own flag, regardless of the enabled state it may inherit from its node or the physics simulation.
 ### Return value
 
-**true** if the body is enabled; otherwise **false**.
-## void setEnabled ( bool enabled )
+Current the body is enabled by its own flag
+## void setEnabled ( int enabled )
 
 Sets a new value indicating if physical interactions with the body are enabled.
 ### Arguments
 
-- *bool* **enabled** - Set **true** to enable physical interactions with the body; **false** - to disable it.
+- *int* **enabled** - The physical simulation of the body
 
-## bool isEnabled () const
+## int isEnabled () const
 
 Returns the current value indicating if physical interactions with the body are enabled.
 ### Return value
 
-**true** if physical interactions with the body is enabled; otherwise **false**.
+Current physical simulation of the body
 ## const char * getTypeName () const
 
 Returns the current name of the body type.
@@ -259,7 +264,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventContactLeave () const
 
 The event handler signature is as follows: *myhandler()*
@@ -276,7 +281,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventContactEnter () const
 
 The event handler signature is as follows: *myhandler()*
@@ -293,7 +298,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventPosition () const
 
 The event handler signature is as follows: *myhandler()*
@@ -310,7 +315,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventFrozen () const
 
 The event handler signature is as follows: *myhandler()*
@@ -327,7 +332,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## Body createBody ( int type )
@@ -588,8 +593,8 @@ Depending on the variable passed as an argument, the result can be presented as 
 - *int* **mask** - Intersection mask.
 - *variable* **v** - Variable defining which type of intersection object will be returned:
 
-  - PhysicsIntersection intersection — [PhysicsIntersection](../../../api/library/physics/class.physicsintersection_usc.md) class instance containing intersection information (contact point coordinates).
-  - PhysicsIntersectionNormal normal — [PhysicsIntersectionNormal](../../../api/library/physics/class.physicsintersectionnormal_usc.md) class instance containing intersection information (contact point and normal coordinates).
+  - PhysicsIntersection intersection � [PhysicsIntersection](../../../api/library/physics/class.physicsintersection_usc.md) class instance containing intersection information (contact point coordinates).
+  - PhysicsIntersectionNormal normal � [PhysicsIntersectionNormal](../../../api/library/physics/class.physicsintersectionnormal_usc.md) class instance containing intersection information (contact point and normal coordinates).
 
 ### Return value
 
@@ -696,7 +701,7 @@ Returns the relative impulse at the given [contact](#contacts) point.
 Impulse value.
 ## float getContactTime ( int num )
 
-Returns the time when the given [contact](#contacts) occurs. By CCD (for spheres or capsules), it returns the time starting from the current physics simulation tick to the moment when the calculated contact is bound to happen. By non-continuous collision detection, **0** is always returned.
+Returns the time when the given [contact](#contacts) occurs. In case of [CCD](../../../api/library/physics/class.shape_usc.md#isContinuous_int), it returns the time starting from the current physics simulation tick to the moment when the calculated contact is bound to happen. In case of non-continuous collision detection, **0** is always returned.
 ### Arguments
 
 - *int* **num** - [Contact](#contacts) number in the range from 0 to the [total number of contacts](#getNumContacts_int).

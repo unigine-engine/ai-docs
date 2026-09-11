@@ -67,6 +67,42 @@ gui->addChild(widget_label, Gui::ALIGN_OVERLAP | Gui::ALIGN_FIXED);
 
 ### Members
 
+## void setText ( const char * text )
+
+Sets a new text of the label.
+### Arguments
+
+- *const char ** **text** - The text of the label
+
+## const char * getText () const
+
+Returns the current text of the label.
+### Return value
+
+Current text of the label
+## void setTextAlign ( int align )
+
+Sets a new alignment of the label text. One of the following variables:
+- [*GUI_ALIGN_LEFT*](../../../api/library/gui/class.gui_cpp.md#ALIGN_LEFT)
+- [*GUI_ALIGN_CENTER*](../../../api/library/gui/class.gui_cpp.md#ALIGN_CENTER)
+- [*GUI_ALIGN_RIGHT*](../../../api/library/gui/class.gui_cpp.md#ALIGN_RIGHT)
+
+
+### Arguments
+
+- *int* **align** - The alignment of the label text
+
+## int getTextAlign () const
+
+Returns the current alignment of the label text. One of the following variables:
+- [*GUI_ALIGN_LEFT*](../../../api/library/gui/class.gui_cpp.md#ALIGN_LEFT)
+- [*GUI_ALIGN_CENTER*](../../../api/library/gui/class.gui_cpp.md#ALIGN_CENTER)
+- [*GUI_ALIGN_RIGHT*](../../../api/library/gui/class.gui_cpp.md#ALIGN_RIGHT)
+
+
+### Return value
+
+Current alignment of the label text
 ---
 
 ## static WidgetLabelPtr create ( const Ptr < Gui > & gui , const char * str = 0 )
@@ -83,30 +119,3 @@ Constructor. Creates a new text label and adds it to the Engine GUI.
 ### Arguments
 
 - *const char ** **str** - Text of the label. This is an optional parameter.
-
-## void setText ( const char * text )
-
-Sets a text for the label.
-### Arguments
-
-- *const char ** **text** - Label text.
-
-## const char * getText ( ) const
-
-Returns the text of the label.
-### Return value
-
-Label text.
-## void setTextAlign ( int align )
-
-Sets alignment of the label.
-### Arguments
-
-- *int* **align** - One of the Gui:: Enumeration with ALIGN_* prefixes.
-
-## int getTextAlign ( ) const
-
-Returns alignment of the label.
-### Return value
-
-Alignment of the label: one of the Gui:: Enumeration with ALIGN_* prefixes.

@@ -25,6 +25,168 @@ The object of this class looks as follows:
 
 ### Members
 
+## void setStyleTextureBorder ( string border )
+
+Sets a new skin used for the widget's border.
+### Arguments
+
+- *string* **border** - The skin used for the widget's border
+
+## const char * getStyleTextureBorder () const
+
+Returns the current skin used for the widget's border.
+### Return value
+
+Current skin used for the widget's border
+## void setStyleTextureBackground ( string background )
+
+Sets a new skin used for the widget's background.
+### Arguments
+
+- *string* **background** - The skin used for the widget's background
+
+## const char * getStyleTextureBackground () const
+
+Returns the current skin used for the widget's background.
+### Return value
+
+Current skin used for the widget's background
+## void setStyleTextureSelection ( string selection )
+
+Sets a new skin used to highlight the current selection for the widget.
+### Arguments
+
+- *string* **selection** - The skin used to highlight the current selection for the widget
+
+## const char * getStyleTextureSelection () const
+
+Returns the current skin used to highlight the current selection for the widget.
+### Return value
+
+Current skin used to highlight the current selection for the widget
+## void setStyleTextureButton ( string button )
+
+Sets a new path to the skin used for buttons.
+### Arguments
+
+- *string* **button** - The path to the skin used for buttons
+
+## const char * getStyleTextureButton () const
+
+Returns the current path to the skin used for buttons.
+### Return value
+
+Current path to the skin used for buttons
+## void setStyleTextureIcon ( string icon )
+
+Sets a new path to the skin used for icons.
+### Arguments
+
+- *string* **icon** - The path to the skin used for icons
+
+## const char * getStyleTextureIcon () const
+
+Returns the current path to the skin used for icons.
+### Return value
+
+Current path to the skin used for icons
+## void setCurrentItem ( int item )
+
+Sets a new number of the currently selected item.
+### Arguments
+
+- *int* **item** - The number of the currently selected item
+
+## int getCurrentItem () const
+
+Returns the current number of the currently selected item.
+### Return value
+
+Current number of the currently selected item
+## int getNumItems () const
+
+Returns the current number of items in the combobox.
+### Return value
+
+Current number of items in the combobox
+## void setTexture ( string texture )
+
+Sets a new path to the image with mini icons, which are used with combobox items.
+### Arguments
+
+- *string* **texture** - The path to the image with mini icons, which are used with combobox items
+
+## const char * getTexture () const
+
+Returns the current path to the image with mini icons, which are used with combobox items.
+### Return value
+
+Current path to the image with mini icons, which are used with combobox items
+## void setButtonColor ( vec4 color )
+
+Sets a new color for the widget's button.
+### Arguments
+
+- *vec4* **color** - The color for the widget's button
+
+## vec4 getButtonColor () const
+
+Returns the current color for the widget's button.
+### Return value
+
+Current color for the widget's button
+## void setBorderColor ( vec4 color )
+
+Sets a new border color for the widget.
+### Arguments
+
+- *vec4* **color** - The border color for the widget
+
+## vec4 getBorderColor () const
+
+Returns the current border color for the widget.
+### Return value
+
+Current border color for the widget
+## void setSelectionColor ( vec4 color )
+
+Sets a new color used to highlight the current selection for the widget.
+### Arguments
+
+- *vec4* **color** - The color used to highlight the current selection for the widget
+
+## vec4 getSelectionColor () const
+
+Returns the current color used to highlight the current selection for the widget.
+### Return value
+
+Current color used to highlight the current selection for the widget
+## void setListBackgroundColor ( vec4 color )
+
+Sets a new background color used for the widget's list items.
+### Arguments
+
+- *vec4* **color** - The background color used for the widget's list items
+
+## vec4 getListBackgroundColor () const
+
+Returns the current background color used for the widget's list items.
+### Return value
+
+Current background color used for the widget's list items
+## void setMainBackgroundColor ( vec4 color )
+
+Sets a new background color used for the widget's text box.
+### Arguments
+
+- *vec4* **color** - The background color used for the widget's text box
+
+## vec4 getMainBackgroundColor () const
+
+Returns the current background color used for the widget's text box.
+### Return value
+
+Current background color used for the widget's text box
 ---
 
 ## static WidgetComboBox ( Gui gui )
@@ -37,19 +199,6 @@ Constructor. Creates an empty combobox and adds it to the specified GUI.
 ## static WidgetComboBox ( )
 
 Constructor. Creates an empty combobox and adds it to the Engine GUI.
-## void setCurrentItem ( int item )
-
-Selects a given item.
-### Arguments
-
-- *int* **item** - Item number.
-
-## int getCurrentItem ( )
-
-Returns the currently selected item.
-### Return value
-
-Item number.
 ## string getCurrentItemData ( )
 
 Returns the [text data](#setItemData_int_cstr_void) of the currently selected item. The data can be used as a text identifier of the item (instead of using the item number).
@@ -129,25 +278,6 @@ Returns the icon of a given item.
 ### Return value
 
 Zero-based ID of the icon.
-## int getNumItems ( )
-
-Returns the number of items in the combobox.
-### Return value
-
-Number of items.
-## void setTexture ( string texture )
-
-Sets a texture with mini icons to be used with items. The texture is a vertical strip of square icons.
-### Arguments
-
-- *string* **texture** - Path to a texture file.
-
-## string getTexture ( )
-
-Returns file name of the image with mini icons.
-### Return value
-
-Path to the texture file.
 ## int addItem ( string str , int texture = -1 )
 
 Adds a new item with a given text and an icon.
@@ -169,71 +299,6 @@ Removes a given item from the combobox.
 
 - *int* **num** - Item number.
 
-## void setMainBackgroundColor ( vec4 color )
-
-Sets the background color to be used for the widget's text box.
-### Arguments
-
-- *vec4* **color** - Four-component vector specifying the color in the RGBA format.
-
-## vec4 getMainBackgroundColor ( )
-
-Returns the current background color used for the widget's text box.
-### Return value
-
-Four-component vector specifying the color in the RGBA format.
-## void setListBackgroundColor ( vec4 color )
-
-Sets the background color to be used for the widget's list items.
-### Arguments
-
-- *vec4* **color** - Four-component vector specifying the color in the RGBA format.
-
-## vec4 getListBackgroundColor ( )
-
-Returns the current background color used for the widget's list items.
-### Return value
-
-Four-component vector specifying the color in the RGBA format.
-## void setSelectionColor ( vec4 color )
-
-Sets the color to be used to highlight the current selection for the widget.
-### Arguments
-
-- *vec4* **color** - Four-component vector specifying the color in the RGBA format.
-
-## vec4 getSelectionColor ( )
-
-Returns the current color used to highlight the current selection for the widget.
-### Return value
-
-Four-component vector specifying the color in the RGBA format.
-## void setBorderColor ( vec4 color )
-
-Sets the border color for the widget.
-### Arguments
-
-- *vec4* **color** - Four-component vector specifying the color in the RGBA format.
-
-## vec4 getBorderColor ( )
-
-Returns the current border color for the widget.
-### Return value
-
-Four-component vector specifying the color in the RGBA format.
-## void setButtonColor ( vec4 color )
-
-Sets the color for the widget's button.
-### Arguments
-
-- *vec4* **color** - Four-component vector specifying the color in the RGBA format.
-
-## vec4 getButtonColor ( )
-
-Returns the current color for the widget's button.
-### Return value
-
-Four-component vector specifying the color in the RGBA format.
 ## int findItemByText ( string str )
 
 Returns the number of the item the text of which is the same as in the argument.
@@ -244,68 +309,3 @@ Returns the number of the item the text of which is the same as in the argument.
 ### Return value
 
 Number of the item with the matching text.
-## void setStyleTextureIcon ( string icon )
-
-Sets a skin to be used for icons.
-### Arguments
-
-- *string* **icon** - Path to a texture file.
-
-## string getStyleTextureIcon ( )
-
-Returns the path to the skin used for icons.
-### Return value
-
-Path to the texture file.
-## void setStyleTextureButton ( string button )
-
-Sets a skin to be used for buttons.
-### Arguments
-
-- *string* **button** - Path to a texture file.
-
-## string getStyleTextureButton ( )
-
-Returns the path to the skin used for buttons.
-### Return value
-
-Path to a texture file.
-## void setStyleTextureSelection ( string selection )
-
-Sets a skin used to highlight the current selection for the widget.
-### Arguments
-
-- *string* **selection** - Path to a texture file.
-
-## string getStyleTextureSelection ( )
-
-Returns the skin used to highlight the current selection for the widget.
-### Return value
-
-Path to a texture file.
-## void setStyleTextureBackground ( string background )
-
-Sets a skin to be used for the widget's background.
-### Arguments
-
-- *string* **background** - Path to a texture file.
-
-## string getStyleTextureBackground ( )
-
-Returns the skin used for the widget's background.
-### Return value
-
-Path to a texture file.
-## void setStyleTextureBorder ( string border )
-
-Sets a skin to be used for the widget's border.
-### Arguments
-
-- *string* **border** - Path to a texture file.
-
-## string getStyleTextureBorder ( )
-
-Returns the skin used for the widget's border.
-### Return value
-
-Path to a texture file.

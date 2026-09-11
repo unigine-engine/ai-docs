@@ -25,6 +25,58 @@ This class is used to simulate a point force that pulls physical bodies [up to o
 
 ### Members
 
+## void setRotator ( float rotator )
+
+Sets a new rotation force that will be applied to objects in the physical force radius.
+### Arguments
+
+- *float* **rotator** - The rotation force applied to objects in the radius
+
+## float getRotator () const
+
+Returns the current rotation force that will be applied to objects in the physical force radius.
+### Return value
+
+Current rotation force applied to objects in the radius
+## void setRadius ( float radius )
+
+Sets a new radius set for applying the physical force.
+### Arguments
+
+- *float* **radius** - The radius for applying the physical force
+
+## float getRadius () const
+
+Returns the current radius set for applying the physical force.
+### Return value
+
+Current radius for applying the physical force
+## void setAttractor ( float attractor )
+
+Sets a new attraction force applied to objects in the physical force radius. positive values pull objects away from the force point, negative values pull them up to it.
+### Arguments
+
+- *float* **attractor** - The attraction force applied to objects in the radius
+
+## float getAttractor () const
+
+Returns the current attraction force applied to objects in the physical force radius. positive values pull objects away from the force point, negative values pull them up to it.
+### Return value
+
+Current attraction force applied to objects in the radius
+## void setAttenuation ( float attenuation )
+
+Sets a new attenuation factor for the physical force.
+### Arguments
+
+- *float* **attenuation** - The attenuation factor for the physical force
+
+## float getAttenuation () const
+
+Returns the current attenuation factor for the physical force.
+### Return value
+
+Current attenuation factor for the physical force
 ---
 
 ## static PhysicalForcePtr create ( float radius )
@@ -34,58 +86,6 @@ Constructor. Creates a physical force node with the specified radius in units.
 
 - *float* **radius** - The radius of the physical force node in units.
 
-## void setAttenuation ( float attenuation )
-
-Updates the attenuation factor for the physical force.
-### Arguments
-
-- *float* **attenuation** - A new attenuation factor.
-
-## float getAttenuation ( )
-
-Returns the current attenuation factor for the physical force.
-### Return value
-
-The attenuation factor.
-## void setAttractor ( float attractor )
-
-Updates the attraction force that will be applied to objects in the physical force radius.
-### Arguments
-
-- *float* **attractor** - A new attraction force value. Positive values pull objects away from the force point, negative values pull them up to it.
-
-## float getAttractor ( )
-
-Returns the current attraction force applied to objects in the physical force radius. Positive values pull objects away from the force point, negative values pull them up to it.
-### Return value
-
-The attraction force value.
-## void setRadius ( float radius )
-
-Updates the radius for applying the physical force.
-### Arguments
-
-- *float* **radius** - A new radius in units. If a negative value is provided, 0 will be used instead.
-
-## float getRadius ( )
-
-Returns the current radius set for applying the physical force.
-### Return value
-
-The radius in units.
-## void setRotator ( float rotator )
-
-Updates the rotation force that will be applied to objects in the physical force radius.
-### Arguments
-
-- *float* **rotator** - A new rotation force value. Set a positive value for clockwise rotation or a negative value for counterclockwise one.
-
-## float getRotator ( )
-
-Returns the current rotation force that will be applied to objects in the physical force radius.
-### Return value
-
-The rotation force value.
 ## static int type ( )
 
 Returns the type of the node.

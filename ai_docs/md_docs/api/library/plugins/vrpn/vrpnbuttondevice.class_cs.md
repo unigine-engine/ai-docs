@@ -27,7 +27,10 @@ The Total number of buttons of the input device.
 
 ## void setButtonCallback ( string name )
 
+
 Sets the world script callback function that receives data about input device buttons.
+
+
 > **Notice:** The callback function should be defined in the world script and receive **2** arguments - a button number and state.
 > ```cpp
 > void callback_func(int button,int state) {
@@ -75,7 +78,10 @@ void button_callback(int button,int state) {
 
 ## string getButtonCallback ( )
 
+
 Returns a name of the world script callback function that receives data about input device buttons. The callback function should be defined in the world script and receive **2** arguments - a button number and state.
+
+
 ```cpp
 void callback_func(int button,int state) {
     // function logic
@@ -89,16 +95,13 @@ void callback_func(int button,int state) {
 Callback function name.
 ## void update ( )
 
+
 Updates the internal state of the device and receives input data.
+
+
 > **Notice:** This function should be called each frame.
 
 
-## int GetNumButtons ( )
-
-Returns the total number of buttons of the input device.
-### Return value
-
-Total number of buttons of the input device.
 ## int GetButtonState ( int num )
 
 Returns the current state for a button with the specified index.

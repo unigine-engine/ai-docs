@@ -977,6 +977,29 @@ Returns the key transformed from the specified Unicode symbol.
 ### Return value
 
 Key (one of the *[Input::KEY_*](../../../api/library/controls/class.input_cpp.md#KEY)* variables).
+## void setIMETextInputEnabled ( bool enabled )
+
+Enables or disables the input method editor, which is used to compose text in languages that need it, such as Chinese, Japanese and Korean. Implement it for the platform you support; leave it empty if the platform has no input method editor.
+### Arguments
+
+- *bool* **enabled** - true to start accepting composed text input, false to stop.
+
+## bool isIMETextInputEnabled ( ) const
+
+Returns a value indicating whether the input method editor is currently accepting text. Return false if the platform has no input method editor.
+### Return value
+
+true if the input method editor accepts text, false if it does not.
+## void setIMETextInputRect ( int position_x , int position_y , int width , int height )
+
+Sets the rectangle the text is composed in, so that the input method editor puts its candidate window beside it rather than over it.
+### Arguments
+
+- *int* **position_x** - X coordinate of the rectangle, in pixels.
+- *int* **position_y** - Y coordinate of the rectangle, in pixels.
+- *int* **width** - Width of the rectangle, in pixels.
+- *int* **height** - Height of the rectangle, in pixels.
+
 ## bool isFocus ( )
 
 Returns the value indicating if focus is set on the window.
@@ -1039,7 +1062,7 @@ Applies the constant force-feedback effect with the specified parameters to the 
 ### Arguments
 
 - *int32_t* **joy_id** - Joystick ID.
-- *float* **force** - Amount of force being applied by a force-feedback effect. The value in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values — to the right.
+- *float* **force** - Amount of force being applied by a force-feedback effect. The value in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values � to the right.
 
 ## void playJoystickForceFeedbackEffectRamp ( int32_t joy_id , float force , unsigned long duration_us )
 
@@ -1047,7 +1070,7 @@ Applies the ramp force-feedback effect with the specified parameters to the joys
 ### Arguments
 
 - *int32_t* **joy_id** - Joystick ID.
-- *float* **force** - Amount of force being applied by a force-feedback effect. The value in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values — to the right.
+- *float* **force** - Amount of force being applied by a force-feedback effect. The value in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values � to the right.
 - *unsigned long* **duration_us** - Force-feedback effect duration, in microseconds.
 
 ## void playJoystickForceFeedbackEffectSineWave ( int32_t joy_id , float force , float attack_force , float fade_force , int phase , unsigned int period_ms , unsigned int attack_length_ms , unsigned int fade_length_ms , unsigned int effect_duration_ms )
@@ -1056,13 +1079,13 @@ Applies the sine-wave force-feedback effect with the specified parameters to the
 ### Arguments
 
 - *int32_t* **joy_id** - Joystick ID.
-- *float* **force** - Sustain value — the force value in the middle of the force-feedback effect in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values — to the right.
+- *float* **force** - Sustain value � the force value in the middle of the force-feedback effect in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values � to the right.
 - *float* **attack_force** - Value at the start of the attack, in range [0, 1].
 - *float* **fade_force** - Value at the end of the fade, in range [0, 1].
 - *int* **phase** - Positive phase shift, in degrees in range [0, 360].
 - *unsigned int* **period_ms** - Period of the wave, in ms.
-- *unsigned int* **attack_length_ms** - Duration of the attack — time period in ms defining how long it takes to reach the force value (the value in the middle of the effect).
-- *unsigned int* **fade_length_ms** - Duration of the fade out — time period in ms defining how long it takes to fall away from the force value (the value in the middle of the effect).
+- *unsigned int* **attack_length_ms** - Duration of the attack � time period in ms defining how long it takes to reach the force value (the value in the middle of the effect).
+- *unsigned int* **fade_length_ms** - Duration of the fade out � time period in ms defining how long it takes to fall away from the force value (the value in the middle of the effect).
 - *unsigned int* **effect_duration_ms** - Duration of the effect, in ms.
 
 ## void playJoystickForceFeedbackEffectSquareWave ( int32_t joy_id , float force , float attack_force , float fade_force , int phase , unsigned int period_ms , unsigned int attack_length_ms , unsigned int fade_length_ms , unsigned int effect_duration_ms )
@@ -1071,13 +1094,13 @@ Applies the square-wave force-feedback effect with the specified parameters to t
 ### Arguments
 
 - *int32_t* **joy_id** - Joystick ID.
-- *float* **force** - Sustain value — the force value in the middle of the force-feedback effect in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values — to the right.
+- *float* **force** - Sustain value � the force value in the middle of the force-feedback effect in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values � to the right.
 - *float* **attack_force** - Value at the start of the attack, in range [0, 1].
 - *float* **fade_force** - Value at the end of the fade, in range [0, 1].
 - *int* **phase** - Positive phase shift, in degrees in range [0, 360].
 - *unsigned int* **period_ms** - Period of the wave, in ms.
-- *unsigned int* **attack_length_ms** - Duration of the attack — time period in ms defining how long it takes to reach the force value (the value in the middle of the effect).
-- *unsigned int* **fade_length_ms** - Duration of the fade out — time period in ms defining how long it takes to fall away from the force value (the value in the middle of the effect).
+- *unsigned int* **attack_length_ms** - Duration of the attack � time period in ms defining how long it takes to reach the force value (the value in the middle of the effect).
+- *unsigned int* **fade_length_ms** - Duration of the fade out � time period in ms defining how long it takes to fall away from the force value (the value in the middle of the effect).
 - *unsigned int* **effect_duration_ms** - Duration of the effect, in ms.
 
 ## void playJoystickForceFeedbackEffectTriangleWave ( int32_t joy_id , float force , float attack_force , float fade_force , int phase , unsigned int period_ms , unsigned int attack_length_ms , unsigned int fade_length_ms , unsigned int effect_duration_ms )
@@ -1086,13 +1109,13 @@ Applies the triangle-wave force-feedback effect with the specified parameters to
 ### Arguments
 
 - *int32_t* **joy_id** - Joystick ID.
-- *float* **force** - Sustain value — the force value in the middle of the force-feedback effect in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values — to the right.
+- *float* **force** - Sustain value � the force value in the middle of the force-feedback effect in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values � to the right.
 - *float* **attack_force** - Value at the start of the attack. Value in range [0, 1].
 - *float* **fade_force** - Value at the end of the fade. Value in range [0, 1].
 - *int* **phase** - Positive phase shift, in degrees in range [0, 360].
 - *unsigned int* **period_ms** - Period of the wave, in ms.
-- *unsigned int* **attack_length_ms** - Duration of the attack — time period in ms defining how long it takes to reach the force value (the value in the middle of the effect).
-- *unsigned int* **fade_length_ms** - Duration of the fade out — time period in ms defining how long it takes to fall away from the force value (the value in the middle of the effect).
+- *unsigned int* **attack_length_ms** - Duration of the attack � time period in ms defining how long it takes to reach the force value (the value in the middle of the effect).
+- *unsigned int* **fade_length_ms** - Duration of the fade out � time period in ms defining how long it takes to fall away from the force value (the value in the middle of the effect).
 - *unsigned int* **effect_duration_ms** - Duration of the effect, in ms.
 
 ## void playJoystickForceFeedbackEffectSawtoothUpWave ( int32_t joy_id , float force , float attack_force , float fade_force , int phase , unsigned int period_ms , unsigned int attack_length_ms , unsigned int fade_length_ms , unsigned int effect_duration_ms )
@@ -1101,13 +1124,13 @@ Applies the upward-sawtooth-wave force-feedback effect with the specified parame
 ### Arguments
 
 - *int32_t* **joy_id** - Joystick ID.
-- *float* **force** - Sustain value — the force value in the middle of the force-feedback effect in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values — to the right.
+- *float* **force** - Sustain value � the force value in the middle of the force-feedback effect in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values � to the right.
 - *float* **attack_force** - Value at the start of the attack. Value in range [0, 1].
 - *float* **fade_force** - Value at the end of the fade. Value in range [0, 1].
 - *int* **phase** - Positive phase shift, in degrees in range [0, 360].
 - *unsigned int* **period_ms** - Period of the wave, in ms.
-- *unsigned int* **attack_length_ms** - Duration of the attack — time period in ms defining how long it takes to reach the force value (the value in the middle of the effect).
-- *unsigned int* **fade_length_ms** - Duration of the fade out — time period in ms defining how long it takes to fall away from the force value (the value in the middle of the effect).
+- *unsigned int* **attack_length_ms** - Duration of the attack � time period in ms defining how long it takes to reach the force value (the value in the middle of the effect).
+- *unsigned int* **fade_length_ms** - Duration of the fade out � time period in ms defining how long it takes to fall away from the force value (the value in the middle of the effect).
 - *unsigned int* **effect_duration_ms** - Duration of the effect, in ms.
 
 ## void playJoystickForceFeedbackEffectSawtoothDownWave ( int32_t joy_id , float force , float attack_force , float fade_force , int phase , unsigned int period_ms , unsigned int attack_length_ms , unsigned int fade_length_ms , unsigned int effect_duration_ms )
@@ -1116,13 +1139,13 @@ Applies the downward-sawtooth-wave force-feedback effect with the specified para
 ### Arguments
 
 - *int32_t* **joy_id** - Joystick ID.
-- *float* **force** - Sustain value — the force value in the middle of the force-feedback effect in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values — to the right.
+- *float* **force** - Sustain value � the force value in the middle of the force-feedback effect in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values � to the right.
 - *float* **attack_force** - Value at the start of the attack. Value in range [0, 1].
 - *float* **fade_force** - Value at the end of the fade. Value in range [0, 1].
 - *int* **phase** - Positive phase shift, in degrees in range [0, 360].
 - *unsigned int* **period_ms** - Period of the wave, in ms.
-- *unsigned int* **attack_length_ms** - Duration of the attack — time period in ms defining how long it takes to reach the force value (the value in the middle of the effect).
-- *unsigned int* **fade_length_ms** - Duration of the fade out — time period in ms defining how long it takes to fall away from the force value (the value in the middle of the effect).
+- *unsigned int* **attack_length_ms** - Duration of the attack � time period in ms defining how long it takes to reach the force value (the value in the middle of the effect).
+- *unsigned int* **fade_length_ms** - Duration of the fade out � time period in ms defining how long it takes to fall away from the force value (the value in the middle of the effect).
 - *unsigned int* **effect_duration_ms** - Duration of the effect, in ms.
 
 ## void playJoystickForceFeedbackEffectSpring ( int32_t joy_id , float left_force , float left_saturation , float right_force , float right_saturation , float offset , float deadband )

@@ -27,10 +27,15 @@ The size of the second child.
 The size of the first child.
 ## int Fixed
 
-The number of the child with the fixed size.
+The number of the child with the fixed size:
+- 0 - size of both children is not fixed.
+- 1 - size of the first child is fixed.
+- 2 - size of the second child is fixed.
+
+
 ## int Value
 
-The value specifying how child widgets will be resized.
+The value specifying how the child widgets are resized, in range **[-32767; 32767]**. **-32767** means that during resize the upper child will remain fixed. **32767** means that during resize the lower child will remain fixed. **0** means that both children will be resized equally. Other values specify proportions, in which the children are resized.
 ### Members
 
 ---

@@ -197,7 +197,7 @@ The ***Approximation error*** parameter makes it possible to reduce the number o
 - The **higher** the value, the less vertices there are in the created shape, but the more details are skipped.
 
 
-| ![Zero Approximation Error](convex_approx0.jpg) *Approximation error = 0* |  | ![Higher value of Approximation Error](convex_approx1.jpg) *Approximation error = 0.1* |
+| ![Zero Approximation Error](convex_approx0.jpg) *Approximation error = 0* | � | ![Higher value of Approximation Error](convex_approx1.jpg) *Approximation error = 0.1* |
 |---|---|---|
 
 

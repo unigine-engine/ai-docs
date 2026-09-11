@@ -218,7 +218,7 @@ Returns the current value specifying if automatic DPI scaling is applied to the 
 
 ### Return value
 
-**true** if all GUI elements of the window are scaled is enabled; otherwise **false**.
+**true** if all GUI elements of the window are scaled is enabled ; otherwise **false**.
 ## WindowManager::DPI_AWARENESS getDpiAwareness () const
 
 Returns the current DPI awareness mode, the value indicating how the application processes the DPI scaling. The value is set to [PER_MONITOR_AWARE](#DPI_AWARENESS_PER_MONITOR_AWARE) by default. On Windows, if a specified mode cannot be set, it will switch to a possible lower value with a corresponding warning. On Linux, [PER_MONITOR_AWARE](#DPI_AWARENESS_PER_MONITOR_AWARE) is currently not supported, setting this value will switch the mode to the [SYSTEM_AWARE](#DPI_AWARENESS_SYSTEM_AWARE) mode with the corresponding warning in the console.
@@ -230,16 +230,16 @@ Returns the current DPI awareness mode, the value indicating how the application
 Current DPI awareness mode, the value indicating how the application processes the DPI scaling.
 ## WindowManager::DPI_AWARENESS getCurrentDpiAwareness () const
 
-Returns the current current actual DPI awareness mode, the value indicating how the application processes the DPI scaling. The value is set to [PER_MONITOR_AWARE](#DPI_AWARENESS_PER_MONITOR_AWARE) by default. On Windows, if a specified mode cannot be set, it will switch to a possible lower value with a corresponding warning. On Linux, [PER_MONITOR_AWARE](#DPI_AWARENESS_PER_MONITOR_AWARE) is currently not supported, setting this value will switch the mode to the [SYSTEM_AWARE](#DPI_AWARENESS_SYSTEM_AWARE) mode with the corresponding warning in the console.
+Returns the current actual DPI awareness mode, the value indicating how the application processes the DPI scaling. The value is set to [PER_MONITOR_AWARE](#DPI_AWARENESS_PER_MONITOR_AWARE) by default. On Windows, if a specified mode cannot be set, it will switch to a possible lower value with a corresponding warning. On Linux, [PER_MONITOR_AWARE](#DPI_AWARENESS_PER_MONITOR_AWARE) is currently not supported, setting this value will switch the mode to the [SYSTEM_AWARE](#DPI_AWARENESS_SYSTEM_AWARE) mode with the corresponding warning in the console.
 > **Notice:** This is an actual value, it may differ from the mode stored in the boot config file (in case the system cannot set the specified mode it will try to use the one that is suitable instead).
 
 
 ### Return value
 
-Current actual DPI awareness mode, the value indicating how the application processes the DPI scaling.
+Current actual DPI awareness mode
 ## static Event<const Ptr < WindowEvent > &> getEventImmediateWindowEvent () const
 
-event triggered immediately as event from the window is received from proxy before being processed by the engine. This event can be triggered in different threads depending on the proxy implementation. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered immediately as event from the window is received from proxy before being processed by the engine. This event can be triggered in different threads depending on the proxy implementation. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -375,10 +375,10 @@ WindowManager::getEventImmediateWindowEvent().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const Ptr < EngineWindow > &> getEventWindowUnstacked () const
 
-event triggered after the window has been unstacked. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the window has been unstacked. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -514,10 +514,10 @@ WindowManager::getEventWindowUnstacked().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const Ptr < EngineWindow > &> getEventWindowStacked () const
 
-event triggered after the window has been stacked. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the window has been stacked. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -653,10 +653,10 @@ WindowManager::getEventWindowStacked().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const Ptr < EngineWindow > &> getEventWindowRemoved () const
 
-event triggered after the window has been removed. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the window has been removed. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -792,10 +792,10 @@ WindowManager::getEventWindowRemoved().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<const Ptr < EngineWindow > &> getEventWindowCreated () const
 
-event triggered after the window has been created. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered after the window has been created. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -931,13 +931,13 @@ WindowManager::getEventWindowCreated().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Ptr < EngineWindowViewport > getFullscreenWindow () const
 
 Returns the current first engine window viewport that is in the fullscreen state.
 ### Return value
 
-Current The viewport in the fullscreen state, or nullptr if no window is found.
+Current first engine window viewport that is in the fullscreen state, or NULL if noneThe viewport in the fullscreen state, or nullptr if no window is found.
 ---
 
 ## Ptr < EngineWindow > getWindow ( int index )
@@ -1044,7 +1044,7 @@ EngineWindowGroupPtr group_1 = WindowManager::stackWindows(window_3, window_1, E
 Group of windows.
 ## Ptr < EngineWindowGroup > stackWithWindow ( const Ptr < EngineWindowViewport > & window_viewport , const Ptr < EngineWindow > & window , EngineWindowGroup::GROUP_TYPE group_type , bool decompose_second = false )
 
-Returns a newly created group of the engine window viewport and any other engine window — another viewport or a window group.
+Returns a newly created group of the engine window viewport and any other engine window � another viewport or a window group.
 ### Arguments
 
 - *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[EngineWindowViewport](../../../api/library/gui/class.enginewindowviewport_cpp.md)> &* **window_viewport** - The window viewport to be stacked.
@@ -1130,12 +1130,6 @@ Returns the value indicating if the specified window is in a fullscreen state.
 ### Return value
 
 true if the engine window is the fullscreen state, false if it is in the window mode.
-## Ptr < EngineWindowViewport > getFullscreenWindow ( ) const
-
-Returns the first engine window viewport that is in the fullscreen state.
-### Return value
-
-The viewport in the fullscreen state, or nullptr if no window is found.
 ## Ptr < EngineWindow > getWindowByID ( unsigned long long win_id ) const
 
 Returns the window by its ID.

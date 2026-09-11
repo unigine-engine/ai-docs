@@ -75,3 +75,13 @@ Returns the game pad button.
 ### Return value
 
 Game pad button, one of the *[INPUT_GAME_PAD_BUTTON_*()](../../../api/library/controls/class.input_usc.md#GAMEPAD_BUTTON_A)* values.
+## InputEventPadButton ( long timestamp , ivec2 mouse_pos , int action , int connection_id , int button )
+
+Constructor. Creates a game pad button event with the given parameters.
+### Arguments
+
+- *long* **timestamp** - Timestamp of the event.
+- *ivec2* **mouse_pos** - Position of the mouse at the moment of the event.
+- *int* **action** - Button action, one of the *ACTION_** values.
+- *int* **connection_id** - Connection identifier of the game pad.
+- *int* **button** - Game pad button, one of the *Input::GAMEPAD_BUTTON_** values.

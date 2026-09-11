@@ -12,6 +12,32 @@ This class creates a dialog window containing a message text string.
 
 ### Members
 
+## void setMessageText ( const char * text )
+
+Sets a new text message of the dialog. The default is equal to the dialog title.
+### Arguments
+
+- *const char ** **text** - The text message of the dialog
+
+## const char * getMessageText () const
+
+Returns the current text message of the dialog. The default is equal to the dialog title.
+### Return value
+
+Current text message of the dialog
+## void setMessageHidden ( bool hidden )
+
+Sets a new value indicating if the text message in the widget is hidden or shown.
+### Arguments
+
+- *bool* **hidden** - true if the text message is hidden, false if it is shown
+
+## bool isMessageHidden () const
+
+Returns the current value indicating if the text message in the widget is hidden or shown.
+### Return value
+
+true if the text message is hidden, false if it is shown
 ---
 
 ## static WidgetDialogMessagePtr create ( const Ptr < Gui > & gui , const char * str = 0 )
@@ -56,30 +82,3 @@ Sets a size of the font used to display the text message in the widget.
 ### Arguments
 
 - *int* **size** - Font size.
-
-## void setMessageHidden ( bool hidden )
-
-Hides or shows the text message in the widget.
-### Arguments
-
-- *bool* **hidden** - true to hide the text message, false to show it.
-
-## bool isMessageHidden ( ) const
-
-Returns a value indicating if a text message in the widget is hidden or shown.
-### Return value
-
-Returns 1 if the text message is hidden; otherwise, 0.
-## void setMessageText ( const char * text )
-
-Sets a text message of the dialog.
-### Arguments
-
-- *const char ** **text** - message.
-
-## const char * getMessageText ( ) const
-
-Returns the text message of the dialog. The default is equal to the dialog title.
-### Return value
-
-Text message.

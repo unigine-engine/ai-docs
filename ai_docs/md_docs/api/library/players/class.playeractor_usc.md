@@ -10,12 +10,16 @@ This class is used to create a player with a rigid [physical body](#isPhysical_i
 
 Each player state (walking, running, etc.) can be accompanied with one of the four helper states:
 
+
 - [PLAYER_ACTOR_STATE_BEGIN](#STATE_BEGIN)
 - [PLAYER_ACTOR_STATE_ENABLED](#STATE_ENABLED)
 - [PLAYER_ACTOR_STATE_END](#STATE_END)
 - [PLAYER_ACTOR_STATE_DISABLED](#STATE_DISABLED)
 
+
 They appear in the order they are listed above. These states allow you to bind parts of animation to them.
+
+
 ### See Also
 
 
@@ -69,14 +73,14 @@ Returns a value indicating if the actor touches the ceiling surface with its hea
 1 if the actor touches the ceiling; otherwise, 0.
 ## void setCollision ( int collision )
 
-Sets a value indicating if collisions with a player's capsule should be taken into account. This method is valid only in case setPhysical() is set to 0 and does not handle collisions automatically.
+Sets a value indicating if collisions with a player's capsule should be taken into account. This method is valid only in case *setPhysical()* is set to 0 and does not handle collisions automatically.
 ### Arguments
 
 - *int* **collision** - Positive number to allow collisions, **0** not to handle collisions with the actor.
 
 ## int getCollision ( )
 
-Returns a value indicating if collisions with a player's capsule should be taken into account. This method is valid only in case setPhysical() is set to 0 and does not handle collisions automatically.
+Returns a value indicating if collisions with a player's capsule should be taken into account. This method is valid only in case *setPhysical()* is set to 0 and does not handle collisions automatically.
 ### Return value
 
 Positive number if collisions are taken into account; otherwise, **0**.
@@ -98,14 +102,14 @@ Height in units.
 Sets a collision mask for the actor. Two objects collide, if they both have matching masks (i.e. at least one bit matches).
 ### Arguments
 
-- *int* **mask** - An integer value, each bit of which is a mask.
+- *int* **mask** - Integer value, each bit of which is used to set a bit mask.
 
 ## int getCollisionMask ( )
 
 Returns the collision mask of the actor. Two objects collide, if they both have matching masks (i.e. at least one bit matches).
 ### Return value
 
-An integer value, each bit of which is a mask.
+integer value, each bit of which is used to set a bit mask.
 ## void setCollisionRadius ( float radius )
 
 Sets a radius of actor's capsule.
@@ -233,14 +237,14 @@ Returns a jumping coefficient.
 Jumping coefficient.
 ## void setMaxFriction ( float friction )
 
-Sets a friction value for the actor that is used when the actor doesn't move, i.e. stands still on the ground. See also setMinFriction().
+Sets a friction value for the actor that is used when the actor doesn't move, i.e. stands still on the ground. See also *setMinFriction()*.
 ### Arguments
 
 - *float* **friction** - Friction value. If a negative value is provided, 0 will be used instead.
 
 ## float getMaxFriction ( )
 
-Returns the friction value set for the actor that is used when the actor doesn't move, i.e. stands still on the ground. See also getMinFriction().
+Returns the friction value set for the actor that is used when the actor doesn't move, i.e. stands still on the ground. See also *getMinFriction()*.
 ### Return value
 
 Friction value.
@@ -272,14 +276,14 @@ Returns the velocity of the actor, which is used while the actor runs.
 Velocity in units per second.
 ## void setMinFriction ( float friction )
 
-Sets a friction value for the actor that is used when the actor walks upon the ground. See also setMaxFriction().
+Sets a friction value for the actor that is used when the actor walks upon the ground. See also *setMaxFriction()*.
 ### Arguments
 
 - *float* **friction** - Friction value. If a negative value is provided, 0 will be used instead.
 
 ## float getMinFriction ( )
 
-Returns the friction value set for the actor that is used when the actor walks upon the ground. See also getMaxFriction().
+Returns the friction value set for the actor that is used when the actor walks upon the ground. See also *getMaxFriction()*.
 ### Return value
 
 Friction value.
@@ -333,14 +337,14 @@ Angle in degrees.
 Sets a value indicating whether the actor should interact with the environment as a physical object or not (enables or disables its [rigid body](../../../api/library/physics/class.bodyrigid_usc.md)). If disabled, collisions can be handled using [setCollision()](#setCollision_int_void) method.
 ### Arguments
 
-- *int* **physical** - Physical flag: 1 to enable rigid body model, 0 to disable it.
+- *int* **physical** - Physical flag: **1** to enable rigid body model, **0** to disable it.
 
 ## int isPhysical ( )
 
 Returns a value indicating whether the actor interacts with the environment as a physical object or not.
 ### Return value
 
-Physical flag: **1** if rigid body model is enabled, **0** otherwise.
+Physical flag: **1** if rigid body model is enabled; otherwise, **0**.
 ## void setPhysicalMask ( int mask )
 
 Sets the bit mask for interaction with physicals. Two objects interact, if they both have matching masks (i.e. at least one bit matches).

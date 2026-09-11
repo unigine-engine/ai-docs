@@ -3,7 +3,8 @@
 **Header:** #include <plugins/Unigine/IG/UnigineIG.h>
 
 
-This class represents the IG View base interface. It contains common methods for View and ViewGroup interfaces.
+This class represents the *IG View* base interface. It contains common methods for View and ViewGroup interfaces.
+
 
 > **Notice:** IG plugin must be loaded.
 

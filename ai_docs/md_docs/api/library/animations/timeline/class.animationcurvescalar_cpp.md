@@ -18,30 +18,56 @@ Returns the current default value of all keys in the curve.
 ### Return value
 
 Current default value of all keys in the curve.
-## getNumKeys () const
+## int getNumKeys () const
 
 Returns the current total number of key points in the curve.
 ### Return value
 
 Current total number of key points in the curve.
-## getMinTime () const
+## float getMinTime () const
 
 Returns the current point of the whole animation timeline where this curve starts being applied, in units.
 ### Return value
 
 Current point of the whole animation timeline where this curve starts being applied, in units.
-## getMaxTime () const
+## float getMaxTime () const
 
 Returns the current point of the whole animation timeline up to which this curve is applied, in units.
 ### Return value
 
 Current point of the whole animation timeline up to which this curve is applied, in units.
+## void setPreInfinity ( AnimationCurve::EXTRAPOLATION infinity )
+
+Sets a new way the curve behaves before its first key.
+### Arguments
+
+- *[AnimationCurve::EXTRAPOLATION](../../../../api/library/animations/timeline/class.animationcurve_cpp.md#EXTRAPOLATION)* **infinity** - The way the curve behaves before its first key
+
+## AnimationCurve::EXTRAPOLATION getPreInfinity () const
+
+Returns the current way the curve behaves before its first key.
+### Return value
+
+Current way the curve behaves before its first key
+## void setPostInfinity ( AnimationCurve::EXTRAPOLATION infinity )
+
+Sets a new way the curve behaves after its last key.
+### Arguments
+
+- *[AnimationCurve::EXTRAPOLATION](../../../../api/library/animations/timeline/class.animationcurve_cpp.md#EXTRAPOLATION)* **infinity** - The way the curve behaves after its last key
+
+## AnimationCurve::EXTRAPOLATION getPostInfinity () const
+
+Returns the current way the curve behaves after its last key.
+### Return value
+
+Current way the curve behaves after its last key
 ---
 
 ## AnimationCurveScalar ( )
 
 Constructor. Creates a new animation curve instance containing scalar values.
-## void copy ( const Ptr < AnimationCurveScalar > & curve )
+## void assignFrom ( const Ptr < AnimationCurveScalar > & curve )
 
 Copies all data (key points and tangents) from the specified source curve.
 ### Arguments
@@ -103,13 +129,14 @@ Moves the key point with the specified number to a new time position (preserving
 ### Return value
 
 New index of the key.
-## void setKeyType ( int index , AnimationCurve::KEY_TYPE type )
+## void setKeyType ( int index , AnimationCurve::KEY_TYPE type , float value_time_ratio = 1.0f )
 
 Sets the interpolation type for the specified key on the curve.
 ### Arguments
 
 - *int* **index** - Key point number, in the range from 0 to the [total number of key points](#getNumKeys_int) in the curve.
 - *[AnimationCurve::KEY_TYPE](../../../../api/library/animations/timeline/class.animationcurve_cpp.md#KEY_TYPE)* **type** - Interpolation type set for the key, one of the [KEY_TYPE_*](../../../../api/library/animations/timeline/class.animationcurve_cpp.md#KEY_TYPE_CONSTANT) values.
+- *float* **value_time_ratio** - Number of units of value that make up one unit of time, taken into account when the handles of an [aligned](../../../../api/library/animations/timeline/class.animationcurve_cpp.md#KEY_TYPE_ALIGNED) key are made collinear. The default value is 1.0f, which measures value and time on the same scale.
 
 ## AnimationCurve::KEY_TYPE getKeyType ( int index ) const
 
@@ -149,13 +176,14 @@ Returns the current value for the specified key on the curve.
 ### Return value
 
 The scalar value of the key.
-## void setKeyLeftTangent ( int index , const Math:: vec2 & left_tangent )
+## void setKeyLeftTangent ( int index , const Math:: vec2 & left_tangent , float value_time_ratio = 1.0f )
 
 Sets new coordinates for the left tangent at the specified key point of the curve.
 ### Arguments
 
 - *int* **index** - Key point number, in the range from 0 to the [total number of key points](#getNumKeys_int) in the curve.
 - *const  Math::[vec2](../../../../api/library/math/class.vec2_cpp.md) &* **left_tangent** - Coordinates of the left tangent at the specified key point to be set.
+- *float* **value_time_ratio** - Number of units of value that make up one unit of time, taken into account when the opposite handle of an [aligned](../../../../api/library/animations/timeline/class.animationcurve_cpp.md#KEY_TYPE_ALIGNED) key is brought back in line with this one. The default value is 1.0f, which measures value and time on the same scale.
 
 ## Math:: vec2 getKeyLeftTangent ( int index ) const
 
@@ -167,13 +195,14 @@ Returns the current coordinates for the left tangent at the specified key point 
 ### Return value
 
 Coordinates of the left tangent at the specified key point to be set.
-## void setKeyRightTangent ( int index , const Math:: vec2 & right_tangent )
+## void setKeyRightTangent ( int index , const Math:: vec2 & right_tangent , float value_time_ratio = 1.0f )
 
 Sets new coordinates for the right tangent at the specified key point of the curve.
 ### Arguments
 
 - *int* **index** - Key point number, in the range from 0 to the [total number of key points](#getNumKeys_int) in the curve.
 - *const  Math::[vec2](../../../../api/library/math/class.vec2_cpp.md) &* **right_tangent** - Coordinates of the right tangent at the specified key point to be set.
+- *float* **value_time_ratio** - Number of units of value that make up one unit of time, taken into account when the opposite handle of an [aligned](../../../../api/library/animations/timeline/class.animationcurve_cpp.md#KEY_TYPE_ALIGNED) key is brought back in line with this one. The default value is 1.0f, which measures value and time on the same scale.
 
 ## Math:: vec2 getKeyRightTangent ( int index ) const
 
@@ -185,12 +214,13 @@ Returns the current coordinates for the right tangent at the specified key point
 ### Return value
 
 Coordinates of the right tangent at the specified key point to be set.
-## void setTypeOfAllKeys ( AnimationCurve::KEY_TYPE type )
+## void setTypeOfAllKeys ( AnimationCurve::KEY_TYPE type , float value_time_ratio = 1.0f )
 
 Sets the interpolation type for all keys of the curve.
 ### Arguments
 
 - *[AnimationCurve::KEY_TYPE](../../../../api/library/animations/timeline/class.animationcurve_cpp.md#KEY_TYPE)* **type** - Interpolation type set for the key, one of the [KEY_TYPE_*](../../../../api/library/animations/timeline/class.animationcurve_cpp.md#KEY_TYPE_CONSTANT) values.
+- *float* **value_time_ratio** - Number of units of value that make up one unit of time, taken into account when the handles of an [aligned](../../../../api/library/animations/timeline/class.animationcurve_cpp.md#KEY_TYPE_ALIGNED) key are made collinear. The default value is 1.0f, which measures value and time on the same scale.
 
 ## void clear ( )
 

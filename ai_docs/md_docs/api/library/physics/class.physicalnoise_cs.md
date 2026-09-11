@@ -125,34 +125,25 @@ public partial class PhysicalNoiseClass : Component
 
 ## vec3 Threshold
 
-The  The threshold distance set for the physical noise node. the threshold determines the distance of gradual change from zero to full force value. this values are relative to the size of the physical noise box. it means that the threshold values should be less than the size of the physical noise box.
+The threshold distance set for the physical noise node. the threshold determines the distance of gradual change from zero to full force value. this values are relative to the size of the physical noise box. it means that the threshold values should be less than the size of the physical noise box.
 ## vec3 Step
 
-The sampling step that is used for pixel sampling from the noise texture.
-> **Notice:** This parameter can be used to animate a force field in run-time.
-
-
+The sampling step that is used for pixel sampling from the noise texture. This parameter can be used to animate a force field in run-time.
 ## vec3 Size
 
-The current size of the physical noise node.
+The size of the physical noise node.
 ## float NoiseScale
 
 The scale of the noise texture.
 ## vec3 Offset
 
-The sampling offset that is used for pixel sampling from the noise texture.
-> **Notice:** This parameter can be used to animate a force field in run-time.
-
-
+The sampling offset that is used for pixel sampling from the noise texture. This parameter can be used to animate a force field in run-time.
 ## int ImageSize
 
 The size of the noise texture in pixels.
 ## int Frequency
 
-The number of octaves for the perlin noise texture generation.
-> **Notice:** It is not recommended to change this parameter in run-time as the noise texture will be regenerated and the performance will decrease.
-
-
+The number of octaves for the perlin noise texture generation. It is not recommended to change this parameter in run-time as the noise texture will be regenerated and the performance will decrease.
 ## float Force
 
 The value of the force multiplier.

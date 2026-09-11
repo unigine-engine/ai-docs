@@ -19,7 +19,7 @@ The class provides access to the following input:
 - **Axes** of the VR controller that detect 1-dimensional movement of the control. Depending on the type of the VR controller, there can be a different number of axes. Usually, there are *3* or *4* axes. An axis can be mapped to a control of one of the supported types, also referred to as an [*axis type*](../../../api/library/controls/class.inputvrcontroller_cs.md#AXIS_TYPE). To identify the supported axes, call *[getNumAxes()](../../../api/library/controls/class.inputvrcontroller_cs.md#getNumAxes_int)*. Additionally, you can get the axis type using *[getAxisType()](../../../api/library/controls/class.inputvrcontroller_cs.md#getAxisType_int_int)*, find the axis index by its type via *[findAxisByType()](../../../api/library/controls/class.inputvrcontroller_cs.md#findAxisByType_int_int)*, or get a state value for the axis via *[getAxisByType()](../../../api/library/controls/class.inputvrcontroller_cs.md#getAxisByType_int_float)*.
 
 
-> **Notice:** The article on VR Input System provides several [examples of inputs](../../../vr_development/vr_input.md#openvr_input) on different types of OpenVR-supported controllers and information on buttons and axes mapping in UNIGINE.
+> **Notice:** The article on VR Input System provides several [examples of inputs](../../../vr_development/vr_input_cs.md#openvr_input) on different types of OpenVR-supported controllers and information on buttons and axes mapping in UNIGINE.
 
 
 ## InputVRController Class
@@ -119,7 +119,7 @@ Returns a state value for the specified axis. It includes position of the VR con
 Value in range [-1.0f; 1.0f].
 ## float GetAxisDelta ( int axis )
 
-Returns the axis delta — the difference between a new and the current state of the specified axis.
+Returns the axis delta � the difference between a new and the current state of the specified axis.
 ### Arguments
 
 - *int* **axis** - Axis number.

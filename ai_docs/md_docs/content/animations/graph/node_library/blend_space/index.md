@@ -6,6 +6,6 @@ Nodes for blending between multiple animations based on two continuous input par
 
 ## Articles in This Section
 
-- [BlendSpace 2D Node](../../../../../content/animations/graph/node_library/blend_space/blend_space_2d.md)
+- [Blend Space 2D Node](../../../../../content/animations/graph/node_library/blend_space/blend_space_2d.md)
 
-- [BlendSpace 2D Sync Node](../../../../../content/animations/graph/node_library/blend_space/blend_space_2d_sync.md)
+- [Blend Space 2D Sync Node](../../../../../content/animations/graph/node_library/blend_space/blend_space_2d_sync.md)

@@ -31,7 +31,7 @@ Sets a new value indicating if masks rendering is enabled.
 Returns the current value indicating if masks rendering is enabled.
 ### Return value
 
-**true** if rendering of masks is enabled; otherwise **false**.
+**true** if rendering of masks is enabled ; otherwise **false**.
 ## int getNumMasks () const
 
 Returns the current total number of masks in the configuration.
@@ -40,7 +40,7 @@ Returns the current total number of masks in the configuration.
 Current total number of masks in the configuration.
 ## static Event<> getEventChanged () const
 
-event triggered on changing masks data. You can subscribe to events via *connect()*   and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered on changing masks data. You can subscribe to events via *connect()* � and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -176,7 +176,7 @@ MasksData::getEventChanged().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## void clear ( )

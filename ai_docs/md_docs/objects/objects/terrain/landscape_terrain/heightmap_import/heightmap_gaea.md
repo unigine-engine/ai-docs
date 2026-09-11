@@ -19,7 +19,7 @@ Make sure you have nodes set up for both the heightmap (*terrain elevation*) and
 ![](gaea2_marking_nodes.png)
 
 
-Give the nodes **clear and descriptive names** (e.g., “Height” and “Albedo”) so the exported files are easily identifiable. Then **mark these nodes** for export.
+Give the nodes **clear and descriptive names** (e.g., *�Height�* and *�Albedo�*) so the exported files are easily identifiable. Then **mark these nodes** for export.
 
 
 Usually, the height map is the last node where terrain modifications were made, while the albedo is the very last node in the graph, after all coloring has been applied.
@@ -139,7 +139,7 @@ To import the exported heightmap into UNIGINE, use the **[Landscape Layer Map](.
   - ***Albedo Color*** - Select the first tile of your albedo map (or the only one, if you didn't use [tiling in Gaea 2](#resolution_and_tiling))
 
 
-Click ***Apply*** and then ***Reimport Data*** to load the terrain into your world.
+Click **Apply** and then **Reimport Data** to load the terrain into your world.
 
 
 ![](gaea2_unigine_terrain.png)

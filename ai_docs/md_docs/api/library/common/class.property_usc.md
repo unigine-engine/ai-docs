@@ -6,12 +6,16 @@
 This class provides an interface for property manipulation: it is used to modify [properties](../../../principles/world_structure/index.md#properties) that allow you to control values of the logic-related parameters. When a property is assigned to a node, an instanced [internal property](../../../principles/properties/index.md#internal) is created and saved into a `.world` or `.node` file. However, rather than the whole list of parameters it contains only the modified ones.
 
 
-The concepts of a [path](#setFilePath_cstr_void) and a [name](#setName_cstr_void) of the property should be distinguished:
+The concepts of a [path](#setFilePath_cstr_int) and a [name](#setName_cstr_void) of the property should be distinguished:
+
 
 - The **path** specifies where the property is stored on the disk. The path includes a property file name.
 - The **name** specifies how the property will be displayed in the UnigineEditor (the Property Hierarchy window, the nodes surface section of the Parameters window). The name can also be used to refer to a property from the [code](../../../api/library/engine/class.properties_usc.md#findProperty_cstr_Property).
 
+
 By default, the property name and the `*.prop` file name coincide.
+
+
 By using functions of this class, you can, for example, implement a *properties editor*.
 
 
@@ -24,7 +28,7 @@ A property is a "material" for application logic represented by a set of logic-r
 All properties in the project are organized into a [hierarchy](../../../principles/properties/inheritance.md). To be modified, properties should be obtained from the hierarchy via [*API*](../../../api/library/engine/class.properties_usc.md) functions.
 
 
-Property parameters are managed individually via the [PropertyParameter class](../../../api/library/common/class.propertyparameter_usc.md), to get any parameter by its name or ID you should use the **[getParameterPtr()()](../../...md#getParameterPtr_cstr_PropertyParameter)**method.
+Property parameters are managed individually via the *[PropertyParameter](../../../api/library/common/class.propertyparameter_usc.md)* class, to get any parameter by its name or ID you should use the **[getParameterPtr()()](../../...md#getParameterPtr_cstr_PropertyParameter)** method.
 
 
 Automatic type conversion of property parameters make them act like some universal variables i.e. you can set a new value for an integer parameter int_param and type it like this:
@@ -38,13 +42,17 @@ Automatic type conversion of property parameters make them act like some univers
 
 > **Notice:** The *Property* class doesn't allow adding a new property to the property hierarchy.
 
+
 A new property can be added to the hierarchy in one of the following ways:
+
+
 - By creating and editing the corresponding `.prop` file manually. For example, in the `data` folder let us create the following file describing a property for a GameObjectUnit: ```xml <?xml version="1.0" encoding="utf-8"?> <property version="2.7.3" manual="1" editable="0" name="GameObjectsUnit"> <parameter name="weapon_type" type="switch" items="air,land,all_types">0</parameter> <parameter name="attack" type="toggle">1</parameter> <parameter name="damage" type="int" max="1000">1</parameter> <parameter name="velocity" type="float" max="100">30</parameter> <parameter name="material" type="string"/> </property> ``` > **Notice:** If the new property is assigned to a surface, it is recommended to inherit it from the *surface_base* property or one of its children.
 - By inheriting from the existing property via the [*engine.properties.inheritProperty()*](../../../api/library/engine/class.properties_usc.md#inheritProperty_UGUID_cstr_cstr_Property) function or [*inherit()*](#inherit_cstr_Property) function of the Property class. For example: ```cpp // inherit a GameObjectsUnit_0 property from the GameObjectsUnit property Property inherited_prop = engine.properties.findManualProperty("GameObjectsUnit").inherit("GameObjectsUnit_0", "game_object_unit_0.prop"); // inherit a GameObjectsUnit_1 property from the GameObjectsUnit_0 property via the Manager engine.properties.inheritProperty(inherited_prop.getGUID(), "GameObjectsUnit_1", "game_object_unit_1.prop"); ``` To save all properties in the hierarchy that can be saved (i.e., editable, having a path specified, and not internal or manual ones) via the [*engine.properties.saveProperties()*](../../../api/library/engine/class.properties_usc.md#saveProperties_int) function. > **Notice:** By default, all parameters and states of the inherited property are the same as specified in the parent property. A child property can [override some parameters of its parent or add new ones](../../../principles/world_structure/index.md#properties_hierarchy).
 - By editing the corresponding `.prop` file [via API](../../../api/library/common/class.xml_usc.md): you can open an XML file, write data into it and save it.
 
 
 To delete a property, you can simply call the *[engine.properties.removeProperty()](../../../api/library/engine/class.properties_usc.md#removeProperty_UGUID_int_int_int)* function:
+
 
 ```cpp
 // remove the property with the given name with all its children and delete the *.prop file
@@ -61,6 +69,7 @@ engine.properties.removeProperty(engine.properties.findProperty("GameObjectsUnit
 
 To illustrate how properties and their parameters are managed let's make a simple viewer for all properties in the project as well as for their parameters. Our viewer will have the following features:
 
+
 - View the list of all properties used in the project.
 - View the list of parameters of the currently selected property. Inherited, overridden and unique parameters are displayed in different colors.
 - Change the value of the selected property parameter.
@@ -75,6 +84,7 @@ To illustrate how properties and their parameters are managed let's make a simpl
 
 
 We can add the the following `*.prop` files to the `data` folder of our project to check our viewer:
+
 
 - `my_property.prop` <details> <summary>my_property.prop | Close</summary> **my_property.prop** ```xml <?xml version="1.0" encoding="utf-8"?> <property version="2.16.0.2" name="my_property" parent="node_base" manual="1"> <parameter name="damage" type="int" max="1000">1</parameter> <parameter name="mass" type="float" tooltip="Aircraft mass">1345</parameter> <parameter name="attack" type="toggle">1</parameter> <parameter name="weapon_type" type="switch" items="air,land,all_types">0</parameter> <parameter name="Mask" type="mask"/> <parameter name="Base Material" type="material"/> <parameter name="Model Node" type="node"/> <struct name="member"> <parameter name="name" type="string"></parameter> <parameter name="rank" type="switch" items="2LT,1LT,CPT,MAJ,LTC,COL,BG,MG">0</parameter> <parameter name="year" type="int"></parameter> <parameter name="status" type="toggle">1</parameter> </struct> <parameter name="Members" type="array" array_type="member" group="Crew Information"> <value> <parameter name="name">Mike Watts</parameter> <parameter name="rank" type="switch" items="2LT,1LT,CPT,MAJ,LTC,COL,BG,MG">3</parameter> <parameter name="year">1990</parameter> </value> <value> <parameter name="name">John Doe</parameter> <parameter name="rank" type="switch" items="2LT,1LT,CPT,MAJ,LTC,COL,BG,MG">2</parameter> <parameter name="year">1995</parameter> </value> <value> <parameter name="name">Vincent Preston</parameter> <parameter name="rank" type="switch" items="2LT,1LT,CPT,MAJ,LTC,COL,BG,MG">1</parameter> <parameter name="year">1997</parameter> </value> </parameter> <parameter name="Service Flags" type="array" array_type="toggle" group="Auxiliary"> <value>1</value> <value>0</value> <value>1</value> <value>0</value> </parameter> </property> ``` </details>
 - `custom_prop.prop` <details> <summary>custom_prop.prop | Close</summary> **custom_prop.prop** ```xml <?xml version="1.0" encoding="utf-8"?> <property version="2.16.0.2" name="custom_prop" manual="1"> <!-- First structure declaration --> <struct name="struct1"> <parameter name="param_a" type="int">1</parameter> <parameter name="param_b" type="toggle">0</parameter> <parameter name="param_c" type="int">1</parameter> </struct> <!-- Inherited structure declaration--> <struct name="struct2" parent_name="struct1"> <parameter name="param2_a" type="toggle">0</parameter> <parameter name="param2_b" type="float">1.0</parameter> </struct> <!-- Struct parameter of struct2 type --> <parameter name="my_struct_param" type="struct2"></parameter> <!-- Nested structure declaration --> <struct name="struct3"> <parameter name="param3_a" type="struct2">0</parameter> <parameter name="param3_b" type="int">15</parameter> </struct> <!-- Declaration of a one-dimensional array of struct3 elements--> <parameter name="my_struct_array" array_type="struct3"></parameter> </property> ``` </details>
@@ -557,26 +567,12 @@ Returns the current value indicating if there are no missing parents in the hier
 ### Return value
 
 Current there are no missing parents in the hierarchy of the property
-## void setFileGUID ( UGUID guid )
-
-Sets a new GUID of the property file.
-### Arguments
-
-- *[UGUID](../../../api/library/filesystem/class.uguid_usc.md)* **guid** - The new [GUID](../../../api/library/filesystem/class.uguid_usc.md) for the property file.
-
 ## UGUID getFileGUID () const
 
 Returns the current GUID of the property file.
 ### Return value
 
 Current new [GUID](../../../api/library/filesystem/class.uguid_usc.md) for the property file.
-## void setFilePath ( string path )
-
-Sets a new [path](#name_path) to the property file.
-### Arguments
-
-- *string* **path** - The [path](#name_path) to the property file.
-
 ## const char * getFilePath () const
 
 Returns the current [path](#name_path) to the property file.
@@ -597,7 +593,7 @@ Sets a new new [name](../../../code/formats/property_format.md#property_name) fo
 
 ### Arguments
 
-- *string* **name** - The property [name](../../../code/formats/property_format.md#property_name).
+- *string* **name** - The property [name](../../../code/formats/property_format.md#property_name). > **Notice:** If the property is [internal](#isInternal_int) and has a parent, the parent's name will be returned.
 
 ## const char * getName () const
 
@@ -608,9 +604,13 @@ Returns the current new [name](../../../code/formats/property_format.md#property
 ### Return value
 
 Current property [name](../../../code/formats/property_format.md#property_name).
+> **Notice:** If the property is [internal](#isInternal_int) and has a parent, the parent's name will be returned.
+
 ## int isEngine () const
 
-Returns the current value indicating if the property is engine-related (i.e. required for engine operation). Such properties are stored in the `core`, `editor` and `editor2` folders.
+Returns the current value indicating if the property is engine-related (i.e. required for engine operation).
+Such properties are stored in the `core`, `editor` and `editor2` folders.
+
 ### Return value
 
 Current the property is engine-related
@@ -686,7 +686,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventParameterChanged () const
 
 The event handler signature is as follows: *myhandler()*
@@ -703,7 +703,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventReparented () const
 
 The event handler signature is as follows: *myhandler()*
@@ -720,7 +720,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventRenamed () const
 
 The event handler signature is as follows: *myhandler()*
@@ -737,7 +737,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventMoved () const
 
 The event handler signature is as follows: *myhandler()*
@@ -754,7 +754,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## getEventReloaded () const
 
 The event handler signature is as follows: *myhandler()*
@@ -771,7 +771,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## static Property ( )
@@ -802,7 +802,10 @@ Returns a value indicating if the property has at least one overridden parameter
 **1** if the property has at least one overridden parameter; otherwise, **0**.
 ## int isParent ( string name )
 
+
 Returns a value indicating if the property with the given name is a [parent](../../../code/formats/property_format.md#property_parent) of this property.
+
+
 Suppose we have the following two manual properties in our project:
 
 
@@ -831,7 +834,10 @@ log.message("%d\n",property.isParent("my_prop"));
 **1** if the property with the given name is a parent of this property; otherwise, **0**.
 ## int setParent ( Property property , int save_all_values = 0 )
 
+
 Sets the given property as the parent for this property and saves the parameter values of the property (if the corresponding flag is set).
+
+
 > **Notice:** The method is not available for [manual](#isManual_int) and [non-editable](#isEditable_int) properties.
 
 
@@ -932,7 +938,10 @@ Inherits a new property from this one and assigns the specified name, GUID and p
 Inherited property.
 ## int load ( )
 
-Loads the property from the file specified by the *[setFilePath()](#setFilePath_cstr_void)* function.
+
+Loads the property from the file specified by the *[setFilePath()](#setFilePath_cstr_int)* function.
+
+
 > **Notice:** This function can be used to load properties created during application execution or stored outside the `data` directory.
 
 
@@ -983,8 +992,11 @@ Returns a value indicating if the property can be saved to a file. For example, 
 **1** if the property can be saved to a file; otherwise, **0**.
 ## int saveState ( Stream stream )
 
+
 Saves data of the current property (all its parameters) into a binary stream.
-**Example** using saveState() and [restoreState()](#restoreState_Stream_int_int) methods:
+
+
+**Example** using *saveState()* and *[restoreState()](#restoreState_Stream_int_int)* methods:
 
 
 ```cpp
@@ -1017,8 +1029,11 @@ property.restoreState(blob_state, 0);
 **1** if the property data is saved successfully; otherwise, **0**.
 ## int restoreState ( Stream stream , int restore_mode = 0 )
 
+
 Restores the data of the property (all its parameters) from a binary stream in the specified mode.
-**Example** using [saveState()](#saveState_Stream_int) and restoreState() methods:
+
+
+**Example** using *[saveState()](#saveState_Stream_int)* and *restoreState()* methods:
 
 
 ```cpp
@@ -1052,7 +1067,10 @@ property.restoreState(blob_state, 0);
 **1** on success; otherwise, **0**.
 ## int save ( )
 
-Saves the property data to the file specified by the *[setFilePath()](#setFilePath_cstr_void)* function.
+
+Saves the property data to the file specified by the *[setFilePath()](#setFilePath_cstr_int)* function.
+
+
 > **Notice:** This method is not available for [manual](#isManual_int) and [internal](#isInternal_int) properties.
 
 
@@ -1061,7 +1079,10 @@ Saves the property data to the file specified by the *[setFilePath()](#setFilePa
 **1** if the property data is saved successfully; otherwise, **0**.
 ## int save ( string path )
 
+
 Saves the property data to the specified [`*.prop` file](../../../code/formats/property_format.md).
+
+
 > **Notice:** This method is not available for [manual](#isManual_int) properties.
 
 
@@ -1074,7 +1095,10 @@ Saves the property data to the specified [`*.prop` file](../../../code/formats/p
 **1** if the property data is saved successfully; otherwise, **0**.
 ## int saveXml ( Xml xml )
 
+
 Saves data of the property (all its parameters) to the given instance of the Xml class.
+
+
 > **Notice:** This method is not available for [manual](#isManual_int) properties.
 
 
@@ -1126,7 +1150,11 @@ Returns a [property parameter](../../../api/library/common/class.propertyparamet
 ### Return value
 
 Property parameter instance.
+
+
 > **Notice:** This method never returns NULL, regardless of whether a parameter with the specified ID exists or not. It only displays an error message in the console in case of a non-existing parameter. To check if such parameter really exists, use the [*PropertyParameter.isExist()*](../../../api/library/common/class.propertyparameter_usc.md#isExist_int) method. For example:
+>
+>
 > ```cpp
 > // getting some property named "my_property"
 > Property pProperty = engine.properties.findManualProperty("my_property");
@@ -1165,7 +1193,10 @@ Returns the name of the structure with the specified number.
 
 ## string getInterfaceName ( int num )
 
+
 Returns the name of the interface with the specified number.
+
+
 > **Notice:** You can use interfaces only within the C# Component System. For more information, see the article [C# Interfaces and Abstract Classes.](../../../code/csharp/interfaces_and_abstract_classes.md).
 
 ### Arguments
@@ -1173,3 +1204,24 @@ Returns the name of the interface with the specified number.
 - *int* **num** - Interface number.
 
 ### Return value
+
+## int setFileGUID ( UGUID fileguid )
+
+Changes the GUID of the file this property is stored in, re-binding the property to another property file.
+### Arguments
+
+- *[UGUID](../../../api/library/filesystem/class.uguid_usc.md)* **fileguid** - New file GUID.
+
+### Return value
+
+true if the file GUID is changed successfully or already matches the current one; otherwise, false (another property is already registered with that file GUID).
+## int setFilePath ( string path )
+
+Sets the path of the file the property is stored in: the path is registered as a virtual file in the engine file system and the resulting GUID is assigned to the property.
+### Arguments
+
+- *string* **path** - Target file path.
+
+### Return value
+
+true on success; otherwise, false (a different property already occupies the resulting file GUID).

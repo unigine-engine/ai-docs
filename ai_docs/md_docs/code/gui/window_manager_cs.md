@@ -141,7 +141,7 @@ To group two separate windows, do the following:
 
 
 1. Hold the mouse button while moving the window to the destination one. The destination window will be divided into 9 sectors.
-2. Choose the required sector and release the mouse button — the windows will be grouped.
+2. Choose the required sector and release the mouse button � the windows will be grouped.
 
 
 ![](mouse_grouping.png)

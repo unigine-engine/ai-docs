@@ -285,7 +285,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginPropertiesUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -302,7 +302,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndPropertiesUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -319,7 +319,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginInputUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -336,7 +336,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndInputUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -353,7 +353,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginControlsUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -370,7 +370,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndControlsUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -387,7 +387,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginWorldManagerUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -404,7 +404,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndWorldManagerUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -421,7 +421,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginSoundManagerUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -438,7 +438,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndSoundManagerUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -455,7 +455,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginGameUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -472,7 +472,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndGameUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -489,7 +489,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginRenderUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -506,7 +506,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndRenderUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -523,7 +523,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginExpressionUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -540,7 +540,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndExpressionUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -557,7 +557,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginSoundsUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -574,7 +574,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndSoundsUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -591,7 +591,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginPluginsUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -608,7 +608,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndPluginsUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -625,7 +625,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginVRUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -642,7 +642,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndVRUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -659,7 +659,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginEditorUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -676,7 +676,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndEditorUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -693,7 +693,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginSystemScriptUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -710,7 +710,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndSystemScriptUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -727,7 +727,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginSystemLogicUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -744,7 +744,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndSystemLogicUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -761,7 +761,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginWorldUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -778,7 +778,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndWorldUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -795,7 +795,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginAnimationManagerUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -812,7 +812,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndAnimationManagerUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -829,7 +829,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginWorldPostUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -846,7 +846,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndWorldPostUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -863,7 +863,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginSystemScriptPostUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -880,7 +880,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndSystemScriptPostUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -897,7 +897,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginSystemLogicPostUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -914,7 +914,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndSystemLogicPostUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -931,7 +931,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginEditorPostUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -948,7 +948,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndEditorPostUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -965,7 +965,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginPluginsPostUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -982,7 +982,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndPluginsPostUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -999,7 +999,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginSpatialUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1016,7 +1016,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndSpatialUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1033,7 +1033,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginFilesystemUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1050,7 +1050,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndFilesystemUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1067,7 +1067,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginPathfinding () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1084,7 +1084,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndUpdate () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1101,7 +1101,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventSyncBeginFramePhysics () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1118,7 +1118,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventSyncEndFramePhysics () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1135,7 +1135,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventAsyncBeginFramePhysics () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1152,7 +1152,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventAsyncEndFramePhysics () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1169,7 +1169,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginVRRender () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1186,7 +1186,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndVRRender () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1203,7 +1203,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginRender () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1220,7 +1220,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginEditorRender () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1237,7 +1237,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndEditorRender () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1254,7 +1254,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginPluginsRender () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1271,7 +1271,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndPluginsRender () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1288,7 +1288,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginRenderWorld () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1305,7 +1305,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndRenderWorld () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1322,7 +1322,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginPluginsGui () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1339,7 +1339,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndPluginsGui () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1356,7 +1356,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginPostRender () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1373,7 +1373,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndPostRender () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1390,7 +1390,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndRender () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1407,7 +1407,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginSwap () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1424,7 +1424,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndPathfinding () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1441,7 +1441,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginWorldSwap () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1458,7 +1458,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndWorldSwap () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1475,7 +1475,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginPluginsSwap () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1492,7 +1492,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndPluginsSwap () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1509,7 +1509,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventBeginDeleteObjects () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1526,7 +1526,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndDeleteObjects () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1543,7 +1543,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventEndSwap () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1560,7 +1560,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventFocusGained () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1577,7 +1577,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event getEventFocusLost () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1594,7 +1594,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventPluginAdded () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1611,7 +1611,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventPluginRemoved () const
 
 The event handler signature is as follows: *myhandler()*
@@ -1628,7 +1628,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## virtual engine. getArg ( int num )

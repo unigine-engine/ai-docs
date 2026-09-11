@@ -5,6 +5,7 @@
 
 Unigine API supports export of:
 
+
 - Pure functions
 - Methods of specific objects as pure functions
 
@@ -20,12 +21,14 @@ An example can be found in `<UnigineSDK>/source/samples/Api/Scripts/Functions/` 
 
 Pure functions and object methods that are exported can take up to 9 arguments.
 
+
 > **Notice:** The object whose methods are exported should not be destroyed while it is used by the engine in a script.
 
 
 Below is an example of function and method export.
 
-1. Create a pointer to an external function via *MakeExternFunction()*. For object methods, use*MakeExternObjectFunction()*.
+
+1. Create a pointer to an external function via *MakeExternFunction()*. For object methods, use *MakeExternObjectFunction()*.
 2. Register the function or a method via *[Unigine::Interpreter::addExternFunction()](../../../../api/library/common/class.interpreter_cpp.md#addExternFunction_const_char_ptr_ExternFunctionBase_ptr_int_void)*.
 3. All functions are exported into a global namespace. To limit the scope of the exported function or a method, use [library namespace](../../../../code/cpp/usage/script/namespace.md).
 
@@ -309,6 +312,7 @@ Interpreter::addExternFunction("foo",MakeExternFunction(&foo,",0.4"));
 
 Besides constants, you can also specify expressions as default values.
 
+
 - Expressions are evaluated before the function is registered.
 - An expression provided as a default argument should return a value of the same type as the corresponding argument. Type conversions are not supported, the only exception being a two-way conversion between *float* and *int*.
 
@@ -320,6 +324,7 @@ Unlike C++, UnigineScript is not a strongly typed language. In C++ code you can 
 
 
 To make registration work, you need to explicitly specify:
+
 
 1. Return value type
 2. Arguments types

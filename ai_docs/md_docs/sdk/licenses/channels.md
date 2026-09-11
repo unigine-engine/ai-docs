@@ -53,6 +53,9 @@ When counting channels keep in mind that:
 - When multiple *[USB HASP](../../sdk/licenses/activation.md#usb)* keys are inserted into the same PC, only one key will be recognized.
 
 
+Channels can be served to all machines on the delivery site from a single machine by the [Licensing Server](../../sdk/licenses/licensing_server.md#scenario_channels) � no per-machine activation is required.
+
+
 ## Counting Seats
 
 

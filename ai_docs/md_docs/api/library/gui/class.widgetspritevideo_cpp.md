@@ -118,6 +118,83 @@ void VideoSprite::init()
 
 ### Members
 
+## bool isStopped () const
+
+Returns the current value indicating if the video is stopped at the moment.
+### Return value
+
+**true** if the video is stopped at the moment; otherwise **false**.
+## bool isPlaying () const
+
+Returns the current value indicating if the video is being played at the moment.
+### Return value
+
+**true** if the video is being played at the moment; otherwise **false**.
+## void setAmbientSource ( const Ptr < AmbientSource >& source )
+
+Sets a new ambient sound source according to which video playback is synchronized.
+### Arguments
+
+- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[AmbientSource](../../../api/library/sounds/class.ambientsource_cpp.md)>&* **source** - The ambient sound source according to which video playback is synchronized
+
+## Ptr < AmbientSource > getAmbientSource () const
+
+Returns the current ambient sound source according to which video playback is synchronized.
+### Return value
+
+Current ambient sound source according to which video playback is synchronized
+## void setSoundSource ( const Ptr < SoundSource >& source )
+
+Sets a new sound source according to which video playback is synchronized.
+### Arguments
+
+- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[SoundSource](../../../api/library/sounds/class.soundsource_cpp.md)>&* **source** - The sound source according to which video playback is synchronized
+
+## Ptr < SoundSource > getSoundSource () const
+
+Returns the current sound source according to which video playback is synchronized.
+### Return value
+
+Current sound source according to which video playback is synchronized
+## void setVideoTime ( float time )
+
+Sets a new time of the currently played frame, in seconds. Setting this value rewinds or fast-forwards the video to a given time.
+### Arguments
+
+- *float* **time** - The time of the currently played frame
+
+## float getVideoTime () const
+
+Returns the current time of the currently played frame, in seconds. Setting this value rewinds or fast-forwards the video to a given time.
+### Return value
+
+Current time of the currently played frame
+## void setYUV ( int yuv )
+
+Sets a new flag for YUV conversion.
+### Arguments
+
+- *int* **yuv** - The flag for YUV conversion
+
+## int getYUV () const
+
+Returns the current flag for YUV conversion.
+### Return value
+
+Current flag for YUV conversion
+## void setLoop ( int loop )
+
+Sets a new value indicating if the video is looped.
+### Arguments
+
+- *int* **loop** - The flag indicating whether the video is looped
+
+## int getLoop () const
+
+Returns the current value indicating if the video is looped.
+### Return value
+
+Current flag indicating whether the video is looped
 ---
 
 ## static WidgetSpriteVideoPtr create ( const Ptr < Gui > & gui , const char * name = 0 , int mode = 1 )
@@ -137,83 +214,6 @@ Constructor. Creates a new sprite that plays video and adds it to the Engine GUI
 - *const char ** **name** - Path to a video file.
 - *int* **mode** - YUV flag: **1** if conversion to RGB should be performed by the GPU, **0** - if by the CPU.
 
-## void setAmbientSource ( const Ptr < AmbientSource > & source )
-
-Synchronizes video playback to the ambient sound source playback.
-### Arguments
-
-- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[AmbientSource](../../../api/library/sounds/class.ambientsource_cpp.md)> &* **source** - Ambient sound source according to which video playback will be synchronized.
-
-## Ptr < AmbientSource > getAmbientSource ( ) const
-
-Returns the ambient sound source according to which video playback is synchronized.
-### Return value
-
-Ambient sound source.
-## void setLoop ( int loop )
-
-Sets a value indicating if the video should be looped.
-### Arguments
-
-- *int* **loop** - Positive number to loop the video, **0** to play it only once.
-
-## int getLoop ( ) const
-
-Returns a value indicating if the video is looped.
-### Return value
-
-Positive number if the video is looped; otherwise, **0**.
-## bool isPlaying ( ) const
-
-Returns a value indicating if the video is being played at the moment.
-### Return value
-
-**1** if the video is being played; otherwise, **0**.
-## void setSoundSource ( const Ptr < SoundSource > & source )
-
-Synchronizes video playback to the sound source playback.
-### Arguments
-
-- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[SoundSource](../../../api/library/sounds/class.soundsource_cpp.md)> &* **source** - Sound source according to which video playback will be synchronized.
-
-## Ptr < SoundSource > getSoundSource ( ) const
-
-Returns the sound source according to which video playback is synchronized.
-### Return value
-
-Sound source.
-## bool isStopped ( ) const
-
-Returns a value indicating if the video is stopped at the moment.
-### Return value
-
-**1** if the video is stopped; otherwise, **0**.
-## void setVideoTime ( float time )
-
-Rewinds or fast-forwards the video to a given time.
-### Arguments
-
-- *float* **time** - Time in seconds.
-
-## float getVideoTime ( ) const
-
-Returns the time of the currently played frame.
-### Return value
-
-Time in seconds.
-## void setYUV ( int yuv )
-
-Sets a flag for YUV conversion.
-### Arguments
-
-- *int* **yuv** - Mode flag: **1** if conversion to RGB should be performed by the GPU, **0** if it is converted by the CPU.
-
-## int getYUV ( ) const
-
-Returns a flag for YUV conversion.
-### Return value
-
-**1** if conversion to RGB is performed by the GPU, **0** if it is converted by the CPU.
 ## void play ( )
 
 Starts playing video.

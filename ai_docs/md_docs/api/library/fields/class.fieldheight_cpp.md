@@ -7,6 +7,7 @@
 
 This class is used to create and modify a [field height](../../../objects/effects/fields/field_height/index.md). The field is applied to [global water](../../../api/library/objects/class.objectwaterglobal_cpp.md) and specifies areas where height of waves should be changed.
 
+
 > **Notice:** The maximum number of the rendered FieldHeight objects per frame/bit mask is **8**.
 
 
@@ -67,8 +68,13 @@ Returns the current path to the FieldHeight's heightmap texture.
 Current path to the heightmap texture.
 ## void setBlendMode ( int mode )
 
-Sets a new field height blending mode.
+Sets a new
+field height blending mode.
+
+
 > **Notice:** Attenuation parameter is interpreted depending on the selected blending mode:
+>
+>
 > - is used as a mulpiplier for the additive mode
 > - lerp(1.0f, value, attenuation) is used for the multiplicative mode
 
@@ -79,8 +85,13 @@ Sets a new field height blending mode.
 
 ## int getBlendMode () const
 
-Returns the current field height blending mode.
+Returns the current
+field height blending mode.
+
+
 > **Notice:** Attenuation parameter is interpreted depending on the selected blending mode:
+>
+>
 > - is used as a mulpiplier for the additive mode
 > - lerp(1.0f, value, attenuation) is used for the multiplicative mode
 

@@ -6,7 +6,7 @@
 Interface for path loading, manipulating and saving.
 
 
-The **path** is a spline along which an object can be moved. Such splines can be created, for example, in 3ds Max and then [exported](../../../tools/plugins/3dsmax/index.md#path_export) to a `*.path` file. Or, they can be created in the code by means of the *Path* class and then saved to the `*.path` file.
+The **path** is a spline along which an object can be moved. Such splines can be created, for example, in 3ds Max and then exported to a `*.path` file. Or, they can be created in the code by means of the *Path* class and then saved to the `*.path` file.
 
 
 > **Warning:** There is no connection between functions of the *Path* class and pathfinding-related functions.
@@ -300,7 +300,7 @@ Clears the path (including its times and frames).
 Loads the path with the given name and *.path extension.
 ### Arguments
 
-- *const char ** **name** - The path name.
+- *const char ** **name** - Path name.
 
 ### Return value
 
@@ -310,14 +310,14 @@ Returns 1 if the operation was a success; otherwise, 0 is returned.
 Removes the specified frame.
 ### Arguments
 
-- *int* **num** - The frame number.
+- *int* **num** - Frame number.
 
 ## int save ( const char * name )
 
 Saves the path under the given name with the `*.path` extension.
 ### Arguments
 
-- *const char ** **name** - The path name.
+- *const char ** **name** - Path name.
 
 ### Return value
 

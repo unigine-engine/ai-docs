@@ -137,7 +137,7 @@ void end_event_handler(const Ptr<LandscapeMapFileCreator> & creator)
 
 ```
 
- You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+ You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -273,7 +273,7 @@ publisher->getEventEnd().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < LandscapeMapFileCreator > &> getEventBegin () const
 
 Event triggered at the beginning the landscape map file creation. The signature of the callback function must be as follows:
@@ -282,7 +282,7 @@ void begin_event_handler(const Ptr<LandscapeMapFileCreator> & creator)
 
 ```
 
- You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+ You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -418,7 +418,7 @@ publisher->getEventBegin().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < LandscapeMapFileCreator > &> getEventProgress () const
 
 Event triggered on landscape map file creation progress. The signature of the callback function must be as follows:
@@ -427,7 +427,7 @@ void progress_event_handler(const Ptr<LandscapeMapFileCreator> & creator)
 
 ```
 
- You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+ You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -563,7 +563,7 @@ publisher->getEventProgress().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < LandscapeMapFileCreator > &, const Ptr < LandscapeImages > &, int, int> getEventCreate () const
 
 Event triggered on landscape layer map file creation. The signature of the callback function must be as follows:
@@ -572,7 +572,7 @@ void create_event_handler(const Ptr<LandscapeMapFileCreator> & creator,  const P
 
 ```
 
- You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+ You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -708,7 +708,7 @@ publisher->getEventCreate().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## static LandscapeMapFileCreatorPtr create ( )
@@ -734,7 +734,7 @@ Returns the current filtering type used for image downscaling performed for LODs
 Filter type used for image downscaling. See the [Unigine::Image Enumerations with FILTER_* prefixes](../../../../api/library/common/class.image_cpp.md#FILTER_LINEAR).
 ## bool run ( bool is_empty = false , bool is_safe = true )
 
-Runs the landscape map file creation process. You can [set callbacks](#example) to be fired in the beginning, upon completion and during the process to monitor progress and display statistics. Creates the landscape map file path if it doesn’t exist yet (including subdirectories).
+Runs the landscape map file creation process. You can [set callbacks](#example) to be fired in the beginning, upon completion and during the process to monitor progress and display statistics. Creates the landscape map file path if it doesn�t exist yet (including subdirectories).
 ### Arguments
 
 - *bool* **is_empty** - true to create an empty `.lmap` file (e.g., when you create a layer map to be manually sculpted from scratch using [brushes](../../../../editor2/brush_editor/index.md)), false - to get necessary data from the sources and put them to the generated `.lmap` file.

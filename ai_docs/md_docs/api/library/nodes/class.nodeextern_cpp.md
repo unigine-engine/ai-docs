@@ -30,8 +30,6 @@ A custom user-defined node is created as follows:
 
 ## NodeExtern Class
 
-### Members
-
 ---
 
 ## static NodeExternPtr create ( int class_id )

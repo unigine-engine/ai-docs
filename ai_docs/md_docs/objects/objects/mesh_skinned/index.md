@@ -1,7 +1,7 @@
 # Skinned Mesh
 
 
-A ![](mesh.png) **skinned mesh** is an object that contains mesh geometry with skeletal deformation support. It is usually used for rendering characters with a bone-based animation or a morph target animation (also known as blend shapes).
+A ![](mesh.png)�**skinned mesh** is an object that contains mesh geometry with skeletal deformation support. It is usually used for rendering characters with a bone-based animation or a morph target animation (also known as blend shapes).
 
 
 Unlike [Skinned Mesh (Legacy)](../../../objects/objects/mesh_skinned_legacy/index.md), the new skinned mesh does not have a built-in animation player. Animation is controlled externally via [NodeSkeletonPose](../../../objects/animations/nodeskeletonpose/index.md) and [Animation Graphs](../../../content/animations/index.md).
@@ -62,7 +62,7 @@ For meshes containing morph targets, the *Morph Targets Preview* list is availab
 ![](morph_targets_preview.png)
 
 
-Each target has a slider that allows configuring its weight — the extent of the morph target's effect on the resulting view of the model.
+Each target has a slider that allows configuring its weight � the extent of the morph target's effect on the resulting view of the model.
 
 
 ***Basis*** represents the original position of all vertices of the mesh, and its slider is shown for reference.

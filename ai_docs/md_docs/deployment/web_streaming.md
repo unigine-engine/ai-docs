@@ -1,7 +1,7 @@
 # Cloud Deployment and Web Streaming
 
 
-Delivering complex, interactive 3D applications today can follow several deployment paths — from traditional desktop installations to fully cloud-hosted streaming. Each approach offers a different combination of performance, accessibility, and data security benefits. Here is the comparison between different deployment options for a typical complex project with interactive 3D visualization:
+Delivering complex, interactive 3D applications today can follow several deployment paths � from traditional desktop installations to fully cloud-hosted streaming. Each approach offers a different combination of performance, accessibility, and data security benefits. Here is the comparison between different deployment options for a typical complex project with interactive 3D visualization:
 
 
 [![](web_streaming_comparison.png)](web_streaming_comparison.png)

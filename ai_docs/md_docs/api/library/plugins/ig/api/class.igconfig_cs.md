@@ -3,10 +3,11 @@
 
 This class is used to manage the [IG configuration](../../../../../ig/config.md) via API.
 
+
 > **Notice:** IG plugin must be loaded.
 
 
-The **CloudTypeDef** structure represents the [cloud type](../../../../../ig/weather/config.md#config_cloud_types) definitions. It is declared as follows:
+The **CloudTypeDef** structure represents the [cloud type](../../../../../ig/weather/config_cs.md#config_cloud_types) definitions. It is declared as follows:
 
 
 ```cpp
@@ -20,7 +21,7 @@ struct CloudTypeDef
 ```
 
 
-The **PrecipitationTypeDef** structure represents the [precipitation type](../../../../../ig/weather/config.md#config_precipitation_types) definitions. It is declared as follows:
+The **PrecipitationTypeDef** structure represents the [precipitation type](../../../../../ig/weather/config_cs.md#config_precipitation_types) definitions. It is declared as follows:
 
 
 ```cpp

@@ -7,7 +7,7 @@ This article lists all available nodes in the Animation Graph system, organized 
 ## Type Resolving
 
 
-Many nodes in the library have [Undefined](../../../../content/animations/index.md#data_types) ports — their type is not fixed and is resolved automatically when you connect a typed port. For example, connecting a Vec3 output to an Undefined input turns that input (and usually the node's output) into Vec3 as well.
+Many nodes in the library have [Undefined](../../../../content/animations/index.md#data_types) ports � their type is not fixed and is resolved automatically when you connect a typed port. For example, connecting a Vec3 output to an Undefined input turns that input (and usually the node's output) into Vec3 as well.
 
 
 When a polymorphic node receives a vector type, it operates component-wise. For example, **[Multiply](../../../../content/animations/graph/node_library/math/multiply.md)** node with two Vec3 inputs multiplies each component separately (this is not a dot or cross product).
@@ -31,7 +31,7 @@ Nodes with fixed-type ports (such as Bool or Float) accept only that specific ty
   - [Animation Player Node](../../../../content/animations/graph/node_library/animation/animation_player.md)
   - [Animation Pose Node](../../../../content/animations/graph/node_library/animation/animation_pose.md)
 
-- [Blending](../../../../content/animations/graph/node_library/blend/index.md)
+- [Blend](../../../../content/animations/graph/node_library/blend/index.md)
 
   - [Blend Poses Node](../../../../content/animations/graph/node_library/blend/blend_poses.md)
   - [Make Additive Node](../../../../content/animations/graph/node_library/blend/make_additive.md)
@@ -39,8 +39,31 @@ Nodes with fixed-type ports (such as Bool or Float) accept only that specific ty
 
 - [Blend Space](../../../../content/animations/graph/node_library/blend_space/index.md)
 
-  - [BlendSpace 2D Node](../../../../content/animations/graph/node_library/blend_space/blend_space_2d.md)
-  - [BlendSpace 2D Sync Node](../../../../content/animations/graph/node_library/blend_space/blend_space_2d_sync.md)
+  - [Blend Space 2D Node](../../../../content/animations/graph/node_library/blend_space/blend_space_2d.md)
+  - [Blend Space 2D Sync Node](../../../../content/animations/graph/node_library/blend_space/blend_space_2d_sync.md)
+
+- [Transform](../../../../content/animations/graph/node_library/transform/index.md)
+
+  - [Get Joint Transform Node](../../../../content/animations/graph/node_library/transform/get_joint_transform.md)
+  - [Set Joint Transform Node](../../../../content/animations/graph/node_library/transform/set_joint_transform.md)
+  - [Position Space Node](../../../../content/animations/graph/node_library/transform/position_space.md)
+  - [Direction Space Node](../../../../content/animations/graph/node_library/transform/direction_space.md)
+  - [Rotation Space Node](../../../../content/animations/graph/node_library/transform/rotation_space.md)
+
+- [Skeleton](../../../../content/animations/graph/node_library/skeleton/index.md)
+
+  - [Two Bone IK Node](../../../../content/animations/graph/node_library/skeleton/two_bone_ik.md)
+  - [IK Chain Node](../../../../content/animations/graph/node_library/skeleton/ik_chain.md)
+  - [Joint Look At Node](../../../../content/animations/graph/node_library/skeleton/joint_look_at.md)
+  - [Look At Chain Node](../../../../content/animations/graph/node_library/skeleton/look_at_chain.md)
+  - [Joint Hinge Limit Node](../../../../content/animations/graph/node_library/skeleton/joint_hinge_limit.md)
+  - [Joint Cone Limit Node](../../../../content/animations/graph/node_library/skeleton/joint_cone_limit.md)
+  - [Joint Cone Asym Limit Node](../../../../content/animations/graph/node_library/skeleton/joint_cone_asym_limit.md)
+  - [Joint Twist Limit Node](../../../../content/animations/graph/node_library/skeleton/joint_twist_limit.md)
+  - [Joint Hinge Twist Limit Node](../../../../content/animations/graph/node_library/skeleton/joint_hinge_twist_limit.md)
+  - [Joint Cone Twist Limit Node](../../../../content/animations/graph/node_library/skeleton/joint_cone_twist_limit.md)
+  - [Joint Cone Asym Twist Limit Node](../../../../content/animations/graph/node_library/skeleton/joint_cone_asym_twist_limit.md)
+  - [Joint Limit Set Node](../../../../content/animations/graph/node_library/skeleton/joint_limit_set.md)
 
 - [State Machine](../../../../content/animations/graph/node_library/state_machine/index.md)
 
@@ -49,11 +72,12 @@ Nodes with fixed-type ports (such as Bool or Float) accept only that specific ty
   - [Condition Node](../../../../content/animations/graph/node_library/state_machine/condition.md)
   - [State Portal Node](../../../../content/animations/graph/node_library/state_machine/state_portal.md)
 
-- [Sub Graph](../../../../content/animations/graph/node_library/subgraph/index.md)
+- [Subgraph](../../../../content/animations/graph/node_library/subgraph/index.md)
 
   - [SubGraph Node](../../../../content/animations/graph/node_library/subgraph/sub_graph.md)
   - [SubGraph Inputs Node](../../../../content/animations/graph/node_library/subgraph/sub_graph_inputs.md)
   - [SubGraph Outputs Node](../../../../content/animations/graph/node_library/subgraph/sub_graph_outputs.md)
+  - [Preview Output Pose Node](../../../../content/animations/graph/node_library/subgraph/preview_output_pose.md)
 
 - [Output](../../../../content/animations/graph/node_library/output/index.md)
 
@@ -63,7 +87,7 @@ Nodes with fixed-type ports (such as Bool or Float) accept only that specific ty
 
   - [Transition Result Node](../../../../content/animations/graph/node_library/result/transition_result.md)
 
-- [Portals](../../../../content/animations/graph/node_library/portal/index.md)
+- [Portal](../../../../content/animations/graph/node_library/portal/index.md)
 
   - [Portal In Node](../../../../content/animations/graph/node_library/portal/portal_in.md)
   - [Portal Out Node](../../../../content/animations/graph/node_library/portal/portal_out.md)
@@ -72,7 +96,7 @@ Nodes with fixed-type ports (such as Bool or Float) accept only that specific ty
 
   - [Expression Node](../../../../content/animations/graph/node_library/expression/expression.md)
 
-- [Time and Conditions](../../../../content/animations/graph/node_library/time/index.md)
+- [Time](../../../../content/animations/graph/node_library/time/index.md)
 
   - [Time Node](../../../../content/animations/graph/node_library/time/time.md)
   - [State Time Node](../../../../content/animations/graph/node_library/time/state_time.md)
@@ -122,7 +146,7 @@ Nodes with fixed-type ports (such as Bool or Float) accept only that specific ty
   - [Absolute Node](../../../../content/animations/graph/node_library/math/abs.md)
   - [Sign Node](../../../../content/animations/graph/node_library/math/sign.md)
   - [Floor Node](../../../../content/animations/graph/node_library/math/floor.md)
-  - [Ceil Node](../../../../content/animations/graph/node_library/math/ceil.md)
+  - [Ceiling Node](../../../../content/animations/graph/node_library/math/ceil.md)
   - [Round Node](../../../../content/animations/graph/node_library/math/round.md)
   - [Frac Node](../../../../content/animations/graph/node_library/math/frac.md)
   - [Square Root Node](../../../../content/animations/graph/node_library/math/sqrt.md)
@@ -139,8 +163,10 @@ Nodes with fixed-type ports (such as Bool or Float) accept only that specific ty
   - [Base-10 Logarithm Node](../../../../content/animations/graph/node_library/math/log10.md)
   - [Base-E Logarithm Node](../../../../content/animations/graph/node_library/math/log.md)
   - [To Int Node](../../../../content/animations/graph/node_library/math/to_int.md)
+  - [Euler to Quat Node](../../../../content/animations/graph/node_library/math/euler_to_quat.md)
+  - [Quat to Euler Node](../../../../content/animations/graph/node_library/math/quat_to_euler.md)
 
-- [Comparison and Logic](../../../../content/animations/graph/node_library/comparison/index.md)
+- [Logic](../../../../content/animations/graph/node_library/comparison/index.md)
 
   - [Branch Node](../../../../content/animations/graph/node_library/comparison/branch.md)
   - [And Node](../../../../content/animations/graph/node_library/comparison/and.md)

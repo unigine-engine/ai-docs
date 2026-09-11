@@ -24,7 +24,10 @@ Constructor. Initializes the matrix by copying a given source matrix.
 
 ## mat2 ( float v )
 
+
 Constructor. Initializes the matrix using a given scalar value.
+
+
 ```cpp
 mat2(2.0);
 
@@ -63,7 +66,10 @@ Constructor. Initializes the matrix using a given [dmat4](../../../api/library/m
 
 ## mat2 ( const vec2& col0 , const vec2& col1 )
 
+
 Constructor. Initializes the matrix by given two [vec2](../../../api/library/math/class.vec2_cpp.md) vectors.
+
+
 ```text
 Resulting matrix:
     | col0.x   	 col1.x |
@@ -79,7 +85,10 @@ M=  | col0.y     col1.y |
 
 ## mat2 ( float m00_ , float m10_ , float m01_ , float m11_ )
 
+
 Constructor. Initializes the matrix with given float values.
+
+
 ```text
 Resulting matrix:
     | m00_   m10_ |
@@ -97,7 +106,10 @@ M=  | m01_   m11_ |
 
 ## mat2 ( float m00_ , float m10_ , float m01_ , float m11_ , ConstexprTag )
 
+
 Constructor. Initializes the matrix with given constant float values.
+
+
 ```text
 Resulting matrix:
     | m00_   m10_ |
@@ -116,7 +128,10 @@ M=  | m01_   m11_ |
 
 ## mat2 ( float v , ConstexprTag )
 
+
 Constructor. Initializes the matrix with the given float value.
+
+
 ```text
 Resulting matrix:
     | v   v |
@@ -245,7 +260,10 @@ The [vec2](../../../api/library/math/class.vec2_cpp.md) vector with column value
 Sets the matrix equal to the identity matrix.
 ## void setRotate ( float angle )
 
+
 Fills the rotation matrix using a given angle.
+
+
 ```text
 Rotation matrix:
     | cos(angle)   	-sin(angle) |
@@ -278,7 +296,10 @@ Returns the specified matrix row.
 The [vec2](../../../api/library/math/class.vec2_cpp.md) vector with row values.
 ## void setScale ( const vec2& v )
 
+
 Fills the scaling matrix using a given [vec2](../../../api/library/math/class.vec2_cpp.md) source vector.
+
+
 ```text
 Scaling matrix:
     | v.x   	0.0f |

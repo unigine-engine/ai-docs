@@ -18,6 +18,7 @@ Value of the *double* type.
 
 To check correctness of such interpretation, perform the following:
 
+
 - Interpret *double* as *long*.
 - Interpret the *long* values that you got on the previous step as *double*.
 - Check the result: the returned *double* values should be equal to the *double* values from the first step.
@@ -33,6 +34,7 @@ log.message("%f %f\n",as_double(0x3ff0000000000000l),as_double(0xbff000000000000
 
 
 Another example:
+
 
 ```cpp
 as_double(as_long(2.0));   // the result is 2.0
@@ -54,6 +56,7 @@ Float value.
 
 To check correctness of such interpretation, perform the following:
 
+
 - Interpret *float* as *int*.
 - Interpret the *int* values that you got on the previous step as *float*.
 - Check the result: the returned *float* values should be equal to the *float* values from the first step.
@@ -69,6 +72,7 @@ log.message("%f %f\n",as_float(0x3f800000),as_float(0xbf800000)); // 1.0f -1.0f
 
 
 Another example:
+
 
 ```cpp
 as_float(as_int(2.0f));   // the result is 2.0f
@@ -121,6 +125,7 @@ log.message("%f %f\n",as_float(0x3f800000),as_float(0xbf800000)); // 1.0f -1.0f
 
 Another example:
 
+
 ```cpp
 as_int(as_float(2));    // the result is 2
 ```
@@ -140,6 +145,7 @@ Value of the *long* type.
 
 
 To check correctness of such interpretation, perform the following:
+
 
 - Interpret *double* as *long*.
 - Interpret the *long* values that you got on the previous step as *double*.
@@ -180,6 +186,8 @@ log.message("%f %f\n",as_half(0x3c00),as_half(0xbc00)); // 1.0f -1.0f
 ## Variable chmod ( string name , int mode )
 
 Changes the access permissions of the specified file or directory.
+
+
 > **Notice:** On Windows, this function will always return 0.
 
 
@@ -194,6 +202,8 @@ Changes the access permissions of the specified file or directory.
 ## Variable class_append ( Variable obj )
 
 Assigns ownership of the [internal instance](../../../code/uniginescript/memory_management.md#native_class) to the current script module. All appended instances will be automatically deleted on the script shutdown; or they can be deleted using the **delete** operator.
+
+
 > **Notice:** Be careful, as deleting the object from the outside of the scripting system (in the C++ part) causes double deletion at the same address. Chances are, this will lead to an application crash.
 
 
@@ -221,6 +231,8 @@ delete clone;
 ## Variable class_cast ( Variable target_class , Variable obj )
 
 Converts the pointer to an [internal instance](../../../code/uniginescript/memory_management.md#native_class) of a given type into another type. When converting into the other type a new internal instance isn't constructed, so you cannot delete it via the **delete** operator.
+
+
 > **Notice:** Conversions of the pointer are unsafe and allow specifying any type, because neither the pointer nor its type is checked.
 
 
@@ -321,14 +333,20 @@ log.message("Foo\n"); // the output is "Foo"
 
 ```
 
- You can also pass the class name as a string:
+
+You can also pass the class name as a string:
+
+
 ```cpp
 class Bar { };
 log.message("Bar ID is: %d\n",classid("Bar")); // the output is "Bar ID is: 1"
 
 ```
 
- If the class or variable is declared in a namespace, the class name should be prepended the namespace name. For example:
+
+If the class or variable is declared in a namespace, the class name should be prepended the namespace name. For example:
+
+
 ```cpp
 namespace Foo {
 	class Bar { };
@@ -343,6 +361,8 @@ classid("Foo::Bar");
 ## Variable functionid ( variable v , int num_args = -1 )
 
 Returns a function identifier without the full namespace path. The *functionid()* can return the identifier of the external class member function.
+
+
 > **Notice:** The class type specified in *functionid()* must be the same as the type of the calling class. See the [example](#functionid_example).
 
 
@@ -359,13 +379,17 @@ Function ID.
 
 If you call the external class member function with the given identifier, the class type in *functionid()* must be the same as the type of the calling class. For example:
 
+
 ```cpp
 Buffer b = new Buffer();
 b.call(functionid(Buffer::resize,1),2);
 
 ```
 
- The type of the *b* variable and the type of the *resize()* function must be *Buffer*.
+
+The type of the *b* variable and the type of the *resize()* function must be *Buffer*.
+
+
 ## Variable get_analyze ( )
 
 Returns the performance statistics.
@@ -463,6 +487,8 @@ Variable, if it exists; otherwise, **0**.
 ## Variable getmod ( string name )
 
 Returns the access permissions of the specified file or directory.
+
+
 > **Notice:** On Windows, this function will always return 0.
 
 
@@ -516,6 +542,8 @@ log.message("%s\n",instanceinfo(new Foo()));
 ## Variable is_base_class ( variable type , variable v )
 
 Checks if the specified variable belongs to the base class.
+
+
 > **Notice:** This statement can receive the result of the [classid()](#classid_variable) statement as a first argument to provide a very fast querying result.
 
 
@@ -532,6 +560,7 @@ Variable, if it belongs to the base class; otherwise - **0**.
 
 You can pass the type of the variable as a string:
 
+
 ```cpp
 File file = new File();
 is_base_class("File",file);		// returns 1: file is an instance of the File class
@@ -540,7 +569,10 @@ is_base_class("Socket",file);	// returns 0: the Socket class is not a base class
 
 ```
 
- Also it is possible to pass the [classid()](#classid_variable) as the first argument:
+
+Also it is possible to pass the [classid()](#classid_variable) as the first argument:
+
+
 ```cpp
 is_base_class(classid(File),file);		// returns 1
 is_base_class(classid(Stream),file);	// returns 1
@@ -865,6 +897,8 @@ Returns the type of the specified variable or type.
 ### Return value
 
 Zero-based variable type ID:
+
+
 1. int
 2. long
 3. float
@@ -887,6 +921,7 @@ Zero-based variable type ID:
 
 
 For example, you can check the type of the variable as follows:
+
 
 ```cpp
 int a = 1;
@@ -935,7 +970,10 @@ log.message("a is of the %s type\n", typeof(a)); // the result will be "a is of 
 
 ```
 
- If the variable is the class instance, the function returns the class name:
+
+If the variable is the class instance, the function returns the class name:
+
+
 ```cpp
 class Foo { };
 

@@ -107,21 +107,21 @@ int AppWorldLogic::update()
 
 ### Members
 
+## void setNormal ( const Math:: vec3 & normal )
+
+Sets a new normal of the intersection point.
+### Arguments
+
+- *const  Math::[vec3](../../../api/library/math/class.vec3_cpp.md)&* **normal** - The normal of the intersection point
+
+## Math:: vec3 getNormal () const
+
+Returns the current normal of the intersection point.
+### Return value
+
+Current normal of the intersection point
 ---
 
 ## static PhysicsIntersectionNormalPtr create ( )
 
 The PhysicsIntersectionNormal constructor.
-## void setNormal ( const Math:: vec3 & normal )
-
-Sets the new normal of the intersection point.
-### Arguments
-
-- *const  Math::[vec3](../../../api/library/math/class.vec3_cpp.md) &* **normal** - Normal of the intersection point.
-
-## Math:: vec3 getNormal ( )
-
-Returns the normal of the intersection point.
-### Return value
-
-Normal of the intersection point.

@@ -5,8 +5,6 @@
 
 This class implements functionality of the C# Component System and is used to create, destroy, and manage components.
 
-> **Notice:** This class is a singleton.
-
 
 ### See Also
 
@@ -20,14 +18,17 @@ This class implements functionality of the C# Component System and is used to cr
 
 ## 🔒︎ bool Enabled
 
-The Value indicating whether the C# Component System is enabled: **true** if the C# Component System is enabled; otherwise **false**.
+The Value indicating whether the C# Component System is enabled: true if the C# Component System is enabled; otherwise false.
 ### Members
 
 ---
 
 ## public static ChangedProperties SaveProperties ( )
 
-Creates property files for all components. Parameters of each component are stored in a separate `*.prop` file. If these property files do not exist, they will be created in the `data/.runtimes` folder. T
+
+Creates property files for all components. Parameters of each component are stored in a separate `*.prop` file. If these property files do not exist, they will be created in the `data/.runtimes` folder.
+
+
 ```csharp
 // Saving properties generated for all components
 // and getting the list of changed properties (created, modified, and broken)
@@ -48,7 +49,10 @@ foreach (var e in changedProperties.Broken)
 
 ### Return value
 
+
 List of created, modified and broken properties (names and paths) as an instance of the *ChangedProperties* class declared as follows:
+
+
 ```csharp
 public class ChangedProperties
 {
@@ -123,7 +127,10 @@ Returns all components of this type assigned to the specified node.
 Array containing all found components of this type (if any); otherwise null.
 ## public static T GetComponentInChildren < T > ( Node node , bool enabled_only = false ) # where T : Class
 
+
 Returns the first component of this type found among all the children of the specified node (including the node itself). This method searches for the component in the following order:
+
+
 - node itself
 - node reference
 - node's children

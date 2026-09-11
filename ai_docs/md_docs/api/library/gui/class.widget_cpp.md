@@ -79,9 +79,9 @@ int AppWorldLogic::shutdown()
 
 By default each new widget's lifetime matches the lifetime of the **[Engine](#LIFETIME_ENGINE)** (i.e. the widget shall be deleted on Engine shutdown). But you can choose widget's lifetime to be managed:
 
-- By a separate **[window](#LIFETIME_WINDOW)** — in this case the widget is deleted automatically on deleting the window.
-- By the **[world](#LIFETIME_WORLD)** — in this case the widget is deleted when the world is closed.
-- **[Manually](#LIFETIME_MANUAL)** — in this case the widget should be deleted manually.
+- By a separate **[window](#LIFETIME_WINDOW)** � in this case the widget is deleted automatically on deleting the window.
+- By the **[world](#LIFETIME_WORLD)** � in this case the widget is deleted when the world is closed.
+- **[Manually](#LIFETIME_MANUAL)** � in this case the widget should be deleted manually.
 
 
 The examples below show how the different lifetime management types work.
@@ -621,14 +621,14 @@ Returns the current size of the font used by the widget.
 Current Font size in pixels.
 ## void setMouseCursor ( int cursor )
 
-Sets a new current mouse pointer.
+Sets a new mouse pointer set for the widget.
 ### Arguments
 
 - *int* **cursor** - The mouse pointer. See the list of available pointers with CURSOR_* prefixes in the article on Gui class functions.
 
 ## int getMouseCursor () const
 
-Returns the current current mouse pointer.
+Returns the current mouse pointer set for the widget.
 ### Return value
 
 Current mouse pointer. See the list of available pointers with CURSOR_* prefixes in the article on Gui class functions.
@@ -860,27 +860,27 @@ Current rendering order (z-order) for the widget, in the range **[-128;127]**. (
 Sets a new value indicating if the widget is hidden.
 ### Arguments
 
-- *bool* **hidden** - Set **true** to enable the hidden status for the widget; **false** - to disable it.
+- *bool* **hidden** - true if the widget is hidden, false if it is shown
 
 ## bool isHidden () const
 
 Returns the current value indicating if the widget is hidden.
 ### Return value
 
-**true** if the hidden status for the widget is enabled; otherwise **false**.
+true if the widget is hidden, false if it is shown
 ## void setEnabled ( bool enabled )
 
 Sets a new value indicating if the widget is enabled (the user can interact with the widget).
 ### Arguments
 
-- *bool* **enabled** - Set **true** to enable the enabled (interactable) status for the widget; **false** - to disable it.
+- *bool* **enabled** - Set **true** to enable interaction with the widget; **false** - to disable it.
 
 ## bool isEnabled () const
 
 Returns the current value indicating if the widget is enabled (the user can interact with the widget).
 ### Return value
 
-**true** if the enabled (interactable) status for the widget is enabled; otherwise **false**.
+**true** if interaction with the widget is enabled ; otherwise **false**.
 ## void setIntersectionEnabled ( bool enabled )
 
 Sets a new value indicating if intersection detection is enabled for the widget.
@@ -893,7 +893,7 @@ Sets a new value indicating if intersection detection is enabled for the widget.
 Returns the current value indicating if intersection detection is enabled for the widget.
 ### Return value
 
-**true** if intersection detection for the widget is enabled; otherwise **false**.
+**true** if intersection detection for the widget is enabled ; otherwise **false**.
 ## void setFlags ( int flags )
 
 Sets a new widget flags.
@@ -979,7 +979,7 @@ Returns the current value indicating if the widget is expanded.
 Sets a new lifetime management type for the root of the widget, or for the widget itself (if it is not a child for another widget).
 > **Notice:** Lifetime of each widget in the hierarchy is defined by its root. Thus, lifetime management type set for a child widget that differs from the one set for the root is ignored.
 
-
+. One of the [LIFETIME_*](#LIFETIME) variables.
 ### Arguments
 
 - *[Widget::LIFETIME](../../../api/library/gui/class.widget_cpp.md#LIFETIME)* **lifetime** - The lifetime management type.
@@ -989,7 +989,7 @@ Sets a new lifetime management type for the root of the widget, or for the widge
 Returns the current lifetime management type for the root of the widget, or for the widget itself (if it is not a child for another widget).
 > **Notice:** Lifetime of each widget in the hierarchy is defined by its root. Thus, lifetime management type set for a child widget that differs from the one set for the root is ignored.
 
-
+. One of the [LIFETIME_*](#LIFETIME) variables.
 ### Return value
 
 Current lifetime management type.
@@ -1013,7 +1013,7 @@ Returns the current widget frame width in pixels.
 Current widget frame width in pixels.
 ## Event<const Ptr < Widget > &> getEventRemove () const
 
-event triggered when a widget is removed. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a widget is removed. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1149,10 +1149,10 @@ publisher->getEventRemove().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < Widget > &, const Ptr < Widget > &> getEventDragDrop () const
 
-event triggered when a drag-and-drop operation is performed with a widget. Supported by all widgets.. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a drag-and-drop operation is performed with a widget. Supported by all widgets.. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1288,10 +1288,10 @@ publisher->getEventDragDrop().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < Widget > &, const Ptr < Widget > &> getEventDragMove () const
 
-event triggered when a focused widget is moved. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a focused widget is moved. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1427,10 +1427,10 @@ publisher->getEventDragMove().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < Widget > &> getEventLeave () const
 
-event triggered when the mouse pointer leaves a widget. Supported by all widgets. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when the mouse pointer leaves a widget. Supported by all widgets. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1566,10 +1566,10 @@ publisher->getEventLeave().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < Widget > &> getEventEnter () const
 
-event triggered when the mouse pointer enters a widget. Supported by all widgets. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when the mouse pointer enters a widget. Supported by all widgets. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1705,7 +1705,7 @@ publisher->getEventEnter().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < Widget > &, unsigned int> getEventTextPressed () const
 
 event triggered when a virtual key is pressed while a widget is in focus. Supported by the following widgets:
@@ -1713,7 +1713,7 @@ event triggered when a virtual key is pressed while a widget is in focus. Suppor
 - [*WidgetEditText*](../../../api/library/gui/class.widgetedittext_cpp.md)
 
  **Virtual key** - is a value to which a scan code was converted by an Operating System (e.g., the **Q** scan code will have the **Q** virtual key on a *QWERTY*-keyboard, while on an *AZERTY*-keyboard it will have the **A** virtual key; or **NUMPAD_DIGIT_7** scan code can be translated into virtual **NUMPAD_HOME** or **NUMPAD_DIGIT_7** depending on the current *Num Lock* state. Virtual keys are used, when it is important to know what exactly did user type (not just the physical button, but rather a letter).
- You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+ You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1849,7 +1849,7 @@ publisher->getEventTextPressed().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < Widget > &, int> getEventKeyPressed () const
 
 event triggered when when a key (by a scan code) is pressed while a widget is in focus. Supported by the following widgets:
@@ -1857,7 +1857,7 @@ event triggered when when a key (by a scan code) is pressed while a widget is in
 - [*WidgetEditText*](../../../api/library/gui/class.widgetedittext_cpp.md)
 
  **Scan code** - is a code assigned to avery key on the keyboard. Keyboard drivers use scan codes to detect which key is pressed. Scan codes are assigned to keys on the hardware level and are not affected by the states of modifiers like *Caps Lock*, *Num Lock*, *Scroll Lock*, *Shift*, *Alt*, and *Ctrl* making it possible to implement identical control on different types of keyboards (*uiQWERTY*, *AZERTY*, *QWERTC*, etc.). Scan codes are used when only a physical position of a key (a button) is important (e.g. in the *ControlsApp* class or Console key).
- You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+ You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1993,7 +1993,7 @@ publisher->getEventKeyPressed().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < Widget > &, int> getEventReleased () const
 
 event triggered when the mouse is released after clicking somewhere on a widget. Supported by the following widgets:
@@ -2009,7 +2009,7 @@ event triggered when the mouse is released after clicking somewhere on a widget.
 - [*WidgetWindow*](../../../api/library/gui/class.widgetwindow_cpp.md)
 - [*EngineWindow*](../../../api/library/gui/class.enginewindow_cpp.md) (**mouse_buttons** is always 0)
 
- You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+ You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2182,7 +2182,7 @@ publisher->getEventReleased().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < Widget > &, int> getEventPressed () const
 
 event triggered when a mouse button or **ENTER** (**RETURN**) is pressed, while the mouse pointer is somewhere on a widget. Supported by the following widgets:
@@ -2197,7 +2197,7 @@ event triggered when a mouse button or **ENTER** (**RETURN**) is pressed, while 
 - [*WidgetSprite*](../../../api/library/gui/class.widgetsprite_cpp.md)
 - [*WidgetWindow*](../../../api/library/gui/class.widgetwindow_cpp.md)
 
- You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+ You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2370,7 +2370,7 @@ publisher->getEventPressed().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < Widget > &> getEventDoubleClicked () const
 
 event triggered when the mouse is double-clicked somewhere on a widget. Supported by the following widgets:
@@ -2392,7 +2392,7 @@ event triggered when the mouse is double-clicked somewhere on a widget. Supporte
 - [*WidgetVPaned*](../../../api/library/gui/class.widgetvpaned_cpp.md)
 - [*WidgetWindow*](../../../api/library/gui/class.widgetwindow_cpp.md)
 
- You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+ You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2528,7 +2528,7 @@ publisher->getEventDoubleClicked().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < Widget > &, int> getEventClicked () const
 
 event triggered when the mouse is clicked somewhere on a widget. Supported by the following widgets:
@@ -2554,7 +2554,7 @@ event triggered when the mouse is clicked somewhere on a widget. Supported by th
 - [*WidgetTreeBox*](../../../api/library/gui/class.widgettreebox_cpp.md)
 - [*WidgetVPaned*](../../../api/library/gui/class.widgetvpaned_cpp.md)
 
- You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+ You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2727,7 +2727,7 @@ publisher->getEventClicked().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < Widget > &> getEventChanged () const
 
 event triggered when a widget has changed its state. Supported by the following widgets:
@@ -2754,7 +2754,7 @@ event triggered when a widget has changed its state. Supported by the following 
 - [*WidgetTreeBox*](../../../api/library/gui/class.widgettreebox_cpp.md)
 - [*WidgetVPaned*](../../../api/library/gui/class.widgetvpaned_cpp.md)
 
- You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+ You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -2890,10 +2890,10 @@ publisher->getEventChanged().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < Widget > &> getEventFocusOut () const
 
-event triggered when a widget loses focus. Supported by all widgets. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a widget loses focus. Supported by all widgets. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -3029,10 +3029,10 @@ publisher->getEventFocusOut().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < Widget > &> getEventFocusIn () const
 
-event triggered when a widget is focused. Supported by all widgets. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a widget is focused. Supported by all widgets. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -3168,10 +3168,10 @@ publisher->getEventFocusIn().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < Widget > &> getEventHide () const
 
-event triggered when a widget is removed using [*Gui::removeChild()*](../../../api/library/gui/class.gui_cpp.md#removeChild_Widget_void). Supported by all widgets. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a widget is removed using [*Gui::removeChild()*](../../../api/library/gui/class.gui_cpp.md#removeChild_Widget_void). Supported by all widgets. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -3307,10 +3307,10 @@ publisher->getEventHide().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < Widget > &> getEventShow () const
 
-event triggered when a widget is shown. Supported by all widgets. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a widget is shown. Supported by all widgets. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -3446,7 +3446,20 @@ publisher->getEventShow().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
+## void setTextDirection ( Gui::TextDirection direction )
+
+Sets a new base paragraph direction for this widget's text, one of the *Gui::TEXT_DIRECTION_** values. With *TEXT_DIRECTION_AUTO* (default) the direction is inherited from the **[getGlobalTextDirection()](../../../api/library/gui/class.gui_cpp.md#getGlobalTextDirection_int)** property of the GUI, and if that is also set to auto, it is detected from the text content.
+### Arguments
+
+- *[Gui::TextDirection](../../../api/library/gui/class.gui_cpp.md#TextDirection)* **direction** - The base direction of the widget text
+
+## Gui::TextDirection getTextDirection () const
+
+Returns the current base paragraph direction for this widget's text, one of the *Gui::TEXT_DIRECTION_** values. With *TEXT_DIRECTION_AUTO* (default) the direction is inherited from the **[getGlobalTextDirection()](../../../api/library/gui/class.gui_cpp.md#getGlobalTextDirection_int)** property of the GUI, and if that is also set to auto, it is detected from the text content.
+### Return value
+
+Current base direction of the widget text
 ---
 
 ## Ptr < Widget > getChild ( int num ) const
@@ -3534,7 +3547,7 @@ Sets a tooltip for the widget.
 ### Arguments
 
 - *const char ** **str** - Tooltip text.
-- *int* **reset** - **1** to recalculate a tooltip location if the mouse cursor was relocated; otherwise — **0**(by default).
+- *int* **reset** - **1** to recalculate a tooltip location if the mouse cursor was relocated; otherwise � **0**(by default).
 
 ## const char * getToolTip ( ) const
 

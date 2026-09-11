@@ -1,7 +1,7 @@
 # Light Meter
 
 
-***Light Meter*** is a visual debugging tool used to simplify lighting adjustment. Open it via the *[Rendering Debug](../../editor2/rendering_debug/index.md) -> Light Meter* and you’ll see illuminance distribution for all surfaces in the scene as a color gradient from zero to the maximum level.
+***Light Meter*** is a visual debugging tool used to simplify lighting adjustment. Open it via the *[Rendering Debug](../../editor2/rendering_debug/index.md) -> Light Meter* and you�ll see illuminance distribution for all surfaces in the scene as a color gradient from zero to the maximum level.
 
 
 > **Notice:** To learn how to use the tool, watch [this video tutorial](#video_tutorial).

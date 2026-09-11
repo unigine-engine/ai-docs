@@ -148,7 +148,7 @@ There are the following ways to manually reparent a material:
 
 
 - Use the [reparent feature](../../../../editor2/materials_settings/organizing_materials/index.md#reparent_material) in the *Materials* window of *UnigineEditor*. To reparent select the material(s) inherited from the `mesh_base` in the hierarchy and drag it with the left mouse button pressed to the desired graph-based material. ![](reparent.gif)
-- The alternative way to reparent materials is via the *Ctrl+P* hotkey (first selected materials wll be reparented to the last one selected before the hotkey was pressed).
+- The alternative way to reparent materials is via the ***Ctrl + P*** hotkey (first selected materials wll be reparented to the last one selected before the hotkey was pressed).
 
 
 After reparenting the old materials are deleted and the new ones are created in place of them. Now you can freely rename the parameters in the newly reparented graph materials.

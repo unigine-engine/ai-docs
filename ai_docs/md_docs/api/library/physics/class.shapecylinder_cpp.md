@@ -26,6 +26,32 @@ UnigineScript samples:
 
 ### Members
 
+## void setHeight ( float height )
+
+Sets a new height of the cylinder, in units.
+### Arguments
+
+- *float* **height** - The height of the cylinder, in units
+
+## float getHeight () const
+
+Returns the current height of the cylinder, in units.
+### Return value
+
+Current height of the cylinder, in units
+## void setRadius ( float radius )
+
+Sets a new radius of the cylinder, in units.
+### Arguments
+
+- *float* **radius** - The radius of the cylinder, in units
+
+## float getRadius () const
+
+Returns the current radius of the cylinder, in units.
+### Return value
+
+Current radius of the cylinder, in units
 ---
 
 ## static ShapeCylinderPtr create ( )
@@ -47,30 +73,3 @@ Constructor. Creates a new cylinder with given dimensions and adds it to a given
 - *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Body](../../../api/library/physics/class.body_cpp.md)> &* **body** - Body, to which the cylinder will belong.
 - *float* **radius** - Radius of the cylinder in units.
 - *float* **height** - Height of the cylinder in units.
-
-## void setHeight ( float height )
-
-Sets a height of the cylinder.
-### Arguments
-
-- *float* **height** - Height of the cylinder in units.
-
-## float getHeight ( )
-
-Returns the current height of the cylinder.
-### Return value
-
-Height of the cylinder in units.
-## void setRadius ( float radius )
-
-Sets a radius of the cylinder.
-### Arguments
-
-- *float* **radius** - Radius of the cylinder in units.
-
-## float getRadius ( )
-
-Returns the current radius of the cylinder.
-### Return value
-
-Radius of the cylinder in units.

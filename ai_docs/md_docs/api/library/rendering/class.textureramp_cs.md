@@ -31,10 +31,10 @@ The width resolution for the texture.
 The texture flags.
 ## 🔒︎ bool IsDefaultAll
 
-The value indicating if the values of all curve channels are the default ones which were previously set via [DefaultCurve](#setDefaultCurve_int_Curve2d_void).
+The value indicating if the values of all curve channels are the default ones which were previously set via *[DefaultCurve](../../...md#setDefaultCurve_int_Curve2d_void)*.
 ## 🔒︎ Event EventChanged
 
-The event triggered on changing the ramp texture. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered on changing the ramp texture. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -227,7 +227,9 @@ Loads the ramp texture data from the given [Json](../../../api/library/common/cl
 ## void SaveState ( Stream stream )
 
 Saves the state of the ramp texture into a binary stream.
-**Example** using SaveState() and [RestoreState()](#restoreState_Stream_void) methods:
+
+
+**Example** using *SaveState()* and *[RestoreState()](#restoreState_Stream_void)* methods:
 
 
 ```csharp
@@ -254,8 +256,11 @@ ramp.RestoreState(blob_state);
 
 ## void RestoreState ( Stream stream )
 
+
 Restores the state of the ramp texture from the binary stream.
-**Example** using [SaveState()](#saveState_Stream_void) and RestoreState() methods:
+
+
+**Example** using *[SaveState()](#saveState_Stream_void)* and *RestoreState()* methods:
 
 
 ```csharp

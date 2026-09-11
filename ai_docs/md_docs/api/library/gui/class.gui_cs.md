@@ -9,6 +9,26 @@ Creates a GUI. Different types of GUI widgets can be either added to one of the 
 Default values returned by the following methods can be overridden via [RC files](../../../code/gui/rc.md) defining a custom GUI.
 ## Gui Class
 
+### Enums
+
+## CursorMode
+
+Cursor movement and hit-test mode for text edit widgets, relevant for bidirectional (mixed left-to-right and right-to-left) text.
+| Name | Description |
+|---|---|
+| **CURSOR_MODE_AUTO** = 0 | On a widget, the mode is inherited from the **[GlobalCursorMode](../../...md#getGlobalCursorMode_int)** property of the *Gui*; on the *Gui* itself, this value is treated as *CURSOR_MODE_LOGICAL*. |
+| **CURSOR_MODE_VISUAL** = 1 | The cursor moves over glyphs in on-screen (visual) order: arrow keys move the caret in the pressed direction even across boundaries between left-to-right and right-to-left text runs. |
+| **CURSOR_MODE_LOGICAL** = 2 | The cursor moves through the underlying character sequence in logical (storage) order. |
+
+## TextDirection
+
+Base paragraph direction used for laying out widget text with bidirectional content.
+| Name | Description |
+|---|---|
+| **TEXT_DIRECTION_AUTO** = 0 | The base direction is detected automatically from the text content (default). |
+| **TEXT_DIRECTION_LTR** = 1 | The text is laid out with the left-to-right base direction. |
+| **TEXT_DIRECTION_RTL** = 2 | The text is laid out with the right-to-left base direction. |
+
 ### Properties
 
 ## 🔒︎ int NumChildren
@@ -106,7 +126,7 @@ The screen height.
 The screen width.
 ## bool Hidden
 
-The value indicating if a widget is rendered visible.
+The value indicating if the GUI is hidden (not rendered).
 ## bool Enabled
 
 The value indicating if the GUI is enabled.
@@ -115,7 +135,7 @@ The value indicating if the GUI is enabled.
 The value indicating if any widget in the GUI is in focus.
 ## 🔒︎ WidgetVBox VBox
 
-The root widget of the GUI.
+The root widget of the GUI (a [WidgetVBox](../../../api/library/gui/class.widgetvbox_cs.md)).
 ## 🔒︎ Widget PermanentFocus
 
 The widget that is always in focus.
@@ -178,7 +198,7 @@ The GUI object size in [logical units](../../../principles/dpi/index.md).
 The DPI scale applied to the GUI.
 ## 🔒︎ Event EventUpdate
 
-The event triggered when GUI is updated. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when GUI is updated. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -270,6 +290,12 @@ publisher.EventUpdate.Enabled = true;
 
 </details>
 
+## Gui.CursorMode GlobalCursorMode
+
+The default cursor movement mode applied to all text edit widgets of this GUI whose own *CursorMode* property is set to *CURSOR_MODE_AUTO*. Reading this property never returns *CURSOR_MODE_AUTO*: it resolves to *CURSOR_MODE_LOGICAL* (the effective default).
+## Gui.TextDirection GlobalTextDirection
+
+The default base text direction applied to all widgets of this GUI whose own *TextDirection* property is set to *TEXT_DIRECTION_AUTO*. The default value is *TEXT_DIRECTION_AUTO* (the direction is detected from the text content).
 ### Members
 
 ---
@@ -481,7 +507,7 @@ Renders the GUI.
 
 ## void UpdateHierarchy ( )
 
-Updates the hierarchy for all widgets — the widgets are arranged, expanded to the required sizes and then their positions are updated. Updating the hierarchy may be required, for example, for getting the screen position immediately after the widget has been added to the hierarchy.
+Updates the hierarchy for all widgets � the widgets are arranged, expanded to the required sizes and then their positions are updated. Updating the hierarchy may be required, for example, for getting the screen position immediately after the widget has been added to the hierarchy.
 ## bool IsRenderingBootScreen ( )
 
 Returns a value indicating if the GUI currently renders the [boot screen](../../../code/gui/screens/index.md#boot).
@@ -652,7 +678,7 @@ Returns the path to the regular font currently used in the system GUI.
 Path to the font file.
 ## bool SetFontPaths ( string normal_path , string bold_path , string italic_path , string bold_italic_path )
 
-Changes the set of fonts — regular, bold, italic, and italic bold — used in the system GUI.
+Changes the set of fonts � regular, bold, italic, and italic bold � used in the system GUI.
 ### Arguments
 
 - *string* **normal_path** - Path to the regular font file.

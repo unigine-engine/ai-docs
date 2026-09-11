@@ -41,6 +41,14 @@ The mask data are stored in the [configuration file](../../../../principles/rend
 | **DISPLAY_TRANSFORM_TYPE_DISPLAY** = 0 | Display viewport. |
 | **DISPLAY_TRANSFORM_TYPE_PROJECTOR** = 1 | Projector (beamer) viewport. |
 
+## RENDER_MODE
+
+Rendering mode of the viewport: a single image or a side-by-side stereo pair.
+| Name | Description |
+|---|---|
+| **RENDER_MODE_MONO** = 0 | The viewport renders a single image (default). |
+| **RENDER_MODE_STEREO** = 1 | The viewport renders a side-by-side stereo image, with the left-eye view on the left and the right-eye view on the right. |
+
 ### Members
 
 ## int getID () const
@@ -139,7 +147,7 @@ Sets a new value indicating if the [projection rendering](../../../../principles
 Returns the current value indicating if the [projection rendering](../../../../principles/render/output/multi_monitor/spidervision_plugin/displays_setup.md#projection_enabled) in viewport is enabled.
 ### Return value
 
-**true** if projection rendering is enabled; otherwise **false**.
+**true** if projection rendering is enabled ; otherwise **false**.
 ## void setPosition ( const Math:: vec3 & position )
 
 Sets a new [viewport position](../../../../principles/render/output/multi_monitor/spidervision_plugin/displays_setup.md#transform_position) relative to the viewpoint in the setup.
@@ -246,7 +254,7 @@ Returns the current ID of the group of viewports.
 Current ID of the group of viewports.
 ## static Event<ViewportData*> getEventBaseChanged () const
 
-event triggered on changing basic viewport parameters (width, height, position, rotation, etc.). You can subscribe to events via *connect()*   and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered on changing basic viewport parameters (width, height, position, rotation, etc.). You can subscribe to events via *connect()* � and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -382,10 +390,10 @@ ViewportData::getEventBaseChanged().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<ViewportData*> getEventWarpChanged () const
 
-event triggered on changing warping (geometry correction). You can subscribe to events via *connect()*   and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered on changing warping (geometry correction). You can subscribe to events via *connect()* � and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -521,10 +529,10 @@ ViewportData::getEventWarpChanged().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<ViewportData*> getEventEasyblendChanged () const
 
-event triggered on loading or unloading a multi-projector setup configuration `.ol`-file (created via *Scalable Display Manager*). You can subscribe to events via *connect()*   and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered on loading or unloading a multi-projector setup configuration `.ol`-file (created via *Scalable Display Manager*). You can subscribe to events via *connect()* � and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -660,10 +668,10 @@ ViewportData::getEventEasyblendChanged().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<ViewportData*> getEventBlendChanged () const
 
-event triggered on changing screen-space or edge blending settings (alpha, contrast, gamma, etc.). You can subscribe to events via *connect()*   and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered on changing screen-space or edge blending settings (alpha, contrast, gamma, etc.). You can subscribe to events via *connect()* � and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -799,10 +807,10 @@ ViewportData::getEventBlendChanged().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<ViewportData*> getEventMaskChanged () const
 
-event triggered on changing (adding, removing, or modifying) masks. You can subscribe to events via *connect()*   and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered on changing (adding, removing, or modifying) masks. You can subscribe to events via *connect()* � and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -938,10 +946,10 @@ ViewportData::getEventMaskChanged().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<ViewportData*> getEventColorChanged () const
 
-event triggered on changing brightness and color correction settings. You can subscribe to events via *connect()*   and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered on changing brightness and color correction settings. You can subscribe to events via *connect()* � and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1077,10 +1085,10 @@ ViewportData::getEventColorChanged().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<ViewportData*> getEventDebugChanged () const
 
-event triggered on changing auxiliary debug settings. You can subscribe to events via *connect()*   and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered on changing auxiliary debug settings. You can subscribe to events via *connect()* � and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1216,13 +1224,13 @@ ViewportData::getEventDebugChanged().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static Event<ViewportData*> getEventSomethingChanged () const
 
 event triggered on ANY changes in viewport configuration data (warping, blending, color correction, debug, etc.).
 > **Notice:** This event is triggered along with all other events of this class.
 
-  You can subscribe to events via *connect()*   and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+  You can subscribe to events via *connect()* � and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -1358,7 +1366,7 @@ ViewportData::getEventSomethingChanged().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## void setViewportRendering ( bool rendering )
 
 Sets a new value indicating whether the viewport rendering is enabled.
@@ -1371,7 +1379,46 @@ Sets a new value indicating whether the viewport rendering is enabled.
 Returns the current value indicating whether the viewport rendering is enabled.
 ### Return value
 
-**true** if viewport rendering is enabled; otherwise **false**.
+**true** if viewport rendering is enabled ; otherwise **false**.
+## void setPixelDensity ( float density )
+
+Sets a new rendering resolution of the viewport in pixels per meter, used for display-type viewports: the render texture size is calculated automatically from the physical screen dimensions and the specified pixel density, preserving the correct aspect ratio. The default value is 1200.
+### Arguments
+
+- *float* **density** - The rendering resolution of the viewport, in pixels per meter
+
+## float getPixelDensity () const
+
+Returns the current rendering resolution of the viewport in pixels per meter, used for display-type viewports: the render texture size is calculated automatically from the physical screen dimensions and the specified pixel density, preserving the correct aspect ratio. The default value is 1200.
+### Return value
+
+Current rendering resolution of the viewport, in pixels per meter
+## void setRenderMode ( ViewportData::RENDER_MODE mode )
+
+Sets a new rendering mode of the viewport, one of the *RENDER_MODE_** values: a single (mono) image or a side-by-side stereo pair. The default is the mono mode.
+### Arguments
+
+- *[ViewportData::RENDER_MODE](../../../../api/library/plugins/spidervision/class.viewportdata_cpp.md#RENDER_MODE)* **mode** - The rendering mode of the viewport
+
+## ViewportData::RENDER_MODE getRenderMode () const
+
+Returns the current rendering mode of the viewport, one of the *RENDER_MODE_** values: a single (mono) image or a side-by-side stereo pair. The default is the mono mode.
+### Return value
+
+Current rendering mode of the viewport
+## void setSwapEyesInStereoMode ( bool mode )
+
+Sets a new value indicating if the left and right eye images are exchanged in stereo mode. Use this option if the stereo signal is reversed due to the display or projection hardware configuration. Has no effect in the mono mode.
+### Arguments
+
+- *bool* **mode** - Set **true** to enable swapping of the eye images in stereo mode; **false** - to disable it.
+
+## bool isSwapEyesInStereoMode () const
+
+Returns the current value indicating if the left and right eye images are exchanged in stereo mode. Use this option if the stereo signal is reversed due to the display or projection hardware configuration. Has no effect in the mono mode.
+### Return value
+
+**true** if swapping of the eye images in stereo mode is enabled ; otherwise **false**.
 ---
 
 ## void update ( )

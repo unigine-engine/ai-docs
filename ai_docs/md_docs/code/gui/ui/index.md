@@ -9,6 +9,7 @@ All GUI elements in Unigine are generated on the fly from UI files, which are in
 
 As a correct XML file, a UI file must start with a standard declaration. The second required element is a root tag *ui*. This root element can contain zero or more other elements (tags) specifying the interface.
 
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ui version="1.0">
@@ -19,8 +20,11 @@ As a correct XML file, a UI file must start with a standard declaration. The sec
 
 If a UI file is not syntactically correct, Unigine will log the error to the console and the main log file.
 
+
 > **Notice:** All UI files are treated as having the UTF-8 encoding, even if you specify another one in the declaration.
->  Not all available GUI elements can be defined using XML. Some of them — like manipulators and specialized dialogs and sprites - are set up only via [scripting](../../../api/library/gui/index.md):
+>  Not all available GUI elements can be defined using XML. Some of them � like manipulators and specialized dialogs and sprites - are set up only via [scripting](../../../api/library/gui/index.md):
+>
+>
 > - [WidgetManipulator](../../../api/library/gui/class.widgetmanipulator_cpp.md)
 > - [WidgetManipulatorRotator](../../../api/library/gui/class.widgetmanipulatorrotator_cpp.md)
 > - [WidgetManipulatorScaler](../../../api/library/gui/class.widgetmanipulatorscaler_cpp.md)
@@ -40,12 +44,16 @@ If a UI file is not syntactically correct, Unigine will log the error to the con
 
 Almost all of the UI file tags have attributes, and it is good to know the following general rules:
 
+
 - All dimensions provided as attribute values are in pixels.
 - File names are relative to the [root data directory](../../../principles/filesystem/index_cpp.md#paths).
-- Colors are in the Web format, that is, #RRGGBB, or in the #RRGGBBAA format. Here RR, GG, BB, and AA correspond to a hexadecimal color component value—red, green, blue, and alpha, respectively; values range from 00 to FF.
+- Colors are in the Web format, that is, #RRGGBB, or in the #RRGGBBAA format. Here RR, GG, BB, and AA correspond to a hexadecimal color component value�red, green, blue, and alpha, respectively; values range from 00 to FF.
 - Boolean values can be set in different forms. For FALSE use: 0, false, no. For TRUE use: 1, true, yes.
 
+
 Here is an example element with attributes:
+
+
 ```xml
 <sprite align="overlap,top,right" pos_x="10" pos_y="-42" texture="data/core/gui/unigine.png"/>
 ```
@@ -55,6 +63,7 @@ Here is an example element with attributes:
 
 
 You can use standard XML comments syntax. Comment blocks will be skipped during processing of a UI file. An example comment:
+
 
 ```xml
 <!--
@@ -67,7 +76,7 @@ This section will be omitted
 ## Common Attributes
 
 
-All GUI elements—both [containers](../../../code/gui/ui/ui_containers.md) and [widgets](../../../code/gui/ui/ui_widgets.md) —can have the following attributes.
+All GUI elements�both [containers](../../../code/gui/ui/ui_containers.md) and [widgets](../../../code/gui/ui/ui_widgets.md) �can have the following attributes.
 
 
 ### name
@@ -92,7 +101,7 @@ A name of a widget that receives the focus next, if the user presses the TAB key
 
 
 ```xml
-<!-- Custom focus order: button_0 -> button_2 -> button_1 -->
+<!-- Custom focus order: button_0�-> button_2�-> button_1 -->
 <button name="button_0" next="button_2"/>
 <button name="button_1" next="button_0"/>
 <button name="button_2" next="button_1"/>
@@ -104,6 +113,7 @@ A name of a widget that receives the focus next, if the user presses the TAB key
 
 
 A set of alignment flags for the widget. Flags are separated by commas. Available flags are:
+
 
 - **center** Centers the widget in both dimensions in the available space. ![align center](parameters/align_center.png) ```xml <window name="Test::window" width="150" height="150" export="1" sizeable="1"> <text>Window Title</text> <label align="center"> <text size="20">Label Center</text> </label> </window> ```
 - **left** Aligns the widget to the left side. ![align left](parameters/align_left.png) ```xml <label align="left"> <text size="20">Label Left</text> </label> ```
@@ -152,6 +162,7 @@ A flag that specifies whether the widget is hidden or not. When a widget is hidd
 
 ![not hidden](parameters/hidden_0.png) ![hidden](parameters/hidden_1.png)
 
+
 ```xml
 <label>
 	<text size="20" rich="1">Label 0</text>
@@ -180,6 +191,7 @@ The *x* -coordinate of the widget relative to the top left corner of its parent 
 
 ![pos_x](parameters/pos_x.png)
 
+
 ```xml
 <button name="Test::button" export="1" align="overlap" pos_x="40">
 	<text size="15">Button</text>
@@ -195,6 +207,7 @@ The *y* -coordinate of the widget relative to the top left corner its parent con
 
 
 ![pos_y](parameters/pos_y.png)
+
 
 ```xml
 <button name="Test::button" export="1" align="overlap" pos_y="30">
@@ -221,6 +234,7 @@ Height of a widget.
 
 A flag that specifies whether to export a reference to the widget or not. If yes, the widget will be exported with the name set using the *[name](#param_name)* attribute. The default value is **0**. Acceptable values:
 
+
 - **0** or **no** (default) The widget will not be exported.
 - **1** or **yes** The widget will be exported.
 
@@ -229,6 +243,7 @@ A flag that specifies whether to export a reference to the widget or not. If yes
 
 
 A flag indicating whether a container is referenced by the [*reference*](#reference) tag. Acceptable values:
+
 
 - no reference flag or **0** (default) The container will be shown in the UI as usual.
 - **1** The container will not be shown in the UI and you will be able to refer it by using the [*reference*](#reference) tag.
@@ -247,6 +262,7 @@ Many [widgets](../../../code/gui/ui/ui_widgets.md) and [containers](../../../cod
 
 
 Attributes:
+
 
 - *rich* Whether the text inside the tag is formatted or plain. The default is **0** (boolean), which corresponds to plain.
 - *face* Path to a TrueType font file, which will be used by default. ```xml <text face="fontb.ttf">Text</text> ```
@@ -268,12 +284,14 @@ Attributes:
 ![font formatting](widgets/font.png)
 
 
-Enables to change font characteristics of widgets and containers. This tag can be applied to a group of widgets or containers.  The list of attributes is the same as for the [*text*](#text) tag except the*translate* attribute. This attribute should be applied to a text or a label individually (see the example below).
+Enables to change font characteristics of widgets and containers. This tag can be applied to a group of widgets or containers. The list of attributes is the same as for the [*text*](#text) tag except the*translate* attribute. This attribute should be applied to a text or a label individually (see the example below).
+
 
 > **Notice:** If the *rich* attribute is set to 1, all available [rich text formatting](#rich_text) tags can be applied to the text of any widget inside the group.
 
 
 Also the font size can be calculated relatively to its current size. For example:
+
 
 ```xml
 <font size="+10">Larger</font>
@@ -284,6 +302,7 @@ Also the font size can be calculated relatively to its current size. For example
 
 
 The following example demonstrates how to apply the font to the group of widgets:
+
 
 ```xml
 <vbox>
@@ -300,11 +319,15 @@ The following example demonstrates how to apply the font to the group of widgets
 
 ```
 
- In the result, the following will be shown:
+
+In the result, the following will be shown:
+
+
 ![](widgets/font_group.png)
 
 
 Font tags can be nested. However, the following restrictions exist:
+
 
 - If the nested *font* tag is applied to a widget or a container, font properties are not inherited. ```xml <font size="13" rich="1" outline="1"> <align align="left"> <label face="fontb.ttf" size="15" color="#ff9900">Labels</label> <label>Label <b>1</b></label> <font size="20" rich="1"> <label>Label <b>2</b></label> </font> </align> </font> ``` In the result, *Label 2* will not be outlined: ![](widgets/font_widget.png)
 - If the *font* tag is applied to the rich text inside a widget or a container, font properties are inherited. > **Notice:** In this case, the list of font attributes will differ. See the details [below](#font_rich). ```xml <font size="13" rich="1" outline="1"> <align align="left"> <label>Label <b>1</b></label> <label><font size="17">Label of bigger size</font></label> </align> </font> ``` In the result, the font characteristics will be inherited: ![](widgets/font_text.png)
@@ -318,10 +341,12 @@ Unlike the *align* attribute of the [*text*](#text) tag, the*align* tag can be a
 
 Attributes:
 
+
 - *align* Acceptable values are center, left, right.
 
 
 For example:
+
 
 ```xml
 <align align="right">
@@ -337,7 +362,10 @@ For example:
 
 ```
 
- All of the elements inside the *align* tag are right-aligned:
+
+All of the elements inside the *align* tag are right-aligned:
+
+
 ![](widgets/align_tag.png)
 
 
@@ -351,6 +379,7 @@ If the *rich* attribute of the [*text*](#text) or [*font*](#font) tag is equal t
 
 
 Line break.
+
 
 > **Notice:** Both the **<br>** and **<br/>** notations are valid.
 
@@ -379,9 +408,13 @@ Centered alignment. Equivalent to *<p align="center">text</p>*.
 
 Font characteristics. This tag enables to change default font characteristics. It differs from the *font* tag, which is described above.
 
+
 > **Notice:** Font tags applied to a rich text can be nested, all font properties are inherited in this case.
 
- Acceptable attributes:
+
+Acceptable attributes:
+
+
 - *face* Path to a TrueType font file.
 - *size* Font size (pixels).
 - *color* Font color.
@@ -392,6 +425,7 @@ Font characteristics. This tag enables to change default font characteristics. I
 
 
 The following example demonstrates how to change the default text characteristics:
+
 
 ```xml
 <label>
@@ -404,7 +438,10 @@ The following example demonstrates how to change the default text characteristic
 
 ```
 
- The output will be the following:
+
+The output will be the following:
+
+
 ![](widgets/font.png)
 
 
@@ -415,6 +452,7 @@ Subscript text.
 
 
 ![subscript text](parameters/sub.png)
+
 
 ```xml
 <text size="20" rich="1">Text <sub>Subscript text</sub></text>
@@ -428,6 +466,7 @@ Superscript text.
 
 
 ![subscript text](parameters/sup.png)
+
 
 ```xml
 <text size="20" rich="1">Text <sup>Superscript text</sup></text>
@@ -457,6 +496,7 @@ Bold Italic font.
 
 Table. Acceptable attributes:
 
+
 - *color* Border color.
 - *space* Overall spacing (pixels).
 - *space_x* Horizontal spacing (pixels). Sets a space between table content and the left and right table borders.
@@ -466,6 +506,7 @@ Table. Acceptable attributes:
 
 
 Children:
+
 
 - *tr* Table row. Multiple are allowed. Acceptable attribute: Children:
 
@@ -477,6 +518,7 @@ Children:
 
 
 ![](table_tag.png)
+
 
 ```xml
 <text size="20" rich="1">
@@ -500,6 +542,7 @@ Children:
 
 Sets the fixed coordinates for the text. Acceptable attributes:
 
+
 - *x* X coordinate of the text.
 - *y* Y coordinate of the text.
 - *x=%<value>* or *x="%<value>"* X coordinate of the text relative to the current text container.
@@ -515,14 +558,19 @@ Sets the fixed coordinates for the text. Acceptable attributes:
 
 Values of the *x* and *y* attributes that are prepended % set the position of the text relative to the size of the current text container in percents. For example:
 
+
 - *x=%0 y=%0* values correspond to the top left corner of the text container.
 - *x=%0 y=%100* values correspond to the bottom left corner of the text container.
 
+
 and so on:
+
+
 ![](widgets/xy.png)
 
 
 For example:
+
 
 ```xml
 <text rich="1" size="20">
@@ -531,11 +579,15 @@ For example:
 
 ```
 
- In this case, the *long text* is positioned relative to the size of the text container as follows:
+
+In this case, the *long text* is positioned relative to the size of the text container as follows:
+
+
 ![](widgets/xy_100.png)
 
 
 To adjust the text position, use the *dx* and *dy* attributes.
+
 
 > **Notice:** In the example, the white space between the *"This is a"* and *"long text"* parts isn't taken into account when calculating the position.
 
@@ -544,6 +596,7 @@ To adjust the text position, use the *dx* and *dy* attributes.
 
 
 Inserts an image. Acceptable attributes:
+
 
 - *src* Path to an image.
 - *color* Image color multiplier.
@@ -560,14 +613,19 @@ Inserts an image. Acceptable attributes:
 
 Values of the *x* and *y* attributes that are prepended % set the position of the image relative to the size of the current text container in percents. For example:
 
+
 - *x=%0 y=%0* values correspond to the top left corner of the text container.
 - *x=%0 y=%100* values correspond to the bottom left corner of the text container.
 
+
 and so on:
+
+
 ![](widgets/image.png)
 
 
 For example:
+
 
 ```xml
 <text rich="1" size="15">
@@ -576,7 +634,10 @@ For example:
 
 ```
 
- In this case,the image is positioned relative to the text as follows:
+
+In this case,the image is positioned relative to the text as follows:
+
+
 ![](widgets/image_100.png)
 
 
@@ -591,10 +652,12 @@ To scale the image, use the *scale_x*
 
 Aligns the text that follows this tag to the right border of a widget.
 
+
 > **Notice:** Both the **<right>** and **<right/>** notations are valid.
 
 
 ![](right_tag.png)
+
 
 ```xml
 <text rich="1">Text<right/>Text</text>
@@ -642,15 +705,18 @@ Numeric character reference, where **SYMBOL_DEC_CODE** symbol's decimal code (e.
 
 This tag allows including the external `*.ui` file.
 
+
 > **Notice:** The *name* attribute of widgets and containers defined in the external file must be unique.
 
 
 Attributes:
 
+
 - *name* Path to the `*.ui` file to be included.
 
 
 For example, you can insert one window into another as follows:
+
 
 ```xml
 <window name="Test::window" export="1" width="356" height="356">
@@ -659,7 +725,10 @@ For example, you can insert one window into another as follows:
 
 ```
 
- The included window is described in the `test_01.ui` file:
+
+The included window is described in the `test_01.ui` file:
+
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ui version="1.0">
@@ -683,6 +752,7 @@ This example shows the following:
 
 
 This tag serves to refer to containers. The containers, which are referred by the *reference* tag, must have the [*name*](#param_name) attribute.
+
 
 > **Notice:** The referred container will not be displayed: only its content will be shown.
 
@@ -735,7 +805,7 @@ If you want to use the same widget (or container) in different parts of your GUI
 ```
 
 
-Then you need to add the *reference* tag with the custom attribute. In the example, this attribute named *label_N*.  The value of this attribute is a name of an object of the WidgetLabel class that is declared in the script and is subjected to change.
+Then you need to add the *reference* tag with the custom attribute. In the example, this attribute named *label_N*. The value of this attribute is a name of an object of the WidgetLabel class that is declared in the script and is subjected to change.
 
 
 ```xml

@@ -5,7 +5,7 @@
 **Inherits from:** Node
 
 
-Interface for world switcher handling. See also the [UnigineScript analog](../../../api/library/worlds/class.worldswitcher_cpp.md).
+This class allows switching off (and turn on) big parts of the world at once. A *Switcher* is made a parent for nodes it controls. It is of a box shape, and the distance from the camera can be measured to its edges or to its center.
 
 
 ### See Also
@@ -18,35 +18,35 @@ UnigineScript sample
 
 ### Members
 
+## void setMaxDistance ( float distance )
+
+Sets a new maximum distance of visibility. if a camera is further from a node than this maximum distance, a node is not visible. the default is inf.
+### Arguments
+
+- *float* **distance** - The maximum distance of visibility, in units.
+
+## float getMaxDistance () const
+
+Returns the current maximum distance of visibility. if a camera is further from a node than this maximum distance, a node is not visible. the default is inf.
+### Return value
+
+Current maximum distance of visibility, in units.
+## void setMinDistance ( float distance )
+
+Sets a new minimum distance of visibility. if a camera is closer to a node than this minimum distance, a node is not visible. the default is -inf.
+### Arguments
+
+- *float* **distance** - The minimum distance of visibility, in units.
+
+## float getMinDistance () const
+
+Returns the current minimum distance of visibility. if a camera is closer to a node than this minimum distance, a node is not visible. the default is -inf.
+### Return value
+
+Current minimum distance of visibility, in units.
 ---
 
 ## static WorldSwitcherPtr create ( )
 
-Constructor. Creates a world switcher.
-## void setMaxDistance ( float distance )
-
-Sets the maximum distance of visibility. If a camera is further from a node than this maximum distance, a node is not visible. The default is inf.
-### Arguments
-
-- *float* **distance** - Maximum distance of visibility in units.
-
-## float getMaxDistance ( ) const
-
-Returns the current maximum distance of visibility. If a camera is further from a node than this maximum distance, a node is not visible. The default is inf.
-### Return value
-
-Maximum distance of visibility in units.
-## void setMinDistance ( float distance )
-
-Sets the minimum distance of visibility. If a camera is closer to a node than this minimum distance, a node is not visible. The default is -inf.
-### Arguments
-
-- *float* **distance** - Minimum distance of visibility in units.
-
-## float getMinDistance ( ) const
-
-Returns the current minimum distance of visibility. If a camera is closer to a node than this minimum distance, a node is not visible. The default is -inf.
-### Return value
-
-Minimum distance of visibility in units.
+Constructor. Creates a *World Switcher*.
 ## static int type ( )

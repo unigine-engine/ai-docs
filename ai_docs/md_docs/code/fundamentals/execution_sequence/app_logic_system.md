@@ -32,11 +32,11 @@ By implementing them, you define how your application behaves during world loadi
 Application logic in UNIGINE is defined in several contexts, each with its own lifecycle and purpose:
 
 
-- **[World Logic](#worldlogic)** is executed only when a world is loaded. **[Component System](../../../principles/component_system/index.md)** - modular building blocks for application logic. Component System is available only for **C++** and **C#** projects. It enables you to implement your application's logic via a set of building blocks - **components**, and assign these blocks to nodes, giving them additional functionality. By combining these small and simple blocks you can create a very sophisticated logic system. > **Notice:** The [Component System](../../../principles/component_system/index.md) is also based on WorldLogic class (it inherits from it). As a result, all components provide the same lifecycle methods, as WorldLogic (such as *init()*, *update()*, *updatePhysics()*, etc.).
+- **[World Logic](#worldlogic)** is executed only when a world is loaded. **[Component System](../../../principles/component_system/index.md)** - modular building blocks for application logic. Component System is available only for **C++** and **C#** projects. It enables you to implement your application's logic via a set of building blocks - **components**, and assign these blocks to nodes, giving them additional functionality. By combining these small and simple blocks you can create a very sophisticated logic system. > **Notice:** The [Component System](../../../principles/component_system/index.md) is also based on WorldLogic class (it inherits from it). As a result, all components provide the same lifecycle methods, as WorldLogic (such as *init(), update(), updatePhysics()*, etc.).
 
   - **C++/C#** World logic is implemented by inheriting from the *[WorldLogic](../../../api/library/common/logic/class.worldlogic_cpp.md)* class. By default, the Engine generates `AppWorldLogic.cpp` or `AppWorldLogic.cs` in the *source/* directory of your project. Unlike UnigineScript, world logic in C++/C# remains loaded throughout the entire engine runtime and applies to all worlds, so it cannot be assigned to a specific world.
   - **UnigineScript** World logic is implemented in world script file (`*.usc`). Each world can have its own script, and a default one is automatically created when you create a new UnigineScript project - it is named after the project and stored in the `data/` folder.
-- **[System Logic](#systemlogic)** exists during the whole application life cycle, regardless of the loaded world. It is active when no world is loaded, during transitions between worlds, and while a world is running. Use system logic for tasks that must persist independently of any particular world (e.g. global application state or GUI) > **Notice:** The `unigine.usc` script containing system logic template is created by default for all project types. You can verify this by checking the console output when starting the Editor or the Engine: > ```text > 						---- Interpreter ---- > Version: 2.90 > > Unigine~# config_autosave 1 && world_load "UnigineProject" > Script loading "core/unigine.usc" 11ms									<- System Script is loaded > World loading "UnigineProject.world" (Time: 31.6ms, Memory: 0B) > > ``` > > > UnigineScript system logic (`unigine.usc`) is mainly intended for internal engine functionality. While it can still be used, relying on it in C++/C# development is not advised.
+- **[System Logic](#systemlogic)** exists during the whole application life cycle, regardless of the loaded world. It is active when no world is loaded, during transitions between worlds, and while a world is running. Use system logic for tasks that must persist independently of any particular world (e.g. global application state or GUI) > **Notice:** The `unigine.usc` script containing system logic template is created by default for all project types. You can verify this by checking the console output when starting the Editor or the Engine: > > > ```text > 						---- Interpreter ---- > Version: 2.90 > > Unigine~# config_autosave 1 && world_load "UnigineProject" > Script loading "core/unigine.usc" 11ms									<- System Script is loaded > World loading "UnigineProject.world" (Time: 31.6ms, Memory: 0B) > > ``` > > > UnigineScript system logic (`unigine.usc`) is mainly intended for internal engine functionality. While it can still be used, relying on it in C++/C# development is not advised.
 
   - **C++/C#** System logic is implemented by inheriting from the *[SystemLogic](../../../api/library/common/logic/class.systemlogic_cpp.md)* class. By default a source file (`AppSystemLogic.cpp` or `AppSystemLogic.cs`) is generated in the *source/* directory of your project.
   - **UnigineScript** System logic is implemented in the default system script `unigine.usc`, which is stored in the data/ folder inside the core.ung archive. You can place your custom logic directly in this file.
@@ -58,12 +58,12 @@ Application logic in UNIGINE is defined in several contexts, each with its own l
 The world logic works slightly differently depending on the implementation:
 
 
-- If the World Logic is implemented in C++ or C#, it stays loaded as long as any world is loaded.
+- If the *World Logic* is implemented in C++ or C#, it stays loaded as long as any world is loaded.
 - If implemented in UnigineScript, it is loaded and unloaded together with the world itself.
 - In case of the Component System the lifetime is defined by each component individually.
 
 
-The World Logic may use the following methods, which are available for both C++/C# and UnigineScript:
+The *World Logic* may use the following methods, which are available for both C++/C# and UnigineScript:
 
 
 <details>
@@ -165,7 +165,7 @@ This method is used to control physics in your application. Engine calls this me
 ### swap() method
 
 
-This method is designed to operate with the results of the *updateAsyncThread()* method — all other methods (threads) have already been performed and are idle.
+This method is designed to operate with the results of the *updateAsyncThread()* method � all other methods (threads) have already been performed and are idle.
 
 
 ### shutdown() method
@@ -254,7 +254,7 @@ Engine calls this method on application shutdown. You should release all the res
 This component is to be used in case you need to implement your own Editor. It has more implemented methods providing you with clear understanding of the current Engine events (a node has been created, a property has been deleted, a material has been changed, etc.).
 
 
-The Editor Logic may use the following methods, which are available for both C++/C# and UnigineScript:
+The *Editor Logic* may use the following methods, which are available for both C++/C# and UnigineScript:
 
 
 <details>

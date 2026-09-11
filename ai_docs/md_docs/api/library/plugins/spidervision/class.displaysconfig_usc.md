@@ -57,7 +57,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventViewportRemoved () const
 
 The event handler signature is as follows: *myhandler()*
@@ -74,7 +74,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventLoad () const
 
 The event handler signature is as follows: *myhandler()*
@@ -91,7 +91,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventClear () const
 
 The event handler signature is as follows: *myhandler()*
@@ -108,7 +108,7 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
 ## static getEventCalibrationGridChanged () const
 
 The event handler signature is as follows: *myhandler()*
@@ -125,7 +125,50 @@ The event handler signature is as follows: *myhandler()*
 
 ### Return value
 
-Event reference.
+Event instance.
+## void setHeadPosition ( vec3 position )
+
+Sets a new position of the viewer's head (the eye origin) in the projection coordinate space, in meters: the camera position from which the off-axis view and projection of each display viewport are computed. In stereo mode the two eyes are offset from it along the head's horizontal axis. Head tracking is injected by writing this value every frame.
+### Arguments
+
+- *vec3* **position** - The position of the viewer's head
+
+## vec3 getHeadPosition () const
+
+Returns the current position of the viewer's head (the eye origin) in the projection coordinate space, in meters: the camera position from which the off-axis view and projection of each display viewport are computed. In stereo mode the two eyes are offset from it along the head's horizontal axis. Head tracking is injected by writing this value every frame.
+### Return value
+
+Current position of the viewer's head
+## void setHeadRotation ( quat rotation )
+
+Sets a new orientation of the viewer's head in the projection coordinate space. It defines the inter-eye axis along which the eyes are separated in stereo mode.
+### Arguments
+
+- *quat* **rotation** - The orientation of the viewer's head
+
+## quat getHeadRotation () const
+
+Returns the current orientation of the viewer's head in the projection coordinate space. It defines the inter-eye axis along which the eyes are separated in stereo mode.
+### Return value
+
+Current orientation of the viewer's head
+## getEventHeadTransformChanged () const
+
+The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```cpp
+
+```
+
+</details>
+
+### Return value
+
+Event instance.
 ---
 
 ## ViewportData getViewportByIndex ( int index )

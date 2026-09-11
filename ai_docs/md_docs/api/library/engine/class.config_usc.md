@@ -10,6 +10,7 @@ The **Config** class is used to read values (settings) from the [application con
 
 Use the appropriate methods depending on the type of the target item. For example, to get the values of the following items, you should use the *getInt()* and *getString()* methods respectively:
 
+
 ```xml
 ...
 <item name="show_fps" type="int">1</item>
@@ -22,7 +23,7 @@ Use the appropriate methods depending on the type of the target item. For exampl
 ### Usage Example
 
 
-By using the Config class, you can save custom settings to the configuration file and then restore it when required. For example:
+By using the *Config* class, you can save custom settings to the configuration file and then restore it when required. For example:
 
 
 ```cpp
@@ -73,6 +74,32 @@ In UnigineScript, changes made for the configuration file are saved automaticall
 
 ### Members
 
+## void setAutosave ( )
+
+Sets a new value indicating if current Engine configuration settings are automatically saved to the corresponding config file on loading, closing, and saving the world, as well as on the Engine shutdown.
+### Arguments
+
+- **autosave** - The automatic saving of current Engine configuration settings
+
+## isAutosave () const
+
+Returns the current value indicating if current Engine configuration settings are automatically saved to the corresponding config file on loading, closing, and saving the world, as well as on the Engine shutdown.
+### Return value
+
+Current automatic saving of current Engine configuration settings
+## void setPath ( string path )
+
+Sets a new path to the Engine configuration file (default: `configs/default.config`). The path can be specified as an absolute path or relative to the *[*-data_path*](../../../code/command_line.md#data_path)* or *<project_name>* folder if the *[*-project_name*](../../../code/command_line.md#project_name)* is set.
+### Arguments
+
+- *string* **path** - The path to the Engine configuration file.
+
+## const char * getPath () const
+
+Returns the current path to the Engine configuration file (default: `configs/default.config`). The path can be specified as an absolute path or relative to the *[*-data_path*](../../../code/command_line.md#data_path)* or *<project_name>* folder if the *[*-project_name*](../../../code/command_line.md#project_name)* is set.
+### Return value
+
+Current path to the Engine configuration file.
 ---
 
 ## static void engine.config. setBool ( string name , int value )
@@ -201,29 +228,3 @@ Reads the value of the given string setting.
 ### Return value
 
 String value of the setting.
-## static void engine.config. setPath ( string path )
-
-***Console*:**`config`Sets a new path to the Engine config file (default: `configs/default.config`). The path can be specified as an absolute path or relative to the *[*-data_path*](../../../code/command_line.md#data_path)* or *<project_name>* folder if the *[*-project_name*](../../../code/command_line.md#project_name)* is set. This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
-### Arguments
-
-- *string* **path** - New path to the Engine configuration file to be set.
-
-## static string engine.config. getPath ( )
-
-***Console*:**`config`Returns the current path to the Engine config file (default: `configs/default.config`). This parameter is stored in the following configuration file: **[*.boot](../../../code/configuration_file_cpp.md#boot)**.
-### Return value
-
-Current path to the Engine configuration file.
-## static void engine.config. setAutosave ( int autosave )
-
-***Console*:**`config_autosave`Sets a value indicating if current Engine configuration settings are automatically saved to the corresponding config file on loading, closing, and saving the world, as well as on the Engine shutdown.
-### Arguments
-
-- *int* **autosave** - **1** to enable automatic saving of current Engine configuration settings; **0** — to disable it.
-
-## static int engine.config. isAutosave ( )
-
-***Console*:**`config_autosave`Returns a value indicating if current Engine configuration settings are automatically saved to the corresponding config file on loading, closing, and saving the world, as well as on the Engine shutdown.
-### Return value
-
-**1** if automatic saving of current Engine configuration settings is enabled; otherwise, 0.

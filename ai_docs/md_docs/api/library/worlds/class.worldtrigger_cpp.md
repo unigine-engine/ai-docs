@@ -14,10 +14,10 @@
 You can either [specify a list of nodes](#setTargetNodes_SETNode_void), for which the event handlers will be executed, or let the trigger react to all nodes (default behavior). In the latter case, the list of target nodes should be empty. There can be also specified a [list of nodes](#setExcludeNodes_SETNode_void) that are skipped by the trigger and are free to pass unnoticed.
 
 
-The handler function of *World Trigger* is actually executed only when the next engine function is called: that is, before *[updatePhysics()](../../../code/fundamentals/execution_sequence/main_loop.md#physics_updatePhysics)* (in the current frame) or before *[update()](../../../code/fundamentals/execution_sequence/main_loop.md#world_update)* (in the next frame) — whatever comes first.
+The handler function of *World Trigger* is actually executed only when the next engine function is called: that is, before *[updatePhysics()](../../../code/fundamentals/execution_sequence/main_loop.md#physics_updatePhysics)* (in the current frame) or before *[update()](../../../code/fundamentals/execution_sequence/main_loop.md#world_update)* (in the next frame) � whatever comes first.
 
 
-> **Notice:** If you have moved some nodes and want to execute event handlers based on changed positions in the same frame, you need to call [World::updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void) first.
+> **Notice:** If you have moved some nodes and want to execute event handlers based on changed positions in the same frame, you need to call *[World::updateSpatial()](../../../api/library/engine/class.world_cpp.md#updateSpatial_void)* first.
 
 
 ### Example
@@ -204,10 +204,10 @@ Sets a new value indicating if a touch mode is enabled for the trigger. With thi
 Returns the current value indicating if a touch mode is enabled for the trigger. With this mode on, the trigger will react to the node by partial contact. When set to off, the trigger reacts only if the whole bounding sphere/box gets inside or outside of it.
 ### Return value
 
-**true** if the touch mode for the trigger is enabled; otherwise **false**.
+**true** if the touch mode for the trigger is enabled ; otherwise **false**.
 ## Event<const Ptr < Node > &> getEventLeave () const
 
-event triggered when a node leaves the world trigger. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a node leaves the world trigger. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -343,10 +343,10 @@ publisher->getEventLeave().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ## Event<const Ptr < Node > &> getEventEnter () const
 
-event triggered when a node enters the world trigger. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+event triggered when a node enters the world trigger. You can subscribe to events via *connect()* �and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
@@ -482,7 +482,7 @@ publisher->getEventEnter().setEnabled(true);
 
 ### Return value
 
-Event reference.
+Event instance.
 ---
 
 ## static WorldTriggerPtr create ( const Math:: vec3 & size )

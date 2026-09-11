@@ -290,7 +290,7 @@ Source nodes to be used for junctions must comply with the following requirement
 
 
 - Joints of a junction in the UnigineEditor must have their **Y** axes oriented from the center of the junction to the edges of the corresponding branches.
-- Outer joint of each junction’s branch must be placed exactly at the center of its outer edge, weights for outer vertices of the branch must be maximal for the outer joint (i.e., outer vertices of the branch are affected only by the outer joint).
+- Outer joint of each junction�s branch must be placed exactly at the center of its outer edge, weights for outer vertices of the branch must be maximal for the outer joint (i.e., outer vertices of the branch are affected only by the outer joint).
 - As junction and segment are represented by separate meshes, textures and their UV maps must ensure seamless junction-segment and segment-segment transitions.
 - A segment may have junctions at both of its endpoints, Therefore the texture used for the segment must be symmetrical, at least its edges.
 - Specific requirements for roads:

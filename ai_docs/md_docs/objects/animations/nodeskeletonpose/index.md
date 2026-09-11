@@ -1,10 +1,10 @@
 # Skeleton Pose
 
 
-A **Skeleton Pose** node drives skeletal animation for one or more [Skinned Mesh](../../../objects/objects/mesh_skinned/index.md) objects. It holds a skeleton, computes the final blended pose each frame, and applies it to all controlled meshes.
+A **Skeleton Pose** node drives skeletal animation for one or more *[Skinned Mesh](../../../objects/objects/mesh_skinned/index.md)* objects. It holds a skeleton, computes the final blended pose each frame, and applies it to all controlled meshes.
 
 
-This node replaces the built-in animation player that was part of [Skinned Mesh (Legacy)](../../../objects/objects/mesh_skinned_legacy/index.md), providing a cleaner separation between rendering and animation control.
+This node replaces the built-in animation player that was part of *[Skinned Mesh (Legacy)](../../../objects/objects/mesh_skinned_legacy/index.md)*, providing a cleaner separation between rendering and animation control.
 
 
 ### See Also
@@ -28,7 +28,7 @@ To add a *Skeleton Pose* to the scene via UnigineEditor:
 ![](create_nodeskeletonpose.png)
 
 
-The [Skinned Mesh](../../../objects/objects/mesh_skinned/index.md) objects to be animated should be placed as children of this node, or added to the controlled objects list.
+The *[Skinned Mesh](../../../objects/objects/mesh_skinned/index.md)* objects to be animated should be placed as children of this node, or added to the controlled objects list.
 
 
 ## Skeleton
@@ -56,10 +56,10 @@ Skeleton Pose supports two modes of operation:
 ## Control Type
 
 
-The control type defines how the Skeleton Pose node finds the Skinned Mesh objects it should animate:
+The control type defines how the *Skeleton Pose* node finds the *Skinned Mesh* objects it should animate:
 
 
-- **Hierarchy** - automatically controls all [Skinned Mesh](../../../objects/objects/mesh_skinned/index.md) child nodes in the hierarchy.
+- **Hierarchy** - automatically controls all *[Skinned Mesh](../../../objects/objects/mesh_skinned/index.md)* child nodes in the hierarchy.
 - **List** - controls only the meshes explicitly added to the controlled objects list.
 
 

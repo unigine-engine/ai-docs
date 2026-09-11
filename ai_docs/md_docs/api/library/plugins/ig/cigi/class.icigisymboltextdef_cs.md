@@ -40,7 +40,7 @@ The Symbol ID specified in the packet.
 The value of the **Font ID** parameter specified in the packet. Determines the font that is used for this text symbol.
 ## 🔒︎ int Alignment
 
-The value of the **Alignment** parameter specified in the packet. Specifies the position at which the IG shall place the symbol’s reference point in relation to the text.
+The value of the **Alignment** parameter specified in the packet. Specifies the position at which the IG shall place the symbol�s reference point in relation to the text.
 ## 🔒︎ int Orientation
 
 The value of the **Orientation** parameter specified in the packet. Determines the orientation of text.

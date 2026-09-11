@@ -129,7 +129,7 @@ private void Update()
 
 ## 🔒︎ Event< NodeTrigger > EventPosition
 
-The Event triggered when the trigger node position has changed. The event handler must receive a *NodeTrigger* as its first argument. In addition, it can also take **2** arguments of any type. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The Event triggered when the trigger node position has changed. The event handler must receive a *NodeTrigger* as its first argument. In addition, it can also take **2** arguments of any type. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -223,7 +223,7 @@ publisher.EventPosition.Enabled = true;
 
 ## 🔒︎ Event< NodeTrigger > EventEnabled
 
-The Event triggered when the trigger node is enabled or disabled. The event handler must receive a *NodeTrigger* as its first argument. In addition, it can also take **2** arguments of any type. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The Event triggered when the trigger node is enabled or disabled. The event handler must receive a *NodeTrigger* as its first argument. In addition, it can also take **2** arguments of any type. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 

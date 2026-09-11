@@ -16,7 +16,7 @@ All tracked actions go to ***SVN Commit*** via the SVN client, where they are as
 For VCSIntegration Plugin to operate with Subversion correctly, you should prepare the environment:
 
 
-1. Make sure the *Subversion* *client* (in our case, *TortoiseSVN*) is installed with the command-line tools. If the plugin can't locate a Subversion executable (`svn.exe` is unavailable), it will provide you with the error message. The same will be displayed in the console. In this case, modify the configuration of your SVN client. For TortoiseSVN, follow the instructions: When completed, proceed with setting up the environment.
+1. Make sure the *Subversion* *client* (in our case, *[TortoiseSVN](https://tortoisesvn.net/downloads.html)*) is installed with the command-line tools. If the plugin can't locate a Subversion executable (`svn.exe` is unavailable), it will provide you with the error message. The same will be displayed in the console. In this case, modify the configuration of your SVN client. For TortoiseSVN, follow the instructions: When completed, proceed with setting up the environment.
 
   1. Run the SVN installer and click **Modify**.
   2. Click on the *command line client tools* icon and follow the installation instructions. ![](svn_setup.png)

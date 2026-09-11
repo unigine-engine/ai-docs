@@ -3,7 +3,7 @@
 **Header:** #include <UnigineResource.h>
 
 
-Unigine Resource class.
+Unigine *Resource* class.
 
 
 This class allows you load and save data to the binary. In that case, the resource will be inside the binary, therefore platform independent. You can save to resources images, shaders or other content, that will be packed.

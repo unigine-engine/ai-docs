@@ -7,26 +7,80 @@
 
 ### Members
 
+## int getNumEntries () const
+
+Returns the current existing number of entries.
+### Return value
+
+Current existing number of entries
+## int getDisplayType () const
+
+Returns the current type of data to be displayed with the leaderboard. One of the [DISPLAY_TYPE_*](#DISPLAY_TYPE_NONE) values.
+### Return value
+
+Current type of data to be displayed with the leaderboard
+## int getSortMethod () const
+
+Returns the current order for the leaderboard sorting. One of the [SORT_METHOD_*](#SORT_METHOD_NONE) values.
+### Return value
+
+Current order for the leaderboard sorting
+## int getEntryCount () const
+
+Returns the current total number of entries in the leaderboard. Returns 0, if the leaderboard handle is invalid.
+### Return value
+
+Current total number of entries in the leaderboard
+## int getLastDataRequest () const
+
+Returns the current type of requested data in the most recent leaderboard download. One of the [DATA_REQUEST_*](#DATA_REQUEST_GLOBAL) values.
+### Return value
+
+Current type of requested data in the most recent leaderboard download
+## int isLastDownloadFailed () const
+
+Returns the current value indicating if the last leaderboard download has failed.
+### Return value
+
+Current the last leaderboard download has failed
+## int isLastUploadFailed () const
+
+Returns the current value indicating if the last leaderboard upload has failed.
+### Return value
+
+Current the last leaderboard upload has failed
+## int isDownloading () const
+
+Returns the current value indicating if the leaderboard is downloading.
+### Return value
+
+Current the leaderboard is downloading
+## int isUploading () const
+
+Returns the current value indicating if the leaderboard is uploading.
+### Return value
+
+Current the leaderboard is uploading
+## int isFound () const
+
+Returns the current value indicating if the leaderboard was found.
+### Return value
+
+Current the leaderboard was found
+## const char * getName () const
+
+Returns the current leaderboard name.
+### Return value
+
+Current leaderboard name
+## getID () const
+
+Returns the current leaderboard ID.
+### Return value
+
+Current leaderboard ID
 ---
 
-## int getID ( )
-
-Returns the leaderboard ID.
-### Return value
-
-Leaderboard ID.
-## string getName ( )
-
-Returns the leaderboard name.
-### Return value
-
-Leaderboard name.
-## int isFound ( )
-
-Returns the value stating if the leaderboard was found.
-### Return value
-
-**1** if the leaderboard is found, otherwise **0**.
 ## bool find ( )
 
 Returns the value stating if the leaderboard was created.
@@ -39,7 +93,7 @@ Checks if a leaderboard is created, it will create it if it's not yet created.
 ### Arguments
 
 - *int* **sort_method** - The sort order of the new leaderboard if it's created.
-- *int* **display_type** - The display type (used by the Steam Community web site) of the new leaderboard if it's created.
+- *int* **display_type** - The display type (used by the *Steam Community* web site) of the new leaderboard if it's created.
 
 ### Return value
 
@@ -67,60 +121,6 @@ Downloads a set of entries from the current leaderboard.
 ### Return value
 
 false if a leaderboard has not been selected yet, otherwise true.
-## int isUploading ( )
-
-Checks the leaderboard uploading status.
-### Return value
-
-true if the leaderboard is uploading, otherwise false.
-## int isDownloading ( )
-
-Checks the leaderboard downloading status.
-### Return value
-
-true if the leaderboard is downloading, otherwise false.
-## int isLastUploadFailed ( )
-
-Checks the leaderboard upload result.
-### Return value
-
-true if the leaderboard upload has failed, otherwise false.
-## int isLastDownloadFailed ( )
-
-Checks the leaderboard download result.
-### Return value
-
-true if the leaderboard download has failed, otherwise false.
-## int getLastDataRequest ( )
-
-Returns the type of requested data in the most recent leaderbord download.
-### Return value
-
-Type of requested data, one of the [DATA_REQUEST](#DATA_REQUEST_GLOBAL) values.
-## int getEntryCount ( )
-
-Returns the total number of entries in the leaderboard.
-### Return value
-
-Number of entries in the leaderboard. Returns 0, if the leaderboard handle is invalid.
-## int getSortMethod ( )
-
-Returns the order for the leaderboard sorting.
-### Return value
-
-Order for the leaderboard sorting, one of the values.
-## int getDisplayType ( )
-
-Returns the type of data to be displayed with the leaderboard.
-### Return value
-
-Type of data to be displayed with the leaderboard, one of the values.
-## int getNumEntries ( )
-
-Returns the existing number of entries.
-### Return value
-
-Number of entries.
 ## long getEntryUserID ( int num )
 
 Returns the ID of the user who this entry belongs to.

@@ -9,6 +9,14 @@ This section contains a set of the *[Weather](../../../../ig/weather/index.md)* 
 
 ## Articles in This Section
 
+- [Planet Class (USC)](../../../../api/library/plugins/weather/class.planet_usc.md)
+
+- [Planet Class (CS)](../../../../api/library/plugins/weather/class.planet_cs.md)
+
+- [Planet Class (CPP)](../../../../api/library/plugins/weather/class.planet_cpp.md)
+
+- [Weather::Manager Class (USC)](../../../../api/library/plugins/weather/class.weather_manager_usc.md)
+
 - [Weather::Manager Class (CS)](../../../../api/library/plugins/weather/class.weather_manager_cs.md)
 
 - [Weather::Manager Class (CPP)](../../../../api/library/plugins/weather/class.weather_manager_cpp.md)
@@ -30,6 +38,8 @@ This section contains a set of the *[Weather](../../../../ig/weather/index.md)* 
 - [SkyMap Class (CS)](../../../../api/library/plugins/weather/class.skymap_cs.md)
 
 - [SkyMap Class (CPP)](../../../../api/library/plugins/weather/class.skymap_cpp.md)
+
+- [Water Class (USC)](../../../../api/library/plugins/weather/class.water_usc.md)
 
 - [Water Class (CS)](../../../../api/library/plugins/weather/class.water_cs.md)
 

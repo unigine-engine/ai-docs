@@ -49,14 +49,16 @@ Assignment operator for the variable.
 
 ## void setGetFunc ( float(*) func )
 
-Sets a function that will be called when the [get()](#c_get) function is called for the variable.
+Sets a function that will be called when the *[get()](#c_get)* function is called for the variable.
 ### Arguments
 
 - *float(*)* **func** - Function pointer.
 
 ## void setSetFunc ( void (*)(float) func )
 
-Sets a function that will be called when the [set()](#c_set_float) function is called for the variable. For example:
+Sets a function that will be called when the *[set()](#c_set_float)* function is called for the variable. For example:
+
+
 ```cpp
 ConsoleVariableFloat my_debug_mode(...);
 

@@ -31,19 +31,19 @@ Types of collision shapes.
 
 ## 🔒︎ bool IsIdentity
 
-The value indicating if the shape has a scale equal to 1 and no rotation.
+The value indicating if the shape has an identity transformation matrix (scale equal to 1 and no rotation).
 ## mat4 BodyShapeTransform
 
-The transformation matrix of the shape (in the coordinates of the body). this matrix describes position and orientation of the shape. this method is identical to *[getShapeTransform()](../../../api/library/physics/class.body_cs.md#getShapeTransform_int_mat4)*.
+The transformation matrix of the shape (in the coordinates of the body). This matrix describes position and orientation of the shape. It is identical to *[Body.getShapeTransform()](../../../api/library/physics/class.body_cs.md#getShapeTransform_int_mat4)*.
 ## mat4 Transform
 
-The transformation matrix of the shape (in world coordinates). this matrix describes position and orientation of the shape.
+The transformation matrix of the shape (in world coordinates). This matrix describes position and orientation of the shape.
 ## 🔒︎ vec3 CenterOfMass
 
 The local coordinates of the center of mass of the shape.
 ## 🔒︎ mat3 Inertia
 
-The matrix that represents inertia tensor describing the resistance of the body to rotation in different directions. it is determined by the distribution of mass throughout the body volume.
+The matrix that represents inertia tensor describing the resistance of the body to rotation in different directions. It is determined by the distribution of mass throughout the body volume.
 ## 🔒︎ float Volume
 
 The volume of the shape.
@@ -58,19 +58,16 @@ The restitution coefficient of the shape surface.
 The friction coefficient for the shape surface.
 ## float Density
 
-The current density of a shape.
+The density of the shape.
 ## float Mass
 
-The mass of the shape.
-> **Notice:** If *g* (Earth's gravity) equals to 9.8 m/s 2, and 1 unit equals to 1 m, the mass is measured in kilograms.
-
-
+The mass of the shape. If *g* (Earth's gravity) equals to 9.8 m/s2, and 1 unit equals to 1 m, the mass is measured in kilograms.
 ## int ExclusionMask
 
-The bit mask that prevents collisions of the shape with other ones. this mask is independent of the [collision mask](#getCollisionMask_int). For shape with matching collision masks not to collide, at least one bit of their exclusion mask should match.
+The bit mask that prevents collisions of the shape with other ones. This mask is independent of the [collision mask](#getCollisionMask_int). For shape with matching collision masks not to collide, at least one bit of their exclusion mask should match.
 ## int CollisionMask
 
-The collision mask of the actor. two objects collide if they both have matching masks.see also details on additional [collision exclusion mask](#getExclusionMask_int).
+The collision mask of the shape. Two objects collide if they both have matching masks. See also details on additional [collision exclusion mask](#getExclusionMask_int).
 ## int PhysicsIntersectionMask
 
 The [physics intersection mask](../../../principles/bit_masking/index.md#physics_intersection_mask) of the shape.
@@ -79,10 +76,10 @@ The [physics intersection mask](../../../principles/bit_masking/index.md#physics
 The name of the shape.
 ## bool Continuous
 
-The value indicating if continuous collision detection for [spheres](../../../api/library/physics/class.shapesphere_cs.md) or [capsules](../../../api/library/physics/class.shapecapsule_cs.md) is enabled. Enabled CCD incurs almost no performance penalty. Disabling CCD allows to avoid physics artifacts, if there are any.
+The value indicating if continuous collision detection is enabled. Enabled CCD incurs almost no performance penalty. Disabling CCD allows to avoid physics artifacts, if there are any. Is enabled for [spheres](../../../api/library/physics/class.shapesphere_cs.md) or [capsules](../../../api/library/physics/class.shapecapsule_cs.md) by default. For other shape types, it must be enabled manually.
 ## 🔒︎ bool IsEnabledSelf
 
-The value indicating if the shape is enabled.
+The value indicating if physical interactions with the shape itself are enabled, regardless of the state of the body the shape belongs to.
 ## bool Enabled
 
 The value indicating if physical interactions with the shape are enabled.
@@ -103,10 +100,10 @@ The type of the shape.
 The unique id of the shape.
 ## 🔒︎ vec3 Velocity
 
-The current velocity vector of the shape.
+The velocity vector of the shape.
 ## vec3 Position
 
-The current shape position, in world coordinates.
+The shape position, in world coordinates.
 ### Members
 
 ---
@@ -397,10 +394,23 @@ Creates a new shape of the specified type.
 New created shape instance.
 ## Shape.TYPE GetTypeID ( string type )
 
+Returns the identifier of a shape type with a given name.
 ### Arguments
 
-- *string* **type**
+- *string* **type** - Shape type name.
 
+### Return value
+
+Shape type identifier: one of the *[SHAPE_*](#SHAPE_BOX)* values, or -1 if the type name is not recognized.
 ## WorldBoundBox GetBoundBox ( )
 
+Returns the bounding box of the shape, in world coordinates.
+### Return value
+
+[Bounding box](../../../api/library/math/bounds/class.worldboundbox_cs.md) of the shape, in world coordinates.
 ## WorldBoundSphere GetBoundSphere ( )
+
+Returns the bounding sphere of the shape, in world coordinates.
+### Return value
+
+[Bounding sphere](../../../api/library/math/bounds/class.worldboundsphere_cs.md) of the shape, in world coordinates.

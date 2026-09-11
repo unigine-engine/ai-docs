@@ -8,11 +8,11 @@
 
 - [Node Class (CPP)](../../../api/library/nodes/class.node_cpp.md)
 
-- [NodeAnimationPlayback Class (USC)](../../../api/library/nodes/class.nodeanimationplayback_usc.md)
+- [NodeSequencePlayer Class (USC)](../../../api/library/nodes/class.nodesequenceplayer_usc.md)
 
-- [NodeAnimationPlayback Class (CS)](../../../api/library/nodes/class.nodeanimationplayback_cs.md)
+- [NodeSequencePlayer Class (CS)](../../../api/library/nodes/class.nodesequenceplayer_cs.md)
 
-- [NodeAnimationPlayback Class (CPP)](../../../api/library/nodes/class.nodeanimationplayback_cpp.md)
+- [NodeSequencePlayer Class (CPP)](../../../api/library/nodes/class.nodesequenceplayer_cpp.md)
 
 - [NodeSkeletonPose Class (USC)](../../../api/library/nodes/class.nodeskeletonpose_usc.md)
 
@@ -161,8 +161,8 @@
   - [ObjectGuiMesh Class (USC)](../../../api/library/objects/class.objectguimesh_usc.md)
   - [ObjectGuiMesh Class (CS)](../../../api/library/objects/class.objectguimesh_cs.md)
   - [ObjectGuiMesh Class (CPP)](../../../api/library/objects/class.objectguimesh_cpp.md)
-  - [ObjectIntersection Class (CS)](../../../api/library/objects/class.objectintersection_cs.md)
   - [ObjectIntersection Class (USC)](../../../api/library/objects/class.objectintersection_usc.md)
+  - [ObjectIntersection Class (CS)](../../../api/library/objects/class.objectintersection_cs.md)
   - [ObjectIntersection Class (CPP)](../../../api/library/objects/class.objectintersection_cpp.md)
   - [ObjectIntersectionNormal Class (USC)](../../../api/library/objects/class.objectintersectionnormal_usc.md)
   - [ObjectIntersectionNormal Class (CS)](../../../api/library/objects/class.objectintersectionnormal_cs.md)
@@ -250,8 +250,8 @@
   - [TileSet Class (CS)](../../../api/library/objects/class.tileset_cs.md)
   - [TileSet Class (USC)](../../../api/library/objects/class.tileset_usc.md)
   - [TileSet Class (CPP)](../../../api/library/objects/class.tileset_cpp.md)
-  - [TileSetFile Class (CS)](../../../api/library/objects/class.tilesetfile_cs.md)
   - [TileSetFile Class (USC)](../../../api/library/objects/class.tilesetfile_usc.md)
+  - [TileSetFile Class (CS)](../../../api/library/objects/class.tilesetfile_cs.md)
   - [TileSetFile Class (CPP)](../../../api/library/objects/class.tilesetfile_cpp.md)
   - [ObjectText Class (USC)](../../../api/library/objects/class.objecttext_usc.md)
   - [ObjectText Class (CS)](../../../api/library/objects/class.objecttext_cs.md)
@@ -346,9 +346,7 @@
   - [SplineSegment Class (USC)](../../../api/library/worlds/class.splinesegment_usc.md)
   - [SplineSegment Class (CS)](../../../api/library/worlds/class.splinesegment_cs.md)
   - [SplineSegment Class (CPP)](../../../api/library/worlds/class.splinesegment_cpp.md)
-  - [WorldSwitcher Class (CS)](../../../api/library/worlds/class.worldswitcher_cs.md)
   - [WorldSwitcher Class (CPP)](../../../api/library/worlds/class.worldswitcher_cpp.md)
-  - [WorldSwitcher Class (USC)](../../../api/library/worlds/class.worldswitcher_usc.md)
   - [WorldTransformJoint Class (USC)](../../../api/library/worlds/class.worldtransformjoint_usc.md)
   - [WorldTransformJoint Class (CS)](../../../api/library/worlds/class.worldtransformjoint_cs.md)
   - [WorldTransformJoint Class (CPP)](../../../api/library/worlds/class.worldtransformjoint_cpp.md)

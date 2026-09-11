@@ -48,5 +48,5 @@ The buffer will open in the upper left corner:
 There are two types of *Occluders*:
 
 
-- ![](occluder.png)**[Occluder](../../../objects/worlds/world_occluders/occluder_object/index.md)** — a simple cuboid shaped *Occluder*
-- ![](occluder.png)**[Occluder Mesh](../../../objects/worlds/world_occluders/occluder_mesh/index.md)** — *Occluder* based on an arbitrary `.mesh` file
+- ![](occluder.png)**� [Occluder](../../../objects/worlds/world_occluders/occluder_object/index.md)** � a simple cuboid shaped *Occluder*
+- ![](occluder.png)**� [Occluder Mesh](../../../objects/worlds/world_occluders/occluder_mesh/index.md)** � *Occluder* based on an arbitrary `.mesh` file

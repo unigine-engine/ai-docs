@@ -167,7 +167,8 @@ CCD of meshes with capsule shape with ObjectMeshStatic
 ## shapes_00
 
 
-**SDK Path:***<SAMPLES_PROJECT_PATH>/*
+300 meshes with different shapes
+**SDK Path:***<SAMPLES_PROJECT_PATH>/data/uniginescript_samples/shapes/shapes_00*
 
 
 ## sphere_00

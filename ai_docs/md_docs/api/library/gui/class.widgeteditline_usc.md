@@ -103,32 +103,32 @@ Returns the current validator associated with the text field. The default is [VA
 ### Return value
 
 Current validator, one of the [*GUI_VALIDATOR_**](../../../api/library/gui/class.gui_usc.md) pre-defined variables.
-## void setPassword ( )
+## void setPassword ( int password )
 
 Sets a new value indicating if the text field is a password field (all entered characters are displayed as dots).
 ### Arguments
 
-- **password** - The the widget is a password field
+- *int* **password** - The display of the text field contents as a password field (masked input)
 
-## isPassword () const
+## int isPassword () const
 
 Returns the current value indicating if the text field is a password field (all entered characters are displayed as dots).
 ### Return value
 
-Current the widget is a password field
+Current display of the text field contents as a password field (masked input)
 ## void setEditable ( int editable )
 
 Sets a new
 ### Arguments
 
-- *int* **editable** - The the text field contents can be edited
+- *int* **editable** - The editing of the text field contents
 
 ## int isEditable () const
 
 Returns the current
 ### Return value
 
-Current the text field contents can be edited
+Current editing of the text field contents
 ## void setBorderColor ( vec4 color )
 
 Sets a new border color for the widget.
@@ -207,6 +207,19 @@ Returns the current path to the texture to be used as a background for the selec
 ### Return value
 
 Current path to the texture to be used as a background for the selected text.
+## void setCursorMode ( int mode )
+
+Sets a new cursor movement and hit-test mode for this text field, one of the *Gui::CURSOR_MODE_** values. With *CURSOR_MODE_AUTO* (default) the mode is inherited from the **[getGlobalCursorMode()()](../../../api/library/gui/class.gui_usc.md#getGlobalCursorMode_int)** property of the GUI. The visual mode moves the caret and selection in on-screen order, which is natural for bidirectional text; the logical mode follows the stored character sequence.
+### Arguments
+
+- *int* **mode** - The cursor movement mode of the text field
+
+## int getCursorMode () const
+
+Returns the current cursor movement and hit-test mode for this text field, one of the *Gui::CURSOR_MODE_** values. With *CURSOR_MODE_AUTO* (default) the mode is inherited from the **[getGlobalCursorMode()()](../../../api/library/gui/class.gui_usc.md#getGlobalCursorMode_int)** property of the GUI. The visual mode moves the caret and selection in on-screen order, which is natural for bidirectional text; the logical mode follows the stored character sequence.
+### Return value
+
+Current cursor movement mode of the text field
 ---
 
 ## static WidgetEditLine ( Gui gui , string str = 0 )

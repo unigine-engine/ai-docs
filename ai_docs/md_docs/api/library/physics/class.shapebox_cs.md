@@ -30,14 +30,14 @@ UnigineScript samples:
 
 ## vec3 Size
 
-The current dimensions of the box.
+The size of the box, in units.
 ### Members
 
 ---
 
 ## ShapeBox ( )
 
-Constructor. Creates a new cylinder with the zero dimensions.
+Constructor. Creates a new box with zero dimensions.
 ## ShapeBox ( vec3 size )
 
 Constructor. Creates a new box with given dimensions.

@@ -12,6 +12,58 @@ This class creates dialog window where a file is selected. On the left side file
 
 ### Members
 
+## void setFilter ( string filter )
+
+Sets a new file name filter used in the dialog (a list of file extensions with leading dots and without additional separators, for example: .mesh.smesh).
+### Arguments
+
+- *string* **filter** - The file name filter used in the dialog
+
+## const char * getFilter () const
+
+Returns the current file name filter used in the dialog (a list of file extensions with leading dots and without additional separators, for example: .mesh.smesh).
+### Return value
+
+Current file name filter used in the dialog
+## void setTabs ( string tabs )
+
+Sets a new list of tabs in the file picker dialog. The tabs allow the user to interact with several folders at once. The value is a list of paths separated with semicolons, where each path corresponds to a tab.
+### Arguments
+
+- *string* **tabs** - The list of tabs in the file picker dialog
+
+## const char * getTabs () const
+
+Returns the current list of tabs in the file picker dialog. The tabs allow the user to interact with several folders at once. The value is a list of paths separated with semicolons, where each path corresponds to a tab.
+### Return value
+
+Current list of tabs in the file picker dialog
+## void setFile ( string file )
+
+Sets a new file selected in the dialog (an absolute or relative path to the file).
+### Arguments
+
+- *string* **file** - The file selected in the dialog
+
+## const char * getFile () const
+
+Returns the current file selected in the dialog (an absolute or relative path to the file).
+### Return value
+
+Current file selected in the dialog
+## void setPath ( string path )
+
+Sets a new path to the folder whose contents are displayed in the file picker (an absolute or relative path).
+### Arguments
+
+- *string* **path** - The path to the folder whose contents are displayed in the file picker
+
+## const char * getPath () const
+
+Returns the current path to the folder whose contents are displayed in the file picker (an absolute or relative path).
+### Return value
+
+Current path to the folder whose contents are displayed in the file picker
 ---
 
 ## static WidgetDialogFile ( Gui gui , string str = 0 )
@@ -28,56 +80,3 @@ Constructor. Creates a file picker dialog with given parameters and adds it to t
 ### Arguments
 
 - *string* **str** - Dialog title. This is an optional parameter.
-
-## void setFile ( string file )
-
-Selects a given file in the file picker.
-### Arguments
-
-- *string* **file** - Absolute or relative path to the file.
-
-## string getFile ( )
-
-Returns the currently selected file.
-### Return value
-
-Path to the file.
-## void setFilter ( string filter )
-
-Sets a file name filter, which is used to display files of required types only.
-### Arguments
-
-- *string* **filter** - List of file extensions with leading dots and without additional separators, for example: .mesh.smesh.
-
-## string getFilter ( )
-
-Returns the currently used file name filter.
-### Return value
-
-List of file extensions with leading dots and without additional separators, for example: .mesh.smesh.
-## void setPath ( string path )
-
-Sets a path to the folder, contents of which should be displayed in the file picker.
-### Arguments
-
-- *string* **path** - Absolute or relative path.
-
-## string getPath ( )
-
-Returns the current path to the folder, contents of which is displayed in the file picker.
-### Return value
-
-Current path.
-## void setTabs ( string tabs )
-
-Adds a set of tabs to the file picker dialog. The tabs allow the user to interact with several folders at once.
-### Arguments
-
-- *string* **tabs** - List of paths separated with semicolons. Each path corresponds to a tab.
-
-## string getTabs ( )
-
-Returns a list of tabs in the file picker dialog. The tabs allow the user to interact with several folders at once.
-### Return value
-
-List of paths separated with semicolons. Each path corresponds to a tab.

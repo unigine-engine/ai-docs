@@ -43,7 +43,7 @@ The [GUID](../../../../api/library/filesystem/class.uguid_cs.md) of the `.lmap` 
 The path to the directory that is used to store the cache. By default the cache is located in the same place where the UnigineEditor's cache is (you can find it in the UnigineEditor *Settings* tab). If there is not enough memory, you can use another disk. A full copy of the current terrain will be temporarily stored in the cache directory, so you should take this into account when estimating the cache size. SSD is recommended for fast data copying.
 ## 🔒︎ Event< LandscapeMapFileCompression > EventEnd
 
-The Event triggered when {event_description}. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The Event triggered on completion of the landscape map file compression. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cs.md) article.
 
@@ -137,7 +137,7 @@ publisher.EventEnd.Enabled = true;
 
 ## 🔒︎ Event< LandscapeMapFileCompression > EventProgress
 
-The Event triggered when {event_description}. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The Event triggered on the landscape map file compression progress. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cs.md) article.
 
@@ -231,7 +231,7 @@ publisher.EventProgress.Enabled = true;
 
 ## 🔒︎ Event< LandscapeMapFileCompression > EventBegin
 
-The Event triggered when {event_description}. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The Event triggered at the beginning of the landscape map file compression. You can subscribe to events via *Connect()* �and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../../api/library/common/events/class.eventconnection_cs.md)* �and *[EventConnections](../../../../api/library/common/events/class.eventconnections_cs.md)* �classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../../code/fundamentals/events/index_cs.md) article.
 
@@ -335,10 +335,10 @@ Constructor.
 Starts the landscape map file compression process.
 ### Arguments
 
-- *bool* **is_safe** - true to make the Engine automatically call *filesClose()/fileOpen()* methods when performing operations (before modifying an `.lmap` file the Engine should release files via *filesClose()*, while after modification *fileOpen()* should be called), false — to call *filesClose()/fileOpen()* methods manually. The Landscape class has two overloads for the *filesClose()* method: > **Notice:** When **is_safe = true** the Engine shall always call *filesClose(reload_files)* with complete data reloading.
+- *bool* **is_safe** - true to make the Engine automatically call *filesClose()/fileOpen()* methods when performing operations (before modifying an `.lmap` file the Engine should release files via *filesClose()*, while after modification *fileOpen()* should be called), false � to call *filesClose()/fileOpen()* methods manually. The Landscape class has two overloads for the *filesClose()* method: > **Notice:** When **is_safe = true** the Engine shall always call *filesClose(reload_files)* with complete data reloading.
 
-  - [*filesClose()*](../../../../api/library/objects/landscape_terrain/class.landscape_cs.md#filesClose_void) — to be called in case of moving an `.lmap` file (no data reloading is performed as the file itself was not modified — saves time on reloading data)
-  - [*filesClose(reload_files)*](../../../../api/library/objects/landscape_terrain/class.landscape_cs.md#filesClose_VECUGUID_void) — to be called in case of deleting or modifying an `.lmap` file.
+  - [*filesClose()*](../../../../api/library/objects/landscape_terrain/class.landscape_cs.md#filesClose_void) � to be called in case of moving an `.lmap` file (no data reloading is performed as the file itself was not modified � saves time on reloading data)
+  - [*filesClose(reload_files)*](../../../../api/library/objects/landscape_terrain/class.landscape_cs.md#filesClose_VECUGUID_void) � to be called in case of deleting or modifying an `.lmap` file.
 
 ### Return value
 
@@ -348,10 +348,10 @@ true if the compression operation is successful; otherwise, false.
 Starts the landscape map file decompression process.
 ### Arguments
 
-- *bool* **is_safe** - true to make the Engine automatically call *filesClose()/fileOpen()* methods when performing operations (before modifying an `.lmap` file the Engine should release files via *filesClose()*, while after modification *fileOpen()* should be called), false — to call *filesClose()/fileOpen()* methods manually. The Landscape class has two overloads for the *filesClose()* method: > **Notice:** When **is_safe = true** the Engine shall always call *filesClose(reload_files)* with complete data reloading.
+- *bool* **is_safe** - true to make the Engine automatically call *filesClose()/fileOpen()* methods when performing operations (before modifying an `.lmap` file the Engine should release files via *filesClose()*, while after modification *fileOpen()* should be called), false � to call *filesClose()/fileOpen()* methods manually. The Landscape class has two overloads for the *filesClose()* method: > **Notice:** When **is_safe = true** the Engine shall always call *filesClose(reload_files)* with complete data reloading.
 
-  - [*filesClose()*](../../../../api/library/objects/landscape_terrain/class.landscape_cs.md#filesClose_void) — to be called in case of moving an `.lmap` file (no data reloading is performed as the file itself was not modified — saves time on reloading data)
-  - [*filesClose(reload_files)*](../../../../api/library/objects/landscape_terrain/class.landscape_cs.md#filesClose_VECUGUID_void) — to be called in case of deleting or modifying an `.lmap` file.
+  - [*filesClose()*](../../../../api/library/objects/landscape_terrain/class.landscape_cs.md#filesClose_void) � to be called in case of moving an `.lmap` file (no data reloading is performed as the file itself was not modified � saves time on reloading data)
+  - [*filesClose(reload_files)*](../../../../api/library/objects/landscape_terrain/class.landscape_cs.md#filesClose_VECUGUID_void) � to be called in case of deleting or modifying an `.lmap` file.
 
 ### Return value
 
@@ -367,10 +367,10 @@ Sets the type of the compressor used for the specified mask.
 - *int* **mask** - Mask number.
 - *[Landscape.COMPRESSOR_TYPE](../../../../api/library/objects/landscape_terrain/class.landscape_cs.md#COMPRESSOR_TYPE)* **compressor_type** - Compressor type:
 
-  - 0 – None
-  - 1 – Our Method
-  - 2 – LZ4
-  - 3 – Zlib
+  - 0 � None
+  - 1 � Our Method
+  - 2 � LZ4
+  - 3 � Zlib
 
 ## void SetMaskOpacityCompressor ( int mask , Landscape.COMPRESSOR_TYPE compressor_type )
 
@@ -380,10 +380,10 @@ Sets the type of the compressor used for the opacity data of the specified mask.
 - *int* **mask** - Mask number.
 - *[Landscape.COMPRESSOR_TYPE](../../../../api/library/objects/landscape_terrain/class.landscape_cs.md#COMPRESSOR_TYPE)* **compressor_type** - Compressor type:
 
-  - 0 – None
-  - 1 – Our Method
-  - 2 – LZ4
-  - 3 – Zlib
+  - 0 � None
+  - 1 � Our Method
+  - 2 � LZ4
+  - 3 � Zlib
 
 ## void SetCompressorAll ( Landscape.COMPRESSOR_TYPE compressor_type )
 
@@ -392,10 +392,10 @@ Sets the type of the compressor used to compress all data.
 
 - *[Landscape.COMPRESSOR_TYPE](../../../../api/library/objects/landscape_terrain/class.landscape_cs.md#COMPRESSOR_TYPE)* **compressor_type** - Compressor type:
 
-  - 0 – None
-  - 1 – Our Method
-  - 2 – LZ4
-  - 3 – Zlib
+  - 0 � None
+  - 1 � Our Method
+  - 2 � LZ4
+  - 3 � Zlib
 
 ## int GetMaskCompressor ( int mask )
 
@@ -407,10 +407,10 @@ Returns the current type of the compressor used for the specified mask.
 ### Return value
 
 Compressor type:
-- 0 – None
-- 1 – Our Method
-- 2 – LZ4
-- 3 – Zlib
+- 0 � None
+- 1 � Our Method
+- 2 � LZ4
+- 3 � Zlib
 
 
 ## int GetMaskOpacityCompressor ( int mask )
@@ -423,10 +423,10 @@ Returns the current type of the compressor used for the opacity data of the spec
 ### Return value
 
 Compressor type:
-- 0 – None
-- 1 – Our Method
-- 2 – LZ4
-- 3 – Zlib
+- 0 � None
+- 1 � Our Method
+- 2 � LZ4
+- 3 � Zlib
 
 
 ## void SetEnabledMaskTextureCompression ( int mask , bool enable )

@@ -45,7 +45,7 @@ The value of the **Size Y** parameter specified in the packet. Determines the le
 
 ## 🔒︎ float Radius
 
-The value of the **Corner Radius** parameter specified in the packet. Determines the radius of the corner of the rounded rectangle. The smaller the radius, the “tighter” the corner.
+The value of the **Corner Radius** parameter specified in the packet. Determines the radius of the corner of the rounded rectangle. The smaller the radius, the �tighter� the corner.
 ## 🔒︎ float Rotation
 
 The value of the **Rotation** parameter specified in the packet. Determines the yaw angle of the rounded rectangle.

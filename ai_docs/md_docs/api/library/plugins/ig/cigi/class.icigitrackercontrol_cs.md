@@ -18,7 +18,7 @@ The tracker ID specified in the packet.
 The value of the **Tracker Enable** parameter specified in the packet.
 ## 🔒︎ int BoresightEnabled
 
-The value of the **Boresight Enable** parameter specified in the packet. The boresight enable mode is used to reestablish the tracker’s “center” position at the current position and orientation.
+The value of the **Boresight Enable** parameter specified in the packet. The boresight enable mode is used to reestablish the tracker�s �center� position at the current position and orientation.
 ## 🔒︎ int GroupSelect
 
 The value of the **View/View Group Select** parameter specified in the packet.

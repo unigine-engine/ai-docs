@@ -79,7 +79,7 @@ Current suspension height, in units.
 Returns the current velocity of wheel rotation.
 ### Return value
 
-Current current velocity, in radians per second.
+Current velocity, in radians per second.
 ## void setAngularVelocity ( float velocity )
 
 Sets a new target velocity of wheel rotation.

@@ -116,14 +116,14 @@ Current four-component vector specifying the color in the RGBA format.
 Sets a new value indicating if a background texture is rendered for the text field. The default is 1.
 ### Arguments
 
-- *int* **background** - The **1** is to render a background texture; **0** is not to render.
+- *int* **background** - The value indicating if a background texture is rendered for the text field
 
 ## int getBackground () const
 
 Returns the current value indicating if a background texture is rendered for the text field. The default is 1.
 ### Return value
 
-Current **1** is to render a background texture; **0** is not to render.
+Current value indicating if a background texture is rendered for the text field
 ## void setEditable ( bool editable )
 
 Sets a new value indicating if the contents of the text field can be edited. The default is value is true.
@@ -136,7 +136,7 @@ Sets a new value indicating if the contents of the text field can be edited. The
 Returns the current value indicating if the contents of the text field can be edited. The default is value is true.
 ### Return value
 
-**true** if editing of the text field contents is enabled; otherwise **false**.
+**true** if editing of the text field contents is enabled ; otherwise **false**.
 ## int getCursorPositionX () const
 
 Returns the current value of the text cursor position X coordinate.
@@ -167,7 +167,7 @@ Sets a new value indicating if the currently selected line is changed (the curso
 Returns the current value indicating if the currently selected line is changed (the cursor moves up or down) when scrolling the mouse wheel.
 ### Return value
 
-**true** if changing the line on scrolling is enabled; otherwise **false**.
+**true** if changing the line on scrolling is enabled ; otherwise **false**.
 ## void setStyleTextureBackground ( const char * background )
 
 Sets a new path to the texture to be used as a background of the widget.
@@ -194,6 +194,19 @@ Returns the current path to the texture to be used as a background for the selec
 ### Return value
 
 Current path to the texture to be used as a background for the selected text.
+## void setCursorMode ( Gui::CursorMode mode )
+
+Sets a new cursor movement and hit-test mode for this text editor, one of the *Gui::CURSOR_MODE_** values. With *CURSOR_MODE_AUTO* (default) the mode is inherited from the **[getGlobalCursorMode()](../../../api/library/gui/class.gui_cpp.md#getGlobalCursorMode_int)** property of the GUI. The visual mode moves the caret and selection in on-screen order per line, which is natural for bidirectional text; the logical mode follows the stored character sequence.
+### Arguments
+
+- *[Gui::CursorMode](../../../api/library/gui/class.gui_cpp.md#CursorMode)* **mode** - The cursor movement mode of the text editor
+
+## Gui::CursorMode getCursorMode () const
+
+Returns the current cursor movement and hit-test mode for this text editor, one of the *Gui::CURSOR_MODE_** values. With *CURSOR_MODE_AUTO* (default) the mode is inherited from the **[getGlobalCursorMode()](../../../api/library/gui/class.gui_cpp.md#getGlobalCursorMode_int)** property of the GUI. The visual mode moves the caret and selection in on-screen order per line, which is natural for bidirectional text; the logical mode follows the stored character sequence.
+### Return value
+
+Current cursor movement mode of the text editor
 ---
 
 ## static WidgetEditTextPtr create ( const Ptr < Gui > & gui , const char * str = 0 )

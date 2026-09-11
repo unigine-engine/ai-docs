@@ -28,7 +28,7 @@ In general, *ObjectLandscapeTerrain* remains more efficient for simulation, as i
 ## Use Cases
 
 
-1. **Using Terrain in Third-Party Applications**. Finalize the landscape and export it as an `.fbx` file for offline rendering or use in DCC tools (e.g., After Effects, 3ds Max, Maya). Larger landscapes and higher output resolutions produce proportionally larger files, so ensure the target application can handle them. > **Notice:** The `.mesh` format is proprietary to UNIGINE and cannot be read by third-party software.
+1. **Using Terrain in Third-Party Applications**. Finalize the landscape and export it as an `.fbx` file for offline rendering or use in DCC tools (e.g., *After Effects, 3ds Max, Maya*). Larger landscapes and higher output resolutions produce proportionally larger files, so ensure the target application can handle them. > **Notice:** The `.mesh` format is proprietary to UNIGINE and cannot be read by third-party software.
 2. **Adding shadows**. *ObjectLandscapeTerrain* doesn't cast shadows or self-shadows from light sources, and currently supports only *[screen-space shadows](../../objects/lights/parameters/index.md#ss_shadow_settings)*. If landscape shadows are required (e.g. for a huge mountain or a canyon in the scene), to minimize performance cost:
 
   - Use *ObjectLandscapeTerrain*, but create a low-poly mesh version of the terrain for shadow casting, hidden from the viewport with *[shadow masks](../../content/optimization/lights/index.md#masking)*.
@@ -101,7 +101,7 @@ This section displays the export parameters.
 
 | **Show Output Area Size** | Enables visualization of the selected area in the viewport. |
 |---|---|
-| **Output Geometry Resolution** | Defines polygon density of the exported mesh. The landscape area is divided into a grid of this resolution (e.g., **256x256**), with a vertex placed at each grid point. Lower values create a simpler, more performant mesh, while higher values preserve more detail. > **Warning:** Using a value higher than the source *LandscapeLayerMap* resolution will not increase visual quality and only adds unnecessary vertex overhead. |
+| **Output Geometry Resolution** | Defines polygon density of the exported mesh. The landscape area is divided into a grid of this resolution (e.g., 256x256), with a vertex placed at each grid point. Lower values create a simpler, more performant mesh, while higher values preserve more detail. > **Warning:** Using a value higher than the source *LandscapeLayerMap* resolution will not increase visual quality and only adds unnecessary vertex overhead. |
 | **Output Area Position** | Center position of the export area. |
 | **Output Area Size** | Size of the export area manipulator (in units), defining the size of the landscape region to export. The generation process will include data from all *[enabled](#use)* Layer Maps within this area. |
 | **Output Area Rotation** | Rotation of the export area manipulator (in degrees). |

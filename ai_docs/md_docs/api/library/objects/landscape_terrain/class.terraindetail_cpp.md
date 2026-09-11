@@ -10,208 +10,234 @@ This class is used to manage details of the [Landscape Terrain Object](../../../
 
 ### Members
 
----
-
 ## void setName ( const char * name )
 
-Sets a new name for the detail.
+Sets a new name of the detail.
 ### Arguments
 
-- *const char ** **name** - New terrain detail name to be set.
+- *const char ** **name** - The name of the detail
 
-## const char * getName ( ) const
+## const char * getName () const
 
-Returns the name of the detail.
+Returns the current name of the detail.
 ### Return value
 
-Current name of the detail.
+Current name of the detail
 ## void setEnabled ( bool enabled )
 
-Sets a value indicating if the terrain detail is enabled.
+Sets a new value indicating if the terrain detail is enabled.
 ### Arguments
 
-- *bool* **enabled** - true to enable the terrain detail, false - to disable it.
+- *bool* **enabled** - value indicating if the terrain detail is enabled
 
-## bool isEnabled ( ) const
+## bool isEnabled () const
 
-Returns a value indicating if the terrain detail is enabled.
+Returns the current value indicating if the terrain detail is enabled.
 ### Return value
 
-true if the terrain detail is enabled; otherwise, false.
-## bool isActive ( ) const
+value indicating if the terrain detail is enabled
+## bool isActive () const
 
-Returns a value indicating if the terrain detail is active.
+Returns the current value indicating if the terrain detail is active.
 ### Return value
 
-true if the terrain detail is active; otherwise, false.
-## void setMaskByAlbedo ( const Math::vec4& albedo )
-
-Sets a new color to be used as a mask for the detail. In this case, all areas on the terrain having selected color will be covered by the detail.
-### Arguments
-
-- *const  Math::vec4&* **albedo** - Four-component vector (R, G, B, A) representing a new color to be used as a mask for the detail.
-
-## Math:: vec4 getMaskByAlbedo ( ) const
-
-Returns the color currently used as a mask for the detail. In this case, all areas on the terrain having selected color will be covered by the detail.
-### Return value
-
-Four-component vector (R, G, B, A) representing a color currently used as a mask for the detail.
+**true** if the terrain detail is active; otherwise **false**.
 ## void setMinVisibleHeight ( float height )
 
-Sets the minimum height value for the detail, starting from which the detail begins to fade in until it becomes completely visible. This parameter is used to modulate the detail mask by height.
+Sets a new minimum height value for the detail, in units, starting from which the detail begins to fade in until it becomes completely visible. This parameter is used to modulate the detail mask by height. The default value is -inf.
 ### Arguments
 
-- *float* **height** - Minimum height value for the detail, in units. The default value is -inf.
+- *float* **height** - The minimum height value for the detail, in units
 
-## float getMinVisibleHeight ( ) const
+## float getMinVisibleHeight () const
 
-Returns the minimum height value for the detail, starting from which the detail begins to fade in until it becomes completely visible. This parameter is used to modulate the detail mask by height.
+Returns the current minimum height value for the detail, in units, starting from which the detail begins to fade in until it becomes completely visible. This parameter is used to modulate the detail mask by height. The default value is -inf.
 ### Return value
 
-Minimum height value for the detail, in units.
+Current minimum height value for the detail, in units
 ## void setMaxVisibleHeight ( float height )
 
-Sets the maximum height value for the detail, starting from which the detail begins to fade out until it becomes completely invisible. This parameter is used to modulate the detail mask by height.
+Sets a new maximum height value for the detail, in units.
 ### Arguments
 
-- *float* **height** - Maximum height value for the detail, in units. The default value is inf.
+- *float* **height** - The maximum height value for the detail, in units
 
-## float getMaxVisibleHeight ( ) const
+## float getMaxVisibleHeight () const
 
-Returns the maximum height value for the detail, starting from which the detail begins to fade out until it becomes completely invisible. This parameter is used to modulate the detail mask by height.
+Returns the current maximum height value for the detail, in units.
 ### Return value
 
-Maximum height value for the detail, in units.
+Current maximum height value for the detail, in units
 ## void setMinFadeHeight ( float height )
 
-Sets the fade in height range for the detail. Over this height range below the [minimum height value](#setMinVisibleHeight_float_void) the detail will fade in until it is completely visible. This parameter is used to modulate the detail mask by height.
+Sets a new fade in height range value for the detail, in units. Over this height range below the [minimum height value](#setMinVisibleHeight_float_void) the detail will fade in until it is completely visible. This parameter is used to modulate the detail mask by height.
 ### Arguments
 
-- *float* **height** - Fade in height range value for the detail, in units.
+- *float* **height** - The fade in height range value for the detail, in units
 
-## float getMinFadeHeight ( ) const
+## float getMinFadeHeight () const
 
-Returns the current fade in height range for the detail. Over this height range below the [minimum height value](#setMinVisibleHeight_float_void) the detail will fade in until it is completely visible. This parameter is used to modulate the detail mask by height.
+Returns the current fade in height range value for the detail, in units. Over this height range below the [minimum height value](#setMinVisibleHeight_float_void) the detail will fade in until it is completely visible. This parameter is used to modulate the detail mask by height.
 ### Return value
 
-Fade in height range value for the detail, in units.
+Current fade in height range value for the detail, in units
 ## void setMaxFadeHeight ( float height )
 
-Sets the fade out height range for the detail. Over this height range below the [maximum height value](#setMaxVisibleHeight_float_void) the detail will fade out until it is completely invisible. This parameter is used to modulate the detail mask by height.
+Sets a new fade out height range value for the detail, in units. Over this height range below the [maximum height value](#setMaxVisibleHeight_float_void) the detail will fade out until it is completely invisible. This parameter is used to modulate the detail mask by height.
 ### Arguments
 
-- *float* **height** - Fade out height range value for the detail, in units.
+- *float* **height** - The fade out height range value for the detail, in units
 
-## float getMaxFadeHeight ( ) const
+## float getMaxFadeHeight () const
 
-Returns the current fade out height range for the detail. Over this height range below the [maximum height value](#setMaxVisibleHeight_float_void) the detail will fade out until it is completely invisible. This parameter is used to modulate the detail mask by height.
+Returns the current fade out height range value for the detail, in units. Over this height range below the [maximum height value](#setMaxVisibleHeight_float_void) the detail will fade out until it is completely invisible. This parameter is used to modulate the detail mask by height.
 ### Return value
 
-Fade out height range value for the detail, in units.
-## void setMinVisibleTexelSize ( float size )
+Current fade out height range value for the detail, in units
+## void setMaskByAlbedo ( const Math:: vec4 & albedo )
 
-Sets the minimum texel size value for the detail, starting from which the detail begins to fade in until it becomes completely visible. This parameter is used to modulate the detail mask by texel size.
+Sets a new four-component vector (R, G, B, A) representing a color used as a mask for the detail. In this case, all areas on the terrain having selected color will be covered by the detail.
 ### Arguments
 
-- *float* **size** - Minimum texel size value for the detail to be set.
+- *const  Math::[vec4](../../../../api/library/math/class.vec4_cpp.md)&* **albedo** - The color used as a mask for the detail, as a four-component vector (R, G, B, A)
 
-## float getMinVisibleTexelSize ( ) const
+## Math:: vec4 getMaskByAlbedo () const
 
-Returns the minimum texel size value for the detail, starting from which the detail begins to fade in until it becomes completely visible. This parameter is used to modulate the detail mask by texel size.
+Returns the current four-component vector (R, G, B, A) representing a color used as a mask for the detail. In this case, all areas on the terrain having selected color will be covered by the detail.
 ### Return value
 
-Minimum texel size value for the detail.
-## void setMaxVisibleTexelSize ( float size )
-
-Sets the maximum texel size value for the detail, starting from which the detail begins to fade out until it becomes completely invisible. This parameter is used to modulate the detail mask by texel size.
-### Arguments
-
-- *float* **size** - Maximum texel size value for the detail to be set.
-
-## float getMaxVisibleTexelSize ( ) const
-
-Returns the maximum texel size value for the detail, starting from which the detail begins to fade out until it becomes completely invisible. This parameter is used to modulate the detail mask by texel size.
-### Return value
-
-Maximum texel size value for the detail.
-## void setMinFadeTexelSize ( float size )
-
-Sets the fade in texel size range for the detail. Over this range below the [minimum texel size value](#setMinVisibleTexelSize_float_void) the detail will fade in until it is completely visible. This parameter is used to modulate the detail mask by texel size.
-### Arguments
-
-- *float* **size** - Fade in texel size range value for the detail to be set, in units.
-
-## float getMinFadeTexelSize ( ) const
-
-Returns the current fade in texel size range for the detail. Over this range below the [minimum texel size value](#setMinVisibleTexelSize_float_void) the detail will fade in until it is completely visible. This parameter is used to modulate the detail mask by texel size.
-### Return value
-
-Fade in texel size range value for the detail, in units.
-## void setMaxFadeTexelSize ( float size )
-
-Sets the fade out texel size range for the detail. Over this range below the [maximum texel size value](#setMaxVisibleTexelSize_float_void) the detail will fade out until it is completely invisible. This parameter is used to modulate the detail mask by texel size.
-### Arguments
-
-- *float* **size** - Fade out texel size range value for the detail to be set, in units.
-
-## float getMaxFadeTexelSize ( ) const
-
-Returns the current fade out texel size range for the detail. Over this range below the [maximum texel size value](#setMaxVisibleTexelSize_float_void) the detail will fade out until it is completely invisible. This parameter is used to modulate the detail mask by texel size.
-### Return value
-
-Fade out texel size range value for the detail, in units.
+Current color used as a mask for the detail, as a four-component vector (R, G, B, A)
 ## void setMaskThreshold ( float threshold )
 
-Sets a new mask threshold value for the detail. Control blending of the detail according to the mask. The Threshold parameter controls the spread intensity of the layer. Lower values provide bigger spread.
+Sets a new mask threshold value in the [0; 1] range. Control blending of the detail according to the mask. The Threshold parameter controls the spread intensity of the layer. Lower values provide bigger spread.
 ### Arguments
 
-- *float* **threshold** - New mask threshold value to be set in the [0; 1] range.
+- *float* **threshold** - The mask threshold value in the [0; 1] range
 
-## float getMaskThreshold ( ) const
+## float getMaskThreshold () const
 
-Returns a mask threshold value for the detail. Control blending of the detail according to the mask. The Threshold parameter controls the spread intensity of the layer. Lower values provide bigger spread.
+Returns the current mask threshold value in the [0; 1] range. Control blending of the detail according to the mask. The Threshold parameter controls the spread intensity of the layer. Lower values provide bigger spread.
 ### Return value
 
-Current mask threshold value in the [0; 1] range.
+Current mask threshold value in the [0; 1] range
 ## void setMaskContrast ( float contrast )
 
-Sets a new mask contrast value.
+Sets a new mask contrast value in the [0; 1] range.
 ### Arguments
 
-- *float* **contrast** - New mask contrast value to be set in the [0; 1] range.
+- *float* **contrast** - The mask contrast value in the [0; 1] range
 
-## float getMaskContrast ( ) const
+## float getMaskContrast () const
 
-Returns a current mask contrast value.
+Returns the current mask contrast value in the [0; 1] range.
 ### Return value
 
-Current mask contrast value in the [0; 1] range.
-## void setDetailMask ( const Ptr < TerrainDetailMask > & mask )
+Current mask contrast value in the [0; 1] range
+## void setDetailMask ( const Ptr < TerrainDetailMask >& mask )
 
-Sets the specified detail mask to be used for the detail.
+Sets a new [detail mask](../../../../api/library/objects/landscape_terrain/class.terraindetailmask_cpp.md) used for the detail.
 ### Arguments
 
-- *const [Ptr](../../../../api/library/common/class.ptr_cpp.md)<[TerrainDetailMask](../../../../api/library/objects/landscape_terrain/class.terraindetailmask_cpp.md)> &* **mask** - [Detail mask](../../../../api/library/objects/landscape_terrain/class.terraindetailmask_cpp.md) to be used for the detail.
+- *const [Ptr](../../../../api/library/common/class.ptr_cpp.md)<[TerrainDetailMask](../../../../api/library/objects/landscape_terrain/class.terraindetailmask_cpp.md)>&* **mask** - The detail mask used for the detail
 
-## Ptr < TerrainDetailMask > getDetailMask ( ) const
+## Ptr < TerrainDetailMask > getDetailMask () const
 
-Returns the detail mask currently used for the detail.
+Returns the current [detail mask](../../../../api/library/objects/landscape_terrain/class.terraindetailmask_cpp.md) used for the detail.
 ### Return value
 
-[Detail mask](../../../../api/library/objects/landscape_terrain/class.terraindetailmask_cpp.md) currently used for the detail.
-## Ptr < Material > getMaterial ( ) const
+Current detail mask used for the detail
+## void setMaxFadeTexelSize ( float size )
 
-Returns the detail material used for the detail.
-### Return value
-
-Material currently used for the detail.
-## void setMaterial ( const Ptr < Material > & material )
-
-Sets a new detail material to be used for the detail.
+Sets a new fade out texel size range value for the detail, in units. Over this range below the [maximum texel size value](#setMaxVisibleTexelSize_float_void) the detail will fade out until it is completely invisible. This parameter is used to modulate the detail mask by texel size.
 ### Arguments
 
-- *const [Ptr](../../../../api/library/common/class.ptr_cpp.md)<[Material](../../../../api/library/rendering/class.material_cpp.md)> &* **material** - New material to be used for the detail.
+- *float* **size** - The fade out texel size range value for the detail, in units
+
+## float getMaxFadeTexelSize () const
+
+Returns the current fade out texel size range value for the detail, in units. Over this range below the [maximum texel size value](#setMaxVisibleTexelSize_float_void) the detail will fade out until it is completely invisible. This parameter is used to modulate the detail mask by texel size.
+### Return value
+
+Current fade out texel size range value for the detail, in units
+## void setMinFadeTexelSize ( float size )
+
+Sets a new fade in texel size range value for the detail, in units. Over this range below the [minimum texel size value](#setMinVisibleTexelSize_float_void) the detail will fade in until it is completely visible. This parameter is used to modulate the detail mask by texel size.
+### Arguments
+
+- *float* **size** - The fade in texel size range value for the detail, in units
+
+## float getMinFadeTexelSize () const
+
+Returns the current fade in texel size range value for the detail, in units. Over this range below the [minimum texel size value](#setMinVisibleTexelSize_float_void) the detail will fade in until it is completely visible. This parameter is used to modulate the detail mask by texel size.
+### Return value
+
+Current fade in texel size range value for the detail, in units
+## void setMaxVisibleTexelSize ( float size )
+
+Sets a new maximum texel size value for the detail.
+### Arguments
+
+- *float* **size** - The maximum texel size value for the detail
+
+## float getMaxVisibleTexelSize () const
+
+Returns the current maximum texel size value for the detail.
+### Return value
+
+Current maximum texel size value for the detail
+## void setMinVisibleTexelSize ( float size )
+
+Sets a new minimum texel size value for the detail.
+### Arguments
+
+- *float* **size** - The minimum texel size value for the detail
+
+## float getMinVisibleTexelSize () const
+
+Returns the current minimum texel size value for the detail.
+### Return value
+
+Current minimum texel size value for the detail
+## void setMaterial ( const Ptr < Material >& material )
+
+Sets a new detail material used for the detail.
+### Arguments
+
+- *const [Ptr](../../../../api/library/common/class.ptr_cpp.md)<[Material](../../../../api/library/rendering/class.material_cpp.md)>&* **material** - The detail material used for the detail
+
+## Ptr < Material > getMaterial () const
+
+Returns the current detail material used for the detail.
+### Return value
+
+Current detail material used for the detail
+## void setMaterialGUID ( UGUID guid )
+
+Sets a new [GUID](../../../../api/library/filesystem/class.uguid_cpp.md) of the material currently used for the detail.
+### Arguments
+
+- *[UGUID](../../../../api/library/filesystem/class.uguid_cpp.md)* **guid** - The [GUID](../../../../api/library/filesystem/class.uguid_cpp.md) of the material currently used for the detail
+
+## UGUID getMaterialGUID () const
+
+Returns the current [GUID](../../../../api/library/filesystem/class.uguid_cpp.md) of the material currently used for the detail.
+### Return value
+
+Current [GUID](../../../../api/library/filesystem/class.uguid_cpp.md) of the material currently used for the detail
+## void setMaterialFilePath ( String path )
+
+Sets a new path of the material file currently used for the detail.
+### Arguments
+
+- *[String](../../../../api/library/common/class.string_cpp.md)* **path** - The path of the material file currently used for the detail
+
+## const char * getMaterialFilePath () const
+
+Returns the current path of the material file currently used for the detail.
+### Return value
+
+Current path of the material file currently used for the detail
+---
 
 ## Ptr < TerrainDetail > copy ( const Ptr < TerrainDetail > & dest_detail ) const
 
@@ -229,26 +255,3 @@ Clones the terrain detail (with all its children).
 ### Return value
 
 Cloned detail.
-## void setMaterialFilePath ( const char * path )
-
-Sets the detail material by a given path.
-### Arguments
-
-- *const char ** **path** - Material file path.
-
-## const char * getMaterialFilePath ( ) const
-
-Returns the path of the assigned detail material.
-### Return value
-
-Material file path.
-## void setMaterialGUID ( const UGUID& materialguid )
-
-Sets the material by a [GUID](../../../../api/library/filesystem/class.uguid_cpp.md).
-### Arguments
-
-- *const UGUID&* **materialguid** - Material [GUID](../../../../api/library/filesystem/class.uguid_cpp.md).
-
-## UGUID getMaterialGUID ( ) const
-
-Returns the [GUID](../../../../api/library/filesystem/class.uguid_cpp.md) of the assigned detail material.

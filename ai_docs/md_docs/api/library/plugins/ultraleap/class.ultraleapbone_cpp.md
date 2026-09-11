@@ -25,53 +25,51 @@ This class represents a [bone](../../../../code/plugins/ultraleap/index_cpp.md#b
 
 ### Members
 
----
+## UltraleapFinger * getFinger () const
 
-## UltraleapFinger * getFinger ( ) const
-
-Returns the object for the finger.
+Returns the current object for the finger.
 ### Return value
 
-The object for the finger.
-## UltraleapBone::TYPE getType ( ) const
+Current object for the finger
+## UltraleapBone::TYPE getType () const
 
-Returns the type of the bone.
+Returns the current type of the bone. One of the [TYPE_*](#TYPE_METACARPAL) values.
 ### Return value
 
-The bone type. One of the [Bone::TYPE_*](#TYPE_METACARPAL) values.
-## double getLength ( ) const
+Current type of the bone
+## double getLength () const
 
-Returns the length of the bone.
+Returns the current length of the bone, in meters.
 ### Return value
 
-The length of the bone, in meters.
-## double getWidth ( ) const
+Current length of the bone, in meters
+## double getWidth () const
 
-Returns the width of the bone, in meters.
+Returns the current width of the bone, in meters.
 ### Return value
 
-The width of the bone, in meters.
-## Math:: Vec3 getJointBeginPosition ( ) const
+Current width of the bone, in meters
+## Math:: Vec3 getJointBeginPosition () const
 
-Returns the coordinates of the end of the bone closest to the wrist (proximal).
+Returns the current coordinates of the end of the bone closest to the wrist (proximal).
 ### Return value
 
-The coordinates of the end of the bone closest to the wrist (proximal).
-## Math:: Vec3 getJointEndPosition ( ) const
+Current coordinates of the end of the bone closest to the wrist (proximal)
+## Math:: Vec3 getJointEndPosition () const
 
-Returns the coordinates of the end of the bone closest to the finger tip (distal).
+Returns the current coordinates of the end of the bone closest to the finger tip (distal).
 ### Return value
 
-The coordinates of the end of the bone closest to the finger tip (distal).
-## Math:: Vec3 getCenter ( ) const
+Current coordinates of the end of the bone closest to the finger tip (distal)
+## Math:: Vec3 getCenter () const
 
-Returns the coordinates of the center of the bone.
+Returns the current coordinates of the center of the bone.
 ### Return value
 
-The coordinates of the center of the bone.
-## Math:: vec3 getDirection ( ) const
+Current coordinates of the center of the bone
+## Math:: vec3 getDirection () const
 
-Returns the normalized direction of the bone from wrist to tip.
+Returns the current normalized direction of the bone from wrist to tip.
 ### Return value
 
-The normalized direction of the bone from wrist to tip.
+Current normalized direction of the bone from wrist to tip

@@ -35,9 +35,9 @@ Node synchronization mask.
 |---|---|
 | **NODE_FLAGS** = 1 | Update only simple node flag (*enabled*, *immovable*, etc.) |
 | **TRANSFORM** = 1 << 1 | Update node transform (with interpolation). |
-| **BASE** = 3 | Update base information NODEFLAGS & TRANSFORM. |
+| **BASE** = 3 | Update base information *NODEFLAGS & TRANSFORM*. |
 | **DERIVED** = 31 << 3 | Update information of derived class (11111000 - without the first 3 bits). This mask allows synchronizing the node subtype (such as player, light, decal, etc.) parameters. |
-| **OBJECT** = 1 << 3 | Update object parameters. All other parameters of objects except for NODE_FLAGS and TRANSFORM (particles trasform for object particles, bones transform for object skinned) |
+| **OBJECT** = 1 << 3 | Update object parameters. All other parameters of objects except for *NODE_FLAGS* and *TRANSFORM* (particles trasform for object particles, bones transform for object skinned) |
 | **OBJECT_SURFACE** = 1 << 4 | Update all parameters of surfaces (surface flags and information about inherited materials for each surface). |
 
 ## DEFAULT_SYNC_NODES
@@ -52,14 +52,190 @@ Types of nodes that will be synchronized automatically after world loading.
 
 ### Members
 
----
+## int getNumSyncMaterials () const
 
-## int getNumSlaves ( ) const
-
-Returns the total number of the slaves connected to the Master.
+Returns the current total number of materials in the synchronization queue.
 ### Return value
 
-Total number of slaves connected to the Master.
+Current total number of materials in the synchronization queue.
+## int getNumSyncNodes () const
+
+Returns the current total number of nodes in the synchronization queue.
+### Return value
+
+Current total number of nodes in the synchronization queue.
+## void setDefaultSyncNodes ( unsigned char nodes )
+
+Sets a new mask defining types of nodes that will be synchronized automatically after world loading. This mask can be used for optimization reasons limiting the number of nodes to be synchronized and thus reducing network load. For example, you can restrict automatic synchronization to global water, and clouds only:
+```cpp
+master->setDefaultSyncNodes(Syncker::Master::WATER_GLOBAL | Syncker::Master::CLOUD_LAYER);
+```
+
+
+### Arguments
+
+- *unsigned char* **nodes** - The mask defining types of nodes that will be synchronized automatically after world loading.
+
+## unsigned char getDefaultSyncNodes () const
+
+Returns the current mask defining types of nodes that will be synchronized automatically after world loading. This mask can be used for optimization reasons limiting the number of nodes to be synchronized and thus reducing network load. For example, you can restrict automatic synchronization to global water, and clouds only:
+```cpp
+master->setDefaultSyncNodes(Syncker::Master::WATER_GLOBAL | Syncker::Master::CLOUD_LAYER);
+```
+
+
+### Return value
+
+Current mask defining types of nodes that will be synchronized automatically after world loading.
+## void setSyncWorldLoad ( bool load )
+
+Sets a new value indicating whether synchronization of world loading via the UDP protocol is enabled.
+### Arguments
+
+- *bool* **load** - Set **true** to enable synchronization of world loading via the UDP protocol; **false** - to disable it.
+
+## bool isSyncWorldLoad () const
+
+Returns the current value indicating whether synchronization of world loading via the UDP protocol is enabled.
+### Return value
+
+**true** if synchronization of world loading via the UDP protocol is enabled ; otherwise **false**.
+## void setSyncRender ( bool render )
+
+Sets a new A value indicating if synchronization of all render parameters via the UDP protocol (light scattering, occlusion, etc.) is enabled.
+> **Notice:** When all slaves use the same rendering settings, synchronization of render parameters can be disabled.
+
+
+### Arguments
+
+- *bool* **render** - Set **true** to enable synchronization of all render parameters via the UDP protocol; **false** - to disable it.
+
+## bool isSyncRender () const
+
+Returns the current A value indicating if synchronization of all render parameters via the UDP protocol (light scattering, occlusion, etc.) is enabled.
+> **Notice:** When all slaves use the same rendering settings, synchronization of render parameters can be disabled.
+
+
+### Return value
+
+**true** if synchronization of all render parameters via the UDP protocol is enabled ; otherwise **false**.
+## void setSyncViewOffset ( bool offset )
+
+Sets a new value indicating whether synchronization of view offset for projections is enabled.
+### Arguments
+
+- *bool* **offset** - Set **true** to enable synchronization of view offset for projections via the UDP protocol; **false** - to disable it.
+
+## bool isSyncViewOffset () const
+
+Returns the current value indicating whether synchronization of view offset for projections is enabled.
+### Return value
+
+**true** if synchronization of view offset for projections via the UDP protocol is enabled ; otherwise **false**.
+## void setSyncPlayer ( bool player )
+
+Sets a new value indicating whether synchronization of the current player's parameters via the UDP protocol is enabled.
+The following parameters are synchronized:
+
+
+- Its transformation
+- Projection matrix
+- Viewport mask
+- Mask for reflections
+- Applied post-materials (if any)
+
+
+> **Notice:** Current player synchronization is used only when all slaves use the same camera.
+
+
+### Arguments
+
+- *bool* **player** - Set **true** to enable synchronization of the current player's parameters (transformation, projection matrix, viewport and reflection masks, applied post-materials) via the UDP protocol; **false** - to disable it.
+
+## bool isSyncPlayer () const
+
+Returns the current value indicating whether synchronization of the current player's parameters via the UDP protocol is enabled.
+The following parameters are synchronized:
+
+
+- Its transformation
+- Projection matrix
+- Viewport mask
+- Mask for reflections
+- Applied post-materials (if any)
+
+
+> **Notice:** Current player synchronization is used only when all slaves use the same camera.
+
+
+### Return value
+
+**true** if synchronization of the current player's parameters (transformation, projection matrix, viewport and reflection masks, applied post-materials) via the UDP protocol is enabled ; otherwise **false**.
+## float getNumSlaves () const
+
+Returns the current total number of the slaves connected to the master.
+### Return value
+
+Current total number of the slaves connected to the master.
+## void setAllowExtraSlaves ( bool slaves )
+
+Sets a new value indicating whether new Slaves can connect to the Master after starting the session. This can be used, for example, to connect a Slave which is used as a tool for configuring projections and does not operate as an IG.
+### Arguments
+
+- *bool* **slaves** - true permits new Slaves to connect to the Master after starting the session; false - forbids it.
+
+## bool isAllowExtraSlaves () const
+
+Returns the current value indicating whether new Slaves can connect to the Master after starting the session. This can be used, for example, to connect a Slave which is used as a tool for configuring projections and does not operate as an IG.
+### Return value
+
+true permits new Slaves to connect to the Master after starting the session; false - forbids it.
+## void setSendRate ( float rate )
+
+Sets a new
+frequency of sending packets to Slaves. Use this method when network load is too high and slows down the whole IG system. It is recommended to use this method with [interpolation](../../../../api/library/plugins/syncker/class.syncker_syncker_cpp.md#setInterpolation_int_void) enabled.
+
+
+```cpp
+//On the Master
+master->setSendRate(15.0f); // send packets 15 times per second
+
+//Both on the Master and all Slaves
+syncker->setInterpolationPeriod(0.1f); // 100 ms delay
+
+```
+
+
+### Arguments
+
+- *float* **rate** - The frequency of sending packets to Slaves. The default value is -1 (every frame). > **Notice:** The value should not be less than ***1�/�[getInterpolationPeriod()](../../../../api/library/plugins/syncker/class.syncker_syncker_cpp.md#getInterpolationPeriod_double)***, otherwise the image shall be "stuttering".
+
+## float getSendRate () const
+
+Returns the current
+frequency of sending packets to Slaves. Use this method when network load is too high and slows down the whole IG system. It is recommended to use this method with [interpolation](../../../../api/library/plugins/syncker/class.syncker_syncker_cpp.md#setInterpolation_int_void) enabled.
+
+
+```cpp
+//On the Master
+master->setSendRate(15.0f); // send packets 15 times per second
+
+//Both on the Master and all Slaves
+syncker->setInterpolationPeriod(0.1f); // 100 ms delay
+
+```
+
+
+### Return value
+
+Current frequency of sending packets to Slaves.
+The default value is -1 (every frame).
+
+
+> **Notice:** The value should not be less than ***1�/�[getInterpolationPeriod()](../../../../api/library/plugins/syncker/class.syncker_syncker_cpp.md#getInterpolationPeriod_double)***, otherwise the image shall be "stuttering".
+
+---
+
 ## const char * getSlaveAddress ( int num ) const
 
 Returns the network address of the given slave computer.
@@ -100,54 +276,12 @@ Returns the name of the world file currently loaded on the specified slave.
 ### Return value
 
 Name of the world file currently loaded on the specified slave.
-## void setSyncPlayer ( bool enabled )
-
-Enables synchronization of the current player's parameters via the UDP protocol:
-- Its transformation
-- Projection matrix
-- Viewport mask
-- Mask for reflections
-- Applied post-materials (if any)
-
-
-> **Notice:** Current player synchronization is used only when all slaves use the same camera.
-
-
-### Arguments
-
-- *bool* **enabled** - true to enable synchronization; false - to disable it.
-
-## bool isSyncPlayer ( ) const
-
-Returns a value indicating if synchronization of the current player is enabled.
-> **Notice:** Current player synchronization is used only when all slaves use the same camera.
-
-
-### Return value
-
-true if synchronization of the current player is enabled; otherwise, false.
-## void setSyncRender ( bool enabled )
-
-Enables synchronization of all render parameters via the UDP protocol: light scattering, occlusion, etc.
-> **Notice:** When all slaves use the same rendering settings, synchronization of render parameters can be disabled.
-
-
-### Arguments
-
-- *bool* **enabled** - true to enable synchronization; false - to disable it.
-
-## bool isSyncRender ( ) const
-
-Returns a value indicating if synchronization of all render parameters is enabled.
-> **Notice:** When all slaves use the same rendering settings, synchronization of render parameters can be disabled.
-
-
-### Return value
-
-true if synchronization of all render parameters is enabled; otherwise, false.
 ## void addSyncNode ( const Ptr < Node > & node , unsigned char sync_mask = SYNC_MASK::NODE_FLAGS | SYNC_MASK::TRANSFORM )
 
+
 Enables synchronization of parameters of the given node via the UDP protocol.
+
+
 > **Notice:** Scene nodes are not synchronized by default, this method is used to add a particular node to the synchronization queue.
 
 
@@ -158,7 +292,10 @@ Enables synchronization of parameters of the given node via the UDP protocol.
 
 ## void addSyncNodes ( const Vector < Ptr < Node >> & nodes , unsigned char sync_mask = SYNC_MASK::NODE_FLAGS | SYNC_MASK::TRANSFORM )
 
+
 Enables synchronization of parameters of given nodes via the UDP protocol.
+
+
 > **Notice:** Scene nodes are not synchronized by default, this method is used to add particular nodes to the synchronization queue.
 
 
@@ -202,12 +339,6 @@ Returns a value indicating if synchronization of the given node is enabled. Usin
 ### Return value
 
 true if synchronization of the given node is enabled; otherwise, false.
-## int getNumSyncNodes ( ) const
-
-Returns the total number of nodes in the synchronization queue.
-### Return value
-
-Total number of nodes in the synchronization queue.
 ## Ptr < Node > getSyncNode ( int num ) const
 
 Returns the synchronized node with the given number.
@@ -251,7 +382,10 @@ Removes the specified nodes from the synchronization queue.
 Removes all nodes from the synchronization queue.
 ## void addSyncMaterial ( const Ptr < Material > & material )
 
+
 Enables synchronization of the given material via the UDP protocol.
+
+
 > **Notice:** Scene materials are not synchronized by default, this method is used to add a particular material to the synchronization queue.
 
 
@@ -261,7 +395,10 @@ Enables synchronization of the given material via the UDP protocol.
 
 ## void addSyncMaterials ( const Vector < Ptr < Material >> & materials )
 
+
 Enables synchronization of given materials via the UDP protocol.
+
+
 > **Notice:** Scene materials are not synchronized by default, this method is used to add particular materials to the synchronization queue.
 
 
@@ -279,12 +416,6 @@ Returns a value indicating if synchronization of the given material is enabled. 
 ### Return value
 
 true if synchronization of the given material is enabled; otherwise, false.
-## int getNumSyncMaterials ( ) const
-
-Returns the total number of materials in the synchronization queue.
-### Return value
-
-Total number of materials in the synchronization queue.
 ## Ptr < Material > getSyncMaterial ( int num ) const
 
 Returns the synchronized material with the given number.
@@ -321,7 +452,10 @@ Removes the specified materials from the synchronization queue.
 Removes all materials from the synchronization queue.
 ## bool createNode ( const Ptr < Node > & node , unsigned char sync_mask = 0 )
 
+
 Synchronizes creation of the given node on all Slaves. This method is **to be called after node creation on the Master**.
+
+
 > **Notice:** It is recommended to use the [*loadNode()*](#loadNode_cstr_uchar_Mat4_Node) or [*loadNodereference()*](#loadNodeReference_cstr_uchar_Mat4_NodeReference) methods whenever possible as this approach **allows adding nodes of all types**, unlike the [*createNode()*](#createNode_Node_uchar_bool) method that supports only a limited number of them.
 
  **Example:**
@@ -359,7 +493,10 @@ Returns a value indicating if the given node was created via the [*createNode()*
 true if the given node was created via the [*createNode()*](#createNode_Node_uchar_bool) method; otherwise, false.
 ## void setCustomPlayer ( const char * name , const Ptr < Player > & player )
 
+
 Sets the specified player for the view, view group, or computer with the specified name.
+
+
 > **Notice:** Synchronization of the [main master camera](../../../../code/plugins/syncker/index.md#main_camera) is disabled.
 
 
@@ -368,45 +505,6 @@ Sets the specified player for the view, view group, or computer with the specifi
 - *const char ** **name** - Name of a view, a view group, or a computer to set the custom player for. > **Notice:** The specified name will be checked in the following order: *view, view group, computer*. The specified player will be set for the first element found.
 - *const [Ptr](../../../../api/library/common/class.ptr_cpp.md)<[Player](../../../../api/library/players/class.player_cpp.md)> &* **player** - Player to be set.
 
-## void setSendRate ( float rate )
-
-
-Sets the frequency of sending packets to Slaves. Use this method when network load is too high and slows down the whole IG system. It is recommended to use this method with [interpolation](../../../../api/library/plugins/syncker/class.syncker_syncker_cpp.md#setInterpolation_int_void) enabled.
-
-
-```cpp
-//On the Master
-master->setSendRate(15.0f); // send packets 15 times per second
-
-//Both on the Master and all Slaves
-syncker->setInterpolationPeriod(0.1f); // 100 ms delay
-
-```
-
-
-### Arguments
-
-- *float* **rate** - Frequency of sending packets to Slaves. The default value is -1 (every frame). > **Notice:** The value should not be less than ***1 / [getInterpolationPeriod()](../../../../api/library/plugins/syncker/class.syncker_syncker_cpp.md#getInterpolationPeriod_double)***, otherwise the image shall be "stuttering".
-
-## float getSendRate ( ) const
-
-Returns the current frequency of sending packets to Slaves. Use this method when network load is too high and slows down the whole IG system. It is recommended to use this method with [interpolation](../../../../api/library/plugins/syncker/class.syncker_syncker_cpp.md#setInterpolation_int_void) enabled.
-### Return value
-
-Frequency of sending packets to Slaves.
-## void setAllowExtraSlaves ( bool slaves )
-
-Sets a value indicating if new Slaves can connect to the Master after starting the session. This can be used, for example, to connect a Slave which is used as a tool for configuring projections and does not operate as an IG.
-### Arguments
-
-- *bool* **slaves** - true to permit new Slaves connecting to the Master after starting the session; false - to forbid it.
-
-## bool isAllowExtraSlaves ( ) const
-
-Returns a value indicating if new Slaves can connect to the Master after starting the session. This can be used, for example, to connect a Slave which is used as a tool for configuring projections and does not operate as an IG.
-### Return value
-
-true if new Slaves can connect to the Master after starting the session; otherwise, false.
 ## void setViewOffset ( const Math:: vec3 & offset )
 
 Sets a new player's head position on the Master.
@@ -414,50 +512,6 @@ Sets a new player's head position on the Master.
 
 - *const  Math::[vec3](../../../../api/library/math/class.vec3_cpp.md) &* **offset** - New player's head position coordinates to be set.
 
-## void setSyncViewOffset ( bool offset )
-
-Enables synchronization of view offset for projections via the UDP protocol.
-### Arguments
-
-- *bool* **offset** - true to enable synchronization; false - to disable it.
-
-## bool isSyncViewOffset ( ) const
-
-Returns a value indicating if synchronization of view offset for projections is enabled.
-### Return value
-
-true if synchronization of view offset for projections is enabled; otherwise, false.
-## void setSyncWorldLoad ( bool load )
-
-Enables synchronization of world loading via the UDP protocol.
-### Arguments
-
-- *bool* **load** - true to enable synchronization; false - to disable it.
-
-## bool isSyncWorldLoad ( ) const
-
-Returns a value indicating if synchronization of world loading is enabled.
-### Return value
-
-true if synchronization of world loading is enabled; otherwise, false.
-## void setDefaultSyncNodes ( unsigned char nodes )
-
-Sets a new mask defining types of nodes that will be synchronized automatically after world loading. This mask can be used for optimization reasons limiting the number of nodes to be synchronized and thus reducing network load. For example, you can restrict automatic synchronization to global water, and clouds only:
-```cpp
-master->setDefaultSyncNodes(Syncker::Master::WATER_GLOBAL | Syncker::Master::CLOUD_LAYER);
-```
-
-
-### Arguments
-
-- *unsigned char* **nodes** - Mask defining types of nodes that will be synchronized automatically after world loading.
-
-## unsigned char getDefaultSyncNodes ( ) const
-
-Returns the current mask defining types of nodes that will be synchronized automatically after world loading. This mask can be used for optimization reasons limiting the number of nodes to be synchronized and thus reducing network load.
-### Return value
-
-Current mask defining types of nodes that will be synchronized automatically after world loading.
 ## void loadWorld ( const char * name )
 
 Loads a world from the specified file on the Master and all Slaves. Syncker is able to automatically synchronize the current world, but it works as follows: Slaves shall only start loading a new world after it is completely loaded on the Master. This method provides a 2x speedup of world loading process, as it forces all hosts to start loading the world almost simultaneously.
@@ -467,7 +521,7 @@ Loads a world from the specified file on the Master and all Slaves. Syncker is a
 
 ## Ptr < Node > loadNode ( const char * path , unsigned char sync_mask = 0 , Math:: Mat4 & init_transform )
 
-Loads a node from the specified file to the world on the Master and all Slaves and places it to the specified ititial transformation. This is a network analogue of the [loadNode()](../../../../api/library/engine/class.world_cpp.md#loadNode_cstr_int_Node) method of the *World* class. By default, the loaded node is not synchronized, which is suitable for static objects at run time and at the same time saves performance. For dynamic objects to be synchronized, the suitable synchronization mask should be set.
+Loads a node from the specified file to the world on the Master and all Slaves and places it to the specified ititial transformation. This is a network analogue of the *[loadNode()](../../../../api/library/engine/class.world_cpp.md#loadNode_cstr_int_Node)* method of the *World* class. By default, the loaded node is not synchronized, which is suitable for static objects at run time and at the same time saves performance. For dynamic objects to be synchronized, the suitable synchronization mask should be set.
 ### Arguments
 
 - *const char ** **path** - Path to the `*.node` file.
@@ -479,7 +533,7 @@ Loads a node from the specified file to the world on the Master and all Slaves a
 Loaded node or nullptr if an error has occurred.
 ## Ptr < Node > loadNode ( const char * path , unsigned char sync_mask = 0 )
 
-Loads a node from the specified file to the world on the Master and all Slaves and places it at the origin with the default transformation. This is a network analogue of the [loadNode()](../../../../api/library/engine/class.world_cpp.md#loadNode_cstr_int_Node) method of the *World* class. By default, the loaded node is not synchronized, which is suitable for static objects at run time and at the same time saves performance. For dynamic objects to be synchronized, the suitable synchronization mask should be set.
+Loads a node from the specified file to the world on the Master and all Slaves and places it at the origin with the default transformation. This is a network analogue of the *[loadNode()](../../../../api/library/engine/class.world_cpp.md#loadNode_cstr_int_Node)* method of the *World* class. By default, the loaded node is not synchronized, which is suitable for static objects at run time and at the same time saves performance. For dynamic objects to be synchronized, the suitable synchronization mask should be set.
 ### Arguments
 
 - *const char ** **path** - Path to the `*.node` file.

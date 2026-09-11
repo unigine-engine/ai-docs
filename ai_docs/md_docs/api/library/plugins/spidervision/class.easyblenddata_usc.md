@@ -19,6 +19,19 @@ The color correction data are stored in the [configuration file](../../../../pri
 
 ### Members
 
+## void setEnabled ( int enabled )
+
+Sets a new value indicating if the warping mesh is enabled.
+### Arguments
+
+- *int* **enabled** - The warping mesh
+
+## int isEnabled () const
+
+Returns the current value indicating if the warping mesh is enabled.
+### Return value
+
+Current warping mesh
 ---
 
 ## int loadFile ( String filepath )

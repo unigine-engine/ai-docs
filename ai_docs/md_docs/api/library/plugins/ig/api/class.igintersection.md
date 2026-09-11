@@ -6,6 +6,7 @@
 
 This data structure stores the result of an intersection (intersection point coordinates as well as normal and texture coordinates, intersected object and surface index, intersection mask) and has the following set of parameters:
 
+
 | **surface** | Intersected surface number. |
 |---|---|
 | **mask** | Intersection mask. |
@@ -14,7 +15,10 @@ This data structure stores the result of an intersection (intersection point coo
 | **normal** | Normal of the intersection point. |
 | **texcoord** | Texture coordinates of the intersection point. |
 
- The **IGIntersection** structure is declared as follows:
+
+The **IGIntersection** structure is declared as follows:
+
+
 ```cpp
 struct IGIntersection
 {

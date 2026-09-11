@@ -21,6 +21,7 @@ An example can be found in `<UnigineSDK>/source/samples/Api/Scripts/Variable/` d
 
 Let's say, you declared a number of variables on C++ side. To export them, you will need to do the following:
 
+
 1. Create a pointer to an external variable via *MakeExternVariable()*.
 2. Register the variable via *[Unigine::Interpreter::addExternVariable()](../../../../api/library/common/class.interpreter_cpp.md#addExternVariable_const_char_ptr_ExternVariableBase_ptr_int_void)*.
 3. All variables are exported into a global namespace. To limit the scope of variable, use [library namespace](../../../../code/cpp/usage/script/namespace.md).
@@ -95,6 +96,7 @@ int init() {
 
 The following results will be printed into the console after launching the application:
 
+
 ```text
 Integer is 2
 Float is 1.500000
@@ -108,6 +110,7 @@ Matrix4 m11 is 5.000000
 
 
 If you reload the world, the integer value that has been changed on the C++ side will appear in the console:
+
 
 ```text
 Integer is 42

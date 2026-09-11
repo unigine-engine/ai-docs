@@ -49,7 +49,7 @@ The *Materials* sample illustrates how to change the following parameters of [ma
 
 ![](../../../samples/img/csharp_component_samples_track_playback.jpg)
 
-This sample demonstrates how to use *Tracker* to animate objects by changing their position, rotation, and scale through tracks created in the  tool.
+This sample demonstrates how to use *Tracker* to animate objects by changing their position, rotation, and scale through tracks created in the **[Tracker](../../../editor2/tools/tracker/index.md)** tool.
 
 
 Tracks in code are referred to via names and IDs.

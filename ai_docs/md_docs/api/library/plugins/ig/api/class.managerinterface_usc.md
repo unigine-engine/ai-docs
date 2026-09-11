@@ -7,6 +7,7 @@
 
 This class represents the IG Manager interface.
 
+
 > **Notice:** IG plugin must be loaded.
 
 
@@ -39,7 +40,7 @@ Sets a new value indicating if depth testing for the [Debug](../../../../../ig/d
 Returns the current value indicating if depth testing for the [Debug](../../../../../ig/debug/index.md) visualizer elements is enabled (if elements should be obscured by the ones closer to the camera).
 ### Return value
 
-**true** if depth testing for the [Debug](../../../../../ig/debug/index.md) visualizer elements is enabled; otherwise **false**.
+**true** if depth testing for the [Debug](../../../../../ig/debug/index.md) visualizer elements is enabled ; otherwise **false**.
 ## void setDebugScreenspace ( bool screenspace )
 
 Sets a new value indicating the type of dimension to be used when rendering [Debug](../../../../../ig/debug/index.md) visualizer elements: the screen-space dimension or the world-space dimension.
@@ -52,7 +53,7 @@ Sets a new value indicating the type of dimension to be used when rendering [Deb
 Returns the current value indicating the type of dimension to be used when rendering [Debug](../../../../../ig/debug/index.md) visualizer elements: the screen-space dimension or the world-space dimension.
 ### Return value
 
-**true** if Debug visualization in the screen-space dimension is enabled; otherwise **false**.
+**true** if Debug visualization in the screen-space dimension is enabled ; otherwise **false**.
 ## void setDebugDuration ( float duration )
 
 Sets a new time period during which [Debug](../../../../../ig/debug/index.md) visualizer elements are displayed.
@@ -78,7 +79,7 @@ Sets a new value indicating if the [Debug mode](../../../../../ig/debug/index.md
 Returns the current value indicating if the [Debug mode](../../../../../ig/debug/index.md) is enabled. This mode allows inspecting the IG application at run-time.
 ### Return value
 
-**true** if [Debug mode](../../../../../ig/debug/index.md) is enabled; otherwise **false**.
+**true** if [Debug mode](../../../../../ig/debug/index.md) is enabled ; otherwise **false**.
 ## void setCollisionVolumeMask ( int mask )
 
 Sets a new collision volume mask for entities.
@@ -141,10 +142,13 @@ Sets a new value indicating if [interpolation and extrapolation](../../../../../
 Returns the current value indicating if [interpolation and extrapolation](../../../../../ig/index.md#interpolation) for the IG is enabled.
 ### Return value
 
-**true** if [interpolation and extrapolation](../../../../../ig/index.md#interpolation) for the IG is enabled; otherwise **false**.
+**true** if [interpolation and extrapolation](../../../../../ig/index.md#interpolation) for the IG is enabled ; otherwise **false**.
 ## void setInterpolationLerpFactor ( double factor )
 
-Sets a new interpolation lerp factor value for the IG. The *lower* the value the smoother movement will be, but it will feel like objects move underwater or in a jelly, *higher* values result in higher positioning accuracy (objects positions will be closer to actual ones for the current frame), but objects will move with a noticeable jitter.
+Sets a new
+interpolation lerp factor value for the IG. The *lower* the value the smoother movement will be, but it will feel like objects move underwater or in a jelly, *higher* values result in higher positioning accuracy (objects positions will be closer to actual ones for the current frame), but objects will move with a noticeable jitter.
+
+
 > **Notice:** [Frame-to-frame interpolation](#setInterpolationLerp_int_void) mode must be enabled.
 
 
@@ -154,7 +158,10 @@ Sets a new interpolation lerp factor value for the IG. The *lower* the value the
 
 ## double getInterpolationLerpFactor () const
 
-Returns the current interpolation lerp factor value for the IG. The *lower* the value the smoother movement will be, but it will feel like objects move underwater or in a jelly, *higher* values result in higher positioning accuracy (objects positions will be closer to actual ones for the current frame), but objects will move with a noticeable jitter.
+Returns the current
+interpolation lerp factor value for the IG. The *lower* the value the smoother movement will be, but it will feel like objects move underwater or in a jelly, *higher* values result in higher positioning accuracy (objects positions will be closer to actual ones for the current frame), but objects will move with a noticeable jitter.
+
+
 > **Notice:** [Frame-to-frame interpolation](#setInterpolationLerp_int_void) mode must be enabled.
 
 
@@ -212,7 +219,7 @@ Sets a new value indicating if interpolation between the current and previous fr
 Returns the current value indicating if interpolation between the current and previous frames for the IG is enabled.
 ### Return value
 
-**true** if interpolation between the current and previous frames for the IG is enabled; otherwise **false**.
+**true** if interpolation between the current and previous frames for the IG is enabled ; otherwise **false**.
 ## void setInterpolationBufferSize ( int size )
 
 Sets a new size of the [interpolation](../../../../../ig/index.md#interpolation) buffer. It is recommended to set buffer size equal to the number of messages received during two [interpolation periods](#setInterpolationPeriod_double_void).
@@ -305,7 +312,7 @@ Sets a new value indicating if execution of IG logic is temporarily put on hold 
 Returns the current value indicating if execution of IG logic is temporarily put on hold (paused) or resumed.
 ### Return value
 
-**true** if pause of IG logic execution is enabled; otherwise **false**.
+**true** if pause of IG logic execution is enabled ; otherwise **false**.
 ## bool isReady () const
 
 Returns the current value indicating if all Slaves that were waited for by the IG have connected.
@@ -469,7 +476,10 @@ Returns the [interface](../../../../../api/library/plugins/ig/api/class.entity_u
 
 ## findEntityType ( )
 
+
 Returns the ID of the entity type by its name. Entity type ID and name define the type of the entity to be used for a specific instance and are set in the [entity definition section](../../../../../ig/config.md#config_entities) of the IG configuration file as follows:
+
+
 ```xml
 <entity_types>
 	<entity id="111" name="b52">
@@ -526,8 +536,11 @@ Returns the interface of the water control.
 Water control interface.
 ## loadNode ( )
 
+
 Loads a node from the specified file to the world on the Master and all Slaves. This is a network analogue of the [loadNode()](../../../../../api/library/engine/class.world_usc.md#loadNode_cstr_int_Node) method of the *World* class.
-> **Notice:** This is a safe analogue of the [Syncker](../../../../../api/library/plugins/syncker/index.md) method [loadNode()](../../../../../api/library/plugins/syncker/class.syncker_master_usc.md#loadNode_cstr_uchar_Mat4_Node) that has an internal check if this method runs on the master and if Syncker is running.
+
+
+> **Notice:** This is a safe analogue of the [Syncker](../../../../../api/library/plugins/syncker/index.md) method *[loadNode()](../../../../../api/library/plugins/syncker/class.syncker_master_usc.md#loadNode_cstr_uchar_Mat4_Node)* that has an internal check if this method runs on the master and if Syncker is running.
 
 
 ### Arguments
@@ -536,15 +549,21 @@ Loads a node from the specified file to the world on the Master and all Slaves. 
 
 ## void syncNode ( )
 
+
 Enables synchronization of parameters of the given node via the UDP protocol. Scene nodes are not synchronized by default, this method is used to add a particular node to the synchronization queue.
-> **Notice:** This is a safe analogue of the [Syncker](../../../../../api/library/plugins/syncker/index.md) method [addSyncNode()](../../../../../api/library/plugins/syncker/class.syncker_master_usc.md#addSyncNode_Node_uchar_void) that has an internal check if this method runs on the master and if Syncker is running. If this method is called on a slave, it does nothing.
+
+
+> **Notice:** This is a safe analogue of the [Syncker](../../../../../api/library/plugins/syncker/index.md) method *[addSyncNode()](../../../../../api/library/plugins/syncker/class.syncker_master_usc.md#addSyncNode_Node_uchar_void)* that has an internal check if this method runs on the master and if Syncker is running. If this method is called on a slave, it does nothing.
 
 
 ### Arguments
 
 ## void synckerCreate ( unsigned char mask = 255 )
 
+
 Synchronizes creation of the given node on all Slaves. This method is **to be called after node creation on the Master**. It is recommended to use the [*loadNode()*](#loadNode_cstr_Node) method whenever possible as this approach **allows adding nodes of all types**, unlike the [*synckerCreate()*](#synckerCreate_Node_uchar_void) method that supports only a limited number of them.
+
+
 > **Notice:** This is a safe analogue of the [Syncker](../../../../../api/library/plugins/syncker/index.md) method [createNode()](../../../../../api/library/plugins/syncker/class.syncker_master_usc.md#createNode_Node_uchar_bool) that has an internal check if this method runs on the master and if Syncker is running. If this method is called on a slave, it does nothing.
 
 
@@ -554,7 +573,10 @@ Synchronizes creation of the given node on all Slaves. This method is **to be ca
 
 ## void synckerDestroy ( )
 
+
 Synchronizes deletion of the given node (with all its children) on the Master and all Slaves.
+
+
 > **Notice:** This is a safe analogue of the [Syncker](../../../../../api/library/plugins/syncker/index.md) method [deleteNode()](../../../../../api/library/plugins/syncker/class.syncker_master_usc.md#deleteNode_Node_void) that has an internal check if this method runs on the master and if Syncker is running. If this method is called on a slave, it does nothing.
 
 
@@ -562,7 +584,10 @@ Synchronizes deletion of the given node (with all its children) on the Master an
 
 ## bool isSyncNode ( )
 
+
 Returns a value indicating if synchronization of the given node is enabled. Using this method you can quickly check if a node is monitored by the Syncker (node's states are dispatched to Slaves over the network).
+
+
 > **Notice:** This is a safe analogue of the [Syncker](../../../../../api/library/plugins/syncker/index.md) method [isSyncNode()](../../../../../api/library/plugins/syncker/class.syncker_master_usc.md#isSyncNode_Node_bool) that has an internal check if this method runs on the master and if Syncker is running. If this method is called on a slave, it does nothing.
 
 
@@ -594,7 +619,10 @@ Executes the callback function when the [user message](#sendUserMessage_uchar_Bl
 Callback subscriber ID. This ID can be used to [remove](#removeOnUserMessageReceivedCallback_void_ptr_bool) this callback when necessary.
 ## void setDistanceScale ( float d )
 
+
 Sets the global distance scale for all rendering distance parameters: shadow distance, light distance, LOD distances, etc. (see [render_distance_scale](../../../../../code/console/index.md#render_distance_scale) console command) and for the IG Simplifier component. The Simplifier component can help optimize rendering of your entities. When assigned to an entity, it enables you to define which parts of its model can be neglected starting at certain distance levels (e.g., hide flaps, ailerons, and rudders at 1km, engines at 5 km, etc.) and which substitutes can be used to represent an entity at a large distance (e.g., a flashing strobe light, when the plane is just a point on the screen).
+
+
 > **Notice:** This method calls the [*setDistanceScale()*](../../../../../api/library/rendering/class.render_usc.md#setDistanceScale_float_void) of the *Render* class.
 
 

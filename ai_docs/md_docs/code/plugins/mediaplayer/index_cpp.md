@@ -4,7 +4,7 @@
 **MediaPlayer** is a UNIGINE plugin that enables in-game playback of video content using the *[libVLC](https://images.videolan.org/vlc/libvlc.html)* library. The plugin supports video formats compatible with VLC Media Player, including local files and network streams. The plugin works by **rendering video frames into a texture** that can be set to desired texture slots of materials (albedo, emission, etc.), applied to object surfaces in your UNIGINE 3D scenes. When using the programmatic approach (managing the process via *[API](../../../api/library/plugins/mediaplayer/index.md)* manually at runtime), you can use textures produced by the Media Player virtually anywhere a normal texture can be used (in sprites, decal projections, etc.).
 
 
-> **Notice:** The *MediaPlayer Plugin* offers a limited *libVLC* functionality out of the box. If you want to have all available *libVLC* functions, you should add all required libraries ( .
+> **Warning:** The *MediaPlayer* plugin offers a limited *libVLC* functionality out of the box. Check the [Functionality](#functionality) section for more details.
 
 
 ![](mediaPlayer_plugin.jpg)
@@ -128,6 +128,31 @@ Once the plugin is added to your project, the ***VideoSourceComponent*** propert
   - Switch to **Shared** mode (*Unique* disabled) to synchronize the same video content across multiple surfaces and avoid duplicate loading. Reference the primary node with the *VideoSourceComponent* property and the *Unique* attribute enabled - simply drag that node into the **Source** field. This copies the video content texture, and all instances will play back in sync, frame-by-frame.
 
 
+### Logging
+
+
+The optional `-vlc_log_level` [startup argument](../../../code/command_line.md) sets the logging level for the plugin. The available levels are inherited from libVLC:
+
+
+| Value | Description | libVLC Option |
+|---|---|---|
+| 0 | Log output disabled. No messages are printed. | --quiet |
+| 1 | Basic logging, including errors and standard messages. | --verbose=0 |
+| 2 | Extended logging, including errors, standard messages, and warnings. | --verbose=1 |
+| 3 | Full logging, including errors, standard messages, warnings, and debug information. | --verbose=2 |
+
+
+By default (when the argument is not specified), the logging level depends on the [build configuration](../../../sdk/projects/index_cpp.md#engine_build): in *Release* builds logging is disabled, while in *Development* and *Debug* builds the plugin outputs errors and standard messages (level 1).
+
+
+If the argument is specified, its value always overrides the build-dependent default. Values outside the 0-3 range are clamped to the nearest valid one. The level is applied once, when the plugin initializes libVLC, and cannot be changed at run time.
+
+
+```bash
+-vlc_log_level 2
+```
+
+
 ## Accessing Plugin Methods
 
 
@@ -212,16 +237,31 @@ gui->addChild(sprite, Gui::ALIGN_OVERLAP | Gui::ALIGN_FIXED);
 ## Functionality
 
 
-> **Notice:** The *MediaPlayer Plugin* offers a limited *libVLC* functionality out of the box. If you want to have all available *libVLC* functions, you should add all required libraries ( .
+The *MediaPlayer* plugin offers a limited *libVLC* functionality out of the box, supporting the most common video formats and codecs.
+
+
+- Supported formats: mov, avi, mp4, ogg, webm, wmv, MJPEG, FLV, SWF, F4V, MKV, M4V.
+- Supported codecs: MJPEG, H.264, H.265, AV1, VP9
+
+
+To enable the full range of *libVLC* functionality, including support for all available formats, add the required libraries manually. Copy the following files and folder from `VideoLAN/VLC/` to `<ProjectName>/bin/plugins/Unigine/MediaPlayer`:
+
+
+- `libvlc.dll`
+- `libvlccore.dll`
+- `plugins` folder
+
+
+For more information and library downloads, refer to the [official VideoLAN website](https://www.videolan.org/vlc/).
 
 
 ## License
 
 
-You may not use the *MediaPlayer Plugin* (including as part of a final application), nor permit its use, in combination with Third-Party Components distributed under terms that directly or indirectly require the *MediaPlayer Plugin* to be licensed under terms different from those of your license.
+You may not use the *MediaPlayer* plugin (including as part of a final application), nor permit its use, in combination with Third-Party Components distributed under terms that directly or indirectly require the *MediaPlayer* plugin to be licensed under terms different from those of your license.
 
 
-In particular, you may not use the *MediaPlayer Plugin* in combination with components licensed under:
+In particular, you may not use the *MediaPlayer* plugin in combination with components licensed under:
 
 
 - the GNU General Public License (GPL)
@@ -235,7 +275,7 @@ For the purposes of this clause, "Third-Party Components" means software (includ
 ## See Also
 
 
-- *[MediaPlayer Plugin](../../../api/library/plugins/mediaplayer/index.md)* classes
+- *MediaPlayer* plugin [classes](../../../api/library/plugins/mediaplayer/index.md)
 - Samples in **C++ SIM Samples** set:
 
   -

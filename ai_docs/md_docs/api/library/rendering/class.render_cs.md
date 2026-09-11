@@ -33,9 +33,6 @@ Provides access to Unigine rendering functions. For example, it is used by Wall 
 | **LIGHT_VOXEL_PROBE** = 10 | Light voxel probe pass. |
 | **LIGHT_ENVIRONMENT_PROBE** = 11 | Light environment probe pass. |
 | **LIGHT_PLANAR_PROBE** = 12 | Light planar probe pass. |
-| **LIGHT_OMNI** = 11 | Omni light pass. |
-| **LIGHT_PROJ** = 12 | Proj light pass. |
-| **LIGHT_WORLD** = 13 | World light pass. |
 | **SHADOW** = 13 | Shadow pass. |
 | **DEPTH_PRE_PASS** = 14 | Depth pre-pass. |
 | **MS_DEPTH** = 15 | MS depth pass. |
@@ -95,7 +92,6 @@ Quality of GGX mipmaps for environment reflections on rough surfaces.
 |---|---|
 | **DISABLE** = 0 | Asynchronous pre-loading of meshes is disabled. |
 | **RADIUS** = 1 | Asynchronous pre-loading of meshes is enabled within a certain radius. |
-| **FULL** = 2 | Asynchronous pre-loading of all meshes is enabled. |
 
 ## STREAMING_IGPU_VRAM_MODE
 
@@ -164,12 +160,13 @@ Tone mapping mode.
 | **PANORAMA_FISHEYE_EQUDISTANT** = 6 | Enables rendering of the viewport as an equidistant spherical panorama (fisheye). |
 | **PANORAMA_FISHEYE_STEREOGRAPHIC** = 7 | Enables rendering of the viewport as an stereographic spherical panorama (fisheye). |
 | **PANORAMA_FISHEYE_EQUISOLID** = 8 | Enables rendering of the viewport as an equisolid spherical panorama (fisheye). |
-| **STEREO_ANAGLYPH** = 9 | Enables the anaglyph stereo mode that is viewed with red-cyan anaglyph glasses. |
-| **STEREO_INTERLACED** = 10 | Enables the interlaced stereo mode that is used with interlaced stereo monitors and polarized 3D glasses. |
-| **STEREO_HORIZONTAL** = 11 | Enables the horizontal stereo mode that is supported on mobile devices. |
-| **STEREO_VERTICAL** = 12 | Enables the vertical stereo mode that is supported on mobile devices. |
-| **STEREO_SEPARATE** = 13 | Enables the replicate images stereo mode. |
-| **STEREO_REPLICATE** = 14 | Enables the separate images stereo mode. This mode serves to output two separate images for each of the eye. It can be used with any VR/AR output devices that support separate images output, e.g. for 3D video glasses or helmets (HMD). |
+| **PANORAMA_FISHEYE_KANNALA_BRANDT** = 9 | Enables the Kannala-Brandt fisheye camera model. |
+| **STEREO_ANAGLYPH** = 10 | Enables the anaglyph stereo mode that is viewed with red-cyan anaglyph glasses. |
+| **STEREO_INTERLACED** = 11 | Enables the interlaced stereo mode that is used with interlaced stereo monitors and polarized 3D glasses. |
+| **STEREO_HORIZONTAL** = 12 | Enables the horizontal stereo mode that is supported on mobile devices. |
+| **STEREO_VERTICAL** = 13 | Enables the vertical stereo mode that is supported on mobile devices. |
+| **STEREO_SEPARATE** = 14 | Enables the replicate images stereo mode. |
+| **STEREO_REPLICATE** = 15 | Enables the separate images stereo mode. This mode serves to output two separate images for each of the eye. It can be used with any VR/AR output devices that support separate images output, e.g. for 3D video glasses or helmets (HMD). |
 
 ## VSYNC
 
@@ -281,7 +278,7 @@ Determines at which stage of the rendering pipeline the upscaling is applied.
 | **AFTER_ADAPTATION_COLOR** = 1 | Upscale is applied after color adaptation. |
 | **BEFORE_TAA** = 2 | Upscale is applied before TAA. |
 | **AFTER_POST_EFFECTS** = 3 | Upscale is applied after post-effects, before the Sharpen effect. |
-| **RENDER_UPSCALE_ORDER.AFTER_POST_EFFECTS** = 3 | Total number of upscale order modes. |
+| **RENDER_UPSCALE_NUM_ORDERS** = 3 | Total number of upscale order modes. |
 
 ## MATERIALS_QUALITY
 
@@ -356,6 +353,21 @@ Lifetime of a temporary render texture that defines when the allocated resource 
 | **VARJO_VR_4** = 15 | Emulates the Varjo VR-4 headset rendering parameters. |
 | **RENDER_VR_EMULATION_NUM_MODES** = 16 | The total number of emulation modes. |
 
+## RENDER_PARAMETER
+
+Data types for custom render parameters. These parameters are passed to shaders as uniforms (if dynamic) or as defines (if static), and are managed via [addParameter()](#addParameter_cstr_int_int_UGUID_int), [setParameter*()](#setParameterFloat_int_float_void), and [getParameter*()](#getParameterFloat_int_float) methods.
+| Name | Description |
+|---|---|
+| **FLOAT** = 0 | Single float value (shader type: float). |
+| **FLOAT2** = 1 | Two-component float vector (shader type: float2). |
+| **FLOAT3** = 2 | Three-component float vector (shader type: float3). |
+| **FLOAT4** = 3 | Four-component float vector (shader type: float4). |
+| **INT** = 4 | Single integer value (shader type: int). |
+| **INT2** = 5 | Two-component integer vector (shader type: int2). |
+| **INT3** = 6 | Three-component integer vector (shader type: int3). |
+| **INT4** = 7 | Four-component integer vector (shader type: int4). |
+| **BOOL** = 8 | Boolean value (shader type: bool). |
+
 ## SHOW_QUAD_OVERDRAW_PASSES
 
 | Name | Description |
@@ -386,6 +398,31 @@ Quality levels of shading. In graph-based materials, this corresponds to the inp
 | **LOW** = 0 | Low shading quality level. |
 | **MEDIUM** = 1 | Medium shading quality level. |
 | **HIGH** = 2 | High shading quality level (default). |
+
+## RENDER_DYNAMIC_RESOLUTION_DIMENSION
+
+| Name | Description |
+|---|---|
+| **UNIFORM** = 0 | Uniform dynamic resolution scaling. |
+| **HORIZONTAL** = 1 | Dynamic resolution scaling only in horizontal dimension. |
+| **VERTICAL** = 2 | Dynamic resolution scaling only in vertical dimension. |
+
+## DOF_SAMPLING_MODE
+
+Bokeh sampling mode of the Depth of Field effect.
+| Name | Description |
+|---|---|
+| **CONSTANT_PATTERN** = 0 | The bokeh samples are laid out in fixed rings, the same way for every pixel; the sample count is defined by the DOF quality preset. |
+| **JITTER** = 1 | Every pixel gets its own bokeh sample positions, so the pattern reads as a fine grain instead of a visible structure; the sample count is set directly via the **[DOFJitterSamples](../../...md#getDOFJitterSamples_int)** property. The positions advance every frame and are averaged by a temporal filter, which is a part of this mode. |
+
+## SURFACE_ID
+
+Reserved surface ID values. A surface ID is a frame-local index of the row storing the parameters of a rendered surface in the per-view GPU buffer; it is written to the screen-space surface ID buffers. The values below *SURFACE_ID_RESERVED_NUM* are reserved by the engine.
+| Name | Description |
+|---|---|
+| **NONE** = 0 | No surface. This value is read from a surface ID buffer for pixels that have no rendered surface in the corresponding stage. |
+| **SKY** = 1 | Sky. The opaque surface ID buffer is cleared to this value each frame, so pixels not covered by any surface are marked as sky. |
+| **RESERVED_NUM** = 2 | Number of reserved surface ID values. Surfaces are assigned IDs starting from this value. |
 
 ### Properties
 
@@ -880,9 +917,9 @@ Range of values: **[0.0f, 100000.0f]**. The default value is : **100.0f**.
 
 ***Console*:**`render_clouds_interleaved_rendering`The [interleaved rendering mode](../../../editor2/settings/render_settings/clouds/index.md#interleaved_rendering) for clouds. In cases when clouds are viewed from the ground, or from above (at significant distance) and viewer's velocities are less than 200 units per second, this parameter can be used to provide a significant gain in performance. One of the following values:
 - **0** - Disabled (by default)
-- **1** - 2×2
-- **2** - 4×4
-- **3** - 8×8
+- **1** - 2ï¿½2
+- **2** - 4ï¿½4
+- **3** - 8ï¿½8
 
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[CloudsQualityPreset](/api/library/rendering/class.render_cs#render_clouds_quality_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
@@ -3034,7 +3071,7 @@ Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
 The value indicating if force-streaming is enabled for all resources.
 ## int StreamingAnimationsLifeTime
 
-***Console*:**`render_streaming_animations_life_time`The lifetime of GPU cache used for animations rendering.
+***Console*:**`render_streaming_animations_life_time`The lifetime of the RAM cache used for animation streaming, in frames. When an animation is no longer used, it remains in the cache for this number of frames before being unloaded, so that it can be reused without reloading. The default value of -1 keeps animations in memory permanently - they are never unloaded. Values below 6 are clamped to 6 frames.
 Range of values: **[-1, INT_MAX]**. The default value is : **-1**.
 ## int StreamingParticlesMemoryLimit
 
@@ -3080,6 +3117,20 @@ Range of values: **[-1, inf]**. The default value is : **-1**.
 - **0** - asynchronous streaming (by default)
 - **1** - force-loading of resources
 
+## Render.STREAMING_MODE StreamingAnimationsMode
+
+***Console*:**`render_streaming_animations_mode`The streaming mode for skinned mesh animations. The following modes are available:
+- *Async* - asynchronous loading of animations.
+- *Force* - force-loading of animations required for the current frame at once.
+
+ One of the following values:
+- **0** - asynchronous streaming
+- **1** - force-loading of resources (by default)
+
+## int StreamingAnimationCacheRAM
+
+***Console*:**`render_streaming_animation_cache_ram`The hard limit on the amount of RAM, in megabytes, used by the animation streaming cache. The cache stores currently unused but potentially reusable animations to reduce loading times. The default value of -1 means the cache size is not limited.
+Range of values: **[-1, INT_MAX]**. The default value is : **-1**.
 ## Render.STREAMING_MESHES_PREFETCH StreamingMeshesPrefetchCollision
 
 ***Console*:**`render_streaming_meshes_prefetch_collision`The mode of asynchronous pre-loading of meshes to memory before they are used. Pre-loading is available only for meshes, which have at least one surface with the *Collision* flag set. There are 2 modes of loading such meshes to RAM:
@@ -3229,6 +3280,7 @@ The main [viewport](../../../api/library/rendering/class.viewport_cs.md). The re
 - *Panorama Fisheye Equidistant* - equidistant (tru-theta or f-theta) spherical panorama (fisheye) with an adjustable Field of View.
 - *Panorama Fisheye Stereographic* - stereographic spherical panorama (fisheye) with an adjustable Field of View.
 - *Panorama Fisheye Equisolid* - equisolid (equal-area) spherical panorama (fisheye) with an adjustable Field of View.
+- *Panorama Fisheye Kannala-Brandt* - Kannala-Brandt fisheye camera model.
 - *Anaglyph* - stereo mode that is viewed with red-cyan anaglyph glasses.
 - *Interlaced* - stereo mode that is used with interlaced stereo monitors and polarized 3D glasses.
 - *Horizontal* - horizontal stereo mode.
@@ -3247,10 +3299,11 @@ The main [viewport](../../../api/library/rendering/class.viewport_cs.md). The re
 - **6** - Panorama Fisheye Equidistant
 - **7** - Panorama Fisheye Stereographic
 - **8** - Panorama Fisheye Equisolid
-- **9** - Anaglyph
-- **10** - Interlaced
-- **11** - Horizontal
-- **12** - Vertical
+- **9** - Panorama Fisheye Kannala-Brandt
+- **10** - Anaglyph
+- **11** - Interlaced
+- **12** - Horizontal
+- **13** - Vertical
 
 ## string ShaderDefines
 
@@ -3397,15 +3450,15 @@ Range of values: **[0.0f, 1000.0f]**. The default value is : **0.01f**.
 > **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
 
   One of the following values:
-- **0** - 64×64
-- **1** - 128×128
-- **2** - 256×256
-- **3** - 512×512
-- **4** - 1024×1024 (by default)
-- **5** - 2048×2048
-- **6** - 4096×4096
-- **7** - 8192×8192
-- **8** - 16384×16384
+- **0** - 64ï¿½64
+- **1** - 128ï¿½128
+- **2** - 256ï¿½256
+- **3** - 512ï¿½512
+- **4** - 1024ï¿½1024 (by default)
+- **5** - 2048ï¿½2048
+- **6** - 4096ï¿½4096
+- **7** - 8192ï¿½8192
+- **8** - 16384ï¿½16384
 
 ## int LandscapeTerrainDetailResolutionHeight
 
@@ -3413,15 +3466,15 @@ Range of values: **[0.0f, 1000.0f]**. The default value is : **0.01f**.
 > **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
 
   One of the following values:
-- **0** - 64×64
-- **1** - 128×128
-- **2** - 256×256
-- **3** - 512×512
-- **4** - 1024×1024 (by default)
-- **5** - 2048×2048
-- **6** - 4096×4096
-- **7** - 8192×8192
-- **8** - 16384×16384
+- **0** - 64ï¿½64
+- **1** - 128ï¿½128
+- **2** - 256ï¿½256
+- **3** - 512ï¿½512
+- **4** - 1024ï¿½1024 (by default)
+- **5** - 2048ï¿½2048
+- **6** - 4096ï¿½4096
+- **7** - 8192ï¿½8192
+- **8** - 16384ï¿½16384
 
 ## int LandscapeTerrainDetailResolutionAlbedo
 
@@ -3429,15 +3482,15 @@ Range of values: **[0.0f, 1000.0f]**. The default value is : **0.01f**.
 > **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
 
   One of the following values:
-- **0** - 64×64
-- **1** - 128×128
-- **2** - 256×256
-- **3** - 512×512
-- **4** - 1024×1024 (by default)
-- **5** - 2048×2048
-- **6** - 4096×4096
-- **7** - 8192×8192
-- **8** - 16384×16384
+- **0** - 64ï¿½64
+- **1** - 128ï¿½128
+- **2** - 256ï¿½256
+- **3** - 512ï¿½512
+- **4** - 1024ï¿½1024 (by default)
+- **5** - 2048ï¿½2048
+- **6** - 4096ï¿½4096
+- **7** - 8192ï¿½8192
+- **8** - 16384ï¿½16384
 
 ## int LandscapeTerrainVTTilesReloadPerFrame
 
@@ -3484,9 +3537,9 @@ Range of values: **[0.0f, 1.0f]**. The default value is : **0.95f**.
 ## float LandscapeTerrainVTMemorySize
 
 ***Console*:**`render_landscape_terrain_vt_memory_size`The value defining memory consumption for the [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md) textures. The value is interpreted as follows:
-- 0.0f - 3072×3072 (~200 MB of VRAM)
-- 1.0f - 16384×16384 (~3.1 GB of VRAM)
-- **0.4f** - 8192×8192 (~860 MB of VRAM)
+- 0.0f - 3072ï¿½3072 (~200 MB of VRAM)
+- 1.0f - 16384ï¿½16384 (~3.1 GB of VRAM)
+- **0.4f** - 8192ï¿½8192 (~860 MB of VRAM)
 
 
 > **Notice:** [Reloads Landscape Terrain graphic data](../../../objects/objects/terrain/landscape_terrain/settings.md#runtime_safe).
@@ -4053,6 +4106,18 @@ Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
 Range of values: **[0.0f, 50.0f]**. The default value is : **1.5f**.
 > **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[WaterGeometryPreset](/api/library/rendering/class.render_cs#render_water_geometry_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
 
+## float WaterGeometryProgressionFovMin
+
+***Console*:**`render_water_geometry_progression_fov_min`The minimum camera field of view value taken into account for tessellation of [Global Water](../../../objects/objects/water/water_object.md) geometry, in degrees. Tessellation distances are scaled proportionally to the ratio of 60 degrees to the current camera FOV, so that narrow fields of view (zoom optics, long lenses, binocular views) get detailed water geometry at longer distances. The FOV value used in this calculation is clamped to be no less than this minimum, preventing excessive tessellation at extremely narrow FOV values.
+Range of values: **[0.01f, 60.0f]**. The default value is : **1.5f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[WaterGeometryPreset](/api/library/rendering/class.render_cs#render_water_geometry_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float WaterGeometryProgressionFovScale
+
+***Console*:**`render_water_geometry_progression_fov_scale`The intensity of [Global Water](../../../objects/objects/water/water_object.md) tessellation compensation for narrow camera fields of view. Tessellation distances are scaled proportionally to the ratio of 60 degrees to the current camera FOV raised to the power of this value: by 0, the camera FOV does not affect tessellation distances at all; by 1, the scaling is strictly linear. Intermediate values soften the compensation.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.75f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[WaterGeometryPreset](/api/library/rendering/class.render_cs#render_water_geometry_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
 ## float WaterGeometryPolygonSize
 
 ***Console*:**`render_water_geometry_polygon_size`The size of [Global Water](../../../objects/objects/water/water_object.md) polygons. The value defines the maximum allowed density of Global Water geometry. If the polygon size is large, small waves will be lost. It is better to set this parameter to about 1/3 or 1/4 of the smallest wavelength.
@@ -4345,7 +4410,7 @@ Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
 Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
 ## 🔒︎ Event EventBegin
 
-The event triggered when rendering of the frame begins. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when rendering of the frame begins. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -4439,7 +4504,7 @@ Render.EventBegin.Enabled = true;
 
 ## 🔒︎ Event EventBeginEnvironment
 
-The event triggered before the Environment rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the Environment rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -4533,7 +4598,7 @@ Render.EventBeginEnvironment.Enabled = true;
 
 ## 🔒︎ Event EventEndEnvironment
 
-The event triggered after the Environment rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the Environment rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -4627,7 +4692,7 @@ Render.EventEndEnvironment.Enabled = true;
 
 ## 🔒︎ Event EventBeginShadows
 
-The event triggered before the shadows rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the shadows rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -4721,7 +4786,7 @@ Render.EventBeginShadows.Enabled = true;
 
 ## 🔒︎ Event EventBeginWorldShadow
 
-The event triggered before the stage of rendering shadows from World light sources. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the stage of rendering shadows from World light sources. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -4815,7 +4880,7 @@ Render.EventBeginWorldShadow.Enabled = true;
 
 ## 🔒︎ Event EventEndWorldShadow
 
-The event triggered after the stage of rendering shadows from World light sources. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the stage of rendering shadows from World light sources. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -4909,7 +4974,7 @@ Render.EventEndWorldShadow.Enabled = true;
 
 ## 🔒︎ Event EventBeginProjShadow
 
-The event triggered before the stage of rendering shadows from Projected light sources. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the stage of rendering shadows from Projected light sources. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -5003,7 +5068,7 @@ Render.EventBeginProjShadow.Enabled = true;
 
 ## 🔒︎ Event EventEndProjShadow
 
-The event triggered after the stage of rendering shadows from Projected light sources. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the stage of rendering shadows from Projected light sources. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -5097,7 +5162,7 @@ Render.EventEndProjShadow.Enabled = true;
 
 ## 🔒︎ Event EventBeginOmniShadow
 
-The event triggered before the stage of rendering shadows from Omni light sources. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the stage of rendering shadows from Omni light sources. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -5191,7 +5256,7 @@ Render.EventBeginOmniShadow.Enabled = true;
 
 ## 🔒︎ Event EventEndOmniShadow
 
-The event triggered after the stage of rendering shadows from Omni light sources. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the stage of rendering shadows from Omni light sources. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -5285,7 +5350,7 @@ Render.EventEndOmniShadow.Enabled = true;
 
 ## 🔒︎ Event EventEndShadows
 
-The event triggered after the shadows rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the shadows rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -5379,7 +5444,7 @@ Render.EventEndShadows.Enabled = true;
 
 ## 🔒︎ Event EventBeginScreen
 
-The event triggered before the stage of rendering each screen (a stereo image has 2 screens, while a cubemap will have 6). You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the stage of rendering each screen (a stereo image has 2 screens, while a cubemap will have 6). You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -5473,7 +5538,7 @@ Render.EventBeginScreen.Enabled = true;
 
 ## 🔒︎ Event EventBeginMixedRealityBlendMaskColor
 
-The event triggered before the mask for Mixed Reality is rendered. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the mask for Mixed Reality is rendered. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -5567,7 +5632,7 @@ Render.EventBeginMixedRealityBlendMaskColor.Enabled = true;
 
 ## 🔒︎ Event EventEndMixedRealityBlendMaskColor
 
-The event triggered after the mask for Mixed Reality is rendered. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the mask for Mixed Reality is rendered. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -5661,7 +5726,7 @@ Render.EventEndMixedRealityBlendMaskColor.Enabled = true;
 
 ## 🔒︎ Event EventBeginVisualizerQuadOverdraw
 
-The event triggered before *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer rendering. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer rendering. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -5755,7 +5820,7 @@ publisher.EventBeginVisualizerQuadOverdraw.Enabled = true;
 
 ## 🔒︎ Event EventEndVisualizerQuadOverdraw
 
-The event triggered after *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer rendering. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after *[Quad Overdraw](../../../content/optimization/geometry/quad_overdraw/index.md#tool_overview)* visualizer rendering. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -5849,7 +5914,7 @@ publisher.EventEndVisualizerQuadOverdraw.Enabled = true;
 
 ## 🔒︎ Event EventBeginOpacityGBuffer
 
-The event triggered before filling the Gbuffer. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before filling the Gbuffer. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -5943,7 +6008,7 @@ Render.EventBeginOpacityGBuffer.Enabled = true;
 
 ## 🔒︎ Event EventBeginAuxiliarySurfaces
 
-The event triggered before auxiliary surfaces rendering. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before auxiliary surfaces rendering. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -6037,7 +6102,7 @@ Render.EventBeginAuxiliarySurfaces.Enabled = true;
 
 ## 🔒︎ Event EventEndAuxiliarySurfaces
 
-The event triggered after auxiliary surfaces rendering. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after auxiliary surfaces rendering. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -6131,7 +6196,7 @@ Render.EventEndAuxiliarySurfaces.Enabled = true;
 
 ## 🔒︎ Event EventEndOpacityGBuffer
 
-The event triggered after filling the Gbuffer. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after filling the Gbuffer. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -6225,7 +6290,7 @@ Render.EventEndOpacityGBuffer.Enabled = true;
 
 ## 🔒︎ Event EventBeginOpacityDecals
 
-The event triggered before the opacity decals rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the opacity decals rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -6319,7 +6384,7 @@ Render.EventBeginOpacityDecals.Enabled = true;
 
 ## 🔒︎ Event EventEndOpacityDecals
 
-The event triggered after the opacity decals rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the opacity decals rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -6413,7 +6478,7 @@ Render.EventEndOpacityDecals.Enabled = true;
 
 ## 🔒︎ Event EventBeginAuxiliaryDecals
 
-The event triggered before the auxiliary decals rendering. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the auxiliary decals rendering. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -6507,7 +6572,7 @@ Render.EventBeginAuxiliaryDecals.Enabled = true;
 
 ## 🔒︎ Event EventEndAuxiliaryDecals
 
-The event triggered after the auxiliary decals rendering. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the auxiliary decals rendering. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -6601,7 +6666,7 @@ Render.EventEndAuxiliaryDecals.Enabled = true;
 
 ## 🔒︎ Event EventBeginCurvature
 
-The event triggered before the [SSBevel](../../../editor2/settings/render_settings/ssbevel/index.md) effect rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the [SSBevel](../../../editor2/settings/render_settings/ssbevel/index.md) effect rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -6695,7 +6760,7 @@ Render.EventBeginCurvature.Enabled = true;
 
 ## 🔒︎ Event EventEndCurvature
 
-The event triggered after the [SSBevel](../../../editor2/settings/render_settings/ssbevel/index.md) effect rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the [SSBevel](../../../editor2/settings/render_settings/ssbevel/index.md) effect rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -6789,7 +6854,7 @@ Render.EventEndCurvature.Enabled = true;
 
 ## 🔒︎ Event EventBeginCurvatureComposite
 
-The event triggered before the curvature rendering stage for the [SSDirt](../../../editor2/settings/render_settings/ssdirt/index.md) effect. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the curvature rendering stage for the [SSDirt](../../../editor2/settings/render_settings/ssdirt/index.md) effect. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -6883,7 +6948,7 @@ Render.EventBeginCurvatureComposite.Enabled = true;
 
 ## 🔒︎ Event EventEndCurvatureComposite
 
-The event triggered after the curvature rendering stage for the [SSDirt](../../../editor2/settings/render_settings/ssdirt/index.md) effect. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the curvature rendering stage for the [SSDirt](../../../editor2/settings/render_settings/ssdirt/index.md) effect. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -6977,7 +7042,7 @@ Render.EventEndCurvatureComposite.Enabled = true;
 
 ## 🔒︎ Event EventBeginSSRTGI
 
-The event triggered before the SSRTGI rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the SSRTGI rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -7071,7 +7136,7 @@ Render.EventBeginSSRTGI.Enabled = true;
 
 ## 🔒︎ Event EventEndSSRTGI
 
-The event triggered after the SSRTGI rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the SSRTGI rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -7165,7 +7230,7 @@ Render.EventEndSSRTGI.Enabled = true;
 
 ## 🔒︎ Event EventBeginOpacityLights
 
-The event triggered before the opacity lightgs rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the opacity lightgs rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -7259,7 +7324,7 @@ Render.EventBeginOpacityLights.Enabled = true;
 
 ## 🔒︎ Event EventEndOpacityLights
 
-The event triggered after the opacity lightgs rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the opacity lightgs rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -7353,7 +7418,7 @@ Render.EventEndOpacityLights.Enabled = true;
 
 ## 🔒︎ Event EventBeginOpacityVoxelProbes
 
-The event triggered before the opacity voxel probes rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the opacity voxel probes rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -7447,7 +7512,7 @@ Render.EventBeginOpacityVoxelProbes.Enabled = true;
 
 ## 🔒︎ Event EventEndOpacityVoxelProbes
 
-The event triggered after the opacity voxel probes rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the opacity voxel probes rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -7541,7 +7606,7 @@ Render.EventEndOpacityVoxelProbes.Enabled = true;
 
 ## 🔒︎ Event EventBeginOpacityEnvironmentProbes
 
-The event triggered before the opacity environment probes rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the opacity environment probes rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -7635,7 +7700,7 @@ Render.EventBeginOpacityEnvironmentProbes.Enabled = true;
 
 ## 🔒︎ Event EventEndOpacityEnvironmentProbes
 
-The event triggered after the opacity environment probes rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the opacity environment probes rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -7729,7 +7794,7 @@ Render.EventEndOpacityEnvironmentProbes.Enabled = true;
 
 ## 🔒︎ Event EventBeginOpacityPlanarProbes
 
-The event triggered before the opacity planar probes rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the opacity planar probes rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -7823,7 +7888,7 @@ Render.EventBeginOpacityPlanarProbes.Enabled = true;
 
 ## 🔒︎ Event EventEndOpacityPlanarProbes
 
-The event triggered after the opacity planar probes rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the opacity planar probes rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -7917,7 +7982,7 @@ Render.EventEndOpacityPlanarProbes.Enabled = true;
 
 ## 🔒︎ Event EventBeginRefractionBuffer
 
-The event triggered before filling the refraction buffer. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before filling the refraction buffer. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -8011,7 +8076,7 @@ Render.EventBeginRefractionBuffer.Enabled = true;
 
 ## 🔒︎ Event EventEndRefractionBuffer
 
-The event triggered after filling the refraction buffer. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after filling the refraction buffer. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -8105,7 +8170,7 @@ Render.EventEndRefractionBuffer.Enabled = true;
 
 ## 🔒︎ Event EventBeginTransparentBlurBuffer
 
-The event triggered before filling the transparent blur buffer. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before filling the transparent blur buffer. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -8199,7 +8264,7 @@ Render.EventBeginTransparentBlurBuffer.Enabled = true;
 
 ## 🔒︎ Event EventEndTransparentBlurBuffer
 
-The event triggered after filling the transparent blur buffer. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after filling the transparent blur buffer. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -8293,7 +8358,7 @@ Render.EventEndTransparentBlurBuffer.Enabled = true;
 
 ## 🔒︎ Event EventBeginSSSS
 
-The event triggered before the Screen-Space Shadow Shafts rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the Screen-Space Shadow Shafts rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -8387,7 +8452,7 @@ Render.EventBeginSSSS.Enabled = true;
 
 ## 🔒︎ Event EventEndSSSS
 
-The event triggered after the Screen-Space Shadow Shafts rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the Screen-Space Shadow Shafts rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -8481,7 +8546,7 @@ Render.EventEndSSSS.Enabled = true;
 
 ## 🔒︎ Event EventBeginSSR
 
-The event triggered before the SSR rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the SSR rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -8575,7 +8640,7 @@ Render.EventBeginSSR.Enabled = true;
 
 ## 🔒︎ Event EventEndSSR
 
-The event triggered after the SSR rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the SSR rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -8669,7 +8734,7 @@ Render.EventEndSSR.Enabled = true;
 
 ## 🔒︎ Event EventBeginSSAO
 
-The event triggered before the SSAO rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the SSAO rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -8763,7 +8828,7 @@ Render.EventBeginSSAO.Enabled = true;
 
 ## 🔒︎ Event EventEndSSAO
 
-The event triggered after the SSAO rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the SSAO rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -8857,7 +8922,7 @@ Render.EventEndSSAO.Enabled = true;
 
 ## 🔒︎ Event EventBeginSSGI
 
-The event triggered before the SSGI rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the SSGI rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -8951,7 +9016,7 @@ Render.EventBeginSSGI.Enabled = true;
 
 ## 🔒︎ Event EventEndSSGI
 
-The event triggered after the SSGI rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the SSGI rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -9045,7 +9110,7 @@ Render.EventEndSSGI.Enabled = true;
 
 ## 🔒︎ Event EventBeginSky
 
-The event triggered before the sky rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the sky rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -9139,7 +9204,7 @@ Render.EventBeginSky.Enabled = true;
 
 ## 🔒︎ Event EventEndSky
 
-The event triggered after the sky rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the sky rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -9233,7 +9298,7 @@ Render.EventEndSky.Enabled = true;
 
 ## 🔒︎ Event EventBeginCompositeDeferred
 
-The event triggered before the clouds deferred composite stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the clouds deferred composite stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -9327,7 +9392,7 @@ Render.EventBeginCompositeDeferred.Enabled = true;
 
 ## 🔒︎ Event EventEndCompositeDeferred
 
-The event triggered after the clouds deferred composite stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the clouds deferred composite stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -9421,7 +9486,7 @@ Render.EventEndCompositeDeferred.Enabled = true;
 
 ## 🔒︎ Event EventBeginTransparent
 
-The event triggered before the transparent objects rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the transparent objects rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -9515,7 +9580,7 @@ Render.EventBeginTransparent.Enabled = true;
 
 ## 🔒︎ Event EventBeginClouds
 
-The event triggered before the clouds rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the clouds rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -9609,7 +9674,7 @@ Render.EventBeginClouds.Enabled = true;
 
 ## 🔒︎ Event EventEndClouds
 
-The event triggered after the clouds rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the clouds rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -9703,7 +9768,7 @@ Render.EventEndClouds.Enabled = true;
 
 ## 🔒︎ Event EventBeginWater
 
-The event triggered before the water rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the water rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -9797,7 +9862,7 @@ Render.EventBeginWater.Enabled = true;
 
 ## 🔒︎ Event EventBeginWaterGBuffer
 
-The event triggered before the Water G-Buffer rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the Water G-Buffer rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -9891,7 +9956,7 @@ publisher.EventBeginWaterGBuffer.Enabled = true;
 
 ## 🔒︎ Event EventEndWaterGBuffer
 
-The event triggered after the Water G-Buffer rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the Water G-Buffer rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -9985,7 +10050,7 @@ publisher.EventEndWaterGBuffer.Enabled = true;
 
 ## 🔒︎ Event EventBeginWaterDecals
 
-The event triggered before the water decals rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the water decals rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -10079,7 +10144,7 @@ Render.EventBeginWaterDecals.Enabled = true;
 
 ## 🔒︎ Event EventEndWaterDecals
 
-The event triggered after the water decals rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the water decals rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -10173,7 +10238,7 @@ Render.EventEndWaterDecals.Enabled = true;
 
 ## 🔒︎ Event EventBeginWaterLights
 
-The event triggered before the water lights rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the water lights rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -10267,7 +10332,7 @@ Render.EventBeginWaterLights.Enabled = true;
 
 ## 🔒︎ Event EventEndWaterLights
 
-The event triggered after the water lights rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the water lights rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -10361,7 +10426,7 @@ Render.EventEndWaterLights.Enabled = true;
 
 ## 🔒︎ Event EventBeginWaterVoxelProbes
 
-The event triggered before the water voxel probes rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the water voxel probes rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -10455,7 +10520,7 @@ Render.EventBeginWaterVoxelProbes.Enabled = true;
 
 ## 🔒︎ Event EventEndWaterVoxelProbes
 
-The event triggered after the water voxel probes rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the water voxel probes rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -10549,7 +10614,7 @@ Render.EventEndWaterVoxelProbes.Enabled = true;
 
 ## 🔒︎ Event EventBeginWaterEnvironmentProbes
 
-The event triggered before the water environment probes rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the water environment probes rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -10643,7 +10708,7 @@ Render.EventBeginWaterEnvironmentProbes.Enabled = true;
 
 ## 🔒︎ Event EventEndWaterEnvironmentProbes
 
-The event triggered after the water environment probes rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the water environment probes rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -10737,7 +10802,7 @@ Render.EventEndWaterEnvironmentProbes.Enabled = true;
 
 ## 🔒︎ Event EventBeginWaterPlanarProbes
 
-The event triggered before the water planar probes rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the water planar probes rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -10831,7 +10896,7 @@ Render.EventBeginWaterPlanarProbes.Enabled = true;
 
 ## 🔒︎ Event EventEndWaterPlanarProbes
 
-The event triggered after the water planar probes rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the water planar probes rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -10925,7 +10990,7 @@ Render.EventEndWaterPlanarProbes.Enabled = true;
 
 ## 🔒︎ Event EventEndWater
 
-The event triggered after the water rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the water rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -11019,7 +11084,7 @@ Render.EventEndWater.Enabled = true;
 
 ## 🔒︎ Event EventEndTransparent
 
-The event triggered after the transparent objects rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the transparent objects rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -11113,7 +11178,7 @@ Render.EventEndTransparent.Enabled = true;
 
 ## 🔒︎ Event EventBeginSrgbCorrection
 
-The event triggered before the sRGB correction stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the sRGB correction stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -11207,7 +11272,7 @@ Render.EventBeginSrgbCorrection.Enabled = true;
 
 ## 🔒︎ Event EventEndSrgbCorrection
 
-The event triggered after the sRGB correction stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the sRGB correction stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -11301,7 +11366,7 @@ Render.EventEndSrgbCorrection.Enabled = true;
 
 ## 🔒︎ Event EventBeginAdaptationColorAverage
 
-The event triggered before the calculation of automatic exposure and white balance correction. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the calculation of automatic exposure and white balance correction. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -11395,7 +11460,7 @@ Render.EventBeginAdaptationColorAverage.Enabled = true;
 
 ## 🔒︎ Event EventEndAdaptationColorAverage
 
-The event triggered after the calculation of automatic exposure and white balance correction. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the calculation of automatic exposure and white balance correction. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -11489,7 +11554,7 @@ Render.EventEndAdaptationColorAverage.Enabled = true;
 
 ## 🔒︎ Event EventBeginAdaptationColor
 
-The event triggered before the color adaptation rendering stage (automatic exposure and white balance correction). You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the color adaptation rendering stage (automatic exposure and white balance correction). You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -11583,7 +11648,7 @@ Render.EventBeginAdaptationColor.Enabled = true;
 
 ## 🔒︎ Event EventEndAdaptationColor
 
-The event triggered after the color adaptation rendering stage (automatic exposure and white balance correction). You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the color adaptation rendering stage (automatic exposure and white balance correction). You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -11677,7 +11742,7 @@ Render.EventEndAdaptationColor.Enabled = true;
 
 ## 🔒︎ Event EventBeginTAA
 
-The event triggered before the Temporal Anti-Aliasing (TAA) pass. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the Temporal Anti-Aliasing (TAA) pass. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -11771,7 +11836,7 @@ Render.EventBeginTAA.Enabled = true;
 
 ## 🔒︎ Event EventEndTAA
 
-The event triggered after the Temporal Anti-Aliasing (TAA) pass. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the Temporal Anti-Aliasing (TAA) pass. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -11865,7 +11930,7 @@ Render.EventEndTAA.Enabled = true;
 
 ## 🔒︎ Event EventBeginCameraEffects
 
-The event triggered before the camera effects stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the camera effects stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -11959,7 +12024,7 @@ Render.EventBeginCameraEffects.Enabled = true;
 
 ## 🔒︎ Event EventEndCameraEffects
 
-The event triggered after the camera effects stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the camera effects stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -12053,7 +12118,7 @@ Render.EventEndCameraEffects.Enabled = true;
 
 ## 🔒︎ Event EventBeginPostMaterials
 
-The event triggered before the post materials rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the post materials rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -12147,7 +12212,7 @@ Render.EventBeginPostMaterials.Enabled = true;
 
 ## 🔒︎ Event EventEndPostMaterials
 
-The event triggered after the post materials rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the post materials rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -12241,7 +12306,7 @@ Render.EventEndPostMaterials.Enabled = true;
 
 ## 🔒︎ Event EventBeginDebugMaterials
 
-The event triggered before the debug materials stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the debug materials stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -12335,7 +12400,7 @@ Render.EventBeginDebugMaterials.Enabled = true;
 
 ## 🔒︎ Event EventEndDebugMaterials
 
-The event triggered after the debug materials stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the debug materials stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -12429,7 +12494,7 @@ Render.EventEndDebugMaterials.Enabled = true;
 
 ## 🔒︎ Event EventBeginVisualizer
 
-The event triggered before the visualizer rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered before the visualizer rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -12523,7 +12588,7 @@ Render.EventBeginVisualizer.Enabled = true;
 
 ## 🔒︎ Event EventEndVisualizer
 
-The event triggered after the visualizer rendering stage. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the visualizer rendering stage. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -12617,7 +12682,7 @@ Render.EventEndVisualizer.Enabled = true;
 
 ## 🔒︎ Event EventEndScreen
 
-The event triggered after the stage of rendering each screen (a stereo image has 2 screens, while a cubemap will have 6). You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered after the stage of rendering each screen (a stereo image has 2 screens, while a cubemap will have 6). You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -12711,7 +12776,7 @@ Render.EventEndScreen.Enabled = true;
 
 ## 🔒︎ Event EventEnd
 
-The event triggered when rendering of the frame ends. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The event triggered when rendering of the frame ends. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -12805,7 +12870,7 @@ Render.EventEnd.Enabled = true;
 
 ## 🔒︎ Event EventEndFrameExecuteCommandLists
 
-The Event triggered after *ExecuteCommandLists* just before *Present*. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The Event triggered after *ExecuteCommandLists* just before *Present*. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -12899,7 +12964,7 @@ publisher.EventEndFrameExecuteCommandLists.Enabled = true;
 
 ## 🔒︎ Event EventEndVRQuadComposeEyeSwapchains
 
-The Event triggered after composing VR viewports, enabling you to subscribe and perform certain actions (e.g. implement a binoculars effect using post-materials). You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The Event triggered after composing VR viewports, enabling you to subscribe and perform certain actions (e.g. implement a binoculars effect using post-materials). You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -12993,7 +13058,7 @@ publisher.EventEndVRQuadComposeEyeSwapchains.Enabled = true;
 
 ## 🔒︎ Event<string, string> EventGPUCrashDump
 
-The Event triggered when a GPU crash is detected and a crash dump file has been written. The event provides the path to the dump file and an error message containing crash details (device status, page fault info, active shaders). Requires *video_debug_crash_dump* to be enabled and an NVIDIA GPU with Nsight Aftermath support. You can subscribe to events via *Connect()* and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* classes for convenience (see examples below).
+The Event triggered when a GPU crash is detected and a crash dump file has been written. The event provides the path to the dump file and an error message containing crash details (device status, page fault info, active shaders). Requires *video_debug_crash_dump* to be enabled and an NVIDIA GPU with Nsight Aftermath support. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
 
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
 
@@ -13080,6 +13145,288 @@ publisher.EventGPUCrashDump.Enabled = false;
 
 // and enable it back when necessary
 publisher.EventGPUCrashDump.Enabled = true;
+
+```
+
+</details>
+
+## 🔒︎ Event EventChangedParameters
+
+The Event triggered when {event_description}. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
+
+> **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
+
+ The event handler signature is as follows: *myhandler()*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```csharp
+// implement the ChangedParameters event handler
+void changedparameters_event_handler()
+{
+	Log.Message("\Handling ChangedParameters event\n");
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//  1. Multiple subscriptions can be linked to an EventConnections instance
+//  class that you can use later to remove all these subscriptions at once
+//////////////////////////////////////////////////////////////////////////////
+
+// create an instance of the EventConnections class
+EventConnections changedparameters_event_connections = new EventConnections();
+
+// link to this instance when subscribing to an event (subscription to various events can be linked)
+publisher.EventChangedParameters.Connect(changedparameters_event_connections, changedparameters_event_handler);
+
+// other subscriptions are also linked to this EventConnections instance
+// (e.g. you can subscribe using lambdas)
+publisher.EventChangedParameters.Connect(changedparameters_event_connections, () => {
+		Log.Message("Handling ChangedParameters event lambda\n");
+		}
+	);
+
+// later all of these linked subscriptions can be removed with a single line
+changedparameters_event_connections.DisconnectAll();
+
+//////////////////////////////////////////////////////////////////////////////
+//  2. You can subscribe and unsubscribe via the handler function directly
+//////////////////////////////////////////////////////////////////////////////
+
+// subscribe to the ChangedParameters event with a handler function
+publisher.EventChangedParameters.Connect(changedparameters_event_handler);
+
+// remove subscription to the ChangedParameters event later by the handler function
+publisher.EventChangedParameters.Disconnect(changedparameters_event_handler);
+
+//////////////////////////////////////////////////////////////////////////////
+//   3. Subscribe to an event and unsubscribe later via an EventConnection instance
+//////////////////////////////////////////////////////////////////////////////
+
+// define a connection to be used to unsubscribe later
+EventConnection changedparameters_event_connection;
+
+// subscribe to the ChangedParameters event with a lambda handler function and keeping the connection
+changedparameters_event_connection = publisher.EventChangedParameters.Connect(() => {
+		Log.Message("Handling ChangedParameters event lambda\n");
+	}
+);
+
+// ...
+
+// you can temporarily disable a particular event connection
+changedparameters_event_connection.Enabled = false;
+
+// ... perform certain actions
+
+// and enable it back when necessary
+changedparameters_event_connection.Enabled = true;
+
+// ...
+
+// remove the subscription later using the saved connection
+changedparameters_event_connection.Disconnect();
+
+//////////////////////////////////////////////////////////////////////////////
+//   4. Ignoring ChangedParameters events when necessary
+//////////////////////////////////////////////////////////////////////////////
+
+// you can temporarily disable the event to perform certain actions without triggering it
+publisher.EventChangedParameters.Enabled = false;
+
+// ... actions to be performed
+
+// and enable it back when necessary
+publisher.EventChangedParameters.Enabled = true;
+
+```
+
+</details>
+
+## 🔒︎ Event< MeshSkinnedAnimation , UGUID > EventStreamingAnimationLoaded
+
+The Event triggered when a skinned mesh animation has been loaded into the [data streaming](../../../principles/data_streaming/index.md) system. The event provides the loaded animation and the GUID of its source file. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
+
+> **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
+
+ The event handler signature is as follows: *myhandler(MeshSkinnedAnimation **animation**, UGUID **file_guid**)*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```csharp
+// implement the StreamingAnimationLoaded event handler
+void streaminganimationloaded_event_handler(MeshSkinnedAnimation animation,  UGUID file_guid)
+{
+	Log.Message("\Handling StreamingAnimationLoaded event\n");
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//  1. Multiple subscriptions can be linked to an EventConnections instance
+//  class that you can use later to remove all these subscriptions at once
+//////////////////////////////////////////////////////////////////////////////
+
+// create an instance of the EventConnections class
+EventConnections streaminganimationloaded_event_connections = new EventConnections();
+
+// link to this instance when subscribing to an event (subscription to various events can be linked)
+publisher.EventStreamingAnimationLoaded.Connect(streaminganimationloaded_event_connections, streaminganimationloaded_event_handler);
+
+// other subscriptions are also linked to this EventConnections instance
+// (e.g. you can subscribe using lambdas)
+publisher.EventStreamingAnimationLoaded.Connect(streaminganimationloaded_event_connections, (MeshSkinnedAnimation animation,  UGUID file_guid) => {
+		Log.Message("Handling StreamingAnimationLoaded event lambda\n");
+		}
+	);
+
+// later all of these linked subscriptions can be removed with a single line
+streaminganimationloaded_event_connections.DisconnectAll();
+
+//////////////////////////////////////////////////////////////////////////////
+//  2. You can subscribe and unsubscribe via the handler function directly
+//////////////////////////////////////////////////////////////////////////////
+
+// subscribe to the StreamingAnimationLoaded event with a handler function
+publisher.EventStreamingAnimationLoaded.Connect(streaminganimationloaded_event_handler);
+
+// remove subscription to the StreamingAnimationLoaded event later by the handler function
+publisher.EventStreamingAnimationLoaded.Disconnect(streaminganimationloaded_event_handler);
+
+//////////////////////////////////////////////////////////////////////////////
+//   3. Subscribe to an event and unsubscribe later via an EventConnection instance
+//////////////////////////////////////////////////////////////////////////////
+
+// define a connection to be used to unsubscribe later
+EventConnection streaminganimationloaded_event_connection;
+
+// subscribe to the StreamingAnimationLoaded event with a lambda handler function and keeping the connection
+streaminganimationloaded_event_connection = publisher.EventStreamingAnimationLoaded.Connect((MeshSkinnedAnimation animation,  UGUID file_guid) => {
+		Log.Message("Handling StreamingAnimationLoaded event lambda\n");
+	}
+);
+
+// ...
+
+// you can temporarily disable a particular event connection
+streaminganimationloaded_event_connection.Enabled = false;
+
+// ... perform certain actions
+
+// and enable it back when necessary
+streaminganimationloaded_event_connection.Enabled = true;
+
+// ...
+
+// remove the subscription later using the saved connection
+streaminganimationloaded_event_connection.Disconnect();
+
+//////////////////////////////////////////////////////////////////////////////
+//   4. Ignoring StreamingAnimationLoaded events when necessary
+//////////////////////////////////////////////////////////////////////////////
+
+// you can temporarily disable the event to perform certain actions without triggering it
+publisher.EventStreamingAnimationLoaded.Enabled = false;
+
+// ... actions to be performed
+
+// and enable it back when necessary
+publisher.EventStreamingAnimationLoaded.Enabled = true;
+
+```
+
+</details>
+
+## 🔒︎ Event< MeshSkinnedAnimation , UGUID > EventStreamingAnimationUnloaded
+
+The Event triggered when a skinned mesh animation has been unloaded from the [data streaming](../../../principles/data_streaming/index.md) system. The event provides the unloaded animation and the GUID of its source file. You can subscribe to events via *Connect()* ï¿½and unsubscribe via *Disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cs.md)* ï¿½and *[EventConnections](../../../api/library/common/events/class.eventconnections_cs.md)* ï¿½classes for convenience (see examples below).
+
+> **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cs.md) article.
+
+ The event handler signature is as follows: *myhandler(MeshSkinnedAnimation **animation**, UGUID **file_guid**)*
+<details>
+<summary>See Example | Close</summary>
+
+**Usage Example**
+
+```csharp
+// implement the StreamingAnimationUnloaded event handler
+void streaminganimationunloaded_event_handler(MeshSkinnedAnimation animation,  UGUID file_guid)
+{
+	Log.Message("\Handling StreamingAnimationUnloaded event\n");
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//  1. Multiple subscriptions can be linked to an EventConnections instance
+//  class that you can use later to remove all these subscriptions at once
+//////////////////////////////////////////////////////////////////////////////
+
+// create an instance of the EventConnections class
+EventConnections streaminganimationunloaded_event_connections = new EventConnections();
+
+// link to this instance when subscribing to an event (subscription to various events can be linked)
+publisher.EventStreamingAnimationUnloaded.Connect(streaminganimationunloaded_event_connections, streaminganimationunloaded_event_handler);
+
+// other subscriptions are also linked to this EventConnections instance
+// (e.g. you can subscribe using lambdas)
+publisher.EventStreamingAnimationUnloaded.Connect(streaminganimationunloaded_event_connections, (MeshSkinnedAnimation animation,  UGUID file_guid) => {
+		Log.Message("Handling StreamingAnimationUnloaded event lambda\n");
+		}
+	);
+
+// later all of these linked subscriptions can be removed with a single line
+streaminganimationunloaded_event_connections.DisconnectAll();
+
+//////////////////////////////////////////////////////////////////////////////
+//  2. You can subscribe and unsubscribe via the handler function directly
+//////////////////////////////////////////////////////////////////////////////
+
+// subscribe to the StreamingAnimationUnloaded event with a handler function
+publisher.EventStreamingAnimationUnloaded.Connect(streaminganimationunloaded_event_handler);
+
+// remove subscription to the StreamingAnimationUnloaded event later by the handler function
+publisher.EventStreamingAnimationUnloaded.Disconnect(streaminganimationunloaded_event_handler);
+
+//////////////////////////////////////////////////////////////////////////////
+//   3. Subscribe to an event and unsubscribe later via an EventConnection instance
+//////////////////////////////////////////////////////////////////////////////
+
+// define a connection to be used to unsubscribe later
+EventConnection streaminganimationunloaded_event_connection;
+
+// subscribe to the StreamingAnimationUnloaded event with a lambda handler function and keeping the connection
+streaminganimationunloaded_event_connection = publisher.EventStreamingAnimationUnloaded.Connect((MeshSkinnedAnimation animation,  UGUID file_guid) => {
+		Log.Message("Handling StreamingAnimationUnloaded event lambda\n");
+	}
+);
+
+// ...
+
+// you can temporarily disable a particular event connection
+streaminganimationunloaded_event_connection.Enabled = false;
+
+// ... perform certain actions
+
+// and enable it back when necessary
+streaminganimationunloaded_event_connection.Enabled = true;
+
+// ...
+
+// remove the subscription later using the saved connection
+streaminganimationunloaded_event_connection.Disconnect();
+
+//////////////////////////////////////////////////////////////////////////////
+//   4. Ignoring StreamingAnimationUnloaded events when necessary
+//////////////////////////////////////////////////////////////////////////////
+
+// you can temporarily disable the event to perform certain actions without triggering it
+publisher.EventStreamingAnimationUnloaded.Enabled = false;
+
+// ... actions to be performed
+
+// and enable it back when necessary
+publisher.EventStreamingAnimationUnloaded.Enabled = true;
 
 ```
 
@@ -13334,6 +13681,14 @@ Range of values: **[1, 1024]**. The default value is : **8**.
 ## bool ShowVertexDensityEnabled
 
 ***Console*:**`render_show_vertex_density_enabled`The *[Vertex Density](../../../content/optimization/geometry/vertex_density/index.md#tool_overview)* visualizer enabled state. The default value is **false**.
+## float ShadowsBlockerSearchRadiusOmniProj
+
+***Console*:**`render_shadows_blocker_search_radius_omni_proj`The blocker search radius used for penumbra calculation of Omni and Projected light shadows. This value controls the area sampled to find shadow-casting occluders when computing soft shadow penumbra. Higher values produce wider, softer penumbra. This is a base value: the effective radius also scales with the shadow map resolution and with the **Penumbra** value of the light source. The parameter is not applied when the effective **Penumbra Mode** of the light is **Low**.
+Range of values: **[eps, inf]**. The default value is : **0.5f**.
+## float ShadowsBlockerSearchRadiusWorld
+
+***Console*:**`render_shadows_blocker_search_radius_world`The blocker search radius used for penumbra calculation of the World light shadows. This value controls the area sampled to find shadow-casting occluders when computing soft shadow penumbra. Higher values produce wider, softer penumbra. This is a base value: the effective radius also scales with the shadow map resolution, the **Penumbra** value of the light source, and the shadow distance.
+Range of values: **[eps, inf]**. The default value is : **0.5f**.
 ## float LightsDitherScale
 
 ***Console*:**`render_lights_dither_scale`The dithering intensity for light rendering. Dithering adds subtle noise to reduce color banding in light gradients.
@@ -13381,6 +13736,196 @@ Range of values: **[512, 32768]**. The default value is : **4096**.
 ## 🔒︎ int NumCompiledPSOGlobal
 
 The number of global PSOs compiled during the current frame. Global PSOs represent the render pipeline state set dynamically before each draw call, as opposed to PSOs embedded in shader code.
+## bool DynamicResolutionEnabled
+
+***Console*:**`render_dynamic_resolution_enabled`The [Dynamic Resolution Scaling](../../../principles/render/drs/index.md). When enabled, the engine can automatically adjust the internal rendering resolution based on GPU frame time to maintain the target frame rate. The default value is **false**.
+## float DynamicResolutionScaleMin
+
+***Console*:**`render_dynamic_resolution_scale_min`The minimum dynamic resolution scale relative to the target resolution. For example, if the target resolution is 3840 ï¿½ 2160 and the minimum scale is 0.5, the internal rendering resolution can be reduced down to 1920 ï¿½ 1080.
+Range of values: **[0.1f, 1.0f]**. The default value is : **0.275f**.
+## float DynamicResolutionScaleMax
+
+***Console*:**`render_dynamic_resolution_scale_max`The maximum dynamic resolution scale relative to the target resolution. A value of 1.0 means that the internal rendering resolution can reach the full target resolution.
+Range of values: **[0.1f, 1.0f]**. The default value is : **1.0f**.
+## Render.RENDER_DYNAMIC_RESOLUTION_DIMENSION DynamicResolutionDimension
+
+***Console*:**`render_dynamic_resolution_dimension`The mode that defines which dimension is affected by dynamic resolution scaling. One of the following values:
+- **0** - uniform scaling (by default)
+- **1** - horizontal scaling
+- **2** - vertical scaling
+
+## float DynamicResolutionStep
+
+***Console*:**`render_dynamic_resolution_step`The resolution scale step used when increasing or decreasing the internal rendering resolution. Larger values result in more noticeable resolution changes, while smaller values provide smoother transitions.
+Range of values: **[0.01f, 1.0f]**. The default value is : **0.05f**.
+## float DynamicResolutionDownThreshold
+
+***Console*:**`render_dynamic_resolution_down_threshold`The GPU frame time threshold for decreasing the internal rendering resolution. When GPU timings exceed the target frame time by this threshold, DRS may reduce the resolution.
+Range of values: **[0.0f, 2.0f]**. The default value is : **0.95f**.
+## float DynamicResolutionUpThreshold
+
+***Console*:**`render_dynamic_resolution_up_threshold`The GPU frame time threshold for increasing the internal rendering resolution. When GPU timings remain below the target frame time by this threshold, DRS may increase the resolution.
+Range of values: **[0.0f, 2.0f]**. The default value is : **1.05f**.
+## int DynamicResolutionWarmupFrames
+
+***Console*:**`render_dynamic_resolution_warmup_frames`The number of frames rendered at the maximum resolution after startup before Dynamic Resolution Scaling starts adjusting the resolution.
+Range of values: **[0, 1000]**. The default value is : **30**.
+## int DynamicResolutionDownFrames
+
+***Console*:**`render_dynamic_resolution_down_frames`The number of consecutive frames that must exceed the downscale threshold before DRS decreases the internal rendering resolution.
+Range of values: **[0, 1000]**. The default value is : **3**.
+## int DynamicResolutionUpFrames
+
+***Console*:**`render_dynamic_resolution_up_frames`The number of consecutive frames that must stay below the upscale threshold before DRS increases the internal rendering resolution.
+Range of values: **[0, 1000]**. The default value is : **30**.
+## int DynamicResolutionCooldownFrames
+
+***Console*:**`render_dynamic_resolution_cooldown_frames`The number of frames during which the rendering resolution is kept unchanged after a resolution adjustment. This prevents the resolution from changing too frequently.
+Range of values: **[0, 1000]**. The default value is : **10**.
+## int DynamicResolutionTargetFPS
+
+***Console*:**`render_dynamic_resolution_target_fps`The target frame rate used by Dynamic Resolution Scaling. DRS compares GPU timings against this value and adjusts the internal rendering resolution accordingly.
+Range of values: **[1, 1000]**. The default value is : **60**.
+## bool DynamicResolutionAlignmentEnabled
+
+***Console*:**`render_dynamic_resolution_alignment_enabled`The value indicating if alignment of dynamic rendering resolutions to reduce texture reallocations when the resolution changes. The default value is **true**.
+## float PanoramaFisheyeKannalaBrandtImageCircleRadius
+
+***Console*:**`render_panorama_fisheye_kannala_brandt_image_circle_radius`The image circle radius for the Kannala-Brandt fisheye camera model. The value defines the radius of the valid circular image area produced by the fisheye projection. Pixels outside this radius are considered outside the projected image area.
+> **Notice:** Available only when the viewport rendering mode*[ViewportMode](../../...md#render_viewport_mode)* is set to [Panorama Fisheye Kannala-Brandt](#VIEWPORT_MODE_PANORAMA_FISHEYE_KANNALA_BRANDT).
+
+Range of values: **[-inf, inf]**. The default value is : **0.0f**.
+## float PanoramaFisheyeKannalaBrandtSkew
+
+***Console*:**`render_panorama_fisheye_kannala_brandt_skew`The skew coefficient for the Kannala-Brandt fisheye camera model. The skew value controls the non-orthogonality between the image axes. It is typically used when matching the projection to calibrated camera parameters.
+> **Notice:** Available only when the viewport rendering mode*[ViewportMode](../../...md#render_viewport_mode)* is set to [Panorama Fisheye Kannala-Brandt](#VIEWPORT_MODE_PANORAMA_FISHEYE_KANNALA_BRANDT).
+
+Range of values: **[-inf, inf]**. The default value is : **0.0f**.
+## vec2 PanoramaFisheyeKannalaBrandtImageDimensions
+
+***Console*:**`render_panorama_fisheye_kannala_brandt_image_dimensions`The image dimensions used by the Kannala-Brandt fisheye camera model. The dimensions define the reference image size for interpreting the focal length, principal point, image circle radius, and distortion parameters. Use values that match the calibrated camera resolution.
+> **Notice:** Available only when the viewport rendering mode*[ViewportMode](../../...md#render_viewport_mode)* is set to [Panorama Fisheye Kannala-Brandt](#VIEWPORT_MODE_PANORAMA_FISHEYE_KANNALA_BRANDT).
+
+## vec2 PanoramaFisheyeKannalaBrandtPrincipalPoint
+
+***Console*:**`render_panorama_fisheye_kannala_brandt_principal_point`The principal point for the Kannala-Brandt fisheye camera model. The principal point defines the projection center in image coordinates. It is usually set according to calibrated camera parameters and may differ from the exact image center.
+> **Notice:** Available only when the viewport rendering mode*[ViewportMode](../../...md#render_viewport_mode)* is set to [Panorama Fisheye Kannala-Brandt](#VIEWPORT_MODE_PANORAMA_FISHEYE_KANNALA_BRANDT).
+
+## vec2 PanoramaFisheyeKannalaBrandtFocalLength
+
+***Console*:**`render_panorama_fisheye_kannala_brandt_focal_length`The focal length for the Kannala-Brandt fisheye camera model. The focal length defines the projection scale along the image axes. Use calibrated focal length values to match the rendered fisheye projection to a physical camera lens.
+> **Notice:** Available only when the viewport rendering mode*[ViewportMode](../../...md#render_viewport_mode)* is set to [Panorama Fisheye Kannala-Brandt](#VIEWPORT_MODE_PANORAMA_FISHEYE_KANNALA_BRANDT).
+
+## vec2 PanoramaFisheyeKannalaBrandtTangentialDistortion
+
+***Console*:**`render_panorama_fisheye_kannala_brandt_tangential_distortion`The tangential distortion parameters for the Kannala-Brandt fisheye camera model. Tangential distortion compensates for lens or sensor misalignment relative to the optical axis. Use this setting when calibrated camera data includes tangential distortion values.
+> **Notice:** Available only when the viewport rendering mode*[ViewportMode](../../...md#render_viewport_mode)* is set to [Panorama Fisheye Kannala-Brandt](#VIEWPORT_MODE_PANORAMA_FISHEYE_KANNALA_BRANDT).
+
+## vec4 PanoramaFisheyeKannalaBrandtCoefficients
+
+***Console*:**`render_panorama_fisheye_kannala_brandt_coefficients`The distortion coefficients for the Kannala-Brandt fisheye camera model. These coefficients define the radial distortion curve used by the Kannala-Brandt projection. Use calibrated values to match the output to a real fisheye lens.
+> **Notice:** Available only when the viewport rendering mode*[ViewportMode](../../...md#render_viewport_mode)* is set to [Panorama Fisheye Kannala-Brandt](#VIEWPORT_MODE_PANORAMA_FISHEYE_KANNALA_BRANDT).
+
+## bool PanoramaForceDisableScreenSpaceEffects
+
+***Console*:**`render_panorama_force_disable_screen_space_effects`The value indicating whether screen-space effects are to be force-disabled when rendering panoramas. The default value is **true**.
+## float LocalTonemapperDetailContrastIntensity
+
+***Console*:**`render_local_tonemapper_detail_contrast_intensity`The intensity of the Detail Contrast effect of the local tonemapper, in the [0; 1] range. The default value is 0.5.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
+## bool LocalTonemapperUseDetailContrast
+
+***Console*:**`render_local_tonemapper_use_detail_contrast`The value indicating if the Detail Contrast effect is enabled: it enhances mid-frequency local contrast on top of the local tonemapper, accentuating surface detail and texture. Useful when the tonemapped image looks flat and needs more visual depth without changing global exposure. Disabled by default. The default value is **false**.
+## float SkyOffset
+
+The height offset, in units, added to the camera's world height when computing the sky altitude used by atmospheric scattering. It shifts the virtual altitude of the camera within the physically based sky model (for example, to render the scattering as if the scene were at a different altitude) without moving the scene.
+## int StreamingMeshCacheRAM
+
+***Console*:**`render_streaming_mesh_cache_ram`The maximum amount of memory, in megabytes, the streaming system may keep cached in RAM for static meshes. The value of -1 (default) removes the individual limit, leaving the memory use governed by the common streaming budget.
+Range of values: **[-1, INT_MAX]**. The default value is : **-1**.
+## int StreamingMeshCacheVRAM
+
+***Console*:**`render_streaming_mesh_cache_vram`The maximum amount of memory, in megabytes, the streaming system may keep cached in video memory for static meshes. The value of -1 (default) removes the individual limit, leaving the memory use governed by the common streaming budget.
+Range of values: **[-1, INT_MAX]**. The default value is : **-1**.
+## int StreamingMeshSkinnedCacheRAM
+
+***Console*:**`render_streaming_mesh_skinned_cache_ram`The maximum amount of memory, in megabytes, the streaming system may keep cached in RAM for skinned meshes. The value of -1 (default) removes the individual limit, leaving the memory use governed by the common streaming budget.
+Range of values: **[-1, INT_MAX]**. The default value is : **-1**.
+## int StreamingMeshSkinnedCacheVRAM
+
+***Console*:**`render_streaming_mesh_skinned_cache_vram`The maximum amount of memory, in megabytes, the streaming system may keep cached in video memory for skinned meshes. The value of -1 (default) removes the individual limit, leaving the memory use governed by the common streaming budget.
+Range of values: **[-1, INT_MAX]**. The default value is : **-1**.
+## int StreamingTextureCacheVRAM
+
+***Console*:**`render_streaming_texture_cache_vram`The maximum amount of memory, in megabytes, the streaming system may keep cached in video memory for textures. The value of -1 (default) removes the individual limit, leaving the memory use governed by the common streaming budget.
+Range of values: **[-1, INT_MAX]**. The default value is : **-1**.
+## int DOFJitterSamples
+
+***Console*:**`render_dof_jitter_samples`The number of bokeh samples taken per pixel in the jitter sampling mode of the Depth of Field effect. Unlike the ring pattern, whose count comes in fixed steps through the quality preset, jittered sampling takes any count, so it is set directly. The default value is 16.
+Range of values: **[1, 1024]**. The default value is : **16**.
+## float DOFMipmapByBlurIntensity
+
+***Console*:**`render_dof_mipmap_by_blur_intensity`The value defining how much of the mip level chosen by the blur intensity is taken by the bokeh sampling of the Depth of Field effect, so each sample reads a mip that already averaged the area it stands for. The value of 0 keeps the full resolution, 1 reads the coarsest fitting mip. Reading coarser mips cuts the memory traffic of a wide bokeh and reduces sampling noise, but too high values make the blurred image look coarse. The default value is 0.5.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
+## Render.DOF_SAMPLING_MODE DOFSamplingMode
+
+***Console*:**`render_dof_sampling_mode`The bokeh sampling mode of the Depth of Field effect, one of the *DOF_SAMPLING_MODE_** values: a constant ring pattern (default) or per-pixel jittered sampling accumulated by a temporal filter. Effective when the DOF effect is enabled. One of the following values:
+
+## float DOFTAAFrameCount
+
+***Console*:**`render_dof_taa_frame_count`The number of frames accumulated by the temporal filter of the Depth of Field jitter sampling mode; the value of 1 disables the accumulation. Higher values result in a cleaner bokeh but increase the ghosting effect. The default value is 30.
+Range of values: **[1.0f, inf]**. The default value is : **30.0f**.
+## float DOFTAAFramesVelocityThreshold
+
+***Console*:**`render_dof_taa_frames_velocity_threshold`The threshold defining sensitivity to velocity change for the temporal filter of the Depth of Field jitter sampling mode: higher values discard the accumulated history faster on moving objects, which reduces ghosting but brings the jitter grain back in motion. The default value is 1.
+Range of values: **[0.0f, inf]**. The default value is : **1.0f**.
+## int LocalTonemapperDetailContrastRadius
+
+***Console*:**`render_local_tonemapper_detail_contrast_radius`The radius of the Detail Contrast effect, set as the number of blur iterations reused for it, each one doubling the radius: 1 corresponds to 1 texel, 2 to 3 texels, 3 to 7 texels, and so on. Smaller values accentuate finer details and produce narrower halos around objects. The value is always clamped below the number of blur iterations of the local tonemapper. The default value is 2.
+Range of values: **[1, 9]**. The default value is : **2**.
+## bool IndirectSpecularTemporalFilteringAngleDependence
+
+***Console*:**`render_indirect_specular_temporal_filtering_angle_dependence`The value indicating if temporal filtering for Indirect Specular depends on the angle between the surface and the view direction. Reflections flicker at grazing angles, where the reflection is compressed into a few pixels and the neighboring pixels the clamping range is built from see different content. When enabled, the color clamping is relaxed towards such angles, and the length of the history is bounded along with it, which keeps the relaxed clamping from smearing. Surfaces seen head-on and a moving camera are not affected. Disabled by default. The default value is **false**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DenoisePreset](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float IndirectSpecularTemporalFilteringColorClampingGrazing
+
+***Console*:**`render_indirect_specular_temporal_filtering_color_clamping_grazing`The intensity of the velocity-independent part of temporal filtering color clamping for Indirect Specular at grazing angles, where the reflection is compressed into a few pixels, so the neighboring pixels the clamping range is built from see different content and the range follows the noise of the trace instead of the signal, which shows up as flickering. Lower values let the history survive there; its length is bounded by the **[IndirectSpecularTemporalFilteringFrameCountGrazing](../../...md#getIndirectSpecularTemporalFilteringFrameCountGrazing_float)** property. Surfaces seen head-on and a moving camera are not affected at any value. Effective only when the **[IndirectSpecularTemporalFilteringAngleDependence](../../...md#isIndirectSpecularTemporalFilteringAngleDependence_int)** option is enabled.
+Range of values: **[0.0f, 1.0f]**. The default value is : **0.1f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DenoisePreset](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## float IndirectSpecularTemporalFilteringFrameCountGrazing
+
+***Console*:**`render_indirect_specular_temporal_filtering_frame_count_grazing`The number of accumulated frames of temporal filtering for Indirect Specular at grazing angles, where the **[IndirectSpecularTemporalFilteringColorClampingGrazing](../../...md#getIndirectSpecularTemporalFilteringColorClampingGrazing_float)** property has relaxed the clamping. Nothing else limits the history there: reflections are reprojected by the velocity of the surface, which does not see the content moving inside the reflection of it. Higher values reduce the noise of reflections and lengthen the smear behind such content. The value is scaled by how much of the clamping has been relaxed, so it has no effect while the clamping is at its full strength. Effective only when the **[IndirectSpecularTemporalFilteringAngleDependence](../../...md#isIndirectSpecularTemporalFilteringAngleDependence_int)** option is enabled.
+Range of values: **[0.0f, inf]**. The default value is : **4.0f**.
+> **Notice:** Setting the value via  API changes only the setting stored in the **Custom** preset, and will take effect only when this preset is active (change active preset via *[DenoisePreset](/api/library/rendering/class.render_cs#render_denoise_preset)*). Checking the parameter returns the corresponding setting stored in the active preset (default or custom one).
+
+## 🔒︎ int NumParameters
+
+The number of global render parameters registered via **[AddParameter()](../../...md#addParameter_cstr_int_int_UGUID_int)**.
+## float PanoramaFisheyeKannalaBrandtChromaticAberration
+
+***Console*:**`render_panorama_fisheye_kannala_brandt_chromatic_aberration`The chromatic aberration intensity for the Kannala-Brandt fisheye camera model. The value models lateral chromatic aberration of the lens: the red channel is sampled at the radial distance scaled by (1 - value), the blue channel at (1 + value), while the green channel is the reference. 0 means no chromatic aberration.
+> **Notice:** Available only when the viewport rendering mode*[ViewportMode](../../...md#render_viewport_mode)* is set to [Panorama Fisheye Kannala-Brandt](#VIEWPORT_MODE_PANORAMA_FISHEYE_KANNALA_BRANDT).
+
+Range of values: **[-inf, inf]**. The default value is : **0.0f**.
+## float PanoramaFisheyeKannalaBrandtVignettingCoefficient5
+
+***Console*:**`render_panorama_fisheye_kannala_brandt_vignetting_coefficient_5`The fifth coefficient of the vignetting polynomial for the Kannala-Brandt fisheye camera model. The value is the coefficient at the 10th power of the normalized radial distance; it complements the four coefficients set via **[PanoramaFisheyeKannalaBrandtVignettingCoefficients](../../...md#getPanoramaFisheyeKannalaBrandtVignettingCoefficients_vec4)** and is kept as a separate value because the vector holds only four components.
+> **Notice:** Available only when the viewport rendering mode*[ViewportMode](../../...md#render_viewport_mode)* is set to [Panorama Fisheye Kannala-Brandt](#VIEWPORT_MODE_PANORAMA_FISHEYE_KANNALA_BRANDT).
+
+Range of values: **[-inf, inf]**. The default value is : **0.0f**.
+## vec4 PanoramaFisheyeKannalaBrandtVignettingCoefficients
+
+***Console*:**`render_panorama_fisheye_kannala_brandt_vignetting_coefficients`The first four coefficients of the vignetting polynomial for the Kannala-Brandt fisheye camera model. Vignetting is modeled as an even-order polynomial of the radial distance normalized by the image circle radius: the vector components are the coefficients at the 2nd, 4th, 6th, and 8th powers, and the coefficient at the 10th power is set separately via **[PanoramaFisheyeKannalaBrandtVignettingCoefficient5](../../...md#getPanoramaFisheyeKannalaBrandtVignettingCoefficient5_float)**. The resulting intensity multiplier is clamped to [0; 1]; all-zero coefficients disable vignetting.
+> **Notice:** Available only when the viewport rendering mode*[ViewportMode](../../...md#render_viewport_mode)* is set to [Panorama Fisheye Kannala-Brandt](#VIEWPORT_MODE_PANORAMA_FISHEYE_KANNALA_BRANDT).
+
+## bool SurfaceIDMultilayered
+
+***Console*:**`render_surface_id_multilayered`The value indicating if the transparency, decal, and water surface IDs are stored in separate per-stage buffers instead of being stacked into the scene surface ID buffer. Each per-stage buffer costs one additional *R32U* screen buffer. The default value is **false**.
+## 🔒︎ CustomParameterLayout SurfaceParameters
+
+The layout of custom surface parameters (the *[CustomParameterLayout](../../../api/library/common/class.customparameterlayout_cs.md)* instance shared by all object surfaces and decals). Each parameter defined in this layout exists on every surface of every object and on every decal.
 ### Members
 
 ---
@@ -14420,12 +14965,20 @@ Renders the scene into a 2D texture in accordance with the specified parameters.
 - *[Texture](../../../api/library/rendering/class.texture_cs.md)* **texture** - [Texture](../../../api/library/rendering/class.texture_cs.md) to save the result to.
 - *int* **skip_flags** - Skip the effects: 0 enables all the effects.
 
-  - VIEWPORT_SKIP_SHADOWS
-  - VIEWPORT_SKIP_VISUALIZER
-  - VIEWPORT_SKIP_SRGB
-  - VIEWPORT_SKIP_POSTEFFECTS
-  - VIEWPORT_SKIP_VELOCITY
-  - VIEWPORT_SKIP_DYNAMIC_REFLECTIONS
+  - *[VIEWPORT.SKIP_SHADOWS](../../../api/library/rendering/class.viewport_cs.md#SKIP_SHADOWS)*
+  - *[VIEWPORT.SKIP_VISUALIZER](../../../api/library/rendering/class.viewport_cs.md#SKIP_VISUALIZER)*
+  - *[VIEWPORT.SKIP_SRGB](../../../api/library/rendering/class.viewport_cs.md#SKIP_SRGB)*
+  - *[VIEWPORT.SKIP_POSTEFFECTS](../../../api/library/rendering/class.viewport_cs.md#SKIP_POSTEFFECTS)*
+  - *[VIEWPORT.SKIP_DYNAMIC_REFLECTIONS](../../../api/library/rendering/class.viewport_cs.md#SKIP_DYNAMIC_REFLECTIONS)*
+  - *[VIEWPORT.SKIP_VELOCITY_BUFFER](../../../api/library/rendering/class.viewport_cs.md#SKIP_VELOCITY_BUFFER)*
+  - *[VIEWPORT.SKIP_SRGB](../../../api/library/rendering/class.viewport_cs.md#SKIP_SRGB)*
+  - *[VIEWPORT.SKIP_FORMAT_RG11B10](../../../api/library/rendering/class.viewport_cs.md#SKIP_FORMAT_RG11B10)*
+  - *[VIEWPORT.SKIP_TRANSPARENT](../../../api/library/rendering/class.viewport_cs.md#SKIP_TRANSPARENT)*
+  - *[VIEWPORT.SKIP_STREAMING](../../../api/library/rendering/class.viewport_cs.md#SKIP_STREAMING)*
+  - *[VIEWPORT.SKIP_AUTO_EXPOSURE](../../../api/library/rendering/class.viewport_cs.md#SKIP_AUTO_EXPOSURE)*
+  - *[VIEWPORT.SKIP_AUTO_WHITE_BALANCE](../../../api/library/rendering/class.viewport_cs.md#SKIP_AUTO_WHITE_BALANCE)*
+  - *[VIEWPORT.SKIP_OCCLUSION_QUERY](../../../api/library/rendering/class.viewport_cs.md#SKIP_OCCLUSION_QUERY)*
+  - *[VIEWPORT.SKIP_UPSCALE](../../../api/library/rendering/class.viewport_cs.md#SKIP_UPSCALE)*
 
 ## void RenderTexture2D ( Camera camera , Texture texture , int width , int height , int hdr , int skip_flags )
 
@@ -14439,12 +14992,20 @@ Renders the scene into a 2D texture of the given size in accordance with the spe
 - *int* **hdr** - 1 - enable HDR, 0 - disable HDR.
 - *int* **skip_flags** - Skip the effects: 0 enables all the effects.
 
-  - VIEWPORT_SKIP_SHADOWS
-  - VIEWPORT_SKIP_VISUALIZER
-  - VIEWPORT_SKIP_SRGB
-  - VIEWPORT_SKIP_POSTEFFECTS
-  - VIEWPORT_SKIP_VELOCITY
-  - VIEWPORT_SKIP_DYNAMIC_REFLECTIONS
+  - *[VIEWPORT.SKIP_SHADOWS](../../../api/library/rendering/class.viewport_cs.md#SKIP_SHADOWS)*
+  - *[VIEWPORT.SKIP_VISUALIZER](../../../api/library/rendering/class.viewport_cs.md#SKIP_VISUALIZER)*
+  - *[VIEWPORT.SKIP_SRGB](../../../api/library/rendering/class.viewport_cs.md#SKIP_SRGB)*
+  - *[VIEWPORT.SKIP_POSTEFFECTS](../../../api/library/rendering/class.viewport_cs.md#SKIP_POSTEFFECTS)*
+  - *[VIEWPORT.SKIP_DYNAMIC_REFLECTIONS](../../../api/library/rendering/class.viewport_cs.md#SKIP_DYNAMIC_REFLECTIONS)*
+  - *[VIEWPORT.SKIP_VELOCITY_BUFFER](../../../api/library/rendering/class.viewport_cs.md#SKIP_VELOCITY_BUFFER)*
+  - *[VIEWPORT.SKIP_SRGB](../../../api/library/rendering/class.viewport_cs.md#SKIP_SRGB)*
+  - *[VIEWPORT.SKIP_FORMAT_RG11B10](../../../api/library/rendering/class.viewport_cs.md#SKIP_FORMAT_RG11B10)*
+  - *[VIEWPORT.SKIP_TRANSPARENT](../../../api/library/rendering/class.viewport_cs.md#SKIP_TRANSPARENT)*
+  - *[VIEWPORT.SKIP_STREAMING](../../../api/library/rendering/class.viewport_cs.md#SKIP_STREAMING)*
+  - *[VIEWPORT.SKIP_AUTO_EXPOSURE](../../../api/library/rendering/class.viewport_cs.md#SKIP_AUTO_EXPOSURE)*
+  - *[VIEWPORT.SKIP_AUTO_WHITE_BALANCE](../../../api/library/rendering/class.viewport_cs.md#SKIP_AUTO_WHITE_BALANCE)*
+  - *[VIEWPORT.SKIP_OCCLUSION_QUERY](../../../api/library/rendering/class.viewport_cs.md#SKIP_OCCLUSION_QUERY)*
+  - *[VIEWPORT.SKIP_UPSCALE](../../../api/library/rendering/class.viewport_cs.md#SKIP_UPSCALE)*
 
 ## void RenderTextureCube ( Camera camera , Texture texture , int skip_flags )
 
@@ -14455,12 +15016,20 @@ Renders the scene into a cube map texture in accordance with the specified param
 - *[Texture](../../../api/library/rendering/class.texture_cs.md)* **texture** - [Texture](../../../api/library/rendering/class.texture_cs.md) to save the result to.
 - *int* **skip_flags** - Skip the effects: 0 enables all the effects.
 
-  - VIEWPORT_SKIP_SHADOWS
-  - VIEWPORT_SKIP_VISUALIZER
-  - VIEWPORT_SKIP_SRGB
-  - VIEWPORT_SKIP_POSTEFFECTS
-  - VIEWPORT_SKIP_VELOCITY
-  - VIEWPORT_SKIP_DYNAMIC_REFLECTIONS
+  - *[VIEWPORT.SKIP_SHADOWS](../../../api/library/rendering/class.viewport_cs.md#SKIP_SHADOWS)*
+  - *[VIEWPORT.SKIP_VISUALIZER](../../../api/library/rendering/class.viewport_cs.md#SKIP_VISUALIZER)*
+  - *[VIEWPORT.SKIP_SRGB](../../../api/library/rendering/class.viewport_cs.md#SKIP_SRGB)*
+  - *[VIEWPORT.SKIP_POSTEFFECTS](../../../api/library/rendering/class.viewport_cs.md#SKIP_POSTEFFECTS)*
+  - *[VIEWPORT.SKIP_DYNAMIC_REFLECTIONS](../../../api/library/rendering/class.viewport_cs.md#SKIP_DYNAMIC_REFLECTIONS)*
+  - *[VIEWPORT.SKIP_VELOCITY_BUFFER](../../../api/library/rendering/class.viewport_cs.md#SKIP_VELOCITY_BUFFER)*
+  - *[VIEWPORT.SKIP_SRGB](../../../api/library/rendering/class.viewport_cs.md#SKIP_SRGB)*
+  - *[VIEWPORT.SKIP_FORMAT_RG11B10](../../../api/library/rendering/class.viewport_cs.md#SKIP_FORMAT_RG11B10)*
+  - *[VIEWPORT.SKIP_TRANSPARENT](../../../api/library/rendering/class.viewport_cs.md#SKIP_TRANSPARENT)*
+  - *[VIEWPORT.SKIP_STREAMING](../../../api/library/rendering/class.viewport_cs.md#SKIP_STREAMING)*
+  - *[VIEWPORT.SKIP_AUTO_EXPOSURE](../../../api/library/rendering/class.viewport_cs.md#SKIP_AUTO_EXPOSURE)*
+  - *[VIEWPORT.SKIP_AUTO_WHITE_BALANCE](../../../api/library/rendering/class.viewport_cs.md#SKIP_AUTO_WHITE_BALANCE)*
+  - *[VIEWPORT.SKIP_OCCLUSION_QUERY](../../../api/library/rendering/class.viewport_cs.md#SKIP_OCCLUSION_QUERY)*
+  - *[VIEWPORT.SKIP_UPSCALE](../../../api/library/rendering/class.viewport_cs.md#SKIP_UPSCALE)*
 
 ## void RenderTextureCube ( Camera camera , Texture texture , int size , int hdr , int skip_flags , bool local_space = 0 )
 
@@ -14473,12 +15042,12 @@ Renders the scene into a cube map in accordance with the specified parameters. T
 - *int* **hdr** - 1 - enable HDR; 0 - disable HDR.
 - *int* **skip_flags** - Skip the effects: 0 enables all the effects.
 
-  - VIEWPORT_SKIP_SHADOWS
-  - VIEWPORT_SKIP_VISUALIZER
-  - VIEWPORT_SKIP_SRGB
-  - VIEWPORT_SKIP_POSTEFFECTS
-  - VIEWPORT_SKIP_VELOCITY
-  - VIEWPORT_SKIP_DYNAMIC_REFLECTIONS
+  - *[VIEWPORT.SKIP_SHADOWS](../../../api/library/rendering/class.viewport_cs.md#SKIP_SHADOWS)*
+  - *[VIEWPORT.SKIP_VISUALIZER](../../../api/library/rendering/class.viewport_cs.md#SKIP_VISUALIZER)*
+  - *[VIEWPORT.SKIP_SRGB](../../../api/library/rendering/class.viewport_cs.md#SKIP_SRGB)*
+  - *[VIEWPORT.SKIP_POSTEFFECTS](../../../api/library/rendering/class.viewport_cs.md#SKIP_POSTEFFECTS)*
+  - *[VIEWPORT.SKIP_VELOCITY_BUFFER](../../../api/library/rendering/class.viewport_cs.md#SKIP_VELOCITY_BUFFER)*
+  - *[VIEWPORT.SKIP_DYNAMIC_REFLECTIONS](../../../api/library/rendering/class.viewport_cs.md#SKIP_DYNAMIC_REFLECTIONS)*
 - *bool* **local_space** - 1 - local space coordinates; 0 - world space coordinates.
 
 ## void RenderNodeTexture2D ( Camera camera , Node node , Texture texture , int skip_flags , int light_usage , string environment_texture_name )
@@ -14942,3 +15511,720 @@ Instantaneously reloads the resources (texture, node, geometry - MeshStatic/Mesh
 ### Arguments
 
 - *string[]* **pathes** - A set of paths to the resources to be reloaded.
+
+## int GetNumParameters ( )
+
+Returns the total number of custom render parameters.
+### Return value
+
+total number of custom render parameters.
+## int FindParameter ( string name )
+
+Searches for a custom render parameter by name.
+### Arguments
+
+- *string* **name** - parameter name.
+
+### Return value
+
+parameter index, or -1 if not found.
+## void RemoveParameter ( int num )
+
+Removes the custom render parameter at the specified index. Triggers shader recompilation.
+### Arguments
+
+- *int* **num** - parameter index.
+
+## void SwapParameters ( int num0 , int num1 )
+
+Swaps the positions of two custom render parameters in the list.
+### Arguments
+
+- *int* **num0** - index of the first parameter.
+- *int* **num1** - index of the second parameter.
+
+## void MoveParameter ( int from , int to )
+
+Moves a custom render parameter from one position to another in the list.
+### Arguments
+
+- *int* **from** - current index of the parameter.
+- *int* **to** - target index.
+
+## int CloneParameter ( int num )
+
+Creates a copy of the custom render parameter at the specified index with a new GUID.
+### Arguments
+
+- *int* **num** - index of the parameter to clone.
+
+### Return value
+
+index of the new parameter.
+## UGUID GetParameterGUID ( int num )
+
+Returns the GUID of the custom render parameter at the specified index. The GUID is used to generate the shader uniform name and define name.
+### Arguments
+
+- *int* **num** - parameter index.
+
+### Return value
+
+parameter GUID.
+## string GetParameterShaderName ( int num )
+
+Returns the auto-generated shader uniform name of the custom render parameter (format: **param_<guid>**). This is the name used to access the parameter value in shader code.
+### Arguments
+
+- *int* **num** - parameter index.
+
+### Return value
+
+shader uniform name.
+## string GetParameterDefineName ( int num )
+
+Returns the auto-generated shader define name of the custom render parameter (format: **PARAM_<GUID>**). This define is set when the parameter exists, allowing shaders to check for parameter availability via **#ifdef**.
+### Arguments
+
+- *int* **num** - parameter index.
+
+### Return value
+
+shader define name.
+## string GetParameterName ( int num )
+
+Returns the human-readable name of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+
+### Return value
+
+parameter name.
+## void SetParameterName ( int num , string name )
+
+Sets the human-readable name of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+- *string* **name** - new parameter name.
+
+## Render.RENDER_PARAMETER GetParameterType ( int num )
+
+Returns the data type of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+
+### Return value
+
+parameter data type.
+## void SetParameterType ( int num , Render.RENDER_PARAMETER type )
+
+Sets the data type of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+- *[Render.RENDER_PARAMETER](../../../api/library/rendering/class.render_cs.md#RENDER_PARAMETER)* **type** - new parameter data type.
+
+## bool IsParameterFloat ( int num )
+
+Returns a value indicating whether the custom render parameter has a floating-point type (FLOAT, FLOAT2, FLOAT3, or FLOAT4).
+### Arguments
+
+- *int* **num** - parameter index.
+
+### Return value
+
+**true** if the parameter type is floating-point; otherwise, **false**.
+## bool IsParameterDynamic ( int num )
+
+Returns a value indicating whether the custom render parameter is dynamic. Dynamic parameters are passed to shaders as uniforms every frame.
+### Arguments
+
+- *int* **num** - parameter index.
+
+### Return value
+
+**true** if the parameter is dynamic; otherwise, **false**.
+## void SetParameterDynamic ( int num , bool dynamic )
+
+Sets whether the custom render parameter is dynamic. Dynamic parameters are passed to shaders as uniforms every frame.
+### Arguments
+
+- *int* **num** - parameter index.
+- *bool* **dynamic** - **true** to make the parameter dynamic; **false** to make it static.
+
+## void SetParameterFloat ( int num , float value )
+
+Sets the float value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+- *float* **value** - value to set.
+
+## void SetParameterFloat2 ( int num , vec2 value )
+
+Sets the vec2 value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+- *vec2* **value** - value to set.
+
+## void SetParameterFloat3 ( int num , vec3 value )
+
+Sets the vec3 value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+- *vec3* **value** - value to set.
+
+## void SetParameterFloat4 ( int num , vec4 value )
+
+Sets the vec4 value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+- *vec4* **value** - value to set.
+
+## void SetParameterInt ( int num , int value )
+
+Sets the int value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+- *int* **value** - value to set.
+
+## void SetParameterInt2 ( int num , ivec2 value )
+
+Sets the ivec2 value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+- *ivec2* **value** - value to set.
+
+## void SetParameterInt3 ( int num , ivec3 value )
+
+Sets the ivec3 value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+- *ivec3* **value** - value to set.
+
+## void SetParameterInt4 ( int num , ivec4 value )
+
+Sets the ivec4 value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+- *ivec4* **value** - value to set.
+
+## void SetParameterBool ( int num , bool value )
+
+Sets the bool value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+- *bool* **value** - value to set.
+
+## void SetParameterFloat ( string name , float value )
+
+Sets the float value of the custom render parameter with the specified name.
+### Arguments
+
+- *string* **name** - parameter name.
+- *float* **value** - value to set.
+
+## void SetParameterFloat2 ( string name , vec2 value )
+
+Sets the vec2 value of the custom render parameter with the specified name.
+### Arguments
+
+- *string* **name** - parameter name.
+- *vec2* **value** - value to set.
+
+## void SetParameterFloat3 ( string name , vec3 value )
+
+Sets the vec3 value of the custom render parameter with the specified name.
+### Arguments
+
+- *string* **name** - parameter name.
+- *vec3* **value** - value to set.
+
+## void SetParameterFloat4 ( string name , vec4 value )
+
+Sets the vec4 value of the custom render parameter with the specified name.
+### Arguments
+
+- *string* **name** - parameter name.
+- *vec4* **value** - value to set.
+
+## void SetParameterBool ( string name , bool value )
+
+Sets the bool value of the custom render parameter with the specified name.
+### Arguments
+
+- *string* **name** - parameter name.
+- *bool* **value** - value to set.
+
+## void SetParameterInt ( string name , int value )
+
+Sets the int value of the custom render parameter with the specified name.
+### Arguments
+
+- *string* **name** - parameter name.
+- *int* **value** - value to set.
+
+## void SetParameterInt2 ( string name , ivec2 value )
+
+Sets the ivec2 value of the custom render parameter with the specified name.
+### Arguments
+
+- *string* **name** - parameter name.
+- *ivec2* **value** - value to set.
+
+## void SetParameterInt3 ( string name , ivec3 value )
+
+Sets the ivec3 value of the custom render parameter with the specified name.
+### Arguments
+
+- *string* **name** - parameter name.
+- *ivec3* **value** - value to set.
+
+## void SetParameterInt4 ( string name , ivec4 value )
+
+Sets the ivec4 value of the custom render parameter with the specified name.
+### Arguments
+
+- *string* **name** - parameter name.
+- *ivec4* **value** - value to set.
+
+## float GetParameterFloat ( int num )
+
+Returns the float value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+
+### Return value
+
+parameter value.
+## vec2 GetParameterFloat2 ( int num )
+
+Returns the vec2 value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+
+### Return value
+
+parameter value.
+## vec3 GetParameterFloat3 ( int num )
+
+Returns the vec3 value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+
+### Return value
+
+parameter value.
+## vec4 GetParameterFloat4 ( int num )
+
+Returns the vec4 value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+
+### Return value
+
+parameter value.
+## int GetParameterInt ( int num )
+
+Returns the int value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+
+### Return value
+
+parameter value.
+## ivec2 GetParameterInt2 ( int num )
+
+Returns the ivec2 value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+
+### Return value
+
+parameter value.
+## ivec3 GetParameterInt3 ( int num )
+
+Returns the ivec3 value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+
+### Return value
+
+parameter value.
+## ivec4 GetParameterInt4 ( int num )
+
+Returns the ivec4 value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+
+### Return value
+
+parameter value.
+## bool GetParameterBool ( int num )
+
+Returns the bool value of the custom render parameter at the specified index.
+### Arguments
+
+- *int* **num** - parameter index.
+
+### Return value
+
+parameter value.
+## float GetParameterFloat ( string name )
+
+Returns the float value of the custom render parameter with the specified name.
+### Arguments
+
+- *string* **name** - parameter name.
+
+### Return value
+
+parameter value.
+## vec2 GetParameterFloat2 ( string name )
+
+Returns the vec2 value of the custom render parameter with the specified name.
+### Arguments
+
+- *string* **name** - parameter name.
+
+### Return value
+
+parameter value.
+## vec3 GetParameterFloat3 ( string name )
+
+Returns the vec3 value of the custom render parameter with the specified name.
+### Arguments
+
+- *string* **name** - parameter name.
+
+### Return value
+
+parameter value.
+## vec4 GetParameterFloat4 ( string name )
+
+Returns the vec4 value of the custom render parameter with the specified name.
+### Arguments
+
+- *string* **name** - parameter name.
+
+### Return value
+
+parameter value.
+## int GetParameterInt ( string name )
+
+Returns the int value of the custom render parameter with the specified name.
+### Arguments
+
+- *string* **name** - parameter name.
+
+### Return value
+
+parameter value.
+## ivec2 GetParameterInt2 ( string name )
+
+Returns the ivec2 value of the custom render parameter with the specified name.
+### Arguments
+
+- *string* **name** - parameter name.
+
+### Return value
+
+parameter value.
+## ivec3 GetParameterInt3 ( string name )
+
+Returns the ivec3 value of the custom render parameter with the specified name.
+### Arguments
+
+- *string* **name** - parameter name.
+
+### Return value
+
+parameter value.
+## ivec4 GetParameterInt4 ( string name )
+
+Returns the ivec4 value of the custom render parameter with the specified name.
+### Arguments
+
+- *string* **name** - parameter name.
+
+### Return value
+
+parameter value.
+## bool GetParameterBool ( string name )
+
+Returns the bool value of the custom render parameter with the specified name.
+### Arguments
+
+- *string* **name** - parameter name.
+
+### Return value
+
+parameter value.
+## MeshSkinnedAnimation LoadStreamingAnimationAsync ( string path )
+
+Requests asynchronous loading of the animation with the specified path into the [data streaming](../../../principles/data_streaming/index.md) system. The animation is loaded in a background thread and becomes available later.
+### Arguments
+
+- *string* **path** - Path to the animation file.
+
+### Return value
+
+Loaded animation, or null if the resource cannot be found.
+## MeshSkinnedAnimation LoadStreamingAnimationAsync ( UGUID guid )
+
+Requests asynchronous loading of the animation with the specified GUID into the [data streaming](../../../principles/data_streaming/index.md) system. The animation is loaded in a background thread and becomes available later.
+### Arguments
+
+- *[UGUID](../../../api/library/filesystem/class.uguid_cs.md)* **guid** - GUID of the animation file.
+
+### Return value
+
+Loaded animation, or null if the resource cannot be found.
+## MeshSkinnedAnimation LoadStreamingAnimationForce ( string path )
+
+Forces immediate loading of the animation with the specified path into the [data streaming](../../../principles/data_streaming/index.md) system, blocking until the animation is available.
+### Arguments
+
+- *string* **path** - Path to the animation file.
+
+### Return value
+
+Loaded animation, or null if the resource cannot be found.
+## MeshSkinnedAnimation LoadStreamingAnimationForce ( UGUID guid )
+
+Forces immediate loading of the animation with the specified GUID into the [data streaming](../../../principles/data_streaming/index.md) system, blocking until the animation is available.
+### Arguments
+
+- *[UGUID](../../../api/library/filesystem/class.uguid_cs.md)* **guid** - GUID of the animation file.
+
+### Return value
+
+Loaded animation, or null if the resource cannot be found.
+## bool HoldStreamingAnimation ( string path )
+
+Increases the hold counter of the animation with the specified path, keeping it in the [data streaming](../../../principles/data_streaming/index.md) system and preventing it from being unloaded.
+### Arguments
+
+- *string* **path** - Path to the animation file.
+
+### Return value
+
+true if the hold counter has been increased; false if there is no resource with the specified path.
+## bool HoldStreamingAnimation ( UGUID guid )
+
+Increases the hold counter of the animation with the specified GUID, keeping it in the [data streaming](../../../principles/data_streaming/index.md) system and preventing it from being unloaded.
+### Arguments
+
+- *[UGUID](../../../api/library/filesystem/class.uguid_cs.md)* **guid** - GUID of the animation file.
+
+### Return value
+
+true if the hold counter has been increased; false if there is no resource with the specified GUID.
+## bool UnholdStreamingAnimation ( string path )
+
+Decreases the hold counter of the animation with the specified path in the [data streaming](../../../principles/data_streaming/index.md) system.
+### Arguments
+
+- *string* **path** - Path to the animation file.
+
+### Return value
+
+true if the hold counter has been decreased; false if there is no resource with the specified path or the counter is already 0.
+## bool UnholdStreamingAnimation ( UGUID guid )
+
+Decreases the hold counter of the animation with the specified GUID in the [data streaming](../../../principles/data_streaming/index.md) system.
+### Arguments
+
+- *[UGUID](../../../api/library/filesystem/class.uguid_cs.md)* **guid** - GUID of the animation file.
+
+### Return value
+
+true if the hold counter has been decreased; false if there is no resource with the specified GUID or the counter is already 0.
+## void ResetStreamingAnimationHold ( string path )
+
+Resets the hold counter of the animation with the specified path to 0 in the [data streaming](../../../principles/data_streaming/index.md) system.
+### Arguments
+
+- *string* **path** - Path to the animation file.
+
+## void ResetStreamingAnimationHold ( UGUID guid )
+
+Resets the hold counter of the animation with the specified GUID to 0 in the [data streaming](../../../principles/data_streaming/index.md) system.
+### Arguments
+
+- *[UGUID](../../../api/library/filesystem/class.uguid_cs.md)* **guid** - GUID of the animation file.
+
+## bool IsStreamingAnimationHeld ( string path )
+
+Returns a value indicating if the animation with the specified path is currently held in the [data streaming](../../../principles/data_streaming/index.md) system.
+### Arguments
+
+- *string* **path** - Path to the animation file.
+
+### Return value
+
+true if the animation is held in the streaming system; otherwise, false.
+## bool IsStreamingAnimationHeld ( UGUID guid )
+
+Returns a value indicating if the animation with the specified GUID is currently held in the [data streaming](../../../principles/data_streaming/index.md) system.
+### Arguments
+
+- *[UGUID](../../../api/library/filesystem/class.uguid_cs.md)* **guid** - GUID of the animation file.
+
+### Return value
+
+true if the animation is held in the streaming system; otherwise, false.
+## int GetStreamingAnimationHoldCount ( string path )
+
+Returns the current value of the hold counter of the animation with the specified path in the [data streaming](../../../principles/data_streaming/index.md) system.
+### Arguments
+
+- *string* **path** - Path to the animation file.
+
+### Return value
+
+Current value of the hold counter.
+## int GetStreamingAnimationHoldCount ( UGUID guid )
+
+Returns the current value of the hold counter of the animation with the specified GUID in the [data streaming](../../../principles/data_streaming/index.md) system.
+### Arguments
+
+- *[UGUID](../../../api/library/filesystem/class.uguid_cs.md)* **guid** - GUID of the animation file.
+
+### Return value
+
+Current value of the hold counter.
+## bool IsStreamingAnimationExist ( string path )
+
+Returns a value indicating if an animation with the specified path exists in the [data streaming](../../../principles/data_streaming/index.md) system.
+### Arguments
+
+- *string* **path** - Path to the animation file.
+
+### Return value
+
+true if a resource with the specified path exists in the streaming system; otherwise, false.
+## bool IsStreamingAnimationExist ( UGUID guid )
+
+Returns a value indicating if an animation with the specified GUID exists in the [data streaming](../../../principles/data_streaming/index.md) system.
+### Arguments
+
+- *[UGUID](../../../api/library/filesystem/class.uguid_cs.md)* **guid** - GUID of the animation file.
+
+### Return value
+
+true if a resource with the specified GUID exists in the streaming system; otherwise, false.
+## bool IsStreamingAnimationLoaded ( string path )
+
+Returns a value indicating if the animation with the specified path is currently loaded in the [data streaming](../../../principles/data_streaming/index.md) system.
+### Arguments
+
+- *string* **path** - Path to the animation file.
+
+### Return value
+
+true if the animation with the specified path is currently loaded; otherwise, false.
+## bool IsStreamingAnimationLoaded ( UGUID guid )
+
+Returns a value indicating if the animation with the specified GUID is currently loaded in the [data streaming](../../../principles/data_streaming/index.md) system.
+### Arguments
+
+- *[UGUID](../../../api/library/filesystem/class.uguid_cs.md)* **guid** - GUID of the animation file.
+
+### Return value
+
+true if the animation with the specified GUID is currently loaded; otherwise, false.
+## void CalculateEngineRenderResolution ( int render_mode , int skip_flags , ivec2 viewport_size , out ivec2 min_resolution , out ivec2 max_resolution , out ivec2 frame_render_resolution )
+
+Calculates the internal engine render resolutions that would be used for a viewport of the given size, taking into account the render border, supersampling, dynamic resolution, and the active upscaler.
+### Arguments
+
+- *int* **render_mode** - Viewport render mode, one of the **[Viewport.RENDER_*](../../../api/library/rendering/class.viewport_cs.md#RENDER_DEPTH)** values; adjustments for dynamic resolution and the upscaler are applied only for the full render pipeline mode.
+- *int* **skip_flags** - Combination of the **[Viewport.SKIP_*](../../../api/library/rendering/class.viewport_cs.md#SKIP_SHADOWS)** flags; skipping post effects or upscaling suppresses the corresponding resolution adjustment.
+- *ivec2* **viewport_size** - Target viewport size, in pixels.
+- *out ivec2* **min_resolution** - Output value: the minimum resolution the engine may render at (differs from the maximum only when dynamic resolution is enabled).
+- *out ivec2* **max_resolution** - Output value: the maximum resolution the engine may render at.
+- *out ivec2* **frame_render_resolution** - Output value: the resolution the current frame would actually be rendered at.
+
+## MeshSkinnedAnimation LoadStreamingAnimationAsync ( UGUID guid )
+
+Requests a skinned mesh animation from the animation streaming system without blocking: asynchronous loading is started and the call returns immediately. The returned resource may not be loaded yet.
+### Arguments
+
+- *[UGUID](../../../api/library/filesystem/class.uguid_cs.md)* **guid** - GUID of the animation asset.
+
+### Return value
+
+Read-only animation resource managed by the streaming system, or null if the resource cannot be created.
+## MeshSkinnedAnimation LoadStreamingAnimationAsync ( string path )
+
+Requests a skinned mesh animation from the animation streaming system without blocking: asynchronous loading is started and the call returns immediately. The returned resource may not be loaded yet.
+### Arguments
+
+- *string* **path** - Path to the animation file.
+
+### Return value
+
+Read-only animation resource managed by the streaming system, or null if the resource cannot be created.
+## MeshSkinnedAnimation LoadStreamingAnimationForce ( UGUID guid )
+
+Loads a skinned mesh animation via the animation streaming system synchronously: the call blocks until the animation data is loaded, so the returned resource is ready for immediate use. Prefer the asynchronous variant during rendering to avoid spikes.
+### Arguments
+
+- *[UGUID](../../../api/library/filesystem/class.uguid_cs.md)* **guid** - GUID of the animation asset.
+
+### Return value
+
+Read-only animation resource managed by the streaming system, or null if the resource cannot be created.
+## MeshSkinnedAnimation LoadStreamingAnimationForce ( string path )
+
+Loads a skinned mesh animation via the animation streaming system synchronously: the call blocks until the animation data is loaded, so the returned resource is ready for immediate use. Prefer the asynchronous variant during rendering to avoid spikes.
+### Arguments
+
+- *string* **path** - Path to the animation file.
+
+### Return value
+
+Read-only animation resource managed by the streaming system, or null if the resource cannot be created.
+## int AddParameter ( string name , Render.RENDER_PARAMETER type = Enum.Render.RENDER_PARAMETER.FLOAT , bool dynamic = true , UGUID guid = UGUID() )
+
+Registers a new global render parameter and returns its number. If a parameter with the given GUID is already registered, the number of the existing parameter is returned, making the registration idempotent.
+### Arguments
+
+- *string* **name** - Parameter name.
+- *[Render.RENDER_PARAMETER](../../../api/library/rendering/class.render_cs.md#RENDER_PARAMETER)* **type** - Parameter type.
+- *bool* **dynamic** - true to make the parameter dynamic: its value is provided to shaders as a uniform and can be changed at runtime without shader recompilation. false to bake the value into shaders as a compile-time constant (changing the value triggers shader recompilation).
+- *[UGUID](../../../api/library/filesystem/class.uguid_cs.md)* **guid** - Parameter GUID. If an empty GUID is passed, a new one is generated automatically.
+
+### Return value
+
+Number of the registered parameter.
+## bool IsValidSurfaceMaterialParameterName ( string name )
+
+Checks if the given name can be used as a custom parameter name. A valid name is a valid C/HLSL identifier that does not start with an underscore or the *unigine_* prefix and is not a reserved shader keyword or type name.
+### Arguments
+
+- *string* **name** - Name to be checked.
+
+### Return value
+
+true if the name can be used as a custom parameter name; otherwise, false.

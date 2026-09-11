@@ -39,6 +39,14 @@ The mask data are stored in the [configuration file](../../../../principles/rend
 | **DISPLAY** = 0 | Display viewport. |
 | **PROJECTOR** = 1 | Projector (beamer) viewport. |
 
+## RENDER_MODE
+
+Rendering mode of the viewport: a single image or a side-by-side stereo pair.
+| Name | Description |
+|---|---|
+| **MONO** = 0 | The viewport renders a single image (default). |
+| **STEREO** = 1 | The viewport renders a side-by-side stereo image, with the left-eye view on the left and the right-eye view on the right. |
+
 ### Properties
 
 ## 🔒︎ int ID
@@ -847,6 +855,15 @@ ViewportData.EventSomethingChanged.Enabled = true;
 ## bool ViewportRendering
 
 The value indicating whether the viewport rendering is enabled.
+## float PixelDensity
+
+The rendering resolution of the viewport in pixels per meter, used for display-type viewports: the render texture size is calculated automatically from the physical screen dimensions and the specified pixel density, preserving the correct aspect ratio. The default value is 1200.
+## ViewportData.RENDER_MODE RenderMode
+
+The rendering mode of the viewport, one of the *RENDER_MODE_** values: a single (mono) image or a side-by-side stereo pair. The default is the mono mode.
+## bool SwapEyesInStereoMode
+
+The value indicating if the left and right eye images are exchanged in stereo mode. Use this option if the stereo signal is reversed due to the display or projection hardware configuration. Has no effect in the mono mode.
 ### Members
 
 ---

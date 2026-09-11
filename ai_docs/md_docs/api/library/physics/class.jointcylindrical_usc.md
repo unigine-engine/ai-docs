@@ -59,25 +59,25 @@ joint.setNumIterations(16);
 Returns the current velocity of the linear motor.
 ### Return value
 
-Current current velocity in units per second.
+Current velocity in units per second.
 ## float getCurrentLinearDistance () const
 
 Returns the current distance between the bodies.
 ### Return value
 
-Current current distance in units.
+Current distance in units.
 ## float getCurrentAngularVelocity () const
 
 Returns the current velocity of the angular motor.
 ### Return value
 
-Current current velocity in radians per second.
+Current velocity in radians per second.
 ## float getCurrentAngularAngle () const
 
 Returns the current angle between the bodies.
 ### Return value
 
-Current current angle in degrees.
+Current angle in degrees.
 ## void setLinearVelocity ( float velocity )
 
 Sets a new target velocity of the attached linear motor.

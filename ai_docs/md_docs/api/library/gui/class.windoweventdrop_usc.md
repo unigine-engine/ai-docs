@@ -12,6 +12,32 @@ This class is used to handle an event of dragging and dropping a text or file in
 
 ### Members
 
+## void setAction ( int action )
+
+Sets a new type of the drop action performed with the window during the event.
+### Arguments
+
+- *int* **action** - The type of the drop action performed with the window during the event
+
+## int getAction () const
+
+Returns the current type of the drop action performed with the window during the event.
+### Return value
+
+Current type of the drop action performed with the window during the event
+## void setPath ( string path )
+
+Sets a new absolute path to the dropped file.
+### Arguments
+
+- *string* **path** - The absolute path to the dropped file
+
+## const char * getPath () const
+
+Returns the current absolute path to the dropped file.
+### Return value
+
+Current absolute path to the dropped file
 ---
 
 ## WindowEventDrop ( )
@@ -57,30 +83,3 @@ Window drop event constructor.
 - *ivec2* **size** - Size of the window.
 - *int* **action** - Type of the drop action performed with the window during the event.
 - *string* **item_path**
-
-## void setAction ( int action )
-
-Sets the type of the drop action performed with the window during the event.
-### Arguments
-
-- *int* **action** - Type of the drop action performed with the window during the event.
-
-## int getAction ( )
-
-Returns the type of the drop action performed with the window during the event.
-### Return value
-
-The type of the drop action performed with the window during the event.
-## void setPath ( string path )
-
-Sets the absolute path to the dropped file.
-### Arguments
-
-- *string* **path** - Absolute path to the dropped file.
-
-## string getPath ( )
-
-Returns the absolute path to the dropped file.
-### Return value
-
-The absolute path to the dropped file.

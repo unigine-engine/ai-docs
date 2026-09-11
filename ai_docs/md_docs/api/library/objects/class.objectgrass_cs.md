@@ -13,86 +13,82 @@ You can use [a mask](#setCutoutIntersectionMask_int_void) to cut out grass in th
 
 ### Properties
 
-## int CutoutInverse
+## bool CutoutInverse
 
-The A value indicating if the grass is rendered inside or outside the areas determined by the [cutout intersection mask](#setCutoutIntersectionMask_int_void).
+The value indicating if the grass is rendered inside or outside the areas determined by the [cutout intersection mask](#setCutoutIntersectionMask_int_void).
 ## int CutoutIntersectionMask
 
-The current cutout intersection mask. this mask allows you to cut out the grass in the areas of intersection with objects and decals (e.g. can be used to remove grass under houses or from the surface of roads projected using decals). the grass will be cut out by objects and decals that have their intersection mask matching this one (one bit at least).
+The cutout intersection mask. this mask allows you to cut out the grass in the areas of intersection with objects and decals (e.g. can be used to remove grass under houses or from the surface of roads projected using decals). the grass will be cut out by objects and decals that have their intersection mask matching this one (one bit at least).
 > **Notice:** To set intersection masks the following methods can be used:
 > - **for decals** use *[getIntersectionMask()](../../../api/library/decals/class.decal_cs.md#getIntersectionMask_int)*
 > - **for objects** use *[getIntersectionMask()](../../../api/library/objects/class.object_cs.md#getIntersectionMask_int_int)*
 
+## bool MaskInverse
 
-## int MaskInverse
-
-The A flag indicating if the grass is rendered inside or outside the mask mesh contour.
+The flag indicating if the grass is rendered inside or outside the mask mesh contour.
 ## int MaskMaxValue
 
-The maximum value of the mask application range.
+The maximum value of the mask application range (a color range from **0** to **255**, indicating that only that part of mask, which contains this color range, will be applied to the image).
 ## int MaskMinValue
 
 The minimum value of the mask application range.
 ## int MaskFlipY
 
-The A flag indicating if a mask is flipped by y axis.
+The flag indicating if a mask is flipped by y axis.
 ## int MaskFlipX
 
-The A flag indicating if a mask is flipped by x axis.
+The flag indicating if a mask is flipped by x axis.
 ## vec4 Probability
 
-The current grass rendering probability per column (in the diffuse texture). the higher the value for some column, the more frequently it will be rendered.
+The grass rendering probability per column (in the diffuse texture). the higher the value for some column, the more frequently it will be rendered. Any values can be set, since they are normalized.
 ## float Angle
 
-The current angle cosine defining the slope steepness appropriate for grass growing.
+The angle cosine defining the slope steepness appropriate for grass growing, in range from **0** to **1**.
 ## float Threshold
 
-The current threshold for density, starting from which the grass is rendered.
+The threshold for density, starting from which the grass is rendered.
 ## float Density
 
-The current density factor for the grass per square unit.
+The density factor for the grass per square unit.
 ## int Subdivision
 
-The current divisor used to subdivide grass rendering cells into smaller sub-cells. subdividing is used if a grass node is used as a distant lod for [WorldClutter](../../../api/library/worlds/class.worldclutter_cs.md) or [ObjectMeshClutter](../../../api/library/objects/class.objectmeshclutter_cs.md) with smaller cells. This way, positions of randomly scattered objects will coincide with those of grass-based impostors.
+The divisor used to subdivide grass rendering cells into smaller sub-cells. The value is clamped to a range **[1;32]**. subdividing is used if a grass node is used as a distant lod for [WorldClutter](../../../api/library/worlds/class.worldclutter_cs.md) or [ObjectMeshClutter](../../../api/library/objects/class.objectmeshclutter_cs.md) with smaller cells. This way, positions of randomly scattered objects will coincide with those of grass-based impostors.
 ## float Step
 
-The current step for cells used to render grass.
+The step for cells used to render grass.
 ## float SizeY
 
-The current length of the grass object along the y-coordinate.
+The length of the grass object along the y-coordinate, in units. If a negative value is provided, **0** will be used instead.
 ## float SizeX
 
-The current width of the grass object along the x-coordinate.
+The width of the grass object along the x-coordinate, in units. If a negative value is provided, **0** will be used instead.
 ## int Seed
 
-The seed used for pseudo-random positioning of grass.
-## 🔒︎ int SpawnCount
-
-The number of cells to be generated.
+The seed used for pseudo-random positioning of grass. If a negative value is provided, **0** will be used instead.
 ## int NumTextures
 
-The number of rows contained in the [grass diffuse texture](../../../content/materials/library/grass_base/index.md#texture_diffuse).
-## int Intersection
+The number of rows contained in the [grass diffuse texture](../../../content/materials/library/grass_base/index.md#texture_diffuse), in the **[1; 4]** range.
+## bool Intersection
 
-The A value indicating whether grass grow upon the ground: either the terrain or a mesh set as a parent node.
+The value indicating whether grass grow upon the ground: either the terrain or a mesh set as a parent node.
 ## int IntersectionMask
 
 The intersection mask for the object.
-## int Orientation
+## bool Orientation
 
-The A flag indicating if grass polygons are oriented along the normal of its parent (for example, a terrain).
-## int Variation
+The flag indicating if grass polygons are oriented along the normal of its parent (for example, a terrain).
+## bool Variation
 
-The A value indicating if the random horizontal flip for grass polygons is set.
-## int Thinning
+The value indicating if the random horizontal flip for grass polygons is set.
+## bool Thinning
 
-The A flag indicating if the grass is thinned out with a distance (random grass polygons are not rendered across the grass fade distance).
+The flag indicating if the grass is thinned out with a distance (random grass polygons are not rendered across the grass fade distance).
 ## int FieldMask
 
-The A mask specifying the area of the field node to be applied to the grass.
+The mask specifying the area of the field node to be applied to the grass. The integer is treated as a bit mask, where each bit is a separate mask.
 ## ivec4 TerrainMasks
 
-The current set of [Landscape Terrain masks](../../../api/library/objects/landscape_terrain/class.objectlandscapeterrain_cs.md#getDetailMask_int_TerrainDetailMask) used for grass placement.
+The set of [Landscape Terrain masks](../../../api/library/objects/landscape_terrain/class.objectlandscapeterrain_cs.md#getDetailMask_int_TerrainDetailMask) used for grass placement (a four-component vector combining mask indices, each component in the [0; 19] range, to be used for the corresponding diffuse texture column).
 ### Members
 
 ---

@@ -5,13 +5,10 @@
 **Inherits from:** AnimationBind
 
 
-This class is used to manage material [bindings](../../../../principles/animations/index.md#animation_binding) of [animation objects](../../../../principles/animations/index.md#animation_object) via code. Animation objects serve as proxies in animation sequences and are bound to specific objects (materials, nodes, property parameters, or runtime objects like widgets and windows) at the playback stage.
+This binding points a channel at a material, so that a [sequence](../../../../api/library/animations/timeline/class.animationsequence_cpp.md) animates a material parameter such as a color, an albedo scale or a texture shift.
 
 
-Bindings are used to store, search, and obtain real engine objects that are actually animated.
-
-
-The material to be animated can be bound either via the material asset or via an object's surface to which this material is assigned depending on the specified [access mode](#setAccess_int_void). In case of accessing a material via a surface we'll get a child material inherited from the one assigned to this surface.
+The material is reached in one of two ways: straight from a material asset, which writes into the asset and shows on everything that uses it, or through a surface of an object, which gives that surface a child material and leaves the rest of the scene alone.
 
 
 ## AnimationBindMaterial Class
@@ -20,100 +17,77 @@ The material to be animated can be bound either via the material asset or via an
 
 ## ACCESS
 
-Access mode. Defines the way the animated material is obtained.
+Access mode. It decides the way the animated material is obtained.
 | Name | Description |
 |---|---|
-| **ACCESS_FROM_ASSET** = 0 | The material to be animated is obtained from a material asset (`.mat`). |
-| **ACCESS_FROM_SURFACE** = 1 | The material to be animated is obtained from a surface of an object. In this case we'll get a child material inherited from the one assigned to the surface. |
+| **ACCESS_UNKNOWN** = -1 | The way to obtain the material is not set. |
+| **ACCESS_FROM_ASSET** = 0 | The material is taken from a material asset, so the animation writes into the asset itself and reaches everything that uses it. |
+| **ACCESS_FROM_SURFACE** = 1 | The material is taken from a surface of an object, which gives a child material of its own to that surface, so the animation touches nothing else. |
 
 ### Members
 
 ## void setAccess ( AnimationBindMaterial::ACCESS access )
 
-Sets a new material access mode. Defines the way the animated material is obtained.
+Sets a new access mode of the binding. It decides the way the animated material is obtained.
 ### Arguments
 
-- *[AnimationBindMaterial::ACCESS](../../../../api/library/animations/timeline/class.animationbindmaterial_cpp.md#ACCESS)* **access** - The access mode.
+- *[AnimationBindMaterial::ACCESS](../../../../api/library/animations/timeline/class.animationbindmaterial_cpp.md#ACCESS)* **access** - The access mode of the binding
 
 ## AnimationBindMaterial::ACCESS getAccess () const
 
-Returns the current material access mode. Defines the way the animated material is obtained.
+Returns the current access mode of the binding. It decides the way the animated material is obtained.
 ### Return value
 
-Current access mode.
-## UGUID getMaterialDescriptionGUID () const
+Current access mode of the binding
+## void setSurfacePattern ( const char * pattern )
 
-Returns the current GUID of the animated material.
+Sets a new pattern the surface names are matched against. It picks the surfaces the binding works on inside every object the target resolves to.
+### Arguments
+
+- *const char ** **pattern** - The pattern the surface names are matched against
+
+## const char * getSurfacePattern () const
+
+Returns the current pattern the surface names are matched against. It picks the surfaces the binding works on inside every object the target resolves to.
 ### Return value
 
-Current GUID of the animated material.
-## UGUID getMaterialDescriptionFileGUID () const
-
-Returns the current GUID of the file describing the animated material.
-### Return value
-
-Current GUID of the material file.
-## getObjectDescriptionID () const
-
-Returns the current ID of the object, to which a surface with the animated material belongs.
-### Return value
-
-Current ID of the object.
-## const char * getObjectDescriptionName () const
-
-Returns the current name of the object, to which a surface with the animated material belongs.
-### Return value
-
-Current name of the object.
-## const char * getSurfaceDescriptionName () const
-
-Returns the current name of the surface, to which the animated material is assigned.
-### Return value
-
-Current name of the surface.
-## getSurfaceDescriptionIndex () const
-
-Returns the current number of the surface, to which the animated material is assigned.
-### Return value
-
-Current number of the surface in the list of object's surfaces.
-## Ptr < Object > getObject () const
-
-Returns the current object to which the animated material is assigned.
-### Return value
-
-Current object to which the animated material is assigned.
-## Ptr < Material > getMaterial () const
-
-Returns the current animated material.
-### Return value
-
-Current animated material.
+Current pattern the surface names are matched against
 ---
 
 ## AnimationBindMaterial ( )
 
 Constructor. Creates an empty material binding.
-## void setMaterialDescription ( const UGUID & guid , const UGUID & file_guid )
+## void setObjects ( Vector < Ptr < Node >> OUT_nodes )
 
-Sets the description parameters of the animated material. This method is used if the [access mode](#setAccess_int_void) is set to *[ACCESS_FROM_ASSET](../../../...md#ACCESS_FROM_ASSET)*
+Points the binding at a set of objects at once, so that one channel drives every one of them.
 ### Arguments
 
-- *const [UGUID](../../../../api/library/filesystem/class.uguid_cpp.md) &* **guid** - GUID of the animated material.
-- *const [UGUID](../../../../api/library/filesystem/class.uguid_cpp.md) &* **file_guid** - GUID of the file describing the animated material.
+- *[Vector](../../../../api/library/containers/vector/class.vector_cpp.md)<[Ptr](../../../../api/library/common/class.ptr_cpp.md)<[Node](../../../../api/library/nodes/class.node_cpp.md)>>* **OUT_nodes** - Nodes the binding is to point at. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
 
-## void setObjectDescription ( int id , const char * name )
+## void setAssets ( Vector < UGUID > OUT_file_guids )
 
-Sets the description parameters of the object to which a surface with the animated material belongs. This method is used if the [access mode](#setAccess_int_void) is set to *[ACCESS_FROM_SURFACE](../../../...md#ACCESS_FROM_SURFACE)*.
+Points the binding at a set of assets at once.
 ### Arguments
 
-- *int* **id** - ID of the object, to which a surface with the animated material belongs.
-- *const char ** **name** - Name of the object, to which a surface with the animated material belongs.
+- *[Vector](../../../../api/library/containers/vector/class.vector_cpp.md)<[UGUID](../../../../api/library/filesystem/class.uguid_cpp.md)>* **OUT_file_guids** - File GUIDs of the assets. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
 
-## void setSurfaceDescription ( const char * name , int index )
+## int getNumTargetSurfaceMatches ( int i ) const
 
-Sets the description parameters of the surface to which the animated material is assigned. This method is used if the [access mode](#setAccess_int_void) is set to *[ACCESS_FROM_SURFACE](../../../...md#ACCESS_FROM_SURFACE)*
+Returns how many surfaces the specified target resolves to, which is what tells a surface pattern that found nothing from one that found many.
 ### Arguments
 
-- *const char ** **name** - Name of the surface, to which the animated material is assigned.
-- *int* **index** - Number of the surface, to which the animated material is assigned.
+- *int* **i** - Target number.
+
+### Return value
+
+Number of surfaces the target resolves to.
+## Ptr < Object > getTargetResolvedObject ( int i ) const
+
+Returns the object the specified target of the binding resolves to in the loaded scene.
+### Arguments
+
+- *int* **i** - Target number.
+
+### Return value
+
+Object the target resolves to, or NULL (null in C#) if it resolves to none.

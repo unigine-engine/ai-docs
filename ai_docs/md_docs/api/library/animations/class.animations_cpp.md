@@ -2,618 +2,69 @@
 
 **Header:** #include <UnigineAnimation.h>
 
-> **Notice:** This class is a singleton.
+
+This class gives access to what the animation system knows about itself: which parameters of the engine can be animated at all, what kind of [channel](../../../api/library/animations/timeline/class.animationchannel_cpp.md) each of them needs, and how a parameter is shown and edited. A tool that builds a [sequence](../../../api/library/animations/timeline/class.animationsequence_cpp.md) from code asks these questions before it creates a channel.
 
 
-This class is the central manager for the animation system. It provides functionality for two animation subsystems:
+The same singleton also drives the animation scripts: it rebuilds them, reports whether the build succeeded and tells when a custom library has been built.
 
 
-- **Timeline Animation** - managing [animation tracks](../../../principles/animations/index.md#animation_track) (`.utrack`) and [animation playbacks](../../../principles/animations/index.md#animation_playback) (`.uplay`), querying animatable classes and their parameters, and converting legacy animation formats.
-- **Animation Scripts** - working with [animation scripts](../../../api/library/animations/skeletal/class.animscript_cpp.md) (compiled animation graphs that can be interacted with via code), querying graph types, and monitoring the build process.
+Every parameter the engine allows to animate has an identifier of its own, and those identifiers make up a registry generated from the engine classes. It holds thousands of entries and is not meant to be typed out by hand: look an identifier up by name with *[getParameterByName()](../../...md#getParameterByName_cstr_int)* or *[getParameterByReflectionName()](../../...md#getParameterByReflectionName_cstr_cstr_int)*, and ask this class about everything else it carries, from the channel type it needs to the title it is shown under.
 
 
 ## Animations Class
 
-### Enums
-
-## RESULT
-
-| Name | Description |
-|---|---|
-| **RESULT_TRACK_ERROR** = 0 | A track-related error has occurred. |
-| **RESULT_NEW_TRACK_LOADED** = 1 | A new [animation track](../../../principles/animations/index.md#animation_track) is loaded. |
-| **RESULT_TRACK_IS_ALREADY_LOADED** = 2 | The [animation track](../../../principles/animations/index.md#animation_track) is already loaded. |
-| **RESULT_TRACK_RELOADED** = 3 | The [animation track](../../../principles/animations/index.md#animation_track) is reloaded. |
-| **RESULT_TRACK_SAVED** = 4 | The [animation track](../../../principles/animations/index.md#animation_track) is saved. |
-| **RESULT_TRACK_UNLOADED** = 5 | The [animation track](../../../principles/animations/index.md#animation_track) is unloaded. |
-| **RESULT_PLAYBACK_ERROR** = 6 | A playback-related error has occurred. |
-| **RESULT_NEW_PLAYBACK_LOADED** = 7 | A new [animation playback](../../../principles/animations/index.md#animation_playback) is loaded. |
-| **RESULT_PLAYBACK_IS_ALREADY_LOADED** = 8 | The [animation playback](../../../principles/animations/index.md#animation_playback) is already loaded. |
-| **RESULT_PLAYBACK_SAVED** = 9 | The [animation playback](../../../principles/animations/index.md#animation_playback) is saved. |
-
 ### Members
 
-## getNumObjects () const
+## size_t getMemoryUsage () const
 
-Returns the current total number of animated objects.
+Returns the current amount of memory taken by the animation system, in bytes.
 ### Return value
 
-Current number of [animated objects](../../../principles/animations/index.md#animation_object).
-## getNumTracks () const
+Current memory taken by the animation system, in bytes
+## bool isAnimScriptsLoaded () const
 
-Returns the current total number of [animation tracks](../../../principles/animations/index.md#animation_track).
+Returns the current value indicating if the animation scripts are loaded.
 ### Return value
 
-Current number of animation tracks.
-## getNumPlaybacks () const
+**true** if the animation scripts are loaded; otherwise **false**.
+## bool isAnimScriptsRebuilding () const
 
-Returns the current total number of [animation playbacks](../../../principles/animations/index.md#animation_playback).
+Returns the current value indicating if the animation scripts are being rebuilt right now.
 ### Return value
 
-Current number of animation playbacks.
-## static Event<const Ptr < AnimationTrack > &> getEventTrackRemoved () const
+**true** if the animation scripts are being rebuilt; otherwise **false**.
+## bool isAnimScriptsSuccessBuild () const
 
-Event triggered when an [animation track](../../../principles/animations/index.md#animation_track) is removed. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
+Returns the current value indicating if the last build of the animation scripts succeeded.
+### Return value
 
+**true** if the last build of the animation scripts succeeded; otherwise **false**.
+## void setAnimScriptsPreviewBuild ( bool build )
+
+Sets a new value indicating if the animation scripts are built in the preview mode.
+### Arguments
+
+- *bool* **build** - Set **true** to enable the preview build of the animation scripts; **false** - to disable it.
+
+## bool isAnimScriptsPreviewBuild () const
+
+Returns the current value indicating if the animation scripts are built in the preview mode.
+### Return value
+
+**true** if the preview build of the animation scripts is enabled ; otherwise **false**.
+## int getNumAnimScriptTypes () const
+
+Returns the current number of animation script types the engine knows.
+### Return value
+
+Current number of animation script types
+## Event<const char *, const char *, const char *> getEventCustomLibBuild () const
+
+event triggered when a custom animation library has been built. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience.
 > **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
 
- The event handler signature is as follows: *myhandler(const Ptr<AnimationTrack> & **anim_track**)*
-<details>
-<summary>See Example | Close</summary>
-
-**Usage Example**
-
-```cpp
-// implement the TrackRemoved event handler
-void trackremoved_event_handler(const Ptr<AnimationTrack> & anim_track)
-{
-	Log::message("\Handling TrackRemoved event\n");
-}
-
-//////////////////////////////////////////////////////////////////////////////
-//  1. Multiple subscriptions can be linked to an instance of the EventConnections
-//  class that you can use later to remove all these subscriptions at once
-//////////////////////////////////////////////////////////////////////////////
-
-// create an instance of the EventConnections class
-EventConnections trackremoved_event_connections;
-
-// link to this instance when subscribing to an event (subscription to various events can be linked)
-Animations::getEventTrackRemoved().connect(trackremoved_event_connections, trackremoved_event_handler);
-
-// other subscriptions are also linked to this EventConnections instance
-// (e.g. you can subscribe using lambdas)
-Animations::getEventTrackRemoved().connect(trackremoved_event_connections, [](const Ptr<AnimationTrack> & anim_track) {
-		Log::message("\Handling TrackRemoved event (lambda).\n");
-	}
-);
-
-// ...
-
-// later all of these linked subscriptions can be removed with a single line
-trackremoved_event_connections.disconnectAll();
-
-//////////////////////////////////////////////////////////////////////////////
-//  2. You can subscribe and unsubscribe via an instance of the EventConnection
-//  class. And toggle this particular connection off and on, when necessary.
-//////////////////////////////////////////////////////////////////////////////
-
-// create an instance of the EventConnection class
-EventConnection trackremoved_event_connection;
-
-// subscribe to the TrackRemoved event with a handler function keeping the connection
-Animations::getEventTrackRemoved().connect(trackremoved_event_connection, trackremoved_event_handler);
-
-// ...
-
-// you can temporarily disable a particular event connection to perform certain actions
-trackremoved_event_connection.setEnabled(false);
-
-// ... actions to be performed
-
-// and enable it back when necessary
-trackremoved_event_connection.setEnabled(true);
-
-// ...
-
-// remove subscription to the TrackRemoved event via the connection
-trackremoved_event_connection.disconnect();
-
-//////////////////////////////////////////////////////////////////////////////
-//  3. You can add EventConnection/EventConnections instance as a member of the
-//  class that handles the event. In this case all linked subscriptions will be
-//  automatically removed when class destructor is called
-//////////////////////////////////////////////////////////////////////////////
-
-// Class handling the event
-class SomeClass
-{
-public:
-	// instance of the EventConnections class as a class member
-	EventConnections e_connections;
-
-	// A TrackRemoved event handler implemented as a class member
-	void event_handler(const Ptr<AnimationTrack> & anim_track)
-	{
-		Log::message("\Handling TrackRemoved event\n");
-		// ...
-	}
-};
-
-SomeClass *sc = new SomeClass();
-
-// ...
-
-// specify a class instance in case a handler method belongs to some class
-Animations::getEventTrackRemoved().connect(sc->e_connections, sc, &SomeClass::event_handler);
-
-// ...
-
-// handler class instance is deleted with all its subscriptions removed automatically
-delete sc;
-
-//////////////////////////////////////////////////////////////////////////////
-//   4. Subscribe to an event saving a particular connection ID
-//   and unsubscribe later by this ID
-//////////////////////////////////////////////////////////////////////////////
-// instance of the EventConnections class to manage event connections
-EventConnections e_connections;
-
-// define a particular connection ID to be used to unsubscribe later
-EventConnectionId trackremoved_handler_id;
-
-// subscribe to the TrackRemoved event with a lambda handler function and keeping connection ID
-trackremoved_handler_id = Animations::getEventTrackRemoved().connect(e_connections, [](const Ptr<AnimationTrack> & anim_track) {
-		Log::message("\Handling TrackRemoved event (lambda).\n");
-	}
-);
-
-// remove the subscription later using the ID
-Animations::getEventTrackRemoved().disconnect(trackremoved_handler_id);
-
-//////////////////////////////////////////////////////////////////////////////
-//   5. Ignoring all TrackRemoved events when necessary
-//////////////////////////////////////////////////////////////////////////////
-
-// you can temporarily disable the event to perform certain actions without triggering it
-Animations::getEventTrackRemoved().setEnabled(false);
-
-// ... actions to be performed
-
-// and enable it back when necessary
-Animations::getEventTrackRemoved().setEnabled(true);
-
-```
-
-</details>
-
-### Return value
-
-Event reference.
-## static Event<const Ptr < AnimationTrack > &> getEventTrackAdded () const
-
-Event triggered when a new [animation track](../../../principles/animations/index.md#animation_track) is added. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
-
-> **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
-
- The event handler signature is as follows: *myhandler(const Ptr<AnimationTrack> & **anim_track**)*
-<details>
-<summary>See Example | Close</summary>
-
-**Usage Example**
-
-```cpp
-// implement the TrackAdded event handler
-void trackadded_event_handler(const Ptr<AnimationTrack> & anim_track)
-{
-	Log::message("\Handling TrackAdded event\n");
-}
-
-//////////////////////////////////////////////////////////////////////////////
-//  1. Multiple subscriptions can be linked to an instance of the EventConnections
-//  class that you can use later to remove all these subscriptions at once
-//////////////////////////////////////////////////////////////////////////////
-
-// create an instance of the EventConnections class
-EventConnections trackadded_event_connections;
-
-// link to this instance when subscribing to an event (subscription to various events can be linked)
-Animations::getEventTrackAdded().connect(trackadded_event_connections, trackadded_event_handler);
-
-// other subscriptions are also linked to this EventConnections instance
-// (e.g. you can subscribe using lambdas)
-Animations::getEventTrackAdded().connect(trackadded_event_connections, [](const Ptr<AnimationTrack> & anim_track) {
-		Log::message("\Handling TrackAdded event (lambda).\n");
-	}
-);
-
-// ...
-
-// later all of these linked subscriptions can be removed with a single line
-trackadded_event_connections.disconnectAll();
-
-//////////////////////////////////////////////////////////////////////////////
-//  2. You can subscribe and unsubscribe via an instance of the EventConnection
-//  class. And toggle this particular connection off and on, when necessary.
-//////////////////////////////////////////////////////////////////////////////
-
-// create an instance of the EventConnection class
-EventConnection trackadded_event_connection;
-
-// subscribe to the TrackAdded event with a handler function keeping the connection
-Animations::getEventTrackAdded().connect(trackadded_event_connection, trackadded_event_handler);
-
-// ...
-
-// you can temporarily disable a particular event connection to perform certain actions
-trackadded_event_connection.setEnabled(false);
-
-// ... actions to be performed
-
-// and enable it back when necessary
-trackadded_event_connection.setEnabled(true);
-
-// ...
-
-// remove subscription to the TrackAdded event via the connection
-trackadded_event_connection.disconnect();
-
-//////////////////////////////////////////////////////////////////////////////
-//  3. You can add EventConnection/EventConnections instance as a member of the
-//  class that handles the event. In this case all linked subscriptions will be
-//  automatically removed when class destructor is called
-//////////////////////////////////////////////////////////////////////////////
-
-// Class handling the event
-class SomeClass
-{
-public:
-	// instance of the EventConnections class as a class member
-	EventConnections e_connections;
-
-	// A TrackAdded event handler implemented as a class member
-	void event_handler(const Ptr<AnimationTrack> & anim_track)
-	{
-		Log::message("\Handling TrackAdded event\n");
-		// ...
-	}
-};
-
-SomeClass *sc = new SomeClass();
-
-// ...
-
-// specify a class instance in case a handler method belongs to some class
-Animations::getEventTrackAdded().connect(sc->e_connections, sc, &SomeClass::event_handler);
-
-// ...
-
-// handler class instance is deleted with all its subscriptions removed automatically
-delete sc;
-
-//////////////////////////////////////////////////////////////////////////////
-//   4. Subscribe to an event saving a particular connection ID
-//   and unsubscribe later by this ID
-//////////////////////////////////////////////////////////////////////////////
-// instance of the EventConnections class to manage event connections
-EventConnections e_connections;
-
-// define a particular connection ID to be used to unsubscribe later
-EventConnectionId trackadded_handler_id;
-
-// subscribe to the TrackAdded event with a lambda handler function and keeping connection ID
-trackadded_handler_id = Animations::getEventTrackAdded().connect(e_connections, [](const Ptr<AnimationTrack> & anim_track) {
-		Log::message("\Handling TrackAdded event (lambda).\n");
-	}
-);
-
-// remove the subscription later using the ID
-Animations::getEventTrackAdded().disconnect(trackadded_handler_id);
-
-//////////////////////////////////////////////////////////////////////////////
-//   5. Ignoring all TrackAdded events when necessary
-//////////////////////////////////////////////////////////////////////////////
-
-// you can temporarily disable the event to perform certain actions without triggering it
-Animations::getEventTrackAdded().setEnabled(false);
-
-// ... actions to be performed
-
-// and enable it back when necessary
-Animations::getEventTrackAdded().setEnabled(true);
-
-```
-
-</details>
-
-### Return value
-
-Event reference.
-## static Event<const Ptr < AnimationObject > &> getEventObjectRemoved () const
-
-Event triggered when an [animation object](../../../principles/animations/index.md#animation_object) is removed. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
-
-> **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
-
- The event handler signature is as follows: *myhandler(const Ptr<AnimationObject> & **anim_object**)*
-<details>
-<summary>See Example | Close</summary>
-
-**Usage Example**
-
-```cpp
-// implement the ObjectRemoved event handler
-void objectremoved_event_handler(const Ptr<AnimationObject> & anim_object)
-{
-	Log::message("\Handling ObjectRemoved event\n");
-}
-
-//////////////////////////////////////////////////////////////////////////////
-//  1. Multiple subscriptions can be linked to an instance of the EventConnections
-//  class that you can use later to remove all these subscriptions at once
-//////////////////////////////////////////////////////////////////////////////
-
-// create an instance of the EventConnections class
-EventConnections objectremoved_event_connections;
-
-// link to this instance when subscribing to an event (subscription to various events can be linked)
-Animations::getEventObjectRemoved().connect(objectremoved_event_connections, objectremoved_event_handler);
-
-// other subscriptions are also linked to this EventConnections instance
-// (e.g. you can subscribe using lambdas)
-Animations::getEventObjectRemoved().connect(objectremoved_event_connections, [](const Ptr<AnimationObject> & anim_object) {
-		Log::message("\Handling ObjectRemoved event (lambda).\n");
-	}
-);
-
-// ...
-
-// later all of these linked subscriptions can be removed with a single line
-objectremoved_event_connections.disconnectAll();
-
-//////////////////////////////////////////////////////////////////////////////
-//  2. You can subscribe and unsubscribe via an instance of the EventConnection
-//  class. And toggle this particular connection off and on, when necessary.
-//////////////////////////////////////////////////////////////////////////////
-
-// create an instance of the EventConnection class
-EventConnection objectremoved_event_connection;
-
-// subscribe to the ObjectRemoved event with a handler function keeping the connection
-Animations::getEventObjectRemoved().connect(objectremoved_event_connection, objectremoved_event_handler);
-
-// ...
-
-// you can temporarily disable a particular event connection to perform certain actions
-objectremoved_event_connection.setEnabled(false);
-
-// ... actions to be performed
-
-// and enable it back when necessary
-objectremoved_event_connection.setEnabled(true);
-
-// ...
-
-// remove subscription to the ObjectRemoved event via the connection
-objectremoved_event_connection.disconnect();
-
-//////////////////////////////////////////////////////////////////////////////
-//  3. You can add EventConnection/EventConnections instance as a member of the
-//  class that handles the event. In this case all linked subscriptions will be
-//  automatically removed when class destructor is called
-//////////////////////////////////////////////////////////////////////////////
-
-// Class handling the event
-class SomeClass
-{
-public:
-	// instance of the EventConnections class as a class member
-	EventConnections e_connections;
-
-	// A ObjectRemoved event handler implemented as a class member
-	void event_handler(const Ptr<AnimationObject> & anim_object)
-	{
-		Log::message("\Handling ObjectRemoved event\n");
-		// ...
-	}
-};
-
-SomeClass *sc = new SomeClass();
-
-// ...
-
-// specify a class instance in case a handler method belongs to some class
-Animations::getEventObjectRemoved().connect(sc->e_connections, sc, &SomeClass::event_handler);
-
-// ...
-
-// handler class instance is deleted with all its subscriptions removed automatically
-delete sc;
-
-//////////////////////////////////////////////////////////////////////////////
-//   4. Subscribe to an event saving a particular connection ID
-//   and unsubscribe later by this ID
-//////////////////////////////////////////////////////////////////////////////
-// instance of the EventConnections class to manage event connections
-EventConnections e_connections;
-
-// define a particular connection ID to be used to unsubscribe later
-EventConnectionId objectremoved_handler_id;
-
-// subscribe to the ObjectRemoved event with a lambda handler function and keeping connection ID
-objectremoved_handler_id = Animations::getEventObjectRemoved().connect(e_connections, [](const Ptr<AnimationObject> & anim_object) {
-		Log::message("\Handling ObjectRemoved event (lambda).\n");
-	}
-);
-
-// remove the subscription later using the ID
-Animations::getEventObjectRemoved().disconnect(objectremoved_handler_id);
-
-//////////////////////////////////////////////////////////////////////////////
-//   5. Ignoring all ObjectRemoved events when necessary
-//////////////////////////////////////////////////////////////////////////////
-
-// you can temporarily disable the event to perform certain actions without triggering it
-Animations::getEventObjectRemoved().setEnabled(false);
-
-// ... actions to be performed
-
-// and enable it back when necessary
-Animations::getEventObjectRemoved().setEnabled(true);
-
-```
-
-</details>
-
-### Return value
-
-Event reference.
-## static Event<const Ptr < AnimationObject > &> getEventObjectAdded () const
-
-Event triggered when a new [animation object](../../../principles/animations/index.md#animation_object) is added. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
-
-> **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
-
- The event handler signature is as follows: *myhandler(const Ptr<AnimationObject> & **anim_object**)*
-<details>
-<summary>See Example | Close</summary>
-
-**Usage Example**
-
-```cpp
-// implement the ObjectAdded event handler
-void objectadded_event_handler(const Ptr<AnimationObject> & anim_object)
-{
-	Log::message("\Handling ObjectAdded event\n");
-}
-
-//////////////////////////////////////////////////////////////////////////////
-//  1. Multiple subscriptions can be linked to an instance of the EventConnections
-//  class that you can use later to remove all these subscriptions at once
-//////////////////////////////////////////////////////////////////////////////
-
-// create an instance of the EventConnections class
-EventConnections objectadded_event_connections;
-
-// link to this instance when subscribing to an event (subscription to various events can be linked)
-Animations::getEventObjectAdded().connect(objectadded_event_connections, objectadded_event_handler);
-
-// other subscriptions are also linked to this EventConnections instance
-// (e.g. you can subscribe using lambdas)
-Animations::getEventObjectAdded().connect(objectadded_event_connections, [](const Ptr<AnimationObject> & anim_object) {
-		Log::message("\Handling ObjectAdded event (lambda).\n");
-	}
-);
-
-// ...
-
-// later all of these linked subscriptions can be removed with a single line
-objectadded_event_connections.disconnectAll();
-
-//////////////////////////////////////////////////////////////////////////////
-//  2. You can subscribe and unsubscribe via an instance of the EventConnection
-//  class. And toggle this particular connection off and on, when necessary.
-//////////////////////////////////////////////////////////////////////////////
-
-// create an instance of the EventConnection class
-EventConnection objectadded_event_connection;
-
-// subscribe to the ObjectAdded event with a handler function keeping the connection
-Animations::getEventObjectAdded().connect(objectadded_event_connection, objectadded_event_handler);
-
-// ...
-
-// you can temporarily disable a particular event connection to perform certain actions
-objectadded_event_connection.setEnabled(false);
-
-// ... actions to be performed
-
-// and enable it back when necessary
-objectadded_event_connection.setEnabled(true);
-
-// ...
-
-// remove subscription to the ObjectAdded event via the connection
-objectadded_event_connection.disconnect();
-
-//////////////////////////////////////////////////////////////////////////////
-//  3. You can add EventConnection/EventConnections instance as a member of the
-//  class that handles the event. In this case all linked subscriptions will be
-//  automatically removed when class destructor is called
-//////////////////////////////////////////////////////////////////////////////
-
-// Class handling the event
-class SomeClass
-{
-public:
-	// instance of the EventConnections class as a class member
-	EventConnections e_connections;
-
-	// A ObjectAdded event handler implemented as a class member
-	void event_handler(const Ptr<AnimationObject> & anim_object)
-	{
-		Log::message("\Handling ObjectAdded event\n");
-		// ...
-	}
-};
-
-SomeClass *sc = new SomeClass();
-
-// ...
-
-// specify a class instance in case a handler method belongs to some class
-Animations::getEventObjectAdded().connect(sc->e_connections, sc, &SomeClass::event_handler);
-
-// ...
-
-// handler class instance is deleted with all its subscriptions removed automatically
-delete sc;
-
-//////////////////////////////////////////////////////////////////////////////
-//   4. Subscribe to an event saving a particular connection ID
-//   and unsubscribe later by this ID
-//////////////////////////////////////////////////////////////////////////////
-// instance of the EventConnections class to manage event connections
-EventConnections e_connections;
-
-// define a particular connection ID to be used to unsubscribe later
-EventConnectionId objectadded_handler_id;
-
-// subscribe to the ObjectAdded event with a lambda handler function and keeping connection ID
-objectadded_handler_id = Animations::getEventObjectAdded().connect(e_connections, [](const Ptr<AnimationObject> & anim_object) {
-		Log::message("\Handling ObjectAdded event (lambda).\n");
-	}
-);
-
-// remove the subscription later using the ID
-Animations::getEventObjectAdded().disconnect(objectadded_handler_id);
-
-//////////////////////////////////////////////////////////////////////////////
-//   5. Ignoring all ObjectAdded events when necessary
-//////////////////////////////////////////////////////////////////////////////
-
-// you can temporarily disable the event to perform certain actions without triggering it
-Animations::getEventObjectAdded().setEnabled(false);
-
-// ... actions to be performed
-
-// and enable it back when necessary
-Animations::getEventObjectAdded().setEnabled(true);
-
-```
-
-</details>
-
-### Return value
-
-Event reference.
-## Event<string, string, string> getEventCustomLibBuild () const
-
-Event triggered when a custom animation script library build is performed. The handler receives paths to the generated C++ source file, the compiled library, and the build log. You can subscribe to events via *connect()* and unsubscribe via *disconnect()*. You can also use *[EventConnection](../../../api/library/common/events/class.eventconnection_cpp.md)* and *[EventConnections](../../../api/library/common/events/class.eventconnections_cpp.md)* classes for convenience (see examples below).
-
-> **Notice:** For more details see the [Event Handling](../../../code/fundamentals/events/index_cpp.md) article.
-
- The event handler signature is as follows: *myhandler(const char * **cpp_path**, const char * **lib_path**, const char * **log_path**)*
+The event handler signature is as follows: *myhandler(const char * **name**, const char * **path**, const char * **message**)*
 <details>
 <summary>See Example | Close</summary>
 
@@ -621,7 +72,7 @@ Event triggered when a custom animation script library build is performed. The h
 
 ```cpp
 // implement the CustomLibBuild event handler
-void customlibbuild_event_handler(const char * cpp_path,  const char * lib_path,  const char * log_path)
+void customlibbuild_event_handler(const char * name, const char * path, const char * message)
 {
 	Log::message("\Handling CustomLibBuild event\n");
 }
@@ -639,7 +90,7 @@ publisher->getEventCustomLibBuild().connect(customlibbuild_event_connections, cu
 
 // other subscriptions are also linked to this EventConnections instance
 // (e.g. you can subscribe using lambdas)
-publisher->getEventCustomLibBuild().connect(customlibbuild_event_connections, [](const char * cpp_path,  const char * lib_path,  const char * log_path) {
+publisher->getEventCustomLibBuild().connect(customlibbuild_event_connections, [](const char * name, const char * path, const char * message) {
 		Log::message("\Handling CustomLibBuild event (lambda).\n");
 	}
 );
@@ -689,7 +140,7 @@ public:
 	EventConnections e_connections;
 
 	// A CustomLibBuild event handler implemented as a class member
-	void event_handler(const char * cpp_path,  const char * lib_path,  const char * log_path)
+	void event_handler(const char * name, const char * path, const char * message)
 	{
 		Log::message("\Handling CustomLibBuild event\n");
 		// ...
@@ -719,7 +170,7 @@ EventConnections e_connections;
 EventConnectionId customlibbuild_handler_id;
 
 // subscribe to the CustomLibBuild event with a lambda handler function and keeping connection ID
-customlibbuild_handler_id = publisher->getEventCustomLibBuild().connect(e_connections, [](const char * cpp_path,  const char * lib_path,  const char * log_path) {
+customlibbuild_handler_id = publisher->getEventCustomLibBuild().connect(e_connections, [](const char * name, const char * path, const char * message) {
 		Log::message("\Handling CustomLibBuild event (lambda).\n");
 	}
 );
@@ -745,396 +196,474 @@ publisher->getEventCustomLibBuild().setEnabled(true);
 
 ### Return value
 
-Event reference.
-## int getNumAnimScriptTypes () const
-
-Returns the current total number of registered [animation script](../../../api/library/animations/skeletal/class.animscript_cpp.md) types.
-### Return value
-
-Current number of registered animation script types.
-## bool isAnimScriptsSuccessBuild () const
-
-Returns the current Returns a value indicating if the last [animation script](../../../api/library/animations/skeletal/class.animscript_cpp.md) build completed successfully.
-### Return value
-
-**true** if the last animation script build completed successfully; otherwise **false**.
-## bool isAnimScriptsRebuilding () const
-
-Returns the current Returns a value indicating if [animation scripts](../../../api/library/animations/skeletal/class.animscript_cpp.md) are currently being rebuilt.
-### Return value
-
-**true** if animation scripts are currently being rebuilt; otherwise **false**.
-## bool isAnimScriptsLoaded () const
-
-Returns the current Returns a value indicating if [animation scripts](../../../api/library/animations/skeletal/class.animscript_cpp.md) are loaded.
-### Return value
-
-**true** if animation scripts are loaded; otherwise **false**.
+Event instance.
 ---
 
-## Ptr < AnimationObject > getObjectByIndex ( int index ) const
+## void restoreEachFrame ( )
 
-Returns an [animation object](../../../principles/animations/index.md#animation_object) by its index in the common list of animation objects.
+Restores the original values of every player that is set to give them back each frame. The engine calls it on its own, once per frame.
+## void setComponentWritesCollecting ( bool enabled )
+
+Starts or stops collecting the writes made to component fields, which is how the editor learns what a running component changes.
 ### Arguments
 
-- *int* **index** - Animation object index.
+- *bool* **enabled** - true to start collecting, false to stop.
+
+## void fetchComponentWrites ( const Ptr < Blob > & blob )
+
+Takes the writes collected so far and puts them into the specified blob.
+### Arguments
+
+- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Blob](../../../api/library/common/class.blob_cpp.md)> &* **blob** - Blob to put the collected writes into.
+
+## void setSequencerMusicMuted ( bool muted )
+
+Mutes the music channels of every sequence that is playing.
+### Arguments
+
+- *bool* **muted** - true to mute the music, false to let it play.
+
+## int getClasses ( Vector < String > & OUT_out_classes ) const
+
+Collects the names of every class the animation system knows and puts them to the **out_classes** buffer.
+### Arguments
+
+- *[Vector](../../../api/library/containers/vector/class.vector_cpp.md)<[String](../../../api/library/common/class.string_cpp.md)> &* **OUT_out_classes** - Output buffer for the class names. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
 
 ### Return value
 
-Animation object with the specified index
-## Ptr < AnimationObject > getObjectByID ( int id ) const
+Number of class names put to the buffer.
+## int getBaseClasses ( Vector < String > & OUT_out_classes ) const
 
-Returns an [animation object](../../../principles/animations/index.md#animation_object) by its ID.
+Collects the names of the base classes of the animation system and puts them to the **out_classes** buffer.
 ### Arguments
 
-- *int* **id** - Animation object ID.
+- *[Vector](../../../api/library/containers/vector/class.vector_cpp.md)<[String](../../../api/library/common/class.string_cpp.md)> &* **OUT_out_classes** - Output buffer for the class names. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
 
 ### Return value
 
-Animation object with the specified ID.
-## bool containsObject ( int id ) const
+Number of class names put to the buffer.
+## int getSingletonClasses ( Vector < String > & OUT_out_classes ) const
 
-Returns a value indicating if an [animation object](../../../principles/animations/index.md#animation_object) with the specified ID exists.
+Collects the names of the singleton classes that can be animated and puts them to the **out_classes** buffer.
 ### Arguments
 
-- *int* **id** - Animation object ID.
+- *[Vector](../../../api/library/containers/vector/class.vector_cpp.md)<[String](../../../api/library/common/class.string_cpp.md)> &* **OUT_out_classes** - Output buffer for the class names. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
 
 ### Return value
 
-true if the animation object with the specified ID exists; otherwise, false.
-## int getObjectIndex ( const Ptr < AnimationObject > & obj ) const
-
-Returns an index of the specified [animation object](../../../principles/animations/index.md#animation_object) in the common list.
-### Arguments
-
-- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[AnimationObject](../../../api/library/animations/timeline/class.animationobject_cpp.md)> &* **obj** - Animation object for which an index is to be found.
-
-### Return value
-
-Animation object index in the common list of animation objects if it is found; otherwise, -1.
-## void loadTracks ( )
-
-Loads all [animation tracks](../../../principles/animations/index.md#animation_track).
-## void unloadTracks ( )
-
-Unloads all [animation tracks](../../../principles/animations/index.md#animation_track).
-## void reloadTracks ( )
-
-Reloads all [animation tracks](../../../principles/animations/index.md#animation_track).
-## Animations::RESULT loadTrack ( const char * path )
-
-Loads an [animation track](../../../principles/animations/index.md#animation_track) from the specified file path.
-### Arguments
-
-- *const char ** **path** - Path to the source track file (`.utrack`).
-
-### Return value
-
-Result of loading operation.
-## Animations::RESULT reloadTrack ( const char * path )
-
-Reloads an [animation track](../../../principles/animations/index.md#animation_track) from the specified file path.
-### Arguments
-
-- *const char ** **path** - Path to the source track file (`.utrack`).
-
-### Return value
-
-Result of reloading operation.
-## Animations::RESULT saveTrack ( const Ptr < AnimationTrack > & track , const char * path )
-
-Saves the specified [animation track](../../../principles/animations/index.md#animation_track) to the specified file path.
-### Arguments
-
-- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[AnimationTrack](../../../api/library/animations/timeline/class.animationtrack_cpp.md)> &* **track** - Animation track to be saved.
-- *const char ** **path** - Path to which the specified animation track is to be saved.
-
-### Return value
-
-Result of saving operation.
-## Animations::RESULT saveTrackPrecomputed ( const Ptr < AnimationTrack > & track , int num_frames , bool is_looped_frames , const char * path )
-
-Saves the precomputed version of the specified [animation track](../../../principles/animations/index.md#animation_track) to the specified file path.
-### Arguments
-
-- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[AnimationTrack](../../../api/library/animations/timeline/class.animationtrack_cpp.md)> &* **track** - Animation track to be saved.
-- *int* **num_frames** - Number of frames to be saved.
-- *bool* **is_looped_frames** - Set true if the animation track should be looped; otherwise, false.
-- *const char ** **path** - Path to which the specified animation track is to be saved.
-
-### Return value
-
-Result of saving operation.
-## Ptr < AnimationTrack > getTrackByIndex ( int index )
-
-Returns an [animation track](../../../principles/animations/index.md#animation_track) by its index in the common list of tracks.
-### Arguments
-
-- *int* **index** - Animation track index in the common list of tracks.
-
-### Return value
-
-Animation track with the specified index.
-## Ptr < AnimationTrack > getTrackByGUID ( const UGUID & guid )
-
-Returns an [animation track](../../../principles/animations/index.md#animation_track) by its GUID.
-### Arguments
-
-- *const [UGUID](../../../api/library/filesystem/class.uguid_cpp.md) &* **guid** - GUID of the animation track.
-
-### Return value
-
-Animation track with the specified GUID.
-## Ptr < AnimationTrack > getTrackByFileGUID ( const UGUID & guid )
-
-Returns an [animation track](../../../principles/animations/index.md#animation_track) by the GUID of the animation track file (`.utrack`).
-### Arguments
-
-- *const [UGUID](../../../api/library/filesystem/class.uguid_cpp.md) &* **guid** - GUID of the animation track file (`.utrack`).
-
-### Return value
-
-Animation track with the specified file GUID.
-## Ptr < AnimationTrack > getTrackByPath ( const char * path )
-
-Returns an [animation track](../../../principles/animations/index.md#animation_track) by the path to the animation track file (`.utrack`).
-### Arguments
-
-- *const char ** **path** - Path to the animation track file (`.utrack`).
-
-### Return value
-
-Animation track with the specified file GUID.
-## bool containsTrack ( const UGUID & guid )
-
-Returns a value indicating if an [animation track](../../../principles/animations/index.md#animation_track) with the specified GUID exists.
-### Arguments
-
-- *const [UGUID](../../../api/library/filesystem/class.uguid_cpp.md) &* **guid** - GUID of the animation track.
-
-### Return value
-
-true if the animation track with the specified GUID exists; otherwise, false.
-## int getTrackIndex ( const Ptr < AnimationTrack > & track )
-
-Returns an index of the specified [animation track](../../../principles/animations/index.md#animation_track) in the common list.
-### Arguments
-
-- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[AnimationTrack](../../../api/library/animations/timeline/class.animationtrack_cpp.md)> &* **track** - Animation track for which an index is to be found.
-
-### Return value
-
-Animation track index in the common list of animation tracks if it is found; otherwise, -1.
-## void loadPlaybacks ( )
-
-Loads all [animation playbacks](../../../principles/animations/index.md#animation_playback).
-## Animations::RESULT loadPlayback ( const char * path )
-
-Loads an [animation playback](../../../principles/animations/index.md#animation_playback) from the specified file path.
-### Arguments
-
-- *const char ** **path** - Path to the source animation playback file (`.uplay`).
-
-### Return value
-
-Result of loading operation.
-## Animations::RESULT savePlayback ( const Ptr < AnimationPlayback > & playback , const char * path )
-
-Saves the specified [animation playback](../../../principles/animations/index.md#animation_playback) to the specified file path.
-### Arguments
-
-- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[AnimationPlayback](../../../api/library/animations/timeline/class.animationplayback_cpp.md)> &* **playback** - Animation playback to be saved.
-- *const char ** **path** - Path to which the specified animation playback is to be saved.
-
-### Return value
-
-Result of saving operation.
-## Ptr < AnimationPlayback > getPlaybackByIndex ( int index ) const
-
-Returns an [animation playback](../../../principles/animations/index.md#animation_playback) by its index in the common list of tracks.
-### Arguments
-
-- *int* **index** - Animation playback index in the common list of playbacks.
-
-### Return value
-
-Animation playback with the specified index.
-## Ptr < AnimationPlayback > getPlaybackByGUID ( const UGUID & guid ) const
-
-Returns an [animation playback](../../../principles/animations/index.md#animation_playback) by its GUID.
-### Arguments
-
-- *const [UGUID](../../../api/library/filesystem/class.uguid_cpp.md) &* **guid** - GUID of the animation playback.
-
-### Return value
-
-Animation playback with the specified GUID.
-## Ptr < AnimationPlayback > getPlaybackByFileGUID ( const UGUID & guid ) const
-
-Returns an [animation playback](../../../principles/animations/index.md#animation_playback) by the GUID of the animation track file (`.uplay`).
-### Arguments
-
-- *const [UGUID](../../../api/library/filesystem/class.uguid_cpp.md) &* **guid** - GUID of the animation playback file (`.uplay`).
-
-### Return value
-
-Animation track with the specified file GUID.
-## Ptr < AnimationPlayback > getPlaybackByPath ( const char * path ) const
-
-Returns an [animation playback](../../../principles/animations/index.md#animation_playback) by the path to the animation track file (`.uplay`).
-### Arguments
-
-- *const char ** **path** - Path to the animation playback file (`.uplay`).
-
-### Return value
-
-Animation playback with the specified path.
-## bool containsPlayback ( const UGUID & guid ) const
-
-Returns a value indicating if an [animation playback](../../../principles/animations/index.md#animation_playback) with the specified GUID exists.
-### Arguments
-
-- *const [UGUID](../../../api/library/filesystem/class.uguid_cpp.md) &* **guid** - GUID of the animation playback.
-
-### Return value
-
-true if the animation playback with the specified GUID exists; otherwise, false.
-## int getPlaybackIndex ( const Ptr < AnimationPlayback > & playback ) const
-
-Returns an index of the specified [animation playback](../../../principles/animations/index.md#animation_playback) in the common list.
-### Arguments
-
-- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[AnimationPlayback](../../../api/library/animations/timeline/class.animationplayback_cpp.md)> &* **playback** - Animation playback for which an index is to be found.
-
-### Return value
-
-Animation track index in the common list of animation tracks if it is found; otherwise, -1.
-## int getClasses ( Vector < String > & OUT_out_classes )
-
-Obtains the list of names of all available classes that can be animated and puts it to the specified output buffer.
-### Arguments
-
-- *[Vector](../../../api/library/containers/vector/class.vector_cpp.md)<[String](../../../api/library/common/class.string_cpp.md)> &* **OUT_out_classes** - Output buffer for the list of the Engine's classes that can be animated. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
-
-### Return value
-
-Number of the Engine's classes that can be animated.
-## int getSingletonClasses ( Vector < String > & OUT_out_classes )
-
-Obtains the list of names of all Engine's singleton-classes and puts it to the specified output buffer.
-### Arguments
-
-- *[Vector](../../../api/library/containers/vector/class.vector_cpp.md)<[String](../../../api/library/common/class.string_cpp.md)> &* **OUT_out_classes** - Output buffer for the list of the Engine's singleton-classes. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
-
-### Return value
-
-Number of the Engine's singleton-classes.
+Number of class names put to the buffer.
 ## const char * getParentClass ( const char * class_name ) const
 
-Returns the name of the parent class for the specified class.
+Returns the class the specified one inherits from.
 ### Arguments
 
-- *const char ** **class_name** - Name of the class for which the parent class is to be found.
+- *const char ** **class_name** - Name of the class.
 
 ### Return value
 
 Name of the parent class.
 ## int getDerivedClasses ( const char * class_name , Vector < String > & OUT_out_classes ) const
 
-Obtains the list of all classes derived from the specified one and puts it to the specified output buffer.
+Collects the classes that inherit from the specified one.
 ### Arguments
 
-- *const char ** **class_name** - Name of the class for which derived classes are to be found.
-- *[Vector](../../../api/library/containers/vector/class.vector_cpp.md)<[String](../../../api/library/common/class.string_cpp.md)> &* **OUT_out_classes** - Output buffer for the list of classes derived from the specified class. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
+- *const char ** **class_name** - Name of the class.
+- *[Vector](../../../api/library/containers/vector/class.vector_cpp.md)<[String](../../../api/library/common/class.string_cpp.md)> &* **OUT_out_classes** - Output buffer for the class names. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
 
 ### Return value
 
-Number of derived classes.
+Number of class names put to the buffer.
 ## int getClassParameters ( const char * class_name , Vector <int> & OUT_out_parameters ) const
 
-Obtains the list of all [animation parameter](../../../principles/animations/index.md#animation_parameters) for the specified class and puts it to the specified output buffer.
+Collects the parameters the specified class exposes to animation.
 ### Arguments
 
-- *const char ** **class_name** - Name of the class for which the list of animation parameters is to be found.
-- *[Vector](../../../api/library/containers/vector/class.vector_cpp.md)<int> &* **OUT_out_parameters** - Output buffer for the list of parameters of the specified class. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
+- *const char ** **class_name** - Name of the class.
+- *[Vector](../../../api/library/containers/vector/class.vector_cpp.md)<int> &* **OUT_out_parameters** - Output buffer for the parameters. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
 
 ### Return value
 
-Number of animation parameters for the specified class.
+Number of parameters put to the buffer.
+## const char * getParameterClass ( AnimParams::PARAM param ) const
+
+Returns the class the specified parameter belongs to.
+### Arguments
+
+- *AnimParams::PARAM* **param** - Parameter to be asked about.
+
+### Return value
+
+Name of the class the parameter belongs to.
+## AnimationBind::TYPE getParameterBindType ( AnimParams::PARAM param ) const
+
+Returns the kind of binding a channel needs to animate the specified parameter.
+### Arguments
+
+- *AnimParams::PARAM* **param** - Parameter to be asked about.
+
+### Return value
+
+Kind of binding the parameter needs.
+## bool isParameterTarget ( AnimParams::PARAM param , const Ptr < Node > & node ) const
+
+Returns a value indicating if the specified node is a target the parameter can be written into, that is, if the node is of the class the parameter belongs to. It answers whether a target may be accepted before a channel is pointed at it.
+### Arguments
+
+- *AnimParams::PARAM* **param** - Parameter to be asked about.
+- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Node](../../../api/library/nodes/class.node_cpp.md)> &* **node** - Node to be checked as the target.
+
+### Return value
+
+true if the specified parameter can be animated on the specified node; otherwise, false.
 ## const char * getParameterName ( AnimParams::PARAM param ) const
 
-Returns the name of the specified the specified [animation parameter](../../../principles/animations/index.md#animation_parameters).
+Returns the name of the specified parameter.
 ### Arguments
 
-- *AnimParams::PARAM* **param** - Animation parameter.
+- *AnimParams::PARAM* **param** - Parameter to be asked about.
 
 ### Return value
 
-Animation parameter name.
-## AnimationModifier::TYPE getParameterModifierType ( AnimParams::PARAM param ) const
+Name of the parameter.
+## AnimationChannel::TYPE getParameterChannelType ( AnimParams::PARAM param ) const
 
-Returns the type of modifier used for the specified [animation parameter](../../../principles/animations/index.md#animation_parameters).
+Returns the type of channel that animates the specified parameter.
 ### Arguments
 
-- *AnimParams::PARAM* **param** - Animation parameter.
+- *AnimParams::PARAM* **param** - Parameter to be asked about.
 
 ### Return value
 
-Modifier type for the specified parameter.
+Type of the channel that animates the parameter.
+## AnimParams::WIDGET getParameterWidget ( AnimParams::PARAM param ) const
+
+Returns the widget the specified parameter is edited with in the interface.
+### Arguments
+
+- *AnimParams::PARAM* **param** - Parameter to be asked about.
+
+### Return value
+
+Widget the parameter is edited with.
+## const char * getParameterItems ( AnimParams::PARAM param ) const
+
+Returns the items of the specified parameter, which is what an enumeration offers to choose from.
+### Arguments
+
+- *AnimParams::PARAM* **param** - Parameter to be asked about.
+
+### Return value
+
+Items of the parameter, when it is an enumeration.
+## const char * getParameterNodeType ( AnimParams::PARAM param ) const
+
+Returns the node type the specified parameter accepts.
+### Arguments
+
+- *AnimParams::PARAM* **param** - Parameter to be asked about.
+
+### Return value
+
+Node type the parameter accepts.
+## AnimParams::ACCESS getParameterAccess ( AnimParams::PARAM param ) const
+
+Returns the way the specified parameter is reached on its object.
+### Arguments
+
+- *AnimParams::PARAM* **param** - Parameter to be asked about.
+
+### Return value
+
+Way the parameter is reached.
+## AnimParams::VEC_COMPONENT getParameterVecComponent ( AnimParams::PARAM param ) const
+
+Returns the component of a vector the specified parameter stands for.
+### Arguments
+
+- *AnimParams::PARAM* **param** - Parameter to be asked about.
+
+### Return value
+
+Component of the vector the parameter stands for.
+## const char * getParameterLogicalName ( AnimParams::PARAM param ) const
+
+Returns the logical name of the specified parameter, which groups the components of one value together.
+### Arguments
+
+- *AnimParams::PARAM* **param** - Parameter to be asked about.
+
+### Return value
+
+Logical name of the parameter.
+## const char * getParameterKeyName ( AnimParams::PARAM param ) const
+
+Returns the key name the specified parameter is stored under.
+### Arguments
+
+- *AnimParams::PARAM* **param** - Parameter to be asked about.
+
+### Return value
+
+Key name of the parameter.
+## const char * getParameterTitle ( AnimParams::PARAM param ) const
+
+Returns the title the specified parameter is shown under in the interface.
+### Arguments
+
+- *AnimParams::PARAM* **param** - Parameter to be asked about.
+
+### Return value
+
+Title of the parameter.
+## const char * getParameterMinValue ( AnimParams::PARAM param ) const
+
+Returns the lower bound of the specified parameter.
+### Arguments
+
+- *AnimParams::PARAM* **param** - Parameter to be asked about.
+
+### Return value
+
+Lower bound of the parameter.
+## const char * getParameterMaxValue ( AnimParams::PARAM param ) const
+
+Returns the upper bound of the specified parameter.
+### Arguments
+
+- *AnimParams::PARAM* **param** - Parameter to be asked about.
+
+### Return value
+
+Upper bound of the parameter.
+## const char * getParameterAssetExtension ( AnimParams::PARAM param ) const
+
+Returns the extension of the assets the specified parameter accepts.
+### Arguments
+
+- *AnimParams::PARAM* **param** - Parameter to be asked about.
+
+### Return value
+
+Extension of the assets the parameter accepts.
+## const char * getParameterSlotKindName ( AnimParams::PARAM param ) const
+
+Returns the name of the kind of slot the specified parameter is indexed by, such as a surface or a bone.
+### Arguments
+
+- *AnimParams::PARAM* **param** - Parameter to be asked about.
+
+### Return value
+
+Name of the slot kind of the parameter.
 ## AnimParams::PARAM getParameterByName ( const char * param_name ) const
 
-Returns an [animation parameter](../../../principles/animations/index.md#animation_parameters) by its name.
+Returns the parameter that goes by the specified name.
 ### Arguments
 
-- *const char ** **param_name** - Animation parameter name.
+- *const char ** **param_name** - Name of the parameter.
 
 ### Return value
 
-Animation parameter with the specified name.
-## void convertToUanims ( const char * folder_path , const Vector < String > & playbacks )
+Parameter that goes by the specified name.
+## AnimParams::PARAM getParameterByReflectionName ( const char * class_name , const char * prop_name ) const
 
-Converts all track-files in the old *Tracker* format ( `.track`) from the specfied folder to the new animation formats (`.utrack` / `.uplay`).
+Returns the parameter a class member is animated through, addressed the way the reflection names it.
 ### Arguments
 
-- *const char ** **folder_path** - Path to the folder containing track-files in the old *Tracker* format ( `.track`) to be converted to the new track format (`.utrack`).
-- *const [Vector](../../../api/library/containers/vector/class.vector_cpp.md)<[String](../../../api/library/common/class.string_cpp.md)> &* **playbacks** - List of *Tracker* animation tracks in old format ( `.track`) to be converted to the new playback format(`.uplay`).
-
-## void convertToUanims ( const Vector < String > & tracks , const Vector < String > & playbacks )
-
-Converts the specified lists of tracks in the old *Tracker* format ( `.track`) to the new animation formats (`.utrack` / `.uplay`).
-### Arguments
-
-- *const [Vector](../../../api/library/containers/vector/class.vector_cpp.md)<[String](../../../api/library/common/class.string_cpp.md)> &* **tracks** - List of *Tracker* animation tracks in old format ( `.track`) to be converted to the new track format (`.utrack`).
-- *const [Vector](../../../api/library/containers/vector/class.vector_cpp.md)<[String](../../../api/library/common/class.string_cpp.md)> &* **playbacks** - List of *Tracker* animation tracks in old format ( `.track`) to be converted to the new playback format(`.uplay`).
-
-## void checkUtrackTypes ( )
-
-Checks all old-style animation parameter types (used in the *Tracker* tool) versus their equivalents in the new Animation System and outputs them to the console. In case of unknown parameter types the corresponding message is displayed.
-## bool animToBonesModifier ( const char * anim_path , const Ptr < AnimationModifierBones > & out_modifier , float duration ) const
-
-Converts the specified mesh animation file (`.anim`) to a [modifier](../../../principles/animations/index.md#animation_modifier) for [ObjectMeshSkinnedLegacy](../../../api/library/objects/class.objectmeshskinnedlegacy_cpp.md) bones ( *AnimationModifierBones*) and puts it to the specified *AnimationModifierBones* instance.
-### Arguments
-
-- *const char ** **anim_path** - Path to the mesh animation file (`.anim`) to be converted.
-- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[AnimationModifierBones](../../../api/library/animations/timeline/class.animationmodifierbones_cpp.md)> &* **out_modifier** - Resulting animation modifier.
-- *float* **duration** - Target animation duration, in seconds.
+- *const char ** **class_name** - Name of the class.
+- *const char ** **prop_name** - Name of the property as the reflection reports it.
 
 ### Return value
 
-true if the specified mesh animation file was successfully converted; otherwise, false.
+Parameter that answers to the specified names.
+## bool readParameterValueFloat ( const Ptr < Node > & target , AnimParams::PARAM param , int param_index , int component , const char * param_name , float & out_value ) const
+
+Reads the current value of an animatable parameter straight from a node, which is what recording a key from the scene is built on.
+### Arguments
+
+- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[Node](../../../api/library/nodes/class.node_cpp.md)> &* **target** - Node to read the value from.
+- *AnimParams::PARAM* **param** - Parameter to be asked about.
+- *int* **param_index** - Slot of the parameter, or -1 when it has none.
+- *int* **component** - Component of the value to be read.
+- *const char ** **param_name** - Name that addresses the parameter when a number is not enough.
+- *float &* **out_value** - Output buffer for the value.
+
+### Return value
+
+true if the value was read; otherwise, false.
+## bool readChannelParameterValueFloat ( const Ptr < AnimationChannel > & channel , int component , float & out_value ) const
+
+Reads the current value of the parameter the specified channel animates.
+### Arguments
+
+- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[AnimationChannel](../../../api/library/animations/timeline/class.animationchannel_cpp.md)> &* **channel** - Channel to be asked about.
+- *int* **component** - Component of the value to be read.
+- *float &* **out_value** - Output buffer for the value.
+
+### Return value
+
+true if the value was read; otherwise, false.
+## String readChannelParameterValueString ( const Ptr < AnimationChannel > & channel ) const
+
+Reads the current value of the parameter the specified channel animates.
+### Arguments
+
+- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[AnimationChannel](../../../api/library/animations/timeline/class.animationchannel_cpp.md)> &* **channel** - Channel to be asked about.
+
+### Return value
+
+Current value of the parameter.
+## UGUID readChannelParameterValueUGUID ( const Ptr < AnimationChannel > & channel ) const
+
+Reads the current value of the parameter the specified channel animates.
+### Arguments
+
+- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[AnimationChannel](../../../api/library/animations/timeline/class.animationchannel_cpp.md)> &* **channel** - Channel to be asked about.
+
+### Return value
+
+Current value of the parameter.
+## Ptr < Node > readChannelParameterValueNode ( const Ptr < AnimationChannel > & channel ) const
+
+Reads the current value of the parameter the specified channel animates.
+### Arguments
+
+- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[AnimationChannel](../../../api/library/animations/timeline/class.animationchannel_cpp.md)> &* **channel** - Channel to be asked about.
+
+### Return value
+
+Current value of the parameter.
+## int getChannelSlotCount ( const Ptr < AnimationChannel > & channel ) const
+
+Returns how many slots the parameter of the specified channel offers, such as the surfaces of an object or the bones of a skeleton.
+### Arguments
+
+- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[AnimationChannel](../../../api/library/animations/timeline/class.animationchannel_cpp.md)> &* **channel** - Channel to be asked about.
+
+### Return value
+
+Number of slots the parameter of the channel offers.
+## int getChannelSlotNames ( const Ptr < AnimationChannel > & channel , Vector < String > & OUT_out_names ) const
+
+Collects the names of the slots the parameter of the specified channel offers.
+### Arguments
+
+- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[AnimationChannel](../../../api/library/animations/timeline/class.animationchannel_cpp.md)> &* **channel** - Channel to be asked about.
+- *[Vector](../../../api/library/containers/vector/class.vector_cpp.md)<[String](../../../api/library/common/class.string_cpp.md)> &* **OUT_out_names** - Output buffer for the slot names. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
+
+### Return value
+
+Number of slot names put to the buffer.
+## int getChannelSlotIndex ( const Ptr < AnimationChannel > & channel , const char * name ) const
+
+Looks a slot of the channel parameter up by name and returns the number it takes on the object the channel is currently bound to. It is the counterpart of [getChannelSlotNames()](#getChannelSlotNames_AnimationChannel_VECString_int) for a channel that addresses its slot by name, see [SlotAccess](../../../api/library/animations/timeline/class.animationchannel_cpp.md#SlotAccess).
+### Arguments
+
+- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[AnimationChannel](../../../api/library/animations/timeline/class.animationchannel_cpp.md)> &* **channel** - Channel to be asked about.
+- *const char ** **name** - Name of the slot to be looked up.
+
+### Return value
+
+Number of the slot, or -1 if the parameter offers no slots or the object the channel is bound to has none under that name.
+## bool isChannelParameterReadable ( const Ptr < AnimationChannel > & channel ) const
+
+Returns a value indicating if the current value of the channel parameter can be read from the scene. It cannot when the object the channel is bound to is not there to be resolved, or when the channel addresses a slot that object does not have.
+### Arguments
+
+- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[AnimationChannel](../../../api/library/animations/timeline/class.animationchannel_cpp.md)> &* **channel** - Channel to be checked.
+
+### Return value
+
+true if the current value of the channel parameter can be read; otherwise, false.
+## int getChannelSupportedProperties ( AnimationChannel::TYPE channel_type , Vector <int> & OUT_out_kinds ) const
+
+Collects the playback properties a channel of the specified type offers, such as the pitch and the fades of a sound.
+### Arguments
+
+- *[AnimationChannel::TYPE](../../../api/library/animations/timeline/class.animationchannel_cpp.md#TYPE)* **channel_type** - Type of the channel.
+- *[Vector](../../../api/library/containers/vector/class.vector_cpp.md)<int> &* **OUT_out_kinds** - Output buffer for the playback property kinds. > **Notice:** This output buffer is to be filled by the Engine as a result of executing the method.
+
+### Return value
+
+Number of kinds put to the buffer.
+## const char * getChannelPropertyName ( AnimationChannel::PROPERTY kind ) const
+
+Returns the name of the specified playback property.
+### Arguments
+
+- *[AnimationChannel::PROPERTY](../../../api/library/animations/timeline/class.animationchannel_cpp.md#PROPERTY)* **kind** - Kind of the playback property.
+
+### Return value
+
+Name of the playback property.
+## float getChannelPropertyDefaultValue ( AnimationChannel::PROPERTY kind ) const
+
+Returns the value the specified playback property holds until it is animated.
+### Arguments
+
+- *[AnimationChannel::PROPERTY](../../../api/library/animations/timeline/class.animationchannel_cpp.md#PROPERTY)* **kind** - Kind of the playback property.
+
+### Return value
+
+Default value of the playback property.
+## float getChannelPropertyMinValue ( AnimationChannel::PROPERTY kind ) const
+
+Returns the lower bound of the specified playback property.
+### Arguments
+
+- *[AnimationChannel::PROPERTY](../../../api/library/animations/timeline/class.animationchannel_cpp.md#PROPERTY)* **kind** - Kind of the playback property.
+
+### Return value
+
+Lower bound of the playback property.
+## float getChannelPropertyMaxValue ( AnimationChannel::PROPERTY kind ) const
+
+Returns the upper bound of the specified playback property.
+### Arguments
+
+- *[AnimationChannel::PROPERTY](../../../api/library/animations/timeline/class.animationchannel_cpp.md#PROPERTY)* **kind** - Kind of the playback property.
+
+### Return value
+
+Upper bound of the playback property.
+## bool animToBonesChannel ( const char * anim_path , const Ptr < AnimationChannelBones > & out_channel , float duration ) const
+
+Bakes a skeletal animation file into a bones channel, so that its pose can be edited key by key in the Sequencer.
+### Arguments
+
+- *const char ** **anim_path** - Path to the animation file.
+- *const [Ptr](../../../api/library/common/class.ptr_cpp.md)<[AnimationChannelBones](../../../api/library/animations/timeline/class.animationchannelbones_cpp.md)> &* **out_channel** - Channel to receive the baked keys.
+- *float* **duration** - Length the animation is baked over, in seconds.
+
+### Return value
+
+true if the animation was baked; otherwise, false.
+## String convertLegacyTrackToSequence ( const char * track_path , const char * seq_path = "" , bool overwrite = false ) const
+
+Converts a track authored in the legacy Tracker into a sequence. A track that plays other tracks inside itself is converted whole: every nested track becomes a sequence file of its own and the parent receives a sub-sequence channel whose clips point at them, so overwriting rebuilds the entire tree rather than the file that was named. Everything the conversion could not carry over is reported to the console, one line per parameter. The whole picture is in the [Converting Legacy Tracks](../../../editor2/tools/sequencer/track_import/index.md) article.
+### Arguments
+
+- *const char ** **track_path** - Path to the legacy `*.track` file to be converted.
+- *const char ** **seq_path** - Path the `*.seq` file is to be written to. Left empty, the sequence is written beside the track under the same name. The default value is an empty string.
+- *bool* **overwrite** - true to convert the track again and replace a `*.seq` that is already there, false to keep the existing file and write nothing. The default value is false.
+
+### Return value
+
+Path of the sequence file, or an empty string if nothing was written.
 ## void rebuildAnimScripts ( )
 
-Triggers a rebuild of all [animation scripts](../../../api/library/animations/skeletal/class.animscript_cpp.md). This recompiles the animation graph source files into a runtime library. Use  to check if the rebuild process is still in progress, and  to check if it completed successfully.
+Rebuilds the animation scripts of the project.
+## void waitAnimScriptsRebuilding ( )
+
+Blocks until the rebuild of the animation scripts is over.
 ## const char * getAnimScriptTypeName ( int type_index ) const
 
-Returns the name of the [animation script](../../../api/library/animations/skeletal/class.animscript_cpp.md) type by its index.
+Returns the name of an animation script type by its number.
 ### Arguments
 
-- *int* **type_index** - Index of the animation script type in the range from 0 to the  of types.
+- *int* **type_index** - Number of the animation script type.
 
 ### Return value
 
 Name of the animation script type.
-## static void waitAnimScriptsRebuilding ( )
-
-Blocks execution until the current animation scripts rebuild is complete. If a rebuild is in progress, this method waits for the background build task to finish and then loads the updated library. If no rebuild is in progress, returns immediately.

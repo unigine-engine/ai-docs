@@ -5,12 +5,13 @@
 
 This class cannot be instantiated. It is a base class for:
 
+
 - *[File](../../../api/library/filesystem/class.file_usc.md)* class
 - *[Blob](../../../api/library/common/class.blob_usc.md)* class
 - *[Socket](../../../api/library/networking/class.socket_usc.md)* class
 
 
-Stream class allows you to write data into a stream, that is into files (stored on the disk), blobs (stored in system memory) and sockets (to be sent over the network), as well as read data from a stream.
+*Stream* class allows you to write data into a stream, that is into files (stored on the disk), blobs (stored in system memory) and sockets (to be sent over the network), as well as read data from a stream.
 
 
 ## Stream Class
@@ -261,7 +262,7 @@ Writes an ASCII character in a binary format (1 byte) to the stream.
 
 ### Return value
 
-**true** if a character is written successfully; otherwise **false**.
+true if a character is written successfully; otherwise false.
 ## int writeDMat4 ( dmat4 value )
 
 Writes a *[dmat4](../../../code/uniginescript/language/data_types.md#dmat4)* (a matrix of double values, 8*12 bytes) to the stream.
@@ -284,7 +285,7 @@ Writes a *[double](../../../code/uniginescript/language/data_types.md#double)* (
 **1** if the operation was successful; otherwise, **0**.
 ## int writeDVec2 ( dvec2 value )
 
-Writes a 2-component double vector to the stream in accordance with the little-endian order.
+Writes a 2-component *double* vector to the stream in accordance with the little-endian order.
 ### Arguments
 
 - *dvec2* **value** - Vector value.

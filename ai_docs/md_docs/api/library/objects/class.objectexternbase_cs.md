@@ -175,30 +175,30 @@ Returns the number of the object surface by its name.
 ### Return value
 
 Surface number.
-## int HasCreate ( )
+## bool HasCreate ( )
 
 Returns a value indicating that the object has a create function.
 ### Return value
 
-Returns **1** if the object has a create function.
-## int HasLods ( )
+true if the object has a create function; otherwise, false.
+## bool HasLods ( )
 
 Returns a value indicating if the object has LODs.
 ### Return value
 
-Returns **1** if the object has surface LODs.
-## int HasRender ( )
+true if the object has surface LODs; otherwise, false.
+## bool HasRender ( )
 
 Returns a value indicating that the object has a render function.
 ### Return value
 
-Returns **1** if the object has a render function.
-## int HasShadow ( )
+true if the object has a render function; otherwise, false.
+## bool HasShadow ( )
 
 Returns a value indicating that the object has a shadow function.
 ### Return value
 
-Returns **1** if the object has a shadow function.
+true if the object has a shadow function; otherwise, false.
 ## int LoadWorld ( Xml xml )
 
 Loads an object state from the Xml.
@@ -244,7 +244,7 @@ Renders the visualizer.
 ## void ResizeSurfaces ( )
 
 Resizes all of the object surfaces.
-## bool SaveState ( Stream stream )
+## int SaveState ( Stream stream )
 
 Saves an object state into the stream.
 Saving into the stream requires creating a blob to save into. To restore the saved state the [restoreState()](#restoreState_Stream_int) method is used:
@@ -274,8 +274,8 @@ object.RestoreState(blob_state);
 
 ### Return value
 
-true on success; otherwise, false.
-## bool RestoreState ( Stream stream )
+Returns **1** if the object state was successfully saved into the stream; otherwise, **0** is returned.
+## int RestoreState ( Stream stream )
 
 Restores an object state from the stream.
 Restoring from the stream requires creating a blob to save into and saving the state using the [saveState()](#saveState_Stream_int) method:
@@ -305,7 +305,7 @@ object.RestoreState(blob_state);
 
 ### Return value
 
-true on success; otherwise, false.
+Returns **1** if the object state was successfully restored from the stream; otherwise, **0** is returned.
 ## int SaveWorld ( Xml xml )
 
 Saves an object state into the Xml.

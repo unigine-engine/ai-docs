@@ -11,7 +11,7 @@ Unlike C++ using Static Typing, UnigineScript is using **Dynamical Typing**, whi
 - Though in many parts of documentation you can see variables declared with specific types or function arguments of specific types, these type markers are simply hints to the user. That is, you can define an *int* variable and assign a string to it.
 - The interpreter will not do type checking for you before it starts evaluating an expression. If you need data of a specific type or a specific custom class, use the *typeof()*  and *typeinfo()*  functions to check it.
 - From time to time you will see a *variable* type in function declarations. *variable* is not actually a type, and this word is not even reserved. The *variable* pseudo-type simply means that a function "knows" that it can accept data of different types and will act differently depending on the type of the *variable* argument.
-- Still, there are several base types, which names are reserved, and we will briefly examine them here. Also, you can define your own types—classes.
+- Still, there are several base types, which names are reserved, and we will briefly examine them here. Also, you can define your own types�classes.
 
 
 ## Memory Management
@@ -43,24 +43,24 @@ class Foo {
 
 	// Foo.__save__() will be called before saving the state of the virtual machine
 	void __save__() {
-		save_to_file(“file.xml”);
+		save_to_file(�file.xml�);
 	}
 
 	// Foo.__restore__() will be called after restoring the state of the virtual machine
 	void __restore__() {
-		load_from_file(“file.xml”);
+		load_from_file(�file.xml�);
 	}
 
 	// save to file
 	void save to file(string filename) {
-		// …
-		log.message(“saving\n”);
+		// �
+		log.message(�saving\n�);
 	}
 
 	//load from file
 	void load_from_file(string filename) {
-		// …
-		log.message(“loading\n”);
+		// �
+		log.message(�loading\n�);
 	}
 };
 

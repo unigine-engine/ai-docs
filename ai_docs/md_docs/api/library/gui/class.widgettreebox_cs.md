@@ -323,7 +323,7 @@ Returns ID of a selected item (multi-selection mode).
 ID of the selected item.
 ## int AddItem ( string str , int texture = -1 )
 
-Adds a new item with a given text and and an icon.
+Adds a new item with a given text and an icon.
 ### Arguments
 
 - *string* **str** - Item text.
@@ -381,3 +381,17 @@ Returns the image with mini-icons, which are used with the list items.
 ### Return value
 
 Image with mini-icons (the vertical strip of square icons).
+## void ClearIcons ( )
+
+Removes all per-slot icon overrides set via **[SetIcon()](../../...md#setIcon_int_cstr_int)** and recalculates the icon cell size, so the items fall back to the icon atlas texture.
+## bool SetIcon ( int index , string path )
+
+Assigns a standalone image as the icon for the specified icon slot, overriding the corresponding slot of the treebox's icon atlas (items reference icons via the texture number set for the item). The image may have its own size: the overall icon cell grows to the maximum icon dimensions.
+### Arguments
+
+- *int* **index** - Icon slot number (0 or greater) referenced by items via their texture number.
+- *string* **path** - Path to the image file.
+
+### Return value
+
+true if the icon is set successfully; otherwise, false (a negative index or the image cannot be loaded).

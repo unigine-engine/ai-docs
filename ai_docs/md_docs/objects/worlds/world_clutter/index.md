@@ -93,7 +93,7 @@ where *Random* is a random value in range from -1 to 1. For example, if a *Mean*
 | Min Scale | Sets the scale mean value for objects scattered in the areas with low density (according to the [image mask](#mask)). The higher the value, the bigger the objects will be in such areas. > **Notice:** When image mask is not set, this parameter isn't taken into account as the default mask stores only the [maximum mask values](#maximum_mask_value) (there are no areas with low density). |  |  |  |  |
 | Max Scale | Sets the scale mean value for objects scattered in the areas with high density (according to the [image mask](#mask)). The higher the value, the bigger the objects will be in such areas. |  |  |  |  |
 | Offset | Height offset parameter controls whether all objects are positioned at one height or some are found higher or lower. For example, with offset stones can be dug deep into the ground so that only a small top part is visible, or placed higher and look bigger. The offset is measured in units. |  |  |  |  |
-| Rotation X Rotation Y Rotation Z | These parameters allow to randomly orient the scattered objects. The rotation is set in angles. If a spread value is set to 180, objects will be rotated by 360 degrees. |  |  |  |  |
+| Rotation�X Rotation�Y Rotation�Z | These parameters allow to randomly orient the scattered objects. The rotation is set in angles. If a spread value is set to 180, objects will be rotated by 360 degrees. |  |  |  |  |
 
 
 ## Masking Areas with Objects
@@ -127,7 +127,7 @@ A parent for intersection can only be a [terrain](../../../objects/objects/terra
 > **Notice:** *World Clutter* performs only one vertical intersection testing with parent **mesh** geometry. If there are surfaces underneath the upper surface, they will be ignored. For example, to scatter reference nodes across the whole sphere, two hemisphere meshes need to be used.
 
 
-| Intersection | After the *Intersection* box is checked, objects in *World Clutter* are scattered across the surface of the parent object. It does not matter if *World Clutter* is bigger than the parent object in size — the scattering area will still be limited to parent object surfaces. |  |  |
+| Intersection | After the *Intersection* box is checked, objects in *World Clutter* are scattered across the surface of the parent object. It does not matter if *World Clutter* is bigger than the parent object in size � the scattering area will still be limited to parent object surfaces. |  |  |
 |---|---|---|---|
 | Orientation | This option allows setting a parent surface normal vector as the initial orientation for scattered objects. It means if the surface in some place is vertical, the *up* direction for objects scattered over it will be actually pointing to the side. The objects can be still randomly [rotated](#rotation) but relatively to the orientation of the parent normal. This parameter is enabled only if the *[Intersection](#intersection)* option is enabled. \| [![Orientation disabled](orientation_0_sm.jpg)](orientation_0.jpg) *Orientation disabled* \| [![Orientation enabled](orientation_1_sm.jpg)](orientation_1.jpg) *Orientation enabled* \| \|---\|---\| | [![Orientation disabled](orientation_0_sm.jpg)](orientation_0.jpg) *Orientation disabled* | [![Orientation enabled](orientation_1_sm.jpg)](orientation_1.jpg) *Orientation enabled* |
 | [![Orientation disabled](orientation_0_sm.jpg)](orientation_0.jpg) *Orientation disabled* | [![Orientation enabled](orientation_1_sm.jpg)](orientation_1.jpg) *Orientation enabled* |  |  |

@@ -75,13 +75,13 @@ public partial class ComponentName : Component
 
 ## double Value
 
-The current value of the spinbox.
+The value of the spinbox.
 ## double MaxExpand
 
-The current maximum value, up to which the upper limit of the range of the spinbox values can be expanded. the upper limit of the spinbox can be expanded only if the spinbox is attached to an editline with the Gui::ATTACH_MAX_EXPAND flag.
+The maximum value, up to which the upper limit of the range of the spinbox values can be expanded. The upper limit of the spinbox can be expanded only if the spinbox is [attached](../../../api/library/gui/class.widget_cs.md#addAttach_Widget_cstr_int_int_void) to an editline with the Gui::ATTACH_MAX_EXPAND flag.
 ## double MinExpand
 
-The current minimum value, up to which the lower limit of the range of the spinbox values can be expanded. the lower limit of the spinbox can be expanded only if the spinbox is attached to an editline with the Gui::ATTACH_MIN_EXPAND flag.
+The minimum value, up to which the lower limit of the range of the spinbox values can be expanded. The lower limit of the spinbox can be expanded only if the spinbox is [attached](../../../api/library/gui/class.widget_cs.md#addAttach_Widget_cstr_int_int_void) to an editline with the Gui::ATTACH_MIN_EXPAND flag.
 ## double MaxValue
 
 The maximum value of the spinbox.
@@ -90,10 +90,10 @@ The maximum value of the spinbox.
 The minimum value of the spinbox.
 ## vec4 ButtonColor
 
-The current color for the widget's button..
+The color for the widget's button.
 ## double Step
 
-The current step of the spinbox.
+The step of the spinbox.
 ### Members
 
 ---

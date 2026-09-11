@@ -23,19 +23,19 @@ The InputGamePad class represents a gamepad and contains a set of functions for 
 
 ## 🔒︎ float TriggerRightDelta
 
-The delta value of the right trigger — the difference between the values in the previous and the current frame.
+The delta value of the right trigger � the difference between the values in the previous and the current frame.
 ## 🔒︎ float TriggerRight
 
 The axis state value (the position) of the right trigger. 0 means the trigger is not pressed; 1 means the trigger is pressed to the maximum.
 ## 🔒︎ float TriggerLeftDelta
 
-The delta value of the left trigger — the difference between the values in the previous and the current frame.
+The delta value of the left trigger � the difference between the values in the previous and the current frame.
 ## 🔒︎ float TriggerLeft
 
 The axis state value (the position) of the left trigger. 0 means the trigger is not pressed; 1 means the trigger is pressed to the maximum.
 ## 🔒︎ vec2 AxesRightDelta
 
-The vector of delta values of the [right thumbstick axes](../../../api/library/controls/class.inputgamepad_cs.md#getAxesRight_vec2) — the difference between the values in the previous and the current frames.
+The vector of delta values of the [right thumbstick axes](../../../api/library/controls/class.inputgamepad_cs.md#getAxesRight_vec2) � the difference between the values in the previous and the current frames.
 ## 🔒︎ vec2 AxesRight
 
 The vector of axes of the right thumbstick. when a thumbstick is in the center position, this value is [0,0]. The values correspond to the following thumbstick positions:
@@ -45,7 +45,7 @@ The vector of axes of the right thumbstick. when a thumbstick is in the center p
 
 ## 🔒︎ vec2 AxesLeftDelta
 
-The vector of delta values of the [left thumbstick axes](../../../api/library/controls/class.inputgamepad_cs.md#getAxesLeft_vec2) — the difference between the values in the previous and the current frames.
+The vector of delta values of the [left thumbstick axes](../../../api/library/controls/class.inputgamepad_cs.md#getAxesLeft_vec2) � the difference between the values in the previous and the current frames.
 ## 🔒︎ vec2 AxesLeft
 
 The vector of axes of the left thumbstick. when a thumbstick is in the center position, this value is [0,0]. The values correspond to the following thumbstick positions:
@@ -84,6 +84,21 @@ The total number of the gamepad touch panels.
 ## 🔒︎ string Guid
 
 The Device model GUID.
+## 🔒︎ vec3 Acceleration
+
+The last acceleration vector reported by the game pad accelerometer, in meters per second squared. The value includes the gravity vector while the controller is at rest and is updated from *[InputEventPadAccelerometerMotion](../../../api/library/controls/class.inputeventpadaccelerometermotion_cs.md)* events.
+## 🔒︎ vec3 AngularVelocity
+
+The last angular velocity reported by the game pad gyroscope, in degrees per second. The value is updated from *[InputEventPadGyroscopeMotion](../../../api/library/controls/class.inputeventpadgyroscopemotion_cs.md)* events.
+## 🔒︎ bool IsAccelerationSupported
+
+The value indicating if the connected controller has an accelerometer the engine can read.
+## 🔒︎ bool IsAngularVelocitySupported
+
+The value indicating if the connected controller has a gyroscope the engine can read.
+## 🔒︎ bool IsLightSupported
+
+The value indicating if the controller has a light the application can control (for example, the *DualShock 4* or *DualSense* light bar).
 ### Members
 
 ---
@@ -230,3 +245,9 @@ Returns the GUID created on the basis of vendor and product identifiers and prod
 ### Return value
 
 Device model GUID.
+## void SetLightColor ( vec3 color )
+
+Sets the color of the controller's light. Has no effect if the controller has no application-controllable light (check the **[IsLightSupported](../../...md#isLightSupported_int)** property).
+### Arguments
+
+- *vec3* **color** - RGB color of the light, with components in the [0; 1] range.

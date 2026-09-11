@@ -1,4 +1,4 @@
-# UNIGINE Engine 2.21 — Documentation for AI Agents
+# UNIGINE Engine 2.22 — Documentation for AI Agents
 
 This folder contains UNIGINE Engine documentation and code samples exported as Markdown files for use by AI coding agents.
 
@@ -348,6 +348,8 @@ node.isNull();                 // → checks if pointer is null
 
 `deleteLater()` is a method of **Ptr<>**, not of **Node**. Using `node->deleteLater()` will not compile.
 
+**`deleteLater()` is deferred** — the object is destroyed later (on the engine's delete-queue flush, end of frame), not immediately, and the call is thread-safe. After calling it, the object is **still alive this frame** — don't assume it's gone. For immediate destruction use `deleteForce()`. Check state with `isDeleted()` / `isNull()`.
+
 **Inheritance:** `Object` inherits from `Node`, so `ObjectPtr` implicitly converts to `NodePtr`. There is no `obj->getNode()` method — the object IS a node:
 ```cpp
 ObjectMeshStaticPtr obj = ObjectMeshStatic::create("mesh.mesh");
@@ -415,7 +417,7 @@ vec3 right = cross(forward, vec3_up);  // correct: gives +X
 ### Physics
 - **BodyDummy** is a static body for attaching joints — it is NOT a collision-only body
 - **PhysicalTrigger** (not WorldTrigger) is the zone-trigger node for enter/leave callbacks
-- **CCD** (Continuous Collision Detection) is enabled per **Shape** (flag `Continuous`), not per Body. Only Sphere and Capsule shapes support CCD
+- **CCD** (Continuous Collision Detection) is enabled per **Shape** (flag `Continuous`), not per Body. For Sphere and Capsule shapes CCD is enabled by default.
 - Physics always runs at fixed FPS. The two update modes are **Before Rendering** (synchronous) and **Async Rendering** (parallel, default) — not "fixed vs variable timestep"
 
 ### Bit Masks (Extended List)
@@ -427,3 +429,11 @@ UNIGINE has 10+ mask systems, not just the basic 4:
 - Base materials can be **user-created** (via code or Material Editor graph), not only engine-built-in
 - Texture resolution must be **divisible by a power of 2** (e.g. 768 is valid), not necessarily a power of 2 itself
 - To find a material by name in code: use `Materials.FindManualMaterial()` (NOT `FindMaterial` — does not exist)
+
+### Input: event vs state
+- `Input::isKeyDown(KEY)` / `isKeyUp(KEY)` — **event**: true only on the single frame the key was pressed/released.
+- `Input::isKeyPressed(KEY)` — **state**: true every frame while the key is held.
+Use `isKeyDown` for "on press" actions (fire, jump), `isKeyPressed` for continuous actions (movement). Picking the wrong one is a common bug.
+
+### Ptr<> is not a general smart pointer
+`Unigine::*Ptr` (`NodePtr`, `MaterialPtr`, …) manages **engine objects** via the engine's ownership model — you **cannot** wrap your own arbitrary classes in it like `std::shared_ptr`. See the "Working with Smart Pointers" doc (Ownership Objects list) for what is wrappable.

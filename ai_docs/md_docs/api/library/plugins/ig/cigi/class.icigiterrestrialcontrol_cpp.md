@@ -62,7 +62,7 @@ Returns the value of the **Scope** parameter specified in the packet. Determines
 Returns the value of the **Severity** parameter specified in the packet.
 ### Return value
 
-**Severity** parameter value: 0 – 31 (least to most severe).
+**Severity** parameter value: 0 � 31 (least to most severe).
 ## int getCoverage ( ) const
 
 Returns the value of the **Coverage** parameter specified in the packet. Determines the degree of coverage of the specified surface contaminant.

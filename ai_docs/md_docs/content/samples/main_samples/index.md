@@ -23,8 +23,6 @@ The set of samples in this part of *Art Samples* demonstrates how to use [built-
 
 - [Clutter](../../../content/samples/main_samples/clutter.md)
 
-- [Cross Section](../../../content/samples/main_samples/cross_section.md)
-
 - [Custom Post Effects](../../../content/samples/main_samples/custom_post_effects.md)
 
 - [Decals](../../../content/samples/main_samples/decals.md)
@@ -48,10 +46,6 @@ The set of samples in this part of *Art Samples* demonstrates how to use [built-
 - [Occluders](../../../content/samples/main_samples/occluders.md)
 
 - [Particles](../../../content/samples/main_samples/particles.md)
-
-- [Post Sensors](../../../content/samples/main_samples/post_sensors.md)
-
-- [Simlights](../../../content/samples/main_samples/simlights.md)
 
 - [SSBevel](../../../content/samples/main_samples/ssbevel.md)
 

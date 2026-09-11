@@ -31,13 +31,13 @@ The multipliers Src and Dest can have the following values:
 | Zero | The RGBA components of the corresponding color are multiplied by zero |
 | One | The RGBA components of the corresponding color are multiplied by one |
 | Src color | The RGBA components of the corresponding color are multiplied by these factors (per component): (**mR, mG, mB, mA**) |
-| One minus src color | The RGBA components of the corresponding color Components of each material color are multiplied by these factors (per component): (**1 - mR, 1 - mG, 1 - mB, 1 - mA**) |
+| One minus src color | The RGBA components of the corresponding color Components of each material color are multiplied by these factors (per component): (**1�-�mR, 1�-�mG, 1�-�mB, 1�-�mA**) |
 | Src alpha | The RGBA components of the corresponding color are multiplied by **mA** |
-| One minus src alpha | The RGBA components of the corresponding color are multiplied by **1 - mA** |
+| One minus src alpha | The RGBA components of the corresponding color are multiplied by **1�-�mA** |
 | Dest color | The RGBA components of the corresponding color are multiplied by these factors (per component): (**bR, bG, bB, bA**) |
-| One minus dest color | The RGBA components of the corresponding color are multiplied by these factors (per component): (**1 - bR, 1 - bG, 1 - bB, 1 - bA**) |
+| One minus dest color | The RGBA components of the corresponding color are multiplied by these factors (per component): (**1�-�bR, 1�-�bG, 1�-�bB, 1�-�bA**) |
 | Dest alpha | The RGBA components of the corresponding color are multiplied by **bA** |
-| One minus dest alpha | The RGBA components of the corresponding color are multiplied by **1 - bA** |
+| One minus dest alpha | The RGBA components of the corresponding color are multiplied by **1�-�bA** |
 
 
 Where mR, mG, mB, mA are normalized material red, green, blue, and alpha values correspondingly;
@@ -75,8 +75,8 @@ Means there is no alpha blending for the material. The object is rendered comple
 **Result**: Alpha blending
 
 
-- *Opaque* areas **(alpha = 1)** receive material color.
-- *Transparent* areas **(alpha = 0)** receive screen buffer color.
+- *Opaque* areas **(alpha�=�1)** receive material color.
+- *Transparent* areas **(alpha�=�0)** receive screen buffer color.
 
 
 The combination is used to create the effect of transparency basing on the alpha component.
@@ -362,7 +362,7 @@ And the following characteristics remain the same:
 
 
 - *Opaque* areas receive the summed color of material and screen buffer.
-- *Transparent* areas are of the multiplied screen color — darker and more saturated.
+- *Transparent* areas are of the multiplied screen color � darker and more saturated.
 - In overlapping areas, the material color of both opaque and transparent (according to alpha component) areas is intensified.
 
 

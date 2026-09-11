@@ -26,6 +26,32 @@ UnigineScript samples:
 
 ### Members
 
+## void setCenter ( Vec3 center )
+
+Sets a new center of the sphere, in world coordinates.
+### Arguments
+
+- *Vec3* **center** - The center of the sphere, in world coordinates
+
+## Vec3 getCenter () const
+
+Returns the current center of the sphere, in world coordinates.
+### Return value
+
+Current center of the sphere, in world coordinates
+## void setRadius ( float radius )
+
+Sets a new radius of the sphere, in units.
+### Arguments
+
+- *float* **radius** - The radius of the sphere, in units
+
+## float getRadius () const
+
+Returns the current radius of the sphere, in units.
+### Return value
+
+Current radius of the sphere, in units
 ---
 
 ## static ShapeSphere ( )
@@ -45,30 +71,3 @@ Constructor. Creates a new sphere with a given radius and adds it to a given bod
 
 - *[Body](../../../api/library/physics/class.body_usc.md)* **body** - Body, to which the shape will belong.
 - *float* **radius** - Radius of the sphere in units.
-
-## void setRadius ( float radius )
-
-Sets a radius of the sphere.
-### Arguments
-
-- *float* **radius** - Radius of the sphere, in units.
-
-## float getRadius ( )
-
-Returns the current radius of the sphere.
-### Return value
-
-Radius of the sphere, in units.
-## void setCenter ( Vec3 center )
-
-Sets the coordinates of the center of the sphere.
-### Arguments
-
-- *Vec3* **center** - Sphere center coordinates.
-
-## Vec3 getCenter ( )
-
-Returns the current coordinates of the center of the sphere.
-### Return value
-
-Current sphere center coordinates.
