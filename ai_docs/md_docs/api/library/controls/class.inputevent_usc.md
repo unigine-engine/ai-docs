@@ -6,6 +6,9 @@
 This class handles input event information.
 
 
+Events of this type are created by the engine and passed to your handlers. You can also construct one yourself and dispatch it via *[engine.input.sendEvent()()](../../../api/library/controls/class.input_usc.md#sendEvent_InputEvent_void)*, which is what a custom SystemProxy implementation or a device emulator does.
+
+
 ## InputEvent Class
 
 ### Members
@@ -14,26 +17,26 @@ This class handles input event information.
 
 ## int getType ( )
 
-Returns the type of the input event.
+Returns the type of the event � one of the [TYPE](#TYPE) values. Use it to find out which subclass the event can be cast to.
 ### Return value
 
 The type of the input event, one of the [INPUT_EVENT](#INPUT_EVENT) values.
 ## string getTypeName ( )
 
-Returns the name of the input event type.
+Returns the name of the event class as a string, InputEventMouseButton for example. Intended for logging and debugging.
 ### Return value
 
 The name of the input event type.
-## void setTimestamp ( unsigned int timestamp )
+## void setTimestamp ( long timestamp )
 
 Sets the timestamp of the event.
 ### Arguments
 
-- *unsigned int* **timestamp** - The timestamp of the event, in milliseconds.
+- *long* **timestamp** - The timestamp of the event, in milliseconds.
 
-## unsigned int getTimestamp ( )
+## long getTimestamp ( )
 
-Returns the timestamp of the event.
+Returns the moment the event was received, in milliseconds. The value originates from the input backend, so use it to order events and to measure intervals between them rather than as an absolute time.
 ### Return value
 
 The timestamp of the event, in milliseconds.
@@ -46,7 +49,7 @@ Sets the mouse position for the event.
 
 ## ivec2 getMousePosition ( )
 
-Returns the mouse position for the event.
+Returns the mouse cursor position at the moment the event was received, in global (desktop) coordinates. Every input event carries it, including the events that have nothing to do with the mouse.
 ### Return value
 
 The position of the mouse.

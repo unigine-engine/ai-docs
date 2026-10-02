@@ -6,6 +6,9 @@
 This class controls joystick device event information.
 
 
+Events of this type are created by the engine and passed to your handlers. You can also construct one yourself and dispatch it via *[Input.SendEvent()](../../../api/library/controls/class.input_cs.md#sendEvent_InputEvent_void)*, which is what a custom SystemProxy implementation or a device emulator does.
+
+
 ## InputEventJoyDevice Class
 
 ### Enums
@@ -24,7 +27,7 @@ This class controls joystick device event information.
 The Type of the joystick input event, one of the [ACTION](#ACTION) values.
 ## int ConnectionID
 
-The Сonnection identifier.
+The Connection identifier.
 ## int PlayerIndex
 
 The Player index.

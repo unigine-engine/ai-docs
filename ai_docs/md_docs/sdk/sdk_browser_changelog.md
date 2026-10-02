@@ -7,6 +7,41 @@ This article contains a summary of changes between the official **SDK Browser 2*
 The latest **SDK Browser 2** version can be downloaded [here](https://developer.unigine.com/en/downloads/sdk_browser_v2_start_here).
 
 
+## Version 2.1.4
+
+
+Release date: **2026-09-25**
+
+
+<details>
+<summary>View Main Changes | Close</summary>
+
+**Main changes in 2.1.4:**
+
+
+- Added the `--no-broadcast` startup option, which stops *SDK Browser* from announcing a connected USB dongle (HASP) license over the local network (UDP 33334). By default the seats of such a license are offered to the whole network, so another computer can take one of them; the option keeps them on the machine the dongle is plugged into.
+- A downloaded tool is now installed into a folder that includes its version, so several versions of the same tool no longer overwrite each other.
+- Operations on a project now rely on the `*.project` file registered for it, instead of a path built from the project name. The name of the `*.project` file therefore no longer has to match the **name** field stored inside it. Among other things, this fixes:
+
+  - a renamed project reverting to its previous name after a restart, when its folder contains more than one `*.project` file;
+  - imported third-party sample projects failing to start with *Run*, because the name of the executable to launch was derived from the project name instead of the built binary;
+  - cases where a renamed project could no longer be configured, built or removed correctly.
+- SDK components (demos, samples, and docs) are now removed only when the SDK has actually been uninstalled, so a failed uninstall (or a canceled upgrade) no longer takes them away.
+- The default project folder (*Location*) is now opened in the file manager, for each existing project imported.
+- The *Demos* and *Samples* pages no longer go blank when there is nothing to show for the default SDK: they now explain why and, if demos and samples are no longer distributed for the installed SDK version, offer an *UPGRADE SDK* button.
+- Projects created from a template or via *Copy as Project* now get `winpixeventruntime.dll` in their `bin` folder, so DRED (Device Removed Extended Data) crash diagnostics are available in user projects. Windows only.
+- The **AI Toolkit** option is now selected by default when creating a project.
+- Fixed the **Download Size** and **Installed Size** values shown when an SDK is installed together with sample packs: large totals overflowed, so the figures could be smaller than for the SDK alone. The size column of the template versions table was affected in the same way.
+- Fixed removal of sample projects belonging to all editions of the same SDK version on removing only one SDK edition.
+- Fixed parsing of configurations in `*.csproj` files, and configurations missing from a `*.csproj` are no longer listed in the `*.sln`.
+- Fixed modal windows that did not close on a click outside of them.
+- Fixed layout issues in the SDK and task cards.
+- Fixed launching some demos with *Entertainment* edition SDKs (versions **2.21+**).
+- Various bugfixes.
+
+</details>
+
+
 ## Version 2.1.3
 
 

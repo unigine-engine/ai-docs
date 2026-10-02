@@ -6,6 +6,9 @@
 This class controls touch event information.
 
 
+Events of this type are created by the engine and passed to your handlers. You can also construct one yourself and dispatch it via *[Input.SendEvent()](../../../api/library/controls/class.input_cs.md#sendEvent_InputEvent_void)*, which is what a custom SystemProxy implementation or a device emulator does.
+
+
 ## InputEventTouch Class
 
 ### Enums
@@ -34,7 +37,7 @@ The touch identifier.
 The touch position.
 ## ivec2 Delta
 
-The delta of the mouse position from the previous event.
+The touch movement since the previous event of this touch, in screen pixels.
 ## float Pressure
 
 The pressure with which the finger is currently pressed.

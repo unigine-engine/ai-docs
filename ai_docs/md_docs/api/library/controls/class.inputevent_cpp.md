@@ -6,6 +6,9 @@
 This class handles input event information.
 
 
+Events of this type are created by the engine and passed to your handlers. You can also construct one yourself and dispatch it via *[Input::sendEvent()](../../../api/library/controls/class.input_cpp.md#sendEvent_InputEvent_void)*, which is what a custom SystemProxy implementation or a device emulator does.
+
+
 ## InputEvent Class
 
 ### Enums
@@ -45,26 +48,26 @@ This class handles input event information.
 
 ## InputEvent::TYPE getType ( ) const
 
-Returns the type of the input event.
+Returns the type of the event � one of the [TYPE](#TYPE) values. Use it to find out which subclass the event can be cast to.
 ### Return value
 
 Type of the input event, one of the [TYPE.INPUT_EVENT](#TYPE) values.
 ## const char * getTypeName ( ) const
 
-Returns the name of the input event type.
+Returns the name of the event class as a string, InputEventMouseButton for example. Intended for logging and debugging.
 ### Return value
 
 The name of the input event type.
-## void setTimestamp ( unsigned int timestamp )
+## void setTimestamp ( unsigned long long timestamp )
 
 Sets the timestamp of the event.
 ### Arguments
 
-- *unsigned int* **timestamp** - The timestamp of the event, in milliseconds.
+- *unsigned long long* **timestamp** - The timestamp of the event, in milliseconds.
 
-## unsigned int getTimestamp ( ) const
+## unsigned long long getTimestamp ( ) const
 
-Returns the timestamp of the event.
+Returns the moment the event was received, in milliseconds. The value originates from the input backend, so use it to order events and to measure intervals between them rather than as an absolute time.
 ### Return value
 
 The timestamp of the event, in milliseconds.
@@ -77,7 +80,7 @@ Sets the mouse position for the event.
 
 ## Math:: ivec2 getMousePosition ( ) const
 
-Returns the mouse position for the event.
+Returns the mouse cursor position at the moment the event was received, in global (desktop) coordinates. Every input event carries it, including the events that have nothing to do with the mouse.
 ### Return value
 
 The position of the mouse.

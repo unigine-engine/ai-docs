@@ -9,7 +9,7 @@ This class handles joystick input. Generic joysticks can be hot-plugged. So, you
 The *InputJoystick* class provides access to the following controller input:
 
 
-- **Axes** detect movement along X and Y axes (if a joystick is two-axis, which is the most typical case) and along Z axis (if it is three-axis one). Two-axis joysticks are configured in such a way that left-to-right movement of the stick is mapped to the movement along the X axis, while movement from backward to forward (down-up) indicates movement along the Y axis. In case of 3D joystick, twisting the stick to the left (counter-clockwise) or to the right (clockwise) corresponds to movement along the Z axis. Axes are quired for their states via *[getAxis()](#getAxis_uint_float)*. To provide smooth interpolation between frames and avoid jerks, axis values can be filtered via *[setFilter()](#setFilter_float_void)*.
+- **Axes** detect movement along X and Y axes (if a joystick is two-axis, which is the most typical case) and along Z axis (if it is three-axis one). Two-axis joysticks are configured in such a way that left-to-right movement of the stick is mapped to the movement along the X axis, while movement from backward to forward (down-up) indicates movement along the Y axis. In case of 3D joystick, twisting the stick to the left (counter-clockwise) or to the right (clockwise) corresponds to movement along the Z axis. Axes are quired for their states via **[getAxis()()](../../...md#getAxis_uint_float)**. To provide smooth interpolation between frames and avoid jerks, axis values can be filtered via **[setFilter()()](../../...md#setFilter_float_void)**.
 - **Buttons** correspond to the controller's buttons and can be either pressed or released in the current frame, or continuously pressed for multiple frames in a row including the current one.
 - **POV (Point-Of-View) hat switches** indicate the direction of view and support a number of positions such as left, right, up and down (similar to a D-pad).
 
@@ -28,19 +28,19 @@ Returns the index of player for the joystick. Some devices support connection of
 Player index for the joystick.
 ## int isAvailable ( )
 
-Returns a value indicating if the joystick is available.
+Returns a value indicating if a joystick is currently connected in this slot. A slot is kept after the device is unplugged, and this method is the way to tell an occupied slot from an empty one.
 ### Return value
 
 **1** if the joystick is available; otherwise, **0**.
 ## string getName ( )
 
-Returns the name of the joystick.
+Returns the name of the joystick as reported by the input backend.
 ### Return value
 
 Joystick name.
 ## int getNumber ( )
 
-Returns the joystick number.
+Returns the index of the slot this joystick occupies � the same index that *[engine.input.getJoystick()()](../../../api/library/controls/class.input_usc.md#getJoystick_int_InputJoystick)* takes, from 0 to [NumJoysticks](../../../api/library/controls/class.input_usc.md#NumJoysticks)�- 1.
 ### Return value
 
 Joystick number.
@@ -49,7 +49,7 @@ Joystick number.
 Returns a value indicating the type of the device (wheel, throttle, etc.).
 ### Return value
 
-Device type. One of the *[DEVICE_*](../../../api/library/controls/class.input_usc.md#DEVICE_UNKNOWN)*values of the *Input* class.
+Device type. One of the *[DEVICE_*](../../../api/library/controls/class.input_usc.md#DEVICE_UNKNOWN)* values of the *Input* class.
 ## void setFilter ( float filter )
 
 Sets a filter value used to correct the current state of the joystick axis relative to the previous one.
@@ -72,13 +72,13 @@ Returns a filter value used to correct the current state of the joystick axis re
 Filter value for interpolation between axis states.
 ## int getNumAxes ( )
 
-Returns the number of axes supported by the joystick.
+Returns the number of axes the joystick reports. Axis indices accepted by *[getAxis()()](../../...md#getAxis_uint_float)* run from 0 to this value minus one.
 ### Return value
 
 Number of axes for the joystick.
 ## float getAxis ( unsigned int axis )
 
-Returns a state value for the axis win the specified number. It includes position of the joystick along the following axes: X, Y (two-axis joystick) and Z (three-axis joystick). When a joystick is in the center position, X and Y axes values are zero. Negative values indicate left or down; positive values indicate right or up.
+Returns a state value for the axis with the specified number. It includes position of the joystick along the following axes: X, Y (two-axis joystick) and Z (three-axis joystick). When a joystick is in the center position, X and Y axes values are zero. Negative values indicate left or down; positive values indicate right or up.
 ### Arguments
 
 - *unsigned int* **axis** - Axis number.
@@ -98,7 +98,7 @@ Returns a delta value (change since the previous frame) for the axis with the sp
 Axis delta value.
 ## string getAxisName ( unsigned int axis )
 
-Returns the name of a given axis by its number.
+Returns the name the input backend gives to the axis with the specified number. The names are device-specific and are meant for showing the axis to the user, not for identifying it in code.
 ### Arguments
 
 - *unsigned int* **axis** - Axis number.
@@ -134,7 +134,7 @@ Returns the name of a given POV hat switch.
 POV hat name.
 ## int getNumButtons ( )
 
-Returns the number of buttons supported by the joystick.
+Returns the number of buttons the joystick reports. Button indices accepted by *[isButtonPressed()()](../../...md#isButtonPressed_uint_int)* and the related methods run from 0 to this value minus one.
 ### Return value
 
 Number of buttons.
@@ -170,7 +170,7 @@ Returns a value indicating if the button with the specified number was released 
 **1** if the button with the specified number was released during the current frame; otherwise - **0**.
 ## string getButtonName ( unsigned int button )
 
-Returns the name of the button with the specified number.
+Returns the name the input backend gives to the button with the specified number. The names are device-specific and are meant for showing the button to the user, not for identifying it in code.
 ### Arguments
 
 - *unsigned int* **button** - Button number.
@@ -180,7 +180,7 @@ Returns the name of the button with the specified number.
 Button name.
 ## InputEventJoyButton getButtonEvent ( int button )
 
-Returns the currently processed joystick button input event.
+Returns the joystick button event currently being processed for the given button. Use *[getButtonEvents()()](../../...md#getButtonEvents_int_VECInputEventJoyButton_int)* to get all events received for this button.
 ### Arguments
 
 - *int* **button** - Button number.
@@ -190,7 +190,7 @@ Returns the currently processed joystick button input event.
 Joystick button input event, or null if there are no events for the specified joystick button in the current frame.
 ## InputEventJoyPovMotion getPovEvent ( int pov )
 
-Returns the currently processed joystick POV hat input event.
+Returns the POV hat event currently being processed for the given hat. One event is taken from the queue per frame; use *[getPovEvents()()](../../...md#getPovEvents_int_VECInputEventJoyPovMotion_int)* to get all events received for this hat.
 ### Arguments
 
 - *int* **pov** - POV hat number.
@@ -235,6 +235,9 @@ true if the specified force feedback effect is supported, otherwise false.
 ## void playForceFeedbackEffectConstant ( float force )
 
 Applies the constant force-feedback effect with the specified parameters to the joystick. Force is applied at a constant level for the duration of the effect.
+![](../../../code/fundamentals/input_system/constant.png)
+
+
 ### Arguments
 
 - *float* **force** - Amount of force being applied by a force-feedback effect. The value in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values � to the right.
@@ -242,6 +245,9 @@ Applies the constant force-feedback effect with the specified parameters to the 
 ## void playForceFeedbackEffectRamp ( float force , long duration_us )
 
 Applies the ramp force-feedback effect with the specified parameters to the joystick. Force is applied gradually by being increased or decreased over the duration of the effect.
+![](../../../code/fundamentals/input_system/ramp.png)
+
+
 ### Arguments
 
 - *float* **force** - Amount of force being applied by a force-feedback effect. The value in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values � to the right.
@@ -250,6 +256,9 @@ Applies the ramp force-feedback effect with the specified parameters to the joys
 ## void playForceFeedbackEffectSineWave ( float force , unsigned int period_ms )
 
 Applies the sine-wave force-feedback effect with the specified parameters to the joystick. Force is applied in a sine-wave pattern.
+![](../../../code/fundamentals/input_system/sinewave.png)
+
+
 ### Arguments
 
 - *float* **force** - Amount of force being applied by a force-feedback effect. The value in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values � to the right.
@@ -258,6 +267,9 @@ Applies the sine-wave force-feedback effect with the specified parameters to the
 ## void playForceFeedbackEffectSineWave ( float force , float attack_force , float fade_force , int phase , unsigned int period_ms )
 
 Applies the sine-wave force-feedback effect with the specified parameters to the joystick. Force is applied in a sine-wave pattern.
+![](../../../code/fundamentals/input_system/sinewave.png)
+
+
 ### Arguments
 
 - *float* **force** - Sustain value � the force value in the middle of the force-feedback effect in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values � to the right.
@@ -269,6 +281,9 @@ Applies the sine-wave force-feedback effect with the specified parameters to the
 ## void playForceFeedbackEffectSquareWave ( float force , unsigned int period_ms )
 
 Applies the square-wave force-feedback effect with the specified parameters to the joystick. Force is applied in a square-wave pattern.
+![](../../../code/fundamentals/input_system/squarewave.png)
+
+
 ### Arguments
 
 - *float* **force** - Amount of force being applied by a force-feedback effect. The value in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values � to the right.
@@ -277,6 +292,9 @@ Applies the square-wave force-feedback effect with the specified parameters to t
 ## void playForceFeedbackEffectSquareWave ( float force , float attack_force , float fade_force , int phase , unsigned int period_ms )
 
 Applies the square-wave force-feedback effect with the specified parameters to the joystick. Force is applied in a square-wave pattern.
+![](../../../code/fundamentals/input_system/squarewave.png)
+
+
 ### Arguments
 
 - *float* **force** - Sustain value � the force value in the middle of the force-feedback effect in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values � to the right.
@@ -288,6 +306,9 @@ Applies the square-wave force-feedback effect with the specified parameters to t
 ## void playForceFeedbackEffectTriangleWave ( float force , unsigned int period_ms )
 
 Applies the triangle-wave force-feedback effect with the specified parameters to the joystick. Force is applied in a triangle-wave pattern.
+![](../../../code/fundamentals/input_system/trianglewave.png)
+
+
 ### Arguments
 
 - *float* **force** - Amount of force being applied by a force-feedback effect. The value in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values � to the right.
@@ -296,6 +317,9 @@ Applies the triangle-wave force-feedback effect with the specified parameters to
 ## void playForceFeedbackEffectTriangleWave ( float force , float attack_force , float fade_force , int phase , unsigned int period_ms )
 
 Applies the triangle-wave force-feedback effect with the specified parameters to the joystick. Force is applied in a triangle-wave pattern.
+![](../../../code/fundamentals/input_system/trianglewave.png)
+
+
 ### Arguments
 
 - *float* **force** - Sustain value � the force value in the middle of the force-feedback effect in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values � to the right.
@@ -307,6 +331,9 @@ Applies the triangle-wave force-feedback effect with the specified parameters to
 ## void playForceFeedbackEffectSawtoothUpWave ( float force , unsigned int period_ms )
 
 Applies the upward-sawtooth-wave force-feedback effect with the specified parameters to the joystick. Force is applied in a upward-sawtooth-wave pattern.
+![](../../../code/fundamentals/input_system/sawtoothupwave.png)
+
+
 ### Arguments
 
 - *float* **force** - Amount of force being applied by a force-feedback effect. The value in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values � to the right.
@@ -315,6 +342,9 @@ Applies the upward-sawtooth-wave force-feedback effect with the specified parame
 ## void playForceFeedbackEffectSawtoothUpWave ( float force , float attack_force , float fade_force , int phase )
 
 Applies the upward-sawtooth-wave force-feedback effect with the specified parameters to the joystick. Force is applied in a upward-sawtooth-wave pattern.
+![](../../../code/fundamentals/input_system/sawtoothupwave.png)
+
+
 ### Arguments
 
 - *float* **force** - Sustain value � the force value in the middle of the force-feedback effect in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values � to the right.
@@ -325,6 +355,9 @@ Applies the upward-sawtooth-wave force-feedback effect with the specified parame
 ## void playForceFeedbackEffectSawtoothDownWave ( float force , unsigned int period_ms )
 
 Applies the downward-sawtooth-wave force-feedback effect with the specified parameters to the joystick. Force is applied in a downward-sawtooth-wave pattern.
+![](../../../code/fundamentals/input_system/sawtoothdownwave.png)
+
+
 ### Arguments
 
 - *float* **force** - Amount of force being applied by a force-feedback effect. The value in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values � to the right.
@@ -333,6 +366,9 @@ Applies the downward-sawtooth-wave force-feedback effect with the specified para
 ## void playForceFeedbackEffectSawtoothDownWave ( float force , float attack_force , float fade_force , int phase )
 
 Applies the downward-sawtooth-wave force-feedback effect with the specified parameters to the joystick. Force is applied in a downward-sawtooth-wave pattern.
+![](../../../code/fundamentals/input_system/sawtoothdownwave.png)
+
+
 ### Arguments
 
 - *float* **force** - Sustain value � the force value in the middle of the force-feedback effect in range [-1, 1]. Negative values mean that the initial direction of the force-feedback effect is towards the left, positive values � to the right.

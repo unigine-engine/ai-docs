@@ -8,6 +8,9 @@
 This class controls keyboard event information.
 
 
+Events of this type are created by the engine and passed to your handlers. You can also construct one yourself and dispatch it via *[engine.input.sendEvent()()](../../../api/library/controls/class.input_usc.md#sendEvent_InputEvent_void)*, which is what a custom SystemProxy implementation or a device emulator does.
+
+
 ## InputEventKeyboard Class
 
 ### Members
@@ -37,14 +40,14 @@ Keyboard input event constructor.
 
 ## void setAction ( int action )
 
-Sets the action to be performed by the keyboard.
+Sets the action the event represents. See *[getAction()()](../../...md#getAction_int)*.
 ### Arguments
 
 - *int* **action** - Action performed by the keyboard.
 
 ## int getAction ( )
 
-Returns the action performed by the mouse button.
+Returns the action the event represents: one of the [ACTION](#ACTION) values � the key was pressed, auto-repeated while held, or released.
 ### Return value
 
 Action performed by the keyboard.
@@ -57,7 +60,7 @@ Sets the keyboard key language-dependent value.
 
 ## int getKey ( )
 
-Returns the keyboard key language-dependent value.
+Returns the key the event refers to � one of the [Input::KEY](../../../api/library/controls/class.input_usc.md#KEY) values. The code depends on the keyboard layout currently selected in the system.
 ### Return value
 
 Virtual keyboard key value (dependent on the keyboard language).

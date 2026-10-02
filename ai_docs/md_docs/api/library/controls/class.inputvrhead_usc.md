@@ -16,13 +16,13 @@ The class handles head-mounted display (HMD) input.
 
 ## int getModelType ( )
 
-Returns the model type of the HMD.
+Returns the head-mounted display model recognised by the engine � one of the [MODEL_TYPE](#MODEL_TYPE) values. [MODEL_TYPE_UNKNOWN](#MODEL_TYPE_UNKNOWN) is returned for a device the engine has no profile for.
 ### Return value
 
 HMD model type.
 ## int hasButtons ( )
 
-Returns a value indicating if the HMD has buttons.
+Returns a value indicating if the headset reports buttons the engine can read. Headsets without any controls of their own return false.
 ### Return value
 
 true if there are buttons; otherwise, false.
@@ -41,7 +41,7 @@ Sets the display refresh rate, if supported.
 
 ## float getRefreshRate ( )
 
-Returns the current display refresh rate, in Hz.
+Returns the display refresh rate the HMD currently runs at, in Hz. The rates the device accepts are listed by *[getSupportedRefreshRates()()](../../...md#getSupportedRefreshRates_VECfloat)*, and *[setRefreshRate()()](../../...md#setRefreshRate_float_void)* switches between them.
 ### Return value
 
 The display refresh rate, in Hz.
@@ -54,7 +54,7 @@ Sets the value indicating if head position tracking is enabled.
 
 ## int isTrackingPositionEnabled ( )
 
-Returns a value indicating if head position tracking is enabled.
+Returns a value indicating if positional tracking of the head is enabled � that is, whether the head transformation follows the physical movement of the player.
 ### Return value
 
 true if position tracking is enabled; otherwise, false.
@@ -67,7 +67,7 @@ Sets the value indicating if head rotation tracking is enabled.
 
 ## int isTrackingRotationEnabled ( )
 
-Returns a value indicating if head rotation tracking is enabled.
+Returns a value indicating if rotational tracking of the head is enabled � that is, whether the head transformation follows the physical rotation of the player's head.
 ### Return value
 
 true if rotation tracking is enabled; otherwise, false.
@@ -103,7 +103,7 @@ Returns a value indicating if the specified button was released during the curre
 true if the button was released; otherwise, false.
 ## InputEventVRButton getButtonEvent ( int button )
 
-Returns the currently processed HMD button input event.
+Returns the HMD button event currently being processed for the given button. One event is taken from the queue per frame.
 ### Arguments
 
 - *int* **button** - Button.

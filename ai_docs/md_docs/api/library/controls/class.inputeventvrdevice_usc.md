@@ -8,6 +8,9 @@
 This class controls VR device event information.
 
 
+Events of this type are created by the engine and passed to your handlers. You can also construct one yourself and dispatch it via *[engine.input.sendEvent()()](../../../api/library/controls/class.input_usc.md#sendEvent_InputEvent_void)*, which is what a custom SystemProxy implementation or a device emulator does.
+
+
 ## InputEventVRDevice Class
 
 ### Members
@@ -34,44 +37,44 @@ VR device input event constructor.
 - *ivec2* **mouse_pos** - Position of the mouse.
 - *int* **action** - Type of the VR device input event, one of the [INPUT_EVENT_VR_DEVICE_ACTION_*](#ACTION_CONNECTED) values.
 - *int* **connection_id** - Connection identifier.
-- *int* **type** - VR device type.
+- *int* **type** - VR device type, one of the [InputVRDevice::TYPE](../../../api/library/controls/class.inputvrdevice_usc.md#TYPE) values.
 
 ## void setAction ( int action )
 
-Sets the type of the VR device input event.
+Sets the action the event represents. See *[getAction()()](../../...md#getAction_int)*.
 ### Arguments
 
-- *int* **action** - Type of the VR controller button input event, one of the [INPUT_EVENT_VR_DEVICE_ACTION_*](#ACTION_CONNECTED) values.
+- *int* **action** - Type of the VR device input event, one of the [INPUT_EVENT_VR_DEVICE_ACTION_*](#ACTION_CONNECTED) values.
 
 ## int getAction ( )
 
-Returns the type of the VR device input event.
+Returns the action the event represents: one of the [ACTION](#ACTION) values � the VR device was connected or disconnected.
 ### Return value
 
-Type of the VR controller button input event, one of the [INPUT_EVENT_VR_DEVICE_ACTION_*](#ACTION_CONNECTED) values.
+Type of the VR device input event, one of the [INPUT_EVENT_VR_DEVICE_ACTION_*](#ACTION_CONNECTED) values.
 ## void setConnectionID ( int connectionid )
 
-Sets the connection identifier.
+Sets the identifier of the device connection the event comes from. See *[getConnectionID()()](../../...md#getConnectionID_int)*.
 ### Arguments
 
 - *int* **connectionid** - Connection identifier.
 
 ## int getConnectionID ( )
 
-Returns the current connection identifier.
+Returns the identifier of the device connection the event comes from � the value assigned by the OS when the device was connected. The engine uses it to match the event against a device slot; it is not the slot index itself.
 ### Return value
 
 Connection identifier.
 ## void setType ( int type )
 
-Sets the VR device type.
+Sets the type of the VR device the event refers to. See *[getType()()](../../...md#getType_int)*.
 ### Arguments
 
-- *int* **type** - VR device type.
+- *int* **type** - VR device type, one of the [InputVRDevice::TYPE](../../../api/library/controls/class.inputvrdevice_usc.md#TYPE) values.
 
 ## int getType ( )
 
-Returns the VR device type.
+Returns the type of the VR device the event refers to � one of the [InputVRDevice::TYPE](../../../api/library/controls/class.inputvrdevice_usc.md#TYPE) values. The type is filled in only for a connection event: on disconnection it carries a placeholder value, so identify the device by [ConnectionID](#ConnectionID) instead.
 ### Return value
 
-VR device type.
+VR device type, one of the [InputVRDevice::TYPE](../../../api/library/controls/class.inputvrdevice_usc.md#TYPE) values.

@@ -11,7 +11,7 @@ Also, the class functionality allows getting the model of the VR device. For exa
 
 1. Get the controller to render by using the corresponding methods of the *[Input](../../../api/library/controls/class.input_cpp.md)* class. For example, to get the left controller, call *[getVRControllerLeft()](../../../api/library/controls/class.input_cpp.md)*.
 2. Check it exists.
-3. Get the number of its models via *[getNumModels()](#getNumModels_int).*
+3. Get the number of its models via **[getNumModels()](../../...md#getNumModels_int)*.*
 4. Load its [meshes](#getModelMesh_int_Mesh) and [textures](#getModelTexture_int_Texture) individually, one by one, or get the [entire mesh](#getCombinedModelMesh_Mesh) at once. Note that there may be a delay during the loading process.
 5. Render the loaded meshes with textures.
 
@@ -173,7 +173,7 @@ Returns a value indicating if the VR device will drift in a specific direction.
 true if the device has yaw drift; otherwise, false.
 ## bool hasBattery ( ) const
 
-Returns a value indicating if the VR device has a battery.
+Returns a value indicating if the device reports a battery. Use *[isBatteryValid()](../../...md#isBatteryValid_int)* to check whether the reported battery state is currently usable.
 ### Return value
 
 true if the device has the battery; otherwise, false.
@@ -259,7 +259,7 @@ Returns a value indicating if the VR device supports the specified transformatio
 true if transformation type is supported; otherwise, false.
 ## Math:: mat4 getModelTransform ( int num ) const
 
-Returns the local transformation of the given model.
+Returns the transformation of the given render model component relative to the device. A VR device is drawn from several render model components; their number is reported by *[getNumModels()](../../...md#getNumModels_int)*.
 ### Arguments
 
 - *int* **num** - Model index.
@@ -269,7 +269,7 @@ Returns the local transformation of the given model.
 Local transformation matrix of the model.
 ## Math:: Mat4 getModelWorldTransform ( int num ) const
 
-Returns the world transformation of the given model.
+Returns the world transformation of the given render model component. It is composed from the transformation of the player, the grip transformation of the device and the transformation of the component itself.
 ### Arguments
 
 - *int* **num** - Model index.
@@ -279,7 +279,7 @@ Returns the world transformation of the given model.
 World transformation matrix of the model.
 ## Ptr < Mesh > getModelMesh ( int num )
 
-Returns the mesh of the given model.
+Returns the mesh of the given render model component. The mesh is loaded asynchronously: until loading completes the method returns NULL, so it has to be called again on the following frames. A VR device is drawn from several render model components; their number is reported by *[getNumModels()](../../...md#getNumModels_int)*.
 ### Arguments
 
 - *int* **num** - Model index.
@@ -289,7 +289,7 @@ Returns the mesh of the given model.
 Model mesh.
 ## Ptr < Texture > getModelTexture ( int num )
 
-Returns the texture of the given model.
+Returns the texture of the given render model component. NULL is returned until the mesh of this component has been loaded by *[getModelMesh()](../../...md#getModelMesh_int_Mesh)*.
 ### Arguments
 
 - *int* **num** - Model index.
@@ -299,7 +299,7 @@ Returns the texture of the given model.
 Model texture.
 ## const char * getModelName ( int num )
 
-Returns the name of the given model.
+Returns the name of the given render model component. A VR device is drawn from several render model components; their number is reported by *[getNumModels()](../../...md#getNumModels_int)*.
 ### Arguments
 
 - *int* **num** - Model index.

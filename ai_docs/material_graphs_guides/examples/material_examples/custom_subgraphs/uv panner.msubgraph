@@ -1,0 +1,293 @@
+{
+	"version": "2.22.0.0",
+	"nodes": {
+		"Inputs": {
+			"label": "Inputs",
+			"guid": "79b3f71d40dd0dd8f544b757f977eccacf9875a1",
+			"x": -1748,
+			"y": -52,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Name",
+					"widget": "String",
+					"string": "UV"
+				},
+				"prop": {
+					"label": "Name",
+					"widget": "String",
+					"string": "Speed"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "UV",
+					"type": "float2",
+					"id": -1596528974
+				},
+				"input": {
+					"label": "Speed",
+					"type": "float2",
+					"id": -895078269
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "UV",
+					"type": "float2",
+					"id": -1596528974
+				},
+				"output": {
+					"label": "Speed",
+					"type": "float2",
+					"id": -895078269
+				}
+			}
+		},
+		"Outputs": {
+			"label": "Outputs",
+			"guid": "02c4128c4f73ac7b340ab79e14913a65d8f02880",
+			"x": -580,
+			"y": 91,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Name",
+					"widget": "String",
+					"string": "Result UV"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "Result UV",
+					"type": "float2",
+					"id": -839335885
+				}
+			},
+			"outputs": {
+			}
+		},
+		"Vertex UV 0": {
+			"label": "Vertex UV 0",
+			"guid": "c9579d9cc2ea1c4b2ceb452e036fcab5bf8d5c90",
+			"x": -1881,
+			"y": 108,
+			"collapsed": true,
+			"props": {
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float2",
+					"id": 0
+				}
+			}
+		},
+		"_multiply": {
+			"label": "Multiply",
+			"guid": "98a9ce00c322695f257127320caddce9ba090134",
+			"x": -1180,
+			"y": 500,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float2",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float2",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float2",
+					"id": 1723312480
+				}
+			}
+		},
+		"float2": {
+			"label": "float2",
+			"guid": "23b57ef7c35bcfea0ac9be41bed482ac5c161e1b",
+			"x": -1848,
+			"y": 136,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float2",
+					"y": 0,
+					"x": 1
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "1.0 0.0",
+					"type": "float2",
+					"id": 0
+				}
+			},
+			"type": "float2"
+		},
+		"_subtract": {
+			"label": "Subtract",
+			"guid": "6f82c52b41d5188ee1e7c69572e066f08847cd8f",
+			"x": -881,
+			"y": -17,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float2",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float2",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float2",
+					"id": 1723312480
+				}
+			}
+		},
+		"Time": {
+			"label": "Auto Game Time",
+			"guid": "9beaccbcb34a40eb4404e14ea31178553a90edb0",
+			"x": -1417,
+			"y": 161,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Mode",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Game",
+						"Real"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Type",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Auto",
+						"Current",
+						"Old"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 0
+				}
+			}
+		}
+	},
+	"anchors": {
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float2",
+			"input_label": "UV",
+			"input_id": -1596528974,
+			"input_node": "79b3f71d40dd0dd8f544b757f977eccacf9875a1",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "",
+			"output_id": 0,
+			"output_node": "c9579d9cc2ea1c4b2ceb452e036fcab5bf8d5c90"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float2",
+			"input_label": "Speed",
+			"input_id": -895078269,
+			"input_node": "79b3f71d40dd0dd8f544b757f977eccacf9875a1",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "1.0 0.0",
+			"output_id": 0,
+			"output_node": "23b57ef7c35bcfea0ac9be41bed482ac5c161e1b"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float2",
+			"input_label": "Result UV",
+			"input_id": -839335885,
+			"input_node": "02c4128c4f73ac7b340ab79e14913a65d8f02880",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "6f82c52b41d5188ee1e7c69572e066f08847cd8f"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float2",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "98a9ce00c322695f257127320caddce9ba090134",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 0,
+			"output_node": "9beaccbcb34a40eb4404e14ea31178553a90edb0"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float2",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "98a9ce00c322695f257127320caddce9ba090134",
+			"output_index": 1,
+			"output_type": "float2",
+			"output_label": "Speed",
+			"output_id": -895078269,
+			"output_node": "79b3f71d40dd0dd8f544b757f977eccacf9875a1"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float2",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "6f82c52b41d5188ee1e7c69572e066f08847cd8f",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "UV",
+			"output_id": -1596528974,
+			"output_node": "79b3f71d40dd0dd8f544b757f977eccacf9875a1"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float2",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "6f82c52b41d5188ee1e7c69572e066f08847cd8f",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "98a9ce00c322695f257127320caddce9ba090134"
+		}
+	}
+}

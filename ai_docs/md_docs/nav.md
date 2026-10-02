@@ -1436,15 +1436,18 @@
 
     - [C# Third Person Platformer](sdk/demos/cs_component_sample.md)
 
-    - [Machine Learning Agents](sdk/demos/ml_agents.md)
+    - [Unigine ML Integration](sdk/demos/ml_agents.md)
 
-    - [Cesium](sdk/demos/cesium_ig.md)
+      - [Building Your Own ML Agent](sdk/demos/ml_agents_customization.md)
+
+      - [Unigine ML Integration API](sdk/demos/ml_agents_api.md)
+    - [Cesium Integration](sdk/demos/cesium_ig.md)
 
     - [Earthworks](sdk/demos/earthworks.md)
 
     - [Fox Hole](sdk/demos/fox_hole.md)
 
-    - [Gaussian Splatting](sdk/demos/gaussian_splat.md)
+    - [Gaussian Splatting Integration](sdk/demos/gaussian_splat.md)
 
     - [Mars](sdk/demos/mars.md)
 
@@ -1745,15 +1748,18 @@
 
   - [C# Third Person Platformer](sdk/demos/cs_component_sample.md)
 
-  - [Machine Learning Agents](sdk/demos/ml_agents.md)
+  - [Unigine ML Integration](sdk/demos/ml_agents.md)
 
-  - [Cesium](sdk/demos/cesium_ig.md)
+    - [Building Your Own ML Agent](sdk/demos/ml_agents_customization.md)
+
+    - [Unigine ML Integration API](sdk/demos/ml_agents_api.md)
+  - [Cesium Integration](sdk/demos/cesium_ig.md)
 
   - [Earthworks](sdk/demos/earthworks.md)
 
   - [Fox Hole](sdk/demos/fox_hole.md)
 
-  - [Gaussian Splatting](sdk/demos/gaussian_splat.md)
+  - [Gaussian Splatting Integration](sdk/demos/gaussian_splat.md)
 
   - [Mars](sdk/demos/mars.md)
 
@@ -1772,15 +1778,22 @@
   - [Viewer](sdk/demos/viewer.md)
 - [C# Third Person Platformer](sdk/demos/cs_component_sample.md)
 
-- [Machine Learning Agents](sdk/demos/ml_agents.md)
+- [Unigine ML Integration](sdk/demos/ml_agents.md)
 
-- [Cesium](sdk/demos/cesium_ig.md)
+  - [Building Your Own ML Agent](sdk/demos/ml_agents_customization.md)
+
+  - [Unigine ML Integration API](sdk/demos/ml_agents_api.md)
+- [Building Your Own ML Agent](sdk/demos/ml_agents_customization.md)
+
+- [Unigine ML Integration API](sdk/demos/ml_agents_api.md)
+
+- [Cesium Integration](sdk/demos/cesium_ig.md)
 
 - [Earthworks](sdk/demos/earthworks.md)
 
 - [Fox Hole](sdk/demos/fox_hole.md)
 
-- [Gaussian Splatting](sdk/demos/gaussian_splat.md)
+- [Gaussian Splatting Integration](sdk/demos/gaussian_splat.md)
 
 - [Mars](sdk/demos/mars.md)
 
@@ -4712,6 +4725,8 @@
 
     - [Fixed-Wing Traffic Simulation](sdk/templates/fixedwing/traffic.md)
 
+    - [Fixed-Wing Water Traffic Simulation](sdk/templates/fixedwing/water_traffic.md)
+
     - [Fixed-Wing JSBSim](sdk/templates/fixedwing/jsbsim.md)
 
     - [Fixed-Wing Avionics HUD Simulation](sdk/templates/fixedwing/avionics_hud.md)
@@ -4734,6 +4749,8 @@
     - [Rotary-Wing Controls](sdk/templates/rotarywing/controls.md)
 
     - [Rotary-Wing Traffic Simulation](sdk/templates/rotarywing/traffic.md)
+
+    - [Rotary-Wing Water Traffic Simulation](sdk/templates/rotarywing/water_traffic.md)
 
     - [Rotary-Wing JSBSim](sdk/templates/rotarywing/jsbsim.md)
 
@@ -4821,6 +4838,8 @@
 
   - [Fixed-Wing Traffic Simulation](sdk/templates/fixedwing/traffic.md)
 
+  - [Fixed-Wing Water Traffic Simulation](sdk/templates/fixedwing/water_traffic.md)
+
   - [Fixed-Wing JSBSim](sdk/templates/fixedwing/jsbsim.md)
 
   - [Fixed-Wing Avionics HUD Simulation](sdk/templates/fixedwing/avionics_hud.md)
@@ -4841,6 +4860,8 @@
 - [Fixed-Wing Controls](sdk/templates/fixedwing/controls.md)
 
 - [Fixed-Wing Traffic Simulation](sdk/templates/fixedwing/traffic.md)
+
+- [Fixed-Wing Water Traffic Simulation](sdk/templates/fixedwing/water_traffic.md)
 
 - [Fixed-Wing JSBSim](sdk/templates/fixedwing/jsbsim.md)
 
@@ -4866,6 +4887,8 @@
 
   - [Rotary-Wing Traffic Simulation](sdk/templates/rotarywing/traffic.md)
 
+  - [Rotary-Wing Water Traffic Simulation](sdk/templates/rotarywing/water_traffic.md)
+
   - [Rotary-Wing JSBSim](sdk/templates/rotarywing/jsbsim.md)
 
   - [Rotary-Wing Avionics HUD Simulation](sdk/templates/rotarywing/avionics_hud.md)
@@ -4886,6 +4909,8 @@
 - [Rotary-Wing Controls](sdk/templates/rotarywing/controls.md)
 
 - [Rotary-Wing Traffic Simulation](sdk/templates/rotarywing/traffic.md)
+
+- [Rotary-Wing Water Traffic Simulation](sdk/templates/rotarywing/water_traffic.md)
 
 - [Rotary-Wing JSBSim](sdk/templates/rotarywing/jsbsim.md)
 

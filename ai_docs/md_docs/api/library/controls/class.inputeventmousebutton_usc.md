@@ -8,6 +8,9 @@
 This class controls mouse button event information.
 
 
+Events of this type are created by the engine and passed to your handlers. You can also construct one yourself and dispatch it via *[engine.input.sendEvent()()](../../../api/library/controls/class.input_usc.md#sendEvent_InputEvent_void)*, which is what a custom SystemProxy implementation or a device emulator does.
+
+
 ## InputEventMouseButton Class
 
 ### Members
@@ -37,27 +40,27 @@ Mouse button input event constructor.
 
 ## void setAction ( int action )
 
-Sets the action to be performed by the mouse button.
+Sets the action the event represents. See *[getAction()()](../../...md#getAction_int)*.
 ### Arguments
 
 - *int* **action** - Action performed by the mouse button.
 
 ## int getAction ( )
 
-Returns the action performed by the mouse button.
+Returns the action the event represents: one of the [ACTION](#ACTION) values � the button was pressed or released.
 ### Return value
 
 Action performed by the mouse button.
 ## void setButton ( int button )
 
-Sets the mouse button for the input event.
+Sets the mouse button the event refers to. See *[getButton()()](../../...md#getButton_int)*.
 ### Arguments
 
 - *int* **button** - Mouse button, one of the [INPUT_MOUSE_BUTTON](../../../api/library/controls/class.input_usc.md#MOUSE_BUTTON_UNKNOWN) values.
 
 ## int getButton ( )
 
-Returns the mouse button for the input event.
+Returns the mouse button the event refers to � one of the [Input::MOUSE_BUTTON](../../../api/library/controls/class.input_usc.md#MOUSE_BUTTON) values.
 ### Return value
 
 Mouse button, one of the [INPUT_MOUSE_BUTTON](../../../api/library/controls/class.input_usc.md#MOUSE_BUTTON_UNKNOWN) values.

@@ -1,0 +1,6041 @@
+{
+	"material": {
+		"type": 3,
+		"normal_space": 2,
+		"vertex_position_space": 1,
+		"vertex_offset_space": 2,
+		"vertex_mode": 1,
+		"advanced_mode": false,
+		"compiler_ieee_strictness": false,
+		"compiler_optimization_level": 4,
+		"compiler_warning_mode": 2,
+		"depth_shadow": true,
+		"screen_projection": false,
+		"force_velocity": true,
+		"tessellation": false,
+		"two_sided": true,
+		"depth_test": true,
+		"scene_depth_write": false,
+		"depth_mode": 0,
+		"decal_tbn_mode": 0,
+		"normal_blend_mode": 0,
+		"blend_mode": 0,
+		"blend_src": 5,
+		"blend_dest": 6,
+		"opacity_depth_write": true,
+		"velocity_write": true,
+		"surface_id_write": true
+	},
+	"parameters": {
+		"parameter": {
+			"type": "Slider",
+			"guid": "c28e452c8e83fe9bedb7a33e6adaf1857bc53520",
+			"value": {
+				"type": "float",
+				"name": "Intersection Power",
+				"min_value": 1,
+				"max_value": 10,
+				"value_x": 8
+			}
+		},
+		"parameter": {
+			"type": "Slider",
+			"guid": "bdd487d6d23f1d3dea3ebd78a1d46277b1125d6a",
+			"value": {
+				"type": "float",
+				"name": "Fresnel Power",
+				"min_value": 0.10000000149011612,
+				"max_value": 3,
+				"value_x": 3
+			}
+		},
+		"parameter": {
+			"type": "Color",
+			"guid": "30bc76c466771353c54900966605befd5b877438",
+			"value": {
+				"type": "float4",
+				"name": "Emission Color 1",
+				"min_value": 0,
+				"max_value": 10,
+				"value_w": 1,
+				"value_z": 1,
+				"value_y": 0.49411800503730885,
+				"value_x": 0.21960799396038094
+			}
+		},
+		"parameter": {
+			"type": "Color",
+			"guid": "5aa14b807a34c8df16ed00b2e620e869baf596b4",
+			"value": {
+				"type": "float4",
+				"name": "Emission Color 2",
+				"min_value": 0,
+				"max_value": 1,
+				"value_w": 1,
+				"value_z": 1,
+				"value_y": 0.34509798884391873,
+				"value_x": 0.78431397676467896
+			}
+		},
+		"parameter": {
+			"type": "Slider",
+			"guid": "33d5b560baed693f99936592aea547c9f80eae94",
+			"value": {
+				"type": "float",
+				"name": "Emission Intensity",
+				"min_value": 0,
+				"max_value": 10,
+				"value_x": 8
+			}
+		},
+		"parameter": {
+			"type": "Slider",
+			"guid": "913ee17baf7a689e22c3376531480180933006df",
+			"value": {
+				"type": "float",
+				"name": "Time Speed",
+				"min_value": 0,
+				"max_value": 1,
+				"value_x": 0.3000000119209299
+			}
+		},
+		"parameter": {
+			"type": "Slider",
+			"guid": "60347b7f17b4d2d2131f5409e562cdd45a29df23",
+			"value": {
+				"type": "float",
+				"name": "Opacity",
+				"min_value": 0,
+				"max_value": 1,
+				"value_x": 1
+			}
+		}
+	},
+	"version": "2.22.0.0",
+	"nodes": {
+		"Material": {
+			"label": "Material",
+			"guid": "829f90678c21529ab2138131aaaf08dc82560e8b",
+			"x": 3549,
+			"y": 1434,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Opacity",
+					"type": "float",
+					"id": -1880079150
+				},
+				"input": {
+					"label": "Color",
+					"type": "float3",
+					"id": -509366906
+				},
+				"input": {
+					"label": "Velocity",
+					"type": "float2",
+					"id": -1513164944
+				},
+				"input": {
+					"label": "Auxiliary",
+					"type": "float4",
+					"id": -488030030
+				},
+				"input": {
+					"label": "Auxiliary Clip Threshold",
+					"type": "float",
+					"id": 587570301
+				},
+				"input": {
+					"label": "Blur",
+					"type": "float",
+					"id": 249181801
+				},
+				"input": {
+					"label": "Refraction Screen UV Offset",
+					"type": "float2",
+					"id": -289665431
+				},
+				"input": {
+					"label": "Depth Offset",
+					"type": "float",
+					"id": 1982984727
+				},
+				"input": {
+					"label": "Vertex Offset Tangent Space",
+					"type": "float3",
+					"id": 1951750090
+				},
+				"input": {
+					"label": "PostEffects Clip Threshold",
+					"type": "float",
+					"id": -1577925397
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "Material",
+					"type": "",
+					"id": 0
+				}
+			}
+		},
+		"Final": {
+			"label": "Final",
+			"guid": "0f2f417e3b3b7ac5ee9bad604fcb013f4b641d92",
+			"x": 3942,
+			"y": 1465,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Material",
+					"type": "",
+					"id": 0
+				}
+			},
+			"outputs": {
+			}
+		},
+		"Depth Opacity": {
+			"label": "Texture Buffer Depth Opacity",
+			"guid": "c53894df55665cb268f29469b62352b4a2c1de83",
+			"x": -4257,
+			"y": -277,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "Texture2D",
+					"id": 0
+				}
+			}
+		},
+		"SampleTexture": {
+			"label": "SampleTexture: Default",
+			"guid": "a7ff145863160bd73544374a85273e21b367410c",
+			"x": -3916,
+			"y": -366,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Type",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Default",
+						"Mip",
+						"Mip offset",
+						"Grad",
+						"Fetch",
+						"Point",
+						"Catmull",
+						"Cubic",
+						"Manual linear"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "Texture",
+					"type": "Texture2D",
+					"id": 4
+				},
+				"input": {
+					"label": "UV",
+					"type": "float2",
+					"id": 5
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "Depth",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"texture_type": "Texture2D",
+			"sampler_type": "Default",
+			"texture_data": "Native Depth",
+			"normal_space": "Tangent Space for UV0"
+		},
+		"saturate": {
+			"label": "Saturate",
+			"guid": "7f1749431f595dc697ab9a6d645238e8a5f04727",
+			"x": -3407,
+			"y": -111,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Value",
+					"type": "float",
+					"id": 16756516
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"float": {
+			"label": "float",
+			"guid": "178fbc3715186c2a99df2d816a7ea8ec9b378f5b",
+			"x": -3999,
+			"y": 2443,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 1
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "1.0",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"type": "float"
+		},
+		"_subtract": {
+			"label": "Subtract",
+			"guid": "a3a23808a6c6fbc7934a067ad7afe3917e3247bc",
+			"x": -3583,
+			"y": -138,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"_multiply": {
+			"label": "Multiply",
+			"guid": "5e6c4ab5795fdc90223e86af0a5c84428a45f6b9",
+			"x": -3921,
+			"y": 2286,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"View Direction": {
+			"label": "View Direction",
+			"guid": "84435a729f05f729d337d674270b0f431d9e6bc6",
+			"x": -3572,
+			"y": -1296,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Space",
+					"widget": "Combobox",
+					"combobox_items": [
+						"World",
+						"Object",
+						"Tangent",
+						"View"
+					],
+					"x": 3
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "View",
+					"type": "float3",
+					"id": 0
+				}
+			}
+		},
+		"Vertex Normal": {
+			"label": "Vertex Normal",
+			"guid": "9e1371af1cce7342364919b9a175f7c4a248a053",
+			"x": -3581,
+			"y": -1018,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Space",
+					"widget": "Combobox",
+					"combobox_items": [
+						"World",
+						"Object",
+						"Tangent",
+						"View"
+					],
+					"x": 3
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "View",
+					"type": "float3",
+					"id": 0
+				}
+			}
+		},
+		"saturate": {
+			"label": "Saturate",
+			"guid": "2b02e79c3218de4b65971f2ea705dcb59b584690",
+			"x": -3066,
+			"y": -1201,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Value",
+					"type": "float",
+					"id": 16756516
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"saturate": {
+			"label": "Saturate",
+			"guid": "10bc20e6418e430dcba48908842b18c789ed7f7a",
+			"x": 1181,
+			"y": 63,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Value",
+					"type": "float",
+					"id": 16756516
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"Expression": {
+			"label": "Expression",
+			"guid": "78ca9892fdc4dec951d35994594f77e324677be6",
+			"x": -551,
+			"y": -354,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Code",
+					"string": "x"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "",
+					"type": "float4",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "x",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"Expression": {
+			"label": "Expression",
+			"guid": "c6f25298f47db5176c374f8a8968f9616499434c",
+			"x": -857,
+			"y": 256,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Code",
+					"string": "x"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "",
+					"type": "float4",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "x",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"pow": {
+			"label": "Power",
+			"guid": "8468cd85c9a161204273a1ff80c0c7520ca5be89",
+			"x": -2986,
+			"y": 261,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Value",
+					"type": "float",
+					"id": 16756516
+				},
+				"input": {
+					"label": "Power",
+					"type": "float",
+					"id": -43018288
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"Parameter": {
+			"label": "Slider",
+			"guid": "48bd65ff5a97bb5295c82289f4bc4a54f1d031a3",
+			"x": -3251,
+			"y": 478,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "float",
+					"x": 8
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "Intersection Power",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"parameter_guid": "c28e452c8e83fe9bedb7a33e6adaf1857bc53520",
+			"type": "float"
+		},
+		"Texture2D": {
+			"label": "Texture2D",
+			"guid": "3452be4f722d1762489c2f59c6ebd0e4b1e766f3",
+			"x": -1823,
+			"y": -158,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Path",
+					"widget": "Texture2D",
+					"asset": "467c8826bab7014dc2c3b248826fb107a652baba"
+				},
+				"prop": {
+					"label": "Wrap X",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Y",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Z",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Anisotropy",
+					"widget": "Toggle",
+					"x": 1
+				},
+				"prop": {
+					"label": "Force Streaming",
+					"widget": "Toggle",
+					"x": 0
+				},
+				"prop": {
+					"label": "Manual Filtering",
+					"widget": "Toggle",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "line.png",
+					"type": "Texture2D",
+					"id": 0
+				}
+			},
+			"type": "Texture2D"
+		},
+		"saturate": {
+			"label": "Saturate",
+			"guid": "969082312c6e15dc7d37b78bb7f7a76e9a7647f5",
+			"x": -3243,
+			"y": 255,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Value",
+					"type": "float",
+					"id": 16756516
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"saturate": {
+			"label": "Saturate",
+			"guid": "eeb22d79ca6a7884b4bfaa1363c92856641e43bd",
+			"x": -1812,
+			"y": -1248,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Value",
+					"type": "float",
+					"id": 16756516
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"Vertex Position": {
+			"label": "Vertex Position",
+			"guid": "c9c8ad83628cf50654cdc8ad21bc1228a81fcf67",
+			"x": -4127,
+			"y": 106,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Space",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Camera World",
+						"Object",
+						"View",
+						"Absolute World"
+					],
+					"x": 2
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "View",
+					"type": "float3",
+					"id": 0
+				}
+			}
+		},
+		"length": {
+			"label": "Length",
+			"guid": "18f53df5447fb6d074121bef12d29882fe967df9",
+			"x": -3844,
+			"y": 64,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Vector",
+					"type": "float3",
+					"id": -1070734332
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"Screen UV": {
+			"label": "Screen UV",
+			"guid": "356fb0a6b3b30fcd3fd76ec8220b43870c182b3a",
+			"x": -4183,
+			"y": -152,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float2",
+					"id": 0
+				}
+			}
+		},
+		"float": {
+			"label": "float",
+			"guid": "7a87e3c4d8399c536fbff59660ae2ffd3c1b3138",
+			"x": -3892,
+			"y": 517,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 0.03999999910593046
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "0.04",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"type": "float"
+		},
+		"Parameter": {
+			"label": "Color",
+			"guid": "34162a37d5c0022ace25cb81a308aeec0e9ddd5b",
+			"x": 1406,
+			"y": 954,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "float4",
+					"x": 0.21960799396038094,
+					"y": 0.49411800503730885,
+					"z": 1,
+					"w": 1
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "Emission Color 1",
+					"type": "float4",
+					"id": 0
+				}
+			},
+			"parameter_guid": "30bc76c466771353c54900966605befd5b877438",
+			"type": "float4"
+		},
+		"_dot_product": {
+			"label": "Dot Product",
+			"guid": "ddd36f3b9b401b5e55c5cb253d080240befc909f",
+			"x": -3289,
+			"y": -1205,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float3",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float3",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"_multiply": {
+			"label": "Multiply",
+			"guid": "51b02b2ccae0ac9be9c0793ea291cf85da827b20",
+			"x": -3866,
+			"y": 1265,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"SampleTexture": {
+			"label": "SampleTexture: Default",
+			"guid": "0b46683d0a7f8c784e98e5778e3f046affbe68c1",
+			"x": -3155,
+			"y": 1076,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Type",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Default",
+						"Mip",
+						"Mip offset",
+						"Grad",
+						"Fetch",
+						"Point",
+						"Catmull",
+						"Cubic",
+						"Manual linear"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Normal Space",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Tangent Space for UV0",
+						"Tangent Space for UV1",
+						"Tangent Space Auto Calculated",
+						"Object Space"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "Texture",
+					"type": "Texture2D",
+					"id": 4
+				},
+				"input": {
+					"label": "UV",
+					"type": "float2",
+					"id": 5
+				},
+				"input": {
+					"label": "Normal Intensity",
+					"type": "float",
+					"id": 11
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "Color",
+					"type": "float4",
+					"id": 0
+				},
+				"output": {
+					"label": "Tangent Normal",
+					"type": "float3",
+					"id": 1
+				}
+			},
+			"texture_type": "Texture2D",
+			"sampler_type": "Default",
+			"texture_data": "Asset",
+			"normal_space": "Tangent Space for UV0"
+		},
+		"_multiply": {
+			"label": "Multiply",
+			"guid": "01b6f287e68a0e3a56c6c8516840657c193f82ab",
+			"x": -141,
+			"y": -556,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"Texture2D": {
+			"label": "Texture2D",
+			"guid": "d776286032e5403f6fd35092fa8636c9c8b4d194",
+			"x": -3341,
+			"y": 1132,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Path",
+					"widget": "Texture2D",
+					"asset": "37032cbfaa135312af45574949dc78148e6d0463"
+				},
+				"prop": {
+					"label": "Wrap X",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Y",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Z",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Anisotropy",
+					"widget": "Toggle",
+					"x": 1
+				},
+				"prop": {
+					"label": "Force Streaming",
+					"widget": "Toggle",
+					"x": 0
+				},
+				"prop": {
+					"label": "Manual Filtering",
+					"widget": "Toggle",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "cells.png",
+					"type": "Texture2D",
+					"id": 0
+				}
+			},
+			"type": "Texture2D"
+		},
+		"float": {
+			"label": "float",
+			"guid": "4913698bfd0bb16e1276c9f539dbd2d058e787ef",
+			"x": -3944,
+			"y": 1422,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 2
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "2.0",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"type": "float"
+		},
+		"_compose_float2": {
+			"label": "Compose Float2",
+			"guid": "583df3ff3ab2f15214ade0897e1af054d7c29fa3",
+			"x": -3578,
+			"y": 1135,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "X",
+					"type": "float",
+					"id": 1420360541
+				},
+				"input": {
+					"label": "Y",
+					"type": "float",
+					"id": 260209567
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float2",
+					"id": 1723312480
+				}
+			}
+		},
+		"PortalIn": {
+			"label": "Portal In",
+			"guid": "24535f25973086405ba3449fa497c972be899a29",
+			"x": -2903,
+			"y": 3442,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Name",
+					"widget": "String",
+					"string": "PULSATING"
+				},
+				"prop": {
+					"label": "Color",
+					"widget": "Color",
+					"w": 1,
+					"z": 0.29803922772407532,
+					"y": 0.29803922772407532,
+					"x": 0.63921570777893066
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "PULSATING",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"outputs": {
+			}
+		},
+		"PortalOut": {
+			"label": "Portal Out",
+			"guid": "cad91d74eb85aa43149a4ac60f65a36d795aade8",
+			"x": 2165,
+			"y": 1908,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Portal",
+					"widget": "Combobox",
+					"combobox_items": [
+						"CELLS",
+						"EDGE MASK",
+						"INTERSECTION",
+						"NOISE",
+						"OPACITY",
+						"PULSATING",
+						"SOFT BORDER",
+						"TIME"
+					],
+					"x": 5
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "PULSATING",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"portal_guid": "24535f25973086405ba3449fa497c972be899a29"
+		},
+		"Expression": {
+			"label": "Expression",
+			"guid": "c16f5f25b99c8640231f449f2de3c972ff659a29",
+			"x": -3799,
+			"y": 2349,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Code",
+					"string": "y"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "",
+					"type": "float2",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "y",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"Expression": {
+			"label": "Expression",
+			"guid": "53d700a638d21fcdf2cb3ec8ad4cd3874dcc7b3a",
+			"x": -3927,
+			"y": 1082,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Code",
+					"string": "x"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "",
+					"type": "float2",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "x",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"float": {
+			"label": "float",
+			"guid": "c77f0586842b9f2ddf76f6a8122869e79a3d5e1a",
+			"x": -2996,
+			"y": 2129,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 0.5
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "0.5",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"type": "float"
+		},
+		"Time": {
+			"label": "Auto Game Time",
+			"guid": "54f87f12f870934916f684148587a063b7e48a66",
+			"x": -3817,
+			"y": 2992,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Mode",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Game",
+						"Real"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Type",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Auto",
+						"Current",
+						"Old"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"pow": {
+			"label": "Power",
+			"guid": "9d4f7608694721c738eff47a9bf0f9918a4465bc",
+			"x": -2918,
+			"y": 1985,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Value",
+					"type": "float",
+					"id": 16756516
+				},
+				"input": {
+					"label": "Power",
+					"type": "float",
+					"id": -43018288
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"Vertex UV 0": {
+			"label": "Vertex UV 0",
+			"guid": "9204ae2885f7bb670bbd819afebbe43151ae0fdc",
+			"x": -4198,
+			"y": 1109,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float2",
+					"id": 0
+				}
+			}
+		},
+		"Parameter": {
+			"label": "Slider",
+			"guid": "021ff4d7fc9b0c4a0a6e0f211845de0cfda001fb",
+			"x": -3796,
+			"y": 3328,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "float",
+					"x": 0.3000000119209299
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "Time Speed",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"parameter_guid": "913ee17baf7a689e22c3376531480180933006df",
+			"type": "float"
+		},
+		"_multiply": {
+			"label": "Multiply",
+			"guid": "57d20e55ca1c8bb083ba2b4f54dba062b70f2459",
+			"x": -3530,
+			"y": 3062,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"Expression": {
+			"label": "Expression",
+			"guid": "5914777093ffa40fa13f42221650db19fb4709a4",
+			"x": -3944,
+			"y": 1394,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Code",
+					"string": "y"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "",
+					"type": "float2",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "y",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"_multiply": {
+			"label": "Multiply",
+			"guid": "b19451514a465a7ce02af3ab8766750e5da47915",
+			"x": -3849,
+			"y": 953,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"float": {
+			"label": "float",
+			"guid": "9dde9769ba5179b40ba3d9835a363106324dd4ad",
+			"x": -3927,
+			"y": 1110,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 3
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "3.0",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"type": "float"
+		},
+		"float": {
+			"label": "float",
+			"guid": "55adf509d3c6fad4c42e2823822fef264cdd3c4d",
+			"x": 810,
+			"y": 111,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 2
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "2.0",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"type": "float"
+		},
+		"PortalIn": {
+			"label": "Portal In",
+			"guid": "e5ff07db4be69b7e28670cc597fe17607a06633f",
+			"x": -3162,
+			"y": 2985,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Name",
+					"widget": "String",
+					"string": "TIME"
+				},
+				"prop": {
+					"label": "Color",
+					"widget": "Color",
+					"w": 1,
+					"z": 0,
+					"y": 0,
+					"x": 0.41960784792900191
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "TIME",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"outputs": {
+			}
+		},
+		"_subtract": {
+			"label": "Subtract",
+			"guid": "bacfa31d61ccc9d882594357ff4b08caf478e1a1",
+			"x": -3433,
+			"y": 268,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"_compose_float2": {
+			"label": "Compose Float2",
+			"guid": "631d7cb932b0fec43611fb53b096c896dea8e6fd",
+			"x": -3570,
+			"y": 2074,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "X",
+					"type": "float",
+					"id": 1420360541
+				},
+				"input": {
+					"label": "Y",
+					"type": "float",
+					"id": 260209567
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float2",
+					"id": 1723312480
+				}
+			}
+		},
+		"float": {
+			"label": "float",
+			"guid": "d7adb4f31214f5b6802bf19dd943c658a47f15d7",
+			"x": 1273,
+			"y": 388,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "0.0",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"type": "float"
+		},
+		"PortalOut": {
+			"label": "Portal Out",
+			"guid": "a08d3839259284447036c2d3c771ea169ca29a7d",
+			"x": -687,
+			"y": -545,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Portal",
+					"widget": "Combobox",
+					"combobox_items": [
+						"CELLS",
+						"EDGE MASK",
+						"INTERSECTION",
+						"NOISE",
+						"OPACITY",
+						"PULSATING",
+						"SOFT BORDER",
+						"TIME"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "CELLS",
+					"type": "float4",
+					"id": 0
+				}
+			},
+			"portal_guid": "0de5e4b3dfb5e2762e6c775d779511185f286197"
+		},
+		"PortalOut": {
+			"label": "Portal Out",
+			"guid": "561883ed4263146813c06ca784ce01da3debe771",
+			"x": -1507,
+			"y": -989,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Portal",
+					"widget": "Combobox",
+					"combobox_items": [
+						"CELLS",
+						"EDGE MASK",
+						"INTERSECTION",
+						"NOISE",
+						"OPACITY",
+						"PULSATING",
+						"SOFT BORDER",
+						"TIME"
+					],
+					"x": 2
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "INTERSECTION",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"portal_guid": "a0d2e0ec63ce675ba2fb74fe209f1845a6ebace0"
+		},
+		"pow": {
+			"label": "Power",
+			"guid": "804b6852fbd5eb8942857f543d25e2a3919367a6",
+			"x": -2176,
+			"y": -765,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Value",
+					"type": "float",
+					"id": 16756516
+				},
+				"input": {
+					"label": "Power",
+					"type": "float",
+					"id": -43018288
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"Expression": {
+			"label": "Expression",
+			"guid": "4533f080ee6529dfbd07edb234ecf169e7e80bb4",
+			"x": -2745,
+			"y": -655,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Code",
+					"string": "1-x"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "1-x",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"lerp": {
+			"label": "Lerp",
+			"guid": "013050b06d392c4fe3b4ad62b842cd594355d6e4",
+			"x": 1351,
+			"y": 212,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				},
+				"input": {
+					"label": "Coefficient",
+					"type": "float",
+					"id": -688470873
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"_multiply": {
+			"label": "Multiply",
+			"guid": "36156100f92ae05fe2493232cb086be9709c4434",
+			"x": 888,
+			"y": -46,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"_add": {
+			"label": "Add",
+			"guid": "0ff8c5c67b33e26d46ede0e894c7cf27a1ed025a",
+			"x": -1104,
+			"y": -1222,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"PortalOut": {
+			"label": "Portal Out",
+			"guid": "1736ea5c2e95820bdee9efee3226f67560091550",
+			"x": 1056,
+			"y": 450,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Portal",
+					"widget": "Combobox",
+					"combobox_items": [
+						"CELLS",
+						"EDGE MASK",
+						"INTERSECTION",
+						"NOISE",
+						"OPACITY",
+						"PULSATING",
+						"SOFT BORDER",
+						"TIME"
+					],
+					"x": 1
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "EDGE MASK",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"portal_guid": "2a85f658d3fb85d74987694a347cc82129bb430c"
+		},
+		"PortalIn": {
+			"label": "Portal In",
+			"guid": "a0d2e0ec63ce675ba2fb74fe209f1845a6ebace0",
+			"x": -2694,
+			"y": 542,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Name",
+					"widget": "String",
+					"string": "INTERSECTION"
+				},
+				"prop": {
+					"label": "Color",
+					"widget": "Color",
+					"w": 1,
+					"z": 0.086274512112140725,
+					"y": 0.49803921580314636,
+					"x": 0.52549022436141968
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "INTERSECTION",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"outputs": {
+			}
+		},
+		"length": {
+			"label": "Length",
+			"guid": "ff63138896872147f87cedfadf02a511bbff1b3c",
+			"x": -3642,
+			"y": 400,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Vector",
+					"type": "float3",
+					"id": -1070734332
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"sin": {
+			"label": "Sine",
+			"guid": "e5aaf1aa9c00f5017732ca6c4b3642db34369a7e",
+			"x": -3089,
+			"y": 3343,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Mode",
+					"widget": "Combobox",
+					"combobox_items": [
+						"In(radians) Out(return)",
+						"In(radians) Out(sin,cos)"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "Radians",
+					"type": "float",
+					"id": 1877048924
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"_multiply": {
+			"label": "Multiply",
+			"guid": "85257f4a5e47e62124ffc90ca9b2f0fbaf0c321e",
+			"x": -3934,
+			"y": 1867,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float2",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float2",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float2",
+					"id": 1723312480
+				}
+			}
+		},
+		"_multiply": {
+			"label": "Multiply",
+			"guid": "9a2999feadb4f94581ae19e0b77583bf3d8bbe12",
+			"x": 3069,
+			"y": 1941,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float3",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float3",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float3",
+					"id": 1723312480
+				}
+			}
+		},
+		"rerange": {
+			"label": "Rerange",
+			"guid": "8f48e78d2c29e388637fb1477a7c3dfa02d9b511",
+			"x": 2381,
+			"y": 1863,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "In",
+					"type": "float",
+					"id": -1324699368
+				},
+				"input": {
+					"label": "In Range Minimum",
+					"type": "float",
+					"id": 586471579
+				},
+				"input": {
+					"label": "In Range Maximum",
+					"type": "float",
+					"id": 413497076
+				},
+				"input": {
+					"label": "Out Range Minimum",
+					"type": "float",
+					"id": -591517853
+				},
+				"input": {
+					"label": "Out Range Maximum",
+					"type": "float",
+					"id": 1033320789
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"float": {
+			"label": "float",
+			"guid": "ce4aeb3c88d2cd6b3c6f03cee8b438d56907b430",
+			"x": 2303,
+			"y": 2111,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": -1
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "-1.0",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"type": "float"
+		},
+		"float": {
+			"label": "float",
+			"guid": "8a53f1a14db15e8c15c8887b9201e39ea1a67665",
+			"x": 2303,
+			"y": 2138,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 1
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "1.0",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"type": "float"
+		},
+		"float": {
+			"label": "float",
+			"guid": "ea85f783b1a5b706285ba2adaecc2428fb1cb967",
+			"x": 2303,
+			"y": 2165,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "0.0",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"type": "float"
+		},
+		"float": {
+			"label": "float",
+			"guid": "fcf5637791256a6ae81596c15871812c90f60a9b",
+			"x": 2298,
+			"y": 2192,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 0.050000000745058323
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "0.05",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"type": "float"
+		},
+		"_multiply": {
+			"label": "Multiply",
+			"guid": "0b687412c4be04495aeb4114f1433963e0614f66",
+			"x": -3244,
+			"y": 3327,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"float": {
+			"label": "float",
+			"guid": "77e0c33cf17ec56b49fa9bce0f5af0d5c4cf0c30",
+			"x": -3327,
+			"y": 3484,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 10
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "10.0",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"type": "float"
+		},
+		"float": {
+			"label": "float",
+			"guid": "b9d30bd4ea9105236e432826838d214d66635248",
+			"x": -1068,
+			"y": 121,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 1
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "1.0",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"type": "float"
+		},
+		"Expression": {
+			"label": "Expression",
+			"guid": "6b547c4c7cab8b3b8361875efc8047251de84e40",
+			"x": -2720,
+			"y": -157,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Code",
+					"string": "1-x"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "1-x",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"_multiply": {
+			"label": "Multiply",
+			"guid": "6c6af3932444e3d6c69bc93d0b7b7978e0d1ee77",
+			"x": -2330,
+			"y": -1277,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"Expression": {
+			"label": "Expression",
+			"guid": "c4bd7ef22044d1a9c4f7eef45c0f4dc39a3c9846",
+			"x": -2971,
+			"y": -263,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Code",
+					"string": "1-x"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "1-x",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"float": {
+			"label": "float",
+			"guid": "b30bfa0e850a3a15bd2544705f880d0f92029722",
+			"x": -2408,
+			"y": -1120,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 2
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "2.0",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"type": "float"
+		},
+		"srgbInv": {
+			"label": "Srgb Inverse",
+			"guid": "bef51c2557b51f40e855099fdb1cca729ab0a729",
+			"x": 1583,
+			"y": 1280,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Color",
+					"type": "float4",
+					"id": -509366906
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float4",
+					"id": 1723312480
+				}
+			}
+		},
+		"PortalOut": {
+			"label": "Portal Out",
+			"guid": "08396796a444f9fd793f7338ed081d375bdb592a",
+			"x": 1206,
+			"y": -246,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Portal",
+					"widget": "Combobox",
+					"combobox_items": [
+						"CELLS",
+						"EDGE MASK",
+						"INTERSECTION",
+						"NOISE",
+						"OPACITY",
+						"PULSATING",
+						"SOFT BORDER",
+						"TIME"
+					],
+					"x": 6
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "SOFT BORDER",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"portal_guid": "95c2ddd4256aaf23bf0cca26c6565b4da1b74448"
+		},
+		"Expression": {
+			"label": "Expression",
+			"guid": "6a3f2897c28f2d0a8fa038e1ec347ccc54be91bb",
+			"x": -1312,
+			"y": 595,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Code",
+					"string": "x"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "",
+					"type": "float4",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "x",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"Expression": {
+			"label": "Expression",
+			"guid": "04d45c9122426cbc0f7d60eb715d814ee0519855",
+			"x": 1945,
+			"y": 1217,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Code",
+					"string": "x,y,z"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "",
+					"type": "float4",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "x,y,z",
+					"type": "float3",
+					"id": 0
+				}
+			}
+		},
+		"PortalOut": {
+			"label": "Portal Out",
+			"guid": "7580b7f77463b4ea8a6e5f418b56afac01a0671b",
+			"x": -2101,
+			"y": 222,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Portal",
+					"widget": "Combobox",
+					"combobox_items": [
+						"CELLS",
+						"EDGE MASK",
+						"INTERSECTION",
+						"NOISE",
+						"OPACITY",
+						"PULSATING",
+						"SOFT BORDER",
+						"TIME"
+					],
+					"x": 7
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "TIME",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"portal_guid": "e5ff07db4be69b7e28670cc597fe17607a06633f"
+		},
+		"srgbInv": {
+			"label": "Srgb Inverse",
+			"guid": "7fa3e864b81d987343e8833623cb211d38c62fd8",
+			"x": 1685,
+			"y": 977,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Color",
+					"type": "float4",
+					"id": -509366906
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float4",
+					"id": 1723312480
+				}
+			}
+		},
+		"_add": {
+			"label": "Add",
+			"guid": "c0e7fa35e514c6107cf7622fbcb4a9c26130de39",
+			"x": 304,
+			"y": 327,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"pow": {
+			"label": "Power",
+			"guid": "c70b3cb7c010f2aa7095020184e5736cad9ed7db",
+			"x": -1198,
+			"y": -32,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Value",
+					"type": "float",
+					"id": 16756516
+				},
+				"input": {
+					"label": "Power",
+					"type": "float",
+					"id": -43018288
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"lerp": {
+			"label": "Lerp",
+			"guid": "ef50161173f3d83c65d4d66b261f78ce824829d5",
+			"x": 2027,
+			"y": 1069,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float3",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float3",
+					"id": 291415938
+				},
+				"input": {
+					"label": "Coefficient",
+					"type": "float3",
+					"id": -688470873
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float3",
+					"id": 1723312480
+				}
+			}
+		},
+		"Expression": {
+			"label": "Expression",
+			"guid": "b8ea1a6a7b3286c1c889b12c95507a9bdb81ef3e",
+			"x": -3064,
+			"y": 377,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Code",
+					"string": "1-x"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "1-x",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"Vertex Normal": {
+			"label": "Vertex Normal",
+			"guid": "8fc112273c47695a09d328f1de010d9c4224cc4b",
+			"x": 2814,
+			"y": 1824,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Space",
+					"widget": "Combobox",
+					"combobox_items": [
+						"World",
+						"Object",
+						"Tangent",
+						"View"
+					],
+					"x": 2
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "Tangent",
+					"type": "float3",
+					"id": 0
+				}
+			}
+		},
+		"_multiply": {
+			"label": "Multiply",
+			"guid": "33ba98861ac4162de39f01a84f92f8e724a0a11a",
+			"x": -990,
+			"y": -36,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"Expression": {
+			"label": "Expression",
+			"guid": "180fb8f9c93f8e04a5a2c193662e59d6aa7ac73d",
+			"x": -2631,
+			"y": -1164,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Code",
+					"string": "1-x"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "1-x",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"Parameter": {
+			"label": "Slider",
+			"guid": "3d288dd3599b391635359d7dae1cc0b85aa60cb7",
+			"x": -2824,
+			"y": -1052,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "float",
+					"x": 3
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "Fresnel Power",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"parameter_guid": "bdd487d6d23f1d3dea3ebd78a1d46277b1125d6a",
+			"type": "float"
+		},
+		"_multiply": {
+			"label": "Multiply",
+			"guid": "0f66d4c3c47873467650b1edc5916a68995ecaa7",
+			"x": -779,
+			"y": 99,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"_add": {
+			"label": "Add",
+			"guid": "cdd82d7542f2e0504ff4376f03c2fe02ecbca579",
+			"x": -3721,
+			"y": 2249,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"float": {
+			"label": "float",
+			"guid": "e0f372e5e0f00700fa694e5f9048c8321cc709e9",
+			"x": -4012,
+			"y": 2024,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 8
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "8.0",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"type": "float"
+		},
+		"SampleTexture": {
+			"label": "SampleTexture: Default",
+			"guid": "5efc121a42fc3ab1dde9745ce2a2840b645f09ee",
+			"x": -1620,
+			"y": -226,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Type",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Default",
+						"Mip",
+						"Mip offset",
+						"Grad",
+						"Fetch",
+						"Point",
+						"Catmull",
+						"Cubic",
+						"Manual linear"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Normal Space",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Tangent Space for UV0",
+						"Tangent Space for UV1",
+						"Tangent Space Auto Calculated",
+						"Object Space"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "Texture",
+					"type": "Texture2D",
+					"id": 4
+				},
+				"input": {
+					"label": "UV",
+					"type": "float2",
+					"id": 5
+				},
+				"input": {
+					"label": "Normal Intensity",
+					"type": "float",
+					"id": 11
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "Color",
+					"type": "float4",
+					"id": 0
+				},
+				"output": {
+					"label": "Tangent Normal",
+					"type": "float3",
+					"id": 1
+				}
+			},
+			"texture_type": "Texture2D",
+			"sampler_type": "Default",
+			"texture_data": "Asset",
+			"normal_space": "Tangent Space for UV0"
+		},
+		"Expression": {
+			"label": "Expression",
+			"guid": "71cd05eb4826e24e7e318555655f96b02f83ba4f",
+			"x": -2996,
+			"y": 2101,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Code",
+					"string": "x"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "",
+					"type": "float4",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "x",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"Expression": {
+			"label": "Expression",
+			"guid": "6be42b7edfa75cc556222760103b333fa702a792",
+			"x": -1276,
+			"y": 84,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Code",
+					"string": "x"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "",
+					"type": "float4",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "x",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"_subtract": {
+			"label": "Subtract",
+			"guid": "459f4bd2a53d7909f0a8aed4bd5c4c230fdfc326",
+			"x": -1879,
+			"y": 64,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float2",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float2",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float2",
+					"id": 1723312480
+				}
+			}
+		},
+		"Texture2D": {
+			"label": "Texture2D",
+			"guid": "d4436ade501dd4a5f4c97dc03a84d61f0b852cf2",
+			"x": -3568,
+			"y": 1833,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Path",
+					"widget": "Texture2D",
+					"asset": "219ab677679ca16aab0d61c1cce8d02cbb7f0d9b"
+				},
+				"prop": {
+					"label": "Wrap X",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Y",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Z",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Anisotropy",
+					"widget": "Toggle",
+					"x": 1
+				},
+				"prop": {
+					"label": "Force Streaming",
+					"widget": "Toggle",
+					"x": 0
+				},
+				"prop": {
+					"label": "Manual Filtering",
+					"widget": "Toggle",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "noise_m.png",
+					"type": "Texture2D",
+					"id": 0
+				}
+			},
+			"type": "Texture2D"
+		},
+		"Vertex UV 0": {
+			"label": "Vertex UV 0",
+			"guid": "45bca7a95151ccf4f91393c31d58264695fec8ed",
+			"x": -4159,
+			"y": 1817,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float2",
+					"id": 0
+				}
+			}
+		},
+		"pow": {
+			"label": "Power",
+			"guid": "a771da1f672660f23ba44ba91d6d20f46deed7c3",
+			"x": -2553,
+			"y": -1280,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Value",
+					"type": "float",
+					"id": 16756516
+				},
+				"input": {
+					"label": "Power",
+					"type": "float",
+					"id": -43018288
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"Expression": {
+			"label": "Expression",
+			"guid": "497ddd4dba84de485ac6ed0740a8c6ba2c5926d1",
+			"x": 1945,
+			"y": 1245,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Code",
+					"string": "x,y,z"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "",
+					"type": "float4",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "x,y,z",
+					"type": "float3",
+					"id": 0
+				}
+			}
+		},
+		"_multiply": {
+			"label": "Multiply",
+			"guid": "a96cad8a1692bf618a9c514c7f2f5c3b9259245e",
+			"x": 3158,
+			"y": 742,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"saturate": {
+			"label": "Saturate",
+			"guid": "86fcd8a0fd35b37f0514aad2690d4c094b4865d4",
+			"x": 3319,
+			"y": 828,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Value",
+					"type": "float",
+					"id": 16756516
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"SampleTexture": {
+			"label": "SampleTexture: Default",
+			"guid": "795c039769484c0ad060cbe14b8df3cc70b39cbb",
+			"x": -3359,
+			"y": 1798,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Type",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Default",
+						"Mip",
+						"Mip offset",
+						"Grad",
+						"Fetch",
+						"Point",
+						"Catmull",
+						"Cubic",
+						"Manual linear"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Normal Space",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Tangent Space for UV0",
+						"Tangent Space for UV1",
+						"Tangent Space Auto Calculated",
+						"Object Space"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "Texture",
+					"type": "Texture2D",
+					"id": 4
+				},
+				"input": {
+					"label": "UV",
+					"type": "float2",
+					"id": 5
+				},
+				"input": {
+					"label": "Normal Intensity",
+					"type": "float",
+					"id": 11
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "Color",
+					"type": "float4",
+					"id": 0
+				},
+				"output": {
+					"label": "Tangent Normal",
+					"type": "float3",
+					"id": 1
+				}
+			},
+			"texture_type": "Texture2D",
+			"sampler_type": "Default",
+			"texture_data": "Asset",
+			"normal_space": "Tangent Space for UV0"
+		},
+		"Vertex UV 0": {
+			"label": "Vertex UV 0",
+			"guid": "9c2d5f8492af65137077a756f694b6bddb4088f8",
+			"x": -2113,
+			"y": -14,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float2",
+					"id": 0
+				}
+			}
+		},
+		"PortalOut": {
+			"label": "Portal Out",
+			"guid": "05f4609e57c4cf655cecb98063dd5edfc6409eb2",
+			"x": -4140,
+			"y": 2249,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Portal",
+					"widget": "Combobox",
+					"combobox_items": [
+						"CELLS",
+						"EDGE MASK",
+						"INTERSECTION",
+						"NOISE",
+						"OPACITY",
+						"PULSATING",
+						"SOFT BORDER",
+						"TIME"
+					],
+					"x": 7
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "TIME",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"portal_guid": "e5ff07db4be69b7e28670cc597fe17607a06633f"
+		},
+		"max": {
+			"label": "Maximum",
+			"guid": "63daee87d4c5da3a2f182451cb0a117c44053eab",
+			"x": -2074,
+			"y": -1276,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"_multiply": {
+			"label": "Multiply",
+			"guid": "0a4d2047a424e0fa3c5bfc119132863cd957ac6b",
+			"x": 2434,
+			"y": 1078,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float3",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float3",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float3",
+					"id": 1723312480
+				}
+			}
+		},
+		"_multiply": {
+			"label": "Multiply",
+			"guid": "89c864e4ee12eaf3cebcb3b67864979d3c483458",
+			"x": 2706,
+			"y": 1148,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float3",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float3",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float3",
+					"id": 1723312480
+				}
+			}
+		},
+		"PortalIn": {
+			"label": "Portal In",
+			"guid": "8afed1964a875bfdefaa6d38fa12cf37aa52632a",
+			"x": 2013,
+			"y": 139,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Name",
+					"widget": "String",
+					"string": "OPACITY"
+				},
+				"prop": {
+					"label": "Color",
+					"widget": "Color",
+					"w": 1,
+					"z": 0.039215687662363177,
+					"y": 0.54901963472366333,
+					"x": 0.0039215688593685575
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "OPACITY",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"outputs": {
+			}
+		},
+		"PortalOut": {
+			"label": "Portal Out",
+			"guid": "653ab881ca86b7ec289a525bd3f863febbb13b45",
+			"x": 2962,
+			"y": 623,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Portal",
+					"widget": "Combobox",
+					"combobox_items": [
+						"CELLS",
+						"EDGE MASK",
+						"INTERSECTION",
+						"NOISE",
+						"OPACITY",
+						"PULSATING",
+						"SOFT BORDER",
+						"TIME"
+					],
+					"x": 4
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "OPACITY",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"portal_guid": "8afed1964a875bfdefaa6d38fa12cf37aa52632a"
+		},
+		"PortalOut": {
+			"label": "Portal Out",
+			"guid": "c9217976a60d225d41dfc0187dad44975a4e990a",
+			"x": 1837,
+			"y": 1625,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Portal",
+					"widget": "Combobox",
+					"combobox_items": [
+						"CELLS",
+						"EDGE MASK",
+						"INTERSECTION",
+						"NOISE",
+						"OPACITY",
+						"PULSATING",
+						"SOFT BORDER",
+						"TIME"
+					],
+					"x": 4
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "OPACITY",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"portal_guid": "8afed1964a875bfdefaa6d38fa12cf37aa52632a"
+		},
+		"Parameter": {
+			"label": "Slider",
+			"guid": "bb30c8e3cc1e98e6b95e5b0d22c5c108a52af0c7",
+			"x": 2393,
+			"y": 1378,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "float",
+					"x": 8
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "Emission Intensity",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"parameter_guid": "33d5b560baed693f99936592aea547c9f80eae94",
+			"type": "float"
+		},
+		"float": {
+			"label": "float",
+			"guid": "794e3731f32e46dcf180348bb674006ec33cccf5",
+			"x": -2152,
+			"y": -1104,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 0.10000000149011612
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "0.1",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"type": "float"
+		},
+		"_multiply": {
+			"label": "Multiply",
+			"guid": "deb63fb061404f4f8b037462098ce8598ddb35e4",
+			"x": -575,
+			"y": 321,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"float": {
+			"label": "float",
+			"guid": "02e5060c39a509fbe54d771e60c1f3e53ed29400",
+			"x": -1276,
+			"y": 112,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 4
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "4.0",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"type": "float"
+		},
+		"Parameter": {
+			"label": "Slider",
+			"guid": "49e23a26cdcd0b4d7cde344837944b07788a8cba",
+			"x": 2964,
+			"y": 862,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "float",
+					"x": 1
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "Opacity",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"parameter_guid": "60347b7f17b4d2d2131f5409e562cdd45a29df23",
+			"type": "float"
+		},
+		"_multiply": {
+			"label": "Multiply",
+			"guid": "05d608a4a7c2bbb3ac96cd76267a665df4843418",
+			"x": -1234,
+			"y": 466,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"Parameter": {
+			"label": "Color",
+			"guid": "544b57220b4bec191dcce6a4e9c001b3c6575b76",
+			"x": 1362,
+			"y": 1279,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "float4",
+					"x": 0.78431397676467896,
+					"y": 0.34509798884391873,
+					"z": 1,
+					"w": 1
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "Emission Color 2",
+					"type": "float4",
+					"id": 0
+				}
+			},
+			"parameter_guid": "5aa14b807a34c8df16ed00b2e620e869baf596b4",
+			"type": "float4"
+		},
+		"PortalOut": {
+			"label": "Portal Out",
+			"guid": "b01d120a8612d9e1d52ca9cc7046dabb877190de",
+			"x": -1458,
+			"y": 274,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Portal",
+					"widget": "Combobox",
+					"combobox_items": [
+						"CELLS",
+						"EDGE MASK",
+						"INTERSECTION",
+						"NOISE",
+						"OPACITY",
+						"PULSATING",
+						"SOFT BORDER",
+						"TIME"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "CELLS",
+					"type": "float4",
+					"id": 0
+				}
+			},
+			"portal_guid": "0de5e4b3dfb5e2762e6c775d779511185f286197"
+		},
+		"PortalIn": {
+			"label": "Portal In",
+			"guid": "0de5e4b3dfb5e2762e6c775d779511185f286197",
+			"x": -2676,
+			"y": 1356,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Name",
+					"widget": "String",
+					"string": "CELLS"
+				},
+				"prop": {
+					"label": "Color",
+					"widget": "Color",
+					"w": 1,
+					"z": 0.133333340287209,
+					"y": 0.45490196347236717,
+					"x": 0.34901961684227173
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "CELLS",
+					"type": "float4",
+					"id": 0
+				}
+			},
+			"outputs": {
+			}
+		},
+		"float": {
+			"label": "float",
+			"guid": "ccfcf620787832ff39c2245211c577897d779b54",
+			"x": -867,
+			"y": 661,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 0.20000000298023224
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "0.2",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"type": "float"
+		},
+		"_multiply": {
+			"label": "Multiply",
+			"guid": "a24561d6acd62f3df716a7782a074477f3b3d76a",
+			"x": -789,
+			"y": 504,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"PortalOut": {
+			"label": "Portal Out",
+			"guid": "71b2d46e01e590f5f4c5edd0c08ce6efb4f0e782",
+			"x": 522,
+			"y": -281,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Portal",
+					"widget": "Combobox",
+					"combobox_items": [
+						"CELLS",
+						"EDGE MASK",
+						"INTERSECTION",
+						"NOISE",
+						"OPACITY",
+						"PULSATING",
+						"SOFT BORDER",
+						"TIME"
+					],
+					"x": 2
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "INTERSECTION",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"portal_guid": "a0d2e0ec63ce675ba2fb74fe209f1845a6ebace0"
+		},
+		"pow": {
+			"label": "Power",
+			"guid": "fd49ffad8cf4dd288de41e674d30889ad55d3f31",
+			"x": -997,
+			"y": 475,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Value",
+					"type": "float",
+					"id": 16756516
+				},
+				"input": {
+					"label": "Power",
+					"type": "float",
+					"id": -43018288
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"float": {
+			"label": "float",
+			"guid": "81d84e68abd05ea73a094bda4b6aa9711c65941c",
+			"x": -1312,
+			"y": 623,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 1.5
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "1.5",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"type": "float"
+		},
+		"float": {
+			"label": "float",
+			"guid": "fe384a20cff376ff6c1c9852fe955b899cde2f54",
+			"x": -1075,
+			"y": 619,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 8
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "8.0",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"type": "float"
+		},
+		"_add": {
+			"label": "Add",
+			"guid": "42fca57a761bf69174413ebc431a0aeb160e234e",
+			"x": 1049,
+			"y": 40,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"pow": {
+			"label": "Power",
+			"guid": "0ca6b685209c36206b0e72ffa8e3645235f5b789",
+			"x": 739,
+			"y": -124,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Value",
+					"type": "float",
+					"id": 16756516
+				},
+				"input": {
+					"label": "Power",
+					"type": "float",
+					"id": -43018288
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"float": {
+			"label": "float",
+			"guid": "112d32870d0b4e3a0ad708514693a57ccef9c2ab",
+			"x": 661,
+			"y": 20,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 8
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "8.0",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"type": "float"
+		},
+		"pow": {
+			"label": "Power",
+			"guid": "ab6ebae8502ee127f954ec5ad0b4cff12f00889c",
+			"x": -2667,
+			"y": -771,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Value",
+					"type": "float",
+					"id": 16756516
+				},
+				"input": {
+					"label": "Power",
+					"type": "float",
+					"id": -43018288
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"float": {
+			"label": "float",
+			"guid": "2302c97cccf696ab9bafbc0e86a714159af85670",
+			"x": -2254,
+			"y": -621,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 2
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "2.0",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"type": "float"
+		},
+		"float": {
+			"label": "float",
+			"guid": "bb03d3ecf41cbe5bac9fdffe939a874582ea4fe0",
+			"x": -2745,
+			"y": -627,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 6
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "6.0",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"type": "float"
+		},
+		"saturate": {
+			"label": "Saturate",
+			"guid": "1d31253eefd28b85edb40720bb8a0fff54b85d52",
+			"x": 1847,
+			"y": 59,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Value",
+					"type": "float",
+					"id": 16756516
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"float": {
+			"label": "float",
+			"guid": "ea0c407f4d27d3d2b55c6109baaa76d43d237423",
+			"x": -2499,
+			"y": -627,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 2
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "2.0",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"type": "float"
+		},
+		"_multiply": {
+			"label": "Multiply",
+			"guid": "c76490bd90aa9af8b10fa1f745e196ea67ded941",
+			"x": -2421,
+			"y": -784,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"_multiply": {
+			"label": "Multiply",
+			"guid": "bf871ff4ebdacac3305ff1467b4617edc2ab9868",
+			"x": -473,
+			"y": -483,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"PortalIn": {
+			"label": "Portal In",
+			"guid": "e0c18d51917a667c66978fabdd12610e43677515",
+			"x": -2656,
+			"y": 2078,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Name",
+					"widget": "String",
+					"string": "NOISE"
+				},
+				"prop": {
+					"label": "Color",
+					"widget": "Color",
+					"w": 1,
+					"z": 0.48627451062202481,
+					"y": 0.16862745583057454,
+					"x": 0.48627451062202481
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "NOISE",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"outputs": {
+			}
+		},
+		"PortalOut": {
+			"label": "Portal Out",
+			"guid": "506343707448000fd593ee224725971994fc95a4",
+			"x": -686,
+			"y": -319,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Portal",
+					"widget": "Combobox",
+					"combobox_items": [
+						"CELLS",
+						"EDGE MASK",
+						"INTERSECTION",
+						"NOISE",
+						"OPACITY",
+						"PULSATING",
+						"SOFT BORDER",
+						"TIME"
+					],
+					"x": 3
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "NOISE",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"portal_guid": "e0c18d51917a667c66978fabdd12610e43677515"
+		},
+		"pow": {
+			"label": "Power",
+			"guid": "e4c8860cd73289fbc67cf71e3d2b73e5f92e1400",
+			"x": -2893,
+			"y": -379,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Value",
+					"type": "float",
+					"id": 16756516
+				},
+				"input": {
+					"label": "Power",
+					"type": "float",
+					"id": -43018288
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"float": {
+			"label": "float",
+			"guid": "e5033a86de00502d76c9f3a8872d42e7aaf2631a",
+			"x": -2976,
+			"y": -235,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 48
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "48.0",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"type": "float"
+		},
+		"PortalIn": {
+			"label": "Portal In",
+			"guid": "95c2ddd4256aaf23bf0cca26c6565b4da1b74448",
+			"x": -2642,
+			"y": -194,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Name",
+					"widget": "String",
+					"string": "SOFT BORDER"
+				},
+				"prop": {
+					"label": "Color",
+					"widget": "Color",
+					"w": 1,
+					"z": 0.2745098173618325,
+					"y": 0.45882353186607444,
+					"x": 0.019607843831181443
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "SOFT BORDER",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"outputs": {
+			}
+		},
+		"_multiply": {
+			"label": "Multiply",
+			"guid": "1dff39e01a5423bf9699de12e07c664930a23b14",
+			"x": 1673,
+			"y": 46,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"PortalIn": {
+			"label": "Portal In",
+			"guid": "2a85f658d3fb85d74987694a347cc82129bb430c",
+			"x": -1951,
+			"y": -674,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Name",
+					"widget": "String",
+					"string": "EDGE MASK"
+				},
+				"prop": {
+					"label": "Color",
+					"widget": "Color",
+					"w": 1,
+					"z": 0.47450980544090282,
+					"y": 0.21176470816135456,
+					"x": 0.18039216101169631
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "EDGE MASK",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"outputs": {
+			}
+		},
+		"_subtract": {
+			"label": "Subtract",
+			"guid": "7c6499b5a575df906f8eadafb5f87f42ea33b5b9",
+			"x": -3809,
+			"y": 357,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float3",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float3",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float3",
+					"id": 1723312480
+				}
+			}
+		}
+	},
+	"anchors": {
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "Opacity",
+			"input_id": -1880079150,
+			"input_node": "829f90678c21529ab2138131aaaf08dc82560e8b",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "86fcd8a0fd35b37f0514aad2690d4c094b4865d4"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float3",
+			"input_label": "Color",
+			"input_id": -509366906,
+			"input_node": "829f90678c21529ab2138131aaaf08dc82560e8b",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "89c864e4ee12eaf3cebcb3b67864979d3c483458"
+		},
+		"anchor": {
+			"input_index": 8,
+			"input_type": "float3",
+			"input_label": "Vertex Offset Tangent Space",
+			"input_id": 1951750090,
+			"input_node": "829f90678c21529ab2138131aaaf08dc82560e8b",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "9a2999feadb4f94581ae19e0b77583bf3d8bbe12"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "",
+			"input_label": "Material",
+			"input_id": 0,
+			"input_node": "0f2f417e3b3b7ac5ee9bad604fcb013f4b641d92",
+			"output_index": 0,
+			"output_type": "",
+			"output_label": "Material",
+			"output_id": 0,
+			"output_node": "829f90678c21529ab2138131aaaf08dc82560e8b"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "Texture2D",
+			"input_label": "Texture",
+			"input_id": 4,
+			"input_node": "a7ff145863160bd73544374a85273e21b367410c",
+			"output_index": 0,
+			"output_type": "Texture2D",
+			"output_label": "",
+			"output_id": 0,
+			"output_node": "c53894df55665cb268f29469b62352b4a2c1de83"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float2",
+			"input_label": "UV",
+			"input_id": 5,
+			"input_node": "a7ff145863160bd73544374a85273e21b367410c",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "",
+			"output_id": 0,
+			"output_node": "356fb0a6b3b30fcd3fd76ec8220b43870c182b3a"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "Value",
+			"input_id": 16756516,
+			"input_node": "7f1749431f595dc697ab9a6d645238e8a5f04727",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "a3a23808a6c6fbc7934a067ad7afe3917e3247bc"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "a3a23808a6c6fbc7934a067ad7afe3917e3247bc",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "Depth",
+			"output_id": 0,
+			"output_node": "a7ff145863160bd73544374a85273e21b367410c"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "a3a23808a6c6fbc7934a067ad7afe3917e3247bc",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "18f53df5447fb6d074121bef12d29882fe967df9"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "5e6c4ab5795fdc90223e86af0a5c84428a45f6b9",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "TIME",
+			"output_id": 0,
+			"output_node": "05f4609e57c4cf655cecb98063dd5edfc6409eb2"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "5e6c4ab5795fdc90223e86af0a5c84428a45f6b9",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "1.0",
+			"output_id": 0,
+			"output_node": "178fbc3715186c2a99df2d816a7ea8ec9b378f5b"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "Value",
+			"input_id": 16756516,
+			"input_node": "2b02e79c3218de4b65971f2ea705dcb59b584690",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "ddd36f3b9b401b5e55c5cb253d080240befc909f"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "Value",
+			"input_id": 16756516,
+			"input_node": "10bc20e6418e430dcba48908842b18c789ed7f7a",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "42fca57a761bf69174413ebc431a0aeb160e234e"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float4",
+			"input_label": "",
+			"input_id": 0,
+			"input_node": "78ca9892fdc4dec951d35994594f77e324677be6",
+			"output_index": 0,
+			"output_type": "float4",
+			"output_label": "CELLS",
+			"output_id": 0,
+			"output_node": "a08d3839259284447036c2d3c771ea169ca29a7d"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float4",
+			"input_label": "",
+			"input_id": 0,
+			"input_node": "c6f25298f47db5176c374f8a8968f9616499434c",
+			"output_index": 0,
+			"output_type": "float4",
+			"output_label": "CELLS",
+			"output_id": 0,
+			"output_node": "b01d120a8612d9e1d52ca9cc7046dabb877190de"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "Value",
+			"input_id": 16756516,
+			"input_node": "8468cd85c9a161204273a1ff80c0c7520ca5be89",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "1-x",
+			"output_id": 0,
+			"output_node": "b8ea1a6a7b3286c1c889b12c95507a9bdb81ef3e"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "Power",
+			"input_id": -43018288,
+			"input_node": "8468cd85c9a161204273a1ff80c0c7520ca5be89",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "Intersection Power",
+			"output_id": 0,
+			"output_node": "48bd65ff5a97bb5295c82289f4bc4a54f1d031a3"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "Value",
+			"input_id": 16756516,
+			"input_node": "969082312c6e15dc7d37b78bb7f7a76e9a7647f5",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "bacfa31d61ccc9d882594357ff4b08caf478e1a1"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "Value",
+			"input_id": 16756516,
+			"input_node": "eeb22d79ca6a7884b4bfaa1363c92856641e43bd",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "63daee87d4c5da3a2f182451cb0a117c44053eab"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float3",
+			"input_label": "Vector",
+			"input_id": -1070734332,
+			"input_node": "18f53df5447fb6d074121bef12d29882fe967df9",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "View",
+			"output_id": 0,
+			"output_node": "c9c8ad83628cf50654cdc8ad21bc1228a81fcf67"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float3",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "ddd36f3b9b401b5e55c5cb253d080240befc909f",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "View",
+			"output_id": 0,
+			"output_node": "84435a729f05f729d337d674270b0f431d9e6bc6"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float3",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "ddd36f3b9b401b5e55c5cb253d080240befc909f",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "View",
+			"output_id": 0,
+			"output_node": "9e1371af1cce7342364919b9a175f7c4a248a053"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "51b02b2ccae0ac9be9c0793ea291cf85da827b20",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "y",
+			"output_id": 0,
+			"output_node": "5914777093ffa40fa13f42221650db19fb4709a4"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "51b02b2ccae0ac9be9c0793ea291cf85da827b20",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "2.0",
+			"output_id": 0,
+			"output_node": "4913698bfd0bb16e1276c9f539dbd2d058e787ef"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "Texture2D",
+			"input_label": "Texture",
+			"input_id": 4,
+			"input_node": "0b46683d0a7f8c784e98e5778e3f046affbe68c1",
+			"output_index": 0,
+			"output_type": "Texture2D",
+			"output_label": "cells.png",
+			"output_id": 0,
+			"output_node": "d776286032e5403f6fd35092fa8636c9c8b4d194"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float2",
+			"input_label": "UV",
+			"input_id": 5,
+			"input_node": "0b46683d0a7f8c784e98e5778e3f046affbe68c1",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "583df3ff3ab2f15214ade0897e1af054d7c29fa3"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "01b6f287e68a0e3a56c6c8516840657c193f82ab",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "0ff8c5c67b33e26d46ede0e894c7cf27a1ed025a"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "01b6f287e68a0e3a56c6c8516840657c193f82ab",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "bf871ff4ebdacac3305ff1467b4617edc2ab9868"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "X",
+			"input_id": 1420360541,
+			"input_node": "583df3ff3ab2f15214ade0897e1af054d7c29fa3",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "b19451514a465a7ce02af3ab8766750e5da47915"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "Y",
+			"input_id": 260209567,
+			"input_node": "583df3ff3ab2f15214ade0897e1af054d7c29fa3",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "51b02b2ccae0ac9be9c0793ea291cf85da827b20"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "PULSATING",
+			"input_id": 0,
+			"input_node": "24535f25973086405ba3449fa497c972be899a29",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "e5aaf1aa9c00f5017732ca6c4b3642db34369a7e"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float2",
+			"input_label": "",
+			"input_id": 0,
+			"input_node": "c16f5f25b99c8640231f449f2de3c972ff659a29",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "85257f4a5e47e62124ffc90ca9b2f0fbaf0c321e"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float2",
+			"input_label": "",
+			"input_id": 0,
+			"input_node": "53d700a638d21fcdf2cb3ec8ad4cd3874dcc7b3a",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "",
+			"output_id": 0,
+			"output_node": "9204ae2885f7bb670bbd819afebbe43151ae0fdc"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "Value",
+			"input_id": 16756516,
+			"input_node": "9d4f7608694721c738eff47a9bf0f9918a4465bc",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "x",
+			"output_id": 0,
+			"output_node": "71cd05eb4826e24e7e318555655f96b02f83ba4f"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "Power",
+			"input_id": -43018288,
+			"input_node": "9d4f7608694721c738eff47a9bf0f9918a4465bc",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "0.5",
+			"output_id": 0,
+			"output_node": "c77f0586842b9f2ddf76f6a8122869e79a3d5e1a"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "57d20e55ca1c8bb083ba2b4f54dba062b70f2459",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 0,
+			"output_node": "54f87f12f870934916f684148587a063b7e48a66"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "57d20e55ca1c8bb083ba2b4f54dba062b70f2459",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "Time Speed",
+			"output_id": 0,
+			"output_node": "021ff4d7fc9b0c4a0a6e0f211845de0cfda001fb"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float2",
+			"input_label": "",
+			"input_id": 0,
+			"input_node": "5914777093ffa40fa13f42221650db19fb4709a4",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "",
+			"output_id": 0,
+			"output_node": "9204ae2885f7bb670bbd819afebbe43151ae0fdc"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "b19451514a465a7ce02af3ab8766750e5da47915",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "x",
+			"output_id": 0,
+			"output_node": "53d700a638d21fcdf2cb3ec8ad4cd3874dcc7b3a"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "b19451514a465a7ce02af3ab8766750e5da47915",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "3.0",
+			"output_id": 0,
+			"output_node": "9dde9769ba5179b40ba3d9835a363106324dd4ad"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "TIME",
+			"input_id": 0,
+			"input_node": "e5ff07db4be69b7e28670cc597fe17607a06633f",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "57d20e55ca1c8bb083ba2b4f54dba062b70f2459"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "bacfa31d61ccc9d882594357ff4b08caf478e1a1",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "Depth",
+			"output_id": 0,
+			"output_node": "a7ff145863160bd73544374a85273e21b367410c"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "bacfa31d61ccc9d882594357ff4b08caf478e1a1",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "ff63138896872147f87cedfadf02a511bbff1b3c"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "X",
+			"input_id": 1420360541,
+			"input_node": "631d7cb932b0fec43611fb53b096c896dea8e6fd",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "85257f4a5e47e62124ffc90ca9b2f0fbaf0c321e"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "Y",
+			"input_id": 260209567,
+			"input_node": "631d7cb932b0fec43611fb53b096c896dea8e6fd",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "cdd82d7542f2e0504ff4376f03c2fe02ecbca579"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "Value",
+			"input_id": 16756516,
+			"input_node": "804b6852fbd5eb8942857f543d25e2a3919367a6",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "c76490bd90aa9af8b10fa1f745e196ea67ded941"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "Power",
+			"input_id": -43018288,
+			"input_node": "804b6852fbd5eb8942857f543d25e2a3919367a6",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "2.0",
+			"output_id": 0,
+			"output_node": "2302c97cccf696ab9bafbc0e86a714159af85670"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "",
+			"input_id": 0,
+			"input_node": "4533f080ee6529dfbd07edb234ecf169e7e80bb4",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "2b02e79c3218de4b65971f2ea705dcb59b584690"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "013050b06d392c4fe3b4ad62b842cd594355d6e4",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "10bc20e6418e430dcba48908842b18c789ed7f7a"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "013050b06d392c4fe3b4ad62b842cd594355d6e4",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "0.0",
+			"output_id": 0,
+			"output_node": "d7adb4f31214f5b6802bf19dd943c658a47f15d7"
+		},
+		"anchor": {
+			"input_index": 2,
+			"input_type": "float",
+			"input_label": "Coefficient",
+			"input_id": -688470873,
+			"input_node": "013050b06d392c4fe3b4ad62b842cd594355d6e4",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "EDGE MASK",
+			"output_id": 0,
+			"output_node": "1736ea5c2e95820bdee9efee3226f67560091550"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "36156100f92ae05fe2493232cb086be9709c4434",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "0ca6b685209c36206b0e72ffa8e3645235f5b789"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "36156100f92ae05fe2493232cb086be9709c4434",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "2.0",
+			"output_id": 0,
+			"output_node": "55adf509d3c6fad4c42e2823822fef264cdd3c4d"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "0ff8c5c67b33e26d46ede0e894c7cf27a1ed025a",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "eeb22d79ca6a7884b4bfaa1363c92856641e43bd"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "0ff8c5c67b33e26d46ede0e894c7cf27a1ed025a",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "INTERSECTION",
+			"output_id": 0,
+			"output_node": "561883ed4263146813c06ca784ce01da3debe771"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "INTERSECTION",
+			"input_id": 0,
+			"input_node": "a0d2e0ec63ce675ba2fb74fe209f1845a6ebace0",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "8468cd85c9a161204273a1ff80c0c7520ca5be89"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float3",
+			"input_label": "Vector",
+			"input_id": -1070734332,
+			"input_node": "ff63138896872147f87cedfadf02a511bbff1b3c",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "7c6499b5a575df906f8eadafb5f87f42ea33b5b9"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "Radians",
+			"input_id": 1877048924,
+			"input_node": "e5aaf1aa9c00f5017732ca6c4b3642db34369a7e",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "0b687412c4be04495aeb4114f1433963e0614f66"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float2",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "85257f4a5e47e62124ffc90ca9b2f0fbaf0c321e",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "",
+			"output_id": 0,
+			"output_node": "45bca7a95151ccf4f91393c31d58264695fec8ed"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float2",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "85257f4a5e47e62124ffc90ca9b2f0fbaf0c321e",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "8.0",
+			"output_id": 0,
+			"output_node": "e0f372e5e0f00700fa694e5f9048c8321cc709e9"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float3",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "9a2999feadb4f94581ae19e0b77583bf3d8bbe12",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "Tangent",
+			"output_id": 0,
+			"output_node": "8fc112273c47695a09d328f1de010d9c4224cc4b"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float3",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "9a2999feadb4f94581ae19e0b77583bf3d8bbe12",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "8f48e78d2c29e388637fb1477a7c3dfa02d9b511"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "In",
+			"input_id": -1324699368,
+			"input_node": "8f48e78d2c29e388637fb1477a7c3dfa02d9b511",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "PULSATING",
+			"output_id": 0,
+			"output_node": "cad91d74eb85aa43149a4ac60f65a36d795aade8"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "In Range Minimum",
+			"input_id": 586471579,
+			"input_node": "8f48e78d2c29e388637fb1477a7c3dfa02d9b511",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "-1.0",
+			"output_id": 0,
+			"output_node": "ce4aeb3c88d2cd6b3c6f03cee8b438d56907b430"
+		},
+		"anchor": {
+			"input_index": 2,
+			"input_type": "float",
+			"input_label": "In Range Maximum",
+			"input_id": 413497076,
+			"input_node": "8f48e78d2c29e388637fb1477a7c3dfa02d9b511",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "1.0",
+			"output_id": 0,
+			"output_node": "8a53f1a14db15e8c15c8887b9201e39ea1a67665"
+		},
+		"anchor": {
+			"input_index": 3,
+			"input_type": "float",
+			"input_label": "Out Range Minimum",
+			"input_id": -591517853,
+			"input_node": "8f48e78d2c29e388637fb1477a7c3dfa02d9b511",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "0.0",
+			"output_id": 0,
+			"output_node": "ea85f783b1a5b706285ba2adaecc2428fb1cb967"
+		},
+		"anchor": {
+			"input_index": 4,
+			"input_type": "float",
+			"input_label": "Out Range Maximum",
+			"input_id": 1033320789,
+			"input_node": "8f48e78d2c29e388637fb1477a7c3dfa02d9b511",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "0.05",
+			"output_id": 0,
+			"output_node": "fcf5637791256a6ae81596c15871812c90f60a9b"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "0b687412c4be04495aeb4114f1433963e0614f66",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "57d20e55ca1c8bb083ba2b4f54dba062b70f2459"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "0b687412c4be04495aeb4114f1433963e0614f66",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "10.0",
+			"output_id": 0,
+			"output_node": "77e0c33cf17ec56b49fa9bce0f5af0d5c4cf0c30"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "",
+			"input_id": 0,
+			"input_node": "6b547c4c7cab8b3b8361875efc8047251de84e40",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "e4c8860cd73289fbc67cf71e3d2b73e5f92e1400"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "6c6af3932444e3d6c69bc93d0b7b7978e0d1ee77",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "a771da1f672660f23ba44ba91d6d20f46deed7c3"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "6c6af3932444e3d6c69bc93d0b7b7978e0d1ee77",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "2.0",
+			"output_id": 0,
+			"output_node": "b30bfa0e850a3a15bd2544705f880d0f92029722"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "",
+			"input_id": 0,
+			"input_node": "c4bd7ef22044d1a9c4f7eef45c0f4dc39a3c9846",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "7f1749431f595dc697ab9a6d645238e8a5f04727"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float4",
+			"input_label": "Color",
+			"input_id": -509366906,
+			"input_node": "bef51c2557b51f40e855099fdb1cca729ab0a729",
+			"output_index": 0,
+			"output_type": "float4",
+			"output_label": "Emission Color 2",
+			"output_id": 0,
+			"output_node": "544b57220b4bec191dcce6a4e9c001b3c6575b76"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float4",
+			"input_label": "",
+			"input_id": 0,
+			"input_node": "6a3f2897c28f2d0a8fa038e1ec347ccc54be91bb",
+			"output_index": 0,
+			"output_type": "float4",
+			"output_label": "CELLS",
+			"output_id": 0,
+			"output_node": "b01d120a8612d9e1d52ca9cc7046dabb877190de"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float4",
+			"input_label": "",
+			"input_id": 0,
+			"input_node": "04d45c9122426cbc0f7d60eb715d814ee0519855",
+			"output_index": 0,
+			"output_type": "float4",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "7fa3e864b81d987343e8833623cb211d38c62fd8"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float4",
+			"input_label": "Color",
+			"input_id": -509366906,
+			"input_node": "7fa3e864b81d987343e8833623cb211d38c62fd8",
+			"output_index": 0,
+			"output_type": "float4",
+			"output_label": "Emission Color 1",
+			"output_id": 0,
+			"output_node": "34162a37d5c0022ace25cb81a308aeec0e9ddd5b"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "c0e7fa35e514c6107cf7622fbcb4a9c26130de39",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "01b6f287e68a0e3a56c6c8516840657c193f82ab"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "c0e7fa35e514c6107cf7622fbcb4a9c26130de39",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "deb63fb061404f4f8b037462098ce8598ddb35e4"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "Value",
+			"input_id": 16756516,
+			"input_node": "c70b3cb7c010f2aa7095020184e5736cad9ed7db",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "x",
+			"output_id": 0,
+			"output_node": "6be42b7edfa75cc556222760103b333fa702a792"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "Power",
+			"input_id": -43018288,
+			"input_node": "c70b3cb7c010f2aa7095020184e5736cad9ed7db",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "4.0",
+			"output_id": 0,
+			"output_node": "02e5060c39a509fbe54d771e60c1f3e53ed29400"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float3",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "ef50161173f3d83c65d4d66b261f78ce824829d5",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "x,y,z",
+			"output_id": 0,
+			"output_node": "04d45c9122426cbc0f7d60eb715d814ee0519855"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float3",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "ef50161173f3d83c65d4d66b261f78ce824829d5",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "x,y,z",
+			"output_id": 0,
+			"output_node": "497ddd4dba84de485ac6ed0740a8c6ba2c5926d1"
+		},
+		"anchor": {
+			"input_index": 2,
+			"input_type": "float3",
+			"input_label": "Coefficient",
+			"input_id": -688470873,
+			"input_node": "ef50161173f3d83c65d4d66b261f78ce824829d5",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "OPACITY",
+			"output_id": 0,
+			"output_node": "c9217976a60d225d41dfc0187dad44975a4e990a"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "",
+			"input_id": 0,
+			"input_node": "b8ea1a6a7b3286c1c889b12c95507a9bdb81ef3e",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "969082312c6e15dc7d37b78bb7f7a76e9a7647f5"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "33ba98861ac4162de39f01a84f92f8e724a0a11a",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "c70b3cb7c010f2aa7095020184e5736cad9ed7db"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "33ba98861ac4162de39f01a84f92f8e724a0a11a",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "1.0",
+			"output_id": 0,
+			"output_node": "b9d30bd4ea9105236e432826838d214d66635248"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "",
+			"input_id": 0,
+			"input_node": "180fb8f9c93f8e04a5a2c193662e59d6aa7ac73d",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "2b02e79c3218de4b65971f2ea705dcb59b584690"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "0f66d4c3c47873467650b1edc5916a68995ecaa7",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "33ba98861ac4162de39f01a84f92f8e724a0a11a"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "0f66d4c3c47873467650b1edc5916a68995ecaa7",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "x",
+			"output_id": 0,
+			"output_node": "c6f25298f47db5176c374f8a8968f9616499434c"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "cdd82d7542f2e0504ff4376f03c2fe02ecbca579",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "y",
+			"output_id": 0,
+			"output_node": "c16f5f25b99c8640231f449f2de3c972ff659a29"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "cdd82d7542f2e0504ff4376f03c2fe02ecbca579",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "5e6c4ab5795fdc90223e86af0a5c84428a45f6b9"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "Texture2D",
+			"input_label": "Texture",
+			"input_id": 4,
+			"input_node": "5efc121a42fc3ab1dde9745ce2a2840b645f09ee",
+			"output_index": 0,
+			"output_type": "Texture2D",
+			"output_label": "line.png",
+			"output_id": 0,
+			"output_node": "3452be4f722d1762489c2f59c6ebd0e4b1e766f3"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float2",
+			"input_label": "UV",
+			"input_id": 5,
+			"input_node": "5efc121a42fc3ab1dde9745ce2a2840b645f09ee",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "459f4bd2a53d7909f0a8aed4bd5c4c230fdfc326"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float4",
+			"input_label": "",
+			"input_id": 0,
+			"input_node": "71cd05eb4826e24e7e318555655f96b02f83ba4f",
+			"output_index": 0,
+			"output_type": "float4",
+			"output_label": "Color",
+			"output_id": 0,
+			"output_node": "795c039769484c0ad060cbe14b8df3cc70b39cbb"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float4",
+			"input_label": "",
+			"input_id": 0,
+			"input_node": "6be42b7edfa75cc556222760103b333fa702a792",
+			"output_index": 0,
+			"output_type": "float4",
+			"output_label": "Color",
+			"output_id": 0,
+			"output_node": "5efc121a42fc3ab1dde9745ce2a2840b645f09ee"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float2",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "459f4bd2a53d7909f0a8aed4bd5c4c230fdfc326",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "",
+			"output_id": 0,
+			"output_node": "9c2d5f8492af65137077a756f694b6bddb4088f8"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float2",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "459f4bd2a53d7909f0a8aed4bd5c4c230fdfc326",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "TIME",
+			"output_id": 0,
+			"output_node": "7580b7f77463b4ea8a6e5f418b56afac01a0671b"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "Value",
+			"input_id": 16756516,
+			"input_node": "a771da1f672660f23ba44ba91d6d20f46deed7c3",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "1-x",
+			"output_id": 0,
+			"output_node": "180fb8f9c93f8e04a5a2c193662e59d6aa7ac73d"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "Power",
+			"input_id": -43018288,
+			"input_node": "a771da1f672660f23ba44ba91d6d20f46deed7c3",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "Fresnel Power",
+			"output_id": 0,
+			"output_node": "3d288dd3599b391635359d7dae1cc0b85aa60cb7"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float4",
+			"input_label": "",
+			"input_id": 0,
+			"input_node": "497ddd4dba84de485ac6ed0740a8c6ba2c5926d1",
+			"output_index": 0,
+			"output_type": "float4",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "bef51c2557b51f40e855099fdb1cca729ab0a729"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "a96cad8a1692bf618a9c514c7f2f5c3b9259245e",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "OPACITY",
+			"output_id": 0,
+			"output_node": "653ab881ca86b7ec289a525bd3f863febbb13b45"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "a96cad8a1692bf618a9c514c7f2f5c3b9259245e",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "Opacity",
+			"output_id": 0,
+			"output_node": "49e23a26cdcd0b4d7cde344837944b07788a8cba"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "Value",
+			"input_id": 16756516,
+			"input_node": "86fcd8a0fd35b37f0514aad2690d4c094b4865d4",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "a96cad8a1692bf618a9c514c7f2f5c3b9259245e"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "Texture2D",
+			"input_label": "Texture",
+			"input_id": 4,
+			"input_node": "795c039769484c0ad060cbe14b8df3cc70b39cbb",
+			"output_index": 0,
+			"output_type": "Texture2D",
+			"output_label": "noise_m.png",
+			"output_id": 0,
+			"output_node": "d4436ade501dd4a5f4c97dc03a84d61f0b852cf2"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float2",
+			"input_label": "UV",
+			"input_id": 5,
+			"input_node": "795c039769484c0ad060cbe14b8df3cc70b39cbb",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "631d7cb932b0fec43611fb53b096c896dea8e6fd"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "63daee87d4c5da3a2f182451cb0a117c44053eab",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "6c6af3932444e3d6c69bc93d0b7b7978e0d1ee77"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "63daee87d4c5da3a2f182451cb0a117c44053eab",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "0.1",
+			"output_id": 0,
+			"output_node": "794e3731f32e46dcf180348bb674006ec33cccf5"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float3",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "0a4d2047a424e0fa3c5bfc119132863cd957ac6b",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "OPACITY",
+			"output_id": 0,
+			"output_node": "c9217976a60d225d41dfc0187dad44975a4e990a"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float3",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "0a4d2047a424e0fa3c5bfc119132863cd957ac6b",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "ef50161173f3d83c65d4d66b261f78ce824829d5"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float3",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "89c864e4ee12eaf3cebcb3b67864979d3c483458",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "0a4d2047a424e0fa3c5bfc119132863cd957ac6b"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float3",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "89c864e4ee12eaf3cebcb3b67864979d3c483458",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "Emission Intensity",
+			"output_id": 0,
+			"output_node": "bb30c8e3cc1e98e6b95e5b0d22c5c108a52af0c7"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "OPACITY",
+			"input_id": 0,
+			"input_node": "8afed1964a875bfdefaa6d38fa12cf37aa52632a",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "1d31253eefd28b85edb40720bb8a0fff54b85d52"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "deb63fb061404f4f8b037462098ce8598ddb35e4",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "0f66d4c3c47873467650b1edc5916a68995ecaa7"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "deb63fb061404f4f8b037462098ce8598ddb35e4",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "a24561d6acd62f3df716a7782a074477f3b3d76a"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "05d608a4a7c2bbb3ac96cd76267a665df4843418",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "x",
+			"output_id": 0,
+			"output_node": "6a3f2897c28f2d0a8fa038e1ec347ccc54be91bb"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "05d608a4a7c2bbb3ac96cd76267a665df4843418",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "1.5",
+			"output_id": 0,
+			"output_node": "81d84e68abd05ea73a094bda4b6aa9711c65941c"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float4",
+			"input_label": "CELLS",
+			"input_id": 0,
+			"input_node": "0de5e4b3dfb5e2762e6c775d779511185f286197",
+			"output_index": 0,
+			"output_type": "float4",
+			"output_label": "Color",
+			"output_id": 0,
+			"output_node": "0b46683d0a7f8c784e98e5778e3f046affbe68c1"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "a24561d6acd62f3df716a7782a074477f3b3d76a",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "fd49ffad8cf4dd288de41e674d30889ad55d3f31"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "a24561d6acd62f3df716a7782a074477f3b3d76a",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "0.2",
+			"output_id": 0,
+			"output_node": "ccfcf620787832ff39c2245211c577897d779b54"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "Value",
+			"input_id": 16756516,
+			"input_node": "fd49ffad8cf4dd288de41e674d30889ad55d3f31",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "05d608a4a7c2bbb3ac96cd76267a665df4843418"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "Power",
+			"input_id": -43018288,
+			"input_node": "fd49ffad8cf4dd288de41e674d30889ad55d3f31",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "8.0",
+			"output_id": 0,
+			"output_node": "fe384a20cff376ff6c1c9852fe955b899cde2f54"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "42fca57a761bf69174413ebc431a0aeb160e234e",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "36156100f92ae05fe2493232cb086be9709c4434"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "42fca57a761bf69174413ebc431a0aeb160e234e",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "c0e7fa35e514c6107cf7622fbcb4a9c26130de39"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "Value",
+			"input_id": 16756516,
+			"input_node": "0ca6b685209c36206b0e72ffa8e3645235f5b789",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "INTERSECTION",
+			"output_id": 0,
+			"output_node": "71b2d46e01e590f5f4c5edd0c08ce6efb4f0e782"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "Power",
+			"input_id": -43018288,
+			"input_node": "0ca6b685209c36206b0e72ffa8e3645235f5b789",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "8.0",
+			"output_id": 0,
+			"output_node": "112d32870d0b4e3a0ad708514693a57ccef9c2ab"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "Value",
+			"input_id": 16756516,
+			"input_node": "ab6ebae8502ee127f954ec5ad0b4cff12f00889c",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "1-x",
+			"output_id": 0,
+			"output_node": "4533f080ee6529dfbd07edb234ecf169e7e80bb4"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "Power",
+			"input_id": -43018288,
+			"input_node": "ab6ebae8502ee127f954ec5ad0b4cff12f00889c",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "6.0",
+			"output_id": 0,
+			"output_node": "bb03d3ecf41cbe5bac9fdffe939a874582ea4fe0"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "Value",
+			"input_id": 16756516,
+			"input_node": "1d31253eefd28b85edb40720bb8a0fff54b85d52",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "1dff39e01a5423bf9699de12e07c664930a23b14"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "c76490bd90aa9af8b10fa1f745e196ea67ded941",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "ab6ebae8502ee127f954ec5ad0b4cff12f00889c"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "c76490bd90aa9af8b10fa1f745e196ea67ded941",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "2.0",
+			"output_id": 0,
+			"output_node": "ea0c407f4d27d3d2b55c6109baaa76d43d237423"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "bf871ff4ebdacac3305ff1467b4617edc2ab9868",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "x",
+			"output_id": 0,
+			"output_node": "78ca9892fdc4dec951d35994594f77e324677be6"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "bf871ff4ebdacac3305ff1467b4617edc2ab9868",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "NOISE",
+			"output_id": 0,
+			"output_node": "506343707448000fd593ee224725971994fc95a4"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "NOISE",
+			"input_id": 0,
+			"input_node": "e0c18d51917a667c66978fabdd12610e43677515",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "9d4f7608694721c738eff47a9bf0f9918a4465bc"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "Value",
+			"input_id": 16756516,
+			"input_node": "e4c8860cd73289fbc67cf71e3d2b73e5f92e1400",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "1-x",
+			"output_id": 0,
+			"output_node": "c4bd7ef22044d1a9c4f7eef45c0f4dc39a3c9846"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "Power",
+			"input_id": -43018288,
+			"input_node": "e4c8860cd73289fbc67cf71e3d2b73e5f92e1400",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "48.0",
+			"output_id": 0,
+			"output_node": "e5033a86de00502d76c9f3a8872d42e7aaf2631a"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "SOFT BORDER",
+			"input_id": 0,
+			"input_node": "95c2ddd4256aaf23bf0cca26c6565b4da1b74448",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "1-x",
+			"output_id": 0,
+			"output_node": "6b547c4c7cab8b3b8361875efc8047251de84e40"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "1dff39e01a5423bf9699de12e07c664930a23b14",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "013050b06d392c4fe3b4ad62b842cd594355d6e4"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "1dff39e01a5423bf9699de12e07c664930a23b14",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "SOFT BORDER",
+			"output_id": 0,
+			"output_node": "08396796a444f9fd793f7338ed081d375bdb592a"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "EDGE MASK",
+			"input_id": 0,
+			"input_node": "2a85f658d3fb85d74987694a347cc82129bb430c",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "804b6852fbd5eb8942857f543d25e2a3919367a6"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float3",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "7c6499b5a575df906f8eadafb5f87f42ea33b5b9",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "View",
+			"output_id": 0,
+			"output_node": "c9c8ad83628cf50654cdc8ad21bc1228a81fcf67"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float3",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "7c6499b5a575df906f8eadafb5f87f42ea33b5b9",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "0.04",
+			"output_id": 0,
+			"output_node": "7a87e3c4d8399c536fbff59660ae2ffd3c1b3138"
+		}
+	}
+}

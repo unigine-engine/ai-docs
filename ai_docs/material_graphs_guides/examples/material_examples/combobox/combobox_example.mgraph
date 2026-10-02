@@ -1,0 +1,2367 @@
+{
+	"material": {
+		"type": 0,
+		"normal_space": 2,
+		"vertex_position_space": 1,
+		"vertex_offset_space": 2,
+		"vertex_mode": 1,
+		"advanced_mode": false,
+		"compiler_ieee_strictness": false,
+		"compiler_optimization_level": 4,
+		"compiler_warning_mode": 2,
+		"cast_gi": false,
+		"depth_shadow": true,
+		"screen_projection": false,
+		"force_velocity": true,
+		"tessellation": false,
+		"two_sided": false,
+		"depth_test": true,
+		"scene_depth_write": true,
+		"opacity_depth_write": true,
+		"velocity_write": true,
+		"surface_id_write": true,
+		"depth_pre_pass": false,
+		"depth_mode": 0,
+		"decal_tbn_mode": 0,
+		"normal_blend_mode": 0,
+		"render_order_full": "After Post Materials",
+		"render_order_friendly": "Before Post Materials",
+		"user_mode": "Artist Friendly",
+		"textures_streaming_mode": "Force Streaming For All",
+		"use_taa": false,
+		"color_clamping_mode": "Disabled",
+		"fix_flicker": false,
+		"antialiasing_in_motion": false,
+		"diagonal_neighbors": false,
+		"catmull_resampling": false,
+		"frames_by_velocity": false,
+		"frames_by_color": false,
+		"blend_mode": 0,
+		"blend_src": 5,
+		"blend_dest": 6
+	},
+	"parameters": {
+		"parameter": {
+			"type": "Combobox",
+			"guid": "c0af6fcea154d535cd3a932d4ee4ac76b4f4fced",
+			"value": {
+				"type": "int",
+				"name": "material_type",
+				"min_value": 0,
+				"max_value": 1,
+				"value_x": 0
+			},
+			"items": [
+				"wood",
+				"stone",
+				"metal"
+			]
+		},
+		"parameter": {
+			"type": "Group",
+			"guid": "1bb542ec2a6601af635f81333cf2bcfa55fe7ab3",
+			"value": {
+				"type": "unknown",
+				"name": "wood",
+				"min_value": 0,
+				"max_value": 1
+			},
+			"children": {
+				"parameter": {
+					"type": "Texture2D",
+					"guid": "f9abe0d35a58701601bb687d32ca0fb8dbed0fb7",
+					"value": {
+						"type": "Texture2D",
+						"name": "wood_albedo",
+						"min_value": 0,
+						"max_value": 1,
+						"asset": "5219d6ddb5dbd1520e843a369ad2b64326bb24e2",
+						"anisotropy": true,
+						"manual_filtering": false,
+						"force_streaming": false,
+						"wrap_x": 0,
+						"wrap_y": 0,
+						"wrap_z": 0
+					}
+				},
+				"parameter": {
+					"type": "Texture2D",
+					"guid": "367ef26f42507d02e186187981cf67849319cd13",
+					"value": {
+						"type": "Texture2D",
+						"name": "wood_normal",
+						"min_value": 0,
+						"max_value": 1,
+						"asset": "692dbb7d56d633e22551bd47f4d92cd2d498270d",
+						"anisotropy": true,
+						"manual_filtering": false,
+						"force_streaming": false,
+						"wrap_x": 0,
+						"wrap_y": 0,
+						"wrap_z": 0
+					}
+				},
+				"parameter": {
+					"type": "Slider",
+					"guid": "09e6d7c5c95d6660ac57663fcbc33e927c894cc9",
+					"value": {
+						"type": "float",
+						"name": "wood_roughness",
+						"min_value": 0,
+						"max_value": 1,
+						"value_x": 0.75000000000000044
+					}
+				}
+			}
+		},
+		"parameter": {
+			"type": "Group",
+			"guid": "26f8844671be6db7c5d360cb0740a9bffab98076",
+			"value": {
+				"type": "unknown",
+				"name": "stone",
+				"min_value": 0,
+				"max_value": 1
+			},
+			"children": {
+				"parameter": {
+					"type": "Texture2D",
+					"guid": "34bb41fece9739abdf737b9d68000f3d6c8f7d5d",
+					"value": {
+						"type": "Texture2D",
+						"name": "stone_albedo",
+						"min_value": 0,
+						"max_value": 1,
+						"asset": "5219d6ddb5dbd1520e843a369ad2b64326bb24e2",
+						"anisotropy": true,
+						"manual_filtering": false,
+						"force_streaming": false,
+						"wrap_x": 0,
+						"wrap_y": 0,
+						"wrap_z": 0
+					}
+				},
+				"parameter": {
+					"type": "Texture2D",
+					"guid": "17681ee80ebc90bcf2e524f5bdb2e7da29c05f18",
+					"value": {
+						"type": "Texture2D",
+						"name": "stone_normal",
+						"min_value": 0,
+						"max_value": 1,
+						"asset": "692dbb7d56d633e22551bd47f4d92cd2d498270d",
+						"anisotropy": true,
+						"manual_filtering": false,
+						"force_streaming": false,
+						"wrap_x": 0,
+						"wrap_y": 0,
+						"wrap_z": 0
+					}
+				},
+				"parameter": {
+					"type": "Slider",
+					"guid": "959d9360210fa4c3991208172d8f53ba4a6f5797",
+					"value": {
+						"type": "float",
+						"name": "stone_roughness",
+						"min_value": 0,
+						"max_value": 1,
+						"value_x": 0.5
+					}
+				}
+			}
+		},
+		"parameter": {
+			"type": "Group",
+			"guid": "2daf20601afe701b8763304d90c310a2d80d9d90",
+			"value": {
+				"type": "unknown",
+				"name": "metal",
+				"min_value": 0,
+				"max_value": 1
+			},
+			"children": {
+				"parameter": {
+					"type": "Texture2D",
+					"guid": "f19e39d84f3089b5381fd22f8ec2715a04f753af",
+					"value": {
+						"type": "Texture2D",
+						"name": "metal_albedo",
+						"min_value": 0,
+						"max_value": 1,
+						"asset": "5219d6ddb5dbd1520e843a369ad2b64326bb24e2",
+						"anisotropy": true,
+						"manual_filtering": false,
+						"force_streaming": false,
+						"wrap_x": 0,
+						"wrap_y": 0,
+						"wrap_z": 0
+					}
+				},
+				"parameter": {
+					"type": "Texture2D",
+					"guid": "e79fc4923f670560b9a1dc4711c9f873346ced42",
+					"value": {
+						"type": "Texture2D",
+						"name": "metal_normal",
+						"min_value": 0,
+						"max_value": 1,
+						"asset": "692dbb7d56d633e22551bd47f4d92cd2d498270d",
+						"anisotropy": true,
+						"manual_filtering": false,
+						"force_streaming": false,
+						"wrap_x": 0,
+						"wrap_y": 0,
+						"wrap_z": 0
+					}
+				},
+				"parameter": {
+					"type": "Slider",
+					"guid": "2e757aca5d1d6de3b1fb7cf99b99747277f14bb9",
+					"value": {
+						"type": "float",
+						"name": "metal_roughness",
+						"min_value": 0,
+						"max_value": 1,
+						"value_x": 0.25
+					}
+				}
+			}
+		}
+	},
+	"version": "2.22.0.0",
+	"nodes": {
+		"Material": {
+			"label": "Material",
+			"guid": "829f90678c21529ab2138131aaaf08dc82560e8b",
+			"x": 108,
+			"y": 93,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Albedo",
+					"type": "float3",
+					"id": -509366906
+				},
+				"input": {
+					"label": "Metalness",
+					"type": "float",
+					"id": -1695405859
+				},
+				"input": {
+					"label": "Roughness",
+					"type": "float",
+					"id": 1466423059
+				},
+				"input": {
+					"label": "Specular",
+					"type": "float",
+					"id": -452932161
+				},
+				"input": {
+					"label": "Microfiber",
+					"type": "float",
+					"id": -410190875
+				},
+				"input": {
+					"label": "Normal Tangent Space",
+					"type": "float3",
+					"id": -1328428335
+				},
+				"input": {
+					"label": "Translucent",
+					"type": "float",
+					"id": 480745549
+				},
+				"input": {
+					"label": "Ambient Occlusion",
+					"type": "float",
+					"id": 979644461
+				},
+				"input": {
+					"label": "Emission",
+					"type": "float3",
+					"id": -2120341480
+				},
+				"input": {
+					"label": "Velocity",
+					"type": "float2",
+					"id": -1513164944
+				},
+				"input": {
+					"label": "Auxiliary",
+					"type": "float4",
+					"id": -488030030
+				},
+				"input": {
+					"label": "Depth Offset",
+					"type": "float",
+					"id": 1982984727
+				},
+				"input": {
+					"label": "Vertex Offset Tangent Space",
+					"type": "float3",
+					"id": 1951750090
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "Material",
+					"type": "",
+					"id": 0
+				}
+			}
+		},
+		"Final": {
+			"label": "Final",
+			"guid": "0f2f417e3b3b7ac5ee9bad604fcb013f4b641d92",
+			"x": 464,
+			"y": 154,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Material",
+					"type": "",
+					"id": 0
+				}
+			},
+			"outputs": {
+			}
+		},
+		"Parameter": {
+			"type": "float",
+			"label": "Slider",
+			"guid": "28d48dc7d826707a831d459159cc41bc995b31eb",
+			"x": -1051,
+			"y": -35,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 0.75000000000000044
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "wood_roughness",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"parameter_guid": "09e6d7c5c95d6660ac57663fcbc33e927c894cc9"
+		},
+		"Expression": {
+			"label": "Expression",
+			"guid": "108237e60f651eac810712ebc530a5cc0f148816",
+			"x": -723,
+			"y": -753,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Code",
+					"string": "x,y,z"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "",
+					"type": "float4",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "x,y,z",
+					"type": "float3",
+					"id": 0
+				}
+			}
+		},
+		"Parameter": {
+			"type": "Texture2D",
+			"label": "Texture2D",
+			"guid": "1afc0cfb4cea9e1e1046eee5a795530059162a5f",
+			"x": -1585,
+			"y": -1358,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Path",
+					"widget": "Texture2D",
+					"asset": "5219d6ddb5dbd1520e843a369ad2b64326bb24e2"
+				},
+				"prop": {
+					"label": "Wrap X",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Y",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Z",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Anisotropy",
+					"widget": "Bool",
+					"x": 1
+				},
+				"prop": {
+					"label": "Force Streaming",
+					"widget": "Bool",
+					"x": 0
+				},
+				"prop": {
+					"label": "Manual Filtering",
+					"widget": "Bool",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "wood_albedo",
+					"type": "Texture2D",
+					"id": 0
+				}
+			},
+			"parameter_guid": "f9abe0d35a58701601bb687d32ca0fb8dbed0fb7"
+		},
+		"SampleTexture": {
+			"label": "SampleTexture: Default",
+			"guid": "e78b2b2da91912a8a28bd5e71851da1a620762b1",
+			"x": -1400,
+			"y": -1473,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Type",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Default",
+						"Mip",
+						"Mip offset",
+						"Grad",
+						"Fetch",
+						"Point",
+						"Catmull",
+						"Cubic",
+						"Cubic Mip",
+						"Manual linear"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Normal Space",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Tangent Space for UV0",
+						"Tangent Space for UV1",
+						"Tangent Space Auto Calculated",
+						"Object Space"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "Texture",
+					"type": "Texture2D",
+					"id": 4
+				},
+				"input": {
+					"label": "UV",
+					"type": "float2",
+					"id": 5
+				},
+				"input": {
+					"label": "Normal Intensity",
+					"type": "float",
+					"id": 11
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "Color",
+					"type": "float4",
+					"id": 0
+				},
+				"output": {
+					"label": "Tangent Normal",
+					"type": "float3",
+					"id": 1
+				}
+			},
+			"texture_type": "Texture2D",
+			"sampler_type": "Default",
+			"texture_data": "Asset",
+			"normal_space": "Tangent Space for UV0"
+		},
+		"SampleTexture": {
+			"label": "SampleTexture: Default",
+			"guid": "54a1904bff74292e833b5eb5cddbe0903a22baaf",
+			"x": -1356,
+			"y": 895,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Type",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Default",
+						"Mip",
+						"Mip offset",
+						"Grad",
+						"Fetch",
+						"Point",
+						"Catmull",
+						"Cubic",
+						"Cubic Mip",
+						"Manual linear"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Normal Space",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Tangent Space for UV0",
+						"Tangent Space for UV1",
+						"Tangent Space Auto Calculated",
+						"Object Space"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "Texture",
+					"type": "Texture2D",
+					"id": 4
+				},
+				"input": {
+					"label": "UV",
+					"type": "float2",
+					"id": 5
+				},
+				"input": {
+					"label": "Normal Intensity",
+					"type": "float",
+					"id": 11
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "Color",
+					"type": "float4",
+					"id": 0
+				},
+				"output": {
+					"label": "Tangent Normal",
+					"type": "float3",
+					"id": 1
+				}
+			},
+			"texture_type": "Texture2D",
+			"sampler_type": "Default",
+			"texture_data": "Asset",
+			"normal_space": "Tangent Space for UV0"
+		},
+		"Parameter": {
+			"type": "Texture2D",
+			"label": "Texture2D",
+			"guid": "28d8e82967f41374a9e828434bceb0c6b3b2d16d",
+			"x": -1569,
+			"y": 997,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Path",
+					"widget": "Texture2D",
+					"asset": "692dbb7d56d633e22551bd47f4d92cd2d498270d"
+				},
+				"prop": {
+					"label": "Wrap X",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Y",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Z",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Anisotropy",
+					"widget": "Bool",
+					"x": 1
+				},
+				"prop": {
+					"label": "Force Streaming",
+					"widget": "Bool",
+					"x": 0
+				},
+				"prop": {
+					"label": "Manual Filtering",
+					"widget": "Bool",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "wood_normal",
+					"type": "Texture2D",
+					"id": 0
+				}
+			},
+			"parameter_guid": "367ef26f42507d02e186187981cf67849319cd13"
+		},
+		"SampleTexture": {
+			"label": "SampleTexture: Default",
+			"guid": "fd17fa429951d18b722d90b749ad9578a360f0f2",
+			"x": -1403,
+			"y": -1024,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Type",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Default",
+						"Mip",
+						"Mip offset",
+						"Grad",
+						"Fetch",
+						"Point",
+						"Catmull",
+						"Cubic",
+						"Cubic Mip",
+						"Manual linear"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Normal Space",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Tangent Space for UV0",
+						"Tangent Space for UV1",
+						"Tangent Space Auto Calculated",
+						"Object Space"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "Texture",
+					"type": "Texture2D",
+					"id": 4
+				},
+				"input": {
+					"label": "UV",
+					"type": "float2",
+					"id": 5
+				},
+				"input": {
+					"label": "Normal Intensity",
+					"type": "float",
+					"id": 11
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "Color",
+					"type": "float4",
+					"id": 0
+				},
+				"output": {
+					"label": "Tangent Normal",
+					"type": "float3",
+					"id": 1
+				}
+			},
+			"texture_type": "Texture2D",
+			"sampler_type": "Default",
+			"texture_data": "Asset",
+			"normal_space": "Tangent Space for UV0"
+		},
+		"Parameter": {
+			"type": "Texture2D",
+			"label": "Texture2D",
+			"guid": "a486503cafaa248cb5095243fb388e1cd5a4a7c3",
+			"x": -1578,
+			"y": -918,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Path",
+					"widget": "Texture2D",
+					"asset": "5219d6ddb5dbd1520e843a369ad2b64326bb24e2"
+				},
+				"prop": {
+					"label": "Wrap X",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Y",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Z",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Anisotropy",
+					"widget": "Bool",
+					"x": 1
+				},
+				"prop": {
+					"label": "Force Streaming",
+					"widget": "Bool",
+					"x": 0
+				},
+				"prop": {
+					"label": "Manual Filtering",
+					"widget": "Bool",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "stone_albedo",
+					"type": "Texture2D",
+					"id": 0
+				}
+			},
+			"parameter_guid": "34bb41fece9739abdf737b9d68000f3d6c8f7d5d"
+		},
+		"Parameter": {
+			"type": "int",
+			"label": "Combobox",
+			"guid": "ca07f4d28972fd88f694ad874134ec35b6d80582",
+			"x": -888,
+			"y": -1152,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Int",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "material_type",
+					"type": "int",
+					"id": 0
+				}
+			},
+			"parameter_guid": "c0af6fcea154d535cd3a932d4ee4ac76b4f4fced"
+		},
+		"ComboboxSwitch": {
+			"label": "Combobox Switch",
+			"guid": "cbbca6365a3f24abdc921875e86cdd89f442fa35",
+			"x": -641,
+			"y": -1007,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Combobox",
+					"type": "int",
+					"id": 0
+				},
+				"input": {
+					"label": "wood",
+					"type": "float3",
+					"id": 1
+				},
+				"input": {
+					"label": "stone",
+					"type": "float3",
+					"id": 2
+				},
+				"input": {
+					"label": "metal",
+					"type": "float3",
+					"id": 3
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float3",
+					"id": 0
+				}
+			}
+		},
+		"Expression": {
+			"label": "Expression",
+			"guid": "29e3a2584fc9f4f41e94c0af6f177458180a622f",
+			"x": -723,
+			"y": -780,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Code",
+					"string": "x,y,z"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "",
+					"type": "float4",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "x,y,z",
+					"type": "float3",
+					"id": 0
+				}
+			}
+		},
+		"ComboboxSwitch": {
+			"label": "Combobox Switch",
+			"guid": "5846c932fe540f3efaa63a4128b61b2ed6920501",
+			"x": -653,
+			"y": 76,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Combobox",
+					"type": "int",
+					"id": 0
+				},
+				"input": {
+					"label": "wood",
+					"type": "float",
+					"id": 1
+				},
+				"input": {
+					"label": "stone",
+					"type": "float",
+					"id": 2
+				},
+				"input": {
+					"label": "metal",
+					"type": "float",
+					"id": 3
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"Parameter": {
+			"type": "int",
+			"label": "Combobox",
+			"guid": "4411233e35d87b51fd86bfa3f8d57c1adb65126e",
+			"x": -904,
+			"y": -345,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Int",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "material_type",
+					"type": "int",
+					"id": 0
+				}
+			},
+			"parameter_guid": "c0af6fcea154d535cd3a932d4ee4ac76b4f4fced"
+		},
+		"Parameter": {
+			"type": "float",
+			"label": "Slider",
+			"guid": "a6827be2d640057646ce48d7ddadd3339a27d692",
+			"x": -1047,
+			"y": 236,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 0.5
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "stone_roughness",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"parameter_guid": "959d9360210fa4c3991208172d8f53ba4a6f5797"
+		},
+		"Parameter": {
+			"type": "int",
+			"label": "Combobox",
+			"guid": "59b82a54cd8d9f638cb308119dc9709e80568404",
+			"x": -858,
+			"y": 998,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Int",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "material_type",
+					"type": "int",
+					"id": 0
+				}
+			},
+			"parameter_guid": "c0af6fcea154d535cd3a932d4ee4ac76b4f4fced"
+		},
+		"ComboboxSwitch": {
+			"label": "Combobox Switch",
+			"guid": "74608fb64d902587ad5161fb16fa9a6c7b2999e6",
+			"x": -589,
+			"y": 1077,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Combobox",
+					"type": "int",
+					"id": 0
+				},
+				"input": {
+					"label": "wood",
+					"type": "float3",
+					"id": 1
+				},
+				"input": {
+					"label": "stone",
+					"type": "float3",
+					"id": 2
+				},
+				"input": {
+					"label": "metal",
+					"type": "float3",
+					"id": 3
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float3",
+					"id": 0
+				}
+			}
+		},
+		"SampleTexture": {
+			"label": "SampleTexture: Default",
+			"guid": "b1bd5c02164ec30b2842b2d133a307ab583ffd91",
+			"x": -1355,
+			"y": 1347,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Type",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Default",
+						"Mip",
+						"Mip offset",
+						"Grad",
+						"Fetch",
+						"Point",
+						"Catmull",
+						"Cubic",
+						"Cubic Mip",
+						"Manual linear"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Normal Space",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Tangent Space for UV0",
+						"Tangent Space for UV1",
+						"Tangent Space Auto Calculated",
+						"Object Space"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "Texture",
+					"type": "Texture2D",
+					"id": 4
+				},
+				"input": {
+					"label": "UV",
+					"type": "float2",
+					"id": 5
+				},
+				"input": {
+					"label": "Normal Intensity",
+					"type": "float",
+					"id": 11
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "Color",
+					"type": "float4",
+					"id": 0
+				},
+				"output": {
+					"label": "Tangent Normal",
+					"type": "float3",
+					"id": 1
+				}
+			},
+			"texture_type": "Texture2D",
+			"sampler_type": "Default",
+			"texture_data": "Asset",
+			"normal_space": "Tangent Space for UV0"
+		},
+		"Parameter": {
+			"type": "Texture2D",
+			"label": "Texture2D",
+			"guid": "469191d6704ddbaf7f5797955eed862a578ec955",
+			"x": -1568,
+			"y": 1450,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Path",
+					"widget": "Texture2D",
+					"asset": "692dbb7d56d633e22551bd47f4d92cd2d498270d"
+				},
+				"prop": {
+					"label": "Wrap X",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Y",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Z",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Anisotropy",
+					"widget": "Bool",
+					"x": 1
+				},
+				"prop": {
+					"label": "Force Streaming",
+					"widget": "Bool",
+					"x": 0
+				},
+				"prop": {
+					"label": "Manual Filtering",
+					"widget": "Bool",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "stone_normal",
+					"type": "Texture2D",
+					"id": 0
+				}
+			},
+			"parameter_guid": "17681ee80ebc90bcf2e524f5bdb2e7da29c05f18"
+		},
+		"Vertex UV 0": {
+			"label": "Vertex UV 0",
+			"guid": "f9170b66ad4dd7561e0837e5d797e0afc06181a5",
+			"x": -2838,
+			"y": -361,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float2",
+					"id": 0
+				}
+			}
+		},
+		"_multiply": {
+			"label": "Multiply",
+			"guid": "3d5b2b08bbcc78aa85e60d9fcf68ea78815e0b1f",
+			"x": -2532,
+			"y": -289,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float2",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float2",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float2",
+					"id": 1723312480
+				}
+			}
+		},
+		"float": {
+			"type": "float",
+			"label": "float",
+			"guid": "b63a6f7a23dc2d46152245e9327e806db22ca4a9",
+			"x": -2610,
+			"y": -132,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 2
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "2.0",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"PortalIn": {
+			"label": "Portal In",
+			"guid": "03369ab097330f7a8dcc0b275ae62f649a8fcea7",
+			"x": -2289,
+			"y": -193,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Name",
+					"widget": "String",
+					"string": "UV"
+				},
+				"prop": {
+					"label": "Color",
+					"widget": "Color",
+					"w": 1,
+					"z": 0.21444351971149467,
+					"y": 0.5,
+					"x": 0.42883524298667908
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "UV",
+					"type": "float2",
+					"id": 0
+				}
+			},
+			"outputs": {
+			}
+		},
+		"PortalOut": {
+			"label": "Portal Out",
+			"guid": "2f80d02a0673ef71e72e0a3f435e210d9061fbda",
+			"x": -1551,
+			"y": -1143,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "Portal",
+					"widget": "Combobox",
+					"combobox_items": [
+						"UV"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "UV",
+					"type": "float2",
+					"id": 0
+				}
+			},
+			"portal_guid": "03369ab097330f7a8dcc0b275ae62f649a8fcea7"
+		},
+		"PortalOut": {
+			"label": "Portal Out",
+			"guid": "3f1a456c5e790d88aeb8c38942f262377c31c41c",
+			"x": -1554,
+			"y": -694,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "Portal",
+					"widget": "Combobox",
+					"combobox_items": [
+						"UV"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "UV",
+					"type": "float2",
+					"id": 0
+				}
+			},
+			"portal_guid": "03369ab097330f7a8dcc0b275ae62f649a8fcea7"
+		},
+		"PortalOut": {
+			"label": "Portal Out",
+			"guid": "e7c307589af0bee37f6321afbdc78606cdc2032f",
+			"x": -1507,
+			"y": 1225,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "Portal",
+					"widget": "Combobox",
+					"combobox_items": [
+						"UV"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "UV",
+					"type": "float2",
+					"id": 0
+				}
+			},
+			"portal_guid": "03369ab097330f7a8dcc0b275ae62f649a8fcea7"
+		},
+		"PortalOut": {
+			"label": "Portal Out",
+			"guid": "e1e0159457752d16de5f0051cb2992b7313fa744",
+			"x": -1506,
+			"y": 1677,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "Portal",
+					"widget": "Combobox",
+					"combobox_items": [
+						"UV"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "UV",
+					"type": "float2",
+					"id": 0
+				}
+			},
+			"portal_guid": "03369ab097330f7a8dcc0b275ae62f649a8fcea7"
+		},
+		"PortalOut": {
+			"label": "Portal Out",
+			"guid": "6c9311e45944743046a245e186703fa1e6953194",
+			"x": -1554,
+			"y": -228,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "Portal",
+					"widget": "Combobox",
+					"combobox_items": [
+						"UV"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "UV",
+					"type": "float2",
+					"id": 0
+				}
+			},
+			"portal_guid": "03369ab097330f7a8dcc0b275ae62f649a8fcea7"
+		},
+		"SampleTexture": {
+			"label": "SampleTexture: Default",
+			"guid": "246e5a1ad4c71931a9a178091cb23162193016c9",
+			"x": -1403,
+			"y": -558,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Type",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Default",
+						"Mip",
+						"Mip offset",
+						"Grad",
+						"Fetch",
+						"Point",
+						"Catmull",
+						"Cubic",
+						"Cubic Mip",
+						"Manual linear"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Normal Space",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Tangent Space for UV0",
+						"Tangent Space for UV1",
+						"Tangent Space Auto Calculated",
+						"Object Space"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "Texture",
+					"type": "Texture2D",
+					"id": 4
+				},
+				"input": {
+					"label": "UV",
+					"type": "float2",
+					"id": 5
+				},
+				"input": {
+					"label": "Normal Intensity",
+					"type": "float",
+					"id": 11
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "Color",
+					"type": "float4",
+					"id": 0
+				},
+				"output": {
+					"label": "Tangent Normal",
+					"type": "float3",
+					"id": 1
+				}
+			},
+			"texture_type": "Texture2D",
+			"sampler_type": "Default",
+			"texture_data": "Asset",
+			"normal_space": "Tangent Space for UV0"
+		},
+		"Parameter": {
+			"type": "Texture2D",
+			"label": "Texture2D",
+			"guid": "dbb401d80404819362a69ba5678fe82e882af408",
+			"x": -1593,
+			"y": -491,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Path",
+					"widget": "Texture2D",
+					"asset": "5219d6ddb5dbd1520e843a369ad2b64326bb24e2"
+				},
+				"prop": {
+					"label": "Wrap X",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Y",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Z",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Anisotropy",
+					"widget": "Bool",
+					"x": 1
+				},
+				"prop": {
+					"label": "Force Streaming",
+					"widget": "Bool",
+					"x": 0
+				},
+				"prop": {
+					"label": "Manual Filtering",
+					"widget": "Bool",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "metal_albedo",
+					"type": "Texture2D",
+					"id": 0
+				}
+			},
+			"parameter_guid": "f19e39d84f3089b5381fd22f8ec2715a04f753af"
+		},
+		"Expression": {
+			"label": "Expression",
+			"guid": "007712ca1b50a15c27b1075f50ec95afb51e227a",
+			"x": -723,
+			"y": -726,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Code",
+					"string": "x,y,z"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "",
+					"type": "float4",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "x,y,z",
+					"type": "float3",
+					"id": 0
+				}
+			}
+		},
+		"ComboboxSwitch": {
+			"label": "Combobox Switch",
+			"guid": "2b031b80dc072f3bbba287edabda617219aad4b0",
+			"x": -356,
+			"y": -201,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Combobox",
+					"type": "int",
+					"id": 0
+				},
+				"input": {
+					"label": "wood",
+					"type": "float",
+					"id": 1
+				},
+				"input": {
+					"label": "stone",
+					"type": "float",
+					"id": 2
+				},
+				"input": {
+					"label": "metal",
+					"type": "float",
+					"id": 3
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"float": {
+			"type": "float",
+			"label": "float",
+			"guid": "964bde5c7b686241abcbc839b18a40fb3c87570c",
+			"x": -434,
+			"y": 80,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 1
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "1.0",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"float": {
+			"type": "float",
+			"label": "float",
+			"guid": "e7be6d34bc9b77549a07e6719c83245911d69ae4",
+			"x": -434,
+			"y": 26,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "0.0",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"float": {
+			"type": "float",
+			"label": "float",
+			"guid": "20d95ea069c7482533576a577d904e4e456649d7",
+			"x": -434,
+			"y": 53,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "0.0",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"Parameter": {
+			"type": "float",
+			"label": "Slider",
+			"guid": "462aa5d0c5d084fe2455937d510c531ea3d97500",
+			"x": -1046,
+			"y": 494,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 0.25
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "metal_roughness",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"parameter_guid": "2e757aca5d1d6de3b1fb7cf99b99747277f14bb9"
+		},
+		"PortalOut": {
+			"label": "Portal Out",
+			"guid": "4780ee5268540cf7da40cd0740d9b2b951e76f02",
+			"x": -1502,
+			"y": 2136,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "Portal",
+					"widget": "Combobox",
+					"combobox_items": [
+						"UV"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "UV",
+					"type": "float2",
+					"id": 0
+				}
+			},
+			"portal_guid": "03369ab097330f7a8dcc0b275ae62f649a8fcea7"
+		},
+		"Parameter": {
+			"type": "Texture2D",
+			"label": "Texture2D",
+			"guid": "d7793ade698ee667a98d36fd59fe51807e9948bd",
+			"x": -1587,
+			"y": 1874,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Path",
+					"widget": "Texture2D",
+					"asset": "692dbb7d56d633e22551bd47f4d92cd2d498270d"
+				},
+				"prop": {
+					"label": "Wrap X",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Y",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Z",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Anisotropy",
+					"widget": "Bool",
+					"x": 1
+				},
+				"prop": {
+					"label": "Force Streaming",
+					"widget": "Bool",
+					"x": 0
+				},
+				"prop": {
+					"label": "Manual Filtering",
+					"widget": "Bool",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "metal_normal",
+					"type": "Texture2D",
+					"id": 0
+				}
+			},
+			"parameter_guid": "e79fc4923f670560b9a1dc4711c9f873346ced42"
+		},
+		"SampleTexture": {
+			"label": "SampleTexture: Default",
+			"guid": "f3fc24204260bb5abd00630d0728c73afdd16950",
+			"x": -1351,
+			"y": 1806,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Type",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Default",
+						"Mip",
+						"Mip offset",
+						"Grad",
+						"Fetch",
+						"Point",
+						"Catmull",
+						"Cubic",
+						"Cubic Mip",
+						"Manual linear"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Normal Space",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Tangent Space for UV0",
+						"Tangent Space for UV1",
+						"Tangent Space Auto Calculated",
+						"Object Space"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "Texture",
+					"type": "Texture2D",
+					"id": 4
+				},
+				"input": {
+					"label": "UV",
+					"type": "float2",
+					"id": 5
+				},
+				"input": {
+					"label": "Normal Intensity",
+					"type": "float",
+					"id": 11
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "Color",
+					"type": "float4",
+					"id": 0
+				},
+				"output": {
+					"label": "Tangent Normal",
+					"type": "float3",
+					"id": 1
+				}
+			},
+			"texture_type": "Texture2D",
+			"sampler_type": "Default",
+			"texture_data": "Asset",
+			"normal_space": "Tangent Space for UV0"
+		}
+	},
+	"anchors": {
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float3",
+			"input_label": "Albedo",
+			"input_id": -509366906,
+			"input_node": "829f90678c21529ab2138131aaaf08dc82560e8b",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "",
+			"output_id": 0,
+			"output_node": "cbbca6365a3f24abdc921875e86cdd89f442fa35"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "Metalness",
+			"input_id": -1695405859,
+			"input_node": "829f90678c21529ab2138131aaaf08dc82560e8b",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 0,
+			"output_node": "2b031b80dc072f3bbba287edabda617219aad4b0"
+		},
+		"anchor": {
+			"input_index": 2,
+			"input_type": "float",
+			"input_label": "Roughness",
+			"input_id": 1466423059,
+			"input_node": "829f90678c21529ab2138131aaaf08dc82560e8b",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 0,
+			"output_node": "5846c932fe540f3efaa63a4128b61b2ed6920501"
+		},
+		"anchor": {
+			"input_index": 5,
+			"input_type": "float3",
+			"input_label": "Normal Tangent Space",
+			"input_id": -1328428335,
+			"input_node": "829f90678c21529ab2138131aaaf08dc82560e8b",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "",
+			"output_id": 0,
+			"output_node": "74608fb64d902587ad5161fb16fa9a6c7b2999e6"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "",
+			"input_label": "Material",
+			"input_id": 0,
+			"input_node": "0f2f417e3b3b7ac5ee9bad604fcb013f4b641d92",
+			"output_index": 0,
+			"output_type": "",
+			"output_label": "Material",
+			"output_id": 0,
+			"output_node": "829f90678c21529ab2138131aaaf08dc82560e8b"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float4",
+			"input_label": "",
+			"input_id": 0,
+			"input_node": "108237e60f651eac810712ebc530a5cc0f148816",
+			"output_index": 0,
+			"output_type": "float4",
+			"output_label": "Color",
+			"output_id": 0,
+			"output_node": "fd17fa429951d18b722d90b749ad9578a360f0f2"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "Texture2D",
+			"input_label": "Texture",
+			"input_id": 4,
+			"input_node": "e78b2b2da91912a8a28bd5e71851da1a620762b1",
+			"output_index": 0,
+			"output_type": "Texture2D",
+			"output_label": "wood_albedo",
+			"output_id": 0,
+			"output_node": "1afc0cfb4cea9e1e1046eee5a795530059162a5f"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float2",
+			"input_label": "UV",
+			"input_id": 5,
+			"input_node": "e78b2b2da91912a8a28bd5e71851da1a620762b1",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "UV",
+			"output_id": 0,
+			"output_node": "2f80d02a0673ef71e72e0a3f435e210d9061fbda"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "Texture2D",
+			"input_label": "Texture",
+			"input_id": 4,
+			"input_node": "54a1904bff74292e833b5eb5cddbe0903a22baaf",
+			"output_index": 0,
+			"output_type": "Texture2D",
+			"output_label": "wood_normal",
+			"output_id": 0,
+			"output_node": "28d8e82967f41374a9e828434bceb0c6b3b2d16d"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float2",
+			"input_label": "UV",
+			"input_id": 5,
+			"input_node": "54a1904bff74292e833b5eb5cddbe0903a22baaf",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "UV",
+			"output_id": 0,
+			"output_node": "e7c307589af0bee37f6321afbdc78606cdc2032f"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "Texture2D",
+			"input_label": "Texture",
+			"input_id": 4,
+			"input_node": "fd17fa429951d18b722d90b749ad9578a360f0f2",
+			"output_index": 0,
+			"output_type": "Texture2D",
+			"output_label": "stone_albedo",
+			"output_id": 0,
+			"output_node": "a486503cafaa248cb5095243fb388e1cd5a4a7c3"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float2",
+			"input_label": "UV",
+			"input_id": 5,
+			"input_node": "fd17fa429951d18b722d90b749ad9578a360f0f2",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "UV",
+			"output_id": 0,
+			"output_node": "3f1a456c5e790d88aeb8c38942f262377c31c41c"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "int",
+			"input_label": "Combobox",
+			"input_id": 0,
+			"input_node": "cbbca6365a3f24abdc921875e86cdd89f442fa35",
+			"output_index": 0,
+			"output_type": "int",
+			"output_label": "material_type",
+			"output_id": 0,
+			"output_node": "ca07f4d28972fd88f694ad874134ec35b6d80582"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float3",
+			"input_label": "wood",
+			"input_id": 1,
+			"input_node": "cbbca6365a3f24abdc921875e86cdd89f442fa35",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "x,y,z",
+			"output_id": 0,
+			"output_node": "29e3a2584fc9f4f41e94c0af6f177458180a622f"
+		},
+		"anchor": {
+			"input_index": 2,
+			"input_type": "float3",
+			"input_label": "stone",
+			"input_id": 2,
+			"input_node": "cbbca6365a3f24abdc921875e86cdd89f442fa35",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "x,y,z",
+			"output_id": 0,
+			"output_node": "108237e60f651eac810712ebc530a5cc0f148816"
+		},
+		"anchor": {
+			"input_index": 3,
+			"input_type": "float3",
+			"input_label": "metal",
+			"input_id": 3,
+			"input_node": "cbbca6365a3f24abdc921875e86cdd89f442fa35",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "x,y,z",
+			"output_id": 0,
+			"output_node": "007712ca1b50a15c27b1075f50ec95afb51e227a"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float4",
+			"input_label": "",
+			"input_id": 0,
+			"input_node": "29e3a2584fc9f4f41e94c0af6f177458180a622f",
+			"output_index": 0,
+			"output_type": "float4",
+			"output_label": "Color",
+			"output_id": 0,
+			"output_node": "e78b2b2da91912a8a28bd5e71851da1a620762b1"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "int",
+			"input_label": "Combobox",
+			"input_id": 0,
+			"input_node": "5846c932fe540f3efaa63a4128b61b2ed6920501",
+			"output_index": 0,
+			"output_type": "int",
+			"output_label": "material_type",
+			"output_id": 0,
+			"output_node": "4411233e35d87b51fd86bfa3f8d57c1adb65126e"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "wood",
+			"input_id": 1,
+			"input_node": "5846c932fe540f3efaa63a4128b61b2ed6920501",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "wood_roughness",
+			"output_id": 0,
+			"output_node": "28d48dc7d826707a831d459159cc41bc995b31eb"
+		},
+		"anchor": {
+			"input_index": 2,
+			"input_type": "float",
+			"input_label": "stone",
+			"input_id": 2,
+			"input_node": "5846c932fe540f3efaa63a4128b61b2ed6920501",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "stone_roughness",
+			"output_id": 0,
+			"output_node": "a6827be2d640057646ce48d7ddadd3339a27d692"
+		},
+		"anchor": {
+			"input_index": 3,
+			"input_type": "float",
+			"input_label": "metal",
+			"input_id": 3,
+			"input_node": "5846c932fe540f3efaa63a4128b61b2ed6920501",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "metal_roughness",
+			"output_id": 0,
+			"output_node": "462aa5d0c5d084fe2455937d510c531ea3d97500"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "int",
+			"input_label": "Combobox",
+			"input_id": 0,
+			"input_node": "74608fb64d902587ad5161fb16fa9a6c7b2999e6",
+			"output_index": 0,
+			"output_type": "int",
+			"output_label": "material_type",
+			"output_id": 0,
+			"output_node": "59b82a54cd8d9f638cb308119dc9709e80568404"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float3",
+			"input_label": "wood",
+			"input_id": 1,
+			"input_node": "74608fb64d902587ad5161fb16fa9a6c7b2999e6",
+			"output_index": 1,
+			"output_type": "float3",
+			"output_label": "Tangent Normal",
+			"output_id": 1,
+			"output_node": "54a1904bff74292e833b5eb5cddbe0903a22baaf"
+		},
+		"anchor": {
+			"input_index": 2,
+			"input_type": "float3",
+			"input_label": "stone",
+			"input_id": 2,
+			"input_node": "74608fb64d902587ad5161fb16fa9a6c7b2999e6",
+			"output_index": 1,
+			"output_type": "float3",
+			"output_label": "Tangent Normal",
+			"output_id": 1,
+			"output_node": "b1bd5c02164ec30b2842b2d133a307ab583ffd91"
+		},
+		"anchor": {
+			"input_index": 3,
+			"input_type": "float3",
+			"input_label": "metal",
+			"input_id": 3,
+			"input_node": "74608fb64d902587ad5161fb16fa9a6c7b2999e6",
+			"output_index": 1,
+			"output_type": "float3",
+			"output_label": "Tangent Normal",
+			"output_id": 1,
+			"output_node": "f3fc24204260bb5abd00630d0728c73afdd16950"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "Texture2D",
+			"input_label": "Texture",
+			"input_id": 4,
+			"input_node": "b1bd5c02164ec30b2842b2d133a307ab583ffd91",
+			"output_index": 0,
+			"output_type": "Texture2D",
+			"output_label": "stone_normal",
+			"output_id": 0,
+			"output_node": "469191d6704ddbaf7f5797955eed862a578ec955"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float2",
+			"input_label": "UV",
+			"input_id": 5,
+			"input_node": "b1bd5c02164ec30b2842b2d133a307ab583ffd91",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "UV",
+			"output_id": 0,
+			"output_node": "e1e0159457752d16de5f0051cb2992b7313fa744"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float2",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "3d5b2b08bbcc78aa85e60d9fcf68ea78815e0b1f",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "",
+			"output_id": 0,
+			"output_node": "f9170b66ad4dd7561e0837e5d797e0afc06181a5"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float2",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "3d5b2b08bbcc78aa85e60d9fcf68ea78815e0b1f",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "2.0",
+			"output_id": 0,
+			"output_node": "b63a6f7a23dc2d46152245e9327e806db22ca4a9"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float2",
+			"input_label": "UV",
+			"input_id": 0,
+			"input_node": "03369ab097330f7a8dcc0b275ae62f649a8fcea7",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "3d5b2b08bbcc78aa85e60d9fcf68ea78815e0b1f"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "Texture2D",
+			"input_label": "Texture",
+			"input_id": 4,
+			"input_node": "246e5a1ad4c71931a9a178091cb23162193016c9",
+			"output_index": 0,
+			"output_type": "Texture2D",
+			"output_label": "metal_albedo",
+			"output_id": 0,
+			"output_node": "dbb401d80404819362a69ba5678fe82e882af408"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float2",
+			"input_label": "UV",
+			"input_id": 5,
+			"input_node": "246e5a1ad4c71931a9a178091cb23162193016c9",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "UV",
+			"output_id": 0,
+			"output_node": "6c9311e45944743046a245e186703fa1e6953194"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float4",
+			"input_label": "",
+			"input_id": 0,
+			"input_node": "007712ca1b50a15c27b1075f50ec95afb51e227a",
+			"output_index": 0,
+			"output_type": "float4",
+			"output_label": "Color",
+			"output_id": 0,
+			"output_node": "246e5a1ad4c71931a9a178091cb23162193016c9"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "int",
+			"input_label": "Combobox",
+			"input_id": 0,
+			"input_node": "2b031b80dc072f3bbba287edabda617219aad4b0",
+			"output_index": 0,
+			"output_type": "int",
+			"output_label": "material_type",
+			"output_id": 0,
+			"output_node": "4411233e35d87b51fd86bfa3f8d57c1adb65126e"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "wood",
+			"input_id": 1,
+			"input_node": "2b031b80dc072f3bbba287edabda617219aad4b0",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "0.0",
+			"output_id": 0,
+			"output_node": "e7be6d34bc9b77549a07e6719c83245911d69ae4"
+		},
+		"anchor": {
+			"input_index": 2,
+			"input_type": "float",
+			"input_label": "stone",
+			"input_id": 2,
+			"input_node": "2b031b80dc072f3bbba287edabda617219aad4b0",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "0.0",
+			"output_id": 0,
+			"output_node": "20d95ea069c7482533576a577d904e4e456649d7"
+		},
+		"anchor": {
+			"input_index": 3,
+			"input_type": "float",
+			"input_label": "metal",
+			"input_id": 3,
+			"input_node": "2b031b80dc072f3bbba287edabda617219aad4b0",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "1.0",
+			"output_id": 0,
+			"output_node": "964bde5c7b686241abcbc839b18a40fb3c87570c"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "Texture2D",
+			"input_label": "Texture",
+			"input_id": 4,
+			"input_node": "f3fc24204260bb5abd00630d0728c73afdd16950",
+			"output_index": 0,
+			"output_type": "Texture2D",
+			"output_label": "metal_normal",
+			"output_id": 0,
+			"output_node": "d7793ade698ee667a98d36fd59fe51807e9948bd"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float2",
+			"input_label": "UV",
+			"input_id": 5,
+			"input_node": "f3fc24204260bb5abd00630d0728c73afdd16950",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "UV",
+			"output_id": 0,
+			"output_node": "4780ee5268540cf7da40cd0740d9b2b951e76f02"
+		}
+	}
+}

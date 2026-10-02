@@ -64,14 +64,14 @@ Returns the current value indicating if back-and-forth movements of the mouse (b
 **true** if the inverted state of the mouse is enabled ; otherwise **false**.
 ## void setMouseRawInput ( bool input )
 
-Sets a new value indicating which type of mouse data is used to control the camera � raw ([Input::getMouseDeltaRaw()](../../../api/library/controls/class.input_usc.md#getMouseDeltaRaw_ivec2)) or processed by the OS ([Input::getMouseDeltaPosition()](../../../api/library/controls/class.input_usc.md#getMouseDeltaPosition_ivec2)).
+Sets a new value indicating which type of mouse data is used to control the camera � raw (*[engine.input.getMouseDeltaRaw()()](../../../api/library/controls/class.input_usc.md#getMouseDeltaRaw_ivec2)*) or processed by the OS (*[engine.input.getMouseDeltaPosition()()](../../../api/library/controls/class.input_usc.md#getMouseDeltaPosition_ivec2)*).
 ### Arguments
 
 - *bool* **input** - Set **true** to enable mode using raw mouse data to control the camera; **false** - to disable it.
 
 ## bool isMouseRawInput () const
 
-Returns the current value indicating which type of mouse data is used to control the camera � raw ([Input::getMouseDeltaRaw()](../../../api/library/controls/class.input_usc.md#getMouseDeltaRaw_ivec2)) or processed by the OS ([Input::getMouseDeltaPosition()](../../../api/library/controls/class.input_usc.md#getMouseDeltaPosition_ivec2)).
+Returns the current value indicating which type of mouse data is used to control the camera � raw (*[engine.input.getMouseDeltaRaw()()](../../../api/library/controls/class.input_usc.md#getMouseDeltaRaw_ivec2)*) or processed by the OS (*[engine.input.getMouseDeltaPosition()()](../../../api/library/controls/class.input_usc.md#getMouseDeltaPosition_ivec2)*).
 ### Return value
 
 **true** if mode using raw mouse data to control the camera is enabled ; otherwise **false**.
@@ -157,7 +157,7 @@ Current path to the controls configuration file.
 
 ## void setState ( int state , int value )
 
-Updates the state of a given control (sets the control on or off).
+Sets the value of the given control state. Any positive value means the control is "pressed", 0 releases it.
 ### Arguments
 
 - *int* **state** - State (one of *[CONTROLS_STATE_*](../../../api/library/controls/class.controls_usc.md#STATE_FORWARD)* variables).
@@ -165,7 +165,7 @@ Updates the state of a given control (sets the control on or off).
 
 ## int getState ( int state )
 
-Returns the state of a given control.
+Returns the value of the given control state: a positive value while the control is "pressed", 0 when it is released.
 ### Arguments
 
 - *int* **state** - State (one of *[CONTROLS_STATE_*](../../../api/library/controls/class.controls_usc.md#STATE_FORWARD)* variables).
@@ -175,7 +175,7 @@ Returns the state of a given control.
 State value: positive value means the control is "pressed"; 0 means the control is released.
 ## void setStateMouseButton ( int state , int button )
 
-Sets a mouse button that switches a given state on and off. This parameter is stored in the following configuration file: **[*.controls](../../../code/configuration_file_cpp.md#controls)**.
+Assigns a mouse button to the given control state: from now on the state is switched on while the button is held. This parameter is stored in the following configuration file: **[*.controls](../../../code/configuration_file_cpp.md#controls)**.
 ### Arguments
 
 - *int* **state** - State (one of *[CONTROLS_STATE_*](../../../api/library/controls/class.controls_usc.md#STATE_FORWARD)* variables).
@@ -183,7 +183,7 @@ Sets a mouse button that switches a given state on and off. This parameter is st
 
 ## int getStateMouseButton ( int state )
 
-Returns a mouse button that switches a given state on and off. This parameter is stored in the following configuration file: **[*.controls](../../../code/configuration_file_cpp.md#controls)**.
+Returns the mouse button assigned to the given control state, or [MOUSE_BUTTON_UNKNOWN](../../../api/library/controls/class.input_usc.md#MOUSE_BUTTON_UNKNOWN) if the state has no mouse button assigned. This parameter is stored in the following configuration file: **[*.controls](../../../code/configuration_file_cpp.md#controls)**.
 ### Arguments
 
 - *int* **state** - State (one of *[CONTROLS_STATE_*](../../../api/library/controls/class.controls_usc.md#STATE_FORWARD)* variables).
@@ -193,7 +193,7 @@ Returns a mouse button that switches a given state on and off. This parameter is
 Button that toggles the state, one of the [INPUT_MOUSE_BUTTON_](../../../api/library/controls/class.input_usc.md#MOUSE_BUTTON_LEFT) codes.
 ## int isStateMouseButton ( int button )
 
-Returns a value indicating if the given button assigned to the state.
+Returns a value indicating if the given mouse button is assigned to any control state. The method scans all states, it does not take a state number.
 ### Arguments
 
 - *int* **button** - Button that toggles the state, one of the [INPUT_MOUSE_BUTTON_](../../../api/library/controls/class.input_usc.md#MOUSE_BUTTON_LEFT) codes.
@@ -203,7 +203,7 @@ Returns a value indicating if the given button assigned to the state.
 **1** if the given button is assigned; otherwise, **0**.
 ## void getStateEvent ( int state )
 
-Lets the user assign a key or a mouse button to a given state.
+Starts capturing a binding for the given control state: the next key or mouse button the user presses is assigned to it, and the current value of the state is reset. Poll *[isStateEvent()()](../../...md#isStateEvent_int)* to find out when the capture is over.
 ### Arguments
 
 - *int* **state** - State (one of *[CONTROLS_STATE_*](../../../api/library/controls/class.controls_usc.md#STATE_FORWARD)* variables).
@@ -216,7 +216,7 @@ Returns a value indicating if a key or a mouse button is successfully assigned t
 **1** if a key or a mouse button is already assigned; otherwise, **0**.
 ## void setStateKey ( int state , int key )
 
-Sets a key that toggles a given state on and off. This parameter is stored in the following configuration file: **[*.controls](../../../code/configuration_file_cpp.md#controls)**.
+Assigns a key to the given control state: from now on the state is switched on while the key is held. This parameter is stored in the following configuration file: **[*.controls](../../../code/configuration_file_cpp.md#controls)**.
 ### Arguments
 
 - *int* **state** - State (one of *[CONTROLS_STATE_*](../../../api/library/controls/class.controls_usc.md#STATE_FORWARD)* variables).
@@ -224,7 +224,7 @@ Sets a key that toggles a given state on and off. This parameter is stored in th
 
 ## int getStateKey ( int state )
 
-Returns a key that toggles a given state on and off. This parameter is stored in the following configuration file: **[*.controls](../../../code/configuration_file_cpp.md#controls)**.
+Returns the key assigned to the given control state, or [KEY_UNKNOWN](../../../api/library/controls/class.input_usc.md#KEY_UNKNOWN) if the state has no key assigned. This parameter is stored in the following configuration file: **[*.controls](../../../code/configuration_file_cpp.md#controls)**.
 ### Arguments
 
 - *int* **state** - State (one of *[CONTROLS_STATE_*](../../../api/library/controls/class.controls_usc.md#STATE_FORWARD)* variables).
@@ -244,7 +244,7 @@ Checks if a given key already acts as an application control. This is useful to 
 **1** if the key is assigned to a state; otherwise, **0**.
 ## String getStateName ( int state )
 
-Returns the name of the given control state.
+Returns the name of the given control state, FORWARD or MOVE_LEFT for example. These names identify the states in the controls configuration file.
 ### Arguments
 
 - *int* **state** - State (one of *[CONTROLS_STATE_*](../../../api/library/controls/class.controls_usc.md#STATE_FORWARD)* variables).
@@ -254,7 +254,7 @@ Returns the name of the given control state.
 Name of the given control state.
 ## String getStateInfo ( int state )
 
-Returns the information about the given control state.
+Returns the bindings of the given control state as a string meant to be shown to the user: key W, key W or mouse LEFT, or empty when nothing is assigned to the state.
 ### Arguments
 
 - *int* **state** - State (one of *[CONTROLS_STATE_*](../../../api/library/controls/class.controls_usc.md#STATE_FORWARD)* variables).
@@ -264,7 +264,7 @@ Returns the information about the given control state.
 String containing information about the given control state.
 ## int clearState ( int state )
 
-Returns a control state and clears it to 0 (control is not pressed).
+Returns the current value of the given control state and resets the state to 0. 0 is returned if the state number is out of range.
 ### Arguments
 
 - *int* **state** - State (one of *[CONTROLS_STATE_*](../../../api/library/controls/class.controls_usc.md#STATE_FORWARD)* variables).

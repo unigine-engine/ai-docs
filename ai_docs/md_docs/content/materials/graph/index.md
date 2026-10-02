@@ -139,7 +139,7 @@ The following settings are available only for the **Mesh Transparent PBR** and *
 |---|---|
 | Blend Src | Option used to scale the source color (the color of an overlaying material). Available only when **Custom** preset is selected. |
 | Blend Dest | Option used to scale the destination color (the color of an obscured material). Available only when **Custom** preset is selected. |
-| Overlap | Render polygons, to which the material is applied, on the top of the render. This can be used for UI elements. |
+| Transparent Order | The point of the frame at which transparent surfaces with this material are rendered, see *[Transparent Order](../../../editor2/materials_settings/index.md#transparent_order)*: - **Before SSR** � the default: the surface takes part in screen-space reflections and receives all post effects. - **Before Post Effects** � the surface is invisible to SSR and receives tonemapping and TAA. - **After Post Effects** � the surface is drawn after the whole post chain, so post effects never touch it. Suitable for overlays, HUD and in-world tooltips. |
 | Depth Test | Depth testing for the material. This option can be used to make the object visible, when occluded by other objects (e.g. a character behind a wall). |
 | Write Scene Depth | Toggles writing to the depth buffer for the material on and off. With this option enabled the inner part of a transparent object won't be rendered if the outside surface was rendered first. The same can happen to a concave object. |
 | Write Opacity Depth | Toggles writing to the opacity depth buffer for the material on and off. |

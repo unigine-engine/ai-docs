@@ -134,7 +134,7 @@ For more information about the *Assets* Plugin please refer to [this article](..
 To start developing your plugin for UnigineEditor perform the following actions:
 
 
-1. Check the **Editor Plugin Template** option when [creating a new project](../../sdk/projects/index_cpp.md#creation) in *SDK Browser* (or choose *Other Actions -> Configure Project* if you want to use your new Editor plugin in an existing project). ![Adding a plugin template](create_plugin.png)
+1. Check the **Template Editor Plugin** option when [creating a new project](../../sdk/projects/index_cpp.md#creation) in *SDK Browser* (or choose *Other Actions -> Configure Project* if you want to use your new Editor plugin in an existing project). ![Adding a plugin template](create_plugin.png)
 2. Click *Create New Project* (or *Update Configuration* if you're adding a template to an existing project).
 
 

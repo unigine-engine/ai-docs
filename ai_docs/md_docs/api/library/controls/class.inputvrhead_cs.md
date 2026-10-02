@@ -66,7 +66,7 @@ The vector of supported display refresh rates, in Hz.
 
 ## bool HasButtons ( )
 
-Returns a value indicating if the HMD has buttons.
+Returns a value indicating if the headset reports buttons the engine can read. Headsets without any controls of their own return false.
 ### Return value
 
 true if there are buttons; otherwise, false.
@@ -85,7 +85,7 @@ Sets the display refresh rate, if supported.
 
 ## float GetRefreshRate ( )
 
-Returns the current display refresh rate, in Hz.
+Returns the display refresh rate the HMD currently runs at, in Hz. The rates the device accepts are listed by *[SupportedRefreshRates](../../...md#getSupportedRefreshRates_VECfloat)*, and *[RefreshRate](../../...md#setRefreshRate_float_void)* switches between them.
 ### Return value
 
 The display refresh rate, in Hz.
@@ -121,7 +121,7 @@ Returns a value indicating if the specified button was released during the curre
 true if the button was released; otherwise, false.
 ## InputEventVRButton GetButtonEvent ( Input.VR_BUTTON button )
 
-Returns the currently processed HMD button input event.
+Returns the HMD button event currently being processed for the given button. One event is taken from the queue per frame.
 ### Arguments
 
 - *[Input.VR_BUTTON](../../../api/library/controls/class.input_cs.md#VR_BUTTON)* **button** - Button.
@@ -131,7 +131,7 @@ Returns the currently processed HMD button input event.
 HMD button input event, or null if there are no events for the specified button in the current frame.
 ## int GetButtonEvents ( Input.VR_BUTTON button , InputEventVRButton [] OUT_events )
 
-Returns the number of input events for the specified HMD button and puts the events to the specified output buffer.
+Returns the number of input events received for the specified HMD button and puts the events to the specified buffer.
 ### Arguments
 
 - *[Input.VR_BUTTON](../../../api/library/controls/class.input_cs.md#VR_BUTTON)* **button** - Button.

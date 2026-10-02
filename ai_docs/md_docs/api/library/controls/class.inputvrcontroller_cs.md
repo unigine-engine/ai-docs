@@ -9,14 +9,14 @@ The class manages VR controller input, serving as the primary interface for VR i
 > **Notice:** Each instance of the InputVRController class will contain its own set of values sampled from the controller.
 
 
-There are *three* types of VR controllers: *left-hand*, *right*-hand controllers, and a *treadmill*. To get the type of the VR controller, you can use the *[getControllerType()](#getControllerType_int)* function.
+There are *three* types of VR controllers: *left-hand*, *right*-hand controllers, and a *treadmill*. To get the type of the VR controller, you can use the **[ControllerType](../../...md#getControllerType_int)** function.
 
 
 The class provides access to the following input:
 
 
 - **Buttons** of the VR controller, including the *touch* buttons. They can be either pressed or released in the current frame or continuously pressed or touched for multiple frames in a row, including the current one.
-- **Axes** of the VR controller that detect 1-dimensional movement of the control. Depending on the type of the VR controller, there can be a different number of axes. Usually, there are *3* or *4* axes. An axis can be mapped to a control of one of the supported types, also referred to as an [*axis type*](../../../api/library/controls/class.inputvrcontroller_cs.md#AXIS_TYPE). To identify the supported axes, call *[getNumAxes()](../../../api/library/controls/class.inputvrcontroller_cs.md#getNumAxes_int)*. Additionally, you can get the axis type using *[getAxisType()](../../../api/library/controls/class.inputvrcontroller_cs.md#getAxisType_int_int)*, find the axis index by its type via *[findAxisByType()](../../../api/library/controls/class.inputvrcontroller_cs.md#findAxisByType_int_int)*, or get a state value for the axis via *[getAxisByType()](../../../api/library/controls/class.inputvrcontroller_cs.md#getAxisByType_int_float)*.
+- **Axes** of the VR controller that detect 1-dimensional movement of the control. Depending on the type of the VR controller, there can be a different number of axes. Usually, there are *3* or *4* axes. An axis can be mapped to a control of one of the supported types, also referred to as an [*axis type*](../../../api/library/controls/class.inputvrcontroller_cs.md#AXIS_TYPE). To identify the supported axes, call **[NumAxes](../../../api/library/controls/class.inputvrcontroller_cs.md#getNumAxes_int)**. Additionally, you can get the axis type using **[GetAxisType()](../../../api/library/controls/class.inputvrcontroller_cs.md#getAxisType_int_int)**, find the axis index by its type via **[FindAxisByType()](../../../api/library/controls/class.inputvrcontroller_cs.md#findAxisByType_int_int)**, or get a state value for the axis via **[GetAxisByType()](../../../api/library/controls/class.inputvrcontroller_cs.md#getAxisByType_int_float)**.
 
 
 > **Notice:** The article on VR Input System provides several [examples of inputs](../../../vr_development/vr_input_cs.md#openvr_input) on different types of OpenVR-supported controllers and information on buttons and axes mapping in UNIGINE.
@@ -99,7 +99,7 @@ The value indicating if the controller uses hand tracking, i.e. hands don't hold
 
 ## InputVRController.AXIS_TYPE GetAxisType ( int axis )
 
-Returns the type of the specified axis.
+Returns what the given axis reports � one of the [AXIS_TYPE](#AXIS_TYPE) values, such as a trackpad or joystick coordinate, a grip value or a trigger value. The set of axes and their order differ between controller models, so query the type instead of assuming a fixed layout.
 ### Arguments
 
 - *int* **axis** - Axis number.
@@ -159,7 +159,7 @@ Returns a value indicating if the specified button was released during the curre
 true if the button was released; otherwise, false.
 ## bool IsButtonTouchPressed ( Input.VR_BUTTON touch )
 
-Returns a value indicating if the specified button is touched.
+Returns a value indicating if the finger currently rests on the given button. This is capacitive touch, which the hardware detects before the button is pressed; use *[IsButtonPressed()](../../...md#isButtonPressed_int_int)* for presses.
 ### Arguments
 
 - *[Input.VR_BUTTON](../../../api/library/controls/class.input_cs.md#VR_BUTTON)* **touch** - Button.
@@ -189,7 +189,7 @@ Returns a value indicating if the specified touch button was "released" in the c
 true if the touch button was "released"; otherwise, false.
 ## InputEventVRButton GetButtonEvent ( Input.VR_BUTTON button )
 
-Returns the currently processed VR controller button input event.
+Returns the VR controller button event currently being processed for the given button. One event is taken from the queue per frame.
 ### Arguments
 
 - *[Input.VR_BUTTON](../../../api/library/controls/class.input_cs.md#VR_BUTTON)* **button** - Button.
@@ -199,7 +199,7 @@ Returns the currently processed VR controller button input event.
 VR controller button input event, or null if there are no events for the specified button in the current frame.
 ## int GetButtonEvents ( Input.VR_BUTTON button , InputEventVRButton [] OUT_events )
 
-Returns the number of input events for the specified VR controller button and puts the events to the specified output buffer.
+Returns the number of input events received for the specified VR controller button and puts the events to the specified buffer.
 ### Arguments
 
 - *[Input.VR_BUTTON](../../../api/library/controls/class.input_cs.md#VR_BUTTON)* **button** - Button.
@@ -210,7 +210,7 @@ Returns the number of input events for the specified VR controller button and pu
 Number of input events for the specified VR controller button.
 ## InputEventVRButtonTouch GetButtonTouchEvent ( Input.VR_BUTTON button )
 
-Returns the currently processed VR controller button touch event.
+Returns the touch event currently being processed for the given button. One event is taken from the queue per frame; use *[GetButtonTouchEvents()](../../...md#getButtonTouchEvents_int_VECInputEventVRButtonTouch_int)* to get all events received for this button.
 ### Arguments
 
 - *[Input.VR_BUTTON](../../../api/library/controls/class.input_cs.md#VR_BUTTON)* **button** - Button.
@@ -231,7 +231,7 @@ Returns the number of touch events for the specified VR controller touch button 
 Number of input events for the specified VR controller touch button.
 ## void StopHaptic ( )
 
-Stops the vibration feedback.
+Stops the vibration started by *[ApplyHaptic()](../../...md#applyHaptic_float_double_float_void)*.
 ## void ApplyHaptic ( float amplitude = -1 , double duration_ms = -1 , float frequency_hz = -1 )
 
 Applies the vibration feedback with the specified amplitude, duration and frequency parameters.
@@ -253,7 +253,7 @@ Returns a state value for the axis of the specified type. It includes position o
 Value in range [-1.0f;1.0f].
 ## int FindAxisByType ( InputVRController.AXIS_TYPE axis_type )
 
-Returns the index of the axis by its type.
+Returns the index of the first axis of the given type, or -1 if the controller has no axis of this type. Use *[GetAxisByType()](../../...md#getAxisByType_int_float)* to read the value directly.
 ### Arguments
 
 - *[InputVRController.AXIS_TYPE](../../../api/library/controls/class.inputvrcontroller_cs.md#AXIS_TYPE)* **axis_type** - Axis type.

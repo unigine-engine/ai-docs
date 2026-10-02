@@ -1,7 +1,7 @@
-# Gaussian Splatting
+# Gaussian Splatting Integration
 
 
-The ***Gaussian Splatting*** demo showcases the usage of the [GaussianSplatting Plugin](../../code/plugins/gaussian/index.md) for rendering of Gaussian splat captures and **automatic collider generation** for them, turning a photorealistic scan into a walkable and interactive environment.
+The ***Gaussian Splatting Integration*** demo showcases the usage of the [GaussianSplatting Plugin](../../code/plugins/gaussian/index.md) for rendering of Gaussian splat captures and **automatic collider generation** for them, turning a photorealistic scan into a walkable and interactive environment.
 
 
 A splat capture is a purely visual asset: a cloud of semi-transparent kernels with no surfaces and no topology, so you cannot walk on it, throw a ball at it, or place an object on it. The [collision geometry generator](../../code/plugins/gaussian/index.md#collision_generator) closes this gap - a collision shell is reconstructed directly from the splat cloud and attached to the splat node as invisible static geometry, so physics, character controllers, ray casts, and any other collision-based systems work with splat-based content out of the box.
@@ -77,7 +77,7 @@ Keep the following in mind when using your own captures:
 
 You can study and modify the source code of this demo to create your own projects. To access the source code do the following:
 
-1. Find the **Gaussian Splatting** demo in the *Demos* section and click **[Install](/sdk/#samples)** (if you haven't installed it yet).
+1. Find the **Gaussian Splatting Integration** demo in the *Demos* section and click **[Install](/sdk/#samples)** (if you haven't installed it yet).
 2. After successful installation the demo will appear in the *Installed* section, and you can click **Copy as Project** to create a project based on this demo. ![](../../sdk/demos/copy_as_project_gen.png)
 3. In the **Create New Project** window, that opens, enter the name for your new project in the corresponding field and click **Create New Project**. ![](../../sdk/projects/create_project_cpp.png)
 4. Now you can click **Open Code IDE** to check and modify source code in your default IDE, or click **Open Editor** to open the project in the [UnigineEditor](/editor2/). ![](../../sdk/projects/edit_code.png)

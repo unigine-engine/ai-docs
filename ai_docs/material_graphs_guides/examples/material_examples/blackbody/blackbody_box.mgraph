@@ -1,0 +1,832 @@
+{
+	"material": {
+		"type": 0,
+		"normal_space": 2,
+		"vertex_position_space": 1,
+		"vertex_offset_space": 2,
+		"vertex_mode": 1,
+		"advanced_mode": false,
+		"compiler_ieee_strictness": false,
+		"compiler_optimization_level": 4,
+		"compiler_warning_mode": 2,
+		"depth_shadow": true,
+		"screen_projection": false,
+		"force_velocity": true,
+		"tessellation": false,
+		"two_sided": false,
+		"depth_test": true,
+		"scene_depth_write": true,
+		"depth_mode": 0,
+		"decal_tbn_mode": 0,
+		"normal_blend_mode": 0,
+		"blend_mode": 0,
+		"blend_src": 5,
+		"blend_dest": 6,
+		"opacity_depth_write": true,
+		"velocity_write": true,
+		"surface_id_write": true
+	},
+	"parameters": {
+		"parameter": {
+			"type": "Slider",
+			"guid": "d6b425c99b43f49414c956e3ff71cee6c21c190d",
+			"value": {
+				"type": "float",
+				"name": "Temperature",
+				"min_value": 0,
+				"max_value": 20000,
+				"value_x": 20000
+			}
+		}
+	},
+	"version": "2.22.0.0",
+	"nodes": {
+		"Material": {
+			"label": "Material",
+			"guid": "829f90678c21529ab2138131aaaf08dc82560e8b",
+			"x": 272,
+			"y": 93,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Albedo",
+					"type": "float3",
+					"id": -509366906
+				},
+				"input": {
+					"label": "Metalness",
+					"type": "float",
+					"id": -1695405859
+				},
+				"input": {
+					"label": "Roughness",
+					"type": "float",
+					"id": 1466423059
+				},
+				"input": {
+					"label": "Specular",
+					"type": "float",
+					"id": -452932161
+				},
+				"input": {
+					"label": "Microfiber",
+					"type": "float",
+					"id": -410190875
+				},
+				"input": {
+					"label": "Normal Tangent Space",
+					"type": "float3",
+					"id": -1328428335
+				},
+				"input": {
+					"label": "Translucent",
+					"type": "float",
+					"id": 480745549
+				},
+				"input": {
+					"label": "Ambient Occlusion",
+					"type": "float",
+					"id": 979644461
+				},
+				"input": {
+					"label": "Emission",
+					"type": "float3",
+					"id": -2120341480
+				},
+				"input": {
+					"label": "Velocity",
+					"type": "float2",
+					"id": -1513164944
+				},
+				"input": {
+					"label": "Auxiliary",
+					"type": "float4",
+					"id": -488030030
+				},
+				"input": {
+					"label": "Depth Offset",
+					"type": "float",
+					"id": 1982984727
+				},
+				"input": {
+					"label": "Vertex Offset Tangent Space",
+					"type": "float3",
+					"id": 1951750090
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "Material",
+					"type": "",
+					"id": 0
+				}
+			}
+		},
+		"Final": {
+			"label": "Final",
+			"guid": "0f2f417e3b3b7ac5ee9bad604fcb013f4b641d92",
+			"x": 628,
+			"y": 154,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Material",
+					"type": "",
+					"id": 0
+				}
+			},
+			"outputs": {
+			}
+		},
+		"Expression": {
+			"label": "Expression",
+			"guid": "341dcd4ece5d74554fd4b9b02e68814fdbf9fe62",
+			"x": -813,
+			"y": 1136,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Code",
+					"string": "x"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "",
+					"type": "float2",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "x",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"Vertex UV 0": {
+			"label": "Vertex UV 0",
+			"guid": "6f4c58a1f658998c0ac8877be99bd69e2649cd65",
+			"x": -1548,
+			"y": 299,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float2",
+					"id": 0
+				}
+			}
+		},
+		"rerange": {
+			"label": "Rerange",
+			"guid": "4b69d283c979d606e97b35ad6cf89b28f9c8c467",
+			"x": -1187,
+			"y": 959,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "In",
+					"type": "float",
+					"id": -1324699368
+				},
+				"input": {
+					"label": "In Range Minimum",
+					"type": "float",
+					"id": 586471579
+				},
+				"input": {
+					"label": "In Range Maximum",
+					"type": "float",
+					"id": 413497076
+				},
+				"input": {
+					"label": "Out Range Minimum",
+					"type": "float",
+					"id": -591517853
+				},
+				"input": {
+					"label": "Out Range Maximum",
+					"type": "float",
+					"id": 1033320789
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"_multiply": {
+			"label": "Multiply",
+			"guid": "3e740b23bb2e7626ca94174dcdc1d0483f4b3707",
+			"x": -303,
+			"y": 740,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float3",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float3",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float3",
+					"id": 1723312480
+				}
+			}
+		},
+		"saturate": {
+			"label": "Saturate",
+			"guid": "e2d19a9b5dd08f3e1626ed8511090120cc76c1ff",
+			"x": -499,
+			"y": 1032,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Value",
+					"type": "float",
+					"id": 16756516
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"float": {
+			"label": "float",
+			"guid": "1dcf318924120d548fdd18a30a6525a6bdc800cd",
+			"x": -1265,
+			"y": 1261,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "0.0",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"type": "float"
+		},
+		"float": {
+			"label": "float",
+			"guid": "98504af5484d5fd017d9b0ef765329826ee3daf9",
+			"x": -1265,
+			"y": 1207,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "0.0",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"type": "float"
+		},
+		"float": {
+			"label": "float",
+			"guid": "c1e3d722df0a6c19457966a4288281b3f537db76",
+			"x": -1265,
+			"y": 1288,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 1
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "1.0",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"type": "float"
+		},
+		"SubGraph": {
+			"label": "Blackbody",
+			"guid": "f71c77f3d766dcb6b65eac9d135945588f3088d7",
+			"x": -727,
+			"y": 459,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "SubGraph",
+					"asset": "274020bbc113cedf2f832046e9635aa9caaa3700"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "Temperature",
+					"type": "float",
+					"id": -1739752854
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "Color",
+					"type": "float3",
+					"id": -321033801
+				}
+			}
+		},
+		"_multiply": {
+			"label": "Multiply",
+			"guid": "17c35918fa320997d08a9a0a17d2c1e15a5b71cc",
+			"x": -1054,
+			"y": 515,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"float": {
+			"label": "float",
+			"guid": "0bd78f12b224634979f814143bfbf06323ac9a66",
+			"x": -1288,
+			"y": 1234,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 1000
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "1000.0",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"type": "float"
+		},
+		"Parameter": {
+			"label": "Slider",
+			"guid": "5f5702bb033398dee2a42aa551dfdbc00c1b9c1f",
+			"x": -1554,
+			"y": 782,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "float",
+					"x": 20000
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "Temperature",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"parameter_guid": "d6b425c99b43f49414c956e3ff71cee6c21c190d",
+			"type": "float"
+		},
+		"_multiply": {
+			"label": "Multiply",
+			"guid": "6c2f08c753c0af7a660c78912943d8bc8797dceb",
+			"x": -735,
+			"y": 1007,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"float": {
+			"label": "float",
+			"guid": "420a3a7f60a985d2c1de6b092740f8d46a940e23",
+			"x": 194,
+			"y": 127,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "0.0",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"type": "float"
+		},
+		"Expression": {
+			"label": "Expression",
+			"guid": "6d48b48361d75006ced667ad4a86252818f4c667",
+			"x": -1132,
+			"y": 644,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Code",
+					"string": "x"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "",
+					"type": "float2",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "x",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"float": {
+			"label": "float",
+			"guid": "05009d2614ca124d97818f488b21ea07ab159fba",
+			"x": 194,
+			"y": 206,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "0.0",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"type": "float"
+		},
+		"srgbInv": {
+			"label": "Srgb Inverse",
+			"guid": "3a8fd8bdb08d42f8068229f786e27eeab95aa141",
+			"x": -105,
+			"y": 406,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Color",
+					"type": "float3",
+					"id": -509366906
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float3",
+					"id": 1723312480
+				}
+			}
+		}
+	},
+	"anchors": {
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float3",
+			"input_label": "Albedo",
+			"input_id": -509366906,
+			"input_node": "829f90678c21529ab2138131aaaf08dc82560e8b",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "0.0",
+			"output_id": 0,
+			"output_node": "420a3a7f60a985d2c1de6b092740f8d46a940e23"
+		},
+		"anchor": {
+			"input_index": 3,
+			"input_type": "float",
+			"input_label": "Specular",
+			"input_id": -452932161,
+			"input_node": "829f90678c21529ab2138131aaaf08dc82560e8b",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "0.0",
+			"output_id": 0,
+			"output_node": "05009d2614ca124d97818f488b21ea07ab159fba"
+		},
+		"anchor": {
+			"input_index": 8,
+			"input_type": "float3",
+			"input_label": "Emission",
+			"input_id": -2120341480,
+			"input_node": "829f90678c21529ab2138131aaaf08dc82560e8b",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "3a8fd8bdb08d42f8068229f786e27eeab95aa141"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "",
+			"input_label": "Material",
+			"input_id": 0,
+			"input_node": "0f2f417e3b3b7ac5ee9bad604fcb013f4b641d92",
+			"output_index": 0,
+			"output_type": "",
+			"output_label": "Material",
+			"output_id": 0,
+			"output_node": "829f90678c21529ab2138131aaaf08dc82560e8b"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float2",
+			"input_label": "",
+			"input_id": 0,
+			"input_node": "341dcd4ece5d74554fd4b9b02e68814fdbf9fe62",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "",
+			"output_id": 0,
+			"output_node": "6f4c58a1f658998c0ac8877be99bd69e2649cd65"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "In",
+			"input_id": -1324699368,
+			"input_node": "4b69d283c979d606e97b35ad6cf89b28f9c8c467",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "Temperature",
+			"output_id": 0,
+			"output_node": "5f5702bb033398dee2a42aa551dfdbc00c1b9c1f"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "In Range Minimum",
+			"input_id": 586471579,
+			"input_node": "4b69d283c979d606e97b35ad6cf89b28f9c8c467",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "0.0",
+			"output_id": 0,
+			"output_node": "98504af5484d5fd017d9b0ef765329826ee3daf9"
+		},
+		"anchor": {
+			"input_index": 2,
+			"input_type": "float",
+			"input_label": "In Range Maximum",
+			"input_id": 413497076,
+			"input_node": "4b69d283c979d606e97b35ad6cf89b28f9c8c467",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "1000.0",
+			"output_id": 0,
+			"output_node": "0bd78f12b224634979f814143bfbf06323ac9a66"
+		},
+		"anchor": {
+			"input_index": 3,
+			"input_type": "float",
+			"input_label": "Out Range Minimum",
+			"input_id": -591517853,
+			"input_node": "4b69d283c979d606e97b35ad6cf89b28f9c8c467",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "0.0",
+			"output_id": 0,
+			"output_node": "1dcf318924120d548fdd18a30a6525a6bdc800cd"
+		},
+		"anchor": {
+			"input_index": 4,
+			"input_type": "float",
+			"input_label": "Out Range Maximum",
+			"input_id": 1033320789,
+			"input_node": "4b69d283c979d606e97b35ad6cf89b28f9c8c467",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "1.0",
+			"output_id": 0,
+			"output_node": "c1e3d722df0a6c19457966a4288281b3f537db76"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float3",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "3e740b23bb2e7626ca94174dcdc1d0483f4b3707",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "Color",
+			"output_id": -321033801,
+			"output_node": "f71c77f3d766dcb6b65eac9d135945588f3088d7"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float3",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "3e740b23bb2e7626ca94174dcdc1d0483f4b3707",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "e2d19a9b5dd08f3e1626ed8511090120cc76c1ff"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "Value",
+			"input_id": 16756516,
+			"input_node": "e2d19a9b5dd08f3e1626ed8511090120cc76c1ff",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "6c2f08c753c0af7a660c78912943d8bc8797dceb"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "Temperature",
+			"input_id": -1739752854,
+			"input_node": "f71c77f3d766dcb6b65eac9d135945588f3088d7",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "17c35918fa320997d08a9a0a17d2c1e15a5b71cc"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "17c35918fa320997d08a9a0a17d2c1e15a5b71cc",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "x",
+			"output_id": 0,
+			"output_node": "6d48b48361d75006ced667ad4a86252818f4c667"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "17c35918fa320997d08a9a0a17d2c1e15a5b71cc",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "Temperature",
+			"output_id": 0,
+			"output_node": "5f5702bb033398dee2a42aa551dfdbc00c1b9c1f"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "6c2f08c753c0af7a660c78912943d8bc8797dceb",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "x",
+			"output_id": 0,
+			"output_node": "341dcd4ece5d74554fd4b9b02e68814fdbf9fe62"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "6c2f08c753c0af7a660c78912943d8bc8797dceb",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "4b69d283c979d606e97b35ad6cf89b28f9c8c467"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float2",
+			"input_label": "",
+			"input_id": 0,
+			"input_node": "6d48b48361d75006ced667ad4a86252818f4c667",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "",
+			"output_id": 0,
+			"output_node": "6f4c58a1f658998c0ac8877be99bd69e2649cd65"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float3",
+			"input_label": "Color",
+			"input_id": -509366906,
+			"input_node": "3a8fd8bdb08d42f8068229f786e27eeab95aa141",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "3e740b23bb2e7626ca94174dcdc1d0483f4b3707"
+		}
+	}
+}

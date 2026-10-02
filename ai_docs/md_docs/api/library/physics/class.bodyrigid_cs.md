@@ -52,7 +52,7 @@ The world coordinates of the body's center of mass.
 ## vec3 CenterOfMass
 
 The coordinates of the center of mass of the body.
-> **Notice:** If the [Shape-based](#setShapeBased_int_void) option is enabled, ajusting this parameter will cause the **assertion failure**, because in this case the center of mass is calculated (i.e. set) automatically.
+> **Notice:** If the [Shape-based](#setShapeBased_int_void) option is enabled, the center of mass is calculated automatically from the body's shapes: an assigned value is immediately overwritten (in a debug build such an attempt causes an **assertion failure**). Disable the option to set the center of mass manually.
 
 
 ## 🔒︎ mat3 IWorldInertia
@@ -61,7 +61,7 @@ The inverse [inertia tensor](#setInertia_mat3_void) of the body, in the world co
 ## mat3 Inertia
 
 The [inertia tensor](#setInertia_mat3_void) of the body. The inertia tensor describes the distribution of the mass over the body relative to the body's center of mass.
-> **Notice:** If the [Shape-based](#setShapeBased_int_void) option is enabled, ajusting this parameter will cause the **assertion failure**, because in this case the inertia tensor is calculated (i.e. set) automatically.
+> **Notice:** If the [Shape-based](#setShapeBased_int_void) option is enabled, the inertia tensor is calculated automatically from the body's shapes: an assigned value is immediately overwritten (in a debug build such an attempt causes an **assertion failure**). Disable the option to set the inertia tensor manually.
 
 
 ## 🔒︎ float IMass
@@ -70,7 +70,7 @@ The inverse mass of the body.
 ## float Mass
 
 The body mass. If *g* (Earth's gravity) equals to 9.8 m/s2, and 1 unit equals to 1 m, the mass is measured in kilograms.
-> **Notice:** If the [Shape-based](#setShapeBased_int_void) option is enabled, ajusting this parameter will cause the **assertion failure**, because in this case the mass is calculated (i.e. set) automatically.
+> **Notice:** If the [Shape-based](#setShapeBased_int_void) option is enabled, the mass is calculated automatically from the body's shapes: an assigned value is immediately overwritten (in a debug build such an attempt causes an **assertion failure**). Disable the option to set the mass manually.
 
 
 ## bool HighPriorityContacts
@@ -84,7 +84,7 @@ The value indicating if the body has the priority of handling detected contacts 
 The value indicating if the object is freezable, meaning that it is not simulated if both its linear and angular velocities are below "freeze" ones (see *[setFrozenLinearVelocity](#setFrozenLinearVelocity_float_void) and [setFrozenAngularVelocity](#setFrozenAngularVelocity_float_void)* functions).
 ## bool ShapeBased
 
-The value indicating if mass and inertia of the body are bound to its shape properties and cannot be changed manually.
+The value indicating if mass, inertia, and center of mass of the body are bound to its shape properties and cannot be changed manually.
 ### Members
 
 ---

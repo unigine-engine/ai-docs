@@ -55,8 +55,9 @@ The project can be created with the following **features**:
 |---|---|
 | Command-line Build�Tool | Enables the [Command-line Build Tool](../../editor2/projects/build_project.md#console_build) for the project. |
 | Sandworm Distributed�& Headless Mode | Enables creation of the console application required on *Worker* computers for [distributed computing and headless generation](../../editor2/sandworm/generation/distributed_computing/index.md) of terrain using the Sandworm tool for the project. |
-| Editor Plugin�Template | Enables the creation of an [editor plugin](../../editor2/extensions/custom_plugin.md) based on available templates for the project. |
-| Engine Plugin�Template | Enables creation of an [Engine plugin](../../code/cpp/plugin.md#step_1) to extend the core functionality of the Engine. |
+| AI Toolkit | Adds the UNIGINE documentation and code samples in a form AI assistants can read, together with the MCPBridge plugin that opens the Editor to them. See [AI-Assisted Development in UNIGINE](../../code/coding_with_ai/index.md). |
+| Template Editor�Plugin | Enables the creation of an [editor plugin](../../editor2/extensions/custom_plugin.md) based on available templates for the project. |
+| Template Engine�Plugin | Enables creation of an [Engine plugin](../../code/cpp/plugin.md#step_1) to extend the core functionality of the Engine. |
 
 
 The **Plugins (0)** button opens the list of available plugins:

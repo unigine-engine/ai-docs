@@ -8,6 +8,9 @@
 This class controls the gamepad physical touch panel event information.
 
 
+Events of this type are created by the engine and passed to your handlers. You can also construct one yourself and dispatch it via *[Input::sendEvent()](../../../api/library/controls/class.input_cpp.md#sendEvent_InputEvent_void)*, which is what a custom SystemProxy implementation or a device emulator does.
+
+
 ### See Also
 
 
@@ -58,27 +61,27 @@ Touch panel input event constructor.
 
 ## void setConnectionID ( int connectionid )
 
-Sets the connection identifier.
+Sets the identifier of the device connection the event comes from. See *[getConnectionID()](../../...md#getConnectionID_int)*.
 ### Arguments
 
 - *int* **connectionid** - The connection identifier.
 
 ## int getConnectionID ( ) const
 
-Returns the connection identifier.
+Returns the identifier of the device connection the event comes from � the value assigned by the OS when the device was connected. The engine uses it to match the event against a device slot; it is not the slot index itself.
 ### Return value
 
 The connection identifier.
 ## void setAction ( InputEventPadTouchMotion::ACTION action )
 
-Sets the type of the touch panel input event.
+Sets the action the event represents. See *[getAction()](../../...md#getAction_int)*.
 ### Arguments
 
 - *[InputEventPadTouchMotion::ACTION](../../../api/library/controls/class.inputeventpadtouchmotion_cpp.md#ACTION)* **action** - The type of the touch input event, one of the [ACTION_*](#ACTION_DOWN) values.
 
 ## InputEventPadTouchMotion::ACTION getAction ( ) const
 
-Returns the type of the touch panel input event.
+Returns the action the event represents: one of the [ACTION](#ACTION) values � the finger touched the panel, moved across it, or was lifted.
 ### Return value
 
 The type of the touch input event, one of the [ACTION_*](#ACTION_DOWN) values.
@@ -91,7 +94,7 @@ Sets the index of the gamepad touch panel.
 
 ## int getTouch ( ) const
 
-Returns the index of the gamepad touch panel.
+Returns the index of the gamepad touch panel that generated the event. The index is within the number of panels reported by *[InputGamePad::getNumTouches()](../../../api/library/controls/class.inputgamepad_cpp.md#getNumTouches_int)*.
 ### Return value
 
 The index of the gamepad touch panel, the number from 0 to the [total number](../../../api/library/controls/class.inputgamepad_cpp.md#getNumTouches_int) of touch panels.
@@ -104,7 +107,7 @@ Sets the index of the finger.
 
 ## int getTouchFinger ( ) const
 
-Returns the index of the finger.
+Returns the index of the finger that generated the event. A panel tracks several fingers at once; the index is within the number reported by *[InputGamePad::getNumTouchFingers()](../../../api/library/controls/class.inputgamepad_cpp.md#getNumTouchFingers_int_int)*.
 ### Return value
 
 The index of the finger, the number from 0 to the [total number](../../../api/library/controls/class.inputgamepad_cpp.md#getNumTouchFingers_int_int) of supported fingers.
@@ -117,7 +120,7 @@ Sets the touch position.
 
 ## Math:: vec2 getPosition ( ) const
 
-Returns the current touch position.
+Returns the position of the finger on the touch panel, normalized to the [0; 1] range along both axes, with (0,0) at the upper-left corner of the panel.
 ### Return value
 
 The normalized position of the touch along the axes from (0,0) to (1,1).
@@ -130,7 +133,7 @@ Sets the pressure with which the finger is pressed.
 
 ## float getPressure ( ) const
 
-Returns the pressure with which the finger is pressed.
+Returns how hard the finger presses the panel, normalized to the [0; 1] range.
 ### Return value
 
 The pressure with which the finger is currently pressed, a value from 0 (not pressed) to 1 (fully pressed).

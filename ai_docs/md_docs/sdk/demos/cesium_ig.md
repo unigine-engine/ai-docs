@@ -1,10 +1,13 @@
-# Cesium Demo
+# Cesium Integration Demo
 
 > **Warning:** The functionality described in this article is not available in the Community SDK edition.
 > You should upgrade to [**Sim**](https://l.unigine.com/SdhugY462) SDK edition to use it.
 
 
-*Cesium* demo showcases the use of a UNIGINE-based application as an *[Image Generator (IG)](../../ig/index.md)* that interacts with a host via the CIGI protocol (versions 3.0, 3.1, 3.2, and 3.3 are supported), flying over real-world planet data streamed from [Cesium ion](https://cesium.com/platform/cesium-ion/).
+> **Warning:** **Disclaimer:** This demo and the *[Cesium](../../code/plugins/cesium/index_cpp.md)* integration plugin provide only the client-side ability to stream *3D Tiles* content, including from the *Cesium ion* service. The plugin is built by UNIGINE using the open-source cesium-native library (Apache License 2.0); no other Cesium software, no *Cesium ion* account or access token, and no map data are included. You connect using your own *Cesium ion* account under your own agreement with Cesium GS, Inc. All data is streamed directly from *Cesium ion* at runtime and kept in memory only � nothing is cached to disk, accumulated, or redistributed, and no usage data is collected.
+
+
+*Cesium Integration* demo showcases the use of a UNIGINE-based application as an *[Image Generator (IG)](../../ig/index.md)* that interacts with a host via the CIGI protocol (versions 3.0, 3.1, 3.2, and 3.3 are supported), flying over real-world planet data streamed from [Cesium ion](https://cesium.com/platform/cesium-ion/).
 
 
 Global elevation and imagery are streamed on demand by the *[Cesium](../../code/plugins/cesium/index_cpp.md)* plugin, with high-detail [terrain insets](../../code/plugins/cesium/insets.md) swapped in at the places that matter, and globe-aware *[Weather](../../ig/weather/index.md)* on top.
@@ -145,7 +148,7 @@ Help area on the right provides the following information:
 
 You can study and modify the source code of this demo to create your own projects. To access the source code do the following:
 
-1. Find the **Cesium Demo** demo in the *Demos* section and click **[Install](/sdk/#samples)** (if you haven't installed it yet).
+1. Find the **Cesium Integration Demo** demo in the *Demos* section and click **[Install](/sdk/#samples)** (if you haven't installed it yet).
 2. After successful installation the demo will appear in the *Installed* section, and you can click **Copy as Project** to create a project based on this demo. ![](../../sdk/demos/copy_as_project_gen.png)
 3. In the **Create New Project** window, that opens, enter the name for your new project in the corresponding field and click **Create New Project**. ![](../../sdk/projects/create_project_cpp.png)
 4. Now you can click **Open Code IDE** to check and modify source code in your default IDE, or click **Open Editor** to open the project in the [UnigineEditor](/editor2/). ![](../../sdk/projects/edit_code.png)

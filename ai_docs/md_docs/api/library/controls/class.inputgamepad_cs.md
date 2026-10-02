@@ -114,7 +114,7 @@ Sets the amount of vibration for the right (high-frequency) and left (low-freque
 
 ## bool IsButtonPressed ( Input.GAMEPAD_BUTTON button )
 
-Returns a value indicating if the given button is pressed.
+Returns a value indicating if the given button is currently held down. Unlike *[IsButtonDown()](../../...md#isButtonDown_int_int)*, which is true only in the frame the button went down, this value stays true for as long as the button is held � check it to perform a continuous action.
 ### Arguments
 
 - *[Input.GAMEPAD_BUTTON](../../../api/library/controls/class.input_cs.md#GAMEPAD_BUTTON)* **button** - One of the [Input.GAMEPAD_BUTTON](../../../api/library/controls/class.input_cs.md#GAMEPAD_BUTTON) enum values.
@@ -144,7 +144,7 @@ Returns a value indicating if the given button was released during the current f
 true if the button was released during the current frame; otherwise, false.
 ## InputEventPadButton GetButtonEvent ( Input.GAMEPAD_BUTTON button )
 
-Returns the currently processed gamepad button input event.
+Returns the gamepad button event currently being processed for the given button. Use *[GetButtonEvents()](../../...md#getButtonEvents_int_VECInputEventPadButton_int)* to get all events received for this button.
 ### Arguments
 
 - *[Input.GAMEPAD_BUTTON](../../../api/library/controls/class.input_cs.md#GAMEPAD_BUTTON)* **button** - One of the [Input.GAMEPAD_BUTTON](../../../api/library/controls/class.input_cs.md#GAMEPAD_BUTTON) enum values.
@@ -154,7 +154,7 @@ Returns the currently processed gamepad button input event.
 Gamepad button input event, or null if there are no events for the specified gamepad button in the current frame.
 ## int GetButtonEvents ( Input.GAMEPAD_BUTTON button , InputEventPadButton [] OUT_events )
 
-Returns the number of input events for the specified gamepad button and puts the events to the specified output buffer.
+Returns the number of input events received for the specified gamepad button and puts the events to the specified buffer.
 ### Arguments
 
 - *[Input.GAMEPAD_BUTTON](../../../api/library/controls/class.input_cs.md#GAMEPAD_BUTTON)* **button** - One of the [Input.GAMEPAD_BUTTON](../../../api/library/controls/class.input_cs.md#GAMEPAD_BUTTON) enum values.
@@ -208,7 +208,7 @@ Returns a value indicating if the given touch panel has been released during the
 true if the touch panel has been released during the current frame, otherwise false.
 ## vec2 GetTouchPosition ( int touch , int finger )
 
-Returns the normalized position of the touch along the axes.
+Returns the position of the given finger on the given touch panel, normalized to the [0; 1] range along both axes, with (0,0) at the upper-left corner of the panel.
 ### Arguments
 
 - *int* **touch** - The index of the gamepad touch panel, the number from 0 to the [total number](#getNumTouches_int) of touch panels.
@@ -219,7 +219,7 @@ Returns the normalized position of the touch along the axes.
 The normalized position of the touch along the axes from (0,0) to (1,1).
 ## vec2 GetTouchDelta ( int touch , int finger )
 
-Returns the delta of the touch position from the previous event.
+Returns how far the given finger has moved on the panel since the previous frame, in the same normalized units as the position. (0,0) is returned while the finger is not touching the panel.
 ### Arguments
 
 - *int* **touch** - The index of the gamepad touch panel, the number from 0 to the [total number](#getNumTouches_int) of touch panels.
@@ -247,7 +247,7 @@ Returns the GUID created on the basis of vendor and product identifiers and prod
 Device model GUID.
 ## void SetLightColor ( vec3 color )
 
-Sets the color of the controller's light. Has no effect if the controller has no application-controllable light (check the **[IsLightSupported](../../...md#isLightSupported_int)** property).
+Sets the color of the controller's light. Has no effect if the controller has no application-controllable light (check the **[IsLightSupported](../../...md#isLightSupported_int)** *property*).
 ### Arguments
 
 - *vec3* **color** - RGB color of the light, with components in the [0; 1] range.

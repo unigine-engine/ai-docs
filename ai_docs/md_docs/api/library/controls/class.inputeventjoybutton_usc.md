@@ -8,6 +8,9 @@
 This class controls joystick button event information.
 
 
+Events of this type are created by the engine and passed to your handlers. You can also construct one yourself and dispatch it via *[engine.input.sendEvent()()](../../../api/library/controls/class.input_usc.md#sendEvent_InputEvent_void)*, which is what a custom SystemProxy implementation or a device emulator does.
+
+
 ## InputEventJoyButton Class
 
 ### Members
@@ -34,44 +37,44 @@ Joystick button input event constructor.
 - *ivec2* **mouse_pos** - Position of the mouse.
 - *int* **action** - Type of the joystick button input event, one of the [INPUT_EVENT_JOY_BUTTON_ACTION_*](#ACTION_DOWN) values.
 - *int* **connection_id** - Connection identifier.
-- *int* **button** - Joystick button index.
+- *int* **button** - POV hat direction, one of the *[INPUT_JOYSTICK_POV_*()](../../../api/library/controls/class.input_usc.md#JOYSTICK_POV_NOT_PRESSED)* values.
 
 ## void setAction ( int action )
 
-Sets the type of the joystick button input event.
+Sets the action the event represents. See *[getAction()()](../../...md#getAction_int)*.
 ### Arguments
 
 - *int* **action** - Type of the joystick button input event, one of the [INPUT_EVENT_JOY_BUTTON_ACTION_*](#ACTION_DOWN) values.
 
 ## int getAction ( )
 
-Returns the type of the joystick button input event.
+Returns the action the event represents: one of the [ACTION](#ACTION) values � the button was pressed or released.
 ### Return value
 
 Type of the joystick button input event, one of the [INPUT_EVENT_JOY_BUTTON_ACTION_*](#ACTION_DOWN) values.
 ## void setConnectionID ( int id )
 
-Sets the connection identifier.
+Sets the identifier of the device connection the event comes from. See *[getConnectionID()()](../../...md#getConnectionID_int)*.
 ### Arguments
 
 - *int* **id** - Connection identifier.
 
 ## int getConnectionID ( )
 
-Returns the current connection identifier.
+Returns the identifier of the device connection the event comes from � the value assigned by the OS when the device was connected. The engine uses it to match the event against a device slot; it is not the slot index itself.
 ### Return value
 
 Connection identifier.
 ## void setButton ( int button )
 
-Sets the joystick button index.
+Sets the POV hat direction carried by the event. See *[getButton()()](../../...md#getButton_int)*.
 ### Arguments
 
-- *int* **button** - Joystick button index.
+- *int* **button** - POV hat direction, one of the *[INPUT_JOYSTICK_POV_*()](../../../api/library/controls/class.input_usc.md#JOYSTICK_POV_NOT_PRESSED)* values.
 
 ## int getButton ( )
 
-Returns the joystick button index.
+Returns the direction the POV hat points at � one of the [Input::JOYSTICK_POV](../../../api/library/controls/class.input_usc.md#JOYSTICK_POV) values.
 ### Return value
 
-Joystick button index.
+POV hat direction, one of the *[INPUT_JOYSTICK_POV_*()](../../../api/library/controls/class.input_usc.md#JOYSTICK_POV_NOT_PRESSED)* values.

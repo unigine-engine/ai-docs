@@ -270,6 +270,90 @@ The template includes three vehicle types by default (`PEGASUS_CARS, BILLY_CARS,
 > **Notice:** Keep in mind that excessive vehicle detail will negatively impact performance. Use the lowest possible model quality that remains visually acceptable for background traffic simulation.
 
 
+## Configuring Water Traffic
+
+
+The template provides a simplified *[water traffic simulation](../../../sdk/templates/fixedwing/water_traffic.md)*. When you change the terrain, the shipping lanes will also need to be updated to match the new coastline.
+
+
+![](../custom/img/custom_boat.png)
+
+
+### Editing Vessel Routes
+
+
+A route is a *NodeDummy* carrying the `EntitySplineMovement` component, with its child nodes acting as waypoints. To change where a vessel sails, move these child nodes. Since no spline node is involved, editing a lane requires no dedicated tool - the waypoints are moved like any other node in the scene. Adding a waypoint requires adding another child to the route node.
+
+
+You can create a new route by copying an existing one with its waypoints and setting the new position for the parent node (`path_*`), or build a new one from scratch:
+
+
+1. Create a *NodeDummy* anywhere in the world and assign the `EntitySplineMovement` property to it.
+2. Right-click the node in the *World Nodes Hierarchy* window and select *Create -> Node -> Dummy* to add a waypoint. Repeat for the other waypoints. ![](../custom/img/custom_w_route.png)
+3. Place the waypoints within the water area along the lane the vessel should follow (only their horizontal position is taken into account).
+
+
+The vessel **visits the waypoints in the order they are listed in the hierarchy**, not in the order they are placed in the scene, and returns from the last one to the first.
+
+
+> **Notice:** Routes must stay within the area of the *[Global Water](../../../objects/objects/water/water_object.md)* object, as vessels are placed on its wave surface. The spline is built at initialization, so route changes take effect on the next world load.
+
+
+### Adding a Vessel
+
+
+Vessel models are **IG entities** rather than scene nodes, so a vessel is defined by two `EntitySplineMovement` component parameters: *Entity Type* selects the model declared in the *[<entity_types>](../../../ig/config.md#config_entities)* section of the `ig_config.xml` file, while *Entity Id* identifies the individual instance. A single type can back any number of instances.
+
+
+Reusing a type that is already declared requires no changes to `ig_config.xml`. To bring in a model of your own, declare a new entity type, with the path to the `.node` file relative to the `data` folder:
+
+
+```xml
+<entity_types>
+	...
+	<entity id="30" name="my_ship">
+		<path>my_ship/my_ship.node</path>
+	</entity>
+</entity_types>
+
+```
+
+
+To add your own vessel to the scene:
+
+
+1. *[Import](../../../editor2/assets_workflow/assets_create_import.md)* your model into the `data` folder of the project and place it in the world. > **Notice:** The vessel node must be oriented along the **+Y** axis.
+2. Drag the node from the *World Nodes* hierarchy to the Asset Browser to save it as a `.node` file. [![](../custom/img/custom_ship_add_sm.png)](../custom/img/custom_ship_add.png)
+3. Declare the `.node` file in `ig_config.xml`.
+4. In the `EntitySplineMovement` component's parameters of the route parent node, assign an *Entity Id* that is not used by any other vessel. ![](../modules/water_traffic/img/component.png)
+5. Set *Entity Type* to the model from `ig_config.xml` this vessel should use, and adjust *Speed* (in meters per second) and *Z Offset* (negative values) to lower the vessel into the water, down to its waterline.
+
+
+The *Inertion* parameter of the component sets how quickly the vessel adjusts to the surface: a lower value makes the motion smoother, which suits a small craft moving fast, and a larger hull can take a higher rate. The tilt of the vessel comes from wave heights *[measured around it](../../../sdk/templates/fixedwing/water_traffic.md#logic_water)*, at a distance proportional to its size and scaled by *Radius Factor*: smaller vessels need a larger value, as the default keeps the measurements too close to the hull for the waves to tilt it.
+
+
+#### Adding a Wake
+
+
+A wake is made of *DecalMesh* nodes driven by the `KelvinWake` and `TurbulentWake` properties. Such nodes can be created from scratch, or copied from a template vessel along with the materials and settings already tuned for it:
+
+
+1. Place `template_assets/supply_ship/supply_ship.node` in the world and open it for *[editing](../../../objects/nodes/reference/index.md#reference_editing)*. For a small craft, take `modules/ig/entities/maritime/zodiac_boat/zodiac_boat.node` instead: copy it to the `data` folder first.
+2. Copy the `wake` node with all its children - the *DecalMesh* nodes and the *NodeDummy* nodes carrying the wake properties.
+3. Open the custom model for editing, paste the node as a child to the hull, and place the decals along it.
+4. Set *Ship Hull* and *Ship Width* to the dimensions of the model in meters, and scale *Step Distance* accordingly - a shorter step for a smaller vessel. [![](../custom/img/custom_add_wake_sm.png)](../custom/img/custom_add_wake.png)
+5. Apply the changes to save them to the `.node` file.
+
+
+A wake built from scratch requires two things to be set up manually. Each *DecalMesh* node needs its own material: the wake decal is inherited from `kelvin_wake.mgraph`, the foam decals from `particles.mgraph`. And in every wake property, the *Decal Mesh Node* parameter must point to the node it drives.
+
+
+A large vessel may also need *[Field Spacer](../../../objects/effects/fields/field_spacer/index.md)* nodes, which cut the water off inside the hull so that it does not show through the deck. `supply_ship.node` carries three of them shaped to the hull, the superstructure and the stern. Copy them next to the model geometry, or *[create your own](../../../objects/effects/fields/field_spacer/index.md#adding)* to match its shape.
+
+
+> **Notice:** Field Spacers affect the water only if the *FieldSpacer Interaction* flag is set in the *States* section of the water material.
+
+
 ## Object Placement with PathPlacer
 
 

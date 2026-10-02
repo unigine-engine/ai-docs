@@ -5,7 +5,7 @@ This folder contains UNIGINE Engine documentation and code samples exported as M
 ## Folder Structure
 
 ```
-docs/
+ai_docs/
 ├── md_docs/           — API reference and articles
 │   ├── SUMMARY.md     — flat index of all pages with short descriptions
 │   └── api/library/   — class documentation (one .md per class)
@@ -15,6 +15,10 @@ docs/
 ├── cs_samples/        — C# code samples (~103 samples)
 │   ├── SUMMARY.md     — flat index with descriptions
 │   └── <category>/    — one .md per sample (README + scene + code)
+├── material_graphs_guides/ — writing material graphs (.mgraph) by hand
+│   ├── README.md      — rules; read it before writing a graph
+│   ├── SUMMARY.md     — one line per example graph
+│   └── examples/      — 83 working graphs, each with a description
 └── README.md          — this file
 ```
 
@@ -39,6 +43,8 @@ grep "Hidden" md_docs/api/library/widgets/ -r
 ```
 
 **Quick lookup via flat index:** read `md_docs/SUMMARY.md`, `cs_samples/SUMMARY.md`, or `cpp_samples/SUMMARY.md` — all pages listed in one file with brief descriptions.
+
+**Write a material graph (`.mgraph`):** read `material_graphs_guides/README.md`, then take the closest example from `material_graphs_guides/SUMMARY.md`.
 
 ## UNIGINE Engine Key Concepts
 

@@ -1,4 +1,4 @@
-# Machine Learning Agents Demo
+# Unigine ML Integration
 
 
 ![](ml_main.png)
@@ -28,7 +28,7 @@ Reinforcement learning is the go-to solution anywhere the environment is too com
 - **Testing** the simulation itself - finding gaps in collision, exploitable joints and states your logic never anticipated
 
 
-**Machine Learning Agents** (**ML Agents**) demo is a practical starting point for **training intelligent agents**: four worlds - *[Route Follow](#world_route)*, *[Chase](#world_chase)*, *[Line Follow](#world_line)* and *[Soccer](#world_soccer)* - in which an agent *independently learns* to perform a given task by trial and error. Each of them is a different way of connecting agents, perception and rewards, and together they cover the patterns most tasks are built from.
+**Unigine ML Integration** demo is a practical starting point for **training intelligent agents**: four worlds - *[Route Follow](#world_route)*, *[Chase](#world_chase)*, *[Line Follow](#world_line)* and *[Soccer](#world_soccer)* - in which an agent *independently learns* to perform a given task by trial and error. Each of them is a different way of connecting agents, perception and rewards, and together they cover the patterns most tasks are built from.
 
 
 Every world comes with a neural network already trained in a certain environment, so you can observe the agents perform their task from the very first launch. The demo also ships with a complete trainer, so you can train any of them from scratch and watch a policy form as it goes - all backed by the physical accuracy, visual fidelity and scalability the Engine brings to whatever you build on it.
@@ -141,7 +141,7 @@ Runs are repeatable: routes, obstacles and starting positions are generated from
 ### Episode
 
 
-One complete attempt at the task, from the starting state to an outcome: the route is completed, the cube falls off the platform, the runner is caught, or the time limit is reached. An episode is counted in **steps**, one per decision the agent takes, and ends once it runs out of them even if nothing else has happened. The environment is then reset and the next attempt begins.
+One complete attempt at the task, from the starting state to an outcome: the route is completed, the cube falls off the platform, the runner is caught, or the time limit is reached. An episode is counted in the **steps** the agent takes and ends once it runs out of them even if nothing else has happened. The environment is then reset and the next attempt begins.
 
 
 The number of episodes the agent needs to learn depends on the task - the simplest of them are trained within minutes, while more complex ones can take thousands of attempts.
@@ -306,20 +306,20 @@ The trainer runs on a *Python 3.10*, *3.11* or *3.12* environment. Create it and
 
 
 ```bash
-py -3.12 -m venv .venv
-.venv\Scripts\activate
+py -3.12 -m venv .venv                  # Linux: python3.12 -m venv .venv
+.venv\Scripts\activate                  # Linux: source .venv/bin/activate
 pip install -r trainer/requirements.txt
 ```
 
 
-Keep the environment activated in the terminal you start the trainer from.
+Keep the environment activated in the terminal you start the trainer from. The installation is only done once, so later you will only have to activate it with `.venv\Scripts\activate` (`source .venv/bin/activate` on Linux) every time before running the trainer.
 
 
 The demo connects to the trainer, so the trainer has to be started first:
 
 
-1. Run `train.py` from the demo's `trainer` folder. The trainer prints the port it is listening on - 5004 by default - and waits for the demo to connect. The port, the behaviors to train, the algorithm and its parameters are all defined in `trainer/config.yaml`.
-2. Run the demo with the following *[startup arguments](../../sdk/projects/index_cpp.md#customize_run)*: ```bash --trainer-port 5004 ``` ![](mlc_run_train.png) The demo will connect to the trainer and report which behaviors the scene contains, and the trainer will create a model for each of them.
+1. Run `train.py`. ```bash python trainer/train.py ``` The trainer prints the port it is listening on - 5004 by default - and waits for the demo to connect. The port, the behaviors to train, the algorithm and its parameters are all defined in `trainer/config.yaml`.
+2. Run the demo with the following *[startup arguments](../../sdk/projects/index_cpp.md#customize_run)*: ```bash --trainer-port 5004 ``` ![](mlc_guide/mlc_run_train.png) The demo will connect to the trainer and report which behaviors the scene contains, and the trainer will create a model for each of them.
 
 
 The connection status is reported in the *[statistics window](#stats)*.
@@ -343,7 +343,7 @@ python -m tensorboard.main --logdir results/tb
 The command prints an address to open in a browser. It picks up every run stored in that folder and draws them on the same chart, one line per behavior, so they can be compared.
 
 
-Training stops when the agents reach the number of steps set in the configuration file, or as soon as you close the trainer or the demo. Whichever way it ends, the trainer saves the model and exports it to *ONNX*, ready to be *[used in the scene](#run_onnx)*. It also writes a checkpoint to the `results` folder every 100,000 steps by default - set *checkpoint_freq* in `trainer/config.yaml` to change the interval.
+Training stops when the agents reach the number of steps set in the configuration file, or as soon as you close the trainer or the demo. Whichever way it ends, the trainer saves the model and exports it to *ONNX*, ready to be *[used in the scene](#run_onnx)*. It also writes a checkpoint to the `results` folder every 100,000 steps of one agent by default (i.e. 1,600,000 steps of a run with 16 agents) - set *checkpoint_freq* in `trainer/config.yaml` to change the interval.
 
 
 ##### Headless Mode
@@ -456,7 +456,7 @@ By default the agents are listed in the order they were registered. The list can
 ## Third-Party Notices
 
 
-This section contains licensing information about third-party components used in *ML Agents Demo*.
+This section contains licensing information about third-party components used in *Unigine ML Integration*.
 
 
 ### gRPC
@@ -580,9 +580,13 @@ THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 You can study and modify the source code of this demo to create your own projects. To access the source code do the following:
 
-1. Find the **Machine Learning Agents Demo** demo in the *Demos* section and click **[Install](/sdk/#samples)** (if you haven't installed it yet).
+1. Find the **Unigine ML Integration** demo in the *Demos* section and click **[Install](/sdk/#samples)** (if you haven't installed it yet).
 2. After successful installation the demo will appear in the *Installed* section, and you can click **Copy as Project** to create a project based on this demo. ![](../../sdk/demos/copy_as_project_gen.png)
 3. In the **Create New Project** window, that opens, enter the name for your new project in the corresponding field and click **Create New Project**. ![](../../sdk/projects/create_project_cpp.png)
 4. Now you can click **Open Code IDE** to check and modify source code in your default IDE, or click **Open Editor** to open the project in the [UnigineEditor](/editor2/). ![](../../sdk/projects/edit_code.png)
 
 ## Articles in This Section
+
+- [Building Your Own ML Agent](../../sdk/demos/ml_agents_customization.md)
+
+- [Unigine ML Integration API](../../sdk/demos/ml_agents_api.md)

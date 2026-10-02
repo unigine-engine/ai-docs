@@ -11,6 +11,11 @@
 - `ai_docs/md_docs/` — full engine documentation: API reference (one file per class), guides, and concepts (~2000 pages). Each API page contains method signatures, parameters, return types, and code examples
 - `ai_docs/cpp_samples/` — C++ code examples. Each sample is a folder with README.md (description), source files (.cpp/.h), and .world scene file
 - `ai_docs/cs_samples/` — C# code examples (same structure, .cs files)
+- `ai_docs/material_graphs_guides/README.md` — writing material graphs (`.mgraph`) by hand: rules, node index, core subgraphs, 83 working examples. When the user asks for a material graph, read it before writing the file
+
+## Editor MCP
+
+When the client has the `unigine-mcp` tools, the UNIGINE Editor is connected to you through the MCPBridge plugin. The tools read and change what is open in the Editor right now — the world, nodes, materials, assets, settings — so ask them about the scene before reading `.world`, `.node` or `.mat` files. What the plugin is and how it is set up: `ai_docs/md_docs/code/coding_with_ai/index.md`, section *Editor Integration (EXPERIMENTAL)*.
 
 ## CRITICAL RULES
 
@@ -77,6 +82,7 @@ These rules are non-negotiable. Violating them produces broken code and wastes t
     - If a task is solved in the Editor or another tool (a button, a menu, a panel, a manual step), don't try to do it in code — give the user clear step-by-step instructions instead.
     - If a task is code, don't answer "click such-and-such menu" — write the code.
     - When you find an answer, check which area of the docs it came from and confirm it matches what the task actually needs.
+    - When the user asks for something done in the Editor and the `unigine-mcp` tools are connected (see *Editor MCP*), do it through them instead of giving instructions. The user keeps working in the same Editor meanwhile: read the current state right before each change, touch only what the task needs, and report what you changed. Your edits share the Editor's undo history with the user's.
 
 ## VERIFICATION CHECKLIST
 

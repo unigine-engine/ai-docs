@@ -8,6 +8,9 @@
 This class controls the game pad axis motion event information.
 
 
+Events of this type are created by the engine and passed to your handlers. You can also construct one yourself and dispatch it via *[engine.input.sendEvent()()](../../../api/library/controls/class.input_usc.md#sendEvent_InputEvent_void)*, which is what a custom SystemProxy implementation or a device emulator does.
+
+
 ## InputEventPadAxisMotion Class
 
 ### Members
@@ -38,40 +41,40 @@ Game pad axis motion event constructor.
 
 ## void setConnectionID ( int id )
 
-Sets the connection identifier.
+Sets the identifier of the device connection the event comes from. See *[getConnectionID()()](../../...md#getConnectionID_int)*.
 ### Arguments
 
 - *int* **id** - Connection identifier to be set.
 
 ## int getConnectionID ( )
 
-Returns the current connection identifier.
+Returns the identifier of the device connection the event comes from � the value assigned by the OS when the device was connected. The engine uses it to match the event against a device slot; it is not the slot index itself.
 ### Return value
 
 Connection identifier.
 ## void setAxis ( int axis )
 
-Sets the game pad axis.
+Sets the gamepad axis the event refers to. See *[getAxis()()](../../...md#getAxis_int)*.
 ### Arguments
 
 - *int* **axis** - The game pad axis, one of the *[INPUT_GAME_PAD_AXIS_*()](../../../api/library/controls/class.input_usc.md#GAMEPAD_AXIS_LEFT_X)* values.
 
 ## int getAxis ( )
 
-Returns the game pad axis.
+Returns the gamepad axis the event refers to � one of the [Input::GAMEPAD_AXIS](../../../api/library/controls/class.input_usc.md#GAMEPAD_AXIS) values.
 ### Return value
 
 The game pad axis, one of the *[INPUT_GAME_PAD_AXIS_*()](../../../api/library/controls/class.input_usc.md#GAMEPAD_AXIS_LEFT_X)* values.
 ## void setValue ( float value )
 
-Sets the axis position value.
+Sets the axis position carried by the event. See *[getValue()()](../../...md#getValue_float)*.
 ### Arguments
 
 - *float* **value** - The axis position value.
 
 ## float getValue ( )
 
-Returns the axis position value.
+Returns the position of the axis at the moment of the event, in the [-1; 1] range. The sticks use the whole range with zero at the center, while the triggers are reported by the hardware as unsigned values and therefore stay within [0; 1]. The Y axes are inverted, so positive values mean up.
 ### Return value
 
 The axis position value.

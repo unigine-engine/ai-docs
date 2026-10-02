@@ -77,8 +77,10 @@ If the same command is specified multiple times, only the last command will be t
 | **Description:** Enables creating a main window during the application start-up. After starting up the application any window can be created and will work normally. For example, this can be useful in a custom editor or any other application, where there should be no main Engine window. | **Arguments:** **0** - disabled **1** - enabled (by default) |
 | -dlss_application_id | Config file: [*.boot](../code/configuration_file_cpp.md#boot) |
 | **Description:** The DLSS Application ID, provided by NVIDIA. > **Notice:** If no NVIDIA Application ID is available, the Engine uses its own generated project ID instead. | **Arguments:** **[INT_MIN; INT_MAX]** - available range **0** - by default |
+| -dlss_max_contexts | Config file: [*.boot](../code/configuration_file_cpp.md#boot) |
+| **Description:** The maximum number of DLSS contexts (up to 16) at engine startup. This enables better performance management, especially for hardware capable of handling multiple viewports without significant performance loss. | **Arguments:** **[1; 16]** - available range **8** - by default |
 | -fsr_max_contexts | Config file: [*.boot](../code/configuration_file_cpp.md#boot) |
-| **Description:** The number of the FSR contexts. | **Arguments:** **[1; 1024]** - available range **8** - by default |
+| **Description:** The number of the FSR contexts. | **Arguments:** **[1; 16]** - available range **8** - by default |
 
 
 ## File System

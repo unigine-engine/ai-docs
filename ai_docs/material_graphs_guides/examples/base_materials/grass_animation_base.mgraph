@@ -1,0 +1,3306 @@
+{
+	"material": {
+		"type": 1,
+		"normal_space": 2,
+		"vertex_position_space": 1,
+		"vertex_offset_space": 2,
+		"vertex_mode": 1,
+		"advanced_mode": false,
+		"compiler_ieee_strictness": false,
+		"compiler_optimization_level": 4,
+		"compiler_warning_mode": 2,
+		"cast_gi": false,
+		"depth_shadow": true,
+		"screen_projection": false,
+		"force_velocity": true,
+		"tessellation": false,
+		"two_sided": true,
+		"depth_test": true,
+		"scene_depth_write": true,
+		"depth_mode": 0,
+		"decal_tbn_mode": 0,
+		"normal_blend_mode": 0,
+		"render_order_full": "After Post Materials",
+		"render_order_friendly": "Before Post Materials",
+		"user_mode": "Artist Friendly",
+		"blend_mode": 0,
+		"blend_src": 5,
+		"blend_dest": 6,
+		"opacity_depth_write": true,
+		"velocity_write": true,
+		"surface_id_write": true
+	},
+	"parameters": {
+		"parameter": {
+			"type": "Texture2D",
+			"guid": "f9abe0d35a58701601bb687d32ca0fb8dbed0fb7",
+			"value": {
+				"type": "Texture2D",
+				"name": "albedo",
+				"min_value": 0,
+				"max_value": 1,
+				"asset": "5219d6ddb5dbd1520e843a369ad2b64326bb24e2",
+				"anisotropy": true,
+				"manual_filtering": false,
+				"force_streaming": false,
+				"wrap_x": 0,
+				"wrap_y": 0,
+				"wrap_z": 0
+			}
+		},
+		"parameter": {
+			"type": "Texture2D",
+			"guid": "dfdc120f0d44d822725d79191cdf0fa41b0216b3",
+			"value": {
+				"type": "Texture2D",
+				"name": "albedo_2",
+				"min_value": 0,
+				"max_value": 1,
+				"asset": "5219d6ddb5dbd1520e843a369ad2b64326bb24e2",
+				"anisotropy": true,
+				"manual_filtering": false,
+				"force_streaming": false,
+				"wrap_x": 0,
+				"wrap_y": 0,
+				"wrap_z": 0
+			}
+		},
+		"parameter": {
+			"type": "Texture2D",
+			"guid": "367ef26f42507d02e186187981cf67849319cd13",
+			"value": {
+				"type": "Texture2D",
+				"name": "specular_normal",
+				"min_value": 0,
+				"max_value": 1,
+				"asset": "692dbb7d56d633e22551bd47f4d92cd2d498270d",
+				"anisotropy": true,
+				"manual_filtering": false,
+				"force_streaming": false,
+				"wrap_x": 0,
+				"wrap_y": 0,
+				"wrap_z": 0
+			}
+		},
+		"parameter": {
+			"type": "Texture2D",
+			"guid": "10c3054c4ede803b6a95f85ea83004255022e740",
+			"value": {
+				"type": "Texture2D",
+				"name": "albedo_mask",
+				"min_value": 0,
+				"max_value": 1,
+				"asset": "5219d6ddb5dbd1520e843a369ad2b64326bb24e2",
+				"anisotropy": true,
+				"manual_filtering": false,
+				"force_streaming": false,
+				"wrap_x": 0,
+				"wrap_y": 0,
+				"wrap_z": 0
+			}
+		},
+		"parameter": {
+			"type": "Slider",
+			"guid": "c04d69d22e08ff0910627cd47fdfc223d790c126",
+			"value": {
+				"type": "float",
+				"name": "albedo_mask_tiling",
+				"min_value": 0,
+				"max_value": 1,
+				"value_x": 1
+			}
+		},
+		"parameter": {
+			"type": "Color",
+			"guid": "649aa9aa897d4d01a993426c01ec5adb6105d27e",
+			"value": {
+				"type": "float4",
+				"name": "albedo_color",
+				"min_value": 0,
+				"max_value": 1,
+				"value_w": 1,
+				"value_z": 1,
+				"value_y": 1,
+				"value_x": 1
+			}
+		},
+		"parameter": {
+			"type": "Color",
+			"guid": "799c01c1bde6f02c5926ad9b20b4863eef247885",
+			"value": {
+				"type": "float4",
+				"name": "albedo_2_color",
+				"min_value": 0,
+				"max_value": 1,
+				"value_w": 1,
+				"value_z": 1,
+				"value_y": 1,
+				"value_x": 1
+			}
+		},
+		"parameter": {
+			"type": "Slider",
+			"guid": "222aba292cc7bd749863ca437ca1eac60188c36d",
+			"value": {
+				"type": "float",
+				"name": "specular",
+				"min_value": 0,
+				"max_value": 1,
+				"value_x": 1
+			}
+		},
+		"parameter": {
+			"type": "Slider",
+			"guid": "8fe0120894c70dc77276f07aec33c59126f0c1bc",
+			"value": {
+				"type": "float",
+				"name": "specular_normal_intensity",
+				"min_value": 0,
+				"max_value": 1,
+				"value_x": 1
+			}
+		},
+		"parameter": {
+			"type": "Slider",
+			"guid": "09e6d7c5c95d6660ac57663fcbc33e927c894cc9",
+			"value": {
+				"type": "float",
+				"name": "roughness",
+				"min_value": 0,
+				"max_value": 1,
+				"value_x": 0.80000001192092896
+			}
+		},
+		"parameter": {
+			"type": "Slider",
+			"guid": "c491c2994c4fcb24bdf09c3300de33f6e3719add",
+			"value": {
+				"type": "float",
+				"name": "translucent",
+				"min_value": 0,
+				"max_value": 1,
+				"value_x": 0.050000000745058289
+			}
+		},
+		"parameter": {
+			"type": "Group",
+			"guid": "6db5b8873b5e1c3a811f7e51ad45a37cbf37a8ab",
+			"value": {
+				"type": "unknown",
+				"name": "Animation",
+				"min_value": 0,
+				"max_value": 100
+			},
+			"children": {
+				"parameter": {
+					"type": "Slider",
+					"guid": "47fc652054aad5ff80466b5249c712891c4e7a54",
+					"value": {
+						"type": "float",
+						"name": "Wind Animation Tiling",
+						"min_value": 0,
+						"max_value": 4,
+						"value_x": 2
+					}
+				},
+				"parameter": {
+					"type": "Slider",
+					"guid": "e35ca1a379751aa6aa3571cd498268c82955f587",
+					"value": {
+						"type": "float",
+						"name": "Wind Animation Speed",
+						"min_value": 0,
+						"max_value": 3,
+						"value_x": 1.5
+					}
+				},
+				"parameter": {
+					"type": "Slider",
+					"guid": "8fcf353a4bd3c35188eb247c710535ab4ac7cf0e",
+					"value": {
+						"type": "float",
+						"name": "Wind Animation Intensity",
+						"min_value": 0,
+						"max_value": 1,
+						"value_x": 1
+					}
+				},
+				"parameter": {
+					"type": "Float2",
+					"guid": "dd720b1500b0e170c32d060fad993c22fa7e8d19",
+					"value": {
+						"type": "float2",
+						"name": "Wind DIrection",
+						"min_value": 0,
+						"max_value": 1,
+						"value_y": 0,
+						"value_x": 1
+					}
+				},
+				"parameter": {
+					"type": "Slider",
+					"guid": "288513a43c084ab3e21910764fc9cd5dbf966f18",
+					"value": {
+						"type": "float",
+						"name": "Wind Bend Intensity",
+						"min_value": 0,
+						"max_value": 1,
+						"value_x": 1
+					}
+				},
+				"parameter": {
+					"type": "Slider",
+					"guid": "c0ae279746cc200a4a8a8fe147c4e7ccf8b600bb",
+					"value": {
+						"type": "float",
+						"name": "Object Height",
+						"min_value": 0,
+						"max_value": 1,
+						"value_x": 0.10000000149011612
+					}
+				}
+			}
+		},
+		"parameter": {
+			"type": "Group",
+			"guid": "fb647f4d79c718481e3fdf07003910ba9e28e8d1",
+			"value": {
+				"type": "unknown",
+				"name": "specular_by_distance",
+				"min_value": 0,
+				"max_value": 1
+			},
+			"children": {
+				"parameter": {
+					"type": "Slider",
+					"guid": "cbb78ed0a9f813efa8503082788735f9801ee704",
+					"value": {
+						"type": "float",
+						"name": "distance_for_roughness",
+						"min_value": 0,
+						"max_value": 100,
+						"value_x": 1
+					}
+				},
+				"parameter": {
+					"type": "Slider",
+					"guid": "9d704693db9c1ad634f3943d73d2c878adbaf177",
+					"value": {
+						"type": "float",
+						"name": "distance_for_specular",
+						"min_value": 0,
+						"max_value": 100,
+						"value_x": 1
+					}
+				}
+			}
+		}
+	},
+	"version": "2.22.0.0",
+	"nodes": {
+		"Material": {
+			"label": "Material",
+			"guid": "829f90678c21529ab2138131aaaf08dc82560e8b",
+			"x": 3050,
+			"y": 61,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Opacity",
+					"type": "float",
+					"id": -1880079150
+				},
+				"input": {
+					"label": "Opacity Clip Threshold",
+					"type": "float",
+					"id": -1577925397
+				},
+				"input": {
+					"label": "Albedo",
+					"type": "float3",
+					"id": -509366906
+				},
+				"input": {
+					"label": "Metalness",
+					"type": "float",
+					"id": -1695405859
+				},
+				"input": {
+					"label": "Roughness",
+					"type": "float",
+					"id": 1466423059
+				},
+				"input": {
+					"label": "Specular",
+					"type": "float",
+					"id": -452932161
+				},
+				"input": {
+					"label": "Microfiber",
+					"type": "float",
+					"id": -410190875
+				},
+				"input": {
+					"label": "Normal Tangent Space",
+					"type": "float3",
+					"id": -1328428335
+				},
+				"input": {
+					"label": "Translucent",
+					"type": "float",
+					"id": 480745549
+				},
+				"input": {
+					"label": "Ambient Occlusion",
+					"type": "float",
+					"id": 979644461
+				},
+				"input": {
+					"label": "Emission",
+					"type": "float3",
+					"id": -2120341480
+				},
+				"input": {
+					"label": "Velocity",
+					"type": "float2",
+					"id": -1513164944
+				},
+				"input": {
+					"label": "Auxiliary",
+					"type": "float4",
+					"id": -488030030
+				},
+				"input": {
+					"label": "Auxiliary Clip Threshold",
+					"type": "float",
+					"id": 587570301
+				},
+				"input": {
+					"label": "Depth Offset",
+					"type": "float",
+					"id": 1982984727
+				},
+				"input": {
+					"label": "Vertex Offset Tangent Space",
+					"type": "float3",
+					"id": 1951750090
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "Material",
+					"type": "",
+					"id": 0
+				}
+			}
+		},
+		"Final": {
+			"label": "Final",
+			"guid": "0f2f417e3b3b7ac5ee9bad604fcb013f4b641d92",
+			"x": 3527,
+			"y": 226,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Material",
+					"type": "",
+					"id": 0
+				}
+			},
+			"outputs": {
+			}
+		},
+		"Parameter": {
+			"type": "float",
+			"label": "Slider",
+			"guid": "28d48dc7d826707a831d459159cc41bc995b31eb",
+			"x": 650,
+			"y": 868,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 0.80000001192092896
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "roughness",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"parameter_guid": "09e6d7c5c95d6660ac57663fcbc33e927c894cc9"
+		},
+		"Parameter": {
+			"type": "Texture2D",
+			"label": "Texture2D",
+			"guid": "1afc0cfb4cea9e1e1046eee5a795530059162a5f",
+			"x": 1018,
+			"y": -1660,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Path",
+					"widget": "Texture2D",
+					"asset": "5219d6ddb5dbd1520e843a369ad2b64326bb24e2"
+				},
+				"prop": {
+					"label": "Wrap X",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Y",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Z",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Anisotropy",
+					"widget": "Toggle",
+					"x": 1
+				},
+				"prop": {
+					"label": "Force Streaming",
+					"widget": "Toggle",
+					"x": 0
+				},
+				"prop": {
+					"label": "Manual Filtering",
+					"widget": "Toggle",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "albedo",
+					"type": "Texture2D",
+					"id": 0
+				}
+			},
+			"parameter_guid": "f9abe0d35a58701601bb687d32ca0fb8dbed0fb7"
+		},
+		"SampleTexture": {
+			"label": "SampleTexture: Default",
+			"guid": "e78b2b2da91912a8a28bd5e71851da1a620762b1",
+			"x": 1228,
+			"y": -1801,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Type",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Default",
+						"Mip",
+						"Mip offset",
+						"Grad",
+						"Fetch",
+						"Point",
+						"Catmull",
+						"Cubic",
+						"Manual linear"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Normal Space",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Tangent Space for UV0",
+						"Tangent Space for UV1",
+						"Tangent Space Auto Calculated",
+						"Object Space"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "Texture",
+					"type": "Texture2D",
+					"id": 4
+				},
+				"input": {
+					"label": "UV",
+					"type": "float2",
+					"id": 5
+				},
+				"input": {
+					"label": "Normal Intensity",
+					"type": "float",
+					"id": 11
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "Color",
+					"type": "float4",
+					"id": 0
+				},
+				"output": {
+					"label": "Tangent Normal",
+					"type": "float3",
+					"id": 1
+				}
+			},
+			"texture_type": "Texture2D",
+			"sampler_type": "Default",
+			"texture_data": "Asset",
+			"normal_space": "Tangent Space for UV0"
+		},
+		"Parameter": {
+			"type": "float4",
+			"label": "Color",
+			"guid": "29ff10b4a09e84837e12e006093cb7add5983528",
+			"x": 1330,
+			"y": -1023,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float4",
+					"w": 1,
+					"z": 1,
+					"y": 1,
+					"x": 1
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "albedo_color",
+					"type": "float4",
+					"id": 0
+				}
+			},
+			"parameter_guid": "649aa9aa897d4d01a993426c01ec5adb6105d27e"
+		},
+		"Parameter": {
+			"type": "Texture2D",
+			"label": "Texture2D",
+			"guid": "28d8e82967f41374a9e828434bceb0c6b3b2d16d",
+			"x": -1123,
+			"y": 1145,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Path",
+					"widget": "Texture2D",
+					"asset": "692dbb7d56d633e22551bd47f4d92cd2d498270d"
+				},
+				"prop": {
+					"label": "Wrap X",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Y",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Z",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Anisotropy",
+					"widget": "Toggle",
+					"x": 1
+				},
+				"prop": {
+					"label": "Force Streaming",
+					"widget": "Toggle",
+					"x": 0
+				},
+				"prop": {
+					"label": "Manual Filtering",
+					"widget": "Toggle",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "specular_normal",
+					"type": "Texture2D",
+					"id": 0
+				}
+			},
+			"parameter_guid": "367ef26f42507d02e186187981cf67849319cd13"
+		},
+		"SampleTexture": {
+			"label": "SampleTexture: Default",
+			"guid": "54a1904bff74292e833b5eb5cddbe0903a22baaf",
+			"x": -881,
+			"y": 1098,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Type",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Default",
+						"Mip",
+						"Mip offset",
+						"Grad",
+						"Fetch",
+						"Point",
+						"Catmull",
+						"Cubic",
+						"Manual linear"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Normal Space",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Tangent Space for UV0",
+						"Tangent Space for UV1",
+						"Tangent Space Auto Calculated",
+						"Object Space"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "Texture",
+					"type": "Texture2D",
+					"id": 4
+				},
+				"input": {
+					"label": "UV",
+					"type": "float2",
+					"id": 5
+				},
+				"input": {
+					"label": "Normal Intensity",
+					"type": "float",
+					"id": 11
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "Color",
+					"type": "float4",
+					"id": 0
+				},
+				"output": {
+					"label": "Tangent Normal",
+					"type": "float3",
+					"id": 1
+				}
+			},
+			"texture_type": "Texture2D",
+			"sampler_type": "Default",
+			"texture_data": "Asset",
+			"normal_space": "Tangent Space for UV0"
+		},
+		"Expression": {
+			"label": "Expression",
+			"guid": "ee78c0d74a65684a9a5cbb214bec9a0c67ff8dfb",
+			"x": 1192,
+			"y": 229,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Code",
+					"string": "x,y"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "",
+					"type": "float3",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "x,y",
+					"type": "float2",
+					"id": 0
+				}
+			}
+		},
+		"SubGraph": {
+			"label": "Grass Animation",
+			"guid": "869b419956653e2407d97333865b1ef6636b89dd",
+			"x": 1764,
+			"y": 1638,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "SubGraph",
+					"asset": "c2fcec1878f92e186555caf1ed87611787fec199"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "Wind Animation Tiling",
+					"type": "float",
+					"id": -1930902224
+				},
+				"input": {
+					"label": "Wind Animation Speed",
+					"type": "float",
+					"id": -395357340
+				},
+				"input": {
+					"label": "Wind Animation Intensity",
+					"type": "float",
+					"id": -1978398861
+				},
+				"input": {
+					"label": "Wind Direction",
+					"type": "float2",
+					"id": -1625968182
+				},
+				"input": {
+					"label": "Wind Bend Intensity",
+					"type": "float",
+					"id": -770083167
+				},
+				"input": {
+					"label": "Normal Tangent Space",
+					"type": "float3",
+					"id": -47521676
+				},
+				"input": {
+					"label": "Object Height (In Meters)",
+					"type": "float",
+					"id": -1610789720
+				},
+				"input": {
+					"label": "Vertex Position Object Space",
+					"type": "float3",
+					"id": -221253524
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "Position Offset Tangent Space",
+					"type": "float3",
+					"id": -426179331
+				},
+				"output": {
+					"label": "Normal Tangent Space",
+					"type": "float3",
+					"id": -1225113712
+				}
+			}
+		},
+		"Expression": {
+			"label": "Expression",
+			"guid": "4cef1a980203dd1777f7578a6d596161e93e8b4c",
+			"x": 2972,
+			"y": 95,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Code",
+					"string": "w"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "",
+					"type": "float4",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "w",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"RotateSpace": {
+			"label": "Rotate Space",
+			"guid": "e8d1347989c7d38481bf49132d1e3b565e023abd",
+			"x": 1261,
+			"y": 2107,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "From",
+					"widget": "Combobox",
+					"combobox_items": [
+						"World",
+						"Object",
+						"Tangent",
+						"View"
+					],
+					"x": 1
+				},
+				"prop": {
+					"label": "To",
+					"widget": "Combobox",
+					"combobox_items": [
+						"World",
+						"Object",
+						"Tangent",
+						"View"
+					],
+					"x": 2
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "Object",
+					"type": "float3",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "Tangent",
+					"type": "float3",
+					"id": 0
+				}
+			}
+		},
+		"float3": {
+			"type": "float3",
+			"label": "float3",
+			"guid": "e8831dee35424c75d2b073508026ae6f30bd0902",
+			"x": 1100,
+			"y": 2116,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float3",
+					"z": 1,
+					"y": 0,
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "0.0 0.0 1.0",
+					"type": "float3",
+					"id": 0
+				}
+			}
+		},
+		"Parameter": {
+			"type": "float",
+			"label": "Slider",
+			"guid": "0f35b1ebc6ff9e4ea61b11552603b2b01701264f",
+			"x": -1248,
+			"y": 1405,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 1
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "specular_normal_intensity",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"parameter_guid": "8fe0120894c70dc77276f07aec33c59126f0c1bc"
+		},
+		"Parameter": {
+			"type": "float",
+			"label": "Slider",
+			"guid": "84a7aa6c6b65a2db16de7a7e00d75fc571c44e60",
+			"x": 1555,
+			"y": 2128,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 2
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "Wind Animation Tiling",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"parameter_guid": "47fc652054aad5ff80466b5249c712891c4e7a54"
+		},
+		"Parameter": {
+			"type": "float",
+			"label": "Slider",
+			"guid": "1ab34d919b9aa9bc564679eb9a89c64e580f1955",
+			"x": 1551,
+			"y": 2155,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 1.5
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "Wind Animation Speed",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"parameter_guid": "e35ca1a379751aa6aa3571cd498268c82955f587"
+		},
+		"Parameter": {
+			"type": "float",
+			"label": "Slider",
+			"guid": "e33d534a57f5aa2132eabd0ccfd954fbaed7461e",
+			"x": 1535,
+			"y": 2182,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 1
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "Wind Animation Intensity",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"parameter_guid": "8fcf353a4bd3c35188eb247c710535ab4ac7cf0e"
+		},
+		"Parameter": {
+			"type": "float2",
+			"label": "float2",
+			"guid": "79929de73f5a021a85616ab13e2ce45c94af340b",
+			"x": 1609,
+			"y": 2208,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float2",
+					"y": 0,
+					"x": 1
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "Wind DIrection",
+					"type": "float2",
+					"id": 0
+				}
+			},
+			"parameter_guid": "dd720b1500b0e170c32d060fad993c22fa7e8d19"
+		},
+		"Parameter": {
+			"type": "float",
+			"label": "Slider",
+			"guid": "23d0f8f8a17667f7c3fda4ea5adf8f41ea361fac",
+			"x": 1572,
+			"y": 2235,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 1
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "Wind Bend Intensity",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"parameter_guid": "288513a43c084ab3e21910764fc9cd5dbf966f18"
+		},
+		"Parameter": {
+			"type": "float",
+			"label": "Slider",
+			"guid": "b5e03e4de729cb487a94f607d6b53bba2e9917d1",
+			"x": 1617,
+			"y": 2288,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 0.10000000149011612
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "Object Height",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"parameter_guid": "c0ae279746cc200a4a8a8fe147c4e7ccf8b600bb"
+		},
+		"Sun Direction": {
+			"label": "Sun Direction",
+			"guid": "470b23d5c813a33028235ccf6d6c23e2624ad1d9",
+			"x": -271,
+			"y": 823,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Space",
+					"widget": "Combobox",
+					"combobox_items": [
+						"World",
+						"Object",
+						"Tangent",
+						"View"
+					],
+					"x": 1
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "Object",
+					"type": "float3",
+					"id": 0
+				}
+			}
+		},
+		"Expression": {
+			"label": "Expression",
+			"guid": "18503c33517953f6ea123add2264fe9815d87117",
+			"x": 2230,
+			"y": 49,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Code",
+					"string": "x"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "",
+					"type": "float4",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "x",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"SampleTexture": {
+			"label": "SampleTexture: Default",
+			"guid": "1145759144f6b1bc6322e1eb3b2b0e4ecaefc155",
+			"x": 1512,
+			"y": -195,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Type",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Default",
+						"Mip",
+						"Mip offset",
+						"Grad",
+						"Fetch",
+						"Point",
+						"Catmull",
+						"Cubic",
+						"Manual linear"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Normal Space",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Tangent Space for UV0",
+						"Tangent Space for UV1",
+						"Tangent Space Auto Calculated",
+						"Object Space"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "Texture",
+					"type": "Texture2D",
+					"id": 4
+				},
+				"input": {
+					"label": "UV",
+					"type": "float2",
+					"id": 5
+				},
+				"input": {
+					"label": "Normal Intensity",
+					"type": "float",
+					"id": 11
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "Color",
+					"type": "float4",
+					"id": 0
+				},
+				"output": {
+					"label": "Tangent Normal",
+					"type": "float3",
+					"id": 1
+				}
+			},
+			"texture_type": "Texture2D",
+			"sampler_type": "Default",
+			"texture_data": "Asset",
+			"normal_space": "Tangent Space for UV0"
+		},
+		"Parameter": {
+			"type": "Texture2D",
+			"label": "Texture2D",
+			"guid": "cb98319f0f75d27284660f291aa90e745c1ae743",
+			"x": 1278,
+			"y": -148,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Path",
+					"widget": "Texture2D",
+					"asset": "5219d6ddb5dbd1520e843a369ad2b64326bb24e2"
+				},
+				"prop": {
+					"label": "Wrap X",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Y",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Z",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Anisotropy",
+					"widget": "Toggle",
+					"x": 1
+				},
+				"prop": {
+					"label": "Force Streaming",
+					"widget": "Toggle",
+					"x": 0
+				},
+				"prop": {
+					"label": "Manual Filtering",
+					"widget": "Toggle",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "albedo_mask",
+					"type": "Texture2D",
+					"id": 0
+				}
+			},
+			"parameter_guid": "10c3054c4ede803b6a95f85ea83004255022e740"
+		},
+		"Expression": {
+			"label": "Expression",
+			"guid": "9c52808498b8121318d67056e87aebbd0a0f39f8",
+			"x": 1593,
+			"y": -912,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Code",
+					"string": "x,y,z"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "",
+					"type": "float4",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "x,y,z",
+					"type": "float3",
+					"id": 0
+				}
+			}
+		},
+		"_multiply": {
+			"label": "Multiply",
+			"guid": "7a68179f3ba88072f24ce5298ea5ec74ae662d43",
+			"x": 1046,
+			"y": -824,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float3",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float3",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float3",
+					"id": 1723312480
+				}
+			}
+		},
+		"_multiply": {
+			"label": "Multiply",
+			"guid": "73f31103a1d902862a8b782db3cafba8d16aaae7",
+			"x": 1675,
+			"y": -1069,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float3",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float3",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float3",
+					"id": 1723312480
+				}
+			}
+		},
+		"SampleTexture": {
+			"label": "SampleTexture: Default",
+			"guid": "dbeb056d932ca7e8e641ea270ee2615ab281c0f1",
+			"x": 548,
+			"y": -1051,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Type",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Default",
+						"Mip",
+						"Mip offset",
+						"Grad",
+						"Fetch",
+						"Point",
+						"Catmull",
+						"Cubic",
+						"Manual linear"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Normal Space",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Tangent Space for UV0",
+						"Tangent Space for UV1",
+						"Tangent Space Auto Calculated",
+						"Object Space"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "Texture",
+					"type": "Texture2D",
+					"id": 4
+				},
+				"input": {
+					"label": "UV",
+					"type": "float2",
+					"id": 5
+				},
+				"input": {
+					"label": "Normal Intensity",
+					"type": "float",
+					"id": 11
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "Color",
+					"type": "float4",
+					"id": 0
+				},
+				"output": {
+					"label": "Tangent Normal",
+					"type": "float3",
+					"id": 1
+				}
+			},
+			"texture_type": "Texture2D",
+			"sampler_type": "Default",
+			"texture_data": "Asset",
+			"normal_space": "Tangent Space for UV0"
+		},
+		"Parameter": {
+			"type": "Texture2D",
+			"label": "Texture2D",
+			"guid": "a8106c76e801795d74f22b18df3eb39717eb3c0a",
+			"x": 335,
+			"y": -959,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Path",
+					"widget": "Texture2D",
+					"asset": "5219d6ddb5dbd1520e843a369ad2b64326bb24e2"
+				},
+				"prop": {
+					"label": "Wrap X",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Y",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Z",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Anisotropy",
+					"widget": "Toggle",
+					"x": 1
+				},
+				"prop": {
+					"label": "Force Streaming",
+					"widget": "Toggle",
+					"x": 0
+				},
+				"prop": {
+					"label": "Manual Filtering",
+					"widget": "Toggle",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "albedo_2",
+					"type": "Texture2D",
+					"id": 0
+				}
+			},
+			"parameter_guid": "dfdc120f0d44d822725d79191cdf0fa41b0216b3"
+		},
+		"_dot_product": {
+			"label": "Dot Product",
+			"guid": "134424fafa0a701109466a3c2332406b5619dace",
+			"x": 73,
+			"y": 913,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float3",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float3",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"Expression": {
+			"label": "Expression",
+			"guid": "d823610fc95ddb2241d4a019ee760aa46aaed5b3",
+			"x": 964,
+			"y": -695,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Code",
+					"string": "x,y,z"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "",
+					"type": "float4",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "x,y,z",
+					"type": "float3",
+					"id": 0
+				}
+			}
+		},
+		"lerp": {
+			"label": "Lerp",
+			"guid": "f57898259bca6b4045b1e59f147bf672bc0de329",
+			"x": 2483,
+			"y": 841,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				},
+				"input": {
+					"label": "Coefficient",
+					"type": "float",
+					"id": -688470873
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"_multiply": {
+			"label": "Multiply",
+			"guid": "404f36e36c7e2ee699fcf90d2bc7c7087ea93ec7",
+			"x": 1270,
+			"y": 100,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float2",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float2",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float2",
+					"id": 1723312480
+				}
+			}
+		},
+		"Expression": {
+			"label": "Expression",
+			"guid": "50b9d2e2f7f6b4d9c9359864b0a38873b055b336",
+			"x": 1593,
+			"y": -940,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Code",
+					"string": "x,y,z"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "",
+					"type": "float4",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "x,y,z",
+					"type": "float3",
+					"id": 0
+				}
+			}
+		},
+		"Expression": {
+			"label": "Expression",
+			"guid": "e96ddfceb94d64d55456f0309d3c45cf0d85f8e2",
+			"x": -21,
+			"y": 1069,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Code",
+					"string": "-x,-y,-z"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "",
+					"type": "float3",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "-x,-y,-z",
+					"type": "float3",
+					"id": 0
+				}
+			}
+		},
+		"RotateSpace": {
+			"label": "Rotate Space",
+			"guid": "9c989b1422eccb633829b966d162018d11cc3588",
+			"x": -456,
+			"y": 1135,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "From",
+					"widget": "Combobox",
+					"combobox_items": [
+						"World",
+						"Object",
+						"Tangent",
+						"View"
+					],
+					"x": 2
+				},
+				"prop": {
+					"label": "To",
+					"widget": "Combobox",
+					"combobox_items": [
+						"World",
+						"Object",
+						"Tangent",
+						"View"
+					],
+					"x": 1
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "Tangent",
+					"type": "float3",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "Object",
+					"type": "float3",
+					"id": 0
+				}
+			}
+		},
+		"Parameter": {
+			"type": "float",
+			"label": "Slider",
+			"guid": "e3e34de8fbac58274b1df75a254c5ef1d4accb9c",
+			"x": 2405,
+			"y": 705,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 1
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "specular",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"parameter_guid": "222aba292cc7bd749863ca437ca1eac60188c36d"
+		},
+		"float": {
+			"type": "float",
+			"label": "float",
+			"guid": "5d5ad7b53cab059000659baff1b69542d59ed3b9",
+			"x": 850,
+			"y": 983,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 1
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "1.0",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"Parameter": {
+			"type": "float",
+			"label": "Slider",
+			"guid": "addcdc1c8f1548cb175787ae8bee2b3574eb4310",
+			"x": 853,
+			"y": 207,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 1
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "albedo_mask_tiling",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"parameter_guid": "c04d69d22e08ff0910627cd47fdfc223d790c126"
+		},
+		"Vertex Position": {
+			"label": "Vertex Position",
+			"guid": "f04c4879e8ffd7840d2f7d130a88df561dc48ebd",
+			"x": 929,
+			"y": -58,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Space",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Camera World",
+						"Object",
+						"View",
+						"Absolute World"
+					],
+					"x": 3
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "Absolute World",
+					"type": "float3",
+					"id": 0
+				}
+			}
+		},
+		"Expression": {
+			"label": "Expression",
+			"guid": "1b9c234c4bd9063b2ab2c65e01ba7a258d2ee540",
+			"x": 964,
+			"y": -667,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Code",
+					"string": "x,y,z"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "",
+					"type": "float4",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "x,y,z",
+					"type": "float3",
+					"id": 0
+				}
+			}
+		},
+		"lerp": {
+			"label": "Lerp",
+			"guid": "41ac43f8d87b36f7b0b627eaaf70364127189aac",
+			"x": 2308,
+			"y": -154,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float3",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float3",
+					"id": 291415938
+				},
+				"input": {
+					"label": "Coefficient",
+					"type": "float3",
+					"id": -688470873
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float3",
+					"id": 1723312480
+				}
+			}
+		},
+		"Parameter": {
+			"type": "float4",
+			"label": "Color",
+			"guid": "ae4b102091cb84ffb7a94e52ab3e9989de2a5554",
+			"x": 660,
+			"y": -613,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float4",
+					"w": 1,
+					"z": 1,
+					"y": 1,
+					"x": 1
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "albedo_2_color",
+					"type": "float4",
+					"id": 0
+				}
+			},
+			"parameter_guid": "799c01c1bde6f02c5926ad9b20b4863eef247885"
+		},
+		"lerp": {
+			"label": "Lerp",
+			"guid": "6e9f01405441839f78bafc7285a53129a469c874",
+			"x": 928,
+			"y": 835,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				},
+				"input": {
+					"label": "Coefficient",
+					"type": "float",
+					"id": -688470873
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"rerange": {
+			"label": "Rerange",
+			"guid": "f4c6b52987b57c7497907d43bc3901c6ae5eee6d",
+			"x": 381,
+			"y": 949,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "In",
+					"type": "float",
+					"id": -1324699368
+				},
+				"input": {
+					"label": "In Range Minimum",
+					"type": "float",
+					"id": 586471579
+				},
+				"input": {
+					"label": "In Range Maximum",
+					"type": "float",
+					"id": 413497076
+				},
+				"input": {
+					"label": "Out Range Minimum",
+					"type": "float",
+					"id": -591517853
+				},
+				"input": {
+					"label": "Out Range Maximum",
+					"type": "float",
+					"id": 1033320789
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"float": {
+			"type": "float",
+			"label": "float",
+			"guid": "7454854bd6289a2e586b1bb51b96799076927faf",
+			"x": 303,
+			"y": 1197,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": -1
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "-1.0",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"float": {
+			"type": "float",
+			"label": "float",
+			"guid": "4f84f1fde04f0b383762d5373fc6b12af136ae81",
+			"x": 303,
+			"y": 1224,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 1
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "1.0",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"float": {
+			"type": "float",
+			"label": "float",
+			"guid": "2805dbbf0ff0361208eede499242531433db2363",
+			"x": 303,
+			"y": 1251,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "0.0",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"float": {
+			"type": "float",
+			"label": "float",
+			"guid": "79b507113c1a153cc113ef6b5d49bdcee3ebaad5",
+			"x": 303,
+			"y": 1278,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 1
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "1.0",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"SubGraph": {
+			"label": "Vertex Depth",
+			"guid": "2af4e6af85df6442d52b56b9cc4110c42b8ee553",
+			"x": 1442,
+			"y": 1122,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "SubGraph",
+					"asset": "b2ecd3b056018c77b39c6f55697fc7ad57e01417"
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "Vertex Depth",
+					"type": "float",
+					"id": -980529180
+				}
+			}
+		},
+		"lerp": {
+			"label": "Lerp",
+			"guid": "e38d87ee7505ae757aa86d503f5a606fe1491302",
+			"x": 2524,
+			"y": 218,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				},
+				"input": {
+					"label": "Coefficient",
+					"type": "float",
+					"id": -688470873
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"saturate": {
+			"label": "Saturate",
+			"guid": "135f76f8dfe6cdf7ae56d2ea47bae541bb9d7dac",
+			"x": 1899,
+			"y": 898,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Value",
+					"type": "float",
+					"id": 16756516
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"float": {
+			"type": "float",
+			"label": "float",
+			"guid": "e32abc8f36b280a2b29207993ad14c240cea2933",
+			"x": 2446,
+			"y": 394,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 1
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "1.0",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"float": {
+			"type": "float",
+			"label": "float",
+			"guid": "c9eaa9cd920640c87817ed871078cd3a3f007b51",
+			"x": 2439,
+			"y": 733,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "0.0",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"Parameter": {
+			"type": "float",
+			"label": "Slider",
+			"guid": "18360ea16ebad78c5a79ad7b40bec49ebbe3e365",
+			"x": 1476,
+			"y": 1150,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 1
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "distance_for_specular",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"parameter_guid": "9d704693db9c1ad634f3943d73d2c878adbaf177"
+		},
+		"_divide": {
+			"label": "Divide",
+			"guid": "0b709fba49f52bd1f4c072fc92a1322bcecea18e",
+			"x": 1682,
+			"y": 1006,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"lerp": {
+			"label": "Lerp",
+			"guid": "2b1733f9bea2cd04cdc6f493d756f0d654b4723d",
+			"x": 2517,
+			"y": 557,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				},
+				"input": {
+					"label": "Coefficient",
+					"type": "float",
+					"id": -688470873
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"float3": {
+			"type": "float3",
+			"label": "float3",
+			"guid": "fa843c1f84215af21dfefda920f42af463c659c3",
+			"x": 1939,
+			"y": 1449,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float3",
+					"z": 1,
+					"y": 0,
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "0.0 0.0 1.0",
+					"type": "float3",
+					"id": 0
+				}
+			}
+		},
+		"RotateSpace": {
+			"label": "Rotate Space",
+			"guid": "935c91ccd725a2bb0c71b8de3b8bcaa5bf62fbc0",
+			"x": 2065,
+			"y": 1272,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "From",
+					"widget": "Combobox",
+					"combobox_items": [
+						"World",
+						"Object",
+						"Tangent",
+						"View"
+					],
+					"x": 1
+				},
+				"prop": {
+					"label": "To",
+					"widget": "Combobox",
+					"combobox_items": [
+						"World",
+						"Object",
+						"Tangent",
+						"View"
+					],
+					"x": 2
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "Object",
+					"type": "float3",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "Tangent",
+					"type": "float3",
+					"id": 0
+				}
+			}
+		},
+		"lerp": {
+			"label": "Lerp",
+			"guid": "356e248966f664546f1f83a34a6694a66714a3cd",
+			"x": 2437,
+			"y": 1199,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float3",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float3",
+					"id": 291415938
+				},
+				"input": {
+					"label": "Coefficient",
+					"type": "float3",
+					"id": -688470873
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float3",
+					"id": 1723312480
+				}
+			}
+		},
+		"Parameter": {
+			"type": "float",
+			"label": "Slider",
+			"guid": "8a499c12d41d0c49c7eea914fddf8163d100f766",
+			"x": 2352,
+			"y": 989,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 0.050000000745058289
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "translucent",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"parameter_guid": "c491c2994c4fcb24bdf09c3300de33f6e3719add"
+		},
+		"float": {
+			"type": "float",
+			"label": "float",
+			"guid": "ec4be58ae43897612818494c1b4af43b564fdc5e",
+			"x": 2405,
+			"y": 1017,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "0.0",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"Parameter": {
+			"type": "float",
+			"label": "Slider",
+			"guid": "04042717e977198a0a223b61304d9d4cf978383b",
+			"x": 2919,
+			"y": 306,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 0.050000000745058289
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "translucent",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"parameter_guid": "c491c2994c4fcb24bdf09c3300de33f6e3719add"
+		}
+	},
+	"anchors": {
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "Opacity",
+			"input_id": -1880079150,
+			"input_node": "829f90678c21529ab2138131aaaf08dc82560e8b",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "w",
+			"output_id": 0,
+			"output_node": "4cef1a980203dd1777f7578a6d596161e93e8b4c"
+		},
+		"anchor": {
+			"input_index": 2,
+			"input_type": "float3",
+			"input_label": "Albedo",
+			"input_id": -509366906,
+			"input_node": "829f90678c21529ab2138131aaaf08dc82560e8b",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "41ac43f8d87b36f7b0b627eaaf70364127189aac"
+		},
+		"anchor": {
+			"input_index": 4,
+			"input_type": "float",
+			"input_label": "Roughness",
+			"input_id": 1466423059,
+			"input_node": "829f90678c21529ab2138131aaaf08dc82560e8b",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "e38d87ee7505ae757aa86d503f5a606fe1491302"
+		},
+		"anchor": {
+			"input_index": 5,
+			"input_type": "float",
+			"input_label": "Specular",
+			"input_id": -452932161,
+			"input_node": "829f90678c21529ab2138131aaaf08dc82560e8b",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "2b1733f9bea2cd04cdc6f493d756f0d654b4723d"
+		},
+		"anchor": {
+			"input_index": 7,
+			"input_type": "float3",
+			"input_label": "Normal Tangent Space",
+			"input_id": -1328428335,
+			"input_node": "829f90678c21529ab2138131aaaf08dc82560e8b",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "356e248966f664546f1f83a34a6694a66714a3cd"
+		},
+		"anchor": {
+			"input_index": 8,
+			"input_type": "float",
+			"input_label": "Translucent",
+			"input_id": 480745549,
+			"input_node": "829f90678c21529ab2138131aaaf08dc82560e8b",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "translucent",
+			"output_id": 0,
+			"output_node": "04042717e977198a0a223b61304d9d4cf978383b"
+		},
+		"anchor": {
+			"input_index": 15,
+			"input_type": "float3",
+			"input_label": "Vertex Offset Tangent Space",
+			"input_id": 1951750090,
+			"input_node": "829f90678c21529ab2138131aaaf08dc82560e8b",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "Position Offset Tangent Space",
+			"output_id": -426179331,
+			"output_node": "869b419956653e2407d97333865b1ef6636b89dd"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "",
+			"input_label": "Material",
+			"input_id": 0,
+			"input_node": "0f2f417e3b3b7ac5ee9bad604fcb013f4b641d92",
+			"output_index": 0,
+			"output_type": "",
+			"output_label": "Material",
+			"output_id": 0,
+			"output_node": "829f90678c21529ab2138131aaaf08dc82560e8b"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "Texture2D",
+			"input_label": "Texture",
+			"input_id": 4,
+			"input_node": "e78b2b2da91912a8a28bd5e71851da1a620762b1",
+			"output_index": 0,
+			"output_type": "Texture2D",
+			"output_label": "albedo",
+			"output_id": 0,
+			"output_node": "1afc0cfb4cea9e1e1046eee5a795530059162a5f"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "Texture2D",
+			"input_label": "Texture",
+			"input_id": 4,
+			"input_node": "54a1904bff74292e833b5eb5cddbe0903a22baaf",
+			"output_index": 0,
+			"output_type": "Texture2D",
+			"output_label": "specular_normal",
+			"output_id": 0,
+			"output_node": "28d8e82967f41374a9e828434bceb0c6b3b2d16d"
+		},
+		"anchor": {
+			"input_index": 2,
+			"input_type": "float",
+			"input_label": "Normal Intensity",
+			"input_id": 11,
+			"input_node": "54a1904bff74292e833b5eb5cddbe0903a22baaf",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "specular_normal_intensity",
+			"output_id": 0,
+			"output_node": "0f35b1ebc6ff9e4ea61b11552603b2b01701264f"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float3",
+			"input_label": "",
+			"input_id": 0,
+			"input_node": "ee78c0d74a65684a9a5cbb214bec9a0c67ff8dfb",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "Absolute World",
+			"output_id": 0,
+			"output_node": "f04c4879e8ffd7840d2f7d130a88df561dc48ebd"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "Wind Animation Tiling",
+			"input_id": -1930902224,
+			"input_node": "869b419956653e2407d97333865b1ef6636b89dd",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "Wind Animation Tiling",
+			"output_id": 0,
+			"output_node": "84a7aa6c6b65a2db16de7a7e00d75fc571c44e60"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "Wind Animation Speed",
+			"input_id": -395357340,
+			"input_node": "869b419956653e2407d97333865b1ef6636b89dd",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "Wind Animation Speed",
+			"output_id": 0,
+			"output_node": "1ab34d919b9aa9bc564679eb9a89c64e580f1955"
+		},
+		"anchor": {
+			"input_index": 2,
+			"input_type": "float",
+			"input_label": "Wind Animation Intensity",
+			"input_id": -1978398861,
+			"input_node": "869b419956653e2407d97333865b1ef6636b89dd",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "Wind Animation Intensity",
+			"output_id": 0,
+			"output_node": "e33d534a57f5aa2132eabd0ccfd954fbaed7461e"
+		},
+		"anchor": {
+			"input_index": 3,
+			"input_type": "float2",
+			"input_label": "Wind Direction",
+			"input_id": -1625968182,
+			"input_node": "869b419956653e2407d97333865b1ef6636b89dd",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "Wind DIrection",
+			"output_id": 0,
+			"output_node": "79929de73f5a021a85616ab13e2ce45c94af340b"
+		},
+		"anchor": {
+			"input_index": 4,
+			"input_type": "float",
+			"input_label": "Wind Bend Intensity",
+			"input_id": -770083167,
+			"input_node": "869b419956653e2407d97333865b1ef6636b89dd",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "Wind Bend Intensity",
+			"output_id": 0,
+			"output_node": "23d0f8f8a17667f7c3fda4ea5adf8f41ea361fac"
+		},
+		"anchor": {
+			"input_index": 5,
+			"input_type": "float3",
+			"input_label": "Normal Tangent Space",
+			"input_id": -47521676,
+			"input_node": "869b419956653e2407d97333865b1ef6636b89dd",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "Tangent",
+			"output_id": 0,
+			"output_node": "e8d1347989c7d38481bf49132d1e3b565e023abd"
+		},
+		"anchor": {
+			"input_index": 6,
+			"input_type": "float",
+			"input_label": "Object Height (In Meters)",
+			"input_id": -1610789720,
+			"input_node": "869b419956653e2407d97333865b1ef6636b89dd",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "Object Height",
+			"output_id": 0,
+			"output_node": "b5e03e4de729cb487a94f607d6b53bba2e9917d1"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float4",
+			"input_label": "",
+			"input_id": 0,
+			"input_node": "4cef1a980203dd1777f7578a6d596161e93e8b4c",
+			"output_index": 0,
+			"output_type": "float4",
+			"output_label": "Color",
+			"output_id": 0,
+			"output_node": "e78b2b2da91912a8a28bd5e71851da1a620762b1"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float3",
+			"input_label": "Object",
+			"input_id": 0,
+			"input_node": "e8d1347989c7d38481bf49132d1e3b565e023abd",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "0.0 0.0 1.0",
+			"output_id": 0,
+			"output_node": "e8831dee35424c75d2b073508026ae6f30bd0902"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float4",
+			"input_label": "",
+			"input_id": 0,
+			"input_node": "18503c33517953f6ea123add2264fe9815d87117",
+			"output_index": 0,
+			"output_type": "float4",
+			"output_label": "Color",
+			"output_id": 0,
+			"output_node": "1145759144f6b1bc6322e1eb3b2b0e4ecaefc155"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "Texture2D",
+			"input_label": "Texture",
+			"input_id": 4,
+			"input_node": "1145759144f6b1bc6322e1eb3b2b0e4ecaefc155",
+			"output_index": 0,
+			"output_type": "Texture2D",
+			"output_label": "albedo_mask",
+			"output_id": 0,
+			"output_node": "cb98319f0f75d27284660f291aa90e745c1ae743"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float2",
+			"input_label": "UV",
+			"input_id": 5,
+			"input_node": "1145759144f6b1bc6322e1eb3b2b0e4ecaefc155",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "404f36e36c7e2ee699fcf90d2bc7c7087ea93ec7"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float4",
+			"input_label": "",
+			"input_id": 0,
+			"input_node": "9c52808498b8121318d67056e87aebbd0a0f39f8",
+			"output_index": 0,
+			"output_type": "float4",
+			"output_label": "albedo_color",
+			"output_id": 0,
+			"output_node": "29ff10b4a09e84837e12e006093cb7add5983528"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float3",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "7a68179f3ba88072f24ce5298ea5ec74ae662d43",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "x,y,z",
+			"output_id": 0,
+			"output_node": "d823610fc95ddb2241d4a019ee760aa46aaed5b3"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float3",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "7a68179f3ba88072f24ce5298ea5ec74ae662d43",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "x,y,z",
+			"output_id": 0,
+			"output_node": "1b9c234c4bd9063b2ab2c65e01ba7a258d2ee540"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float3",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "73f31103a1d902862a8b782db3cafba8d16aaae7",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "x,y,z",
+			"output_id": 0,
+			"output_node": "50b9d2e2f7f6b4d9c9359864b0a38873b055b336"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float3",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "73f31103a1d902862a8b782db3cafba8d16aaae7",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "x,y,z",
+			"output_id": 0,
+			"output_node": "9c52808498b8121318d67056e87aebbd0a0f39f8"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "Texture2D",
+			"input_label": "Texture",
+			"input_id": 4,
+			"input_node": "dbeb056d932ca7e8e641ea270ee2615ab281c0f1",
+			"output_index": 0,
+			"output_type": "Texture2D",
+			"output_label": "albedo_2",
+			"output_id": 0,
+			"output_node": "a8106c76e801795d74f22b18df3eb39717eb3c0a"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float3",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "134424fafa0a701109466a3c2332406b5619dace",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "-x,-y,-z",
+			"output_id": 0,
+			"output_node": "e96ddfceb94d64d55456f0309d3c45cf0d85f8e2"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float3",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "134424fafa0a701109466a3c2332406b5619dace",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "Object",
+			"output_id": 0,
+			"output_node": "9c989b1422eccb633829b966d162018d11cc3588"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float4",
+			"input_label": "",
+			"input_id": 0,
+			"input_node": "d823610fc95ddb2241d4a019ee760aa46aaed5b3",
+			"output_index": 0,
+			"output_type": "float4",
+			"output_label": "Color",
+			"output_id": 0,
+			"output_node": "dbeb056d932ca7e8e641ea270ee2615ab281c0f1"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "f57898259bca6b4045b1e59f147bf672bc0de329",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "translucent",
+			"output_id": 0,
+			"output_node": "8a499c12d41d0c49c7eea914fddf8163d100f766"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "f57898259bca6b4045b1e59f147bf672bc0de329",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "0.0",
+			"output_id": 0,
+			"output_node": "ec4be58ae43897612818494c1b4af43b564fdc5e"
+		},
+		"anchor": {
+			"input_index": 2,
+			"input_type": "float",
+			"input_label": "Coefficient",
+			"input_id": -688470873,
+			"input_node": "f57898259bca6b4045b1e59f147bf672bc0de329",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "135f76f8dfe6cdf7ae56d2ea47bae541bb9d7dac"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float2",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "404f36e36c7e2ee699fcf90d2bc7c7087ea93ec7",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "x,y",
+			"output_id": 0,
+			"output_node": "ee78c0d74a65684a9a5cbb214bec9a0c67ff8dfb"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float2",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "404f36e36c7e2ee699fcf90d2bc7c7087ea93ec7",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "albedo_mask_tiling",
+			"output_id": 0,
+			"output_node": "addcdc1c8f1548cb175787ae8bee2b3574eb4310"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float4",
+			"input_label": "",
+			"input_id": 0,
+			"input_node": "50b9d2e2f7f6b4d9c9359864b0a38873b055b336",
+			"output_index": 0,
+			"output_type": "float4",
+			"output_label": "Color",
+			"output_id": 0,
+			"output_node": "e78b2b2da91912a8a28bd5e71851da1a620762b1"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float3",
+			"input_label": "",
+			"input_id": 0,
+			"input_node": "e96ddfceb94d64d55456f0309d3c45cf0d85f8e2",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "Object",
+			"output_id": 0,
+			"output_node": "470b23d5c813a33028235ccf6d6c23e2624ad1d9"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float3",
+			"input_label": "Tangent",
+			"input_id": 0,
+			"input_node": "9c989b1422eccb633829b966d162018d11cc3588",
+			"output_index": 1,
+			"output_type": "float3",
+			"output_label": "Tangent Normal",
+			"output_id": 1,
+			"output_node": "54a1904bff74292e833b5eb5cddbe0903a22baaf"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float4",
+			"input_label": "",
+			"input_id": 0,
+			"input_node": "1b9c234c4bd9063b2ab2c65e01ba7a258d2ee540",
+			"output_index": 0,
+			"output_type": "float4",
+			"output_label": "albedo_2_color",
+			"output_id": 0,
+			"output_node": "ae4b102091cb84ffb7a94e52ab3e9989de2a5554"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float3",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "41ac43f8d87b36f7b0b627eaaf70364127189aac",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "73f31103a1d902862a8b782db3cafba8d16aaae7"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float3",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "41ac43f8d87b36f7b0b627eaaf70364127189aac",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "7a68179f3ba88072f24ce5298ea5ec74ae662d43"
+		},
+		"anchor": {
+			"input_index": 2,
+			"input_type": "float3",
+			"input_label": "Coefficient",
+			"input_id": -688470873,
+			"input_node": "41ac43f8d87b36f7b0b627eaaf70364127189aac",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "x",
+			"output_id": 0,
+			"output_node": "18503c33517953f6ea123add2264fe9815d87117"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "6e9f01405441839f78bafc7285a53129a469c874",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "1.0",
+			"output_id": 0,
+			"output_node": "5d5ad7b53cab059000659baff1b69542d59ed3b9"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "6e9f01405441839f78bafc7285a53129a469c874",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "roughness",
+			"output_id": 0,
+			"output_node": "28d48dc7d826707a831d459159cc41bc995b31eb"
+		},
+		"anchor": {
+			"input_index": 2,
+			"input_type": "float",
+			"input_label": "Coefficient",
+			"input_id": -688470873,
+			"input_node": "6e9f01405441839f78bafc7285a53129a469c874",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "f4c6b52987b57c7497907d43bc3901c6ae5eee6d"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "In",
+			"input_id": -1324699368,
+			"input_node": "f4c6b52987b57c7497907d43bc3901c6ae5eee6d",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "134424fafa0a701109466a3c2332406b5619dace"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "In Range Minimum",
+			"input_id": 586471579,
+			"input_node": "f4c6b52987b57c7497907d43bc3901c6ae5eee6d",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "-1.0",
+			"output_id": 0,
+			"output_node": "7454854bd6289a2e586b1bb51b96799076927faf"
+		},
+		"anchor": {
+			"input_index": 2,
+			"input_type": "float",
+			"input_label": "In Range Maximum",
+			"input_id": 413497076,
+			"input_node": "f4c6b52987b57c7497907d43bc3901c6ae5eee6d",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "1.0",
+			"output_id": 0,
+			"output_node": "4f84f1fde04f0b383762d5373fc6b12af136ae81"
+		},
+		"anchor": {
+			"input_index": 3,
+			"input_type": "float",
+			"input_label": "Out Range Minimum",
+			"input_id": -591517853,
+			"input_node": "f4c6b52987b57c7497907d43bc3901c6ae5eee6d",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "0.0",
+			"output_id": 0,
+			"output_node": "2805dbbf0ff0361208eede499242531433db2363"
+		},
+		"anchor": {
+			"input_index": 4,
+			"input_type": "float",
+			"input_label": "Out Range Maximum",
+			"input_id": 1033320789,
+			"input_node": "f4c6b52987b57c7497907d43bc3901c6ae5eee6d",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "1.0",
+			"output_id": 0,
+			"output_node": "79b507113c1a153cc113ef6b5d49bdcee3ebaad5"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "e38d87ee7505ae757aa86d503f5a606fe1491302",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "6e9f01405441839f78bafc7285a53129a469c874"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "e38d87ee7505ae757aa86d503f5a606fe1491302",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "1.0",
+			"output_id": 0,
+			"output_node": "e32abc8f36b280a2b29207993ad14c240cea2933"
+		},
+		"anchor": {
+			"input_index": 2,
+			"input_type": "float",
+			"input_label": "Coefficient",
+			"input_id": -688470873,
+			"input_node": "e38d87ee7505ae757aa86d503f5a606fe1491302",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "135f76f8dfe6cdf7ae56d2ea47bae541bb9d7dac"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "Value",
+			"input_id": 16756516,
+			"input_node": "135f76f8dfe6cdf7ae56d2ea47bae541bb9d7dac",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "0b709fba49f52bd1f4c072fc92a1322bcecea18e"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "0b709fba49f52bd1f4c072fc92a1322bcecea18e",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "Vertex Depth",
+			"output_id": -980529180,
+			"output_node": "2af4e6af85df6442d52b56b9cc4110c42b8ee553"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "0b709fba49f52bd1f4c072fc92a1322bcecea18e",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "distance_for_specular",
+			"output_id": 0,
+			"output_node": "18360ea16ebad78c5a79ad7b40bec49ebbe3e365"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "2b1733f9bea2cd04cdc6f493d756f0d654b4723d",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "specular",
+			"output_id": 0,
+			"output_node": "e3e34de8fbac58274b1df75a254c5ef1d4accb9c"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "2b1733f9bea2cd04cdc6f493d756f0d654b4723d",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "0.0",
+			"output_id": 0,
+			"output_node": "c9eaa9cd920640c87817ed871078cd3a3f007b51"
+		},
+		"anchor": {
+			"input_index": 2,
+			"input_type": "float",
+			"input_label": "Coefficient",
+			"input_id": -688470873,
+			"input_node": "2b1733f9bea2cd04cdc6f493d756f0d654b4723d",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "135f76f8dfe6cdf7ae56d2ea47bae541bb9d7dac"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float3",
+			"input_label": "Object",
+			"input_id": 0,
+			"input_node": "935c91ccd725a2bb0c71b8de3b8bcaa5bf62fbc0",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "0.0 0.0 1.0",
+			"output_id": 0,
+			"output_node": "fa843c1f84215af21dfefda920f42af463c659c3"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float3",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "356e248966f664546f1f83a34a6694a66714a3cd",
+			"output_index": 1,
+			"output_type": "float3",
+			"output_label": "Normal Tangent Space",
+			"output_id": -1225113712,
+			"output_node": "869b419956653e2407d97333865b1ef6636b89dd"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float3",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "356e248966f664546f1f83a34a6694a66714a3cd",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "Tangent",
+			"output_id": 0,
+			"output_node": "935c91ccd725a2bb0c71b8de3b8bcaa5bf62fbc0"
+		},
+		"anchor": {
+			"input_index": 2,
+			"input_type": "float3",
+			"input_label": "Coefficient",
+			"input_id": -688470873,
+			"input_node": "356e248966f664546f1f83a34a6694a66714a3cd",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "135f76f8dfe6cdf7ae56d2ea47bae541bb9d7dac"
+		}
+	}
+}

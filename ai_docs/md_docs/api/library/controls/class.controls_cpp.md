@@ -72,7 +72,7 @@ Creates a smart pointer to Controls.
 
 ## void setState ( int state , int value )
 
-Toggles the state of the given control on or off.
+Sets the value of the given control state. Any positive value means the control is "pressed", 0 releases it.
 ### Arguments
 
 - *int* **state** - Control state (one of *[CONTROLS_STATE_*](#STATE_AUX_0)* variables).
@@ -80,7 +80,7 @@ Toggles the state of the given control on or off.
 
 ## int getState ( int state ) const
 
-Returns the state of a given control (pressed or unpressed).
+Returns the value of the given control state: a positive value while the control is "pressed", 0 when it is released.
 ### Arguments
 
 - *int* **state** - Control state (one of *[CONTROLS_STATE_*](#STATE_AUX_0)* variables).
@@ -100,7 +100,7 @@ Returns the state of a given control (pressed or unpressed) by the control state
 **1** if the control is pressed; otherwise, **0**.
 ## const char * getStateName ( int state ) const
 
-Returns the name of a given control state as a string.
+Returns the name of the given control state, FORWARD or MOVE_LEFT for example. These names identify the states in the controls configuration file; *[getStateByName()](../../...md#getStateByName_cstr_int)* performs the reverse lookup.
 ### Arguments
 
 - *int* **state** - Control state (one of *[CONTROLS_STATE_*](#STATE_AUX_0)* variables).
@@ -123,7 +123,7 @@ State of the given control: 1 if the control is pressed; otherwise, 0.
 Saves controls settings into the stream.
 
 
-**Example** using *saveState()* and *[restoreState()](#restoreState_Stream_int)* methods:
+**Example** using *saveState()* and **[restoreState()](../../...md#restoreState_Stream_int)** methods:
 
 
 ```cpp
@@ -157,7 +157,7 @@ true if the controls settings are saved successfully; otherwise, false.
 Restores controls settings from the stream.
 
 
-**Example** using *[saveState()](#saveState_Stream_int)* and *restoreState()* methods:
+**Example** using **[saveState()](../../...md#saveState_Stream_int)** and *restoreState()* methods:
 
 
 ```cpp

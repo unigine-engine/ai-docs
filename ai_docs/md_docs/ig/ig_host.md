@@ -22,7 +22,7 @@ Besides CIGI, a DIS connector is available: it is selected by the *Connector* se
 ## Running IG Host
 
 
-IG Host is a part of the [Cesium demo](../sdk/demos/cesium_ig.md). Therefore, to try out IG Host, you need to download and run that demo. In the start menu, click *Start in host mode*: the demo becomes a pure image generator waiting for a host.
+IG Host is a part of the [Cesium Integration demo](../sdk/demos/cesium_ig.md). Therefore, to try out IG Host, you need to download and run that demo. In the start menu, click *Start in host mode*: the demo becomes a pure image generator waiting for a host.
 
 
 ![](run_host.png)
@@ -286,7 +286,7 @@ In the *File* menu, the *Save State* and *Load State* options are available. You
 Loading a state replaces everything in the list above, so the entities and regions that were there before are destroyed rather than merged with the ones being loaded.
 
 
-The same file can be loaded on start-up with the `-default_state` command line option, which is how the [Cesium demo](../sdk/demos/cesium_ig.md) brings its aircraft, its view and its authored weather up together with the host.
+The same file can be loaded on start-up with the `-default_state` command line option, which is how the [Cesium Integration demo](../sdk/demos/cesium_ig.md) brings its aircraft, its view and its authored weather up together with the host.
 
 
 > **Notice:** The [loaded database](#load) is not part of a restored state, so it has to be loaded from the *Database List* after a state file, every time.
@@ -341,7 +341,7 @@ The information will be displayed in the console of the *IG Host* window (opened
 ## See Also
 
 
-- *[Cesium](../sdk/demos/cesium_ig.md)* demo - the demo IG Host is shipped with
+- *[Cesium Integration](../sdk/demos/cesium_ig.md)* demo - the demo IG Host is shipped with
 - *[Image Generator](../ig/index.md)* - the application on the other side of the connection
 - *[IG Configuration](../ig/config.md)* - the [databases](../ig/config.md#config_databases) and [entity types](../ig/config.md#config_entities) the host offers in its lists
 - *[Weather Settings](../ig/weather/settings.md)* - the weather parameters the host controls

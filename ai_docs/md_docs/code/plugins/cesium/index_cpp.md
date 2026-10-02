@@ -1,6 +1,9 @@
 # Cesium Plugin (CPP)
 
 
+> **Warning:** **Disclaimer:** The *Cesium* integration plugin provides only the client-side ability to stream *3D Tiles* content, including from the *Cesium ion* service. The plugin is built by UNIGINE using the open-source cesium-native library (Apache License 2.0); no other Cesium software, no *Cesium ion* account or access token, and no map data are included. You connect using your own *Cesium ion* account under your own agreement with Cesium GS, Inc. All data is streamed directly from *Cesium ion* at runtime and kept in memory only � nothing is cached to disk, accumulated, or redistributed, and no usage data is collected.
+
+
 Real-world planet data covers the whole Earth and is far too large to be loaded at once. The **Cesium** plugin is a [3D Tiles](https://github.com/CesiumGS/3d-tiles) client: it streams elevation, imagery and pre-textured geometry from [Cesium ion](https://cesium.com/platform/cesium-ion/) for wherever the camera is, and renders them on a globe inside UNIGINE.
 
 
@@ -14,7 +17,7 @@ Rendering a planet in a Cartesian scene is a precision problem, so the plugin ma
 - *[Cesium ion Assets](../../../code/plugins/cesium/assets.md)*
 - *[Terrain Insets](../../../code/plugins/cesium/insets.md)*
 - *[Cesium Editor Plugin](../../../code/plugins/cesium/editor_plugin.md)*
-- *[Cesium](../../../sdk/demos/cesium_ig.md)* demo
+- *[Cesium Integration](../../../sdk/demos/cesium_ig.md)* demo
 
 
 ## Launching Cesium Plugin
@@ -31,7 +34,7 @@ main_x64 -extern_plugin "UnigineIG,UnigineCesium,UnigineCIGIConnector"
 > **Warning:** In an IG application, *Cesium* must be loaded **before** *CIGIConnector*, otherwise the first start-up packets sent by the host can be lost.
 
 
-A connector that is loaded on the command line opens its connection during its first frame, whether or not the application is ready for a host to start driving it. An application that decides between a host-driven and a standalone session at run time can leave *CIGIConnector* out of the list and load it when the session actually starts, which is what the [Cesium](../../../sdk/demos/cesium_ig.md) demo does - the load order above then takes care of itself.
+A connector that is loaded on the command line opens its connection during its first frame, whether or not the application is ready for a host to start driving it. An application that decides between a host-driven and a standalone session at run time can leave *CIGIConnector* out of the list and load it when the session actually starts, which is what the [Cesium Integration](../../../sdk/demos/cesium_ig.md) demo does - the load order above then takes care of itself.
 
 
 The plugin always loads, even without an access token or a usable data source. In that case the globe stays idle, which is a normal state rather than an error: the plugin can be configured from the [editor panel](../../../code/plugins/cesium/editor_plugin.md) and brought up afterwards.
@@ -141,7 +144,7 @@ int AppWorldLogic::update()
 > **Notice:** Passing a camera that is not being rendered through is worse than passing none: with no anchor set yet, the world origin is the centre of the Earth, and the plugin streams tiles around that point for nobody to look at.
 
 
-The depth range itself is declared through *[IG::View::setDefinition()](../../../api/library/plugins/ig/api/class.view_cpp.md#setDefinition_float_float_float_float_float_float_void)*, which keeps the aspect ratio and replicates to [Syncker](../../../code/plugins/syncker/index.md) slaves. A fixed pair of planes works, but the range can also follow the camera - the [Cesium](../../../sdk/demos/cesium_ig.md) demo derives the far plane from the distance to the horizon at the current altitude, with a floor of 4000 km and a margin above the geometric value, sets the near plane to a small fraction of it, and re-declares the view only when the window size or the depth range has actually moved, since the call goes over the network:
+The depth range itself is declared through *[IG::View::setDefinition()](../../../api/library/plugins/ig/api/class.view_cpp.md#setDefinition_float_float_float_float_float_float_void)*, which keeps the aspect ratio and replicates to [Syncker](../../../code/plugins/syncker/index.md) slaves. A fixed pair of planes works, but the range can also follow the camera - the [Cesium Integration](../../../sdk/demos/cesium_ig.md) demo derives the far plane from the distance to the horizon at the current altitude, with a floor of 4000 km and a margin above the geometric value, sets the near plane to a small fraction of it, and re-declares the view only when the window size or the depth range has actually moved, since the call goes over the network:
 
 
 ```cpp

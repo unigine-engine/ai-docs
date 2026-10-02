@@ -1,5 +1,8 @@
 # NoesisGUI Sample (CPP)
 
+> **Notice:** The complete sample source code is available on GitHub:
+> **[github.com/unigine-engine/unigine-noesis-cpp-integration-sample](https://github.com/unigine-engine/unigine-noesis-cpp-integration-sample)**.
+
 
 ## General Information
 

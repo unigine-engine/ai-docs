@@ -1,0 +1,191 @@
+{
+	"material": {
+		"type": 6,
+		"normal_space": 2,
+		"vertex_position_space": 1,
+		"vertex_offset_space": 2,
+		"vertex_mode": 0,
+		"advanced_mode": false,
+		"compiler_ieee_strictness": false,
+		"compiler_optimization_level": 4,
+		"compiler_warning_mode": 2,
+		"force_velocity": false,
+		"tessellation": false,
+		"two_sided": false,
+		"depth_test": false,
+		"scene_depth_write": false,
+		"blend_mode": 0,
+		"depth_mode": 0,
+		"decal_tbn_mode": 0,
+		"normal_blend_mode": 0,
+		"blend_src": 5,
+		"blend_dest": 6,
+		"opacity_depth_write": false,
+		"velocity_write": false,
+		"surface_id_write": false
+	},
+	"parameters": {
+		"parameter": {
+			"type": "Color",
+			"guid": "6000000000000000000000000000000000000001",
+			"value": {
+				"type": "float4",
+				"name": "tint",
+				"min_value": 0,
+				"max_value": 1,
+				"value_x": 1,
+				"value_y": 0.85,
+				"value_z": 0.7,
+				"value_w": 1
+			}
+		}
+	},
+	"version": "2.22.0.0",
+	"nodes": {
+		"Screen Color": {
+			"label": "Screen Color",
+			"guid": "6000000000000000000000000000000000000002",
+			"x": 40,
+			"y": 40,
+			"collapsed": false,
+			"props": {
+			}
+		},
+		"Screen UV": {
+			"label": "Screen UV",
+			"guid": "6000000000000000000000000000000000000003",
+			"x": 40,
+			"y": 200,
+			"collapsed": false,
+			"props": {
+			}
+		},
+		"SampleTexture": {
+			"label": "SampleTexture: Default",
+			"texture_type": "Texture2D",
+			"sampler_type": "Default",
+			"texture_data": "Color",
+			"normal_space": "Tangent Space for UV0",
+			"guid": "6000000000000000000000000000000000000004",
+			"x": 400,
+			"y": 40,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Type",
+					"widget": "Combobox",
+					"x": 0
+				}
+			}
+		},
+		"Parameter": {
+			"type": "float4",
+			"label": "Color",
+			"guid": "6000000000000000000000000000000000000005",
+			"x": 400,
+			"y": 320,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float4",
+					"x": 1,
+					"y": 0.85,
+					"z": 0.7,
+					"w": 1
+				}
+			},
+			"parameter_guid": "6000000000000000000000000000000000000001"
+		},
+		"_multiply": {
+			"label": "Multiply",
+			"guid": "6000000000000000000000000000000000000006",
+			"x": 760,
+			"y": 120,
+			"collapsed": false,
+			"props": {
+			}
+		},
+		"float": {
+			"label": "float",
+			"guid": "6000000000000000000000000000000000000007",
+			"x": 760,
+			"y": 320,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 1
+				}
+			},
+			"type": "float"
+		},
+		"Material": {
+			"label": "Material",
+			"guid": "829f90678c21529ab2138131aaaf08dc82560e8b",
+			"x": 1120,
+			"y": 120,
+			"collapsed": false,
+			"props": {
+			}
+		},
+		"Final": {
+			"label": "Final",
+			"guid": "0f2f417e3b3b7ac5ee9bad604fcb013f4b641d92",
+			"x": 1460,
+			"y": 140,
+			"collapsed": false,
+			"props": {
+			}
+		}
+	},
+	"anchors": {
+		"anchor": {
+			"input_label": "Texture",
+			"input_node": "6000000000000000000000000000000000000004",
+			"output_label": "",
+			"output_id": 0,
+			"output_node": "6000000000000000000000000000000000000002"
+		},
+		"anchor": {
+			"input_label": "UV",
+			"input_node": "6000000000000000000000000000000000000004",
+			"output_label": "",
+			"output_id": 0,
+			"output_node": "6000000000000000000000000000000000000003"
+		},
+		"anchor": {
+			"input_label": "A",
+			"input_node": "6000000000000000000000000000000000000006",
+			"output_label": "Color",
+			"output_node": "6000000000000000000000000000000000000004"
+		},
+		"anchor": {
+			"input_label": "B",
+			"input_node": "6000000000000000000000000000000000000006",
+			"output_label": "tint",
+			"output_node": "6000000000000000000000000000000000000005"
+		},
+		"anchor": {
+			"input_label": "Screen Color",
+			"input_node": "829f90678c21529ab2138131aaaf08dc82560e8b",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "6000000000000000000000000000000000000006"
+		},
+		"anchor": {
+			"input_label": "Opacity",
+			"input_node": "829f90678c21529ab2138131aaaf08dc82560e8b",
+			"output_label": "1.0",
+			"output_id": 0,
+			"output_node": "6000000000000000000000000000000000000007"
+		},
+		"anchor": {
+			"input_label": "Material",
+			"input_node": "0f2f417e3b3b7ac5ee9bad604fcb013f4b641d92",
+			"output_label": "Material",
+			"output_node": "829f90678c21529ab2138131aaaf08dc82560e8b"
+		}
+	}
+}

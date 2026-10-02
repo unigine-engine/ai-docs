@@ -14,13 +14,13 @@ The InputGamePad class represents a gamepad and contains a set of functions for 
 
 ## int getNumber ( )
 
-Returns the gamepad number (up to four gamepads are supported).
+Returns the index of the slot this gamepad occupies � the same index that *[engine.input.getGamePad()()](../../../api/library/controls/class.input_usc.md#getGamePad_int_InputGamePad)* takes, from 0 to [NumGamePads](../../../api/library/controls/class.input_usc.md#NumGamePads)�- 1.
 ### Return value
 
 Gamepad number.
 ## string getName ( )
 
-Returns the name of the gamepad.
+Returns the name of the gamepad as reported by the input backend.
 ### Return value
 
 User-friendly name of the gamepad. One of the following:
@@ -121,13 +121,13 @@ Sets the amount of vibration for the right (high-frequency) and left (low-freque
 
 ## int isAvailable ( )
 
-Checks if the gamepad is available.
+Returns a value indicating if a gamepad is currently connected in this slot. A slot is kept after the device is unplugged, and this method is the way to tell an occupied slot from an empty one.
 ### Return value
 
 **1** if the gamepad is available; otherwise, **0**.
 ## int isButtonPressed ( int button )
 
-Returns a value indicating if the given button is pressed.
+Returns a value indicating if the given button is currently held down. Unlike *[isButtonDown()()](../../...md#isButtonDown_int_int)*, which is true only in the frame the button went down, this value stays true for as long as the button is held � check it to perform a continuous action.
 ### Arguments
 
 - *int* **button** - One of the [INPUT_GAME_PAD_BUTTON_](../../../api/library/controls/class.input_usc.md#GAMEPAD_BUTTON_A) codes.
@@ -157,7 +157,7 @@ Returns a value indicating if the given button was released during the current f
 **1** if the button was released during the current frame; otherwise, **0**.
 ## InputEventPadButton getButtonEvent ( int button )
 
-Returns the currently processed gamepad button input event.
+Returns the gamepad button event currently being processed for the given button. Use *[getButtonEvents()()](../../...md#getButtonEvents_int_VECInputEventPadButton_int)* to get all events received for this button.
 ### Arguments
 
 - *int* **button** - One of the [INPUT_GAME_PAD_BUTTON_](../../../api/library/controls/class.input_usc.md#GAMEPAD_BUTTON_A) codes.
@@ -179,13 +179,13 @@ Returns a value indicating the type of the device (wheel, throttle, etc.).
 Device type. One of the *[Input::DEVICE_*](../../../api/library/controls/class.input_usc.md#DEVICE_UNKNOWN)* values.
 ## int getModelType ( )
 
-Returns a value indicating the gamepad model type.
+Returns the gamepad model recognised by the engine � one of the [MODEL_TYPE](#MODEL_TYPE) values. [MODEL_TYPE_UNKNOWN](#MODEL_TYPE_UNKNOWN) is returned for a device the engine has no profile for.
 ### Return value
 
 Gamepad model type identifier.
 ## int getNumTouches ( )
 
-Returns the total number of the gamepad touch panels.
+Returns the number of touch panels the gamepad has; 0 for a gamepad without one. The number of fingers a panel tracks is reported by *[getNumTouchFingers()()](../../...md#getNumTouchFingers_int_int)*.
 ### Return value
 
 The total number of the gamepad touch panels.
@@ -234,7 +234,7 @@ Returns a value indicating if the given touch panel has been released during the
 **1** if the touch panel has been released during the current frame, otherwise **0**.
 ## vec2 getTouchPosition ( int touch , int finger )
 
-Returns the normalized position of the touch along the axes.
+Returns the position of the given finger on the given touch panel, normalized to the [0; 1] range along both axes, with (0,0) at the upper-left corner of the panel.
 ### Arguments
 
 - *int* **touch** - The index of the gamepad touch panel, the number from 0 to the [total number](#getNumTouches_int) of touch panels.
@@ -245,7 +245,7 @@ Returns the normalized position of the touch along the axes.
 The normalized position of the touch along the axes from (0,0) to (1,1).
 ## vec2 getTouchDelta ( int touch , int finger )
 
-Returns the delta of the touch position from the previous event.
+Returns how far the given finger has moved on the panel since the previous frame, in the same normalized units as the position. (0,0) is returned while the finger is not touching the panel.
 ### Arguments
 
 - *int* **touch** - The index of the gamepad touch panel, the number from 0 to the [total number](#getNumTouches_int) of touch panels.
@@ -273,7 +273,7 @@ Returns the GUID created on the basis of vendor and product identifiers and prod
 Device model GUID.
 ## void setLightColor ( vec3 color )
 
-Sets the color of the controller's light. Has no effect if the controller has no application-controllable light (check the **[isLightSupported()()](../../...md#isLightSupported_int)** property).
+Sets the color of the controller's light. Has no effect if the controller has no application-controllable light (check the **[isLightSupported()()](../../...md#isLightSupported_int)** *method*).
 ### Arguments
 
 - *vec3* **color** - RGB color of the light, with components in the [0; 1] range.

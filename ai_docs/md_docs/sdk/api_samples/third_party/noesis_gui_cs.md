@@ -1,5 +1,8 @@
 # NoesisGUI Sample (CS)
 
+> **Notice:** The complete sample source code is available on GitHub:
+> **[github.com/unigine-engine/unigine-noesis-csharp-integration-sample](https://github.com/unigine-engine/unigine-noesis-csharp-integration-sample)**.
+
 
 ## General Information
 

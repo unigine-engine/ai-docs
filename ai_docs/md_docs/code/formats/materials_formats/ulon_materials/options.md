@@ -31,7 +31,7 @@ You can access options in the shader using the following defines:
 | Two sided | GET_OPTION_TWO_SIDED | 0 or 1 |
 | Cast shadow | GET_OPTION_CAST_PROJ_OMNI_SHADOW | 0 or 1 |
 | Cast world shadow | GET_OPTION_CAST_WORLD_SHADOW | 0 or 1 |
-| Overlap | GET_OPTION_OVERLAP | 0 or 1 |
+| Transparent order | GET_OPTION_TRANSPARENT_ORDER | 0, 1 or 2 |
 
 
 - `OPTION_<`option name in uppercase> � defined only if an option has a positive value.
@@ -46,7 +46,7 @@ You can access options in the shader using the following defines:
 | Two sided | OPTION_TWO_SIDED | 1 � TWO_SIDED |
 | Cast shadow | OPTION_CAST_PROJ_OMNI_SHADOW | � |
 | Cast world shadow | OPTION_CAST_WORLD_SHADOW | � |
-| Overlap | OPTION_OVERLAP | 1 � OVERLAP_RENDER |
+| Transparent order | OPTION_TRANSPARENT_ORDER | � |
 
 
 For various **blend** modes the *[source](#blend_src)* and *[destination](#blend_dest)* defines are generated:
@@ -331,17 +331,21 @@ or a **String**
 - water = TRANSPARENT_WATER
 
 
-### overlap
+### transparent_order
 
 
-***Boolean***
+***String***
 
 
-A flag indicating if the *Overlap* option is enabled for a material (only for *[Object](../../../../api/library/objects/class.object_cpp.md)*). This can be used for UI elements.
+The *[Transparent Order](../../../../editor2/materials_settings/index.md#transparent_order)* option of a material � the point of the frame at which transparent surfaces with this material are rendered.
 
 
 Available values:
 
 
-- false � disabled (by default)
-- true � enabled
+- before_ssr � rendered before SSR: takes part in screen-space reflections and receives all post effects (by default)
+- before_post � rendered at the start of the post chain: invisible to SSR, receives tonemapping and TAA
+- after_post � rendered after the whole post chain: tonemapping and TAA are already done. Suitable for overlays, HUD and in-world tooltips
+
+
+The numeric forms 0, 1 and 2 are accepted as well.

@@ -8,7 +8,10 @@
 This class contains the IME (Input Method Editor) text editing event information: the in-progress composition (preedit) text together with the cursor position and the length of the selected portion inside it. The engine dispatches this event while the user is composing text via an IME (for example, CJK input methods).
 
 
-IME composition must be enabled via the *[Input](../../../api/library/controls/class.input_usc.md)* class (the **[isIMEEnabled()()](../../../api/library/controls/class.input_usc.md#isIMEEnabled_int)** property, disabled by default). Once the user commits the composition, a regular *[InputEventText](../../../api/library/controls/class.inputeventtext_usc.md)* event with the final text arrives instead.
+Events of this type are created by the engine and passed to your handlers. You can also construct one yourself and dispatch it via *[engine.input.sendEvent()()](../../../api/library/controls/class.input_usc.md#sendEvent_InputEvent_void)*, which is what a custom SystemProxy implementation or a device emulator does.
+
+
+IME composition must be enabled via the *[Input](../../../api/library/controls/class.input_usc.md)* class (the **[isIMEEnabled()()](../../../api/library/controls/class.input_usc.md#isIMEEnabled_int)** *method*; the IME is disabled by default). Once the user commits the composition, a regular *[InputEventText](../../../api/library/controls/class.inputeventtext_usc.md)* event with the final text arrives instead.
 
 
 ## InputEventTextEditing Class

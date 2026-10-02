@@ -8,7 +8,10 @@
 This class contains the game pad gyroscope motion event information: the connection ID of the game pad and the angular velocity it reports. The engine dispatches this event each time the gyroscope of a connected controller reports a new state.
 
 
-The last reported value for each game pad is also available via the *[InputGamePad](../../../api/library/controls/class.inputgamepad_usc.md)* class (the **[getAngularVelocity()()](../../../api/library/controls/class.inputgamepad_usc.md#getAngularVelocity_vec3)** property; gyroscope support can be checked via the **[isAngularVelocitySupported()()](../../../api/library/controls/class.inputgamepad_usc.md#isAngularVelocitySupported_int)** property).
+Events of this type are created by the engine and passed to your handlers. You can also construct one yourself and dispatch it via *[engine.input.sendEvent()()](../../../api/library/controls/class.input_usc.md#sendEvent_InputEvent_void)*, which is what a custom SystemProxy implementation or a device emulator does.
+
+
+The last reported value for each game pad is also available via the *[InputGamePad](../../../api/library/controls/class.inputgamepad_usc.md)* class (the **[getAngularVelocity()()](../../../api/library/controls/class.inputgamepad_usc.md#getAngularVelocity_vec3)** *method*; gyroscope support can be checked via the **[isAngularVelocitySupported()()](../../../api/library/controls/class.inputgamepad_usc.md#isAngularVelocitySupported_int)** *method*).
 
 
 ## InputEventPadGyroscopeMotion Class

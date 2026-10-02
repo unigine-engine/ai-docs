@@ -8,6 +8,9 @@
 This class controls system events such as changing the input language of the keyboard layout.
 
 
+Events of this type are created by the engine and passed to your handlers. You can also construct one yourself and dispatch it via *[Input::sendEvent()](../../../api/library/controls/class.input_cpp.md#sendEvent_InputEvent_void)*, which is what a custom SystemProxy implementation or a device emulator does.
+
+
 ## InputEventSystem Class
 
 ### Enums
@@ -45,14 +48,14 @@ Default constructor.
 
 ## void setAction ( InputEventSystem::ACTION action )
 
-Sets the action for the system event.
+Sets the action the event represents. See *[getAction()](../../...md#getAction_int)*.
 ### Arguments
 
 - *[InputEventSystem::ACTION](../../../api/library/controls/class.inputeventsystem_cpp.md#ACTION)* **action** - New action to be set for the system event.
 
 ## InputEventSystem::ACTION getAction ( ) const
 
-Returns the action of the system event.
+Returns the action the event represents: one of the [ACTION](#ACTION) values. Currently the only system event reported is a change of the keyboard layout.
 ### Return value
 
 Current system event action.

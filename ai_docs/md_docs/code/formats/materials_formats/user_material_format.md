@@ -282,17 +282,18 @@ Available values:
 - 1 - not performed
 
 
-### overlap
+### transparent_order
 
 
-A flag indicating if an Overlap option is enabled for a material.
+The [Transparent Order](../../../editor2/materials_settings/index.md#transparent_order) option of a material.
 
 
 Available values:
 
 
-- 0 - disabled (by default)
-- 1 - enabled
+- 0 - Before SSR (by default)
+- 1 - Before Post
+- 2 - After Post
 
 
 ### two_sided

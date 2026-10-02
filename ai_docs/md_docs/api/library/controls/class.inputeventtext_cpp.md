@@ -8,6 +8,9 @@
 This class controls text event information.
 
 
+Events of this type are created by the engine and passed to your handlers. You can also construct one yourself and dispatch it via *[Input::sendEvent()](../../../api/library/controls/class.input_cpp.md#sendEvent_InputEvent_void)*, which is what a custom SystemProxy implementation or a device emulator does.
+
+
 ## InputEventText Class
 
 ### Members
@@ -43,7 +46,7 @@ Sets the input symbol.
 
 ## unsigned int getUnicode ( ) const
 
-Returns the input symbol.
+Returns the Unicode character code the event carries. A text event is produced by the OS after the keyboard input has been processed, so the character already accounts for the current layout and the modifiers held.
 ### Return value
 
 Unicode symbol.

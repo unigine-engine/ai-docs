@@ -4588,59 +4588,59 @@ Current resolution. One of the following values:
 **true** if Bloom effect is enabled ; otherwise **false**. The default value is **false**.
 ## void setDOFNearFocalOffset ( float offset = 0.0f )
 
-***Console*:**`render_dof_near_focal_offset`Sets a new [offset](../../../editor2/settings/render_settings/camera_effects/index.md#near_focal_offset) from the focal to the nearest blurred zone. In other words, the distance when foreground (near) is in focus.
+***Console*:**`render_dof_near_focal_offset`Sets a new [distance from the focal point toward the camera](../../../editor2/settings/render_settings/camera_effects/index.md#far_focal_offset) within which objects stay in focus. The in-focus zone starts at Focal Distance − Near Focal Offset.
 ### Arguments
 
-- *float* **offset** - The near focal offset for DoF (Depth Of Field), in units. Range of values: **[0.0f, inf]**. The default value is : **0.0f**.
+- *float* **offset** - The distance from the focal point toward the camera within which objects stay in focus, in units. Range of values: **[0.0f, inf]**. The default value is : **0.0f**.
 
 ## float getDOFNearFocalOffset () const
 
-***Console*:**`render_dof_near_focal_offset`Returns the current [offset](../../../editor2/settings/render_settings/camera_effects/index.md#near_focal_offset) from the focal to the nearest blurred zone. In other words, the distance when foreground (near) is in focus.
+***Console*:**`render_dof_near_focal_offset`Returns the current [distance from the focal point toward the camera](../../../editor2/settings/render_settings/camera_effects/index.md#far_focal_offset) within which objects stay in focus. The in-focus zone starts at Focal Distance − Near Focal Offset.
 ### Return value
 
-Current near focal offset for DoF (Depth Of Field), in units.
+Current distance from the focal point toward the camera within which objects stay in focus, in units.
 Range of values: **[0.0f, inf]**. The default value is : **0.0f**.
 ## void setDOFNearDistance ( float distance = 10.0f )
 
-***Console*:**`render_dof_near_distance`Sets a new [near DOF limit](../../../editor2/settings/render_settings/camera_effects/index.md#near_distance) of the camera: the distance between the camera and the first element that is considered to be acceptably sharp. Black zone on the DOF mask means in-focus zone.
+***Console*:**`render_dof_near_distance`Sets a new [length of the near transition zone](../../../editor2/settings/render_settings/camera_effects/index.md#near_distance), over which the blur increases from zero to maximum. It is measured toward the camera from the near edge of the in-focus zone. Objects closer than Focal Distance − Near Focal Offset − Near Distance are fully blurred. Black zone on the DOF mask means in-focus zone.
 ### Arguments
 
-- *float* **distance** - The near DOF limit value, in units. Range of values: **[0.0f, inf]**. The default value is : **10.0f**.
+- *float* **distance** - The length of the near transition zone, over which the blur increases from zero to maximum, in units. Range of values: **[0.0f, inf]**. The default value is : **10.0f**.
 
 ## float getDOFNearDistance () const
 
-***Console*:**`render_dof_near_distance`Returns the current [near DOF limit](../../../editor2/settings/render_settings/camera_effects/index.md#near_distance) of the camera: the distance between the camera and the first element that is considered to be acceptably sharp. Black zone on the DOF mask means in-focus zone.
+***Console*:**`render_dof_near_distance`Returns the current [length of the near transition zone](../../../editor2/settings/render_settings/camera_effects/index.md#near_distance), over which the blur increases from zero to maximum. It is measured toward the camera from the near edge of the in-focus zone. Objects closer than Focal Distance − Near Focal Offset − Near Distance are fully blurred. Black zone on the DOF mask means in-focus zone.
 ### Return value
 
-Current near DOF limit value, in units.
+Current length of the near transition zone, over which the blur increases from zero to maximum, in units.
 Range of values: **[0.0f, inf]**. The default value is : **10.0f**.
 ## void setDOFFarFocalOffset ( float offset = 0.0f )
 
-***Console*:**`render_dof_far_focal_offset`Sets a new Sets the [offset](../../../editor2/settings/render_settings/camera_effects/index.md#far_focal_offset) from the focal to the farthest blurred zone for the DOF effect. In other words, the distance when background (far) is in focus.
+***Console*:**`render_dof_far_focal_offset`Sets a new [distance from the focal point away from the camera](../../../editor2/settings/render_settings/camera_effects/index.md#far_focal_offset) within which objects stay in focus. The in-focus zone ends at Focal Distance + Far Focal Offset.
 ### Arguments
 
-- *float* **offset** - The far focal offset for DoF (Depth Of Field), in units. Range of values: **[0.0f, inf]**. The default value is : **0.0f**.
+- *float* **offset** - The distance from the focal point away from the camera within which objects stay in focus, in units. Range of values: **[0.0f, inf]**. The default value is : **0.0f**.
 
 ## float getDOFFarFocalOffset () const
 
-***Console*:**`render_dof_far_focal_offset`Returns the current Sets the [offset](../../../editor2/settings/render_settings/camera_effects/index.md#far_focal_offset) from the focal to the farthest blurred zone for the DOF effect. In other words, the distance when background (far) is in focus.
+***Console*:**`render_dof_far_focal_offset`Returns the current [distance from the focal point away from the camera](../../../editor2/settings/render_settings/camera_effects/index.md#far_focal_offset) within which objects stay in focus. The in-focus zone ends at Focal Distance + Far Focal Offset.
 ### Return value
 
-Current far focal offset for DoF (Depth Of Field), in units.
+Current distance from the focal point away from the camera within which objects stay in focus, in units.
 Range of values: **[0.0f, inf]**. The default value is : **0.0f**.
 ## void setDOFFarDistance ( float distance = 10.0f )
 
-***Console*:**`render_dof_far_distance`Sets a new [far DOF limit](../../../editor2/settings/render_settings/camera_effects/index.md#far_distance) of the camera: the distance between the camera and the furthest element that is considered to be acceptably sharp. Black zone on the DOF mask means in-focus zone.
+***Console*:**`render_dof_far_distance`Sets a new [length of the far transition zone](../../../editor2/settings/render_settings/camera_effects/index.md#far_distance), over which the blur increases from zero to maximum. It is measured away from the camera from the far edge of the in-focus zone. Objects farther than Focal Distance + Far Focal Offset + Far Distance are fully blurred. Black zone on the DOF mask means in-focus zone.
 ### Arguments
 
-- *float* **distance** - The far DoF limit value, in units. Range of values: **[0.0f, inf]**. The default value is : **10.0f**.
+- *float* **distance** - The length of the far transition zone, over which the blur increases from zero to maximum, in units. Range of values: **[0.0f, inf]**. The default value is : **10.0f**.
 
 ## float getDOFFarDistance () const
 
-***Console*:**`render_dof_far_distance`Returns the current [far DOF limit](../../../editor2/settings/render_settings/camera_effects/index.md#far_distance) of the camera: the distance between the camera and the furthest element that is considered to be acceptably sharp. Black zone on the DOF mask means in-focus zone.
+***Console*:**`render_dof_far_distance`Returns the current [length of the far transition zone](../../../editor2/settings/render_settings/camera_effects/index.md#far_distance), over which the blur increases from zero to maximum. It is measured away from the camera from the far edge of the in-focus zone. Objects farther than Focal Distance + Far Focal Offset + Far Distance are fully blurred. Black zone on the DOF mask means in-focus zone.
 ### Return value
 
-Current far DoF limit value, in units.
+Current length of the far transition zone, over which the blur increases from zero to maximum, in units.
 Range of values: **[0.0f, inf]**. The default value is : **10.0f**.
 ## void setDOFBlur ( float dofblur = 1.0f )
 
@@ -8051,8 +8051,8 @@ Current four-component vector (X, Y, Z, W) defining the culling area parameters.
 
 ***Console*:**`render_stereo_hidden_area`Sets a new culling mode for pixels that are not visible in VR mode. One of the following values:
 - 0 - hidden area culling is disabled (by default).
-- 1 - **OpenVR-based culling mode**. Culling is performed using meshes returned by OpenVR. > **Notice:** Culling result depends on HMD used.
-- **2** - **Custom culling mode**. Culling is performed using meshes returned by OpenVR and an oval or circular mesh determined by custom adjustable parameters*[setStereoHiddenAreaTransform()](../../...md#render_stereo_hidden_area_transform)*.
+- 1 - **Runtime-based culling mode**. Culling is performed using meshes returned by the VR runtime (OpenXR, OpenVR, or Varjo). > **Notice:** Culling result depends on HMD used.
+- **2** - **Custom culling mode**. Culling is performed using meshes returned by the VR runtime and an oval or circular mesh determined by custom adjustable parameters*[setStereoHiddenAreaTransform()](../../...md#render_stereo_hidden_area_transform)*.
 
  This parameter is used for performance optimization.
 ### Arguments
@@ -8060,63 +8060,66 @@ Current four-component vector (X, Y, Z, W) defining the culling area parameters.
 - *int* **area** - The culling mode. One of the following values:
 
   - **0** - disabled (by default)
-  - **1** - OpenVR-based culling mode
+  - **1** - Runtime-based culling mode
   - **2** - Custom culling mode
 
 ## int getStereoHiddenArea () const
 
 ***Console*:**`render_stereo_hidden_area`Returns the current culling mode for pixels that are not visible in VR mode. One of the following values:
 - 0 - hidden area culling is disabled (by default).
-- 1 - **OpenVR-based culling mode**. Culling is performed using meshes returned by OpenVR. > **Notice:** Culling result depends on HMD used.
-- **2** - **Custom culling mode**. Culling is performed using meshes returned by OpenVR and an oval or circular mesh determined by custom adjustable parameters*[setStereoHiddenAreaTransform()](../../...md#render_stereo_hidden_area_transform)*.
+- 1 - **Runtime-based culling mode**. Culling is performed using meshes returned by the VR runtime (OpenXR, OpenVR, or Varjo). > **Notice:** Culling result depends on HMD used.
+- **2** - **Custom culling mode**. Culling is performed using meshes returned by the VR runtime and an oval or circular mesh determined by custom adjustable parameters*[setStereoHiddenAreaTransform()](../../...md#render_stereo_hidden_area_transform)*.
 
  This parameter is used for performance optimization.
 ### Return value
 
 Current culling mode. One of the following values:
 - **0** - disabled (by default)
-- **1** - OpenVR-based culling mode
+- **1** - Runtime-based culling mode
 - **2** - Custom culling mode
 
-## void setStereoOffset ( float offset )
+## void setStereoOffset ( float offset = 0.0f )
 
-Sets a new virtual camera offset (an offset after the perspective projection).
+***Console*:**`render_stereo_offset`Sets a new virtual camera offset (an offset after the perspective projection).
 ### Arguments
 
-- *float* **offset** - The offset, in units.
+- *float* **offset** - The offset, in units. Range of values: **[0.0f, inf]**. The default value is : **0.0f**.
 
 ## float getStereoOffset () const
 
-Returns the current virtual camera offset (an offset after the perspective projection).
+***Console*:**`render_stereo_offset`Returns the current virtual camera offset (an offset after the perspective projection).
 ### Return value
 
 Current offset, in units.
-## void setStereoRadius ( float radius )
+Range of values: **[0.0f, inf]**. The default value is : **0.0f**.
+## void setStereoRadius ( float radius = 0.032f )
 
-Sets a new radius for stereo (the half of the separation distance between the cameras).
+***Console*:**`render_stereo_radius`Sets a new radius for stereo (the half of the separation distance between the cameras).
 ### Arguments
 
-- *float* **radius** - The radius, in units.
+- *float* **radius** - The radius, in units. Range of values: **[0.0f, inf]**. The default value is : **0.032f**.
 
 ## float getStereoRadius () const
 
-Returns the current radius for stereo (the half of the separation distance between the cameras).
+***Console*:**`render_stereo_radius`Returns the current radius for stereo (the half of the separation distance between the cameras).
 ### Return value
 
 Current radius, in units.
-## void setStereoDistance ( float distance )
+Range of values: **[0.0f, inf]**. The default value is : **0.032f**.
+## void setStereoDistance ( float distance = 4.0f )
 
-Sets a new focal distance for stereo rendering (distance in the world space to the point where two views line up).
+***Console*:**`render_stereo_distance`Sets a new focal distance for stereo rendering (distance in the world space to the point where two views line up).
 ### Arguments
 
-- *float* **distance** - The focal distance, in units.
+- *float* **distance** - The focal distance, in units. Range of values: **[1e-6f, inf]**. The default value is : **4.0f**.
 
 ## float getStereoDistance () const
 
-Returns the current focal distance for stereo rendering (distance in the world space to the point where two views line up).
+***Console*:**`render_stereo_distance`Returns the current focal distance for stereo rendering (distance in the world space to the point where two views line up).
 ### Return value
 
 Current focal distance, in units.
+Range of values: **[1e-6f, inf]**. The default value is : **4.0f**.
 ## void setVREmulation ( Render::RENDER_VR_EMULATION_MODE vremulation = 0 )
 
 ***Console*:**`render_vr_emulation`Sets a new value indicating the current VR emulation mode. The FoV value in any selected mode is 110.
@@ -11798,16 +11801,16 @@ Returns the current correction curve for the overall scene saturation. The input
 ### Return value
 
 Current auto exposure curve.
-## void setUpscaleMode ( Render::RENDER_UPSCALE_MODE mode = 2 )
+## void setUpscaleMode ( Render::RENDER_UPSCALE_MODE mode = 0 )
 
 ***Console*:**`render_upscale_mode`Sets a new Upscaling mode. Defines a technology to be used to render high-resolution images based on the lower resolution source, which may help preserve image quality while getting more fps.
 ### Arguments
 
 - *[Render::RENDER_UPSCALE_MODE](../../../api/library/rendering/class.render_cpp.md#RENDER_UPSCALE_MODE)* **mode** - The upscaling mode. One of the following values:
 
-  - **0** - *Disabled* for no upscaling. 1.0x per dimension, the final image has 100% rendered resolution.
+  - **0** - *Disabled* for no upscaling. 1.0x per dimension, the final image has 100% rendered resolution. (by default)
   - **1** - *FSR* for Fidelity FX Super Resolution by AMD.
-  - **2** - *DLSS* for Deep Learning Super Sampling by NVIDIA. (by default)
+  - **2** - *DLSS* for Deep Learning Super Sampling by NVIDIA.
 
 ## Render::RENDER_UPSCALE_MODE getUpscaleMode () const
 
@@ -11815,9 +11818,9 @@ Current auto exposure curve.
 ### Return value
 
 Current upscaling mode. One of the following values:
-- **0** - *Disabled* for no upscaling. 1.0x per dimension, the final image has 100% rendered resolution.
+- **0** - *Disabled* for no upscaling. 1.0x per dimension, the final image has 100% rendered resolution. (by default)
 - **1** - *FSR* for Fidelity FX Super Resolution by AMD.
-- **2** - *DLSS* for Deep Learning Super Sampling by NVIDIA. (by default)
+- **2** - *DLSS* for Deep Learning Super Sampling by NVIDIA.
 
 ## void setUpscaleFixFlicker ( bool flicker = 0 )
 
@@ -11977,7 +11980,7 @@ Current DLSS preset. One of the following values:
 - **10** - Preset J
 - **11** - Preset K
 
-## void setFSRMode ( Render::RENDER_FSR_MODE fsrmode = 0 )
+## void setFSRMode ( Render::RENDER_FSR_MODE fsrmode = 3 )
 
 ***Console*:**`render_upscale_fsr_mode`Sets a new quality mode of FSR (FidelityFX Super Resolution upsampling technique).
 - *Ultra Performance* that offers the highest performance gain while still retaining image quality close to native. Scale factor: 3.0x per dimension (≈33.3% of output resolution)
@@ -11992,10 +11995,10 @@ Current DLSS preset. One of the following values:
 
 - *[Render::RENDER_FSR_MODE](../../../api/library/rendering/class.render_cpp.md#RENDER_FSR_MODE)* **fsrmode** - The FSR quality mode. One of the following values:
 
-  - **0** - Ultra Performance (by default)
+  - **0** - Ultra Performance
   - **1** - Performance
   - **2** - Balanced
-  - **3** - Quality
+  - **3** - Quality (by default)
   - **4** - Native AA
   - **5** - Custom
 
@@ -12013,10 +12016,10 @@ Current DLSS preset. One of the following values:
 ### Return value
 
 Current FSR quality mode. One of the following values:
-- **0** - Ultra Performance (by default)
+- **0** - Ultra Performance
 - **1** - Performance
 - **2** - Balanced
-- **3** - Quality
+- **3** - Quality (by default)
 - **4** - Native AA
 - **5** - Custom
 

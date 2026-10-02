@@ -30,7 +30,7 @@ The class handles VR base station input.
 
 ## InputVRBaseStation::MODEL_TYPE getModelType ( ) const
 
-Returns the model type of the VR base station.
+Returns the base station model recognised by the engine � one of the [MODEL_TYPE](#MODEL_TYPE) values.
 ### Return value
 
 Base station model type.

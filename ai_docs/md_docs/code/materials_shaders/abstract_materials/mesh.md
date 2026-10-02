@@ -101,10 +101,10 @@ Engine group.
 | Description: | Transparency type of the material. |
 | Editable: | false |
 | Default: | **none** |
-| overlap ( Option ) |  |
-| Description: | Render polygons, to which the material is applied, on the top of the render. This can be used for UI elements. |
+| transparent_order ( Option ) |  |
+| Description: | The point of the frame at which transparent surfaces with this material are rendered: before_ssr (by default), before_post or after_post. |
 | Editable: | false |
-| Default: | **false** |
+| Default: | **before_ssr** |
 | two_sided ( Option ) |  |
 | Description: | Render polygons, to which the material is applied, two times per lighting pass. This option should be disabled to gain performance, when you don't need both sides of polygons to be rendered. |
 | Editable: | false |

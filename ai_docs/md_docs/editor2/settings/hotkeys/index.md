@@ -145,3 +145,505 @@ The new custom preset will contain all the hotkeys and key combinations of the b
 
 1. Click the key binding you want to change.
 2. Press a new key or key combination, or click *Clear binding*. ![](assign_new_key.png)
+
+
+### Default Editor Hotkeys
+
+
+This section lists the default keyboard and mouse shortcuts of UnigineEditor, as shipped in the **UNIGINE 2** controls preset. The shortcuts are grouped exactly as they appear on the *Hotkeys* settings page.
+
+
+The editor also ships the **UNIGINE 2 QWERTZ**, **UNIGINE 2 AZERTY** and **3ds Max** presets, and can switch preset automatically to match your keyboard layout. To change a preset, rebind an action, or save your own preset, see *[Using Built-in Presets](#default_presets)* and *[Creating Custom Presets](#custom_presets)*.
+
+
+Notation used in the tables below:
+
+
+- **LMB**, **MMB**, **RMB** - left, middle and right mouse button.
+- **Wheel Up** / **Wheel Down** - mouse wheel scrolling.
+- **Unassigned** - the action exists and can be bound to a key of your choice, but has no default shortcut.
+
+
+> **Notice:** Modifiers are listed in the same order the editor displays them, so an entry here matches the corresponding row on the *Hotkeys* settings page exactly.
+
+
+#### Common
+
+
+**Common**
+
+
+| Unassigned | **Quit Editor** Closes UnigineEditor. If the loaded world has unsaved changes, a dialog offering to save them is displayed before the editor quits. |
+|---|---|
+| F5 | **Start Instance** Launches the project in a separate application instance using the launch preset currently selected in the toolbar. Available only when the C# Component System is initialized for the project. |
+
+
+**Selection**
+
+
+| Esc | **Reset Selection** Clears the current editor selection, so that no nodes, materials or properties remain selected. |
+|---|---|
+
+
+**World**
+
+
+| Ctrl + N | **New World** Opens a dialog for creating a new world asset and loads the created world. If the current world has unsaved changes, a prompt to save them appears first. |
+|---|---|
+| Ctrl + O | **Open World** Opens a dialog for browsing world assets and loads the selected one, prompting to save the current world if it has unsaved changes. |
+| Ctrl + S | **Save World** Saves the loaded world together with its render, sound, physics and navigation settings. If the world asset is read-only, the *Save World As* dialog is opened instead, and while physics simulation is running an additional confirmation is requested. |
+| Unassigned | **Save World As** Opens a dialog for saving the loaded world as a new asset under another name or in another folder, leaving the original world untouched. |
+| Unassigned | **Reload World** Reloads the loaded world from disk, discarding unsaved changes and restoring the node selection afterwards. A prompt to save the changes is displayed beforehand. |
+| Unassigned | **Close World** Unloads the current world and leaves the editor without an opened world, offering to save unsaved changes first. |
+| Ctrl + Space | **Play/Pause** Toggles execution of the world logic and components without leaving the editor, which makes it possible to preview runtime behavior in place. |
+
+
+**Edit**
+
+
+| Ctrl + Z | **Undo** Reverts the last recorded editor action, such as a transformation, a parameter change, or reparenting. The shortcut repeats while the keys are held down. |
+|---|---|
+| Ctrl + Y | **Redo** Re-applies the action that was reverted last. The shortcut repeats while the keys are held down. |
+
+
+#### Windows
+
+
+**Single-Instance Windows**
+
+
+| Unassigned | **Add Asset Browser** Opens an additional *[Asset Browser](../../../editor2/interface/index.md#asset_browser)* window, which makes it possible to browse several project folders side by side. |
+|---|---|
+| Unassigned | **Settings** Shows or hides the *[Settings](../../../editor2/settings/index.md)* window containing the editor and project preferences. |
+| Unassigned | **Cleaner Window** Shows or hides the *[Cleaner](../../../editor2/cleaner/index.md)* window, which scans the project for unused, lost and similar assets and lost runtimes and allows removing them. |
+| Unassigned | **Content Profiler** Shows or hides the *[Content Profiler](../../../editor2/assets_optimize/content_profiler/index.md)* window used to analyze surfaces and textures of the content loaded in the world. |
+| Unassigned | **Build Tool Window** Shows or hides the *[Create Build](../../../editor2/projects/build_project.md)* window of the Build Tool, in which the final build of the project is configured and generated. |
+| Unassigned | **World Hierarchy** Shows or hides the *[World Nodes](../../../editor2/interface/index.md#world_hierarchy)* window containing the hierarchy of nodes of the loaded world. |
+| Unassigned | **Materials Hierarchy** Shows or hides the *[Materials](../../../editor2/interface/index.md#materials_hierarchy)* window containing the hierarchy of materials available in the project. |
+| Unassigned | **Properties Hierarchy** Shows or hides the *[Properties](../../../editor2/interface/index.md#properties_hierarchy)* window containing the hierarchy of properties available in the project. |
+| Unassigned | **Engine Viewport** Shows or hides the separate engine viewport window and moves focus to it. Has no effect when the C# Component System is used, as the engine viewport is not available in that case. |
+| Alt + P | **Clone Parameters And Lock** Opens a copy of the last focused *[Parameters](../../../editor2/interface/index.md#parameters)* window with the same selection and with its selection locked, so that the parameters of the current object stay displayed while another object is selected. |
+| Unassigned | **Reset Windows Layout** Restores the default editor layout: all viewports, *[Asset Browser](../../../editor2/interface/index.md#asset_browser)* and *[Parameters](../../../editor2/interface/index.md#parameters)* windows are closed and recreated as single default ones, open material and animation graph windows are closed, and the main window geometry is reset. |
+
+
+**Multi-Instance Windows**
+
+
+| Unassigned | **Add Editor Viewport** Opens one more editor viewport window and moves focus to it, which is convenient for observing the scene from several points of view at a time. |
+|---|---|
+| Unassigned | **Show Editor Viewport** Shows the editor viewport window that was hidden last, bringing hidden viewports back one by one. |
+| Unassigned | **Hide Editor Viewport** Hides the editor viewport window used last without closing it, freeing screen space while keeping the viewport and its settings. |
+| Unassigned | **Add Parameters Window** Opens an additional *[Parameters](../../../editor2/interface/index.md#parameters)* window displaying the current selection, up to the maximum number of such windows supported by the editor. |
+| Unassigned | **Show Parameters Window** Shows the *[Parameters](../../../editor2/interface/index.md#parameters)* window that was hidden last, bringing hidden windows back in reverse order. |
+| Unassigned | **Hide Parameters Window** Hides the most recently focused visible *[Parameters](../../../editor2/interface/index.md#parameters)* window, keeping it and its contents available for reuse. |
+
+
+#### Nodes
+
+
+**Placement**
+
+
+| Delete | **Delete** Removes all selected nodes from the world in a single undoable operation. Requires at least one node to be selected. |
+|---|---|
+| Ctrl + G | **Group Selected** Creates a [NodeDummy](../../../objects/nodes/dummy/index.md) at the bounding center of the selected nodes and reparents them to it, keeping them selected. With nothing selected, an empty dummy node is created instead. |
+| Ctrl + D | **Clone** Duplicates the selected nodes in place, gives the copies unique names and makes them the new selection. The copies keep the transform of the originals, so move them afterwards to see both. |
+| Ctrl + C | **Copy Nodes** Stores copies of the selected nodes, together with their child hierarchies, in the internal editor clipboard for later pasting. The clipboard is kept until it is overwritten or the editor closes. |
+| Ctrl + V | **Paste Nodes** Recreates the nodes stored in the editor clipboard and immediately starts placement mode, so the pasted nodes follow the mouse and stick to the surface under the cursor until the placement is confirmed. |
+| Shift + D | **Repeat and Clone Nodes** Repeats the last clone operation, offsetting every new copy by the transform difference between the previous original and its clone. Use it after a clone plus move to keep adding evenly spaced copies in the same direction. |
+| Ctrl + P | **Make Parent** Reparents all selected nodes to the node that was selected last, which becomes their common parent. Requires at least two selected nodes. |
+| Shift + Ctrl + P | **Unparent** Moves the selected nodes one level up in the hierarchy, placing each of them right after its former parent. Nodes that already are at the world root are left untouched. |
+| Shift + Ctrl + G | **Convert Selected into NodeReference** Saves the selected node as a node asset and replaces it in the world with a [NodeReference](../../../objects/nodes/reference/index.md) pointing to that asset. If several nodes are selected, they are first grouped under a new dummy node, which becomes the root of the reference. |
+| Q | **Select** Switches the manipulator to selection mode, in which clicking in the viewport only picks nodes and no transformation gizmo is shown. Works only while manipulators are enabled. |
+| W | **Move** Activates the translation manipulator for the current selection, so nodes can be dragged along its axes and planes. Works only while manipulators are enabled. |
+| E | **Rotate** Activates the rotation manipulator for the current selection, so nodes can be turned around its rings. Works only while manipulators are enabled. |
+| R | **Scale** Activates the scale manipulator for the current selection, so nodes can be resized along its axes. Works only while manipulators are enabled. |
+| Z | **Switch Manipulator Pivot** Toggles the point the manipulator is attached to between the pivot of the node itself and the center of the bounding box of the whole selection. Works only while manipulators are enabled. |
+| X | **Switch Manipulator Basis** Cycles the coordinate system the manipulator axes are aligned to through World, Parent, Local (last selected) and Local (independent). Works only while manipulators are enabled. |
+| Unassigned | **Drop Node to the Ground** Casts a ray along the gravity direction from each top-level selected node and moves the node onto the first surface hit, applying the drop offset, direction and intersection mask configured in the node placement settings. Unassigned by default, and available only while manipulators are enabled. |
+| Alt + X | **Move Node to Camera** Moves the selected nodes in front of the camera of the active viewport, at a distance proportional to the bounding radius of the selection. Useful for bringing back nodes that are far away or lost in the scene. |
+| Unassigned | **Vertex Snapping** Hold to temporarily switch position snapping to vertex mode and enable it, so a dragged node snaps to the vertices of surrounding geometry. Releasing the key restores the previous snapping mode and its on or off state. |
+| LMB | **Use Manipulator** Grabs the manipulator axis or plane under the cursor and drives the transformation while the button is held. Works only when the viewport with the manipulator has input focus, and is the button all the modifiers below are combined with. |
+| Shift | **Clone and Move** Hold when starting a manipulator drag to leave the original nodes untouched and transform freshly created copies instead. The copies are created once, at the beginning of the drag. |
+| Shift + Alt + LMB | **Clone and Move and Repeat** Hold while dragging the move manipulator to leave a new copy of the selection behind at every snapping step. Requires the Move manipulator to be active and snapping by grid to be enabled. |
+| Alt | **Move Ignoring Hierarchy** Hold during a manipulator drag to apply the transformation only to the selected nodes and keep their children at their current world positions. |
+| Alt | **Two-Side Resize** Hold while dragging a size handle to resize the shape symmetrically in both directions from its center instead of moving only the grabbed side. Applies to the sizer manipulator used for shapes. |
+| Left Arrow | **Push Left** Nudges the selection one step to the left along the world axis that best matches the right direction of the camera in the hovered viewport. The step depends on the active manipulator: one unit for moving, 20 degrees for rotating, 0.1 for scaling, or the corresponding snapping step when snapping is enabled. |
+| Right Arrow | **Push Right** Nudges the selection one step to the right along the world axis that best matches the right direction of the camera in the hovered viewport. The step depends on the active manipulator: one unit for moving, 20 degrees for rotating, 0.1 for scaling, or the corresponding snapping step when snapping is enabled. |
+| Up Arrow | **Push Up** Nudges the selection one step upward along the world axis that best matches the up direction of the camera in the hovered viewport. The step depends on the active manipulator: one unit for moving, 20 degrees for rotating, 0.1 for scaling, or the corresponding snapping step when snapping is enabled. |
+| Down Arrow | **Push Down** Nudges the selection one step downward along the world axis that best matches the up direction of the camera in the hovered viewport. The step depends on the active manipulator: one unit for moving, 20 degrees for rotating, 0.1 for scaling, or the corresponding snapping step when snapping is enabled. |
+| Unassigned | **Precision Mode** Hold while dragging a manipulator to scale mouse movement down, which makes fine adjustments much easier. Active only during an ongoing manipulator drag that is not a cloning one, and unassigned by default. |
+
+
+**Snapping**
+
+
+| Shift + Z | **Toggle Snap to Grid** Turns snapping of node positions to the grid on and off. The setting is persistent: it stays as you leave it until it is toggled again. |
+|---|---|
+| Shift + X | **Toggle Snap by Angle** Turns snapping of node rotation to the angle step on and off. The setting is persistent: it stays as you leave it until it is toggled again. |
+| Unassigned | **Toggle Snap by Scale** Turns snapping of node scaling to the scale step on and off. The setting is persistent and unassigned by default. |
+| Ctrl + Left Ctrl | **Invert Snapping Controls** Hold to temporarily flip all three snapping switches at once, enabling the ones that are off and disabling the ones that are on. Releasing the key flips them back, so snapping can be inverted for the duration of a single drag. |
+
+
+**Snap to surface**
+
+
+| Alt + W | **Place Node on Surface** Starts placement mode for the selected nodes: they follow the mouse cursor, stick to the surface under it and are shown with the surface offset until the placement is confirmed or aborted. While the mode is active, the main window is blocked and only the placement shortcuts work. |
+|---|---|
+| Wheel Up | **Increase Distance to Surface** Raises the distance at which the placed nodes hover above the surface by 0.1 units per wheel notch, along the surface normal. Works only while placement mode is active. |
+| Wheel Down | **Decrease Distance to Surface** Lowers the distance at which the placed nodes hover above the surface by 0.1 units per wheel notch, and can push them below the surface when the value becomes negative. Works only while placement mode is active. |
+| MMB | **Reset Distance to Surface** Sets the distance to the surface back to zero, so the placed nodes sit directly on the surface under the cursor. Works only while placement mode is active. |
+| RMB | **Orient by Surface Normal** Toggles alignment of the placed nodes to the normal of the surface under the cursor: when it is on, the nodes tilt with the slope, when it is off, they keep their original orientation. The setting is persistent and works only while placement mode is active. |
+| LMB | **Confirm Placement** Confirms the placement: the nodes stay at the position shown under the cursor, the transformation is written to the undo history and placement mode is closed. Works only while placement mode is active. |
+| Esc | **Abort Placement** Aborts the placement: the nodes are returned to the transformation they had before placement started and the mode is closed. Works only while placement mode is active. |
+
+
+**Tools**
+
+
+| Pgdown | **Next Node (Keyboard)** Replaces the mesh or node reference of the selected node with the next node asset in the same folder, which lets you flip through the assets of a set without reimporting. Requires exactly one selected node that is a [NodeReference](../../../objects/nodes/reference/index.md) or an [ObjectMeshStatic](../../../objects/objects/mesh/index.md). |
+|---|---|
+| Shift + Wheel Down | **Next Node (Mouse)** Replaces the mesh or node reference of the selected node with the next node asset in the same folder, using the mouse wheel instead of the keyboard. Requires exactly one selected node that is a [NodeReference](../../../objects/nodes/reference/index.md) or an [ObjectMeshStatic](../../../objects/objects/mesh/index.md). |
+| Pgup | **Previous Node (Keyboard)** Replaces the mesh or node reference of the selected node with the previous node asset in the same folder. Requires exactly one selected node that is a [NodeReference](../../../objects/nodes/reference/index.md) or an [ObjectMeshStatic](../../../objects/objects/mesh/index.md). |
+| Shift + Wheel Up | **Previous Node (Mouse)** Replaces the mesh or node reference of the selected node with the previous node asset in the same folder, using the mouse wheel instead of the keyboard. Requires exactly one selected node that is a [NodeReference](../../../objects/nodes/reference/index.md) or an [ObjectMeshStatic](../../../objects/objects/mesh/index.md). |
+
+
+**Selection**
+
+
+| Ctrl + A | **Select All** Selects all nodes of the current world that are shown in the editor, except the World Light. Use it as a starting point for mass operations such as grouping or deleting. |
+|---|---|
+| Shift + Ctrl + A | **Reset Selection** Clears the current selection, leaving no node selected. |
+| Ctrl + I | **Invert Selection** Replaces the current selection with all the other nodes of the world: everything that was selected becomes deselected and vice versa. Requires a non-empty selection. |
+| LMB | **Select** Picks the node under the cursor in the viewport; dragging with the button held draws a rectangle and selects everything inside it. Available in the object editing mode of the viewport. |
+| Shift | **Add to Selection** Hold while clicking or dragging a selection rectangle in the viewport to add the picked nodes to the current selection instead of replacing it. |
+| Ctrl | **Remove from Selection** Hold while clicking or dragging a selection rectangle in the viewport to remove the picked nodes from the current selection. |
+
+
+#### Navigation
+
+
+**Navigation**
+
+
+| RMB | **Change Direction** Rotates the active viewport camera around its own position: hold the button and drag the mouse to look around. Holding it also engages the fly mode in which the WASD, Q, E and camera speed wheel shortcuts become available. |
+|---|---|
+| Alt + RMB | **Zoom (Dolly)** Dollies the active viewport camera forward or backward along its view direction as the mouse is dragged, keeping the view direction unchanged. |
+| Alt + LMB | **Orbit** Orbits the active viewport camera around the current focus point while the mouse is dragged, which is convenient for inspecting a node from all sides. |
+| Alt + MMB | **Track (Crab)** Moves (tracks, or crabs) the active viewport camera horizontally and vertically in its view plane as the mouse is dragged, without changing the view direction. |
+| Wheel Up | **Zoom In** Zooms the active viewport camera in by one wheel step. The mouse pointer must be over the viewport. |
+| Wheel Down | **Zoom Out** Zooms the active viewport camera out by one wheel step. The mouse pointer must be over the viewport. |
+| RMB + W | **Move Forward** Flies the active viewport camera forward along its view direction. Works only while the navigation mouse button is held down, and can be combined with the Run modifier. |
+| RMB + S | **Move Backward** Flies the active viewport camera backward along its view direction. Works only while the navigation mouse button is held down, and can be combined with the Run modifier. |
+| RMB + A | **Move Left** Strafes the active viewport camera to the left, keeping the view direction unchanged. Works only while the navigation mouse button is held down. |
+| RMB + D | **Move Right** Strafes the active viewport camera to the right, keeping the view direction unchanged. Works only while the navigation mouse button is held down. |
+| RMB + Q | **Crouch** Moves the active viewport camera downward (crouch). Works only while the navigation mouse button is held down. |
+| RMB + E | **Jump** Moves the active viewport camera upward (jump). Works only while the navigation mouse button is held down. |
+| Unassigned | **Roll Right** Rolls the active viewport camera clockwise around its view axis, tilting the horizon. No key is bound by default, so assign one in the shortcut settings before using it. |
+| Unassigned | **Roll Left** Rolls the active viewport camera counter-clockwise around its view axis, tilting the horizon. No key is bound by default, so assign one in the shortcut settings before using it. |
+| Shift | **Run** Acts as a speed modifier rather than a separate action: hold it together with the camera movement keys to fly noticeably faster, and release it to return to the normal speed. |
+
+
+**Focusing**
+
+
+| F | **Focus Camera On Nodes** Moves the camera of the active viewport so that the currently selected node or nodes fit the view, shrinking oversized nodes to keep the framing usable. Requires at least one node to be selected. |
+|---|---|
+| Shift + F | **Focus Camera On Nodes (Bound-Based)** Moves the camera of the active viewport to frame the current selection using the full bounding box of the selected nodes, without shrinking large ones. Use it when the whole extent of a big node must be visible; requires a selection. |
+| G | **Reset Camera Focus** Resets the camera focus point of the active viewport to the current camera position, so that subsequent orbiting rotates around the camera itself instead of the previously focused node. |
+
+
+**Speed**
+
+
+| 1 | **Camera Speed 1** Switches the active viewport camera to the first speed preset (the slowest one). The corresponding preset button is highlighted and its value is shown in the Speed field of the viewport toolbar. |
+|---|---|
+| 2 | **Camera Speed 2** Switches the active viewport camera to the second speed preset (the medium one). The corresponding preset button is highlighted and its value is shown in the Speed field of the viewport toolbar. |
+| 3 | **Camera Speed 3** Switches the active viewport camera to the third speed preset (the fastest one). The corresponding preset button is highlighted and its value is shown in the Speed field of the viewport toolbar. |
+| Unassigned | **Toggle Camera Speeds** Cycles through the available camera speed presets of the active viewport one by one, which is handy for changing the flight speed without reaching for the numeric keys. No key is bound by default. |
+| Ctrl + RMB + Wheel Up | **Increase Camera Speed (step: 0.1)** Increases the speed value of the currently selected camera speed preset by 0.1 per wheel step, for fine tuning. The new value is applied immediately and shown in the Speed field of the viewport toolbar. |
+| Ctrl + RMB + Wheel Down | **Decrease Camera Speed (step: 0.1)** Decreases the speed value of the currently selected camera speed preset by 0.1 per wheel step, for fine tuning. The value never drops below 0.1 and is shown in the Speed field of the viewport toolbar. |
+| RMB + Wheel Up | **Increase Camera Speed (step: 1.0)** Increases the speed value of the currently selected camera speed preset by 1.0 per wheel step while flying the camera. The new value is shown in the Speed field of the viewport toolbar. |
+| RMB + Wheel Down | **Decrease Camera Speed (step: 1.0)** Decreases the speed value of the currently selected camera speed preset by 1.0 per wheel step while flying the camera. The value never drops below 0.1 and is shown in the Speed field of the viewport toolbar. |
+| Shift + RMB + Wheel Up | **Increase Camera Speed (step: 10.0)** Increases the speed value of the currently selected camera speed preset by 10.0 per wheel step, for covering large distances quickly. The new value is shown in the Speed field of the viewport toolbar. |
+| Shift + RMB + Wheel Down | **Decrease Camera Speed (step: 10.0)** Decreases the speed value of the currently selected camera speed preset by 10.0 per wheel step. The value never drops below 0.1 and is shown in the Speed field of the viewport toolbar. |
+
+
+**Utilities**
+
+
+| L | **Toggle Camera Flashlight** Turns the camera flashlight of the active viewport on or off. The flashlight follows the camera and lights the scene ahead of it, which helps when navigating dark areas. |
+|---|---|
+
+
+#### Viewport
+
+
+**FullScreen**
+
+
+| Unassigned | **Toggle Fullscreen** Expands the active viewport to fill the whole editor window and restores its normal size on the next press. No key is bound by default, so assign one in the shortcut settings before using it. |
+|---|---|
+
+
+**Context Menu**
+
+
+| RMB | **Viewport Context Menu** Opens the viewport context menu for the node under the mouse pointer. Pressing the button without the Shift modifier also selects the node under the pointer, or clears the selection if there is nothing there. |
+|---|---|
+| Shift | **Create Node Viewport Context Menu** Acts as a modifier rather than a separate action: hold it while opening the viewport context menu to get the node creation menu instead of the standard one, and note that the current selection is left untouched. |
+| Unassigned | **Open in Parameters Window** Opens the node under the mouse pointer in a separate *[Parameters](../../../editor2/interface/index.md#parameters)* window, so that its parameters can be inspected alongside another node. Nothing happens if there is no node under the pointer. |
+
+
+#### Visualization
+
+
+**Rendering Mode**
+
+
+| Unassigned | **Final Image** Restores normal scene rendering by returning all render options that were disabled by the unlit mode to their previous values. Use it to get back to the final shaded image after inspecting geometry in unlit mode. |
+|---|---|
+| Unassigned | **Unlit** Switches rendering to an unlit preview by temporarily disabling lighting-related and post-processing options, such as shadows, screen-space effects, reflections, refraction, tonemapper, bloom, and clouds. Use it to evaluate raw albedo and geometry without lighting, and when working on materials or layout. |
+| Unassigned | **Final Image/Unlit** Toggles between the unlit preview and the final shaded image, applying whichever of the two states is not currently active. Convenient for quickly comparing lit and unlit appearance while editing materials. |
+| F4 | **Show Triangles** Toggles wireframe display of the rendered triangles for the whole scene via the render_show_triangles console command. Use it to inspect mesh density and topology, for example, when looking for over-tessellated or badly optimized geometry. |
+| F8 | **Show Landscape Terrain VT Streaming** Toggles highlighting of [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md) tiles that are still rendered at a lower resolution while the most detailed mip level is still being streamed in. Use it to check virtual texture streaming behavior and spot areas where terrain detail loads too slowly. |
+| F7 | **Reload Materials** Reloads all materials from disk via the materials_reload console command, applying external changes made to material files without restarting the editor. Use it after editing materials or shaders outside the editor. |
+| Unassigned | **Off Buffer** Turns off buffer visualization in the viewport under the cursor and returns it to regular rendering. Use it to leave any of the debug buffer modes. |
+| Unassigned | **Depth Buffer** Displays the scene depth buffer in the viewport under the cursor, showing per-pixel distance from the camera instead of the shaded image. Use it to check depth precision, near and far plane setup, and how objects are ordered in depth. |
+| Unassigned | **Albedo Buffer** Displays the albedo buffer in the viewport under the cursor, showing the base color of surfaces without any lighting contribution. Use it to verify material base colors and texturing independently of the current lighting. |
+| Unassigned | **Normals Buffer** Displays the world-space normals of opaque geometry in the viewport under the cursor as colors. Use it to check normal maps, smoothing groups, and surface orientation issues that are hard to spot in the shaded image. |
+
+
+**Helpers**
+
+
+| 0 | **Show FPS** Toggles the FPS counter in the viewport. Use it for a quick check of rendering performance while navigating or editing the scene. |
+|---|---|
+| Unassigned | **Show Visualizer** Toggles the engine visualizer via the show_visualizer console command, enabling drawing of debug primitives such as helper shapes and lines. Required for most debug visualization drawn by the engine and by application logic to be displayed. |
+| Unassigned | **Show Skinned Mesh Gizmo** Toggles the gizmo that visualizes skinned meshes in the viewport. Use it when setting up or debugging skinned geometry and its skeleton in the scene. |
+| Unassigned | **Show Selected Objects Bounds** Toggles display of bounding boxes for the selected objects. Use it to check the size and extents used for culling and spatial queries, or to see how tightly bounds fit the geometry. |
+| Unassigned | **Show Selected Objects Inner Bounds** Toggles display of inner bounding boxes of the selected objects, such as bounds of individual items inside a clutter or a mesh cluster. Use it to inspect how the contents of a composite object are distributed and sized. |
+| I | **Show Selected Node Info** Toggles an information overlay for the selected node, displayed in the viewport when a single node is selected. Use it to read the node parameters, such as its name and transformation, without switching to the Parameters window. |
+| Unassigned | **Show Selected Objects Wireframe** Toggles permanent wireframe display for the selected objects, on top of the regular shaded image. Use it to inspect the topology of a particular object while keeping the rest of the scene rendered normally. |
+| Unassigned | **Show Bones** Toggles display of the skeleton bones of the selected objects. Use it when inspecting or setting up skinned meshes and animations. |
+| Unassigned | **Switch Profiler Mode** Cycles the engine profiler display in the viewport via the show_profiler console command, switching between its available modes and the disabled state. Use it to find rendering, physics, or world performance bottlenecks. |
+| Unassigned | **Show Render Buffers** Toggles display of intermediate render textures in the viewport via the render_show_textures console command. Use it to inspect the contents of the rendering buffers when debugging visual artifacts. |
+| Unassigned | **Show Physics Gizmo** Toggles physics debug visualization, enabling or disabling display of collision shapes, joints, and contacts at once. Use it to check physical bodies and their interaction when tuning physics. |
+
+
+#### Helpers
+
+
+| Unassigned | **Nodes** Toggles the display of helper icons for all node types at once in the viewports. Use it to quickly hide all helpers for a clean view of the scene; no key is bound by default. |
+|---|---|
+| Unassigned | **Objects** Toggles the display of helper icons for object nodes, such as meshes, terrains, water, grass, billboards, text and dummy objects. No key is bound by default. |
+| Unassigned | **Effects** Toggles the display of helper icons for effect-related nodes, including particle systems, volumetric objects, GUI objects, fields, particle fields and physics objects. No key is bound by default. |
+| Unassigned | **Lights** Toggles the display of helper icons for all light source nodes in the viewports. No key is bound by default. |
+| Unassigned | **Decals** Toggles the display of helper icons for all decal nodes in the viewports. No key is bound by default. |
+| Unassigned | **Geodetics** Toggles the display of helper icons for all geodetic nodes in the viewports. No key is bound by default. |
+| Unassigned | **Worlds** Toggles the display of helper icons for all world nodes, such as triggers, clusters, layers and spline graphs. No key is bound by default. |
+| Unassigned | **Sounds** Toggles the display of helper icons for all sound nodes in the viewports. No key is bound by default. |
+| Unassigned | **Paths** Toggles the display of helper icons for pathfinding nodes: navigation sectors and meshes along with box, sphere and capsule obstacles. No key is bound by default. |
+| Unassigned | **Players** Toggles the display of helper icons for all player nodes (cameras) in the viewports. No key is bound by default. |
+| F1 | **Show Help** Opens the *Help* window with quick links to the documentation and other learning resources. |
+
+
+#### Tools
+
+
+**Modes**
+
+
+| Shift + 1 | **Activate Object Mode** Switches the editor to *[Object Mode](../../../editor2/interface/index.md#tools_panel)*, which provides the basic tools for selecting and positioning objects in the scene. It is the default mode to return to after working with any of the paint modes. |
+|---|---|
+| Shift + 2 | **Activate Texture Paint Mode** Switches the editor to *[Texture Paint Mode](../../../editor2/texture_editor/index.md)*, which allows painting the textures of materials applied to objects directly in the scene. Use it to paint masks, retouch existing textures, or paint a new surface custom texture from scratch; switching to this mode opens the *Active Tool* window. |
+| Shift + 5 | **Activate Cluster Paint Mode** Switches the editor to *[Cluster Paint Mode](../../../editor2/cluster_editor/index.md)*, which provides brush-based placement of meshes baked into mesh clusters directly in the scene. Use it to create new mesh clusters or edit existing ones; switching to this mode opens the *Active Tool* window. |
+| Shift + 3 | **Activate Landscape Paint Mode** Switches the editor to *[Landscape Paint Mode](../../../editor2/brush_editor/index.md)*, which allows modifying the [Landscape Terrain](../../../objects/objects/terrain/landscape_terrain/index.md) relief in the scene with brushes. Brushes affect only the selected landscape layer map; switching to this mode opens the *Active Tool* window. |
+| Shift + 4 | **Activate Clutter Mask Paint Mode** Switches the editor to *[Clutter Mask Paint Mode](../../../editor2/mask_editor/index.md)*, which allows painting the image masks that define distribution of grass and clutter elements across the area. Use it to modify existing masks or create new ones; switching to this mode opens the *Active Tool* window. |
+
+
+#### Brushes
+
+
+| LMB | **Draw** Applies the currently selected brush tool: starts a stroke when the button is pressed and finishes it when released. Works only while a brush-based tool is active and the cursor is over the viewport. |
+|---|---|
+| X | **Invert Brush** Inverts the effect of the current brush while the key is held, for example, to subtract instead of adding. The brush returns to its normal behavior as soon as the key is released. |
+| B | **Enable Brush Tool** Switches the active tool to the brush, the default painting tool that applies the brush effect along the stroke. Available while a brush-based mode is active and the cursor is over the viewport. |
+| V | **Enable Smooth Tool** Switches the active tool to the smooth tool, which averages the painted values under the brush instead of adding new ones. Use it to soften harsh edges and transitions left by previous strokes. |
+| E | **Enable Eraser Tool** Switches the active tool to the eraser, which removes the previously painted result under the brush. Use it to clean up areas painted by mistake. |
+| Q | **Enable Select Tool** Switches the active tool to the selection tool, used to pick the target that subsequent brush strokes are applied to. The exact meaning of the selection depends on the active paint mode. |
+| C | **Pick Color/Value** Samples the color or value under the cursor and sets it as the current brush color or value. Use it to continue painting with a shade or value already present in the scene. |
+| Alt + Wheel Left | **Increase Opacity (step: 0.1)** Increases brush opacity by 0.1 per wheel notch while the modifier is held. Use it for coarse adjustment of the stroke strength without leaving the viewport. |
+| Alt + Wheel Right | **Decrease Opacity (step: 0.1)** Decreases brush opacity by 0.1 per wheel notch while the modifier is held. Use it for coarse adjustment of the stroke strength without leaving the viewport. |
+| Alt + Ctrl + Wheel Left | **Increase Opacity (step: 0.01)** Increases brush opacity by 0.01 per wheel notch while the modifiers are held. Use it for fine-tuning the stroke strength when painting subtle details. |
+| Alt + Ctrl + Wheel Right | **Decrease Opacity (step: 0.01)** Decreases brush opacity by 0.01 per wheel notch while the modifiers are held. Use it for fine-tuning the stroke strength when painting subtle details. |
+| Wheel Up | **Increase Size** Increases the brush size by one step per wheel notch. Works while a brush-based tool is active and the cursor is over the viewport. |
+| Wheel Down | **Decrease Size** Decreases the brush size by one step per wheel notch. Works while a brush-based tool is active and the cursor is over the viewport. |
+| Unassigned | **Increase Step** Enlarges the increment applied by the brush size and opacity adjustments while the key is held, so that each wheel notch changes the value faster. Release the key to return to the normal step. |
+| Unassigned | **Decrease Step** Reduces the increment applied by the brush size and opacity adjustments while the key is held, so that each wheel notch changes the value more precisely. Release the key to return to the normal step. |
+
+
+#### Texture Paint Mode
+
+
+**Common**
+
+
+| LMB | **Draw** Starts and holds a paint stroke on the texture of the surface under the cursor while *[Texture Paint Mode](../../../editor2/texture_editor/index.md)* is active. If no paintable surface is hit, releasing the button instead picks the object and surface under the cursor as the new paint target. |
+|---|---|
+| Space | **Draw Second** Provides an alternative trigger for the same stroke as the left mouse button, so painting can be driven from the keyboard while *[Texture Paint Mode](../../../editor2/texture_editor/index.md)* is active and the mouse is used only for aiming the brush. |
+| Wheel Up | **Radius Increase** Enlarges the brush radius by one step; hold Shift or Ctrl together with it to switch to the coarse or the fine step size. Works while *[Texture Paint Mode](../../../editor2/texture_editor/index.md)* is active, including in the middle of a stroke. |
+| Wheel Down | **Radius Decrease** Shrinks the brush radius by one step, down to a minimum of 0.001; hold Shift or Ctrl together with it to switch to the coarse or the fine step size. Works while *[Texture Paint Mode](../../../editor2/texture_editor/index.md)* is active. |
+| Shift | **Radius Increase Step** Acts as a modifier held together with the radius change shortcuts to apply the larger radius increment instead of the default one in *[Texture Paint Mode](../../../editor2/texture_editor/index.md)*. |
+| Ctrl | **Radius Decrease Step** Acts as a modifier held together with the radius change shortcuts to apply the smaller radius increment instead of the default one in *[Texture Paint Mode](../../../editor2/texture_editor/index.md)*. |
+| C | **Pick Data** Samples the color under the cursor from the painted texture and assigns it to the brush while the key is held; releasing it restores the previous brush state. Available in *[Texture Paint Mode](../../../editor2/texture_editor/index.md)* in any brush mode except the dedicated pick mode. |
+| X | **Switch Between Colors** Swaps the primary and the secondary brush colors, which is convenient for alternating between two tones without opening the color picker. Available while *[Texture Paint Mode](../../../editor2/texture_editor/index.md)* is active. |
+| B | **Brush** Switches the active brush to the draw mode, which paints the current brush color onto the target texture. Available while *[Texture Paint Mode](../../../editor2/texture_editor/index.md)* is active. |
+| E | **Erase** Switches the active brush to the erase mode, which removes previously painted data from the target texture. Available while *[Texture Paint Mode](../../../editor2/texture_editor/index.md)* is active. |
+| V | **Blur** Switches the active brush to the blur mode, which smooths the painted data under the brush instead of adding color. Available while *[Texture Paint Mode](../../../editor2/texture_editor/index.md)* is active. |
+| Alt + Wheel Left | **Opacity Inc** Raises the brush opacity by 0.1, up to the maximum of 1.0, making subsequent strokes more solid. Available while *[Texture Paint Mode](../../../editor2/texture_editor/index.md)* is active. |
+| Alt + Wheel Right | **Opacity Dec** Lowers the brush opacity by 0.1, down to 0.0, making subsequent strokes more transparent. Available while *[Texture Paint Mode](../../../editor2/texture_editor/index.md)* is active. |
+| Right Bracket | **Angle Inc** Rotates the brush stamp by a small increment per press, and keeps rotating it while the key is held down. Use it in *[Texture Paint Mode](../../../editor2/texture_editor/index.md)* to align an asymmetric brush shape with the surface detail. |
+| Left Bracket | **Angle Dec** Rotates the brush stamp back by a small increment per press, and keeps rotating it while the key is held down. Use it in *[Texture Paint Mode](../../../editor2/texture_editor/index.md)* to align an asymmetric brush shape with the surface detail. |
+
+
+#### Cluster Paint Mode
+
+
+**Common**
+
+
+| LMB | **Draw** Applies the current cluster brush: starts a stroke when the button is pressed and finishes it when released, placing or removing cluster meshes depending on the selected stroke type. Available only while *[Cluster Paint Mode](../../../editor2/cluster_editor/index.md)* is active. |
+|---|---|
+| Wheel Up | **Radius Increase** Increases the radius of the cluster brush by one step per wheel notch, making the painted area larger. Available only while *[Cluster Paint Mode](../../../editor2/cluster_editor/index.md)* is active. |
+| Wheel Down | **Radius Decrease** Decreases the radius of the cluster brush by one step per wheel notch, making the painted area smaller. Available only while *[Cluster Paint Mode](../../../editor2/cluster_editor/index.md)* is active. |
+| Shift | **Radius Increase Step** Enlarges the radius adjustment increment while the key is held, so that each wheel notch changes the brush radius faster. Release the key to return to the normal step. |
+| Ctrl | **Radius Decrease Step** Reduces the radius adjustment increment while the key is held, so that each wheel notch changes the brush radius more precisely. Release the key to return to the normal step. |
+| B | **Enable Replace** Sets the cluster brush stroke type to replace, so that the next strokes overwrite the meshes already placed in the painted area instead of adding new ones on top. Available only while *[Cluster Paint Mode](../../../editor2/cluster_editor/index.md)* is active. |
+| E | **Enable Erase** Sets the cluster brush stroke type to erase, so that the next strokes remove the placed cluster meshes from the painted area. Available only while *[Cluster Paint Mode](../../../editor2/cluster_editor/index.md)* is active. |
+
+
+#### Materials
+
+
+| Shift + Ctrl + P | **Unparent Materials** Moves each selected material one level up in the hierarchy by reassigning it to the parent of its current parent. Available when a selection is made in the *[Materials](../../../editor2/interface/index.md#materials_hierarchy)* window and applied only to materials that can be reparented. |
+|---|---|
+| Ctrl + P | **Make Parent Materials** Makes the last selected material the parent of all other selected ones. At least two materials must be selected in the *[Materials](../../../editor2/interface/index.md#materials_hierarchy)* window, base, engine and non-editable materials in the selection are skipped. |
+
+
+#### Material Graph Editor
+
+
+**Common**
+
+
+| Ctrl + D | **Duplicate** Creates copies of the nodes selected in the graph without reproducing the connections between them. Available while the *[Material Graph Editor](../../../content/materials/graph/index.md)* window is focused. |
+|---|---|
+| Shift + Ctrl + D | **Duplicate(With Connections)** Creates copies of the nodes selected in the graph and keeps the connections between them. Available while the *[Material Graph Editor](../../../content/materials/graph/index.md)* window is focused. |
+| Ctrl + C | **Copy** Copies the selected graph nodes to the buffer so that they can be pasted into this or another material graph. |
+| Ctrl + V | **Paste** Inserts the previously copied nodes into the graph opened in the focused *[Material Graph Editor](../../../content/materials/graph/index.md)* window. |
+| Delete | **Delete** Removes the selected nodes together with their connections from the graph opened in the focused *[Material Graph Editor](../../../content/materials/graph/index.md)* window. |
+| Ctrl + S | **Save Graph** Saves the graph opened in the focused *[Material Graph Editor](../../../content/materials/graph/index.md)* window, writing the changes to the corresponding material. |
+
+
+#### Properties
+
+
+| Shift + Ctrl + P | **Unparent Properties** Moves each selected property one level up in the hierarchy by reassigning it to the parent of its current parent. Requires a selection in the *[Properties](../../../editor2/interface/index.md#properties_hierarchy)* window and is applied only to properties that can be reparented. |
+|---|---|
+| Ctrl + P | **Make Parent** Makes the last of the selected properties the parent of the remaining ones. At least two properties must be selected in the *[Properties](../../../editor2/interface/index.md#properties_hierarchy)* window. |
+
+
+#### World Nodes
+
+
+| Unassigned | **Focus On Selected Node** Scrolls the *[World Nodes](../../../editor2/interface/index.md#world_hierarchy)* hierarchy to the node currently selected in the viewport, expanding its parent nodes. Works while the mouse cursor hovers over the *[World Nodes](../../../editor2/interface/index.md#world_hierarchy)* window. |
+|---|---|
+
+
+#### Splines
+
+
+**Spline Controls**
+
+
+| Ctrl + D | **Clone Spline Objects** Duplicates the spline points and segments currently selected inside the [WorldSplineGraph](../../../objects/worlds/world_spline_graph/index.md) nodes, adds the copies to the same graphs and makes them the new selection. Requires the spline editing controls to be active with spline sub-objects selected. |
+|---|---|
+| Delete | **Delete Spline Objects** Removes the spline points and segments currently selected inside the [WorldSplineGraph](../../../objects/worlds/world_spline_graph/index.md) nodes as a single undoable action. Requires the spline editing controls to be active with spline sub-objects selected. |
+| Shift + Double Click | **Select Segments** Extends the selection along the shortest chain of segments that connects the two currently selected segments of a single [WorldSplineGraph](../../../objects/worlds/world_spline_graph/index.md) node. Select exactly two segments first, then use it to select the whole run between them. |
+| Double Click | **Select Segments (Crossing)** Grows the selection from one selected segment along the connected spline run and stops at crossings, that is, at points where the chain branches or ends. Exactly one segment of a single [WorldSplineGraph](../../../objects/worlds/world_spline_graph/index.md) node must be selected. |
+
+
+#### Joints
+
+
+**Common**
+
+
+| Ctrl + D | **Clone** Duplicates the items selected in the physics shapes and joints list of the *[Parameters](../../../editor2/interface/index.md#parameters)* window, appending the copies to the same physical body. The list must have input focus. |
+|---|---|
+| Ctrl + C | **Copy** Copies the items selected in the physics shapes and joints list of the *[Parameters](../../../editor2/interface/index.md#parameters)* window to the internal clipboard, so that they can be pasted onto the same or another physical body. The list must have input focus. |
+| Ctrl + V | **Paste** Inserts the previously copied items from the internal clipboard into the physics shapes and joints list of the body being edited. The list must have input focus. |
+| Unassigned | **Delete** Removes the joints selected in the joints list of the *[Parameters](../../../editor2/interface/index.md#parameters)* window from the physical body as a single undoable action, and clears them from the selection. The joints list must have input focus. |
+
+
+#### Curve Editor
+
+
+**Edit**
+
+
+| Delete | **Delete Key** Removes all key points currently selected on the curve in the active *[Curve Editor](../../../editor2/curve_editor/index.md)* viewport. Select the keys to be deleted first. |
+|---|---|
+| Ctrl + Z | **Undo** Reverts the last curve editing operation in the active *[Curve Editor](../../../editor2/curve_editor/index.md)* viewport. The editor keeps its own undo stack, separate from the main editor history. |
+| Ctrl + Y | **Redo** Reapplies the curve editing operation that was reverted last in the active *[Curve Editor](../../../editor2/curve_editor/index.md)* viewport. |
+| F | **Focus** Fits the view of the active *[Curve Editor](../../../editor2/curve_editor/index.md)* viewport to the edited curve, so that the whole curve becomes visible at once. Use it after zooming or panning away from the data. |
+
+
+#### Browser
+
+
+**History**
+
+
+| Alt + Left Arrow | **Back** Returns to the folder visited before the current one in the *[Asset Browser](../../../editor2/interface/index.md#asset_browser)* navigation history. |
+|---|---|
+| Alt + Right Arrow | **Forward** Moves forward through the *[Asset Browser](../../../editor2/interface/index.md#asset_browser)* navigation history, to the folder left by the Back shortcut. |
+
+
+#### Preview
+
+
+**Animation Preview**
+
+
+| Space | **Play/Pause** Toggles animation playback between playing and paused in the preview under the cursor. Applies to the animation and skinned mesh previews of the asset being inspected. |
+|---|---|
+| F | **Focus** Moves the preview camera so that the previewed mesh fits the view. Use it in the animation preview after navigating away from the model. |
+| Unassigned | **Change Direction** Rotates the preview camera in place while the assigned mouse button is held and the mouse is dragged, changing the viewing direction without moving the camera. Works in the focused animation preview. |
+| Unassigned | **Zoom (Dolly)** Moves the preview camera forward or backward along its viewing direction while the assigned control is held and the mouse is dragged. Works in the focused animation preview. |
+| Unassigned | **Orbit** Rotates the preview camera around the focus point while the assigned control is held and the mouse is dragged, keeping the previewed model in view. Works in the focused animation preview. |
+| Unassigned | **Track (Crab)** Pans the preview camera horizontally and vertically while the assigned control is held and the mouse is dragged, without changing the viewing direction. Works in the focused animation preview. |
+| Unassigned | **Zoom In** Brings the preview camera closer to the previewed model. It is applied only while the cursor stays over the focused animation preview. |
+| Unassigned | **Zoom Out** Moves the preview camera away from the previewed model. It is applied only while the cursor stays over the focused animation preview. |
+| RMB + W | **Move Forward** Flies the preview camera forward while the right mouse button and the key are held together in the focused animation preview. |
+| RMB + S | **Move Backward** Flies the preview camera backward while the right mouse button and the key are held together in the focused animation preview. |
+| RMB + A | **Move Left** Strafes the preview camera to the left while the right mouse button and the key are held together in the focused animation preview. |
+| RMB + D | **Move Right** Strafes the preview camera to the right while the right mouse button and the key are held together in the focused animation preview. |
+| RMB + Q | **Crouch** Moves the preview camera downward while the right mouse button and the key are held together in the focused animation preview. |
+| RMB + E | **Jump** Moves the preview camera upward while the right mouse button and the key are held together in the focused animation preview. |
+| Unassigned | **Roll Right** Rolls the preview camera clockwise around its viewing axis, tilting the horizon in the focused animation preview. |
+| Unassigned | **Roll Left** Rolls the preview camera counter-clockwise around its viewing axis, tilting the horizon in the focused animation preview. |
+| Unassigned | **Run** Acts as a speed modifier held together with the preview camera movement shortcuts to fly the camera faster. |
+
+
+#### Sandworm
+
+
+**Common**
+
+
+| Ctrl + S | **Save** Writes the currently opened Sandworm project to its sworm file. Available while the *[Sandworm](../../../editor2/sandworm/index.md)* window is focused. |
+|---|---|
+| Ctrl + Z | **Undo** Reverts the last operation performed in *[Sandworm](../../../editor2/sandworm/index.md)*. The tool keeps its own undo stack, separate from the main editor history. |
+| Ctrl + Y | **Redo** Reapplies the operation that was reverted last in *[Sandworm](../../../editor2/sandworm/index.md)*. |

@@ -169,7 +169,7 @@ Current world coordinates of the body's center of mass.
 ## void setCenterOfMass ( const Math:: vec3 & mass )
 
 Sets a new coordinates of the center of mass of the body.
-> **Notice:** If the [Shape-based](#setShapeBased_int_void) option is enabled, ajusting this parameter will cause the **assertion failure**, because in this case the center of mass is calculated (i.e. set) automatically.
+> **Notice:** If the [Shape-based](#setShapeBased_int_void) option is enabled, the center of mass is calculated automatically from the body's shapes: an assigned value is immediately overwritten (in a debug build such an attempt causes an **assertion failure**). Disable the option to set the center of mass manually.
 
 
 ### Arguments
@@ -179,7 +179,7 @@ Sets a new coordinates of the center of mass of the body.
 ## Math:: vec3 getCenterOfMass () const
 
 Returns the current coordinates of the center of mass of the body.
-> **Notice:** If the [Shape-based](#setShapeBased_int_void) option is enabled, ajusting this parameter will cause the **assertion failure**, because in this case the center of mass is calculated (i.e. set) automatically.
+> **Notice:** If the [Shape-based](#setShapeBased_int_void) option is enabled, the center of mass is calculated automatically from the body's shapes: an assigned value is immediately overwritten (in a debug build such an attempt causes an **assertion failure**). Disable the option to set the center of mass manually.
 
 
 ### Return value
@@ -194,7 +194,7 @@ Current inverse inertia tensor of the body, in the world coordinates.
 ## void setInertia ( const Math:: mat3 & inertia )
 
 Sets a new [inertia tensor](#setInertia_mat3_void) of the body. The inertia tensor describes the distribution of the mass over the body relative to the body's center of mass.
-> **Notice:** If the [Shape-based](#setShapeBased_int_void) option is enabled, ajusting this parameter will cause the **assertion failure**, because in this case the inertia tensor is calculated (i.e. set) automatically.
+> **Notice:** If the [Shape-based](#setShapeBased_int_void) option is enabled, the inertia tensor is calculated automatically from the body's shapes: an assigned value is immediately overwritten (in a debug build such an attempt causes an **assertion failure**). Disable the option to set the inertia tensor manually.
 
 
 ### Arguments
@@ -204,7 +204,7 @@ Sets a new [inertia tensor](#setInertia_mat3_void) of the body. The inertia tens
 ## Math:: mat3 getInertia () const
 
 Returns the current [inertia tensor](#setInertia_mat3_void) of the body. The inertia tensor describes the distribution of the mass over the body relative to the body's center of mass.
-> **Notice:** If the [Shape-based](#setShapeBased_int_void) option is enabled, ajusting this parameter will cause the **assertion failure**, because in this case the inertia tensor is calculated (i.e. set) automatically.
+> **Notice:** If the [Shape-based](#setShapeBased_int_void) option is enabled, the inertia tensor is calculated automatically from the body's shapes: an assigned value is immediately overwritten (in a debug build such an attempt causes an **assertion failure**). Disable the option to set the inertia tensor manually.
 
 
 ### Return value
@@ -219,7 +219,7 @@ Current inverse mass of the body.
 ## void setMass ( float mass )
 
 Sets a new body mass. If *g* (Earth's gravity) equals to 9.8 m/s2, and 1 unit equals to 1 m, the mass is measured in kilograms.
-> **Notice:** If the [Shape-based](#setShapeBased_int_void) option is enabled, ajusting this parameter will cause the **assertion failure**, because in this case the mass is calculated (i.e. set) automatically.
+> **Notice:** If the [Shape-based](#setShapeBased_int_void) option is enabled, the mass is calculated automatically from the body's shapes: an assigned value is immediately overwritten (in a debug build such an attempt causes an **assertion failure**). Disable the option to set the mass manually.
 
 
 ### Arguments
@@ -229,7 +229,7 @@ Sets a new body mass. If *g* (Earth's gravity) equals to 9.8 m/s2, and 1 unit eq
 ## float getMass () const
 
 Returns the current body mass. If *g* (Earth's gravity) equals to 9.8 m/s2, and 1 unit equals to 1 m, the mass is measured in kilograms.
-> **Notice:** If the [Shape-based](#setShapeBased_int_void) option is enabled, ajusting this parameter will cause the **assertion failure**, because in this case the mass is calculated (i.e. set) automatically.
+> **Notice:** If the [Shape-based](#setShapeBased_int_void) option is enabled, the mass is calculated automatically from the body's shapes: an assigned value is immediately overwritten (in a debug build such an attempt causes an **assertion failure**). Disable the option to set the mass manually.
 
 
 ### Return value
@@ -269,17 +269,17 @@ Returns the current value indicating if the object is freezable, meaning that it
 **true** if the "freezable" state of the body is enabled ; otherwise **false**.
 ## void setShapeBased ( bool based )
 
-Sets a new value indicating if mass and inertia of the body are bound to its shape properties and cannot be changed manually.
+Sets a new value indicating if mass, inertia, and center of mass of the body are bound to its shape properties and cannot be changed manually.
 ### Arguments
 
-- *bool* **based** - Set **true** to enable calculation of mass and inertia based on shape properties; **false** - to disable it.
+- *bool* **based** - Set **true** to enable calculation of mass, inertia, and center of mass based on shape properties; **false** - to disable it.
 
 ## bool isShapeBased () const
 
-Returns the current value indicating if mass and inertia of the body are bound to its shape properties and cannot be changed manually.
+Returns the current value indicating if mass, inertia, and center of mass of the body are bound to its shape properties and cannot be changed manually.
 ### Return value
 
-**true** if calculation of mass and inertia based on shape properties is enabled ; otherwise **false**.
+**true** if calculation of mass, inertia, and center of mass based on shape properties is enabled ; otherwise **false**.
 ---
 
 ## static BodyRigidPtr create ( )

@@ -42,7 +42,6 @@ DLSS Streamline version: 2.7.32
 FSR is supported
 FSR Version: 3.1.3
 FSR Max Contexts: 8
-FSR RAM Scratch Size: 10 MB
 
 ```
 
@@ -75,7 +74,7 @@ Not an Nvidia GPU
 > **Notice:** In addition, you can receive messages on missing libraries, as DLSS requires [additional configuration of your UNIGINE project](#dlss_use).
 
 
-If you notice unusually long startup times when using DLSS, refer to [***DLSS Startup Troubleshooting***](../../../troubleshooting/antivirus/index.md#dlss_startup_issues)
+If you notice unusually long startup times when using DLSS, refer to [***DLSS Startup Troubleshooting***](../../../troubleshooting/antivirus/index.md#dlss_startup_issues).
 
 
 ### FSR 3
@@ -86,7 +85,7 @@ FSR 3 must meet the following requirements:
 
 - **Platforms:** Windows
 - **Graphic API:** DirectX 12, Vulkan
-- **Hardware:** any GPUs supporting *[Shader Model 6.2](https://github.com/microsoft/DirectXShaderCompiler/wiki/Shader-Model-6.2)*
+- **Hardware:** any GPU supporting *[Shader Model 6.2](https://github.com/microsoft/DirectXShaderCompiler/wiki/Shader-Model-6.2)*
 - **Driver:** no special requirements
 
 
@@ -99,7 +98,7 @@ For DLSS technology to work properly with UNIGINE, additional environment config
 ### DLSS on Windows
 
 
-> **Warning:** NVIDIA Streamline SDK **version 2.7.32** was used to test DLSS integration on Windows. Other versions have not been tested and may produce unexpected results.
+> **Warning:** DLSS integration on Windows requires NVIDIA Streamline SDK **version 2.7.32** exactly. If libraries of any other version are found, DLSS is not initialized, and the corresponding message is displayed in the console.
 
 
 1. Follow [this link](https://developer.nvidia.com/rtx/streamline/get-started) to download the *NVIDIA Streamline SDK*, which serves as a wrapper for DLSS and all its features.
@@ -145,14 +144,14 @@ On Linux, DLSS SDK 310.2.1 is used.
 
 1. Follow [this link](https://github.com/NVIDIA/DLSS/tree/v310.2.1) to download the *NVIDIA RTX DLSS SDK*, which serves as a wrapper for DLSS and all its features.
 2. Before proceeding, review the license details and **make sure you accept** all of its terms and conditions: > **Notice:** 1. On the page that opens, find the `LICENSE.txt` file in the list of files and folders. > 2. Open the file and **read the text carefully**. > 3. **If you accept all of the terms and conditions**, proceed with the following steps.
-3. Download the following libraries available in `DLSS/lib/Linux_x86_64` folder:
+3. Download the following library available in the `DLSS/lib/Linux_x86_64` folder:
 
-  - `libnvidia-ngx-dlssd.so.310.2.1`
   - `libnvidia-ngx-dlss.so.310.2.1`
-4. Copy these files to the `bin` folder of your UNIGINE project: > **Notice:** By copying the license file, you confirm that you accept all the terms and conditions it provides.
+4. Copy this file to the `bin` folder of your UNIGINE project:
 
   1. Find your project in the UNIGINE SDK Browser and select **Other Actions -> Open folder**. ![](../../../sdk/projects/other_actions.png)
   2. In the directory that opens, find and open the `bin` folder.
+  3. Copy the file listed above.
 5. Return to the `DLSS` root folder on github and find the following license file:
 
   - `LICENSE.txt`
@@ -174,10 +173,10 @@ To use DLSS for the scene, enable it in one of the following ways and specify se
 Before applying FSR 3 upscaling, you should check if it is available. In UnigineEditor, open the console and check the information provided in the *Render* section:
 
 
-> **Notice:** If FSR 3 is [not available](#fsr2_requirements), the corresponding message will be shown in the console.
-
-
 ![](fsr3_console.png)
+
+
+> **Notice:** If FSR 3 is [not available](#fsr2_requirements), the corresponding message will be shown in the console.
 
 
 To use FSR 3 for the scene, enable it in one of the following ways and specify settings:
@@ -194,6 +193,7 @@ The following startup command-line options are available:
 
 
 - `dlss_application_id`
+- `dlss_max_contexts`
 - `fsr_max_contexts`
 
 
@@ -212,13 +212,7 @@ Depending on the current upscale mode, the set of settings differs. Please refer
 By default, upscaling is applied **before** any post-processing effects are rendered, so the effects are rendered at the output resolution. Upscaling can be moved to a later stage of the rendering pipeline, leaving the effects that precede it to be rendered at the lower render resolution.
 
 
-The stage is selected via the `render_upscale_order` console variable, or in UnigineEditor via the *Upscale Order* parameter. The following stages are available:
-
-
-- 0 - upscale before post-processing effects (by default)
-- 1 - upscale after color adaptation
-- 2 - upscale before TAA
-- 3 - upscale after post-processing effects, but before the *Sharpen* effect
+The stage is selected via the `render_upscale_order` console variable, or in UnigineEditor via the *[Upscale sequence order](../../../editor2/settings/render_settings/upscalers/index.md#upscale_order)* parameter, which also describes all the available stages.
 
 
 [![](rendering_sequence_modified_sm.png)](rendering_sequence_modified.png)
@@ -230,7 +224,7 @@ The stage is selected via the `render_upscale_order` console variable, or in Uni
 A **context** is a single call per upscaling operation.
 
 
-The number of contexts that can be upscaled with FSR 3 is limited and can defined by the `fsr_max_contexts` console command. The recommended number of contexts is 8. Specifying the number of contexts is necessary when rendering into multiple viewports: the number of the viewports must correspond to the number of contexts.
+The number of contexts that can be upscaled with FSR 3 is limited and can be defined by the `fsr_max_contexts` console command. The recommended number of contexts is 8. Specifying the number of contexts is necessary when rendering into multiple viewports: the number of viewports must correspond to the number of contexts.
 
 
-The number of DLSS contexts is limited to 8.
+The number of DLSS contexts is limited as well and can be defined by the `dlss_max_contexts` console command. The recommended number of contexts is 8.

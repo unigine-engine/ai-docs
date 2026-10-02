@@ -8,6 +8,9 @@
 This class controls the game pad button event information.
 
 
+Events of this type are created by the engine and passed to your handlers. You can also construct one yourself and dispatch it via *[engine.input.sendEvent()()](../../../api/library/controls/class.input_usc.md#sendEvent_InputEvent_void)*, which is what a custom SystemProxy implementation or a device emulator does.
+
+
 ## InputEventPadButton Class
 
 ### Members
@@ -38,40 +41,40 @@ game pad button input event constructor.
 
 ## void setAction ( int action )
 
-Sets the type of the game pad button input event.
+Sets the action the event represents. See *[getAction()()](../../...md#getAction_int)*.
 ### Arguments
 
 - *int* **action** - Type of the game pad button input event, one of the *[INPUT_EVENT_PAD_BUTTON_ACTION_*()](../../...md#ACTION_DOWN)* values.
 
 ## int getAction ( )
 
-Returns the type of the game pad button input event.
+Returns the action the event represents: one of the [ACTION](#ACTION) values � the button was pressed or released.
 ### Return value
 
 Type of the game pad button input event, one of the *[INPUT_EVENT_PAD_BUTTON_ACTION_*()](../../...md#ACTION_DOWN)* values.
 ## void setConnectionID ( int id )
 
-Sets the connection identifier.
+Sets the identifier of the device connection the event comes from. See *[getConnectionID()()](../../...md#getConnectionID_int)*.
 ### Arguments
 
 - *int* **id** - Connection identifier.
 
 ## int getConnectionID ( )
 
-Returns the current connection identifier.
+Returns the identifier of the device connection the event comes from � the value assigned by the OS when the device was connected. The engine uses it to match the event against a device slot; it is not the slot index itself.
 ### Return value
 
 Connection identifier.
 ## void setButton ( int button )
 
-Sets the game pad button.
+Sets the gamepad button the event refers to. See *[getButton()()](../../...md#getButton_int)*.
 ### Arguments
 
 - *int* **button** - Game pad button, one of the *[INPUT_GAME_PAD_BUTTON_*()](../../../api/library/controls/class.input_usc.md#GAMEPAD_BUTTON_A)* values.
 
 ## int getButton ( )
 
-Returns the game pad button.
+Returns the gamepad button the event refers to � one of the [Input::GAMEPAD_BUTTON](../../../api/library/controls/class.input_usc.md#GAMEPAD_BUTTON) values.
 ### Return value
 
 Game pad button, one of the *[INPUT_GAME_PAD_BUTTON_*()](../../../api/library/controls/class.input_usc.md#GAMEPAD_BUTTON_A)* values.

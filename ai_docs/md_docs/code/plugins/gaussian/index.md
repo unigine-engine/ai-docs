@@ -34,7 +34,7 @@ Apart from rendering, the plugin can [generate collision geometry](#collision_ge
 
 
 - sample in *C++ SIM Samples*
-- ***[Gaussian Splatting](../../../sdk/demos/gaussian_splat.md)*** demo
+- ***[Gaussian Splatting Integration](../../../sdk/demos/gaussian_splat.md)*** demo
 
 
 ## Launching GaussianSplatting Plugin

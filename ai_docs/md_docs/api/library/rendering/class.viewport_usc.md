@@ -2144,7 +2144,7 @@ Renders a stereo image for HMDs having context (peripheral) and focus displays. 
 Sets custom meshes to be used for culling pixels, that are not visible in VR.
 
 
-> **Notice:** Requires [render_stereo_hidden_area](../../../code/console/index.md#render_stereo_hidden_area) = 2
+> **Notice:** Requires [render_stereo_hidden_area](../../../vr_development/vr_console.md#render_stereo_hidden_area) = 2
 
 
 ### Arguments

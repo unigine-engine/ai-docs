@@ -93,27 +93,33 @@ You can run the template in **desktop mode** (keyboard and mouse, no headset) or
 **Networking** is powered by Steam and depends on an optional `steam_api64.dll` library. If the library is missing, the template runs in a local sandbox with no network functionality: you can explore the scene, but lobbies, rooms, replication, or voice chat are unavailable. For the multiplayer features to work properly, do the following:
 
 
-1. Run the Steam client and sign in. Make sure `steam_appid.txt` is present in the project's `bin` folder - it holds the Steam application ID the template runs under. ![Run the Steam Client](img/vrmp_steamclient.png)
+1. Run the Steam client and sign in. Make sure the project's `bin` folder contains a `steam_appid.txt` file - it holds the Steam application ID the template runs under. If the file is missing, create it with the following content: ```text 480 ``` ![Run the Steam Client](img/vrmp_steamclient.png)
 2. Open *[https://partner.steamgames.com/downloads/list](https://partner.steamgames.com/downloads/list)* and download *Steamworks SDK **v1.65***. Copy the `redistributable_bin/win64/steam_api64.dll` file in the project's `bin` folder.
 
 
 ### Enabling Voice Chat
 
 
-**Proximity voice chat** additionally requires the `fmod.dll` library in the `bin` folder:
+**Proximity voice chat** additionally requires the FMOD Core and Studio libraries in the `bin` folder:
 
 
 1. Go to *[https://www.fmod.com/download](https://www.fmod.com/download)*, select **FMOD Engine 2.03.08** from the list and install it.
-2. Copy the `FMOD SoundSystem\FMOD Studio API Windows\api\core\lib\x64\fmod.dll` file into your project's `bin` folder.
+2. Copy the following files into your project's `bin` folder:
+
+  - from `FMOD SoundSystem\FMOD Studio API Windows\api\core\lib\x64` - `fmod.dll`
+  - from `FMOD SoundSystem\FMOD Studio API Windows\api\studio\lib\x64` - `fmodstudio.dll`
 
 
-Without this library the template runs normally without voice chat support.
+Without these libraries the template runs normally without voice chat support.
 
 
-> **Notice:** **Alternatively**, you can lay the SDKs out under `source/SteamworksSDK/` *(redistributable_bin/win64/steam_api64.dll)* and `source/FMODSDK/` *(core/lib/x64/fmod.dll)* and rebuild the project. The build then copies the libraries into the `bin` folder automatically.
+Voice chat also requires the **FMOD** plugin, which is enabled automatically when you create a project from this template. If necessary, you can enable it [manually](../../../sdk/projects/index.md#update_config).
 
 
-On **Linux**, use the corresponding `.so` libraries (`libsteam_api.so` for networking and `libfmod.so.14` for voice chat support). Steam must be installed as the native package: with a snap or flatpak install, the Steamworks SDK cannot reach the Steam client and the template starts without networking.
+> **Notice:** **Alternatively**, you can lay the SDKs out under `source/SteamworksSDK/` *(public/steam/ and redistributable_bin/win64/)* and `source/FMODSDK/` *(core/inc/, core/lib/x64/ and studio/lib/x64/)* and rebuild the project. The build then copies the libraries into the `bin` folder automatically.
+
+
+On **Linux**, use the corresponding `.so` libraries (`libsteam_api.so` for networking and `libfmod.so.14` and `libfmodstudio.so.14` for voice chat support). Steam must be installed as the native package: with a snap or flatpak install, the Steamworks SDK cannot reach the Steam client and the template starts without networking.
 
 
 ## Using the VR Multiplayer Template
@@ -156,7 +162,7 @@ In VR, you move and interact with the standard VR controller buttons. Hold the *
 Voice chat is push-to-talk and works by distance. Hold the talk button (**V** on desktop, or the **Menu** button on a controller in VR) and speak. Only players who are close to you can hear you, and the sound comes from the speaking player's avatar.
 
 
-> **Notice:** Voice chat needs `fmod.dll`. If this file is missing, voice is turned off, but everything else still works.
+> **Notice:** Voice chat needs the [FMOD libraries](#vr_mp_launch_voice). If they are missing, voice is turned off, but everything else still works.
 
 
 ### Text Chat

@@ -18,6 +18,7 @@ engine.input
 ### See Also
 
 
+- The [Input System](../../...md) article
 - A set of C++ samples (`<SAMPLES_PROJECT_PATH>/source/input_controls/`)
 - A set of C# Component samples (`<SAMPLES_PROJECT_PATH>/data/csharp_component_samples/input_controls/`)
 
@@ -81,47 +82,47 @@ Returns the current value indicating if the system IME (Input Method Editor, use
 Current IME text composition
 ## int getNumJoysticks () const
 
-Returns the current number of joysticks.
+Returns the current number of joystick slots. A slot is created for every joystick that has been connected at least once and is never removed, so this value does not decrease when a joystick is unplugged. Use *[engine.inputjoystick.isAvailable()()](../../../api/library/controls/class.inputjoystick_usc.md#isAvailable_int)* to check whether a slot currently has a joystick behind it.
 ### Return value
 
-Current number of joysticks.
+Current number of joystick slots.
 ## int getNumGamePads () const
 
-Returns the current number of all gamepads.
+Returns the current number of gamepad slots. A slot is created for every gamepad that has been connected at least once and is never removed, so this value does not decrease when a gamepad is unplugged. Use *[engine.inputgamepad.isAvailable()()](../../../api/library/controls/class.inputgamepad_usc.md#isAvailable_int)* to check whether a slot currently has a gamepad behind it.
 ### Return value
 
-Current number of all gamepads.
+Current number of gamepad slots.
 ## int getMouseWheelHorizontal () const
 
-Returns the current horizontal mouse scroll value.
+Returns the current horizontal mouse scroll value. Negative values correspond to scrolling leftwards; positive values correspond to scrolling rightwards; the value is zero when the wheel is not scrolled horizontally. All horizontal scroll events received during the frame are summed up, so the magnitude is not limited to 1.
 ### Return value
 
-Current horizontal mouse scroll value in the [-1;1] range.
+Current horizontal mouse scroll value.
 ## int getMouseWheel () const
 
-Returns the current vertical mouse scroll value.
+Returns the current mouse scroll value. Negative values correspond to scrolling downwards; positive values correspond to scrolling upwards; the value is zero when the mouse wheel is not scrolled. All scroll events received during the frame are summed up.
 ### Return value
 
-Current mouse scroll value. Negative values correspond to scrolling downwards; positive values correspond to scrolling upwards; the value is zero when the mouse wheel is not scrolled.
+Current vertical mouse scroll value.
 ## ivec2 getMouseDeltaPosition () const
 
-Returns the current vector containing delta values of the mouse cursor position.
+Returns the current vector containing screen position change of the mouse pointer along the X and Y axes � the difference between the values in the previous and the current frames.
 ### Return value
 
-Current vector containing screen position change of the mouse pointer along the X and Y axes � the difference between the values in the previous and the current frames.
+Current vector containing delta values of the mouse cursor position.
 ## void setMousePosition ( ivec2 position )
 
-Sets a new vector containing integer values of the mouse cursor position.
+Sets a new global coordinates of the mouse cursor. While a mouse button event is being processed, the cursor position at the moment of that event is returned; otherwise, the position at the beginning of the frame is returned. To get the cursor position during another type of event, get this event (for example *[getKeyEvent()()](../../...md#getKeyEvent_int_InputEventKeyboard)*) and read the position stored inside it. Use *[getForceMousePosition()()](../../...md#getForceMousePosition_ivec2)* to query the current position from the OS instead of this frame-bound value.
 ### Arguments
 
-- *ivec2* **position** - The Returns a vector containing the global coordinates of the mouse cursor. In case of a mouse button event, the cursor position at the moment of the processed event is returned. In case of no such event, the mouse position at the beginning of the frame is returned. To get the cursor position during another type of event, get this event (for example [getKeyEvent()](#getKeyEvent_int_InputEventKeyboard)) and get the cursor position stored inside it.
+- *ivec2* **position** - The global coordinates of the mouse cursor.
 
 ## ivec2 getMousePosition () const
 
-Returns the current vector containing integer values of the mouse cursor position.
+Returns the current global coordinates of the mouse cursor. While a mouse button event is being processed, the cursor position at the moment of that event is returned; otherwise, the position at the beginning of the frame is returned. To get the cursor position during another type of event, get this event (for example *[getKeyEvent()()](../../...md#getKeyEvent_int_InputEventKeyboard)*) and read the position stored inside it. Use *[getForceMousePosition()()](../../...md#getForceMousePosition_ivec2)* to query the current position from the OS instead of this frame-bound value.
 ### Return value
 
-Current Returns a vector containing the global coordinates of the mouse cursor. In case of a mouse button event, the cursor position at the moment of the processed event is returned. In case of no such event, the mouse position at the beginning of the frame is returned. To get the cursor position during another type of event, get this event (for example [getKeyEvent()](#getKeyEvent_int_InputEventKeyboard)) and get the cursor position stored inside it.
+Current global coordinates of the mouse cursor.
 ## void setMouseHandle ( int handle )
 
 Sets a new mouse behavior mode, one of the [MOUSE_HANDLE](#MOUSE_HANDLE) values.
@@ -208,10 +209,10 @@ Returns the current value indicating if the clipboard is empty.
 **true** if the clipboard is empty; otherwise **false**.
 ## getMouseDeltaRaw () const
 
-Returns the current change in the absolute mouse position (not the screen cursor), dots per inch.
+Returns the current raw mouse movement for the current frame, as reported by the device. Unlike [MouseDeltaPosition](#MouseDeltaPosition), which tracks the screen cursor, this value comes from the raw input of the OS: it is not affected by pointer acceleration or desktop sensitivity settings and is not limited by the screen borders. For a mouse reporting relative motion the units are device counts, whose size depends on the mouse DPI; for a device reporting absolute coordinates the units are screen pixels. All raw motion events received during the frame are summed up.
 ### Return value
 
-Current change in the absolute mouse position (not the screen cursor), dots per inch.
+Current raw mouse movement for the current frame, as reported by the device (not the screen cursor movement).
 ## getVRControllerTreadmill () const
 
 Returns the current treadmill VR controller.
@@ -841,20 +842,20 @@ Event instance.
 
 ## InputGamePad engine.input. getGamePad ( int num )
 
-Returns a gamepad of the given index.
+Returns the gamepad in the given slot. A newly connected gamepad reuses the lowest free slot, so the same index can refer to a different device after a reconnection.
 ### Arguments
 
-- *int* **num** - Gamepad index.
+- *int* **num** - Gamepad slot index, from 0 to [NumGamePads](#NumGamePads)�- 1. The index is not checked: a value outside this range results in undefined behavior.
 
 ### Return value
 
 [InputGamepad](../../../api/library/controls/class.inputgamepad_usc.md) object.
 ## InputJoystick engine.input. getJoystick ( int num )
 
-Returns a joystick with the given index.
+Returns the joystick in the given slot. A newly connected joystick reuses the lowest free slot, so the same index can refer to a different device after a reconnection.
 ### Arguments
 
-- *int* **num** - Joystick index.
+- *int* **num** - Joystick slot index, from 0 to [NumJoysticks](#NumJoysticks)�- 1. The index is not checked: a value outside this range results in undefined behavior.
 
 ### Return value
 
@@ -972,7 +973,7 @@ if (engine.input.isMouseButtonUp(INPUT_MOUSE_BUTTON_LEFT)) {
 Returns a value indicating if the touchscreen is pressed by the finger.
 ### Arguments
 
-- *int* **index** - Touch input index.
+- *int* **index** - Touch input index, from 0 to [NUM_TOUCHES](#NUM_TOUCHES)�- 1. The index is not checked: a value outside this range results in undefined behavior.
 
 ### Return value
 
@@ -982,27 +983,27 @@ Returns a value indicating if the touchscreen is pressed by the finger.
 Returns a value indicating if the given touch was pressed during the current frame.
 ### Arguments
 
-- *int* **index** - Touch input index.
+- *int* **index** - Touch input index, from 0 to [NUM_TOUCHES](#NUM_TOUCHES)�- 1. The index is not checked: a value outside this range results in undefined behavior.
 
 ### Return value
 
 **1** if the touchscreen is pressed during the current frame; otherwise, **0**.
 ## int engine.input. isTouchUp ( int index )
 
-Returns a value indicating if the given touch was released.
+Returns a value indicating if the given touch ended during the current frame. It is true for one frame only, in the same way as *[isTouchDown()()](../../...md#isTouchDown_int_int)* reports the beginning of a touch.
 ### Arguments
 
-- *int* **index** - Touch input index.
+- *int* **index** - Touch input index, from 0 to [NUM_TOUCHES](#NUM_TOUCHES)�- 1. The index is not checked: a value outside this range results in undefined behavior.
 
 ### Return value
 
 **1** during the first frame when the touch was released; otherwise, **0**.
 ## ivec2 engine.input. getTouchPosition ( int index )
 
-Returns a vector containing integer values of touch position.
+Returns the position of the given touch in global (desktop) coordinates, as of the touch event processed in the current frame.
 ### Arguments
 
-- *int* **index** - Touch input index.
+- *int* **index** - Touch input index, from 0 to [NUM_TOUCHES](#NUM_TOUCHES)�- 1. The index is not checked: a value outside this range results in undefined behavior.
 
 ### Return value
 
@@ -1012,24 +1013,24 @@ The touch position.
 Returns a vector containing screen position change of the touch along the X and Y axes � the difference between the values in the previous and the current frames.
 ### Arguments
 
-- *int* **index** - Touch input index.
+- *int* **index** - Touch input index, from 0 to [NUM_TOUCHES](#NUM_TOUCHES)�- 1. The index is not checked: a value outside this range results in undefined behavior.
 
 ### Return value
 
 The touch position delta.
 ## InputEventTouch engine.input. getTouchEvent ( int index )
 
-Returns the action cast to the touch event.
+Returns the touch input event currently being processed for the given touch index. One event is taken from the queue per frame; use *[getTouchEvents()()](../../...md#getTouchEvents_int_VECInputEventTouch_int)* to get all events received for this touch.
 ### Arguments
 
-- *int* **index** - Touch input index.
+- *int* **index** - Touch input index, from 0 to [NUM_TOUCHES](#NUM_TOUCHES)�- 1. The index is not checked: a value outside this range results in undefined behavior.
 
 ### Return value
 
-Touch input event.
+Touch input event, or null if there are no events for the specified touch in the current frame.
 ## InputEventKeyboard engine.input. getKeyEvent ( int key )
 
-Returns the currently processed keyboard input event.
+Returns the keyboard event currently being processed for the given key. One event is taken from the queue per frame; use *[getKeyEvents()()](../../...md#getKeyEvents_int_VECInputEventKeyboard_int)* to get all events received for this key.
 ### Arguments
 
 - *int* **key** - One of the [INPUT_KEY_](#KEY_UNKNOWN) codes.
@@ -1039,7 +1040,7 @@ Returns the currently processed keyboard input event.
 Keyboard input event, or null if there are no events for the specified key in the current frame.
 ## string engine.input. getKeyName ( int key )
 
-Returns the specified key name.
+Returns the name of the given key, ESC or LEFT_SHIFT for example. The names are the constant names without the prefix (KEY_ESC gives ESC) and do not depend on the keyboard layout; for the layout-dependent label use *[getKeyLocalName()()](../../...md#getKeyLocalName_int_cstr)*.
 ### Arguments
 
 - *int* **key** - One of the [INPUT_KEY_](#KEY_UNKNOWN) codes.
@@ -1049,7 +1050,7 @@ Returns the specified key name.
 Key name.
 ## int engine.input. getKeyByName ( string name )
 
-Returns the key by its name.
+Returns the key with the given name � the reverse of *[getKeyName()()](../../...md#getKeyName_int_cstr)*. [KEY_UNKNOWN](#KEY_UNKNOWN) is returned if no key has this name.
 ### Arguments
 
 - *string* **name** - Key name.
@@ -1059,17 +1060,17 @@ Returns the key by its name.
 One of the [INPUT_KEY_](#KEY_UNKNOWN) codes.
 ## InputEventMouseButton engine.input. getMouseButtonEvent ( int button )
 
-Returns the mouse motion input event for the specified button.
+Returns the mouse button event currently being processed for the given button. One event is taken from the queue per frame; use *[getMouseButtonEvents()()](../../...md#getMouseButtonEvents_int_VECInputEventMouseButton_int)* to get all events received for this button.
 ### Arguments
 
 - *int* **button** - One of the [INPUT_MOUSE_BUTTON_](#MOUSE_BUTTON_LEFT) codes.
 
 ### Return value
 
-Mouse motion input event.
+Mouse button input event, or null if there are no events for the specified button in the current frame.
 ## string engine.input. getMouseButtonName ( int button )
 
-Returns the mouse button name.
+Returns the name of the given mouse button, LEFT or AUX_0 for example.
 ### Arguments
 
 - *int* **button** - One of the [INPUT_MOUSE_BUTTON_](#MOUSE_BUTTON_LEFT) codes.
@@ -1079,7 +1080,7 @@ Returns the mouse button name.
 Mouse button name.
 ## int engine.input. getMouseButtonByName ( string name )
 
-Returns the mouse button by its name.
+Returns the mouse button with the given name � the reverse of *[getMouseButtonName()()](../../...md#getMouseButtonName_int_cstr)*. [MOUSE_BUTTON_UNKNOWN](#MOUSE_BUTTON_UNKNOWN) is returned if no button has this name.
 ### Arguments
 
 - *string* **name** - Mouse button name.
@@ -1089,7 +1090,7 @@ Returns the mouse button by its name.
 One of the [INPUT_MOUSE_BUTTON_](#MOUSE_BUTTON_LEFT) codes.
 ## void engine.input. sendEvent ( InputEvent e )
 
-Creates a user event and dispatches it to the Engine.
+Dispatches an input event to the Engine. The Engine takes ownership of the event: it is deleted automatically after it leaves the events buffer, which stores the last 60 frames. Do not keep or reuse the object after this call, and do not send back an event obtained from *[getEventsBuffer()()](../../...md#getEventsBuffer_int_VECInputEvent_int)* - copy the data you need and build a new event instead.
 ### Arguments
 
 - *[InputEvent](../../../api/library/controls/class.inputevent_usc.md)* **e** - Input event.
@@ -1103,7 +1104,7 @@ Sets a callback function to be executed on receiving input events. This input ev
 
 ## int engine.input. isModifierEnabled ( int modifier )
 
-Returns the value indicating if the specified modifier is enabled.
+Returns a value indicating if the given modifier is currently active � a modifier key held down, or a lock such as Caps Lock switched on. The state is queried from the OS.
 ### Arguments
 
 - *int* **modifier** - One of the [INPUT_MODIFIER_](#MODIFIER_LEFT_SHIFT) codes.
@@ -1113,20 +1114,20 @@ Returns the value indicating if the specified modifier is enabled.
 **1** if the modifier is enabled; otherwise, **0**.
 ## unsigned int engine.input. keyToUnicode ( int key )
 
-Returns the specified key transformed to unicode.
+Returns the Unicode character produced by the given key on the current keyboard layout. 0 is returned if the key has no printable symbol � *[isKeyText()()](../../...md#isKeyText_int_int)* is a shortcut for this check.
 ### Arguments
 
 - *int* **key** - One of the [INPUT_KEY_](#KEY_UNKNOWN) codes.
 
 ### Return value
 
-Unicode symbol.
+Unicode character code, or 0 if the key has no printable symbol.
 ## int engine.input. unicodeToKey ( unsigned int unicode )
 
-Returns the specified key transformed to unicode.
+Returns the key that produces the given Unicode character on the current keyboard layout � the inverse of *[keyToUnicode()()](../../...md#keyToUnicode_int_uint)*. KEY_UNKNOWN is returned if the character is 0 or cannot be produced by the current layout. Keys whose symbol is not consistent across platforms (Esc, Print Screen, Backspace, Tab, Enter, Menu, numpad - and +) also resolve to KEY_UNKNOWN.
 ### Arguments
 
-- *unsigned int* **unicode** - Unicode symbol.
+- *unsigned int* **unicode** - Unicode character code.
 
 ### Return value
 
@@ -1163,7 +1164,7 @@ engine.input.setMouseCursorSystem(1);
 
 ## void engine.input. clearMouseCursorCustom ( )
 
-Clears the custom mouse cursor set via the [setMouseCursorCustom()](#setMouseCursorCustom_Image_int_int_void) method.
+Clears the custom mouse cursor set via the *[setMouseCursorCustom()()](../../...md#setMouseCursorCustom_Image_int_int_void)* method.
 ## void engine.input. updateMouseCursor ( )
 
 Updates the mouse cursor. This method should be called after making changes to the mouse cursor to apply them all together. After calling this method the cursor shall be updated in the next frame.
@@ -1182,10 +1183,10 @@ Returns the name for the specified key taken from the currently selected keyboar
 Localized name for the specified key.
 ## ivec2 engine.input. getForceMousePosition ( )
 
-Returns the absolute mouse position obtained from the OS.
+Returns the mouse cursor position queried from the OS at the moment of the call. Unlike [MousePosition](#MousePosition), which is captured once at the beginning of the frame and reflects the position stored in the processed input event, this value is always up to date.
 ### Return value
 
-The absolute mouse position.
+Current mouse cursor position in global (desktop) coordinates.
 ## int engine.input. isKeyText ( int key )
 
 Returns a value indicating if the given key has a corresponding printable symbol (current Num Lock state is taken into account). For example, pressing 2 on the numpad with *Num Lock* enabled produces "2", while with disabled *Num Lock* the same key acts as a down arrow. Keys like *Esc, PrintScreen, BackSpace* do not produce any printable symbol at all.
@@ -1198,7 +1199,7 @@ Returns a value indicating if the given key has a corresponding printable symbol
 **1** if the key value is a symbol; otherwise, **0**.
 ## string engine.input. getModifierName ( int modifier )
 
-Returns the name of the key modifier by its scancode.
+Returns the name of the given modifier, LEFT_SHIFT or CAPS_LOCK for example.
 ### Arguments
 
 - *int* **modifier** - Scancode of the modifier.
@@ -1208,7 +1209,7 @@ Returns the name of the key modifier by its scancode.
 Key name of the modifier.
 ## int engine.input. getModifierByName ( string name )
 
-Returns the scancode of the key modifier by its name.
+Returns the modifier with the given name � the reverse of *[getModifierName()()](../../...md#getModifierName_int_cstr)*. [MODIFIER_NONE](#MODIFIER_NONE) is returned if no modifier has this name.
 ### Arguments
 
 - *string* **name** - Key name of the modifier.
@@ -1218,10 +1219,10 @@ Returns the scancode of the key modifier by its name.
 Scancode of the modifier.
 ## InputVRDevice engine.input. getVRDevice ( int num )
 
-Returns the VR device by its number.
+Returns the VR device in the given slot. A slot is created for every VR device that has been connected at least once and is never removed, so the same index keeps referring to the same device.
 ### Arguments
 
-- *int* **num** - Number of the VR device.
+- *int* **num** - VR device slot index, from 0 to [NumVRDevices](#NumVRDevices)�- 1. The index is not checked: a value outside this range results in undefined behavior.
 
 ### Return value
 

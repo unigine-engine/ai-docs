@@ -6,6 +6,9 @@
 This class controls VR controller button touch event information.
 
 
+Events of this type are created by the engine and passed to your handlers. You can also construct one yourself and dispatch it via *[Input.SendEvent()](../../../api/library/controls/class.input_cs.md#sendEvent_InputEvent_void)*, which is what a custom SystemProxy implementation or a device emulator does.
+
+
 ## InputEventVRButtonTouch Class
 
 ### Enums
@@ -14,8 +17,8 @@ This class controls VR controller button touch event information.
 
 | Name | Description |
 |---|---|
-| **DOWN** = 0 | Button state is "pressed". |
-| **UP** = 1 | Button state is "released". |
+| **DOWN** = 0 | The button is being touched. |
+| **UP** = 1 | The button is no longer touched. |
 
 ### Properties
 

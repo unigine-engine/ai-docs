@@ -89,7 +89,7 @@ Plugins distributed with the UNIGINE SDK follow the same structure.
 ## 1) Set Up the Plugin Project
 
 
-To create a plugin, use the built-in **Engine Plugin Template**. You can select this option when creating a new project.
+To create a plugin, use the built-in **Template Engine Plugin**. You can select this option when creating a new project.
 
 
 You must also fill in the **Plugin Name** and **Plugin Vendor** fields. These values are used to automatically generate the plugin project structure and ensure compliance with [naming conventions](#naming).
@@ -661,7 +661,7 @@ To access classes and functions of the library from the C++ side of the applicat
 ## Engine Plugin Sample
 
 
-When you create a plugin using the **Engine Plugin Template**, the project configuration also adds a sample plugin called ***NodeViewerPlugin***, as a reference implementation. You can use it as a starting point for developing your own plugin, or remove it if it is not required.
+When you create a plugin using the **Template Engine Plugin**, the project configuration also adds a sample plugin called ***NodeViewerPlugin***, as a reference implementation. You can use it as a starting point for developing your own plugin, or remove it if it is not required.
 
 
 ***NodeViewerPlugin*** lets you inspect the in-world node hierarchy, select nodes with the right mouse button, and move/rotate/scale them using manipulators (gizmos). The plugin window can be toggled on or off with the *F10* key.

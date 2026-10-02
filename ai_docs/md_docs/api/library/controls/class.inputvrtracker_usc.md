@@ -22,7 +22,7 @@ The class handles VR tracker input.
 
 ## int getModelType ( )
 
-Returns the model type of the VR tracker.
+Returns the tracker model recognised by the engine � one of the [MODEL_TYPE](#MODEL_TYPE) values.
 ### Return value
 
 Tracker model type.

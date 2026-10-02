@@ -8,6 +8,9 @@
 This class controls mouse wheel event information.
 
 
+Events of this type are created by the engine and passed to your handlers. You can also construct one yourself and dispatch it via *[engine.input.sendEvent()()](../../../api/library/controls/class.input_usc.md#sendEvent_InputEvent_void)*, which is what a custom SystemProxy implementation or a device emulator does.
+
+
 ## InputEventMouseWheel Class
 
 ### Members
@@ -44,7 +47,7 @@ Sets the delta of the vertical mouse scroll movement.
 
 ## int getWheel ( )
 
-Returns the delta of the vertical mouse scroll movement.
+Returns the vertical scroll amount carried by this event. Negative values correspond to scrolling downwards, positive ones � upwards. Unlike [Input::MouseWheel](../../../api/library/controls/class.input_usc.md#MouseWheel), which sums up the whole frame, this is the amount of a single event.
 ### Return value
 
 The amount scrolled vertically, positive away from the user and negative towards the user.
@@ -57,7 +60,7 @@ Sets the delta of the horizontal mouse scroll movement.
 
 ## int getWheelHorizontal ( )
 
-Returns the delta of the horizontal mouse scroll movement.
+Returns the horizontal scroll amount carried by this event. Negative values correspond to scrolling leftwards, positive ones � rightwards. Unlike [Input::MouseWheelHorizontal](../../../api/library/controls/class.input_usc.md#MouseWheelHorizontal), which sums up the whole frame, this is the amount of a single event.
 ### Return value
 
 The amount scrolled horizontally, positive to the right and negative to the left.

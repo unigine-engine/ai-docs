@@ -17,15 +17,18 @@
 
 - [C# Third Person Platformer](../../sdk/demos/cs_component_sample.md)
 
-- [Machine Learning Agents](../../sdk/demos/ml_agents.md)
+- [Unigine ML Integration](../../sdk/demos/ml_agents.md)
 
-- [Cesium](../../sdk/demos/cesium_ig.md)
+  - [Building Your Own ML Agent](../../sdk/demos/ml_agents_customization.md)
+  - [Unigine ML Integration API](../../sdk/demos/ml_agents_api.md)
+
+- [Cesium Integration](../../sdk/demos/cesium_ig.md)
 
 - [Earthworks](../../sdk/demos/earthworks.md)
 
 - [Fox Hole](../../sdk/demos/fox_hole.md)
 
-- [Gaussian Splatting](../../sdk/demos/gaussian_splat.md)
+- [Gaussian Splatting Integration](../../sdk/demos/gaussian_splat.md)
 
 - [Mars](../../sdk/demos/mars.md)
 

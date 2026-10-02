@@ -1,0 +1,3812 @@
+{
+	"material": {
+		"type": 0,
+		"normal_space": 2,
+		"vertex_position_space": 1,
+		"vertex_offset_space": 2,
+		"vertex_mode": 1,
+		"advanced_mode": false,
+		"compiler_ieee_strictness": false,
+		"compiler_optimization_level": 4,
+		"compiler_warning_mode": 2,
+		"depth_shadow": true,
+		"screen_projection": false,
+		"force_velocity": true,
+		"tessellation": false,
+		"two_sided": false,
+		"depth_test": true,
+		"scene_depth_write": true,
+		"depth_mode": 0,
+		"decal_tbn_mode": 0,
+		"normal_blend_mode": 0,
+		"blend_mode": 0,
+		"blend_src": 5,
+		"blend_dest": 6,
+		"opacity_depth_write": true,
+		"velocity_write": true,
+		"surface_id_write": true
+	},
+	"parameters": {
+		"parameter": {
+			"type": "Group",
+			"guid": "bf69ad0df604eb08a41c12c796c6317ab1201291",
+			"value": {
+				"type": "unknown",
+				"name": "Background",
+				"min_value": 0,
+				"max_value": 1
+			},
+			"children": {
+				"parameter": {
+					"type": "Texture2D",
+					"guid": "f9abe0d35a58701601bb687d32ca0fb8dbed0fb7",
+					"value": {
+						"type": "Texture2D",
+						"name": "albedo_background",
+						"min_value": 0,
+						"max_value": 1,
+						"asset": "5219d6ddb5dbd1520e843a369ad2b64326bb24e2",
+						"anisotropy": true,
+						"manual_filtering": false,
+						"force_streaming": false,
+						"wrap_x": 0,
+						"wrap_y": 0,
+						"wrap_z": 0
+					}
+				},
+				"parameter": {
+					"type": "Texture2D",
+					"guid": "367ef26f42507d02e186187981cf67849319cd13",
+					"value": {
+						"type": "Texture2D",
+						"name": "normal_background",
+						"min_value": 0,
+						"max_value": 0.0099999997764826497,
+						"asset": "692dbb7d56d633e22551bd47f4d92cd2d498270d",
+						"anisotropy": true,
+						"manual_filtering": false,
+						"force_streaming": false,
+						"wrap_x": 0,
+						"wrap_y": 0,
+						"wrap_z": 0
+					}
+				},
+				"parameter": {
+					"type": "Slider",
+					"guid": "09e6d7c5c95d6660ac57663fcbc33e927c894cc9",
+					"value": {
+						"type": "float",
+						"name": "roughness_background",
+						"min_value": 0,
+						"max_value": 1,
+						"value_x": 0.5
+					}
+				}
+			}
+		},
+		"parameter": {
+			"type": "Group",
+			"guid": "d29eaabcd2e086eb948a6f4ece6dae5571c3abb0",
+			"value": {
+				"type": "unknown",
+				"name": "Tiles",
+				"min_value": 0,
+				"max_value": 1
+			},
+			"children": {
+				"parameter": {
+					"type": "Texture2D",
+					"guid": "8abff2476ba58afa3ba09e11b23ac03c77de9e6b",
+					"value": {
+						"type": "Texture2D",
+						"name": "albedo_tiles",
+						"min_value": 0,
+						"max_value": 1,
+						"asset": "5219d6ddb5dbd1520e843a369ad2b64326bb24e2",
+						"anisotropy": true,
+						"manual_filtering": false,
+						"force_streaming": false,
+						"wrap_x": 0,
+						"wrap_y": 0,
+						"wrap_z": 0
+					}
+				},
+				"parameter": {
+					"type": "Texture2D",
+					"guid": "4f6535d7da05594a2881f8214f1eb30cf880d2fb",
+					"value": {
+						"type": "Texture2D",
+						"name": "normal_tiles",
+						"min_value": 0,
+						"max_value": 1,
+						"asset": "692dbb7d56d633e22551bd47f4d92cd2d498270d",
+						"anisotropy": true,
+						"manual_filtering": false,
+						"force_streaming": false,
+						"wrap_x": 0,
+						"wrap_y": 0,
+						"wrap_z": 0
+					}
+				},
+				"parameter": {
+					"type": "Texture2D",
+					"guid": "10584f4bfed5dc2ee38375b5a9af0b90b9fde9af",
+					"value": {
+						"type": "Texture2D",
+						"name": "tiles_mask",
+						"min_value": 0,
+						"max_value": 1,
+						"asset": "5219d6ddb5dbd1520e843a369ad2b64326bb24e2",
+						"anisotropy": true,
+						"manual_filtering": false,
+						"force_streaming": false,
+						"wrap_x": 0,
+						"wrap_y": 0,
+						"wrap_z": 0
+					}
+				},
+				"parameter": {
+					"type": "Texture2D",
+					"guid": "95e8a513a9dfe756aa5ff6bd3812c8f831adf7f7",
+					"value": {
+						"type": "Texture2D",
+						"name": "tiles_mask_offset",
+						"min_value": 0,
+						"max_value": 1,
+						"asset": "5219d6ddb5dbd1520e843a369ad2b64326bb24e2",
+						"anisotropy": true,
+						"manual_filtering": false,
+						"force_streaming": false,
+						"wrap_x": 0,
+						"wrap_y": 0,
+						"wrap_z": 0
+					}
+				},
+				"parameter": {
+					"type": "Texture2D",
+					"guid": "e226e4c78efedb7a79bcb4913d1ee4bcfc7f78eb",
+					"value": {
+						"type": "Texture2D",
+						"name": "tiles_mask_damage",
+						"min_value": 0,
+						"max_value": 1,
+						"asset": "5219d6ddb5dbd1520e843a369ad2b64326bb24e2",
+						"anisotropy": true,
+						"manual_filtering": false,
+						"force_streaming": false,
+						"wrap_x": 0,
+						"wrap_y": 0,
+						"wrap_z": 0
+					}
+				},
+				"parameter": {
+					"type": "Texture2D",
+					"guid": "8ab8a51ff9a0aff21e544ea90c8f47f4fd34d2c3",
+					"value": {
+						"type": "Texture2D",
+						"name": "mask_additional",
+						"min_value": 0,
+						"max_value": 1,
+						"asset": "5219d6ddb5dbd1520e843a369ad2b64326bb24e2",
+						"anisotropy": true,
+						"manual_filtering": false,
+						"force_streaming": false,
+						"wrap_x": 0,
+						"wrap_y": 0,
+						"wrap_z": 0
+					}
+				},
+				"parameter": {
+					"type": "Slider",
+					"guid": "3edcfbbd0f6a09f83e0244f70625ddea4ea07441",
+					"value": {
+						"type": "float",
+						"name": "tiles_bump_intensity",
+						"min_value": 0,
+						"max_value": 1,
+						"value_x": 1
+					}
+				},
+				"parameter": {
+					"type": "Slider",
+					"guid": "b7aede6ff5c7790202f8e479ddebc38489327913",
+					"value": {
+						"type": "float",
+						"name": "parallax_intensity",
+						"min_value": 0,
+						"max_value": 0.0099999997764826497,
+						"value_x": 0.0020000000949949082
+					}
+				}
+			}
+		},
+		"parameter": {
+			"type": "Group",
+			"guid": "622b1dbf4e2090123f3f7049b085bd14f3838563",
+			"value": {
+				"type": "unknown",
+				"name": "Other Parameters",
+				"min_value": 0,
+				"max_value": 1
+			},
+			"children": {
+				"parameter": {
+					"type": "Slider",
+					"guid": "eb7999ebace2664e364f39552899bab0c7cf8e4f",
+					"value": {
+						"type": "float",
+						"name": "damage_level",
+						"min_value": 0,
+						"max_value": 1,
+						"value_x": 1
+					}
+				},
+				"parameter": {
+					"type": "Float2",
+					"guid": "389303ff1364c1523e957089f23d40543960afa3",
+					"value": {
+						"type": "float2",
+						"name": "tiling",
+						"min_value": 0,
+						"max_value": 1,
+						"value_y": 1,
+						"value_x": 1
+					}
+				}
+			}
+		}
+	},
+	"version": "2.22.0.0",
+	"nodes": {
+		"Material": {
+			"label": "Material",
+			"guid": "829f90678c21529ab2138131aaaf08dc82560e8b",
+			"x": 1185,
+			"y": 669,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Albedo",
+					"type": "float3",
+					"id": -509366906
+				},
+				"input": {
+					"label": "Metalness",
+					"type": "float",
+					"id": -1695405859
+				},
+				"input": {
+					"label": "Roughness",
+					"type": "float",
+					"id": 1466423059
+				},
+				"input": {
+					"label": "Specular",
+					"type": "float",
+					"id": -452932161
+				},
+				"input": {
+					"label": "Microfiber",
+					"type": "float",
+					"id": -410190875
+				},
+				"input": {
+					"label": "Normal Tangent Space",
+					"type": "float3",
+					"id": -1328428335
+				},
+				"input": {
+					"label": "Translucent",
+					"type": "float",
+					"id": 480745549
+				},
+				"input": {
+					"label": "Ambient Occlusion",
+					"type": "float",
+					"id": 979644461
+				},
+				"input": {
+					"label": "Emission",
+					"type": "float3",
+					"id": -2120341480
+				},
+				"input": {
+					"label": "Velocity",
+					"type": "float2",
+					"id": -1513164944
+				},
+				"input": {
+					"label": "Auxiliary",
+					"type": "float4",
+					"id": -488030030
+				},
+				"input": {
+					"label": "Depth Offset",
+					"type": "float",
+					"id": 1982984727
+				},
+				"input": {
+					"label": "Vertex Offset Tangent Space",
+					"type": "float3",
+					"id": 1951750090
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "Material",
+					"type": "",
+					"id": 0
+				}
+			}
+		},
+		"Final": {
+			"label": "Final",
+			"guid": "0f2f417e3b3b7ac5ee9bad604fcb013f4b641d92",
+			"x": 1562,
+			"y": 767,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Material",
+					"type": "",
+					"id": 0
+				}
+			},
+			"outputs": {
+			}
+		},
+		"Parameter": {
+			"label": "Slider",
+			"guid": "28d48dc7d826707a831d459159cc41bc995b31eb",
+			"x": 93,
+			"y": 113,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "float",
+					"x": 0.5
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "roughness_background",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"parameter_guid": "09e6d7c5c95d6660ac57663fcbc33e927c894cc9",
+			"type": "float"
+		},
+		"SampleTexture": {
+			"label": "SampleTexture: Default",
+			"guid": "2bb66c82bca041f91c2c830432493293e4a816d6",
+			"x": -79,
+			"y": 503,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Type",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Default",
+						"Mip",
+						"Mip offset",
+						"Grad",
+						"Fetch",
+						"Point",
+						"Catmull",
+						"Cubic",
+						"Manual linear"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Normal Space",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Tangent Space for UV0",
+						"Tangent Space for UV1",
+						"Tangent Space Auto Calculated",
+						"Object Space"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "Texture",
+					"type": "Texture2D",
+					"id": 4
+				},
+				"input": {
+					"label": "UV",
+					"type": "float2",
+					"id": 5
+				},
+				"input": {
+					"label": "Normal Intensity",
+					"type": "float",
+					"id": 11
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "Color",
+					"type": "float4",
+					"id": 0
+				},
+				"output": {
+					"label": "Tangent Normal",
+					"type": "float3",
+					"id": 1
+				}
+			},
+			"texture_type": "Texture2D",
+			"sampler_type": "Default",
+			"texture_data": "Asset",
+			"normal_space": "Tangent Space for UV0"
+		},
+		"Parameter": {
+			"label": "Texture2D",
+			"guid": "1afc0cfb4cea9e1e1046eee5a795530059162a5f",
+			"x": -818,
+			"y": -1052,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Path",
+					"widget": "Texture2D",
+					"asset": "5219d6ddb5dbd1520e843a369ad2b64326bb24e2"
+				},
+				"prop": {
+					"label": "Wrap X",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Y",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Z",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Anisotropy",
+					"widget": "Toggle",
+					"x": 1
+				},
+				"prop": {
+					"label": "Manual Filtering",
+					"widget": "Toggle",
+					"x": 0
+				},
+				"prop": {
+					"label": "Force Streaming",
+					"widget": "Toggle",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "albedo_background",
+					"type": "Texture2D",
+					"id": 0
+				}
+			},
+			"parameter_guid": "f9abe0d35a58701601bb687d32ca0fb8dbed0fb7",
+			"type": "Texture2D"
+		},
+		"SampleTexture": {
+			"label": "SampleTexture: Default",
+			"guid": "e78b2b2da91912a8a28bd5e71851da1a620762b1",
+			"x": -521,
+			"y": -1042,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Type",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Default",
+						"Mip",
+						"Mip offset",
+						"Grad",
+						"Fetch",
+						"Point",
+						"Catmull",
+						"Cubic",
+						"Manual linear"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Normal Space",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Tangent Space for UV0",
+						"Tangent Space for UV1",
+						"Tangent Space Auto Calculated",
+						"Object Space"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "Texture",
+					"type": "Texture2D",
+					"id": 4
+				},
+				"input": {
+					"label": "UV",
+					"type": "float2",
+					"id": 5
+				},
+				"input": {
+					"label": "Normal Intensity",
+					"type": "float",
+					"id": 11
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "Color",
+					"type": "float4",
+					"id": 0
+				},
+				"output": {
+					"label": "Tangent Normal",
+					"type": "float3",
+					"id": 1
+				}
+			},
+			"texture_type": "Texture2D",
+			"sampler_type": "Default",
+			"texture_data": "Asset",
+			"normal_space": "Tangent Space for UV0"
+		},
+		"PortalOut": {
+			"label": "Portal Out",
+			"guid": "a59df148239ee4079f0a51ba67af35d1912ef4fc",
+			"x": -732,
+			"y": -712,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "Portal",
+					"widget": "Combobox",
+					"combobox_items": [
+						"TILED UV 0",
+						"TILED UV 0 PARALLAXED",
+						"TILES MASK"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "TILED UV 0",
+					"type": "float2",
+					"id": 0
+				}
+			},
+			"portal_guid": "203e3509d69a3ad4546868234aa52f2672517c4d"
+		},
+		"Parameter": {
+			"label": "Texture2D",
+			"guid": "28d8e82967f41374a9e828434bceb0c6b3b2d16d",
+			"x": -898,
+			"y": 1166,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Path",
+					"widget": "Texture2D",
+					"asset": "692dbb7d56d633e22551bd47f4d92cd2d498270d"
+				},
+				"prop": {
+					"label": "Wrap X",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Y",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Z",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Anisotropy",
+					"widget": "Toggle",
+					"x": 1
+				},
+				"prop": {
+					"label": "Manual Filtering",
+					"widget": "Toggle",
+					"x": 0
+				},
+				"prop": {
+					"label": "Force Streaming",
+					"widget": "Toggle",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "normal_background",
+					"type": "Texture2D",
+					"id": 0
+				}
+			},
+			"parameter_guid": "367ef26f42507d02e186187981cf67849319cd13",
+			"type": "Texture2D"
+		},
+		"SampleTexture": {
+			"label": "SampleTexture: Default",
+			"guid": "54a1904bff74292e833b5eb5cddbe0903a22baaf",
+			"x": -509,
+			"y": 1146,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Type",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Default",
+						"Mip",
+						"Mip offset",
+						"Grad",
+						"Fetch",
+						"Point",
+						"Catmull",
+						"Cubic",
+						"Manual linear"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Normal Space",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Tangent Space for UV0",
+						"Tangent Space for UV1",
+						"Tangent Space Auto Calculated",
+						"Object Space"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "Texture",
+					"type": "Texture2D",
+					"id": 4
+				},
+				"input": {
+					"label": "UV",
+					"type": "float2",
+					"id": 5
+				},
+				"input": {
+					"label": "Normal Intensity",
+					"type": "float",
+					"id": 11
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "Color",
+					"type": "float4",
+					"id": 0
+				},
+				"output": {
+					"label": "Tangent Normal",
+					"type": "float3",
+					"id": 1
+				}
+			},
+			"texture_type": "Texture2D",
+			"sampler_type": "Default",
+			"texture_data": "Asset",
+			"normal_space": "Tangent Space for UV0"
+		},
+		"PortalOut": {
+			"label": "Portal Out",
+			"guid": "6c1277ddc9b6179855ecb617b2405c8af80ca261",
+			"x": -1074,
+			"y": -252,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "Portal",
+					"widget": "Combobox",
+					"combobox_items": [
+						"TILED UV 0",
+						"TILED UV 0 PARALLAXED",
+						"TILES MASK"
+					],
+					"x": 1
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "TILED UV 0 PARALLAXED",
+					"type": "float2",
+					"id": 0
+				}
+			},
+			"portal_guid": "e6969f5f85dbe53207cd82e94cc86f34daff5103"
+		},
+		"Parameter": {
+			"label": "Texture2D",
+			"guid": "7e4ea0ceae9d31d59a12593014969acf67fa49e2",
+			"x": -1014,
+			"y": -534,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Path",
+					"widget": "Texture2D",
+					"asset": "5219d6ddb5dbd1520e843a369ad2b64326bb24e2"
+				},
+				"prop": {
+					"label": "Wrap X",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Y",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Z",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Anisotropy",
+					"widget": "Toggle",
+					"x": 1
+				},
+				"prop": {
+					"label": "Manual Filtering",
+					"widget": "Toggle",
+					"x": 0
+				},
+				"prop": {
+					"label": "Force Streaming",
+					"widget": "Toggle",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "albedo_tiles",
+					"type": "Texture2D",
+					"id": 0
+				}
+			},
+			"parameter_guid": "8abff2476ba58afa3ba09e11b23ac03c77de9e6b",
+			"type": "Texture2D"
+		},
+		"SampleTexture": {
+			"label": "SampleTexture: Default",
+			"guid": "b7cc01d6086c4f3d8e76477893a264773f54776a",
+			"x": -761,
+			"y": -582,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Type",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Default",
+						"Mip",
+						"Mip offset",
+						"Grad",
+						"Fetch",
+						"Point",
+						"Catmull",
+						"Cubic",
+						"Manual linear"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Normal Space",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Tangent Space for UV0",
+						"Tangent Space for UV1",
+						"Tangent Space Auto Calculated",
+						"Object Space"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "Texture",
+					"type": "Texture2D",
+					"id": 4
+				},
+				"input": {
+					"label": "UV",
+					"type": "float2",
+					"id": 5
+				},
+				"input": {
+					"label": "Normal Intensity",
+					"type": "float",
+					"id": 11
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "Color",
+					"type": "float4",
+					"id": 0
+				},
+				"output": {
+					"label": "Tangent Normal",
+					"type": "float3",
+					"id": 1
+				}
+			},
+			"texture_type": "Texture2D",
+			"sampler_type": "Default",
+			"texture_data": "Asset",
+			"normal_space": "Tangent Space for UV0"
+		},
+		"Expression": {
+			"label": "Expression",
+			"guid": "c42d0c9e612d8b65ee2645805d917adff38e0ab2",
+			"x": -5,
+			"y": -276,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Code",
+					"string": "x,y,z"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "",
+					"type": "float4",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "x,y,z",
+					"type": "float3",
+					"id": 0
+				}
+			}
+		},
+		"Expression": {
+			"label": "Expression",
+			"guid": "e347ee63b7bc806636201c8d91359488769dae47",
+			"x": -5,
+			"y": -304,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Code",
+					"string": "x,y,z"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "",
+					"type": "float4",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "x,y,z",
+					"type": "float3",
+					"id": 0
+				}
+			}
+		},
+		"lerp": {
+			"label": "Lerp",
+			"guid": "9d14abe53c55ec0094d3ef5f9cd8f532970752e9",
+			"x": 77,
+			"y": -452,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float3",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float3",
+					"id": 291415938
+				},
+				"input": {
+					"label": "Coefficient",
+					"type": "float3",
+					"id": -688470873
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float3",
+					"id": 1723312480
+				}
+			}
+		},
+		"Expression": {
+			"label": "Expression",
+			"guid": "0657cb4e64835a557f6567b03c15574f5104dc62",
+			"x": -3525,
+			"y": 1777,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Code",
+					"string": "x*0.25"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "",
+					"type": "float4",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "x*0.25",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"Texture2D": {
+			"label": "Texture2D",
+			"guid": "0cf7603ddb4c2478458c9d772bef5c6adcc2e0c1",
+			"x": -335,
+			"y": 564,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Path",
+					"widget": "Texture2D",
+					"asset": "b25dcc1b992812becf7d9b05f510d0a0c1094b7f"
+				},
+				"prop": {
+					"label": "Wrap X",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Y",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Z",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Anisotropy",
+					"widget": "Toggle",
+					"x": 1
+				},
+				"prop": {
+					"label": "Force Streaming",
+					"widget": "Toggle",
+					"x": 0
+				},
+				"prop": {
+					"label": "Manual Filtering",
+					"widget": "Toggle",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "tiles_r.tif",
+					"type": "Texture2D",
+					"id": 0
+				}
+			},
+			"type": "Texture2D"
+		},
+		"Expression": {
+			"label": "Expression",
+			"guid": "0f1cdb82f00de4f952afca04343dcd9396d5f5d6",
+			"x": -2085,
+			"y": 1783,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Code",
+					"string": "x"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "",
+					"type": "float4",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "x",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"Expression": {
+			"label": "Expression",
+			"guid": "ab6b352cd95c2e9b8dd2133e04d2a1852d792520",
+			"x": -3505,
+			"y": 1749,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Code",
+					"string": "x"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "",
+					"type": "float4",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "x",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"lerp": {
+			"label": "Lerp",
+			"guid": "e1e646f26306f9a96cc3f6f4f49bb5c372cde046",
+			"x": 530,
+			"y": 505,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				},
+				"input": {
+					"label": "Coefficient",
+					"type": "float",
+					"id": -688470873
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"PortalIn": {
+			"label": "Portal In",
+			"guid": "41f9be16a8005e7d244e8db837db75b70259d7aa",
+			"x": -1692,
+			"y": 1790,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Name",
+					"widget": "String",
+					"string": "TILES MASK"
+				},
+				"prop": {
+					"label": "Color",
+					"widget": "Color",
+					"w": 1,
+					"z": 0.51764708757400701,
+					"y": 0.24705882370471952,
+					"x": 0.35686275362968617
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "TILES MASK",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"outputs": {
+			}
+		},
+		"_multiply": {
+			"label": "Multiply",
+			"guid": "1345dc8b966d886ed718b4f5acb6c1d0c03faaef",
+			"x": -2007,
+			"y": 1654,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"PortalOut": {
+			"label": "Portal Out",
+			"guid": "cece9be348344fe68c62a60de2df9008e5f473c7",
+			"x": 181,
+			"y": 974,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Portal",
+					"widget": "Combobox",
+					"combobox_items": [
+						"TILED UV 0",
+						"TILED UV 0 PARALLAXED",
+						"TILES MASK"
+					],
+					"x": 2
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "TILES MASK",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"portal_guid": "41f9be16a8005e7d244e8db837db75b70259d7aa"
+		},
+		"SampleTexture": {
+			"label": "SampleTexture: Default",
+			"guid": "7b85c75546f2f0b023db4c4fe2b04d628cc9ed59",
+			"x": -728,
+			"y": 1667,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Type",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Default",
+						"Mip",
+						"Mip offset",
+						"Grad",
+						"Fetch",
+						"Point",
+						"Catmull",
+						"Cubic",
+						"Manual linear"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Normal Space",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Tangent Space for UV0",
+						"Tangent Space for UV1",
+						"Tangent Space Auto Calculated",
+						"Object Space"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "Texture",
+					"type": "Texture2D",
+					"id": 4
+				},
+				"input": {
+					"label": "UV",
+					"type": "float2",
+					"id": 5
+				},
+				"input": {
+					"label": "Normal Intensity",
+					"type": "float",
+					"id": 11
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "Color",
+					"type": "float4",
+					"id": 0
+				},
+				"output": {
+					"label": "Tangent Normal",
+					"type": "float3",
+					"id": 1
+				}
+			},
+			"texture_type": "Texture2D",
+			"sampler_type": "Default",
+			"texture_data": "Asset",
+			"normal_space": "Tangent Space for UV0"
+		},
+		"Parameter": {
+			"label": "Texture2D",
+			"guid": "c98cac1e5415a4e53b98910035f4505f2b23e232",
+			"x": -974,
+			"y": 1726,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Path",
+					"widget": "Texture2D",
+					"asset": "692dbb7d56d633e22551bd47f4d92cd2d498270d"
+				},
+				"prop": {
+					"label": "Wrap X",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Y",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Z",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Anisotropy",
+					"widget": "Toggle",
+					"x": 1
+				},
+				"prop": {
+					"label": "Manual Filtering",
+					"widget": "Toggle",
+					"x": 0
+				},
+				"prop": {
+					"label": "Force Streaming",
+					"widget": "Toggle",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "normal_tiles",
+					"type": "Texture2D",
+					"id": 0
+				}
+			},
+			"parameter_guid": "4f6535d7da05594a2881f8214f1eb30cf880d2fb",
+			"type": "Texture2D"
+		},
+		"lerp": {
+			"label": "Lerp",
+			"guid": "94a07c27d9dbcb5abb6822f1a82dbf9cb755d64b",
+			"x": 178,
+			"y": 1522,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float3",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float3",
+					"id": 291415938
+				},
+				"input": {
+					"label": "Coefficient",
+					"type": "float3",
+					"id": -688470873
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float3",
+					"id": 1723312480
+				}
+			}
+		},
+		"PortalOut": {
+			"label": "Portal Out",
+			"guid": "e8f1495b5dcceefefdde4a45f30d36e033d7fcbf",
+			"x": -114,
+			"y": 1994,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Portal",
+					"widget": "Combobox",
+					"combobox_items": [
+						"TILED UV 0",
+						"TILED UV 0 PARALLAXED",
+						"TILES MASK"
+					],
+					"x": 2
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "TILES MASK",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"portal_guid": "41f9be16a8005e7d244e8db837db75b70259d7aa"
+		},
+		"PortalIn": {
+			"label": "Portal In",
+			"guid": "203e3509d69a3ad4546868234aa52f2672517c4d",
+			"x": -1828,
+			"y": -637,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Name",
+					"widget": "String",
+					"string": "TILED UV 0"
+				},
+				"prop": {
+					"label": "Color",
+					"widget": "Color",
+					"w": 1,
+					"z": 0.086274512112140725,
+					"y": 0.49411764740943931,
+					"x": 0.12549020349979451
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "TILED UV 0",
+					"type": "float2",
+					"id": 0
+				}
+			},
+			"outputs": {
+			}
+		},
+		"SampleTexture": {
+			"label": "SampleTexture: Default",
+			"guid": "0ce5b076a3eded5d8a2c0f1848074797c912c00a",
+			"x": -4226,
+			"y": 1175,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Type",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Default",
+						"Mip",
+						"Mip offset",
+						"Grad",
+						"Fetch",
+						"Point",
+						"Catmull",
+						"Cubic",
+						"Manual linear"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Normal Space",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Tangent Space for UV0",
+						"Tangent Space for UV1",
+						"Tangent Space Auto Calculated",
+						"Object Space"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "Texture",
+					"type": "Texture2D",
+					"id": 4
+				},
+				"input": {
+					"label": "UV",
+					"type": "float2",
+					"id": 5
+				},
+				"input": {
+					"label": "Normal Intensity",
+					"type": "float",
+					"id": 11
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "Color",
+					"type": "float4",
+					"id": 0
+				},
+				"output": {
+					"label": "Tangent Normal",
+					"type": "float3",
+					"id": 1
+				}
+			},
+			"texture_type": "Texture2D",
+			"sampler_type": "Default",
+			"texture_data": "Asset",
+			"normal_space": "Tangent Space for UV0"
+		},
+		"Parameter": {
+			"label": "Texture2D",
+			"guid": "4a2ff4ea074d9f41162cefacac01a71bf2bc31be",
+			"x": -4604,
+			"y": 1229,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Path",
+					"widget": "Texture2D",
+					"asset": "5219d6ddb5dbd1520e843a369ad2b64326bb24e2"
+				},
+				"prop": {
+					"label": "Wrap X",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Y",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Z",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Anisotropy",
+					"widget": "Toggle",
+					"x": 1
+				},
+				"prop": {
+					"label": "Manual Filtering",
+					"widget": "Toggle",
+					"x": 0
+				},
+				"prop": {
+					"label": "Force Streaming",
+					"widget": "Toggle",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "tiles_mask_offset",
+					"type": "Texture2D",
+					"id": 0
+				}
+			},
+			"parameter_guid": "95e8a513a9dfe756aa5ff6bd3812c8f831adf7f7",
+			"type": "Texture2D"
+		},
+		"PortalOut": {
+			"label": "Portal Out",
+			"guid": "ff30d7c4ba0600531af90996c48c33fd27f96538",
+			"x": -4437,
+			"y": 1505,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "Portal",
+					"widget": "Combobox",
+					"combobox_items": [
+						"TILED UV 0",
+						"TILED UV 0 PARALLAXED",
+						"TILES MASK"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "TILED UV 0",
+					"type": "float2",
+					"id": 0
+				}
+			},
+			"portal_guid": "203e3509d69a3ad4546868234aa52f2672517c4d"
+		},
+		"SampleTexture": {
+			"label": "SampleTexture: Default",
+			"guid": "062197c3c0a65a461daf6ced46e2e9680a1c3da7",
+			"x": -2570,
+			"y": 1156,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Type",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Default",
+						"Mip",
+						"Mip offset",
+						"Grad",
+						"Fetch",
+						"Point",
+						"Catmull",
+						"Cubic",
+						"Manual linear"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Normal Space",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Tangent Space for UV0",
+						"Tangent Space for UV1",
+						"Tangent Space Auto Calculated",
+						"Object Space"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "Texture",
+					"type": "Texture2D",
+					"id": 4
+				},
+				"input": {
+					"label": "UV",
+					"type": "float2",
+					"id": 5
+				},
+				"input": {
+					"label": "Normal Intensity",
+					"type": "float",
+					"id": 11
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "Color",
+					"type": "float4",
+					"id": 0
+				},
+				"output": {
+					"label": "Tangent Normal",
+					"type": "float3",
+					"id": 1
+				}
+			},
+			"texture_type": "Texture2D",
+			"sampler_type": "Default",
+			"texture_data": "Asset",
+			"normal_space": "Tangent Space for UV0"
+		},
+		"Parameter": {
+			"label": "Texture2D",
+			"guid": "ab868b42273251b9419dcfc4bc5e98535e08c196",
+			"x": -2943,
+			"y": 1119,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Path",
+					"widget": "Texture2D",
+					"asset": "5219d6ddb5dbd1520e843a369ad2b64326bb24e2"
+				},
+				"prop": {
+					"label": "Wrap X",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Y",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Z",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Anisotropy",
+					"widget": "Toggle",
+					"x": 1
+				},
+				"prop": {
+					"label": "Manual Filtering",
+					"widget": "Toggle",
+					"x": 0
+				},
+				"prop": {
+					"label": "Force Streaming",
+					"widget": "Toggle",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "tiles_mask",
+					"type": "Texture2D",
+					"id": 0
+				}
+			},
+			"parameter_guid": "10584f4bfed5dc2ee38375b5a9af0b90b9fde9af",
+			"type": "Texture2D"
+		},
+		"PortalOut": {
+			"label": "Portal Out",
+			"guid": "3f2441c9501d609470dbd2e325ca1ae64edff50d",
+			"x": -2940,
+			"y": 1382,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Portal",
+					"widget": "Combobox",
+					"combobox_items": [
+						"TILED UV 0",
+						"TILED UV 0 PARALLAXED",
+						"TILES MASK"
+					],
+					"x": 1
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "TILED UV 0 PARALLAXED",
+					"type": "float2",
+					"id": 0
+				}
+			},
+			"portal_guid": "e6969f5f85dbe53207cd82e94cc86f34daff5103"
+		},
+		"Parameter": {
+			"label": "Slider",
+			"guid": "fa63a76200c17f59ceb0e0e42b4936f3f8c68fb6",
+			"x": -4060,
+			"y": 2317,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "float",
+					"x": 1
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "damage_level",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"parameter_guid": "eb7999ebace2664e364f39552899bab0c7cf8e4f",
+			"type": "float"
+		},
+		"PortalOut": {
+			"label": "Portal Out",
+			"guid": "503455f48e2a88c3c2209746da3285ed86812e68",
+			"x": -285,
+			"y": -192,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Portal",
+					"widget": "Combobox",
+					"combobox_items": [
+						"TILED UV 0",
+						"TILED UV 0 PARALLAXED",
+						"TILES MASK"
+					],
+					"x": 2
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "TILES MASK",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"portal_guid": "41f9be16a8005e7d244e8db837db75b70259d7aa"
+		},
+		"SubGraph": {
+			"label": "Parallax Simple",
+			"guid": "705afad7affe5a4a558d052144dc5c0c857867fb",
+			"x": -2195,
+			"y": -214,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "SubGraph",
+					"asset": "96e0fa453eef3f115cf37a6c045a48a0d895574c"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "UV",
+					"type": "float2",
+					"id": -1596528974
+				},
+				"input": {
+					"label": "Height Texture",
+					"type": "Texture2D",
+					"id": -1526305612
+				},
+				"input": {
+					"label": "Height (In Meters)",
+					"type": "float",
+					"id": -895078269
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "Result UV",
+					"type": "float2",
+					"id": -839335885
+				}
+			}
+		},
+		"Parameter": {
+			"label": "float2",
+			"guid": "d33dd0a6f7eaafcd806a8ec82843e3878cb84b3a",
+			"x": -2449,
+			"y": -665,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "float2",
+					"x": 1,
+					"y": 1
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "tiling",
+					"type": "float2",
+					"id": 0
+				}
+			},
+			"parameter_guid": "389303ff1364c1523e957089f23d40543960afa3",
+			"type": "float2"
+		},
+		"PortalOut": {
+			"label": "Portal Out",
+			"guid": "4f7963735973d2367458241dca2156d843d26c57",
+			"x": -1041,
+			"y": 1997,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "Portal",
+					"widget": "Combobox",
+					"combobox_items": [
+						"TILED UV 0",
+						"TILED UV 0 PARALLAXED",
+						"TILES MASK"
+					],
+					"x": 1
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "TILED UV 0 PARALLAXED",
+					"type": "float2",
+					"id": 0
+				}
+			},
+			"portal_guid": "e6969f5f85dbe53207cd82e94cc86f34daff5103"
+		},
+		"PortalOut": {
+			"label": "Portal Out",
+			"guid": "137319ab9734630e75ed8f15d98e9570b0272a0f",
+			"x": -2541,
+			"y": -299,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Portal",
+					"widget": "Combobox",
+					"combobox_items": [
+						"TILED UV 0",
+						"TILED UV 0 PARALLAXED",
+						"TILES MASK"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "TILED UV 0",
+					"type": "float2",
+					"id": 0
+				}
+			},
+			"portal_guid": "203e3509d69a3ad4546868234aa52f2672517c4d"
+		},
+		"_add": {
+			"label": "Add",
+			"guid": "72a462ce34440bd528676b30f61484cfe09b2be2",
+			"x": -3427,
+			"y": 1649,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"SampleTexture": {
+			"label": "SampleTexture: Default",
+			"guid": "49f52e5d35705c18b62d30973cd5950afaa380e1",
+			"x": -4231,
+			"y": 1723,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Type",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Default",
+						"Mip",
+						"Mip offset",
+						"Grad",
+						"Fetch",
+						"Point",
+						"Catmull",
+						"Cubic",
+						"Manual linear"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Normal Space",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Tangent Space for UV0",
+						"Tangent Space for UV1",
+						"Tangent Space Auto Calculated",
+						"Object Space"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "Texture",
+					"type": "Texture2D",
+					"id": 4
+				},
+				"input": {
+					"label": "UV",
+					"type": "float2",
+					"id": 5
+				},
+				"input": {
+					"label": "Normal Intensity",
+					"type": "float",
+					"id": 11
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "Color",
+					"type": "float4",
+					"id": 0
+				},
+				"output": {
+					"label": "Tangent Normal",
+					"type": "float3",
+					"id": 1
+				}
+			},
+			"texture_type": "Texture2D",
+			"sampler_type": "Default",
+			"texture_data": "Asset",
+			"normal_space": "Tangent Space for UV0"
+		},
+		"Parameter": {
+			"label": "Texture2D",
+			"guid": "a808b94e57537055e2ba85b01f5bdd4f0afdaa62",
+			"x": -4611,
+			"y": 1750,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Path",
+					"widget": "Texture2D",
+					"asset": "5219d6ddb5dbd1520e843a369ad2b64326bb24e2"
+				},
+				"prop": {
+					"label": "Wrap X",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Y",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Z",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Anisotropy",
+					"widget": "Toggle",
+					"x": 1
+				},
+				"prop": {
+					"label": "Manual Filtering",
+					"widget": "Toggle",
+					"x": 0
+				},
+				"prop": {
+					"label": "Force Streaming",
+					"widget": "Toggle",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "tiles_mask_damage",
+					"type": "Texture2D",
+					"id": 0
+				}
+			},
+			"parameter_guid": "e226e4c78efedb7a79bcb4913d1ee4bcfc7f78eb",
+			"type": "Texture2D"
+		},
+		"PortalOut": {
+			"label": "Portal Out",
+			"guid": "90f465b0e78c3d4fdbb28a620b3506598d58bbe4",
+			"x": -4442,
+			"y": 2053,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "Portal",
+					"widget": "Combobox",
+					"combobox_items": [
+						"TILED UV 0",
+						"TILED UV 0 PARALLAXED",
+						"TILES MASK"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "TILED UV 0",
+					"type": "float2",
+					"id": 0
+				}
+			},
+			"portal_guid": "203e3509d69a3ad4546868234aa52f2672517c4d"
+		},
+		"Expression": {
+			"label": "Expression",
+			"guid": "3847e5c42dc5b65324394796e38359fde9aa5338",
+			"x": -3665,
+			"y": 2621,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Code",
+					"string": "x"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "",
+					"type": "float4",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "x",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"SubGraph": {
+			"label": "Normal From Height Value",
+			"guid": "085b1c79be389b84a3297113137243565376a2bd",
+			"x": 11,
+			"y": 2414,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "SubGraph",
+					"asset": "27e17eb1c6ce709a092e86441880eea1846c6930"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "Height Value",
+					"type": "float",
+					"id": -1879554258
+				},
+				"input": {
+					"label": "Height (Meters)",
+					"type": "float",
+					"id": -910660566
+				},
+				"input": {
+					"label": "Vertex Position Object Space",
+					"type": "float3",
+					"id": -1466665652
+				},
+				"input": {
+					"label": "Normal Object Space",
+					"type": "float3",
+					"id": -417255365
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "Normal Tangent Space",
+					"type": "float3",
+					"id": -1281697477
+				}
+			}
+		},
+		"PortalOut": {
+			"label": "Portal Out",
+			"guid": "6431cba80d833ae7f61ffb1affa50fb1845a455c",
+			"x": -313,
+			"y": 2570,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Portal",
+					"widget": "Combobox",
+					"combobox_items": [
+						"TILED UV 0",
+						"TILED UV 0 PARALLAXED",
+						"TILES MASK"
+					],
+					"x": 2
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "TILES MASK",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"portal_guid": "41f9be16a8005e7d244e8db837db75b70259d7aa"
+		},
+		"Parameter": {
+			"label": "Slider",
+			"guid": "833fc0ac1e3c441b6f442abe387ad305a63ca8a0",
+			"x": -312,
+			"y": 2860,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "float",
+					"x": 1
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "tiles_bump_intensity",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"parameter_guid": "3edcfbbd0f6a09f83e0244f70625ddea4ea07441",
+			"type": "float"
+		},
+		"reorientNormalBlend": {
+			"label": "Reorient Normal Blend",
+			"guid": "9385aaffaf413c5204c9af89fafe7354a08246a3",
+			"x": 687,
+			"y": 1553,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Base Normal",
+					"type": "float3",
+					"id": 52582733
+				},
+				"input": {
+					"label": "Detail Normal",
+					"type": "float3",
+					"id": -561955414
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float3",
+					"id": 1723312480
+				}
+			}
+		},
+		"rerange": {
+			"label": "Rerange",
+			"guid": "220016da3ad4f8715745971c26e8c7cb78aefaae",
+			"x": -2772,
+			"y": 2091,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "In",
+					"type": "float",
+					"id": -1324699368
+				},
+				"input": {
+					"label": "In Range Minimum",
+					"type": "float",
+					"id": 586471579
+				},
+				"input": {
+					"label": "In Range Maximum",
+					"type": "float",
+					"id": 413497076
+				},
+				"input": {
+					"label": "Out Range Minimum",
+					"type": "float",
+					"id": -591517853
+				},
+				"input": {
+					"label": "Out Range Maximum",
+					"type": "float",
+					"id": 1033320789
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"float": {
+			"label": "float",
+			"guid": "903102354cfa2e10530daa2f848651c277c66639",
+			"x": -2850,
+			"y": 2393,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "0.0",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"type": "float"
+		},
+		"float": {
+			"label": "float",
+			"guid": "11db127e3c3b17c52924a6602cf5a63fa14c7e92",
+			"x": -2850,
+			"y": 2420,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 1
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "1.0",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"type": "float"
+		},
+		"_add": {
+			"label": "Add",
+			"guid": "afb15b9dc546285825aa0fd774606b4a0a4de221",
+			"x": -3233,
+			"y": 2630,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"float": {
+			"label": "float",
+			"guid": "7ed46a5fb2e13432258c85e935ad9634cb2c4c03",
+			"x": -3325,
+			"y": 2758,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 0.0080000003799796625
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "0.008",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"type": "float"
+		},
+		"saturate": {
+			"label": "Saturate",
+			"guid": "dd7ed4dcce2b6a8b68a9be6ec7ab72f5e9de67d0",
+			"x": -2353,
+			"y": 2018,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "Value",
+					"type": "float",
+					"id": 16756516
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"Expression": {
+			"label": "Expression",
+			"guid": "92ce00b3d6a74e7675b6f35ddfc55d1853e43d97",
+			"x": 452,
+			"y": 681,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Code",
+					"string": "x"
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "",
+					"type": "float4",
+					"id": 0
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "x",
+					"type": "float",
+					"id": 0
+				}
+			}
+		},
+		"PortalOut": {
+			"label": "Portal Out",
+			"guid": "a1c00d5745ff4acacfec3ba1bde9208cf1e9627b",
+			"x": -392,
+			"y": 833,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "Portal",
+					"widget": "Combobox",
+					"combobox_items": [
+						"TILED UV 0",
+						"TILED UV 0 PARALLAXED",
+						"TILES MASK"
+					],
+					"x": 1
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "TILED UV 0 PARALLAXED",
+					"type": "float2",
+					"id": 0
+				}
+			},
+			"portal_guid": "e6969f5f85dbe53207cd82e94cc86f34daff5103"
+		},
+		"PortalIn": {
+			"label": "Portal In",
+			"guid": "e6969f5f85dbe53207cd82e94cc86f34daff5103",
+			"x": -1831,
+			"y": 11,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Name",
+					"widget": "String",
+					"string": "TILED UV 0 PARALLAXED"
+				},
+				"prop": {
+					"label": "Color",
+					"widget": "Color",
+					"w": 1,
+					"z": 0.20000000298023224,
+					"y": 0.062745101749897225,
+					"x": 0.49411764740943931
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "TILED UV 0 PARALLAXED",
+					"type": "float2",
+					"id": 0
+				}
+			},
+			"outputs": {
+			}
+		},
+		"Parameter": {
+			"label": "Slider",
+			"guid": "2317ab562e4ceabd28532cf8d0cb0bf7e8a1f8ea",
+			"x": -2466,
+			"y": 227,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "float",
+					"x": 0.0020000000949949082
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "parallax_intensity",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"parameter_guid": "b7aede6ff5c7790202f8e479ddebc38489327913",
+			"type": "float"
+		},
+		"Texture2D": {
+			"label": "Texture2D",
+			"guid": "8960f9c73e4fec7a56a09191d3bf1dbc0a585deb",
+			"x": -2683,
+			"y": -42,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Path",
+					"widget": "Texture2D",
+					"asset": "1d6362d2fa5ca409e15fddd48a63af2315b1ca26"
+				},
+				"prop": {
+					"label": "Wrap X",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Y",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Z",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Anisotropy",
+					"widget": "Toggle",
+					"x": 1
+				},
+				"prop": {
+					"label": "Force Streaming",
+					"widget": "Toggle",
+					"x": 0
+				},
+				"prop": {
+					"label": "Manual Filtering",
+					"widget": "Toggle",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "tiles_mask.tif",
+					"type": "Texture2D",
+					"id": 0
+				}
+			},
+			"type": "Texture2D"
+		},
+		"Vertex UV 0": {
+			"label": "Vertex UV 0",
+			"guid": "d4df7675a667955089ff686f34da7b02fbbbfe79",
+			"x": -2314,
+			"y": -934,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float2",
+					"id": 0
+				}
+			}
+		},
+		"SampleTexture": {
+			"label": "SampleTexture: Default",
+			"guid": "61fdbd40caf90f9f4dd518727b209d29d4b64474",
+			"x": -4180,
+			"y": 2614,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Type",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Default",
+						"Mip",
+						"Mip offset",
+						"Grad",
+						"Fetch",
+						"Point",
+						"Catmull",
+						"Cubic",
+						"Manual linear"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Normal Space",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Tangent Space for UV0",
+						"Tangent Space for UV1",
+						"Tangent Space Auto Calculated",
+						"Object Space"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+				"input": {
+					"label": "Texture",
+					"type": "Texture2D",
+					"id": 4
+				},
+				"input": {
+					"label": "UV",
+					"type": "float2",
+					"id": 5
+				},
+				"input": {
+					"label": "Normal Intensity",
+					"type": "float",
+					"id": 11
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "Color",
+					"type": "float4",
+					"id": 0
+				},
+				"output": {
+					"label": "Tangent Normal",
+					"type": "float3",
+					"id": 1
+				}
+			},
+			"texture_type": "Texture2D",
+			"sampler_type": "Default",
+			"texture_data": "Asset",
+			"normal_space": "Tangent Space for UV0"
+		},
+		"PortalOut": {
+			"label": "Portal Out",
+			"guid": "2180cfac8a84071b919b11be25ee8e05149f27a0",
+			"x": -720,
+			"y": 1476,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "Portal",
+					"widget": "Combobox",
+					"combobox_items": [
+						"TILED UV 0",
+						"TILED UV 0 PARALLAXED",
+						"TILES MASK"
+					],
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "TILED UV 0",
+					"type": "float2",
+					"id": 0
+				}
+			},
+			"portal_guid": "203e3509d69a3ad4546868234aa52f2672517c4d"
+		},
+		"_multiply": {
+			"label": "Multiply",
+			"guid": "ec9dcaeef08b1575f678a850436f5f6f5af40602",
+			"x": -3587,
+			"y": 2464,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"_multiply": {
+			"label": "Multiply",
+			"guid": "c63015848f56a313f5a9cd566b44a4bd1f039ef8",
+			"x": -2061,
+			"y": -789,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float2",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float2",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float2",
+					"id": 1723312480
+				}
+			}
+		},
+		"Parameter": {
+			"label": "Texture2D",
+			"guid": "584aa543999d09c68fa3566d0ccec4e8800b6327",
+			"x": -4466,
+			"y": 2681,
+			"collapsed": false,
+			"props": {
+				"prop": {
+					"label": "Path",
+					"widget": "Texture2D",
+					"asset": "5219d6ddb5dbd1520e843a369ad2b64326bb24e2"
+				},
+				"prop": {
+					"label": "Wrap X",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Y",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Wrap Z",
+					"widget": "Combobox",
+					"combobox_items": [
+						"Repeat",
+						"Clamp",
+						"Border"
+					],
+					"x": 0
+				},
+				"prop": {
+					"label": "Anisotropy",
+					"widget": "Toggle",
+					"x": 1
+				},
+				"prop": {
+					"label": "Manual Filtering",
+					"widget": "Toggle",
+					"x": 0
+				},
+				"prop": {
+					"label": "Force Streaming",
+					"widget": "Toggle",
+					"x": 0
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "mask_additional",
+					"type": "Texture2D",
+					"id": 0
+				}
+			},
+			"parameter_guid": "8ab8a51ff9a0aff21e544ea90c8f47f4fd34d2c3",
+			"type": "Texture2D"
+		},
+		"_multiply": {
+			"label": "Multiply",
+			"guid": "2c076fb9586455c413d766530f3f3796a07089fd",
+			"x": -3192,
+			"y": 1771,
+			"collapsed": false,
+			"props": {
+			},
+			"inputs": {
+				"input": {
+					"label": "A",
+					"type": "float",
+					"id": -1822151033
+				},
+				"input": {
+					"label": "B",
+					"type": "float",
+					"id": 291415938
+				}
+			},
+			"outputs": {
+				"output": {
+					"label": "",
+					"type": "float",
+					"id": 1723312480
+				}
+			}
+		},
+		"float": {
+			"label": "float",
+			"guid": "d308905b764589fe6cc029455a5f89e05b1833bf",
+			"x": -3270,
+			"y": 1928,
+			"collapsed": true,
+			"props": {
+				"prop": {
+					"label": "",
+					"widget": "Float",
+					"x": 0.80000001192092896
+				}
+			},
+			"inputs": {
+			},
+			"outputs": {
+				"output": {
+					"label": "0.8",
+					"type": "float",
+					"id": 0
+				}
+			},
+			"type": "float"
+		}
+	},
+	"anchors": {
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float3",
+			"input_label": "Albedo",
+			"input_id": -509366906,
+			"input_node": "829f90678c21529ab2138131aaaf08dc82560e8b",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "9d14abe53c55ec0094d3ef5f9cd8f532970752e9"
+		},
+		"anchor": {
+			"input_index": 2,
+			"input_type": "float",
+			"input_label": "Roughness",
+			"input_id": 1466423059,
+			"input_node": "829f90678c21529ab2138131aaaf08dc82560e8b",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "e1e646f26306f9a96cc3f6f4f49bb5c372cde046"
+		},
+		"anchor": {
+			"input_index": 5,
+			"input_type": "float3",
+			"input_label": "Normal Tangent Space",
+			"input_id": -1328428335,
+			"input_node": "829f90678c21529ab2138131aaaf08dc82560e8b",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "9385aaffaf413c5204c9af89fafe7354a08246a3"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "",
+			"input_label": "Material",
+			"input_id": 0,
+			"input_node": "0f2f417e3b3b7ac5ee9bad604fcb013f4b641d92",
+			"output_index": 0,
+			"output_type": "",
+			"output_label": "Material",
+			"output_id": 0,
+			"output_node": "829f90678c21529ab2138131aaaf08dc82560e8b"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "Texture2D",
+			"input_label": "Texture",
+			"input_id": 4,
+			"input_node": "2bb66c82bca041f91c2c830432493293e4a816d6",
+			"output_index": 0,
+			"output_type": "Texture2D",
+			"output_label": "tiles_r.tif",
+			"output_id": 0,
+			"output_node": "0cf7603ddb4c2478458c9d772bef5c6adcc2e0c1"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float2",
+			"input_label": "UV",
+			"input_id": 5,
+			"input_node": "2bb66c82bca041f91c2c830432493293e4a816d6",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "TILED UV 0 PARALLAXED",
+			"output_id": 0,
+			"output_node": "a1c00d5745ff4acacfec3ba1bde9208cf1e9627b"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "Texture2D",
+			"input_label": "Texture",
+			"input_id": 4,
+			"input_node": "e78b2b2da91912a8a28bd5e71851da1a620762b1",
+			"output_index": 0,
+			"output_type": "Texture2D",
+			"output_label": "albedo_background",
+			"output_id": 0,
+			"output_node": "1afc0cfb4cea9e1e1046eee5a795530059162a5f"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float2",
+			"input_label": "UV",
+			"input_id": 5,
+			"input_node": "e78b2b2da91912a8a28bd5e71851da1a620762b1",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "TILED UV 0",
+			"output_id": 0,
+			"output_node": "a59df148239ee4079f0a51ba67af35d1912ef4fc"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "Texture2D",
+			"input_label": "Texture",
+			"input_id": 4,
+			"input_node": "54a1904bff74292e833b5eb5cddbe0903a22baaf",
+			"output_index": 0,
+			"output_type": "Texture2D",
+			"output_label": "normal_background",
+			"output_id": 0,
+			"output_node": "28d8e82967f41374a9e828434bceb0c6b3b2d16d"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float2",
+			"input_label": "UV",
+			"input_id": 5,
+			"input_node": "54a1904bff74292e833b5eb5cddbe0903a22baaf",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "TILED UV 0",
+			"output_id": 0,
+			"output_node": "2180cfac8a84071b919b11be25ee8e05149f27a0"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "Texture2D",
+			"input_label": "Texture",
+			"input_id": 4,
+			"input_node": "b7cc01d6086c4f3d8e76477893a264773f54776a",
+			"output_index": 0,
+			"output_type": "Texture2D",
+			"output_label": "albedo_tiles",
+			"output_id": 0,
+			"output_node": "7e4ea0ceae9d31d59a12593014969acf67fa49e2"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float2",
+			"input_label": "UV",
+			"input_id": 5,
+			"input_node": "b7cc01d6086c4f3d8e76477893a264773f54776a",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "TILED UV 0 PARALLAXED",
+			"output_id": 0,
+			"output_node": "6c1277ddc9b6179855ecb617b2405c8af80ca261"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float4",
+			"input_label": "",
+			"input_id": 0,
+			"input_node": "c42d0c9e612d8b65ee2645805d917adff38e0ab2",
+			"output_index": 0,
+			"output_type": "float4",
+			"output_label": "Color",
+			"output_id": 0,
+			"output_node": "b7cc01d6086c4f3d8e76477893a264773f54776a"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float4",
+			"input_label": "",
+			"input_id": 0,
+			"input_node": "e347ee63b7bc806636201c8d91359488769dae47",
+			"output_index": 0,
+			"output_type": "float4",
+			"output_label": "Color",
+			"output_id": 0,
+			"output_node": "e78b2b2da91912a8a28bd5e71851da1a620762b1"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float3",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "9d14abe53c55ec0094d3ef5f9cd8f532970752e9",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "x,y,z",
+			"output_id": 0,
+			"output_node": "e347ee63b7bc806636201c8d91359488769dae47"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float3",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "9d14abe53c55ec0094d3ef5f9cd8f532970752e9",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "x,y,z",
+			"output_id": 0,
+			"output_node": "c42d0c9e612d8b65ee2645805d917adff38e0ab2"
+		},
+		"anchor": {
+			"input_index": 2,
+			"input_type": "float3",
+			"input_label": "Coefficient",
+			"input_id": -688470873,
+			"input_node": "9d14abe53c55ec0094d3ef5f9cd8f532970752e9",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "TILES MASK",
+			"output_id": 0,
+			"output_node": "503455f48e2a88c3c2209746da3285ed86812e68"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float4",
+			"input_label": "",
+			"input_id": 0,
+			"input_node": "0657cb4e64835a557f6567b03c15574f5104dc62",
+			"output_index": 0,
+			"output_type": "float4",
+			"output_label": "Color",
+			"output_id": 0,
+			"output_node": "49f52e5d35705c18b62d30973cd5950afaa380e1"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float4",
+			"input_label": "",
+			"input_id": 0,
+			"input_node": "0f1cdb82f00de4f952afca04343dcd9396d5f5d6",
+			"output_index": 0,
+			"output_type": "float4",
+			"output_label": "Color",
+			"output_id": 0,
+			"output_node": "062197c3c0a65a461daf6ced46e2e9680a1c3da7"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float4",
+			"input_label": "",
+			"input_id": 0,
+			"input_node": "ab6b352cd95c2e9b8dd2133e04d2a1852d792520",
+			"output_index": 0,
+			"output_type": "float4",
+			"output_label": "Color",
+			"output_id": 0,
+			"output_node": "0ce5b076a3eded5d8a2c0f1848074797c912c00a"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "e1e646f26306f9a96cc3f6f4f49bb5c372cde046",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "roughness_background",
+			"output_id": 0,
+			"output_node": "28d48dc7d826707a831d459159cc41bc995b31eb"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "e1e646f26306f9a96cc3f6f4f49bb5c372cde046",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "x",
+			"output_id": 0,
+			"output_node": "92ce00b3d6a74e7675b6f35ddfc55d1853e43d97"
+		},
+		"anchor": {
+			"input_index": 2,
+			"input_type": "float",
+			"input_label": "Coefficient",
+			"input_id": -688470873,
+			"input_node": "e1e646f26306f9a96cc3f6f4f49bb5c372cde046",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "TILES MASK",
+			"output_id": 0,
+			"output_node": "cece9be348344fe68c62a60de2df9008e5f473c7"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "TILES MASK",
+			"input_id": 0,
+			"input_node": "41f9be16a8005e7d244e8db837db75b70259d7aa",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "1345dc8b966d886ed718b4f5acb6c1d0c03faaef"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "1345dc8b966d886ed718b4f5acb6c1d0c03faaef",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "x",
+			"output_id": 0,
+			"output_node": "0f1cdb82f00de4f952afca04343dcd9396d5f5d6"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "1345dc8b966d886ed718b4f5acb6c1d0c03faaef",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "dd7ed4dcce2b6a8b68a9be6ec7ab72f5e9de67d0"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "Texture2D",
+			"input_label": "Texture",
+			"input_id": 4,
+			"input_node": "7b85c75546f2f0b023db4c4fe2b04d628cc9ed59",
+			"output_index": 0,
+			"output_type": "Texture2D",
+			"output_label": "normal_tiles",
+			"output_id": 0,
+			"output_node": "c98cac1e5415a4e53b98910035f4505f2b23e232"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float2",
+			"input_label": "UV",
+			"input_id": 5,
+			"input_node": "7b85c75546f2f0b023db4c4fe2b04d628cc9ed59",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "TILED UV 0 PARALLAXED",
+			"output_id": 0,
+			"output_node": "4f7963735973d2367458241dca2156d843d26c57"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float3",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "94a07c27d9dbcb5abb6822f1a82dbf9cb755d64b",
+			"output_index": 1,
+			"output_type": "float3",
+			"output_label": "Tangent Normal",
+			"output_id": 1,
+			"output_node": "54a1904bff74292e833b5eb5cddbe0903a22baaf"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float3",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "94a07c27d9dbcb5abb6822f1a82dbf9cb755d64b",
+			"output_index": 1,
+			"output_type": "float3",
+			"output_label": "Tangent Normal",
+			"output_id": 1,
+			"output_node": "7b85c75546f2f0b023db4c4fe2b04d628cc9ed59"
+		},
+		"anchor": {
+			"input_index": 2,
+			"input_type": "float3",
+			"input_label": "Coefficient",
+			"input_id": -688470873,
+			"input_node": "94a07c27d9dbcb5abb6822f1a82dbf9cb755d64b",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "TILES MASK",
+			"output_id": 0,
+			"output_node": "e8f1495b5dcceefefdde4a45f30d36e033d7fcbf"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float2",
+			"input_label": "TILED UV 0",
+			"input_id": 0,
+			"input_node": "203e3509d69a3ad4546868234aa52f2672517c4d",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "c63015848f56a313f5a9cd566b44a4bd1f039ef8"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "Texture2D",
+			"input_label": "Texture",
+			"input_id": 4,
+			"input_node": "0ce5b076a3eded5d8a2c0f1848074797c912c00a",
+			"output_index": 0,
+			"output_type": "Texture2D",
+			"output_label": "tiles_mask_offset",
+			"output_id": 0,
+			"output_node": "4a2ff4ea074d9f41162cefacac01a71bf2bc31be"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float2",
+			"input_label": "UV",
+			"input_id": 5,
+			"input_node": "0ce5b076a3eded5d8a2c0f1848074797c912c00a",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "TILED UV 0",
+			"output_id": 0,
+			"output_node": "ff30d7c4ba0600531af90996c48c33fd27f96538"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "Texture2D",
+			"input_label": "Texture",
+			"input_id": 4,
+			"input_node": "062197c3c0a65a461daf6ced46e2e9680a1c3da7",
+			"output_index": 0,
+			"output_type": "Texture2D",
+			"output_label": "tiles_mask",
+			"output_id": 0,
+			"output_node": "ab868b42273251b9419dcfc4bc5e98535e08c196"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float2",
+			"input_label": "UV",
+			"input_id": 5,
+			"input_node": "062197c3c0a65a461daf6ced46e2e9680a1c3da7",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "TILED UV 0 PARALLAXED",
+			"output_id": 0,
+			"output_node": "3f2441c9501d609470dbd2e325ca1ae64edff50d"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float2",
+			"input_label": "UV",
+			"input_id": -1596528974,
+			"input_node": "705afad7affe5a4a558d052144dc5c0c857867fb",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "TILED UV 0",
+			"output_id": 0,
+			"output_node": "137319ab9734630e75ed8f15d98e9570b0272a0f"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "Texture2D",
+			"input_label": "Height Texture",
+			"input_id": -1526305612,
+			"input_node": "705afad7affe5a4a558d052144dc5c0c857867fb",
+			"output_index": 0,
+			"output_type": "Texture2D",
+			"output_label": "tiles_mask.tif",
+			"output_id": 0,
+			"output_node": "8960f9c73e4fec7a56a09191d3bf1dbc0a585deb"
+		},
+		"anchor": {
+			"input_index": 2,
+			"input_type": "float",
+			"input_label": "Height (In Meters)",
+			"input_id": -895078269,
+			"input_node": "705afad7affe5a4a558d052144dc5c0c857867fb",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "parallax_intensity",
+			"output_id": 0,
+			"output_node": "2317ab562e4ceabd28532cf8d0cb0bf7e8a1f8ea"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "72a462ce34440bd528676b30f61484cfe09b2be2",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "x",
+			"output_id": 0,
+			"output_node": "ab6b352cd95c2e9b8dd2133e04d2a1852d792520"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "72a462ce34440bd528676b30f61484cfe09b2be2",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "x*0.25",
+			"output_id": 0,
+			"output_node": "0657cb4e64835a557f6567b03c15574f5104dc62"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "Texture2D",
+			"input_label": "Texture",
+			"input_id": 4,
+			"input_node": "49f52e5d35705c18b62d30973cd5950afaa380e1",
+			"output_index": 0,
+			"output_type": "Texture2D",
+			"output_label": "tiles_mask_damage",
+			"output_id": 0,
+			"output_node": "a808b94e57537055e2ba85b01f5bdd4f0afdaa62"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float2",
+			"input_label": "UV",
+			"input_id": 5,
+			"input_node": "49f52e5d35705c18b62d30973cd5950afaa380e1",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "TILED UV 0",
+			"output_id": 0,
+			"output_node": "90f465b0e78c3d4fdbb28a620b3506598d58bbe4"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float4",
+			"input_label": "",
+			"input_id": 0,
+			"input_node": "3847e5c42dc5b65324394796e38359fde9aa5338",
+			"output_index": 0,
+			"output_type": "float4",
+			"output_label": "Color",
+			"output_id": 0,
+			"output_node": "61fdbd40caf90f9f4dd518727b209d29d4b64474"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "Height Value",
+			"input_id": -1879554258,
+			"input_node": "085b1c79be389b84a3297113137243565376a2bd",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "TILES MASK",
+			"output_id": 0,
+			"output_node": "6431cba80d833ae7f61ffb1affa50fb1845a455c"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "Height (Meters)",
+			"input_id": -910660566,
+			"input_node": "085b1c79be389b84a3297113137243565376a2bd",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "tiles_bump_intensity",
+			"output_id": 0,
+			"output_node": "833fc0ac1e3c441b6f442abe387ad305a63ca8a0"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float3",
+			"input_label": "Base Normal",
+			"input_id": 52582733,
+			"input_node": "9385aaffaf413c5204c9af89fafe7354a08246a3",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "94a07c27d9dbcb5abb6822f1a82dbf9cb755d64b"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float3",
+			"input_label": "Detail Normal",
+			"input_id": -561955414,
+			"input_node": "9385aaffaf413c5204c9af89fafe7354a08246a3",
+			"output_index": 0,
+			"output_type": "float3",
+			"output_label": "Normal Tangent Space",
+			"output_id": -1281697477,
+			"output_node": "085b1c79be389b84a3297113137243565376a2bd"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "In",
+			"input_id": -1324699368,
+			"input_node": "220016da3ad4f8715745971c26e8c7cb78aefaae",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "2c076fb9586455c413d766530f3f3796a07089fd"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "In Range Minimum",
+			"input_id": 586471579,
+			"input_node": "220016da3ad4f8715745971c26e8c7cb78aefaae",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "ec9dcaeef08b1575f678a850436f5f6f5af40602"
+		},
+		"anchor": {
+			"input_index": 2,
+			"input_type": "float",
+			"input_label": "In Range Maximum",
+			"input_id": 413497076,
+			"input_node": "220016da3ad4f8715745971c26e8c7cb78aefaae",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "afb15b9dc546285825aa0fd774606b4a0a4de221"
+		},
+		"anchor": {
+			"input_index": 3,
+			"input_type": "float",
+			"input_label": "Out Range Minimum",
+			"input_id": -591517853,
+			"input_node": "220016da3ad4f8715745971c26e8c7cb78aefaae",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "0.0",
+			"output_id": 0,
+			"output_node": "903102354cfa2e10530daa2f848651c277c66639"
+		},
+		"anchor": {
+			"input_index": 4,
+			"input_type": "float",
+			"input_label": "Out Range Maximum",
+			"input_id": 1033320789,
+			"input_node": "220016da3ad4f8715745971c26e8c7cb78aefaae",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "1.0",
+			"output_id": 0,
+			"output_node": "11db127e3c3b17c52924a6602cf5a63fa14c7e92"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "afb15b9dc546285825aa0fd774606b4a0a4de221",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "ec9dcaeef08b1575f678a850436f5f6f5af40602"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "afb15b9dc546285825aa0fd774606b4a0a4de221",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "0.008",
+			"output_id": 0,
+			"output_node": "7ed46a5fb2e13432258c85e935ad9634cb2c4c03"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "Value",
+			"input_id": 16756516,
+			"input_node": "dd7ed4dcce2b6a8b68a9be6ec7ab72f5e9de67d0",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "220016da3ad4f8715745971c26e8c7cb78aefaae"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float4",
+			"input_label": "",
+			"input_id": 0,
+			"input_node": "92ce00b3d6a74e7675b6f35ddfc55d1853e43d97",
+			"output_index": 0,
+			"output_type": "float4",
+			"output_label": "Color",
+			"output_id": 0,
+			"output_node": "2bb66c82bca041f91c2c830432493293e4a816d6"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float2",
+			"input_label": "TILED UV 0 PARALLAXED",
+			"input_id": 0,
+			"input_node": "e6969f5f85dbe53207cd82e94cc86f34daff5103",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "Result UV",
+			"output_id": -839335885,
+			"output_node": "705afad7affe5a4a558d052144dc5c0c857867fb"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "Texture2D",
+			"input_label": "Texture",
+			"input_id": 4,
+			"input_node": "61fdbd40caf90f9f4dd518727b209d29d4b64474",
+			"output_index": 0,
+			"output_type": "Texture2D",
+			"output_label": "mask_additional",
+			"output_id": 0,
+			"output_node": "584aa543999d09c68fa3566d0ccec4e8800b6327"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "ec9dcaeef08b1575f678a850436f5f6f5af40602",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "damage_level",
+			"output_id": 0,
+			"output_node": "fa63a76200c17f59ceb0e0e42b4936f3f8c68fb6"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "ec9dcaeef08b1575f678a850436f5f6f5af40602",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "x",
+			"output_id": 0,
+			"output_node": "3847e5c42dc5b65324394796e38359fde9aa5338"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float2",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "c63015848f56a313f5a9cd566b44a4bd1f039ef8",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "",
+			"output_id": 0,
+			"output_node": "d4df7675a667955089ff686f34da7b02fbbbfe79"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float2",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "c63015848f56a313f5a9cd566b44a4bd1f039ef8",
+			"output_index": 0,
+			"output_type": "float2",
+			"output_label": "tiling",
+			"output_id": 0,
+			"output_node": "d33dd0a6f7eaafcd806a8ec82843e3878cb84b3a"
+		},
+		"anchor": {
+			"input_index": 0,
+			"input_type": "float",
+			"input_label": "A",
+			"input_id": -1822151033,
+			"input_node": "2c076fb9586455c413d766530f3f3796a07089fd",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "",
+			"output_id": 1723312480,
+			"output_node": "72a462ce34440bd528676b30f61484cfe09b2be2"
+		},
+		"anchor": {
+			"input_index": 1,
+			"input_type": "float",
+			"input_label": "B",
+			"input_id": 291415938,
+			"input_node": "2c076fb9586455c413d766530f3f3796a07089fd",
+			"output_index": 0,
+			"output_type": "float",
+			"output_label": "0.8",
+			"output_id": 0,
+			"output_node": "d308905b764589fe6cc029455a5f89e05b1833bf"
+		}
+	}
+}

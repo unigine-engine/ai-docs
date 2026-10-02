@@ -73,6 +73,123 @@ As a result, you will get your meshes, terrains, worlds, nodes, splines, materia
 As soon as migration is completed, run the Editor to have the project assets "indexed".
 
 
+### Template Migration
+
+
+A project created from a [template](../../sdk/templates/index.md) requires one more step � template migration to update the template modules in `data/modules/` and `source/modules/`, and the template configuration files, such as `ig_config.xml` and `weather_config.xml`.
+
+
+[UNIGINE SDK Browser](../../sdk/projects/index_cpp.md#upgrade_project) performs it automatically as a part of ***Upgrade***; in the manual mode you run it yourself.
+
+
+#### Is Template Migration Required
+
+
+Check whether the target template has a migration script:
+
+
+```text
+<template>/utils/upgrade_template/upgrade.usc
+
+```
+
+
+If the file exists, the template migration is required. If not, the template installs nothing that has to be migrated, and content migration is enough.
+
+
+| Template | Template Migration |
+|---|---|
+| [IG, IG C#](../../ig/index.md); [Fixed-Wing](../../sdk/templates/fixedwing/index.md), [Rotary-Wing](../../sdk/templates/rotarywing/index.md), [UAV](../../sdk/templates/uav/index.md), [MRO](../../sdk/templates/maintenance/index.md); [VR](../../sdk/templates/vr/index.md), [VR Multiplayer](../../sdk/templates/vr_multiplayer/index.md); [C++ (Qt) Empty](../../sdk/templates/default_cpp_qt/index.md) | Required |
+| [Empty (C++, C#, UnigineScript)](../../sdk/templates/default/index_cpp.md), [C# (WPF) Empty](../../sdk/templates/default_cs_wpf/index.md), [VR C#](../../sdk/templates/vr_csharp/index.md) | Not required |
+
+
+> **Notice:** The script is always taken from the **target** template � the version you are migrating to, not the one the project was created with. Install it via UNIGINE SDK Browser first, as the step cannot be performed without it.
+
+
+#### Running the Migration
+
+
+You will need the version of the template currently installed in the project. Open `<project>/<name>.project` and find **template_version**:
+
+
+```text
+"template_id": "template_ig2.21.0_3cross",
+"template_name": "ig",
+"template_version": "2.21.0_3"
+
+```
+
+
+Then [run](../../tools/usc/index.md#run) the script from the root of the project:
+
+
+```bash
+cd <project_directory>
+<UnigineSDK>/bin/usc_x64.exe <template>/utils/upgrade_template/upgrade.usc --from 2.21.0_3 --template_dir <template> --log template_migration.log.html
+
+```
+
+
+Here:
+
+
+- `<template>` � the path to the **target** template, for example `.../templates/ig_template_2.22.0_1`.
+- **--from** � the **template_version** value from the `.project` file.
+- **--log** � optional; without it the log is written to the console only.
+
+
+> **Warning:** Mind the following when running the script:
+>
+>
+> - The working directory must be the root of the project. The script resolves the `data/` and `source/` paths relative to the current directory � it has no option for passing the path to the project. When run from elsewhere, the modules are removed and installed in the wrong place.
+> - Always specify **--template_dir**. The script removes the old modules at the very beginning and installs the new ones only at the end, so with a missing or wrong path the modules are removed and nothing is installed: the script reports *Template has no modules to install* and exits with code 0.
+> - Always specify **--from**. The default value is 0.0.0_0, which runs the whole chain of migrations from the very first step, re-applying the ones already performed.
+
+
+#### What the Migration Does
+
+
+The script performs all migration steps newer than the version specified in **--from**, in order. Each step consists of three phases:
+
+
+1. **Uninstall** � removes the `data/modules/` and `source/modules/` folders installed by the previous version of the template.
+2. **Migrate** � updates the template configuration files. For IG templates, the Weather paths are changed from `modules/weather/` to `plugins/Unigine/Weather/`, and the stale **Meteo**, **SkyMap**, and **Water** groups are removed from `ig_config.xml` � they are owned by `weather_config.xml` now.
+3. **Install** � copies `data/modules/` and `source/modules/` from the new template package.
+
+
+A successful run looks like this:
+
+
+```text
+Start migration to version "2.22.0_1"
+project root: "D:/UnigineProjects/ig"
+ Remove directory D:/UnigineProjects/ig/data/modules/
+ Nothing to remove: 'D:/UnigineProjects/ig/source/modules/'
+Migrate config: 'D:/UnigineProjects/ig/data/ig_config.xml'
+ Weather paths moved to 'plugins/Unigine/Weather/'
+ Removed stale 'Water' group, weather_config.xml owns it
+ ...
+ Copy directory '.../ig_template_2.22.0_1/data/modules/' to 'D:/UnigineProjects/ig/data/modules/'
+ Template has no modules to install: '.../ig_template_2.22.0_1/source/modules/'
+
+```
+
+
+The *Template has no modules to install* line is normal if the template really has no modules of the corresponding type (source modules in the example above). If it is displayed for `data/modules/` after the modules have been removed, check the path passed in **--template_dir**.
+
+
+#### After the Migration
+
+
+Manually update **template_id** and **template_version** in the `*.project` file to match the new template � the script does not do that. This is required for the next migrations to start correctly.
+
+
+Then run the Editor to have the project assets "indexed".
+
+
+> **Warning:** The script does not report errors via the exit code � it returns 0 even if the script file is not found or the template folder does not exist. Rely on the log output rather than on the exit code.
+
+
 ## Material Mask Renamed to Surface ID
 
 

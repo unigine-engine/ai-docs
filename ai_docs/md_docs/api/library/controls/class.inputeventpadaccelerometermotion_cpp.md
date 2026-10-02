@@ -8,7 +8,10 @@
 This class contains the game pad accelerometer motion event information: the connection ID of the game pad and the acceleration vector it reports. The engine dispatches this event each time the accelerometer of a connected controller reports a new state.
 
 
-The last reported value for each game pad is also available via the *[InputGamePad](../../../api/library/controls/class.inputgamepad_cpp.md)* class (the **[getAcceleration()](../../../api/library/controls/class.inputgamepad_cpp.md#getAcceleration_vec3)** property; accelerometer support can be checked via the **[isAccelerationSupported()](../../../api/library/controls/class.inputgamepad_cpp.md#isAccelerationSupported_int)** property).
+Events of this type are created by the engine and passed to your handlers. You can also construct one yourself and dispatch it via *[Input::sendEvent()](../../../api/library/controls/class.input_cpp.md#sendEvent_InputEvent_void)*, which is what a custom SystemProxy implementation or a device emulator does.
+
+
+The last reported value for each game pad is also available via the *[InputGamePad](../../../api/library/controls/class.inputgamepad_cpp.md)* class (the **[getAcceleration()](../../../api/library/controls/class.inputgamepad_cpp.md#getAcceleration_vec3)** *method*; accelerometer support can be checked via the **[isAccelerationSupported()](../../../api/library/controls/class.inputgamepad_cpp.md#isAccelerationSupported_int)** *method*).
 
 
 ## InputEventPadAccelerometerMotion Class

@@ -1771,19 +1771,19 @@ Range of values: **[2, 8]**. The default value is : **6**.
 ***Console*:**`render_bloom`The value indicating if the Bloom effect is enabled. The default value is **false**.
 ## float DOFNearFocalOffset
 
-***Console*:**`render_dof_near_focal_offset`The [offset](../../../editor2/settings/render_settings/camera_effects/index.md#near_focal_offset) from the focal to the nearest blurred zone. In other words, the distance when foreground (near) is in focus.
+***Console*:**`render_dof_near_focal_offset`The [distance from the focal point toward the camera](../../../editor2/settings/render_settings/camera_effects/index.md#far_focal_offset) within which objects stay in focus. The in-focus zone starts at Focal Distance − Near Focal Offset.
 Range of values: **[0.0f, inf]**. The default value is : **0.0f**.
 ## float DOFNearDistance
 
-***Console*:**`render_dof_near_distance`The [near DOF limit](../../../editor2/settings/render_settings/camera_effects/index.md#near_distance) of the camera: the distance between the camera and the first element that is considered to be acceptably sharp. Black zone on the DOF mask means in-focus zone.
+***Console*:**`render_dof_near_distance`The [length of the near transition zone](../../../editor2/settings/render_settings/camera_effects/index.md#near_distance), over which the blur increases from zero to maximum. It is measured toward the camera from the near edge of the in-focus zone. Objects closer than Focal Distance − Near Focal Offset − Near Distance are fully blurred. Black zone on the DOF mask means in-focus zone.
 Range of values: **[0.0f, inf]**. The default value is : **10.0f**.
 ## float DOFFarFocalOffset
 
-***Console*:**`render_dof_far_focal_offset`The Sets the [offset](../../../editor2/settings/render_settings/camera_effects/index.md#far_focal_offset) from the focal to the farthest blurred zone for the DOF effect. In other words, the distance when background (far) is in focus.
+***Console*:**`render_dof_far_focal_offset`The [distance from the focal point away from the camera](../../../editor2/settings/render_settings/camera_effects/index.md#far_focal_offset) within which objects stay in focus. The in-focus zone ends at Focal Distance + Far Focal Offset.
 Range of values: **[0.0f, inf]**. The default value is : **0.0f**.
 ## float DOFFarDistance
 
-***Console*:**`render_dof_far_distance`The [far DOF limit](../../../editor2/settings/render_settings/camera_effects/index.md#far_distance) of the camera: the distance between the camera and the furthest element that is considered to be acceptably sharp. Black zone on the DOF mask means in-focus zone.
+***Console*:**`render_dof_far_distance`The [length of the far transition zone](../../../editor2/settings/render_settings/camera_effects/index.md#far_distance), over which the blur increases from zero to maximum. It is measured away from the camera from the far edge of the in-focus zone. Objects farther than Focal Distance + Far Focal Offset + Far Distance are fully blurred. Black zone on the DOF mask means in-focus zone.
 Range of values: **[0.0f, inf]**. The default value is : **10.0f**.
 ## float DOFBlur
 
@@ -2962,23 +2962,26 @@ Range of values: **[1e-6f, 2.0f]**. The default value is : **1.0f**.
 
 ***Console*:**`render_stereo_hidden_area`The culling mode for pixels that are not visible in VR mode. One of the following values:
 - 0 - hidden area culling is disabled (by default).
-- 1 - **OpenVR-based culling mode**. Culling is performed using meshes returned by OpenVR. > **Notice:** Culling result depends on HMD used.
-- **2** - **Custom culling mode**. Culling is performed using meshes returned by OpenVR and an oval or circular mesh determined by custom adjustable parameters*[StereoHiddenAreaTransform](../../...md#render_stereo_hidden_area_transform)*.
+- 1 - **Runtime-based culling mode**. Culling is performed using meshes returned by the VR runtime (OpenXR, OpenVR, or Varjo). > **Notice:** Culling result depends on HMD used.
+- **2** - **Custom culling mode**. Culling is performed using meshes returned by the VR runtime and an oval or circular mesh determined by custom adjustable parameters*[StereoHiddenAreaTransform](../../...md#render_stereo_hidden_area_transform)*.
 
  This parameter is used for performance optimization.  One of the following values:
 - **0** - disabled (by default)
-- **1** - OpenVR-based culling mode
+- **1** - Runtime-based culling mode
 - **2** - Custom culling mode
 
 ## float StereoOffset
 
-The virtual camera offset (an offset after the perspective projection).
+***Console*:**`render_stereo_offset`The virtual camera offset (an offset after the perspective projection).
+Range of values: **[0.0f, inf]**. The default value is : **0.0f**.
 ## float StereoRadius
 
-The radius for stereo (the half of the separation distance between the cameras).
+***Console*:**`render_stereo_radius`The radius for stereo (the half of the separation distance between the cameras).
+Range of values: **[0.0f, inf]**. The default value is : **0.032f**.
 ## float StereoDistance
 
-The focal distance for stereo rendering (distance in the world space to the point where two views line up).
+***Console*:**`render_stereo_distance`The focal distance for stereo rendering (distance in the world space to the point where two views line up).
+Range of values: **[1e-6f, inf]**. The default value is : **4.0f**.
 ## Render.RENDER_VR_EMULATION_MODE VREmulation
 
 ***Console*:**`render_vr_emulation`The value indicating the current VR emulation mode. The FoV value in any selected mode is 110. One of the following values:
@@ -4316,9 +4319,9 @@ The correction curve for the overall scene saturation. The input luminance value
 ## Render.RENDER_UPSCALE_MODE UpscaleMode
 
 ***Console*:**`render_upscale_mode`The Upscaling mode. Defines a technology to be used to render high-resolution images based on the lower resolution source, which may help preserve image quality while getting more fps. One of the following values:
-- **0** - *Disabled* for no upscaling. 1.0x per dimension, the final image has 100% rendered resolution.
+- **0** - *Disabled* for no upscaling. 1.0x per dimension, the final image has 100% rendered resolution. (by default)
 - **1** - *FSR* for Fidelity FX Super Resolution by AMD.
-- **2** - *DLSS* for Deep Learning Super Sampling by NVIDIA. (by default)
+- **2** - *DLSS* for Deep Learning Super Sampling by NVIDIA.
 
 ## bool UpscaleFixFlicker
 
@@ -4390,10 +4393,10 @@ Range of values: **[0.0f, 1.0f]**. The default value is : **0.5f**.
 - *Custom* that uses a custom resolution scale set via the [FSRCustomResolutionScale](#FSRCustomResolutionScale) property (range: 0.1 to 1.0).
 
   One of the following values:
-- **0** - Ultra Performance (by default)
+- **0** - Ultra Performance
 - **1** - Performance
 - **2** - Balanced
-- **3** - Quality
+- **3** - Quality (by default)
 - **4** - Native AA
 - **5** - Custom
 

@@ -8,6 +8,9 @@
 This class controls the game pad event information.
 
 
+Events of this type are created by the engine and passed to your handlers. You can also construct one yourself and dispatch it via *[engine.input.sendEvent()()](../../../api/library/controls/class.input_usc.md#sendEvent_InputEvent_void)*, which is what a custom SystemProxy implementation or a device emulator does.
+
+
 ## InputEventPadDevice Class
 
 ### Members
@@ -39,27 +42,27 @@ Game pad input event constructor.
 
 ## void setAction ( int action )
 
-Sets the type of the game pad input event.
+Sets the action the event represents. See *[getAction()()](../../...md#getAction_int)*.
 ### Arguments
 
 - *int* **action** - Type of the game pad input event, one of the [INPUT_EVENT_PAD_DEVICE_ACTION_*](#ACTION_CONNECTED) values.
 
 ## int getAction ( )
 
-Returns the type of the game pad input event.
+Returns the action the event represents: one of the [ACTION](#ACTION) values � the gamepad was connected or disconnected.
 ### Return value
 
 Type of the game pad input event, one of the [INPUT_EVENT_PAD_DEVICE_ACTION_*](#ACTION_CONNECTED) values.
 ## void setConnectionID ( int id )
 
-Sets the connection identifier.
+Sets the identifier of the device connection the event comes from. See *[getConnectionID()()](../../...md#getConnectionID_int)*.
 ### Arguments
 
 - *int* **id** - Connection identifier.
 
 ## int getConnectionID ( )
 
-Returns the connection identifier.
+Returns the identifier of the device connection the event comes from � the value assigned by the OS when the device was connected. The engine uses it to match the event against a device slot; it is not the slot index itself.
 ### Return value
 
 Connection identifier.
@@ -72,20 +75,20 @@ Sets the player index.
 
 ## int getPlayerIndex ( )
 
-Returns the player index.
+Returns the index of the player the device is assigned to. Some platforms let several players connect at once (for example, up to four gamepads on an Xbox 360), and the index identifies which of them this device belongs to.
 ### Return value
 
 Player index.
 ## void setModelGUID ( string modelguid )
 
-Sets the GUID of the game pad model.
+Sets the GUID of the device model. See *[getModelGUID()()](../../...md#getModelGUID_cstr)*.
 ### Arguments
 
 - *string* **modelguid** - GUID of the game pad model.
 
 ## string getModelGUID ( )
 
-Returns the GUID of the game pad model.
+Returns the GUID of the device model as reported by the input backend � a 32-character hexadecimal string built from the vendor, product and version identifiers. Devices of the same model share the same GUID, so it identifies the model and not a particular unit. An empty string is returned if the backend no longer knows the device.
 ### Return value
 
 GUID of the game pad model.

@@ -7,11 +7,11 @@
 The *Separate* plugin is used to create a separate window for each eye. It can be used with any devices that support separate images output, e.g. for 3D video glasses or helmets (HMD)
 
 
+The windows are borderless and are placed on the first and the second display respectively. If a single display is available, both windows are placed on it.
+
+
 > **Notice:** - The *Separate* plugin can be used under Windows only.
 > - This plugin cannot be used in a Qt-based application.
-
-
-Separate can be rendered in both the windowed and the [full-screen](../../../../../code/console/index.md#main_window_fullscreen) mode.
 
 
 [![](separate_images_sm.png)](separate_images.png)
@@ -20,11 +20,11 @@ Separate can be rendered in both the windowed and the [full-screen](../../../../
 ## Launching Separate
 
 
-To use the plugin, specify the `extern_plugin` command line option and *STEREO_SEPARATE* define on the start-up:
+To use the plugin, specify the `extern_plugin` command line option on the start-up:
 
 
 ```bash
-main_x64d -extern_plugin "UnigineSeparate" -extern_define STEREO_SEPARATE
+main_x64d -extern_plugin "UnigineSeparate"
 ```
 
 
@@ -43,11 +43,10 @@ The engine automatically loads the appropriate version of the library depending 
 ## Customizing Separate
 
 
-Unigine-based application can be used with any custom device that supports an output of separate image pairs. You simply need to do the following:
+A UNIGINE-based application can be used with any custom device that supports an output of separate image pairs.
 
 
-1. Define the application behaviour when the STEREO_SEPARATE define is set on the start-up or in the configuration file: ```cpp #ifdef STEREO_SEPARATE // implement your code here #endif ```
-2. Implement the input device interface using an extensible [C++ API](../../../../../api/index.md).
+Implement the input device interface using an extensible [C++ API](../../../../../api/index.md).
 
 
-Stereo settings that control eye separation and distance to the zero parallax plane are added to GUI by `data/core/scripts/system/stereo.h` script and can be controlled from there.
+Stereo settings that control the eye separation distance and the distance to the zero parallax plane are [set globally](../../../../../principles/render/output/stereo/index.md#customizing): the plugin applies the current values to its viewport each frame.
